@@ -1,0 +1,97 @@
+{% extends "base.html" %}
+
+{% block title %}{{ story.title }} | حكاية وطن{% endblock %}
+
+{% block content %}
+
+<!-- Story Header -->
+<section class="story-detail-hero py-5">
+
+    <div class="container py-lg-5">
+
+        <a href="{% url 'kingdom:story_list' %}"
+           class="btn btn-outline-light rounded-pill mb-5">
+            ← العودة إلى القصص
+        </a>
+
+        <span class="eyebrow d-block mb-3">
+            {{ story.category }}
+        </span>
+
+        <h1 class="display-3 fw-bold mb-3">
+            {{ story.title }}
+        </h1>
+
+        <p class="fs-5 lh-lg mb-0">
+            {{ story.description }}
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Story Content -->
+<section class="container py-5">
+
+    <div class="story-reading-container mx-auto">
+
+        <div class="story-reading-header mb-4">
+
+            <span class="eyebrow">رحلة مع القصة</span>
+
+            <h2 class="fw-bold mt-2">
+                تفاصيل القصة
+            </h2>
+
+        </div>
+
+
+        <article class="story-reading-card p-4 p-lg-5 rounded-4">
+
+            {% for paragraph in story.content %}
+
+            <p class="story-paragraph lh-lg">
+                {{ paragraph }}
+            </p>
+
+            {% endfor %}
+
+        </article>
+
+
+        <!-- Lessons -->
+        <div class="story-lesson-card p-4 p-lg-5 rounded-4 mt-4">
+
+            <div class="story-lesson-icon mb-3">
+                ✧
+            </div>
+
+            <span class="eyebrow">نتعلم ونستفيد</span>
+
+            <h2 class="fw-bold mt-2 mb-3">
+                الدروس المستفادة
+            </h2>
+
+            <p class="fs-5 lh-lg mb-0">
+                {{ story.lesson }}
+            </p>
+
+        </div>
+
+
+        <!-- Back Link -->
+        <div class="text-center mt-5">
+
+            <a href="{% url 'kingdom:story_list' %}"
+               class="btn btn-main btn-lg rounded-pill px-4">
+                اكتشف قصصًا أخرى ←
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

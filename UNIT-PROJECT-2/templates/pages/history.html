@@ -1,0 +1,271 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}تاريخ المملكة | حكاية وطن{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<section class="history-hero py-5">
+
+    <div class="container py-lg-5">
+
+        <div class="row align-items-center g-4">
+
+            <div class="col-lg-7">
+
+                <span class="eyebrow">جذور راسخة</span>
+
+                <h1 class="display-4 fw-bold mb-3">
+                    تاريخ المملكة العربية السعودية
+                </h1>
+
+                <p class="fs-5 lh-lg mb-0">
+                    محطات تاريخية صنعت حاضر المملكة، ورسمت ملامح مستقبلها.
+                </p>
+
+            </div>
+
+            <div class="col-lg-5">
+
+                <img src="{% static 'images/ksa.webp' %}"
+                     alt="المملكة العربية السعودية"
+                     class="img-fluid rounded-4 w-100"
+                     style="height: 300px; object-fit: cover;">
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- History Timeline -->
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="eyebrow">رحلة عبر الزمن</span>
+
+        <h2 class="fw-bold">
+            محطات من تاريخنا
+        </h2>
+
+        <p class="text-muted-custom">
+            أربع مراحل تاريخية تحكي قصة تأسيس المملكة وتطورها.
+        </p>
+
+    </div>
+
+
+    <div class="history-timeline">
+
+        <!-- First Saudi State -->
+        <div class="history-card p-4 p-lg-5 rounded-4 mb-4">
+
+            <div class="row align-items-center g-4">
+
+                <div class="col-md-3">
+
+                    <div class="history-year text-center p-4 rounded-4">
+                        <span class="d-block">1139هـ</span>
+                        <strong>1727م</strong>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <img src="{% static 'images/ksa.webp' %}"
+                         alt="الدولة السعودية الأولى"
+                         class="img-fluid rounded-4 w-100"
+                         loading="lazy"
+                         style="height: 190px; object-fit: cover;">
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <span class="history-stage">المرحلة الأولى</span>
+
+                    <h3 class="fw-bold mt-2">
+                        الدولة السعودية الأولى
+                    </h3>
+
+                    <p class="lh-lg mb-0">
+                        تأسست الدولة السعودية الأولى عام 1139هـ الموافق 1727م
+                        على يد الإمام محمد بن سعود في الدرعية، وأصبحت الدرعية
+                        مركزًا سياسيًا وحضاريًا مهمًا.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Second Saudi State -->
+        <div class="history-card p-4 p-lg-5 rounded-4 mb-4">
+
+            <div class="row align-items-center g-4">
+
+                <div class="col-md-3">
+
+                    <div class="history-year text-center p-4 rounded-4">
+                        <span class="d-block">1240هـ</span>
+                        <strong>1824م</strong>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <img src="{% static 'images/ksa.webp' %}"
+                         alt="الدولة السعودية الثانية"
+                         class="img-fluid rounded-4 w-100"
+                         loading="lazy"
+                         style="height: 190px; object-fit: cover;">
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <span class="history-stage">المرحلة الثانية</span>
+
+                    <h3 class="fw-bold mt-2">
+                        الدولة السعودية الثانية
+                    </h3>
+
+                    <p class="lh-lg mb-0">
+                        تأسست الدولة السعودية الثانية عام 1240هـ الموافق 1824م
+                        على يد الإمام تركي بن عبدالله، واتخذت الرياض عاصمة لها.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Kingdom Unification -->
+        <div class="history-card p-4 p-lg-5 rounded-4 mb-4">
+
+            <div class="row align-items-center g-4">
+
+                <div class="col-md-3">
+
+                    <div class="history-year text-center p-4 rounded-4">
+                        <span class="d-block">1319هـ</span>
+                        <strong>1902م</strong>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <img src="{% static 'images/ksa.webp' %}"
+                         alt="توحيد المملكة العربية السعودية"
+                         class="img-fluid rounded-4 w-100"
+                         loading="lazy"
+                         style="height: 190px; object-fit: cover;">
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <span class="history-stage">مرحلة التوحيد</span>
+
+                    <h3 class="fw-bold mt-2">
+                        توحيد المملكة العربية السعودية
+                    </h3>
+
+                    <p class="lh-lg mb-0">
+                        تمكن الملك عبدالعزيز بن عبدالرحمن آل سعود من استعادة
+                        الرياض عام 1319هـ الموافق 1902م، وواصل توحيد مناطق
+                        البلاد حتى أعلن توحيد المملكة العربية السعودية
+                        في 23 سبتمبر 1932م.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- Vision 2030 -->
+        <div class="history-card p-4 p-lg-5 rounded-4 mb-4">
+
+            <div class="row align-items-center g-4">
+
+                <div class="col-md-3">
+
+                    <div class="history-year text-center p-4 rounded-4">
+                        <span class="d-block">1437هـ</span>
+                        <strong>2016م</strong>
+                    </div>
+
+                </div>
+
+                <div class="col-md-3">
+
+                    <img src="{% static 'images/ksa.webp' %}"
+                         alt="رؤية السعودية 2030"
+                         class="img-fluid rounded-4 w-100"
+                         loading="lazy"
+                         style="height: 190px; object-fit: cover;">
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <span class="history-stage">مرحلة المستقبل</span>
+
+                    <h3 class="fw-bold mt-2">
+                        رؤية السعودية 2030
+                    </h3>
+
+                    <p class="lh-lg mb-0">
+                        أطلقت المملكة رؤية السعودية 2030 عام 2016م، بهدف
+                        تنويع الاقتصاد وتطوير القطاعات المختلفة وتعزيز
+                        جودة الحياة، وبناء مستقبل مزدهر للأجيال القادمة.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- Closing Section -->
+    <div class="history-closing text-center p-4 p-lg-5 rounded-4 mt-5">
+
+        <img src="{% static 'images/ksa.webp' %}"
+             alt="المملكة العربية السعودية"
+             class="img-fluid rounded-4 mb-4"
+             loading="lazy"
+             style="width: 100%; max-width: 750px; height: 300px; object-fit: cover;">
+
+        <span class="eyebrow">حكاية مستمرة</span>
+
+        <h2 class="fw-bold mt-2">
+            من جذور راسخة إلى مستقبل طموح
+        </h2>
+
+        <p class="lh-lg mb-0">
+            تاريخ المملكة ليس مجرد أحداث مرت، بل قصة وطن بناها
+            الأجداد ويواصل أبناء الوطن كتابة فصولها.
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

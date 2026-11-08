@@ -1,0 +1,134 @@
+{% extends "base.html" %}
+
+{% block title %}قصص الأنبياء | حكاية وطن{% endblock %}
+
+{% block content %}
+
+<!-- Page Header -->
+<section class="stories-hero py-5">
+
+    <div class="container py-lg-5">
+
+        <span class="eyebrow">قصص وعبر</span>
+
+        <h1 class="display-4 fw-bold mb-3">
+            قصص الأنبياء
+        </h1>
+
+        <p class="fs-5 lh-lg mb-0">
+            قصص عظيمة تحمل معاني الإيمان والصبر والطاعة،
+            وتقدم لنا دروسًا وعبرًا تبقى في الذاكرة.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- Stories List -->
+<section class="container py-5">
+
+    <div class="text-center mb-5">
+
+        <span class="eyebrow">رحلة بين القصص</span>
+
+        <h2 class="fw-bold">
+            قصص تحمل العبرة
+        </h2>
+
+        <p class="text-muted-custom">
+            اكتشف القصص وتعرّف على ما تحمله من معانٍ ودروس.
+        </p>
+
+    </div>
+
+
+    <div class="row g-4">
+
+        {% for story in stories %}
+
+        <div class="col-md-6 col-lg-4">
+
+            <article class="story-card h-100 p-4 rounded-4">
+
+                <div class="d-flex justify-content-between align-items-center mb-4">
+
+                    <span class="story-icon">✦</span>
+
+                    <span class="story-category">
+                        {{ story.category }}
+                    </span>
+
+                </div>
+
+                <h3 class="h4 fw-bold mb-3">
+                    {{ story.title }}
+                </h3>
+
+                <p class="lh-lg mb-4">
+                    {{ story.description }}
+                </p>
+
+                <div class="d-flex justify-content-between align-items-center pt-3 border-top">
+
+                    <a href="{% url 'kingdom:story_detail' story.slug %}"
+                       class="story-link text-decoration-none">
+                        اقرأ القصة
+                    </a>
+
+                    <span class="story-arrow">←</span>
+
+                </div>
+
+            </article>
+
+        </div>
+
+        {% empty %}
+
+        <div class="col-12">
+
+            <div class="text-center theme-surface rounded-4 p-5">
+
+                <span class="story-icon">✦</span>
+
+                <h3 class="fw-bold mt-3">
+                    لا توجد قصص حاليًا
+                </h3>
+
+                <p class="text-muted-custom mb-0">
+                    سيتم إضافة القصص قريبًا.
+                </p>
+
+            </div>
+
+        </div>
+
+        {% endfor %}
+
+    </div>
+
+</section>
+
+
+<!-- Closing Section -->
+<section class="container pb-5">
+
+    <div class="stories-closing text-center p-4 p-lg-5 rounded-4">
+
+        <span class="eyebrow">قصص نتعلم منها</span>
+
+        <h2 class="fw-bold mt-2 mb-3">
+            في كل قصة درس وعبرة
+        </h2>
+
+        <p class="lh-lg mb-0">
+            نتأمل في القصص، ونستفيد من معانيها،
+            ونجعل ما نتعلمه طريقًا للخير والعمل الصالح.
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,0 +1,962 @@
+:root {
+    --bg: #ffffff;
+    --surface: #f5f5f3;
+    --card: #ffffff;
+    --text: #20221f;
+    --muted: #777b73;
+    --primary: #a47b45;
+    --primary-dark: #806037;
+    --border: #e7e6e1;
+    --header: rgba(255,255,255,.95);
+}
+
+.dark-mode {
+    --bg: #171a17;
+    --surface: #222722;
+    --card: #252a25;
+    --text: #f1f1ed;
+    --muted: #a8aea6;
+    --primary: #d1aa70;
+    --primary-dark: #b68b53;
+    --border: #393e39;
+    --header: rgba(23,26,23,.96);
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--text);
+    font-family: "IBM Plex Sans Arabic", sans-serif;
+    transition: background .3s, color .3s;
+}
+
+body.english-font {
+    font-family: "Playfair Display", sans-serif;
+}
+
+a {
+    text-decoration: none;
+}
+
+.site-header {
+    background: var(--header);
+    border-bottom: 1px solid var(--border);
+    backdrop-filter: blur(15px);
+}
+
+.brand {
+    color: var(--text);
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.brand:hover,
+.nav-link:hover {
+    color: var(--primary);
+}
+
+.brand-mark {
+    display: grid;
+    place-items: center;
+    width: 42px;
+    height: 42px;
+    background: var(--primary);
+    color: white;
+    border-radius: 12px;
+    font-size: 25px;
+}
+
+.brand-subtitle {
+    color: var(--primary);
+    font-family: "Playfair Display", serif;
+    font-size: 9px;
+    letter-spacing: 2px;
+}
+
+.nav-link {
+    color: var(--text);
+    font-size: 14px;
+}
+
+.navbar-toggler {
+    border-color: var(--border);
+}
+
+.navbar-toggler-icon {
+    filter: grayscale(1);
+}
+
+.btn-main {
+    background: var(--primary);
+    color: white;
+    border: 1px solid var(--primary);
+}
+
+.btn-main:hover {
+    background: var(--primary-dark);
+    color: white;
+}
+
+.theme-surface {
+    background: var(--surface);
+}
+
+.text-muted-custom {
+    color: var(--muted);
+    line-height: 1.9;
+}
+
+.eyebrow {
+    display: block;
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 700;
+    margin-bottom: 12px;
+}
+
+.text-link {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.text-link:hover {
+    color: var(--primary-dark);
+}
+
+
+/* HOME PAGE */
+
+.home-hero {
+    min-height: 620px;
+    background:
+        linear-gradient(90deg, rgba(0,0,0,.78), rgba(0,0,0,.35)),
+        url("/static/images/saudi-hero.jpg") center/cover;
+    color: white;
+}
+
+.hero-content {
+    max-width: 760px;
+    padding: 90px 0;
+}
+
+.hero-label {
+    padding: 9px 17px;
+    border: 1px solid rgba(255,255,255,.4);
+    border-radius: 50px;
+    background: rgba(255,255,255,.1);
+}
+
+.hero-highlight {
+    color: #d9bd83;
+}
+
+.home-stats {
+    position: relative;
+    margin-top: -55px;
+}
+
+.stats-panel {
+    overflow: hidden;
+    background: var(--card);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: 0 10px 35px rgba(0,0,0,.08);
+}
+
+.stat-item {
+    padding: 25px 15px;
+    border-inline-end: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.stat-item h3 {
+    color: var(--primary);
+    font-size: 32px;
+}
+
+.stat-item p {
+    color: var(--muted);
+    margin: 0;
+}
+
+.section-heading {
+    max-width: 750px;
+}
+
+.section-heading p {
+    line-height: 2;
+}
+
+.home-city-card,
+.heritage-card,
+.story-card {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.home-city-card:hover,
+.heritage-card:hover,
+.story-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary);
+}
+
+.city-image {
+    height: 230px;
+    object-fit: cover;
+}
+
+.city-region,
+.story-number {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.history-item {
+    padding: 25px;
+    background: rgba(255,255,255,.07);
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 12px;
+    transition: .3s;
+}
+
+.history-item:hover {
+    background: rgba(255,255,255,.13);
+    transform: translateY(-5px);
+}
+
+.home-history {
+    background:
+        linear-gradient(rgba(15,24,22,.88), rgba(15,24,22,.88)),
+        url("/static/images/saudi-history.jpg") center/cover;
+    color: white;
+}
+
+.history-year {
+    color: #d9bd83;
+    font-size: 30px;
+    font-weight: 700;
+}
+
+.history-item p {
+    color: rgba(255,255,255,.7);
+    line-height: 1.9;
+}
+
+.heritage-icon {
+    color: var(--primary);
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+.tourism-banner {
+    background:
+        linear-gradient(90deg, rgba(0,0,0,.8), rgba(0,0,0,.25)),
+        url("/static/images/saudi-tourism.jpg") center/cover;
+    color: white;
+}
+
+.tourism-content {
+    max-width: 650px;
+}
+
+.home-cta {
+    background: var(--card);
+    color: var(--text);
+}
+
+
+/* HOME SLIDER */
+
+.home-slider {
+    position: relative;
+    height: 650px;
+    overflow: hidden;
+    background: #20221f;
+}
+
+.home-slider .carousel,
+.home-slider .carousel-inner,
+.home-slider .carousel-item {
+    height: 100%;
+}
+
+.home-slider .slider-image {
+    width: 100%;
+    height: 650px;
+    object-fit: cover;
+    object-position: center;
+}
+
+.home-slider .slider-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    background: linear-gradient(
+        to left,
+        rgba(0, 0, 0, .78),
+        rgba(0, 0, 0, .45),
+        rgba(0, 0, 0, .15)
+    );
+    pointer-events: none;
+}
+
+.home-slider .slider-content {
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    pointer-events: none;
+}
+
+.home-slider .hero-content {
+    max-width: 700px;
+    color: #ffffff;
+    pointer-events: auto;
+}
+
+.home-slider .hero-content p {
+    color: rgba(255,255,255,.85);
+}
+
+.home-slider .carousel-indicators {
+    z-index: 3;
+}
+
+.home-slider .carousel-control-prev,
+.home-slider .carousel-control-next {
+    z-index: 3;
+    width: 7%;
+}
+
+.home-slider .carousel-item {
+    transition: opacity 1.2s ease-in-out;
+}
+
+
+/* FOOTER */
+
+.site-footer {
+    background: #20251f;
+    color: white;
+}
+
+.footer-brand {
+    color: white;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.site-footer p,
+.footer-meta {
+    color: #b8beb5;
+}
+
+
+/* CITIES PAGE */
+
+.cities-hero {
+    background: var(--surface);
+    color: var(--text);
+}
+
+.cities-hero-description {
+    max-width: 700px;
+    color: var(--muted);
+}
+
+.cities-stat {
+    background: var(--card);
+    border: 1px solid var(--border);
+}
+
+.cities-stat strong {
+    color: var(--primary);
+}
+
+.cities-stat span {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.city-explore-card {
+    overflow: hidden;
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: .3s;
+}
+
+.city-explore-card:hover {
+    color: var(--text);
+    transform: translateY(-6px);
+    border-color: var(--primary);
+    box-shadow: 0 12px 30px rgba(0,0,0,.08);
+}
+
+.city-card-image {
+    height: 240px;
+    overflow: hidden;
+}
+
+.city-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .4s;
+}
+
+.city-explore-card:hover .city-card-image img {
+    transform: scale(1.05);
+}
+
+.city-region {
+    background: var(--primary);
+    color: white;
+}
+
+.city-card-number {
+    color: white;
+    font-size: 35px;
+    font-weight: 700;
+    text-shadow: 0 2px 8px rgba(0,0,0,.5);
+}
+
+.city-english-name {
+    color: var(--primary);
+    font-family: "Playfair Display", serif;
+    font-size: 12px;
+    letter-spacing: 1px;
+}
+
+.city-link-text,
+.city-arrow {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.city-arrow {
+    font-size: 22px;
+    transition: transform .3s;
+}
+
+.city-explore-card:hover .city-arrow {
+    transform: translateX(-5px);
+}
+
+
+/* CITY DETAILS */
+
+.city-details-hero {
+    min-height: 550px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    color: white;
+}
+
+.city-hero-content {
+    max-width: 750px;
+}
+
+.city-details-english {
+    color: #d9bd83;
+    font-family: "Playfair Display", serif;
+    letter-spacing: 2px;
+    font-size: 14px;
+}
+
+.city-details-hero .eyebrow {
+    color: #d9bd83;
+}
+
+.city-content-card,
+.city-origin-card,
+.city-info-card,
+.city-food-item,
+.city-fact-card {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.city-content-card {
+    border-inline-start: 4px solid var(--primary);
+}
+
+.city-origin-card {
+    background: var(--surface);
+}
+
+.city-section-icon {
+    color: var(--primary);
+    font-size: 25px;
+}
+
+.city-info-card {
+    transition: .3s;
+}
+
+.city-info-card:hover,
+.city-food-item:hover,
+.city-fact-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+}
+
+.city-info-number {
+    color: var(--primary);
+    font-family: "Playfair Display", serif;
+    font-size: 25px;
+    font-weight: 700;
+}
+
+.city-food-icon {
+    color: var(--primary);
+    font-size: 22px;
+}
+
+.city-fact-card {
+    transition: .3s;
+}
+
+
+/* HISTORY PAGE */
+
+.history-hero {
+    background: var(--surface);
+    color: var(--text);
+}
+
+.history-hero p {
+    color: var(--muted);
+    max-width: 700px;
+}
+
+.history-card {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    transition: .3s;
+}
+
+.history-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--primary);
+    box-shadow: 0 10px 25px rgba(0,0,0,.06);
+}
+
+.history-year {
+    background: var(--surface);
+    color: var(--primary);
+}
+
+.history-year span {
+    font-size: 20px;
+    font-weight: 600;
+}
+
+.history-year strong {
+    font-family: "Playfair Display", serif;
+    font-size: 32px;
+}
+
+.history-stage {
+    color: var(--primary);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.history-card h3 {
+    color: var(--text);
+}
+
+.history-card p {
+    color: var(--muted);
+}
+
+.history-closing {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.history-closing p {
+    color: var(--muted);
+    max-width: 700px;
+    margin-inline: auto;
+}
+
+
+/* HERITAGE PAGE */
+
+.heritage-hero {
+    background: var(--surface);
+    color: var(--text);
+}
+
+.heritage-hero p {
+    color: var(--muted);
+    max-width: 750px;
+}
+
+.heritage-card {
+    position: relative;
+    overflow: hidden;
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    transition: .3s;
+}
+
+.heritage-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+    box-shadow: 0 12px 30px rgba(0,0,0,.07);
+}
+
+.heritage-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    background: var(--surface);
+    color: var(--primary);
+    font-size: 30px;
+}
+
+.heritage-card h3 {
+    color: var(--text);
+}
+
+.heritage-card p {
+    color: var(--muted);
+}
+
+.heritage-card-decoration {
+    width: 45px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 5px;
+    transition: width .3s;
+}
+
+.heritage-card:hover .heritage-card-decoration {
+    width: 80px;
+}
+
+.heritage-closing {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.heritage-closing p {
+    color: var(--muted);
+    max-width: 750px;
+    margin-inline: auto;
+}
+
+
+/* TOURISM PAGE */
+
+.tourism-hero {
+    background: var(--surface);
+    color: var(--text);
+}
+
+.tourism-hero p {
+    color: var(--muted);
+    max-width: 750px;
+}
+
+.tourism-card {
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    transition: .3s;
+}
+
+.tourism-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+    box-shadow: 0 12px 30px rgba(0,0,0,.07);
+}
+
+.tourism-card-image {
+    height: 230px;
+    overflow: hidden;
+    background: var(--surface);
+}
+
+.tourism-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform .4s;
+}
+
+.tourism-card:hover .tourism-card-image img {
+    transform: scale(1.05);
+}
+
+.tourism-image-placeholder {
+    color: var(--primary);
+    font-size: 45px;
+}
+
+.tourism-region {
+    color: var(--primary);
+    font-size: 13px;
+    font-weight: 600;
+}
+
+.tourism-card h3 {
+    color: var(--text);
+}
+
+.tourism-card p {
+    color: var(--muted);
+}
+
+.tourism-link,
+.tourism-arrow {
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.tourism-arrow {
+    font-size: 22px;
+    transition: transform .3s;
+}
+
+.tourism-card:hover .tourism-arrow {
+    transform: translateX(-5px);
+}
+
+.tourism-closing {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.tourism-closing p {
+    color: var(--muted);
+    max-width: 750px;
+    margin-inline: auto;
+}
+
+
+/* ABOUT PAGE */
+
+.about-hero {
+    background: var(--surface);
+    color: var(--text);
+}
+
+.about-hero p {
+    color: var(--muted);
+    max-width: 750px;
+}
+
+.about-content-card,
+.about-vision-card {
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    transition: .3s;
+}
+
+.about-content-card {
+    background: var(--card);
+    color: var(--text);
+    border-inline-start: 4px solid var(--primary);
+}
+
+.about-vision-card {
+    background: var(--surface);
+    color: var(--text);
+}
+
+.about-content-card:hover,
+.about-vision-card:hover {
+    border-color: var(--primary);
+    transform: translateY(-4px);
+}
+
+.about-content-card p,
+.about-vision-card p {
+    color: var(--muted);
+}
+
+.about-vision-icon {
+    color: var(--primary);
+    font-size: 42px;
+}
+
+.about-goal-card {
+    position: relative;
+    background: var(--card);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    transition: .3s;
+}
+
+.about-goal-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--primary);
+    box-shadow: 0 12px 30px rgba(0,0,0,.07);
+}
+
+.about-goal-number {
+    display: block;
+    color: var(--primary);
+    font-family: "Playfair Display", serif;
+    font-size: 27px;
+    font-weight: 700;
+}
+
+.about-goal-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 55px;
+    height: 55px;
+    margin-top: 20px;
+    border-radius: 14px;
+    background: var(--surface);
+    color: var(--primary);
+    font-size: 28px;
+}
+
+.about-goal-card p {
+    color: var(--muted);
+}
+
+.about-closing {
+    background: var(--surface);
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.about-closing p {
+    color: var(--muted);
+    max-width: 750px;
+    margin-inline: auto;
+}
+
+
+/* RESPONSIVE DESIGN */
+
+@media (max-width: 991px) {
+
+    .home-hero {
+        min-height: 550px;
+    }
+
+    .navbar-nav {
+        padding: 15px 0;
+    }
+
+}
+
+@media (max-width: 767px) {
+
+    .home-hero {
+        min-height: 500px;
+    }
+
+    .hero-content {
+        padding: 70px 15px;
+    }
+
+    .stat-item:nth-child(2) {
+        border-inline-end: none;
+    }
+
+    .stat-item:nth-child(3),
+    .stat-item:nth-child(4) {
+        border-bottom: 0;
+    }
+
+    .city-details-hero {
+        min-height: 450px;
+    }
+
+    .city-details-hero h1 {
+        font-size: 42px;
+    }
+
+    .home-slider,
+    .home-slider .slider-image {
+        height: 550px;
+    }
+
+    .home-slider .hero-content {
+        padding: 25px;
+    }
+
+    .home-slider .hero-content h1 {
+        font-size: 2.5rem;
+    }
+
+    .home-slider .hero-content p {
+        font-size: 1rem !important;
+    }
+
+}
+
+@media (max-width: 576px) {
+
+    .cities-hero h1,
+    .history-hero h1,
+    .heritage-hero h1,
+    .tourism-hero h1 {
+        font-size: 32px;
+    }
+
+    .city-card-image {
+        height: 210px;
+    }
+
+    .history-year strong {
+        font-size: 27px;
+    }
+
+    .tourism-card-image {
+        height: 200px;
+    }
+
+    .about-hero h1 {
+        font-size: 38px;
+    }
+
+    .about-content-card,
+    .about-vision-card {
+        padding: 25px !important;
+    }
+
+}
+
+@media (max-width: 480px) {
+
+    .home-slider,
+    .home-slider .slider-image {
+        height: 600px;
+    }
+
+}

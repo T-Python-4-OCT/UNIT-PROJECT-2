@@ -1,0 +1,151 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}المدن السعودية | حكاية وطن{% endblock %}
+
+{% block content %}
+
+<section>
+
+    <div class="cities-hero py-5">
+
+        <div class="container py-lg-5">
+
+            <span class="eyebrow">اكتشف المملكة</span>
+
+            <h1 class="display-4 fw-bold mb-3">
+                حكايات من مدننا السعودية
+            </h1>
+
+            <p class="fs-5 lh-lg cities-hero-description">
+                لكل مدينة حكاية، ولكل مكان تاريخ يحكي تفاصيل وطننا.
+                اكتشف المدن السعودية وتعرّف على ماضيها وتراثها وجمالها.
+            </p>
+
+            <div class="row g-3 mt-4">
+
+                <div class="col-6 col-md-4">
+                    <div class="cities-stat p-3 rounded-3">
+                        <strong class="d-block fs-2">{{ cities|length }}</strong>
+                        <span>مدن نستكشفها</span>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-4">
+                    <div class="cities-stat p-3 rounded-3">
+                        <strong class="d-block fs-2">13</strong>
+                        <span>منطقة إدارية</span>
+                    </div>
+                </div>
+
+                <div class="col-12 col-md-4">
+                    <div class="cities-stat p-3 rounded-3">
+                        <strong class="d-block fs-2">وطن</strong>
+                        <span>يجمع الحكايات</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <section class="container py-5">
+
+        <div class="mb-5">
+
+            <span class="eyebrow">رحلتنا تبدأ هنا</span>
+
+            <h2 class="fw-bold">اكتشف مدن المملكة</h2>
+
+            <p class="text-muted-custom">
+                اختر مدينة لتتعرف على تاريخها وأبرز معالمها.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for city in cities %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <a href="{% url 'kingdom:city_detail' city.slug %}"
+                   class="city-explore-card card h-100 text-decoration-none">
+
+                    <div class="city-card-image position-relative">
+
+                        <img src="{% static city.image %}"
+                             class="card-img-top"
+                             alt="{{ city.name }}"
+                             loading="lazy"
+                             decoding="async">
+
+                        <span class="badge city-region position-absolute top-0 start-0 m-3">
+                            {{ city.region }}
+                        </span>
+
+                        <span class="city-card-number position-absolute bottom-0 end-0 m-3">
+                            {{ forloop.counter|stringformat:"02d" }}
+                        </span>
+
+                    </div>
+
+                    <div class="card-body p-4">
+
+                        <span class="city-english-name">
+                            {{ city.english_name }}
+                        </span>
+
+                        <h3 class="card-title fw-bold mt-2">
+                            {{ city.name }}
+                        </h3>
+
+                        <p class="card-text text-muted-custom">
+                            {{ city.description }}
+                        </p>
+
+                        <div class="d-flex justify-content-between align-items-center mt-4 pt-3 border-top">
+
+                            <span class="city-link-text">
+                                اكتشف حكاية المدينة
+                            </span>
+
+                            <span class="city-arrow">←</span>
+
+                        </div>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="text-center py-5 theme-surface rounded-4">
+
+                    <h3 class="fw-bold">لا توجد مدن حاليًا</h3>
+
+                    <p class="text-muted-custom mb-0">
+                        سيتم إضافة المدن قريبًا.
+                    </p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+</section>
+
+{% endblock %}
