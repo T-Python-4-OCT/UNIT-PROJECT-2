@@ -1,0 +1,37 @@
+{% load static %}<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="احذر: افحص الرسائل المشبوهة واكشف علامات الاحتيال قبل ما تضغط على أي رابط.">
+  <title>{% block title %}احذر{% endblock %} | احذر</title>
+  <link rel="icon" href="{% static 'main/images/logo.svg' %}" type="image/svg+xml">
+  <link rel="stylesheet" href="{% static 'main/css/bootstrap.rtl.min.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/bootstrap-icons.min.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/fonts.css' %}">
+  <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+  {# Each page adds the stylesheet of its own app here #}
+  {% block extra_css %}{% endblock %}
+</head>
+<body class="{% block body_class %}{% endblock %}">
+  <a class="skip-link" href="#content">انتقل للمحتوى</a>
+
+  {% include "main/partials/nav.html" %}
+
+  {% if messages %}
+    <div class="container toast-area">
+      {% for message in messages %}
+        <div class="flash flash-{{ message.tags }}" role="status">
+          <i class="bi bi-check2-circle"></i> {{ message }}
+        </div>
+      {% endfor %}
+    </div>
+  {% endif %}
+
+  <main id="content">
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "main/partials/footer.html" %}
+</body>
+</html>

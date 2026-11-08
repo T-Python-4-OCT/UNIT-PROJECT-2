@@ -1,0 +1,18 @@
+{% load static %}
+{% with current=request.resolver_match.view_name %}
+<header class="site-header {% block header_class %}{% endblock %}">
+  <nav class="container nav-bar" aria-label="القائمة الرئيسية">
+    <a class="brand" href="{% url 'main:home' %}">
+      <img src="{% static 'main/images/logo.svg' %}" alt="" width="34" height="34">
+      <span>احذر</span>
+    </a>
+
+    <input type="checkbox" id="nav-toggle" class="nav-toggle">
+    <label for="nav-toggle" class="nav-burger" aria-label="فتح القائمة"><i class="bi bi-list"></i></label>
+
+    <ul class="nav-links">
+      <li><a href="{% url 'main:home' %}" {% if current == "main:home" %}aria-current="page"{% endif %}>الرئيسية</a></li>
+    </ul>
+  </nav>
+</header>
+{% endwith %}

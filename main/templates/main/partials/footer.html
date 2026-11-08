@@ -1,0 +1,17 @@
+{% load static %}
+<footer class="site-footer night">
+  <div class="footer-glow" aria-hidden="true"></div>
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <a class="brand brand-light" href="{% url 'main:home' %}">
+        <img src="{% static 'main/images/logo.svg' %}" alt="" width="30" height="30"><span>احذر</span>
+      </a>
+      <p>بياناتك كنز، حافظ عليها. «احذر» يكشف رسائل الاحتيال قبل ما تضغط، ويحذّر غيرك تلقائياً.</p>
+    </div>
+    <div class="footer-emergency">
+      <h2>وقعت في احتيال؟</h2>
+      <p>تواصل مع بنكك فوراً من رقمه الرسمي لإيقاف البطاقة، ثم قدّم بلاغ عبر أبشر.</p>
+    </div>
+  </div>
+  <div class="footer-note-wrap"><p class="container footer-note">مشروع الوحدة الثانية، معسكر تطوير تطبيقات الويب باستخدام Python. «احذر» موقع توعوي وليس جهة رسمية.</p></div>
+</footer>
