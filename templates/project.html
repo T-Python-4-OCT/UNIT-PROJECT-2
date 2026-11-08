@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}{{ project.name }} | {% translate "Saudi Giga Atlas" %}{% endblock %}
+{% block description %}{{ project.summary }}{% endblock %}
+
+{% block content %}
+<div class="detail-hero shell">
+  <div class="detail-copy">
+    <a class="back-link" href="{% url 'home' %}#projects">{% include 'includes/arrow.html' %}{% translate "All projects" %}</a>
+    <div class="detail-meta">
+      <p class="eyebrow">{{ project.category }}</p>
+      <p class="detail-region">{{ project.region }}</p>
+    </div>
+    <h1 class="detail-title">{{ project.name }}</h1>
+    <p class="detail-summary">{{ project.summary }}</p>
+  </div>
+  <figure class="detail-media" data-illustration="{{ project.slug }}">
+    {% if project.image %}
+    <img src="{% static project.image.path %}" alt="{{ project.image.alt }}" width="960" height="640" fetchpriority="high">
+    {% if project.image.caption %}<figcaption>{{ project.image.caption }}</figcaption>{% endif %}
+    {% endif %}
+  </figure>
+</div>
+<div class="detail-layout shell">
+  {% if project.highlights %}
+  <section class="detail-section" aria-labelledby="highlights-title">
+    <h2 id="highlights-title">{% translate "Project highlights" %}</h2>
+    <ul class="highlights">
+      {% for highlight in project.highlights %}<li>{{ highlight }}</li>{% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+  {% if project.milestones %}
+  <section class="detail-section" aria-labelledby="milestones-title">
+    <h2 id="milestones-title">{% translate "Milestones" %}</h2>
+    <ol class="timeline">
+      {% for milestone in project.milestones %}
+      <li>
+        {% if milestone.date %}<time class="timeline-date" datetime="{{ milestone.iso }}">{{ milestone.date|date:'j F Y' }}</time>{% else %}<span class="timeline-date">{{ milestone.iso }}</span>{% endif %}
+        <p>{{ milestone.text }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+  </section>
+  {% endif %}
+  <section class="detail-section sources-section" aria-labelledby="sources-title">
+    <h2 id="sources-title">{% translate "Sources and credits" %}</h2>
+    <ul class="source-list">
+      {% for source in project.sources %}
+      <li>
+        <a href="{{ source.url }}">{{ source.label }}</a>
+        <span>{% translate "Verified" %} <time datetime="{{ source.verified|date:'Y-m-d' }}">{{ source.verified|date:'j F Y' }}</time></span>
+      </li>
+      {% endfor %}
+    </ul>
+    {% if project.image.credit %}
+    <p class="photo-credit">{% translate "Image credit" %} · {% if project.image.credit_url %}<a href="{{ project.image.credit_url }}">{{ project.image.credit }}</a>{% else %}{{ project.image.credit }}{% endif %}</p>
+    {% endif %}
+  </section>
+</div>
+{% if next_project %}
+<nav class="next-project shell" aria-label="{% translate 'Next project' %}">
+  <a href="{{ next_project.url }}">
+    <span class="eyebrow">{% translate "Next project" %}</span>
+    <span class="next-title">{{ next_project.name }}</span>
+    {% include 'includes/arrow.html' %}
+  </a>
+</nav>
+{% endif %}
+{% endblock %}

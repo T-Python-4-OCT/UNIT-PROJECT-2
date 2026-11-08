@@ -1,0 +1,15 @@
+{% load static %}
+<li class="project-card">
+  <a href="{{ project.url }}">
+    <div class="card-media" data-illustration="{{ project.slug }}">
+      {% if project.image %}<img src="{% static project.image.path %}" alt="" width="640" height="400" loading="lazy" decoding="async">{% endif %}
+      <span class="card-index" aria-hidden="true">{{ project.index }}</span>
+    </div>
+    <div class="card-body">
+      <p class="card-category">{{ project.category }}</p>
+      <h3>{{ project.name }}</h3>
+      <p class="card-region">{{ project.region }}</p>
+      <span class="card-arrow" aria-hidden="true">{% include 'includes/arrow.html' %}</span>
+    </div>
+  </a>
+</li>

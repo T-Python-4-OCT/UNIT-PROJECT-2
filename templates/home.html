@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load i18n static %}
+
+{% block title %}{% translate "Six projects across Saudi Arabia" %} | {% translate "Saudi Giga Atlas" %}{% endblock %}
+
+{% block content %}
+<section class="home-hero shell" aria-labelledby="home-title">
+  <div class="hero-lead">
+    <p class="eyebrow">{% translate "Saudi Arabia · Project atlas" %}</p>
+    <h1 class="hero-title" id="home-title">{% translate "Six projects across Saudi Arabia" %}</h1>
+  </div>
+  <p class="hero-summary">{% translate "An illustrated guide to six Saudi developments, from Najdi heritage and new communities to mountain landscapes and the Red Sea coast." %}</p>
+</section>
+<section class="atlas-explorer shell" aria-label="{% translate 'Landscape explorer' %}" data-atlas>
+  <div class="atlas-stage" data-atlas-stage>
+    <img class="atlas-poster" src="{% static 'atlas/media/atlas-poster.svg' %}" alt="" width="1440" height="552" fetchpriority="high">
+    <div class="atlas-canvas" id="atlas-canvas" data-atlas-canvas aria-hidden="true"></div>
+  </div>
+  <div class="atlas-caption">
+    <p>{% translate "Illustrated terrain with approximate locations. ROSHN develops communities across the Kingdom." %}</p>
+    <button type="button" data-atlas-toggle data-open-label="{% translate '3D map' %}" data-close-label="{% translate '3D map' %}" aria-pressed="false" aria-controls="atlas-canvas" hidden>{% translate "3D map" %}</button>
+    <p role="status" data-atlas-status data-unavailable-label="{% translate 'The 3D map is unavailable. Explore using the project links.' %}"></p>
+  </div>
+  <nav class="atlas-controls" aria-label="{% translate 'Projects on the map' %}">
+    <ul class="atlas-links">
+      {% for project in projects %}
+      <li><a href="{{ project.url }}" data-atlas-link data-project="{{ project.slug }}"><span class="atlas-link-index" aria-hidden="true">{{ project.index }}</span> {{ project.name }}</a></li>
+      {% endfor %}
+    </ul>
+  </nav>
+</section>
+<section class="project-index shell" id="projects" aria-labelledby="projects-title">
+  <div class="section-heading">
+    <p class="eyebrow">{% translate "Project index" %}</p>
+    <h2 id="projects-title">{% translate "Explore the projects" %}</h2>
+  </div>
+  <ul class="project-grid">
+    {% for project in projects %}
+      {% include 'includes/project_card.html' %}
+    {% endfor %}
+  </ul>
+  <p class="portfolio-note">{% translate "The Red Sea and AMAALA are separate destinations developed by Red Sea Global." %}</p>
+</section>
+{% endblock %}
