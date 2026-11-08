@@ -1,0 +1,22 @@
+{% extends "main/base.html" %}
+{% block title %}الأسئلة الشائعة{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero-tight night">
+  <div class="container">
+    <h1>الأسئلة الشائعة</h1>
+    <p>أكثر الأسئلة اللي توصلنا عن «احذر» وطريقة استخدامه.</p>
+  </div>
+</section>
+
+<section class="container section-tight narrow">
+  <div class="faq-list">
+    {% for item in faq %}
+      <details class="faq-item" {% if forloop.first %}open{% endif %}>
+        <summary>{{ item.q }}</summary>
+        <p>{{ item.a }}</p>
+      </details>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

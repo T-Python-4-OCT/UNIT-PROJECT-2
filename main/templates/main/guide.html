@@ -1,0 +1,53 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}دليل الحماية{% endblock %}
+
+{% block content %}
+<section class="page-hero night">
+  <div class="container">
+    <h1>دليل الحماية من الاحتيال</h1>
+    <p>خمس عادات تحميك، وأشهر أنواع الاحتيال، والمنصات الرسمية للإبلاغ.</p>
+  </div>
+</section>
+
+<section class="section-tight container">
+  <h2 class="block-title">خمس عادات تحميك</h2>
+  <div class="tips-grid">
+    {% for tip in tips %}
+      <article class="tip {% if forloop.first %}tip-lead night{% endif %}">
+        <i class="bi {{ tip.icon }}"></i>
+        <h3>{{ tip.title }}</h3>
+        <p>{{ tip.text }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-tight container">
+  <h2 class="block-title">أنواع الاحتيال الشائعة</h2>
+  <dl class="types-list">
+    {% for scam in scam_types %}
+      <div class="type-entry">
+        <dt><i class="bi {{ scam.icon }}"></i> {{ scam.title }}</dt>
+        <dd>{{ scam.text }}<q>{{ scam.sample }}</q></dd>
+      </div>
+    {% endfor %}
+  </dl>
+</section>
+
+<section class="section-tight container">
+  <h2 class="block-title">منصات رسمية للإبلاغ</h2>
+  <div class="channels-grid channels-plain">
+    {% for channel in channels %}
+      <a class="channel" href="{{ channel.url }}" target="_blank" rel="noopener">
+        <img src="{% static channel.image %}" alt="شعار {{ channel.name }}">
+        <div>
+          <h3>{{ channel.what }}</h3>
+          <p>{{ channel.how }}</p>
+          <span class="channel-name">{{ channel.name }} <i class="bi bi-box-arrow-up-left"></i></span>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}
