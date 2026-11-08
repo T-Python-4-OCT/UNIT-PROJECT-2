@@ -1,4 +1,4 @@
-# UNIT-2-PROJECT
+# UNIT-PROJECT-2
 
 ## Using Django create a project about our beloved kingdom of your choosing. Examples :
 - Tourism in Saudi Arabia.
