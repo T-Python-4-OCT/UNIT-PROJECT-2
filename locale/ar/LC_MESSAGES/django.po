@@ -22,20 +22,20 @@ msgstr "دليل مصوّر لستة مشاريع سعودية، من تراث �
 msgid "Dark mode"
 msgstr "الوضع الداكن"
 
+msgid "Close photo"
+msgstr "إغلاق الصورة"
+
 msgid "Explore the projects"
 msgstr "تعرّف على المشاريع"
 
 msgid "Illustrated terrain with approximate locations. ROSHN develops communities across the Kingdom."
 msgstr "رسم للتضاريس يبيّن المواقع التقريبية. تطوّر روشن مجتمعات سكنية في أنحاء المملكة."
 
-msgid "Image credit"
-msgstr "مصدر الصورة"
-
 msgid "Independent student project"
 msgstr "مشروع طلابي مستقل"
 
-msgid "Landscape explorer"
-msgstr "استكشف تضاريس المملكة"
+msgid "Inside the project"
+msgstr "تفاصيل المشروع"
 
 msgid "Main navigation"
 msgstr "التنقل الرئيسي"
@@ -46,14 +46,26 @@ msgstr "محطات المشروع"
 msgid "Next project"
 msgstr "المشروع التالي"
 
+msgid "On film"
+msgstr "المشروع بالفيديو"
+
 msgid "Page not found"
 msgstr "الصفحة غير موجودة"
+
+msgid "Photo viewer"
+msgstr "عارض الصور"
+
+msgid "Photos and places"
+msgstr "صور وأماكن"
+
+msgid "Play video"
+msgstr "تشغيل الفيديو"
 
 msgid "Project highlights"
 msgstr "أبرز معالم المشروع"
 
-msgid "Project index"
-msgstr "دليل المشاريع"
+msgid "Project map"
+msgstr "خريطة المشاريع"
 
 msgid "Projects"
 msgstr "المشاريع"
@@ -61,23 +73,53 @@ msgstr "المشاريع"
 msgid "Projects on the map"
 msgstr "المشاريع على الخريطة"
 
+msgid "Resized and converted to WebP. Cropped to fit some layouts."
+msgstr "عُدّل الحجم وحُوّلت الصورة إلى WebP. وقُصّت لتناسب بعض طرق العرض."
+
+msgid "From the plateau to the coast"
+msgstr "من الهضبة إلى الساحل"
+
+msgid "Six projects across Saudi Arabia, from Najdi courtyards and the Tuwaiq cliffs to the islands of the Red Sea."
+msgstr "ستة مشاريع في أنحاء السعودية، من ساحات نجد وجروف طويق إلى جزر البحر الأحمر."
+
+msgid "Explore the map"
+msgstr "استكشف الخريطة"
+
+msgid "Field map"
+msgstr "مسار الرحلة"
+
+msgid "The itinerary"
+msgstr "محطات الرحلة"
+
+msgid "The story"
+msgstr "حكاية المكان"
+
+msgid "In pictures"
+msgstr "بالصور"
+
+msgid "Open photo"
+msgstr "افتح الصورة"
+
+msgid "The short film"
+msgstr "الفيلم القصير"
+
+msgid "Poster photograph"
+msgstr "صورة معاينة الفيلم"
+
+msgid "%(duration)s sec"
+msgstr "%(duration)s ثانية"
+
 msgid "Return to the atlas"
 msgstr "العودة إلى الأطلس"
 
-msgid "Saudi Arabia · Project atlas"
-msgstr "السعودية · أطلس المشاريع"
+msgid "Saudi Arabia’s giga-projects"
+msgstr "المشاريع السعودية الكبرى"
 
 msgid "Saudi Giga Atlas"
 msgstr "أطلس المشاريع السعودية"
 
-msgid "Six projects across Saudi Arabia"
-msgstr "ستة مشاريع في أنحاء السعودية"
-
 msgid "Skip to content"
 msgstr "انتقل إلى المحتوى"
-
-msgid "Sources and credits"
-msgstr "المصادر وحقوق الصور"
 
 msgid "The 3D map is unavailable. Explore using the project links."
 msgstr "الخريطة ثلاثية الأبعاد غير متاحة. يمكنك استكشاف المشاريع عبر الروابط."
@@ -88,5 +130,5 @@ msgstr "البحر الأحمر وأمالا وجهتان منفصلتان تط�
 msgid "This page could not be found. Return to the atlas to explore all six projects."
 msgstr "تعذّر العثور على الصفحة. عُد إلى الأطلس لاستكشاف المشاريع الستة."
 
-msgid "Verified"
-msgstr "تم التحقق في"
+msgid "Watch at source"
+msgstr "شاهد على الموقع الأصلي"

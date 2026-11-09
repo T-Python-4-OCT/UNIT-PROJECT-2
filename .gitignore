@@ -224,3 +224,6 @@ node_modules/
 /verification/
 /playwright-report/
 /test-results/
+
+# Local media archive; never publish downloaded footage
+/.media-archive/

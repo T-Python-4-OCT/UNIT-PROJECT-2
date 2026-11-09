@@ -1,0 +1,17 @@
+{% load i18n static %}
+<section class="project-video shell" aria-labelledby="video-title">
+  <p class="eyebrow">{% translate "The short film" %}</p>
+  <h2 class="section-heading" id="video-title">{% translate "On film" %}</h2>
+  <figure>
+    <div class="project-video-player">
+      <video controls preload="none" aria-label="{{ project.video.title }}">
+        <source src="{% static project.video.path %}" type="video/mp4">
+        {% if project.video.captions %}<track kind="captions" src="{% static project.video.captions %}" srclang="en" label="English">{% endif %}
+        <a href="{% static project.video.path %}">{{ project.video.title }}</a>
+      </video>
+    </div>
+    <figcaption class="media-caption">
+      <div><h3>{{ project.video.title }}</h3><p>{{ project.video.description }}</p></div>
+    </figcaption>
+  </figure>
+</section>

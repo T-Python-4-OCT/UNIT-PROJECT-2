@@ -1,5 +1,7 @@
 # Acceptance evidence
 
+The results below describe the 8 November build, before the subsequent media and caption changes. They are historical and do not verify the current build or embedded film playback.
+
 Verified on 8 November 2026 on Windows with `./scripts/verify.ps1` in PowerShell. The harness served the Vite production build from Django's collected static directory with `ATLAS_DEBUG=0`. It compiled 28 Arabic messages, passed five Django tests and passed 44 browser tests. The frozen Bun install reproduced the locked dependencies.
 
 | Requirement | Result | Evidence |
@@ -17,7 +19,6 @@ Verified on 8 November 2026 on Windows with `./scripts/verify.ps1` in PowerShell
 | Contrast | Pass | The lowest measured text pair was 6.12:1 and the lowest control boundary was 3.32:1. The WCAG A/AA axe runs returned zero violations across the 28 page states and the open scene. See [design measurements](DESIGN.md). |
 | Motion and fallback | Pass | Verified reduced motion, blocked scene import, unavailable WebGL 2, context loss, and JavaScript-disabled navigation. Clicked all six canvas badges, and verified scene canvas release on close. |
 | Content accuracy | Pass | Each record includes primary sources and verification dates. The editorial register records the evidence for milestones and separates the two Red Sea Global destinations. See [sources](SOURCES.md). |
-| Asset provenance | Pass | The register records the six photos, including the location and reuse terms for the three context photographs. Font and Three.js license notices are included. The terrain is original. |
 | Clean copy and code | Pass | Reviewed the English and Arabic templates, catalog and project copy. Dataset tests check the editorial limits, and authored source contains no explanatory comments. |
 | Performance | Pass | Cold-load measurements below meet the transfer, LCP, CLS and mobile pixel-ratio targets. |
 
@@ -42,7 +43,7 @@ Reviewed the homepage, six detail pages, localized 404 and map failure states. T
 | --- | --- | --- |
 | Accessibility | Keyboard paths, accessible names and state, visible focus, axe and reduced-motion behavior | Clear |
 | Layout | Desktop captures, 390 px mobile captures, four responsive widths and Edge 200% zoom | Clear |
-| Writing | Both catalogs and datasets, project credits, navigation labels and failure messages | Clear |
+| Writing | Both catalogs and datasets, navigation labels and failure messages | Clear |
 | Typography | Plex families, Arabic heading leading, line wrapping and delayed font arrival | Clear |
 | Colors | Light and dark foreground pairs, outlines and focus token | Clear |
 | UI | Theme states, directional arrows, interactive map, poster and failure state | Clear |

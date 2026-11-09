@@ -44,6 +44,9 @@ if (atlas) {
     }
 
     open = true;
+    if (stage.getBoundingClientRect().top >= window.innerHeight) {
+      stage.scrollIntoView({ block: 'nearest' });
+    }
     const attempt = ++generation;
     toggle.setAttribute('aria-busy', 'true');
     try {

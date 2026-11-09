@@ -10,13 +10,14 @@ const projects = [
   { slug: 'amaala', en: 'AMAALA', ar: 'أمالا' },
 ];
 
-const routes = [{ en: 'Six projects across Saudi Arabia', ar: 'ستة مشاريع في أنحاء السعودية' }, ...projects];
+const routes = [{ en: 'Saudi Arabia’s giga-projects', ar: 'المشاريع السعودية الكبرى' }, ...projects];
 const labels = {
   en: {
     language: 'العربية',
     skip: 'Skip to content',
     theme: 'Dark mode',
     scene: '3D map',
+    exploreMap: 'Explore the map',
     missing: 'Page not found',
     return: 'Return to the atlas',
     fallback: 'The 3D map is unavailable. Explore using the project links.',
@@ -26,6 +27,7 @@ const labels = {
     skip: 'انتقل إلى المحتوى',
     theme: 'الوضع الداكن',
     scene: 'خريطة ثلاثية الأبعاد',
+    exploreMap: 'استكشف الخريطة',
     missing: 'الصفحة غير موجودة',
     return: 'العودة إلى الأطلس',
     fallback: 'الخريطة ثلاثية الأبعاد غير متاحة. يمكنك استكشاف المشاريع عبر الروابط.',
@@ -51,7 +53,7 @@ async function loadImages(page) {
 }
 
 async function capturePage(page, path) {
-  await page.locator('img').last().scrollIntoViewIfNeeded();
+  await page.getByRole('main').scrollIntoViewIfNeeded();
   await page.evaluate(async () => {
     window.scrollTo({ top: 0, behavior: 'instant' });
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
@@ -82,6 +84,24 @@ async function assertReflow(page, width) {
   expect(layout, `Reflow at ${width}px`).toEqual({ overflow: 0, clipped: [] });
 }
 
+async function assertMapLabels(page) {
+  const stage = page.locator('[data-atlas-stage]');
+  const issues = await stage.evaluate(element => {
+    const bounds = element.getBoundingClientRect();
+    const labels = [...element.querySelectorAll('[data-atlas-link]')];
+    return labels.flatMap((label, index) => {
+      const { left, right, top, bottom } = label.getBoundingClientRect();
+      const clipped = left < bounds.left || right > bounds.right || top < bounds.top || bottom > bounds.bottom;
+      const overlapping = labels.slice(index + 1).some(other => {
+        const rect = other.getBoundingClientRect();
+        return left < rect.right && right > rect.left && top < rect.bottom && bottom > rect.top;
+      });
+      return clipped || overlapping ? [label.textContent] : [];
+    });
+  });
+  expect(issues, 'Map labels fit without overlapping').toEqual([]);
+}
+
 for (const locale of ['en', 'ar']) {
   const alternate = locale === 'en' ? 'ar' : 'en';
   for (const theme of ['light', 'dark']) {
@@ -99,7 +119,9 @@ for (const locale of ['en', 'ar']) {
             if (!response.ok() && response.status() !== 304) problems.push(`${response.status()} ${response.url()}`);
           }
         });
-        page.on('requestfailed', request => problems.push(`${request.failure()?.errorText} ${request.url()}`));
+        page.on('requestfailed', request => {
+          if (request.url().startsWith(`${appOrigin}/`)) problems.push(`${request.failure()?.errorText} ${request.url()}`);
+        });
 
         const response = await page.goto(pathFor(locale, route.slug));
         expect(response?.status()).toBe(200);
@@ -124,8 +146,12 @@ for (const locale of ['en', 'ar']) {
           const next = projects[(projects.indexOf(route) + 1) % projects.length];
           await expect(page.locator('.next-project a')).toHaveAttribute('href', pathFor(locale, next.slug));
           await expect(page.locator('.detail-media img')).toHaveAttribute('alt', locale === 'ar' ? /\p{Script=Arabic}/u : /^[A-Za-z]/);
-          await expect(page.locator('.photo-credit a')).toHaveAttribute('href', /^https:\/\/commons\.wikimedia\.org\//);
+          await expect(page.locator('.detail-media figcaption a')).toHaveCount(0);
+          await expect(page.locator('#sources-title')).toHaveCount(0);
           await expect(page.locator('.timeline li')).toHaveCount(3);
+          await expect(page.locator('.story-grid article')).toHaveCount(3);
+          await expect(page.locator('[data-project-viewer]')).toHaveCount(0);
+          expect(await page.locator('[data-project-photo] img').count()).toBeGreaterThan(0);
         } else {
           await expect(page.locator('.project-card')).toHaveCount(6);
           await expect(page.locator('.atlas-poster')).toBeVisible();
@@ -136,7 +162,10 @@ for (const locale of ['en', 'ar']) {
           }
         }
 
-        for (const width of [320, 390, 768, 1440]) await assertReflow(page, width);
+        for (const width of [320, 390, 768, 1440]) {
+          await assertReflow(page, width);
+          if (!route.slug) await assertMapLabels(page);
+        }
         await loadImages(page);
         const audit = await new AxeBuilder({ page }).withTags(wcagTags).analyze();
         expect(audit.violations.map(({ id, nodes }) => ({ id, targets: nodes.map(node => node.target) }))).toEqual([]);
@@ -166,6 +195,8 @@ for (const locale of ['en', 'ar']) {
     await page.keyboard.press('Enter');
     await expect(page.getByRole('main')).toBeFocused();
     await page.keyboard.press('Tab');
+    await assertFocusRing(page.getByRole('link', { name: labels[locale].exploreMap }));
+    await page.keyboard.press('Tab');
     await assertFocusRing(page.getByRole('button', { name: labels[locale].scene }));
     await page.keyboard.press('Tab');
     await assertFocusRing(neom);
@@ -194,7 +225,7 @@ for (const locale of ['en', 'ar']) {
     await expect(page).toHaveURL(new RegExp(`${pathFor(alternate, 'neom')}$`));
     await expect(page.locator('html')).toHaveAttribute('lang', alternate);
     await expect(page.getByRole('button', { name: labels[alternate].theme })).toHaveAttribute('aria-pressed', 'true');
-    const tree = await page.locator('header').ariaSnapshot();
+    const tree = await page.locator('.site-header').ariaSnapshot();
     expect(tree).toContain(`button "${labels[alternate].theme}" [pressed]`);
     await page.getByRole('button', { name: labels[alternate].theme }).press('Space');
     await page.locator('.next-project a').click();
@@ -250,6 +281,33 @@ test('project and language links work with JavaScript disabled', async ({ browse
   }
 });
 
+test('the photo viewer preserves the caption and returns focus on Escape', async ({ page }) => {
+  await page.goto('/ar/projects/amaala/');
+  const photo = page.locator('[data-project-gallery] [data-project-photo]');
+  const dialog = page.getByRole('dialog', { name: 'عارض الصور' });
+  await photo.press('Enter');
+  await expect(dialog).toBeVisible();
+  await expect(dialog.getByRole('button', { name: 'إغلاق الصورة' })).toBeFocused();
+  await expect(dialog.locator('figcaption')).toHaveText(await photo.locator('..').locator('figcaption').innerText());
+  await expect(dialog.locator('figcaption a')).toHaveCount(0);
+  await page.keyboard.press('Escape');
+  await expect(dialog).toBeHidden();
+  await expect(photo).toBeFocused();
+});
+
+test('project films play directly without autoplay', async ({ page }) => {
+  for (const project of projects) {
+    await page.goto(pathFor('en', project.slug));
+    const player = page.locator('.project-video video');
+    await expect(player).toHaveAttribute('controls', '');
+    await expect(player).not.toHaveAttribute('autoplay', '');
+    await expect(player.locator('source')).toHaveAttribute('src', new RegExp(`/static/atlas/videos/${project.slug}-web\\.mp4$`));
+    await player.evaluate(video => { video.muted = true; return video.play(); });
+    await expect.poll(() => player.evaluate(video => video.currentTime)).toBeGreaterThan(0);
+    await player.evaluate(video => video.pause());
+  }
+});
+
 test('the deferred scene opens on demand and releases its canvas on close', async ({ page }, testInfo) => {
   const chunkRequests = [];
   page.on('request', request => {
@@ -273,6 +331,13 @@ test('the deferred scene opens on demand and releases its canvas on close', asyn
   await expect(scene).toHaveAttribute('aria-pressed', 'false');
   await expect(page.locator('[data-atlas-canvas] canvas')).toHaveCount(0);
   await expect(page.locator('.atlas-poster')).toBeVisible();
+
+  await page.setViewportSize({ width: 320, height: 900 });
+  await scene.press('Space');
+  await expect(page.locator('[data-atlas-canvas] canvas')).toBeVisible();
+  await assertMapLabels(page);
+  await page.getByRole('link', { name: 'The Red Sea', exact: true }).click();
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('The Red Sea');
 });
 
 for (const fallback of ['WebGL2 unavailable', 'scene import failed']) {

@@ -6,7 +6,6 @@
 
 {% block content %}
 <section class="not-found shell" aria-labelledby="error-title">
-  <p class="eyebrow">404</p>
   <h1 id="error-title">{% translate "Page not found" %}</h1>
   <p>{% translate "This page could not be found. Return to the atlas to explore all six projects." %}</p>
   <a class="back-link" href="{% url 'home' %}">{% include 'includes/arrow.html' %}{% translate "Return to the atlas" %}</a>

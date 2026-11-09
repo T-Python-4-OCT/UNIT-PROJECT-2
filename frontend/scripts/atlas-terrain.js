@@ -2,17 +2,9 @@ import {
   BufferGeometry, Color, DoubleSide, Float32BufferAttribute, LineBasicMaterial,
   LineLoop, LineSegments, Mesh, MeshStandardMaterial, ShapeUtils, Vector2, Vector3,
 } from 'three';
+import geography from '../../projects/data/atlas-map.json';
 
-const outline = [
-  [443, 125], [484, 124], [498, 106], [559, 98], [585, 70], [644, 94], [668, 112],
-  [717, 131], [763, 137], [788, 123], [833, 126], [863, 158], [878, 178], [904, 195],
-  [906, 215], [934, 224], [961, 247], [948, 267], [965, 282], [980, 308], [992, 324],
-  [983, 347], [1029, 353], [1052, 371], [1037, 395], [997, 421], [949, 432],
-  [903, 448], [842, 473], [794, 460], [768, 446], [735, 449], [699, 433], [669, 440],
-  [641, 426], [625, 433], [614, 403], [596, 393], [591, 374], [572, 362], [557, 342],
-  [534, 330], [524, 314], [500, 295], [492, 271], [478, 254], [472, 235], [459, 218],
-  [453, 199], [451, 176], [441, 158], [446, 143],
-].map(([x, z]) => new Vector2(x, z));
+const outline = geography.outline.map(([x, z]) => new Vector2(x, z));
 
 const coast = outline.map((start, index) => {
   const end = outline[(index + 1) % outline.length];
@@ -29,7 +21,7 @@ const hills = [
 ];
 
 export function position(x, y, z) {
-  return new Vector3(x - 748, y, z - 278);
+  return new Vector3(x - 725, y, z - 276);
 }
 
 function coastalDistance(x, z) {
@@ -123,7 +115,7 @@ function reliefGeometry() {
   }
 
   for (const [a, b, c] of ShapeUtils.triangulateShape(outline, [])) {
-    splitTriangle(outline[a], outline[b], outline[c], 4, addTriangle);
+    splitTriangle(outline[a], outline[b], outline[c], 3, addTriangle);
   }
 
   const surface = new BufferGeometry();

@@ -1,14 +1,14 @@
 # Visual system
 
-The atlas uses an editorial layout with limestone surfaces, palm green display type, and a small brass cue for labels and map details. The same header, grid rhythm, compass motif and text roles carry through the home and detail views. Photographs give each development an individual visual identity. The project index uses full-card links and repeats the explorer’s order.
+The atlas opens with an introduction, then leads from the map to the project itinerary. Limestone surfaces, palm green display type and brass labels carry through the six project stories. The map and cards share the same stop numbers on desktop. 
 
-The original terrain poster is `static/atlas/media/atlas-poster.svg`, a 1440 × 552 schematic with a north-up composition, hand-drawn contour strokes and a coast cut into an inset cartographic grid. Five approximate location symbols and a distributed dot motif distinguish projects with a representative location from ROSHN’s communities across the country. The graphic is illustrative and uses no external imagery, mapping tiles, or government branding. The surrounding HTML provides the caption and every project link in both languages. The artwork itself has no text.
+The terrain poster is `static/atlas/media/atlas-poster.svg`, a 1440 × 552 north-up vector map with a Natural Earth boundary, shaded land and subdued regional context. Five location markers use leader lines to separate nearby projects. Dashed rings show examples of ROSHN’s communities across the country. The HTML overlays localized project links directly on the map and keeps the geography north-up in both languages.
 
 IBM Plex Sans and IBM Plex Sans Arabic share the display and body hierarchy. Arabic headings have more leading and no tracking. The layout follows document direction and keeps the landscape north-up. The fonts are available under the SIL Open Font License 1.1. Ministry of Culture materials describe the Saudi and Masmak typefaces, and the associated download platforms returned HTTP 403 during research on 8 November 2026. With web embedding rights unverified for those files, the build uses Plex. [IBM Plex](https://github.com/IBM/plex) · [Saudi typeface initiative](https://www.moc.gov.sa/en/Modules/Pages/Initiative/SaudiandAwwal_Calligraphy) · [Masmak announcement](https://www.spa.gov.sa/w1873548?lang=en&newsid=2436438)
 
 ## Contrast measurements
 
-Ratios use WCAG sRGB relative luminance with the opaque token values in `frontend/styles/atlas.css`. Text and control states are drawn on solid surfaces. The poster and photography contain no interface text overlays other than the card index, which has its own opaque backing.
+Ratios below apply to the opaque tokens in `frontend/styles/atlas.css`. The home title and introduction sit over a dark gradient. Project photographs have separate captions, and the map markers use opaque labels.
 
 | Pair | Light | Dark | Threshold |
 | --- | ---: | ---: | ---: |
@@ -18,13 +18,9 @@ Ratios use WCAG sRGB relative luminance with the opaque token values in `fronten
 | Accent text on page | 10.90 | 10.08 | 4.5 |
 | Accent text on tinted surface | 9.88 | 7.06 | 4.5 |
 | Eyebrow on page | 6.12 | 8.97 | 4.5 |
-| Image index on its opaque backing | 6.67 | 7.84 | 4.5 |
 | Filled control text on fill | 10.90 | 10.08 | 4.5 |
-| Control outline on page | 3.66 | 4.75 | 3 |
-| Control outline on tinted hover surface | 3.32 | 3.33 | 3 |
 | Focus ring on page | 7.34 | 8.97 | 3 |
 | Focus ring on tinted surface | 6.66 | 6.28 | 3 |
-| Focus ring on card-index backing | 7.99 | 7.84 | 3 |
 
 ## Vertical-slice review
 

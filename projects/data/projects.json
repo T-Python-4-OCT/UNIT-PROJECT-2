@@ -50,19 +50,6 @@
         }
       }
     ],
-    "image": {
-      "path": "atlas/media/neom.webp",
-      "alt": {
-        "en": "Orbital photograph of the Gulf of Aqaba coast and the reefs around Sindalah",
-        "ar": "صورة من المدار لساحل خليج العقبة والشعاب المرجانية المحيطة بسندالة"
-      },
-      "credit": "NASA",
-      "credit_url": "https://commons.wikimedia.org/wiki/File:ISS074-E-834662_-_View_of_Saudi_Arabia_-_Red_Sea_-_Sindalah_coral_islands_-_Neom_Residential_Camp_01_-_Sharm_Mujawwa_Bay_-_Gulf_of_Aqaba_(cropped)_(cropped).jpg",
-      "caption": {
-        "en": "Sindalah and the Gulf of Aqaba coast",
-        "ar": "سندالة وساحل خليج العقبة"
-      }
-    },
     "sources": [
       {
         "url": "https://www.neom.com/en-us/about",
@@ -80,7 +67,20 @@
         },
         "verified": "2026-11-08"
       }
-    ]
+    ],
+    "image": {
+      "path": "atlas/media/neom.webp",
+      "width": 1500,
+      "height": 726,
+      "caption": {
+        "en": "Sindalah and the Gulf of Aqaba coast",
+        "ar": "سندالة وساحل خليج العقبة"
+      },
+      "alt": {
+        "en": "Sindalah and the Gulf of Aqaba coast",
+        "ar": "سندالة وساحل خليج العقبة"
+      }
+    }
   },
   {
     "slug": "qiddiya",
@@ -137,19 +137,6 @@
         }
       }
     ],
-    "image": {
-      "path": "atlas/media/qiddiya.webp",
-      "alt": {
-        "en": "Fountain and covered plaza at Six Flags Qiddiya City",
-        "ar": "نافورة وساحة مغطاة في سيكس فلاقز مدينة القدية"
-      },
-      "caption": {
-        "en": "Six Flags Qiddiya City",
-        "ar": "سيكس فلاقز مدينة القدية"
-      },
-      "credit": "Saudi Press Agency (SPA) · CC BY-SA 4.0",
-      "credit_url": "https://commons.wikimedia.org/wiki/File:Six_Flags_Qiddiya_Theme_Park,_Riyadh_-_2025.jpg"
-    },
     "sources": [
       {
         "url": "https://qiddiya.com/projects/qiddiya-city/",
@@ -183,7 +170,20 @@
         },
         "verified": "2026-11-08"
       }
-    ]
+    ],
+    "image": {
+      "path": "atlas/media/qiddiya-blue-hour.webp",
+      "width": 1600,
+      "height": 1067,
+      "caption": {
+        "en": "Six Flags Qiddiya City at blue hour",
+        "ar": "سيكس فلاغز مدينة القدية في ساعة الغسق"
+      },
+      "alt": {
+        "en": "Six Flags Qiddiya City at blue hour",
+        "ar": "سيكس فلاغز مدينة القدية في ساعة الغسق"
+      }
+    }
   },
   {
     "slug": "diriyah",
@@ -236,19 +236,6 @@
         }
       }
     ],
-    "image": {
-      "path": "atlas/media/diriyah.webp",
-      "alt": {
-        "en": "Mudbrick walls and stepped rooflines in At-Turaif",
-        "ar": "جدران طينية وأسوار متدرجة في حي الطريف"
-      },
-      "caption": {
-        "en": "At-Turaif district",
-        "ar": "حي الطريف"
-      },
-      "credit": "Xiquinho Silva · CC BY 2.0",
-      "credit_url": "https://commons.wikimedia.org/wiki/File:At-Turaif_District.jpg"
-    },
     "sources": [
       {
         "url": "https://www.diriyahcompany.sa/en",
@@ -282,7 +269,20 @@
         },
         "verified": "2026-11-08"
       }
-    ]
+    ],
+    "image": {
+      "path": "atlas/media/diriyah.webp",
+      "width": 1536,
+      "height": 580,
+      "caption": {
+        "en": "At-Turaif district in Diriyah",
+        "ar": "حي الطريف في الدرعية"
+      },
+      "alt": {
+        "en": "At-Turaif district in Diriyah",
+        "ar": "حي الطريف في الدرعية"
+      }
+    }
   },
   {
     "slug": "roshn",
@@ -335,19 +335,6 @@
         }
       }
     ],
-    "image": {
-      "path": "atlas/media/roshn.webp",
-      "alt": {
-        "en": "Residential street in Al Rawdah, Riyadh",
-        "ar": "شارع سكني في حي الروضة بالرياض"
-      },
-      "caption": {
-        "en": "Al Rawdah, Riyadh, shown for city context",
-        "ar": "حي الروضة بالرياض، صورة تعريفية بالمدينة"
-      },
-      "credit": "Hamza A. Durrani · CC BY 4.0",
-      "credit_url": "https://commons.wikimedia.org/wiki/File:Al_Rawdah_neighborhood_Riyadh.jpg"
-    },
     "sources": [
       {
         "url": "https://www.roshn.sa/",
@@ -397,7 +384,20 @@
         },
         "verified": "2026-11-08"
       }
-    ]
+    ],
+    "image": {
+      "path": "atlas/media/roshn.webp",
+      "width": 1280,
+      "height": 720,
+      "caption": {
+        "en": "Green space and skyline in Riyadh, shown for city context",
+        "ar": "مساحات خضراء وأفق الرياض، صورة تعريفية بالمدينة"
+      },
+      "alt": {
+        "en": "Green space and skyline in Riyadh, shown for city context",
+        "ar": "مساحات خضراء وأفق الرياض، صورة تعريفية بالمدينة"
+      }
+    }
   },
   {
     "slug": "the-red-sea",
@@ -450,19 +450,6 @@
         }
       }
     ],
-    "image": {
-      "path": "atlas/media/the-red-sea.webp",
-      "alt": {
-        "en": "Rocky shore and blue water at Northern Harrat Beach in Umluj",
-        "ar": "ساحل صخري ومياه زرقاء على شاطئ الحرة الشمالي في أملج"
-      },
-      "caption": {
-        "en": "Northern Harrat Beach, Umluj",
-        "ar": "شاطئ الحرة الشمالي، أملج"
-      },
-      "credit": "Saudi Press Agency (SPA) · CC BY-SA 4.0",
-      "credit_url": "https://commons.wikimedia.org/wiki/File:Red_Sea%E2%80%99s_Northern_Harrat_Beach_in_Umluj,_Saudi_Arabia_(2025).jpg"
-    },
     "sources": [
       {
         "url": "https://www.redseaglobal.com/en/portfolio/the-red-sea/",
@@ -472,7 +459,20 @@
         },
         "verified": "2026-11-08"
       }
-    ]
+    ],
+    "image": {
+      "path": "atlas/media/the-red-sea-lagoon.webp",
+      "width": 1280,
+      "height": 853,
+      "caption": {
+        "en": "Al Wajh Lagoon and its reefs from orbit",
+        "ar": "بحيرة الوجه وشعابها المرجانية من المدار"
+      },
+      "alt": {
+        "en": "Al Wajh Lagoon and its reefs from orbit",
+        "ar": "بحيرة الوجه وشعابها المرجانية من المدار"
+      }
+    }
   },
   {
     "slug": "amaala",
@@ -525,19 +525,6 @@
         }
       }
     ],
-    "image": {
-      "path": "atlas/media/amaala.webp",
-      "alt": {
-        "en": "Palm-lined seafront at Al Wajh on Saudi Arabia’s northwest coast",
-        "ar": "واجهة الوجه البحرية التي تصطف فيها أشجار النخيل على الساحل الشمالي الغربي للسعودية"
-      },
-      "caption": {
-        "en": "Al Wajh seafront, shown for regional context",
-        "ar": "الواجهة البحرية في الوجه، صورة تعريفية بالمنطقة"
-      },
-      "credit": "Yasser.Bakhsh · CC BY-SA 4.0",
-      "credit_url": "https://commons.wikimedia.org/wiki/File:Al_Wajh_Beach.jpg"
-    },
     "sources": [
       {
         "url": "https://www.redseaglobal.com/en/portfolio/amaala/",
@@ -563,6 +550,19 @@
         },
         "verified": "2026-11-08"
       }
-    ]
+    ],
+    "image": {
+      "path": "atlas/media/amaala.webp",
+      "width": 1280,
+      "height": 800,
+      "caption": {
+        "en": "Tabuk coastline, shown for regional context",
+        "ar": "ساحل تبوك، صورة تعريفية بالمنطقة"
+      },
+      "alt": {
+        "en": "Tabuk coastline, shown for regional context",
+        "ar": "ساحل تبوك، صورة تعريفية بالمنطقة"
+      }
+    }
   }
 ]

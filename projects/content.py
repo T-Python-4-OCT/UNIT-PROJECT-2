@@ -14,16 +14,57 @@ def records():
     return json.loads(DATA_FILE.read_text(encoding="utf-8-sig"))
 
 
+@cache
+def map_projects():
+    return json.loads(DATA_FILE.with_name("atlas-map.json").read_text(encoding="utf-8"))["projects"]
+
+
 def localized_projects(language):
-    return [localize(record, language, index) for index, record in enumerate(records(), 1)]
+    return [localize(record, language) for record in records()]
 
 
-def localize(record, language, index):
+@cache
+def feature_records():
+    return json.loads(DATA_FILE.with_name("project-features.json").read_text(encoding="utf-8"))
+
+
+def localized_features(project, language):
+    features = feature_records().get(project["slug"])
+    if not features:
+        return {}
+    gallery = [localized_image(image, language) for image in features["gallery"]]
+    video = features.get("video")
+    if video:
+        video = {
+            **video,
+            "title": video["title"][language],
+            "description": video["description"][language],
+        }
+    return {
+        "details": [
+            {"title": detail["title"][language], "body": detail["body"][language]}
+            for detail in features["details"]
+        ],
+        "gallery": gallery,
+        "video": video,
+    }
+
+
+def localized_image(image, language):
+    return {
+        **image,
+        "alt": image["alt"][language],
+        "caption": image.get("caption", {}).get(language),
+        "edit_note": image.get("edit_note", {}).get(language),
+    }
+
+
+def localize(record, language):
     project = {
         field: record[field][language] for field in ("name", "category", "region", "summary")
     }
     project["slug"] = record["slug"]
-    project["index"] = f"{index:02d}"
+    project["map_label"] = map_projects().get(record["slug"], {}).get("label")
     project["url"] = reverse("project", kwargs={"slug": record["slug"]})
     project["highlights"] = [highlight[language] for highlight in record["highlights"]]
     project["milestones"] = [
@@ -34,21 +75,6 @@ def localize(record, language, index):
         }
         for milestone in record["milestones"]
     ]
-    project["sources"] = [
-        {
-            "label": source["label"][language],
-            "url": source["url"],
-            "verified": date.fromisoformat(source["verified"]),
-        }
-        for source in record["sources"]
-    ]
     image = record.get("image")
-    if image:
-        project["image"] = {
-            **image,
-            "alt": image["alt"][language],
-            "caption": image.get("caption", {}).get(language),
-        }
-    else:
-        project["image"] = None
+    project["image"] = localized_image(image, language) if image else None
     return project

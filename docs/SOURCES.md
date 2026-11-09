@@ -1,6 +1,8 @@
-# Editorial sources and image credits
+# Editorial sources
 
-Verified on 8 November 2026. The project pages link to their primary sources. The structured record pairs each source with its verification date.
+The structured project records pair each primary source with its verification date.
+
+Additional figures checked on 9 November 2026: [NEOM's Trojena elevation](https://www.neom.com/en-us/regions/trojena), [UNESCO's At-Turaif property area](https://whc.unesco.org/en/list/1329/), [PIF's SEDRA development figures](https://www.pif.gov.sa/en/our-investments/giga-projects/roshn/sedra/), and [Red Sea Global's destination area and islands](https://www.redseaglobal.com/en/portfolio/the-red-sea/).
 
 ## Project facts
 
@@ -14,17 +16,14 @@ Verified on 8 November 2026. The project pages link to their primary sources. Th
 | The Red Sea | West coast resorts and coral and mangrove restoration. The first resort received guests in 2023. Shebara and Desert Rock opened in 2024. Shura Island opened with initial resorts in 2025. | [Red Sea Global destination overview and timeline](https://www.redseaglobal.com/en/portfolio/the-red-sea/) |
 | AMAALA | Triple Bay, the Corallium Marine Life Institute and wellness resorts. The project was announced in 2018. Red Sea Global announced the opening of Triple Bay on 11 November 2025 and reported Jayasom's opening on 16 September 2026. | [Red Sea Global destination overview and timeline](https://www.redseaglobal.com/en/portfolio/amaala/), [Triple Bay opening announcement](https://www.redseaglobal.com/en/media-center/news/red-sea-global-announces-the-opening-of-amaala-the-world-s-new-coastal-lifestyle-destination/), [Jayasom opening announcement](https://www.redseaglobal.com/en/media-center/news/Red-Sea-Global-announces-the-opening-of-Jayasom-Wellness-Resort-advancing-AMAALAs-wellness-vision/) |
 
-## Photographs
+## Films
 
-Each image was resized and encoded as WebP. Cards and heroes crop to fit. CC BY-SA copies in the repository retain CC BY-SA 4.0. Detail captions identify the scene or the nearby setting shown. The project identities use text and the photographs retain the signage present in the original scenes.
+The atlas serves the six archived MP4 excerpts in native video players. On 9 November 2026 the user confirmed permission to host these files directly. Their original source links and excerpt ranges remain in the project data. English caption files are available for NEOM and Diriyah; the other four films have no caption files. The original downloads remain in the ignored local `.media-archive/` directory.
 
-| Local file under static/atlas/media | Depiction and creator | Source and terms |
-| --- | --- | --- |
-| neom.webp | ISS photograph of the Sindalah area and the Gulf of Aqaba coast, NASA | [NASA photograph on Commons](https://commons.wikimedia.org/wiki/File:ISS074-E-834662_-_View_of_Saudi_Arabia_-_Red_Sea_-_Sindalah_coral_islands_-_Neom_Residential_Camp_01_-_Sharm_Mujawwa_Bay_-_Gulf_of_Aqaba_%28cropped%29_%28cropped%29.jpg), US public domain, [NASA media guidelines](https://www.nasa.gov/nasa-brand-center/images-and-media/) |
-| qiddiya.webp | Plaza at Six Flags Qiddiya City, Saudi Press Agency (SPA) | [Original on Commons](https://commons.wikimedia.org/wiki/File:Six_Flags_Qiddiya_Theme_Park,_Riyadh_-_2025.jpg), [SPA reuse terms](https://cc.spa.gov.sa/fr/terms/1220), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
-| diriyah.webp | At-Turaif district, Xiquinho Silva | [Original on Commons](https://commons.wikimedia.org/wiki/File:At-Turaif_District.jpg), [CC BY 2.0](https://creativecommons.org/licenses/by/2.0/) |
-| roshn.webp | Residential street in Al Rawdah, Riyadh, Hamza A. Durrani | [Original on Commons](https://commons.wikimedia.org/wiki/File:Al_Rawdah_neighborhood_Riyadh.jpg), [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) |
-| the-red-sea.webp | Northern Harrat Beach in Umluj, Saudi Press Agency (SPA) | [Original on Commons](https://commons.wikimedia.org/wiki/File:Red_Sea%E2%80%99s_Northern_Harrat_Beach_in_Umluj,_Saudi_Arabia_%282025%29.jpg), [SPA reuse terms](https://cc.spa.gov.sa/fr/terms/1220), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
-| amaala.webp | Al Wajh seafront, Yasser.Bakhsh | [Original on Commons](https://commons.wikimedia.org/wiki/File:Al_Wajh_Beach.jpg), [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0/) |
 
-The Al Rawdah, Umluj and Al Wajh images document regional settings. Their captions identify the location. The atlas terrain and its symbols are original illustrations.
+## Map geography
+
+The country outline and regional context use the public-domain Natural Earth 1:50m Admin 0 Countries dataset. The vector paths are simplified in a north-up equirectangular projection with a standard parallel near 24° N. The poster includes coastal islands and the relief uses the mainland ring. The terrain shading is illustrative. [Natural Earth dataset](https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/) · [Terms of use](https://www.naturalearthdata.com/about/terms-of-use/)
+
+Project markers represent approximate locations near Sindalah for NEOM, Triple Bay for AMAALA, Shura for The Red Sea, Six Flags for Qiddiya, and At-Turaif for Diriyah. ROSHN is shown with a community network symbol. [NASA Earth observation](https://eol.jsc.nasa.gov/SearchPhotos/photo.pl?frame=79027&mission=ISS062&roll=E) · [Saudi Red Sea Authority](https://www.redsea.gov.sa/yachts/passengers-tourists-en.html) · [Six Flags Qiddiya City](https://sixflagsqiddiyacity.com/en/plan-your-trip/know-before-you-go/car-taxi) · [UNESCO map](https://whc.unesco.org/en/list/1329/maps/)
+

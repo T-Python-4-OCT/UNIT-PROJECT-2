@@ -8,7 +8,7 @@ from django.test import SimpleTestCase
 from django.urls import resolve, reverse
 from django.utils.translation import gettext, override
 
-from .content import records
+from .content import feature_records, records
 
 
 LANGUAGES = {"en": ("", "ltr"), "ar": ("/ar", "rtl")}
@@ -30,7 +30,7 @@ class ProjectPagesTests(SimpleTestCase):
                 self.assertContains(response, 'data-atlas-toggle')
                 self.assertContains(response, 'data-atlas-status')
                 self.assertContains(response, 'atlas/media/atlas-poster.svg')
-                self.assertContains(response, gettext("Six projects across Saudi Arabia"))
+                self.assertContains(response, gettext("Saudi Arabia’s giga-projects"))
                 self.assertLessEqual(len(gettext(
                     "An illustrated guide to six Saudi developments, from Najdi heritage and new communities to mountain landscapes and the Red Sea coast."
                 ).split()), 30)
@@ -42,6 +42,8 @@ class ProjectPagesTests(SimpleTestCase):
                         self.assertEqual(path, f"{prefix}/projects/{slug}/")
                         self.assertEqual(resolve(path).url_name, "project")
                         self.assertContains(response, f'href="{path}"')
+                        self.assertContains(response, record["category"][language])
+                        self.assertContains(response, record["highlights"][0][language])
                         detail = self.client.get(path)
                         self.assertTemplateUsed(detail, "project.html")
                         self.assertTemplateUsed(detail, "base.html")
@@ -50,7 +52,13 @@ class ProjectPagesTests(SimpleTestCase):
                         self.assertContains(detail, record["summary"][language])
                         target = f"/projects/{slug}/" if language == "ar" else f"/ar/projects/{slug}/"
                         self.assertContains(detail, f'class="language-switch" href="{target}"')
-                        self.assertContains(detail, gettext("Sources and credits"))
+                        self.assertNotContains(detail, 'id="sources-title"')
+                        self.assertNotContains(detail, record["sources"][0]["url"])
+                        video = feature_records()[slug]["video"]
+                        self.assertContains(detail, video["path"])
+                        self.assertContains(detail, '<video controls preload="none"')
+                        self.assertNotContains(detail, "autoplay")
+                        self.assertNotContains(detail, "data-project-viewer")
 
     def test_english_is_default_even_with_arabic_browser_preferences(self):
         self.client.cookies[settings.LANGUAGE_COOKIE_NAME] = "ar"
@@ -123,10 +131,28 @@ class ProjectContentTests(SimpleTestCase):
 
                 image = record.get("image")
                 if image:
-                    self.assertEqual(image["path"], f"atlas/media/{record['slug']}.webp")
                     self.assertTrue(finders.find(image["path"]))
                     self.assert_localized(image["alt"])
                     if "caption" in image:
                         self.assert_localized(image["caption"])
-                    self.assertTrue(image["credit"].strip())
-                    self.assert_https_url(image["credit_url"])
+
+    def test_project_gallery_and_film_assets(self):
+        for slug in SLUGS:
+            with self.subTest(slug=slug):
+                features = feature_records()[slug]
+                self.assertTrue(features["gallery"])
+                for photo in features["gallery"]:
+                    self.assertTrue(finders.find(photo["path"]))
+                    self.assert_localized(photo["caption"])
+                    self.assert_localized(photo["alt"])
+                video = features["video"]
+                self.assertTrue(finders.find(video["path"]))
+                if video.get("captions"):
+                    self.assertTrue(finders.find(video["captions"]))
+                self.assertIn(video["duration"], range(20, 61))
+                self.assertRegex(video["youtube_id"], r"^[A-Za-z0-9_-]{11}$")
+                self.assertGreaterEqual(video["start"], 0)
+                self.assertEqual(video["end"] - video["start"], video["duration"])
+                self.assert_https_url(video["source_url"])
+                self.assert_localized(video["title"])
+                self.assert_localized(video["description"])

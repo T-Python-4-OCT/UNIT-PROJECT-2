@@ -5,7 +5,7 @@
 {% block description %}{{ project.summary }}{% endblock %}
 
 {% block content %}
-<div class="detail-hero shell">
+<header class="detail-hero shell">
   <div class="detail-copy">
     <a class="back-link" href="{% url 'home' %}#projects">{% include 'includes/arrow.html' %}{% translate "All projects" %}</a>
     <div class="detail-meta">
@@ -15,13 +15,32 @@
     <h1 class="detail-title">{{ project.name }}</h1>
     <p class="detail-summary">{{ project.summary }}</p>
   </div>
-  <figure class="detail-media" data-illustration="{{ project.slug }}">
-    {% if project.image %}
-    <img src="{% static project.image.path %}" alt="{{ project.image.alt }}" width="960" height="640" fetchpriority="high">
-    {% if project.image.caption %}<figcaption>{{ project.image.caption }}</figcaption>{% endif %}
-    {% endif %}
-  </figure>
-</div>
+</header>
+{% if project.image %}
+<figure class="detail-media shell">
+  {% include 'includes/project_photo.html' with photo=project.image lead=True only %}
+</figure>
+{% endif %}
+{% if project.details %}
+<section class="project-story shell" aria-labelledby="story-title">
+  <p class="eyebrow">{% translate "The story" %}</p>
+  <h2 class="section-heading" id="story-title">{% translate "Inside the project" %}</h2>
+  <div class="story-grid">
+    {% for detail in project.details %}
+    <article>
+      <h3>{{ detail.title }}</h3>
+      <p>{{ detail.body }}</p>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+{% endif %}
+{% if project.gallery %}
+{% include 'includes/project_gallery.html' %}
+{% endif %}
+{% if project.video %}
+{% include 'includes/project_video.html' %}
+{% endif %}
 <div class="detail-layout shell">
   {% if project.highlights %}
   <section class="detail-section" aria-labelledby="highlights-title">
@@ -44,20 +63,6 @@
     </ol>
   </section>
   {% endif %}
-  <section class="detail-section sources-section" aria-labelledby="sources-title">
-    <h2 id="sources-title">{% translate "Sources and credits" %}</h2>
-    <ul class="source-list">
-      {% for source in project.sources %}
-      <li>
-        <a href="{{ source.url }}">{{ source.label }}</a>
-        <span>{% translate "Verified" %} <time datetime="{{ source.verified|date:'Y-m-d' }}">{{ source.verified|date:'j F Y' }}</time></span>
-      </li>
-      {% endfor %}
-    </ul>
-    {% if project.image.credit %}
-    <p class="photo-credit">{% translate "Image credit" %} · {% if project.image.credit_url %}<a href="{{ project.image.credit_url }}">{{ project.image.credit }}</a>{% else %}{{ project.image.credit }}{% endif %}</p>
-    {% endif %}
-  </section>
 </div>
 {% if next_project %}
 <nav class="next-project shell" aria-label="{% translate 'Next project' %}">

@@ -1,15 +1,16 @@
 {% load static %}
 <li class="project-card">
   <a href="{{ project.url }}">
-    <div class="card-media" data-illustration="{{ project.slug }}">
-      {% if project.image %}<img src="{% static project.image.path %}" alt="" width="640" height="400" loading="lazy" decoding="async">{% endif %}
-      <span class="card-index" aria-hidden="true">{{ project.index }}</span>
+    <div class="card-media">
+      <span class="card-number" aria-hidden="true">{{ forloop.counter|stringformat:"02d" }}</span>
+      {% if project.image %}<img src="{% static project.image.path %}" alt="" width="{{ project.image.width }}" height="{{ project.image.height }}" style="--focal: {{ project.image.focal|default:'50% 50%' }}" loading="lazy" decoding="async">{% endif %}
     </div>
     <div class="card-body">
-      <p class="card-category">{{ project.category }}</p>
+      <p class="eyebrow">{{ project.region }} <span aria-hidden="true">·</span> {{ project.category }}</p>
       <h3>{{ project.name }}</h3>
-      <p class="card-region">{{ project.region }}</p>
-      <span class="card-arrow" aria-hidden="true">{% include 'includes/arrow.html' %}</span>
+      {% include 'includes/arrow.html' %}
+      {% if project.highlights %}<p class="card-highlight">{{ project.highlights.0 }}</p>{% endif %}
     </div>
   </a>
+  {% if project.image %}<div class="media-caption">{{ project.image.caption }}</div>{% endif %}
 </li>

@@ -8,3 +8,4 @@ import '@fontsource/ibm-plex-sans-arabic/arabic-700.css';
 import './styles/atlas.css';
 import './scripts/theme.js';
 import './scripts/atlas-loader.js';
+import './scripts/project-media.js';
