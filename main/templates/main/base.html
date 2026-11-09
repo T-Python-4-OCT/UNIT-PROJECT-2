@@ -1,3 +1,4 @@
+
 {% load static %}
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
@@ -9,8 +10,50 @@
 </head>
 <body>
 
-    {% block content %}
-    {% endblock %}
+    <header class="site-header">
+        <div class="header-container">
+
+            <a href="{% url 'main:home' %}" class="site-logo">
+                <img src="{% static 'main/images/diriyah-logo.png' %}" alt="شعار الدرعية">
+                <span>الدرعية</span>
+            </a>
+
+            <nav class="desktop-nav" aria-label="التنقل الرئيسي">
+                <a href="{% url 'main:home' %}" class="nav-link active">الرئيسية</a>
+                <a href="{% url 'main:home' %}#about" class="nav-link">عن الدرعية</a>
+                <a href="{% url 'main:home' %}#places" class="nav-link">أماكن الزيارة</a>
+                <a href="{% url 'main:home' %}#events" class="nav-link">الفعاليات</a>
+                <a href="{% url 'main:home' %}#history" class="nav-link">تاريخ الدرعية</a>
+                <a href="{% url 'main:home' %}#gallery" class="nav-link">معرض الدرعية</a>
+            </nav>
+
+            <details class="mobile-menu">
+                <summary aria-label="فتح قائمة التنقل">
+                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                        <path d="M4 6H20M4 12H20M4 18H20"
+                              stroke="currentColor"
+                              stroke-width="2"
+                              stroke-linecap="round"/>
+                    </svg>
+                </summary>
+
+                <nav class="mobile-nav" aria-label="التنقل للجوال">
+                    <a href="{% url 'main:home' %}">الرئيسية</a>
+                    <a href="{% url 'main:home' %}#about">عن الدرعية</a>
+                    <a href="{% url 'main:home' %}#places">أماكن الزيارة</a>
+                    <a href="{% url 'main:home' %}#events">الفعاليات</a>
+                    <a href="{% url 'main:home' %}#history">تاريخ الدرعية</a>
+                    <a href="{% url 'main:home' %}#gallery">معرض الدرعية</a>
+                </nav>
+            </details>
+
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
 
 </body>
 </html>
