@@ -5,4 +5,5 @@ from django.urls import include, path
 urlpatterns = [
     path("", include("main.urls")),
     path("detector/", include("detector.urls")),
+    path("reports/", include("reports.urls")),
 ]

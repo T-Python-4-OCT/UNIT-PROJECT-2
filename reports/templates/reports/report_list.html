@@ -1,0 +1,40 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'reports/css/reports.css' %}">{% endblock %}
+{% block title %}بلاغات المجتمع{% endblock %}
+
+{% block content %}
+<section class="page-hero night">
+  <div class="container page-hero-row">
+    <div>
+      <h1>بلاغات المجتمع</h1>
+      <p>{{ total }} بلاغ عن أرقام وحسابات ورسائل احتيال من المجتمع. اقرأها قبل ما ترد على رقم غريب.</p>
+    </div>
+  </div>
+</section>
+
+<section class="container section-tight">
+  <nav class="filter-chips" aria-label="تصفية حسب النوع">
+    <a href="{% url 'reports:list' %}" {% if not selected %}aria-current="true"{% endif %}>الكل <span class="chip-count">{{ total }}</span></a>
+    {% for key, info in types.items %}
+      <a href="?type={{ key }}" {% if selected == key %}aria-current="true"{% endif %}><i class="bi {{ info.icon }}"></i> {{ info.title }}</a>
+    {% endfor %}
+  </nav>
+
+  {% if reports %}
+    <div class="report-strip">
+      {% for report in reports %}{% include "reports/report_row.html" %}{% endfor %}
+    </div>
+  {% else %}
+    <div class="empty-inline">
+      <img class="reports-art" src="{% static 'reports/images/megaphone.svg' %}" alt="">
+      {% if selected %}
+        <p>ما فيه بلاغات من هذا النوع للحين.</p>
+        <a class="text-link" href="{% url 'reports:list' %}">اعرض كل البلاغات</a>
+      {% else %}
+        <p>ما فيه بلاغات للحين.</p>
+      {% endif %}
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

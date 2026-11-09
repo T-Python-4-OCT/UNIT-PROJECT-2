@@ -1,0 +1,37 @@
+/* =========================================================
+   Reports app styles: the number lookup and the report details page.
+   Colors (var(--...)) come from main/css/style.css.
+   ========================================================= */
+
+/* Space Mono: from our Entabih mobile app, used for phone numbers, emails and links */
+@font-face {
+  font-family: "Space Mono";
+  font-weight: 400;
+  font-display: swap;
+  src: url("../fonts/SpaceMono-Regular.ttf") format("truetype");
+}
+
+.case-contact strong, .contact-chips span { font-family: "Space Mono", monospace; }
+.reports-art { display: block; width: 92px; height: auto; margin: 0 auto 1rem; }
+
+/* ---------- Number lookup ---------- */
+.lookup-result { display: flex; gap: 1rem; align-items: center; margin-bottom: 1.5rem; padding: 1.1rem 1.35rem; border-radius: var(--radius-lg); }
+.lookup-result > i { font-size: 1.6rem; }
+.lookup-result strong { display: block; font-size: 1.05rem; }
+.lookup-result p { margin: 0; font-size: .92rem; }
+.lookup-hit { background: var(--fraud-soft); color: #8f1b22; }
+.lookup-hit > i { color: var(--fraud); }
+.lookup-miss { background: var(--paper); border: 1px solid var(--line); color: var(--muted); }
+.lookup-miss > i { color: var(--safe); }
+
+
+/* ---------- Report details ---------- */
+.case-file { padding: 2rem; border-radius: var(--radius-xl); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow-soft); }
+.case-file h2 { font-size: 1.15rem; margin-top: 1.75rem; }
+.case-file form { margin-top: 1rem; }
+.case-contact { padding: 1.35rem 1.5rem; border-radius: var(--radius-lg); }
+.case-contact span { display: block; color: var(--on-dark); font-size: .88rem; }
+.case-contact strong { display: block; font-size: 1.6rem; font-weight: 800; text-align: right; overflow-wrap: anywhere; color: #fff; }
+.case-warning { margin: .5rem 0 0; color: #f3dda0; font-weight: 700; }
+.contact-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .75rem; }
+.contact-chips span { padding: .15rem .7rem; border-radius: 999px; background: rgba(255, 255, 255, .12); color: #fff; font-size: .85rem; direction: ltr; }

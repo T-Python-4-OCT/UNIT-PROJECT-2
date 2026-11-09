@@ -13,6 +13,7 @@
     <ul class="nav-links">
       <li><a href="{% url 'main:home' %}" {% if current == "main:home" %}aria-current="page"{% endif %}>الرئيسية</a></li>
       <li><a href="{% url 'detector:home' %}" {% if request.resolver_match.namespace == "detector" %}aria-current="page"{% endif %}>الكاشف</a></li>
+      <li><a href="{% url 'reports:list' %}" {% if request.resolver_match.namespace == "reports" %}aria-current="page"{% endif %}>البلاغات</a></li>
       <li><a href="{% url 'main:guide' %}" {% if current == "main:guide" %}aria-current="page"{% endif %}>دليل الحماية</a></li>
       <li><a href="{% url 'main:faq' %}" {% if current == "main:faq" %}aria-current="page"{% endif %}>الأسئلة الشائعة</a></li>
       <li class="nav-cta"><a href="{% url 'detector:home' %}" class="btn-signal btn-sm"><i class="bi bi-search"></i> افحص رسالة</a></li>

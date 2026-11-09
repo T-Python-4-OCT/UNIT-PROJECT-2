@@ -1,0 +1,51 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'reports/css/reports.css' %}">{% endblock %}
+{% block title %}{{ report.title }}{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero-tight night">
+  <div class="container">
+    <a class="back-link" href="{% url 'reports:list' %}"><i class="bi bi-arrow-right"></i> بلاغات المجتمع</a>
+    <h1>{{ report.title }}</h1>
+    <p>
+      <i class="bi {{ report.type_info.icon }}"></i> {{ report.type_info.title }}، نُشر {{ report.created_at }}
+      {% if report.auto %}تلقائياً من الكاشف{% endif %}
+      {% if report.last_seen %}، آخر بلاغ {{ report.last_seen }}{% endif %}
+    </p>
+  </div>
+</section>
+
+<section class="container section-tight narrow">
+  <article class="case-file type-{{ report.type }}">
+    <div class="case-contact night">
+      <span>{{ report.type_info.contact_label }}</span>
+      <strong dir="ltr">{{ report.contact }}</strong>
+      {% if times > 1 %}
+        <p class="case-warning"><i class="bi bi-exclamation-triangle-fill"></i> مبلّغ عنه {{ times }} مرة في بلاغات المجتمع</p>
+      {% endif %}
+      {% if report.contacts|length > 1 %}
+        <div class="contact-chips">{% for value in report.contacts %}<span>{{ value }}</span>{% endfor %}</div>
+      {% endif %}
+    </div>
+
+    <h2>وش صار</h2>
+    <p>{{ report.description|linebreaksbr }}</p>
+
+    {% if report.message %}
+      <h2>نص الرسالة</h2>
+      <p class="bubble bubble-in">{{ report.message|linebreaksbr }}</p>
+      <form method="post" action="{% url 'detector:home' %}#result" data-loading>
+        {% csrf_token %}
+        <input type="hidden" name="text" value="{{ report.message }}">
+        <button class="btn-ghost" type="submit"><i class="bi bi-search"></i> افحص هذه الرسالة بالكاشف</button>
+      </form>
+    {% endif %}
+
+    {% if others %}
+      <h2>بلاغات ثانية عن نفس المرسل</h2>
+      <div class="report-strip">{% for report in others %}{% include "reports/report_row.html" %}{% endfor %}</div>
+    {% endif %}
+  </article>
+</section>
+{% endblock %}

@@ -1,0 +1,15 @@
+{# One report in a list. Needs: report (with type_info) #}
+<a class="report-row type-{{ report.type }}" href="{% url 'reports:detail' report.id %}">
+  <span class="report-icon"><i class="bi {{ report.type_info.icon }}"></i></span>
+  <span class="report-main">
+    <strong>{{ report.title }}</strong>
+    <span class="report-contact" dir="ltr">{{ report.contact }}</span>
+    <span class="report-desc">{{ report.description|truncatechars:120 }}</span>
+  </span>
+  <span class="report-meta">
+    {% if report.count > 1 %}<span class="badge badge-hot"><i class="bi bi-fire"></i> {{ report.count }} بلاغات</span>{% endif %}
+    {% if report.auto %}<span class="badge badge-auto"><i class="bi bi-cpu"></i> من الكاشف</span>{% endif %}
+    <span>{{ report.type_info.title }}</span>
+    <time>{{ report.created_at|slice:":10" }}</time>
+  </span>
+</a>
