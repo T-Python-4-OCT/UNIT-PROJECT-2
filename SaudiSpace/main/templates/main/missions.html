@@ -1,0 +1,199 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Saudi Space | Missions{% endblock %}
+
+{% block content %}
+
+<section class="missions-page">
+
+    <div class="missions-header">
+        <span>SAUDI SPACE EXPLORATION</span>
+        <h1>OUR SPACE MISSIONS</h1>
+        <p>
+            Discover the journeys that made history and opened
+            new opportunities for Saudi Arabia in space.
+        </p>
+    </div>
+
+    <!-- MISSION 01 -->
+    <section class="mission-section" id="sts51g">
+
+        <div class="mission-heading">
+            <span>MISSION 01 · 1985</span>
+            <h2>STS-51-G</h2>
+            <p>Saudi Arabia's first journey into space.</p>
+        </div>
+
+        <div class="mission-content">
+
+            <div class="mission-image">
+                <img
+                    src="https://images-assets.nasa.gov/image/51g-04-010/51g-04-010~orig.jpg"
+                    alt="Prince Sultan bin Salman aboard Space Shuttle Discovery"
+                >
+            </div>
+
+            <div class="mission-details">
+                <h3>A Historic First</h3>
+
+                <p>
+                    On June 17, 1985, Prince Sultan bin Salman became
+                    the first Saudi astronaut to travel into space.
+                    He flew aboard NASA's Space Shuttle Discovery
+                    as a payload specialist on the STS-51-G mission.
+                </p>
+
+                <p>
+                    During the mission, the crew deployed communication
+                    satellites, including ARABSAT-1B, and conducted
+                    scientific activities in orbit.
+                </p>
+
+                <div class="mission-facts">
+                    <div>
+                        <span>17 JUNE 1985</span>
+                        <small>Launch date</small>
+                    </div>
+
+                    <div>
+                        <span>7 DAYS</span>
+                        <small>Mission duration</small>
+                    </div>
+
+                    <div>
+                        <span>DISCOVERY</span>
+                        <small>Space shuttle</small>
+                    </div>
+                </div>
+
+                <a href="#mission-video-1985" class="mission-button">
+                    Watch Mission Video
+                </a>
+            </div>
+
+        </div>
+
+        <div class="mission-video" id="mission-video-1985">
+            <div class="mission-video-heading">
+                <span>MISSION ARCHIVE</span>
+                <h3>Relive the 1985 Journey</h3>
+            </div>
+
+            <div class="video-container">
+    <video controls preload="metadata">
+        <source src="https://res.cloudinary.com/corkt3wz/video/upload/v1794237808/sts-51g0.mp4" type="video/mp4">
+        Your browser does not support HTML video.
+    </video>
+</div>
+        </div>
+
+    </section>
+
+    <!-- MISSION 02 -->
+    <section class="mission-section mission-second" id="ax2">
+
+        <div class="mission-heading">
+            <span>MISSION 02 · 2023</span>
+            <h2>AXIOM MISSION 2</h2>
+            <p>A new generation of Saudi astronauts.</p>
+        </div>
+
+        <div class="mission-content">
+
+            <div class="mission-image ax2-image">
+                <img
+                    src="{% static 'main/images/rayyanah.jpg' %}"
+                    alt="Saudi astronaut Rayyanah Barnawi"
+                >
+            </div>
+
+            <div class="mission-details">
+                <h3>Saudi Arabia Reaches the ISS</h3>
+
+                <p>
+                    On May 21, 2023, Saudi astronauts Rayyanah Barnawi
+                    and Ali Alqarni launched aboard Axiom Mission 2
+                    to the International Space Station.
+                </p>
+
+                <p>
+                    Rayyanah Barnawi became the first Saudi woman
+                    to travel to space. During the mission, the crew
+                    conducted scientific research and educational
+                    activities in microgravity.
+                </p>
+
+                <div class="mission-facts">
+                    <div>
+                        <span>21 MAY 2023</span>
+                        <small>Launch date</small>
+                    </div>
+
+                    <div>
+                        <span>10 DAYS</span>
+                        <small>Mission duration</small>
+                    </div>
+
+                    <div>
+                        <span>ISS</span>
+                        <small>Destination</small>
+                    </div>
+                </div>
+
+                <a href="#mission-video-2023" class="mission-button">
+                    Watch Mission Video
+                </a>
+            </div>
+
+        </div>
+
+        <div class="mission-gallery">
+            <div>
+                <img
+                    src="{% static 'main/images/rayyanah.jpg' %}"
+                    alt="Rayyanah Barnawi"
+                >
+                <span>Rayyanah Barnawi</span>
+            </div>
+
+            <div>
+                <img
+                    src="{% static 'main/images/ali-alqarni.jpg' %}"
+                    alt="Ali Alqarni"
+                >
+                <span>Ali Alqarni</span>
+            </div>
+        </div>
+
+        <div class="mission-video" id="mission-video-2023">
+            <div class="mission-video-heading">
+                <span>MISSION OVERVIEW</span>
+                <h3>Inside Axiom Mission 2</h3>
+            </div>
+
+          <div class="video-container">
+    <video controls preload="metadata">
+        <source src="https://res.cloudinary.com/corkt3wz/video/upload/v1794237420/axiom-2.mp4" type="video/mp4">
+        Your browser does not support HTML video.
+    </video>
+</div>
+                </iframe>
+            </div>
+        </div>
+
+    </section>
+
+    <div class="missions-footer">
+        <span>THE JOURNEY CONTINUES</span>
+        <h2>THE FUTURE IS STILL UNWRITTEN.</h2>
+        <p>Explore the next chapter of Saudi Arabia's space ambitions.</p>
+
+        <a href="{% url 'future' %}" class="mission-button">
+            Explore The Future
+        </a>
+    </div>
+
+</section>
+
+{% endblock %}
