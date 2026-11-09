@@ -40,6 +40,21 @@ def build_journey(site, home_content):
     ]
 
 
+def resolve_sources(page, site):
+    """Number the page's sources and tag each item with its source number."""
+    references = {reference["id"]: reference for reference in site["references"]}
+    page["source_refs"] = [
+        {**references[source_id], "number": number}
+        for number, source_id in enumerate(page["sources"], start=1)
+    ]
+    numbers = {ref["id"]: ref["number"] for ref in page["source_refs"]}
+    for section in page["sections"]:
+        for item in section["items"]:
+            if "source" in item:
+                item["source_number"] = numbers[item["source"]]
+    return page
+
+
 def home(request):
     site = load_json("site.json")
     home_content = load_json("home.json")
@@ -56,7 +71,7 @@ def content_page(request, slug):
     site = load_json("site.json")
     context = {
         "site": site,
-        "page": find_page_content(site, slug),
+        "page": resolve_sources(find_page_content(site, slug), site),
         "current_slug": slug,
     }
     return render(request, "portal/page.html", context)

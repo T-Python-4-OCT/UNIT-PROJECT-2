@@ -16,13 +16,13 @@
       "id": "vision2030",
       "name": "Saudi Vision 2030 — Official Website",
       "url": "https://www.vision2030.gov.sa/",
-      "note": "Verify launch date (25 April 2016) and number of strategic objectives here."
+      "note": "Official source for the three pillars and the 11 Vision Realization Programs."
     },
     {
       "id": "moi",
       "name": "Ministry of Interior — Official Website",
       "url": "https://www.moi.gov.sa/",
-      "note": "Verify the ministry timeline here."
+      "note": "Official source for the ministry's historic development (Hijri dates)."
     },
     {
       "id": "absher",
@@ -34,7 +34,7 @@
       "id": "saudipedia",
       "name": "Saudipedia — Ministry of Media",
       "url": "https://saudipedia.com/en/absher-platform",
-      "note": "Source for the MOI timeline and Absher background."
+      "note": "Government encyclopedia: Absher background and the Vision 2030 launch date."
     },
     {
       "id": "dga",
@@ -106,7 +106,7 @@
       "id": "informedinfrastructure_911",
       "name": "Informed Infrastructure — Unified Security Operations Center (911) in Makkah",
       "url": "https://informedinfrastructure.com/?p=35049",
-      "note": "Technology-industry article; source for the start of 911 in Makkah (2015). Verify on moi.gov.sa."
+      "note": "Technology-industry article; secondary source for the 2015 start of 911 in Makkah."
     },
         {
       "id": "un_egovkb",
