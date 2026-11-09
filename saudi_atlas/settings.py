@@ -16,10 +16,18 @@ SECRET_KEY = os.getenv("ATLAS_SECRET_KEY") or (
 )
 ALLOWED_HOSTS = env_list("ATLAS_ALLOWED_HOSTS", "127.0.0.1,localhost,[::1],testserver")
 CSRF_TRUSTED_ORIGINS = env_list("ATLAS_CSRF_TRUSTED_ORIGINS", "")
-ROOT_URLCONF = "config.urls"
-WSGI_APPLICATION = "config.wsgi.application"
 
-INSTALLED_APPS = ["django.contrib.staticfiles", "projects.apps.ProjectsConfig"]
+
+RENDER_EXTERNAL_HOSTNAME = os.getenv("RENDER_EXTERNAL_HOSTNAME", "").strip()
+if RENDER_EXTERNAL_HOSTNAME:
+    if RENDER_EXTERNAL_HOSTNAME not in ALLOWED_HOSTS:
+        ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
+    if f"https://{RENDER_EXTERNAL_HOSTNAME}" not in CSRF_TRUSTED_ORIGINS:
+        CSRF_TRUSTED_ORIGINS.append(f"https://{RENDER_EXTERNAL_HOSTNAME}")
+ROOT_URLCONF = "saudi_atlas.urls"
+WSGI_APPLICATION = "saudi_atlas.wsgi.application"
+
+INSTALLED_APPS = ["django.contrib.staticfiles", "saudi_atlas.projects.apps.ProjectsConfig"]
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "whitenoise.middleware.WhiteNoiseMiddleware",
@@ -31,7 +39,7 @@ MIDDLEWARE = [
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [BASE_DIR / "templates"],
+        "DIRS": [],
         "APP_DIRS": True,
         "OPTIONS": {"context_processors": ["django.template.context_processors.request"]},
     },
@@ -39,17 +47,18 @@ TEMPLATES = [
 
 LANGUAGE_CODE = "en"
 LANGUAGES = [("en", "English"), ("ar", "العربية")]
-LOCALE_PATHS = [BASE_DIR / "locale"]
 TIME_ZONE = "Asia/Riyadh"
 
 STATIC_URL = "/static/"
 STATIC_ROOT = BASE_DIR / "collected-static"
-STATICFILES_DIRS = [BASE_DIR / "static"]
 STORAGES = {
     "default": {"BACKEND": "django.core.files.storage.FileSystemStorage"},
     "staticfiles": {"BACKEND": "whitenoise.storage.CompressedStaticFilesStorage"},
 }
 WHITENOISE_IMMUTABLE_FILE_TEST = r"^/static/build/assets/.+-[A-Za-z0-9_-]{8,}\.[A-Za-z0-9]+$"
+ATLAS_VIDEO_BASE_URL = os.getenv(
+    "ATLAS_VIDEO_BASE_URL", "https://pub-c2c16b46c0b84def87264751bdbab348.r2.dev"
+).rstrip("/")
 VITE_DEV_ORIGIN = "http://127.0.0.1:5173" if DEBUG and os.getenv("ATLAS_VITE_DEV") == "1" else ""
 
 X_FRAME_OPTIONS = "DENY"
