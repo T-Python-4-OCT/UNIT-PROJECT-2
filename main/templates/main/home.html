@@ -6,10 +6,9 @@
 {% block content %}
 
 <section class="home-hero">
-
     <img
-        src="{% static 'main/images/at-turaif.webp' %}"
-        alt="حي الطريف التاريخي في الدرعية"
+        src="{% static 'main/images/hero.jpg' %}"
+        alt="الدرعية التاريخية ليلًا"
         class="hero-image"
     >
 
@@ -33,7 +32,6 @@
             </p>
 
             <div class="hero-buttons">
-
                 <a href="{% url 'main:places' %}" class="hero-button primary-button">
                     اكتشف أماكن الزيارة
                     <span aria-hidden="true">←</span>
@@ -48,12 +46,40 @@
                     شاهد الفيديو
                     <span aria-hidden="true">▶</span>
                 </a>
-
             </div>
 
         </div>
     </div>
+</section>
 
+<section class="home-highlights">
+    <div class="highlights-container">
+
+        <div class="highlight-card">
+            <div class="highlight-icon">
+                <span aria-hidden="true">⌂</span>
+            </div>
+            <h3>عمارة نجدية أصيلة</h3>
+            <p>بيوت طينية تحكي قصة المكان</p>
+        </div>
+
+        <div class="highlight-card">
+            <div class="highlight-icon">
+                <span aria-hidden="true">♜</span>
+            </div>
+            <h3>إرث تاريخي عريق</h3>
+            <p>مهد الدولة السعودية الأولى</p>
+        </div>
+
+        <div class="highlight-card">
+            <div class="highlight-icon">
+                <span aria-hidden="true">✦</span>
+            </div>
+            <h3>وجهة ثقافية عالمية</h3>
+            <p>تجارب تراثية وفنية فريدة</p>
+        </div>
+
+    </div>
 </section>
 
 {% endblock %}
