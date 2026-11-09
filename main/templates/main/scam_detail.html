@@ -1,0 +1,39 @@
+{% extends "main/base.html" %}
+{% block title %}{{ scam.title }}{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero-tight night">
+  <div class="container">
+    <a class="back-link" href="{% url 'main:guide' %}"><i class="bi bi-arrow-right"></i> دليل الحماية</a>
+    <h1><i class="bi {{ scam.icon }}"></i> {{ scam.title }}</h1>
+    <p>{{ scam.text }}</p>
+  </div>
+</section>
+
+<section class="container section-tight narrow">
+  <article class="scam-file">
+    <h2>كيف تكون الرسالة</h2>
+    <p class="bubble bubble-in bubble-big">{% include "main/partials/marked_text.html" with segments=segments %}</p>
+    <p class="muted">نسبة الأمان لهذه الرسالة بقواعد الكاشف: <strong><bdi dir="ltr">{{ safety }}%</bdi></strong></p>
+
+    <h2>العلامات اللي تكشفها ({{ flags|length }})</h2>
+    <ul class="scam-flags">
+      {% for flag in flags %}
+        <li><mark class="flag flag-{{ flag.key }}">{{ flag.title }}</mark> {{ flag.explain }}</li>
+      {% empty %}
+        <li>ما فيه علامات واضحة، انتبه للأسلوب نفسه.</li>
+      {% endfor %}
+    </ul>
+
+    {# Query parameter: send the sample to the detector as ?text=... so the box is filled for you #}
+    <a class="btn-signal" href="{% url 'detector:home' %}?text={{ scam.sample|urlencode }}"><i class="bi bi-search"></i> جرّبها في الكاشف</a>
+  </article>
+
+  <h2 class="block-title" style="margin-top: 2.5rem; font-size: 1.4rem;">أنواع ثانية</h2>
+  <div class="scam-links">
+    {% for item in others %}
+      <a href="{% url 'main:scam_detail' item.key %}"><i class="bi {{ item.icon }}"></i> {{ item.title }}</a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

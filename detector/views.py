@@ -15,7 +15,7 @@ def detector_home(request: HttpRequest) -> HttpResponse:
     """GET: show the form. POST: analyze the message and show the result."""
     context = {
         "mode": "text",
-        "text": "",
+        "text": request.GET.get("text", ""),
         "ai_ready": ai_client.is_ready(),
         "save_on": True,
     }

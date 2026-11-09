@@ -6,7 +6,7 @@
 <section class="page-hero night">
   <div class="container">
     <h1>دليل الحماية من الاحتيال</h1>
-    <p>خمس عادات تحميك، وأشهر أنواع الاحتيال، والمنصات الرسمية للإبلاغ.</p>
+    <p>خمس عادات تحميك، وأشهر أنواع الاحتيال، والعلامات اللي يبحث عنها الكاشف بالتفصيل.</p>
   </div>
 </section>
 
@@ -28,11 +28,28 @@
   <dl class="types-list">
     {% for scam in scam_types %}
       <div class="type-entry">
-        <dt><i class="bi {{ scam.icon }}"></i> {{ scam.title }}</dt>
+        <dt><a href="{% url 'main:scam_detail' scam.key %}"><i class="bi {{ scam.icon }}"></i> {{ scam.title }}</a></dt>
         <dd>{{ scam.text }}<q>{{ scam.sample }}</q></dd>
       </div>
     {% endfor %}
   </dl>
+</section>
+
+<section class="section-tight container">
+  <h2 class="block-title">العلامات اللي يفحصها الكاشف</h2>
+  <p class="block-lead">كل علامة لها وزن. كل ما زادت العلامات في الرسالة، نزلت نسبة الأمان.</p>
+  <table class="rules-table">
+    <thead><tr><th scope="col">العلامة</th><th scope="col">ليش هي خطيرة</th><th scope="col">الخطورة</th></tr></thead>
+    <tbody>
+      {% for rule in rules %}
+        <tr>
+          <th scope="row"><mark class="flag flag-{{ rule.key }}">{{ rule.title }}</mark></th>
+          <td>{{ rule.explain }}</td>
+          <td><span class="weight" style="--w: {{ rule.weight }};"><span></span></span><small>{{ rule.weight }}</small></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
 </section>
 
 <section class="section-tight container">

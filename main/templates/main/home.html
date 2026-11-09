@@ -1,14 +1,109 @@
 {% extends "main/base.html" %}
-{% block title %}{{ name }}{% endblock %}
+{% load static %}
+{% block title %}افحص الرسالة قبل ما تضغط{% endblock %}
+{% block body_class %}page-home{% endblock %}
 
 {% block content %}
 <section class="hero night">
   <div class="container hero-grid">
     <div class="hero-copy">
       <p class="hero-kicker"><span class="pulse"></span> كاشف احتيال ذكي للرسائل العربية</p>
-      <h1><span class="pre">وصلتك رسالة غريبة؟</span> <span class="glow">{{ slogan }}</span></h1>
+      <h1><span class="pre">وصلتك رسالة غريبة؟</span> <span class="glow">قبل ما تضغط… احذر.</span></h1>
       <p class="hero-lead">الصق نص الرسالة، و«احذر» يكشف علامات الاحتيال اللي فيها، يقول لك وش تسوي، ويحذّر غيرك تلقائياً.</p>
+
+      <form class="hero-form" method="post" action="{% url 'detector:home' %}#result" data-loading>
+        {% csrf_token %}
+        <label for="hero-text" class="visually-hidden">نص الرسالة</label>
+        <textarea id="hero-text" name="text" rows="3" minlength="10" maxlength="2000" required
+                  placeholder="الصق هنا الرسالة اللي وصلتك…"></textarea>
+        <input type="hidden" name="save" value="on">
+        <input type="hidden" name="publish" value="on">
+        <div class="hero-form-row">
+          <button class="btn-signal" type="submit"><i class="bi bi-shield-check"></i> افحص الرسالة</button>
+          <small><i class="bi bi-lock"></i> ما نطلب منك أي بيانات شخصية</small>
+        </div>
+      </form>
     </div>
+
+    <div class="hero-visual" aria-hidden="true">
+      <div class="phone">
+        <div class="phone-top">
+          <span class="sender-avatar"><i class="bi bi-bank"></i></span>
+          <div><strong>BANK-ALERT</strong><small>رسالة نصية، الآن</small></div>
+        </div>
+        <div class="phone-body scanning">
+          <span class="scan-line"></span>
+          {# The same message is scanned by the real detector, so the highlights are real #}
+          <p class="bubble bubble-in">{% include "main/partials/marked_text.html" with segments=hero.segments %}</p>
+          <ul class="finding-tags">
+            {% for flag in hero.flags|slice:":4" %}<li style="--i: {{ forloop.counter }};">{{ flag.title }}</li>{% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div class="hero-verdict"><span class="dot"></span> احتيال</div>
+    </div>
+  </div>
+</section>
+
+<section class="section specimens">
+  <div class="container">
+    <header class="section-head">
+      <h2>هكذا يكتب المحتال</h2>
+      <p>ست رسائل من أشهر أساليب الاحتيال في السعودية. الأجزاء الملوّنة هي اللي يمسكها الكاشف، بنفس القواعد اللي يفحص فيها رسالتك.</p>
+    </header>
+    <div class="chat-wall">
+      {% for scam in samples %}
+        <article class="specimen {% cycle 'specimen-start' 'specimen-end' %}">
+          <p class="bubble bubble-in">{% include "main/partials/marked_text.html" with segments=scam.segments %}</p>
+          <div class="specimen-caption">
+            <h3><i class="bi {{ scam.icon }}"></i> {{ scam.title }}</h3>
+            <p>{{ scam.text }}</p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section how" style="padding-top: 2rem;">
+  <div class="container how-grid">
+    <header class="section-head">
+      <h2>كيف يفحص «احذر» رسالتك</h2>
+      <p>طبقتين من الفحص، وبعدها تحذير يوصل للمجتمع كله.</p>
+    </header>
+    <ol class="steps">
+      <li>
+        <h3>تلصق نص الرسالة</h3>
+        <p>رسالة نصية، واتساب، بريد، أو حتى ملف PDF مثل عقد أو فاتورة.</p>
+      </li>
+      <li>
+        <h3>نطابقها مع {{ patterns_count }} نمط احتيال، ثم يحللها الذكاء الاصطناعي</h3>
+        <p>روابط مقلّدة، طلب رمز التحقق، تهديد بإيقاف الحساب، جوائز وهمية، ونقارن الرقم والرابط ببلاغات المجتمع.</p>
+      </li>
+      <li>
+        <h3>تاخذ الحكم، والمجتمع ياخذ التحذير</h3>
+        <p>نسبة أمان من 100 وخطوات واضحة لك، وإذا طلعت احتيال ننشر بلاغ تلقائي باسم الحيلة ورقم المرسل.</p>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="section channels night">
+  <div class="container channels-grid">
+    <header class="section-head">
+      <h2>وقعت في احتيال؟ لا تنتظر</h2>
+      <p>اتصل ببنكك من رقمه الرسمي لإيقاف البطاقة، ثم قدّم بلاغك للجهة المختصة.</p>
+    </header>
+    {% for channel in channels %}
+      <a class="channel" href="{{ channel.url }}" target="_blank" rel="noopener">
+        <img src="{% static channel.image %}" alt="شعار {{ channel.name }}">
+        <div>
+          <h3>{{ channel.what }}</h3>
+          <p>{{ channel.how }}</p>
+          <span class="channel-name">{{ channel.name }} <i class="bi bi-box-arrow-up-left"></i></span>
+        </div>
+      </a>
+    {% endfor %}
   </div>
 </section>
 {% endblock %}
