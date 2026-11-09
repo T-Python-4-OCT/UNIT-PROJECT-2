@@ -1,0 +1,87 @@
+{
+  "title": "MOI Evolution",
+  "subtitle": "From a Hijaz administrative body to a digital ministry serving the whole Kingdom.",
+  "intro": "The Ministry of Interior grew through successive stages of organization, from an early administrative authority in the Hijaz to a ministry that supervises every region of the Kingdom. In recent years it has added a digital layer of e-services on top of this foundation.",
+  "sections": [
+    {
+      "type": "timeline",
+      "heading": "Foundations of the Ministry",
+      "note": "Gregorian years are the equivalents of the Hijri dates published by the Ministry.",
+      "items": [
+        {
+          "date": "1926",
+          "hijri": "1344-1345 H",
+          "title": "A General Authority for the Hijaz",
+          "text": "A General Authority is formed to administer the Hijaz. Under the basic law of governance, internal affairs go to the Public Prosecution Department, covering public security, posts and telegraph, public health, municipalities, public works, commerce, agriculture, industry, and minerals.",
+          "source": "moi"
+        },
+        {
+          "date": "1931",
+          "hijri": "1350 H",
+          "title": "The Ministry of Interior takes shape",
+          "text": "A royal decree divides the General Prosecution in two. One part becomes the Ministry of Interior, responsible for health, education, posts and telegraph, courts, police, municipalities, and endowments.",
+          "source": "moi"
+        },
+        {
+          "date": "1934",
+          "hijri": "1353 H",
+          "title": "Merged with the Deputies Council",
+          "text": "A royal decree merges the Ministry with the Deputies Council Bureau, and its responsibilities pass to the Council of Deputies.",
+          "source": "moi"
+        },
+        {
+          "date": "1951",
+          "hijri": "1370 H",
+          "title": "The Ministry is reorganized",
+          "text": "A royal decree reorganizes the Ministry. It becomes responsible for the administration of regions and emirates, and for security sectors in the Hijaz region.",
+          "source": "moi"
+        },
+        {
+          "date": "1955",
+          "hijri": "1375 H",
+          "title": "Relocation to Riyadh",
+          "text": "The Ministry moves from the Hijaz to Riyadh and begins supervising the Kingdom's regions step by step.",
+          "source": "moi"
+        },
+        {
+          "date": "1960",
+          "hijri": "1380 H",
+          "title": "Supervision covers the whole Kingdom",
+          "text": "The Ministry's supervision now extends across all regions of the Kingdom.",
+          "source": "moi"
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "heading": "The Digital Era",
+      "items": [
+        {
+          "date": "2010",
+          "title": "Absher is established",
+          "text": "The Ministry's online services platform, Absher, is established.",
+          "source": "saudipedia"
+        },
+        {
+          "date": "2015-2016",
+          "title": "Absher on mobile",
+          "text": "The Absher app is released on the App Store in 2015 and on Google Play in 2016.",
+          "source": "saudipedia"
+        },
+        {
+          "date": "April 2018",
+          "title": "Absher Business",
+          "text": "The Ministry launches Absher Business to move its services for businesses to an interactive digital system.",
+          "source": "arabnews_absher"
+        },
+        {
+          "date": "2024",
+          "title": "28 million digital identities",
+          "text": "More than 28 million unified digital IDs have been issued through Absher, which offers over 460 services across its Individuals, Business, and Government platforms.",
+          "source": "saudipedia"
+        }
+      ]
+    }
+  ],
+  "sources": ["moi", "saudipedia", "arabnews_absher"]
+}
