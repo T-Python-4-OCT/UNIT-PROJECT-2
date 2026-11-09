@@ -89,6 +89,24 @@
       "name": "Asharq Al-Awsat — King Salman Era Marks Saudi Shift from Digital State to AI Sovereignty",
       "url": "https://english.aawsat.com/node/5232804",
       "note": "Source for SDAIA's role in developing Nafath."
+    },
+        {
+      "id": "saudigazette_911_2025",
+      "name": "Saudi Gazette — Al-Bassami unveils plan to expand 911 to all Saudi regions",
+      "url": "https://cdn.saudigazette.com.sa/article/657527/SAUDI-ARABIA/Al-Bassami-unveils-plan-to-expand-security-reporting-service-911-to-all-Saudi-regions",
+      "note": "Public Security Director's address at the Absher Conference 2025; published 18 Dec 2025."
+    },
+    {
+      "id": "asharq_security",
+      "name": "Asharq Al-Awsat — Saudi Arabia Strengthens Public Safety with Smart Security Measures",
+      "url": "https://english.aawsat.com/gulf/5289994-saudi-arabia-strengthens-public-safety-smart-security-measures",
+      "note": "Source for the Unified Crime Classification System."
+    },
+    {
+      "id": "informedinfrastructure_911",
+      "name": "Informed Infrastructure — Unified Security Operations Center (911) in Makkah",
+      "url": "https://informedinfrastructure.com/?p=35049",
+      "note": "Technology-industry article; source for the start of 911 in Makkah (2015). Verify on moi.gov.sa."
     }
   ]
 }
