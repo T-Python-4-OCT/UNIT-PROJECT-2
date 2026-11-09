@@ -1,0 +1,230 @@
+/* ===== Design tokens ===== */
+:root,
+[data-bs-theme="light"] {
+  --c-bg: #ffffff;
+  --c-surface: #f4f7f5;
+  --c-text: #1b2a24;
+  --c-heading: #0b3d2e;
+  --c-muted: #55645d;
+  --c-border: #dce4df;
+  --c-accent: #b08d3c;
+  --c-accent-text: #7a5f17;
+  --c-primary: #0b3d2e;
+  --c-primary-hover: #14594a;
+
+  --bs-body-bg: var(--c-bg);
+  --bs-body-color: var(--c-text);
+  --bs-secondary-color: var(--c-muted);
+  --bs-border-color: var(--c-border);
+  --bs-link-color-rgb: 11, 93, 69;
+  --bs-link-hover-color-rgb: 7, 64, 48;
+}
+
+[data-bs-theme="dark"] {
+  --c-bg: #0a1814;
+  --c-surface: #112620;
+  --c-text: #e8efeb;
+  --c-heading: #f1f5f3;
+  --c-muted: #a3b5ac;
+  --c-border: #23413a;
+  --c-accent: #d4b15f;
+  --c-accent-text: #d4b15f;
+  --c-primary: #1f7a5a;
+  --c-primary-hover: #26926d;
+
+  --bs-link-color-rgb: 111, 208, 168;
+  --bs-link-hover-color-rgb: 160, 230, 200;
+}
+
+/* ===== Base ===== */
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+}
+
+main { flex: 1; }
+
+h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
+
+:focus-visible {
+  outline: 3px solid var(--c-accent);
+  outline-offset: 2px;
+}
+
+.card {
+  --bs-card-bg: var(--c-surface);
+  --bs-card-border-color: var(--c-border);
+}
+
+.journey h2,
+.about h2 {
+  padding-bottom: 0.6rem;
+}
+
+.journey h2::after,
+.about h2::after {
+  content: "";
+  display: block;
+  width: 48px;
+  height: 3px;
+  margin-top: 0.6rem;
+  background: var(--c-accent);
+}
+
+/* ===== Buttons ===== */
+.btn-primary {
+  --bs-btn-bg: var(--c-primary);
+  --bs-btn-border-color: var(--c-primary);
+  --bs-btn-color: #fff;
+  --bs-btn-hover-bg: var(--c-primary-hover);
+  --bs-btn-hover-border-color: var(--c-primary-hover);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-active-bg: var(--c-primary-hover);
+  --bs-btn-active-border-color: var(--c-primary-hover);
+  --bs-btn-active-color: #fff;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: rgb(var(--bs-link-color-rgb));
+  --bs-btn-border-color: rgb(var(--bs-link-color-rgb));
+  --bs-btn-hover-bg: var(--c-primary);
+  --bs-btn-hover-border-color: var(--c-primary);
+  --bs-btn-hover-color: #fff;
+}
+
+/* ===== Navbar ===== */
+.site-navbar {
+  --bs-navbar-color: rgba(255, 255, 255, 0.82);
+  --bs-navbar-hover-color: #fff;
+  --bs-navbar-active-color: #d4b15f;
+  --bs-navbar-brand-color: #fff;
+  --bs-navbar-brand-hover-color: #fff;
+  --bs-navbar-toggler-border-color: rgba(255, 255, 255, 0.4);
+  position: sticky;
+  top: 0;
+  z-index: 1030;
+  background: #072a20;
+  border-bottom: 2px solid var(--c-accent);
+}
+
+.site-navbar .navbar-brand {
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.site-navbar .navbar-toggler-icon { filter: invert(1); }
+.site-navbar .nav-link.active { font-weight: 600; }
+
+/* ===== Hero ===== */
+.hero {
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  background: linear-gradient(135deg, #072a20 0%, #0b3d2e 55%, #14594a 100%);
+}
+
+.hero::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: radial-gradient(rgba(212, 177, 95, 0.22) 1px, transparent 1px);
+  background-size: 28px 28px;
+  mask-image: linear-gradient(to left, #000, transparent 70%);
+}
+
+.hero .container { position: relative; z-index: 1; }
+
+.hero-eyebrow {
+  margin-bottom: 1rem;
+  color: #d4b15f;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.hero-title {
+  max-width: 22ch;
+  color: #fff;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+}
+
+.hero-description {
+  max-width: 60ch;
+  margin: 1.25rem 0 2rem;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+.hero .btn-primary {
+  --bs-btn-bg: #d4b15f;
+  --bs-btn-border-color: #d4b15f;
+  --bs-btn-color: #072a20;
+  --bs-btn-hover-bg: #e2c57f;
+  --bs-btn-hover-border-color: #e2c57f;
+  --bs-btn-hover-color: #072a20;
+  --bs-btn-active-bg: #e2c57f;
+  --bs-btn-active-border-color: #e2c57f;
+  --bs-btn-active-color: #072a20;
+}
+
+.hero .btn-outline-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-border-color: rgba(255, 255, 255, 0.6);
+  --bs-btn-hover-bg: #fff;
+  --bs-btn-hover-border-color: #fff;
+  --bs-btn-hover-color: #0b3d2e;
+}
+
+/* ===== Journey cards ===== */
+.journey-card:hover,
+.journey-card:focus-visible {
+  transform: translateY(-4px);
+  border-color: var(--c-accent);
+  box-shadow: 0 10px 24px rgba(7, 42, 32, 0.12);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .journey-card {
+    transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+  }
+}
+
+.journey-number {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: var(--c-accent-text);
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* ===== About ===== */
+.about {
+  background: var(--c-surface);
+  border-block: 1px solid var(--c-border);
+}
+
+.about p { max-width: 70ch; }
+
+/* ===== Footer ===== */
+.site-footer {
+  color: rgba(255, 255, 255, 0.8);
+  background: #072a20;
+  border-top: 2px solid var(--c-accent);
+}
+
+.site-footer a {
+  color: rgba(255, 255, 255, 0.85);
+  text-decoration: none;
+}
+
+.site-footer a:hover { color: #d4b15f; }
+
+.footer-tagline {
+  color: #d4b15f;
+  font-weight: 600;
+}
