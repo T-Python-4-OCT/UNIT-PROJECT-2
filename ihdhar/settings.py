@@ -18,6 +18,10 @@ SECRET_KEY = os.getenv("DJANGO_SECRET_KEY", "dev-only-secret-key-change-me")
 DEBUG = os.getenv("DJANGO_DEBUG", "True") == "True"
 ALLOWED_HOSTS = ["127.0.0.1", "localhost"]
 
+# OpenRouter (AI) settings
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
+OPENROUTER_MODEL = os.getenv("OPENROUTER_MODEL", "openai/gpt-4o-mini")
+
 # Folder where the JSON files are saved
 DATA_DIR = BASE_DIR / "data"
 
@@ -25,6 +29,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "django.contrib.messages",
     "main",
+    "detector",
 ]
 
 MIDDLEWARE = [

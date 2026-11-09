@@ -1,0 +1,7 @@
+{# Safety ring. Use: {% include "detector/partials/gauge.html" with score=result.score css=verdict.css %} #}
+<div class="gauge gauge-{{ css }}" style="--score: {{ score }};" role="img" aria-label="نسبة الأمان {{ score }} من 100">
+  <div class="gauge-inner">
+    <strong>{{ score }}<small>%</small></strong>
+    <span>نسبة الأمان</span>
+  </div>
+</div>

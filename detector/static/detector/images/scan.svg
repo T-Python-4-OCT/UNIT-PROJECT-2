@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120" role="img" aria-label="فحص رسالة">
+  <rect x="18" y="14" width="74" height="92" rx="14" fill="#ffffff" stroke="#cfe0d7" stroke-width="3"/>
+  <rect x="30" y="32" width="50" height="7" rx="3.5" fill="#d9e8e0"/>
+  <rect x="30" y="47" width="40" height="7" rx="3.5" fill="#ffd9db"/>
+  <rect x="30" y="62" width="46" height="7" rx="3.5" fill="#d9e8e0"/>
+  <rect x="30" y="77" width="30" height="7" rx="3.5" fill="#ffd9db"/>
+  <circle cx="82" cy="78" r="21" fill="none" stroke="#16875a" stroke-width="7"/>
+  <line x1="97" y1="93" x2="110" y2="106" stroke="#16875a" stroke-width="9" stroke-linecap="round"/>
+</svg>

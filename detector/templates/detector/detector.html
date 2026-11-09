@@ -1,0 +1,55 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'detector/css/detector.css' %}">{% endblock %}
+{% block title %}الكاشف الذكي{% endblock %}
+{% block body_class %}page-detector{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero-tight night">
+  <div class="container">
+    <h1>الكاشف الذكي</h1>
+    <p>الصق الرسالة المشبوهة، واعرف إذا كان فيها احتيال ووش تسوي.</p>
+  </div>
+</section>
+
+<section class="container detector-layout">
+  <div class="tool-panel">
+    <form method="post" action="{% url 'detector:home' %}#result" class="tool-form" data-loading>
+      {% csrf_token %}
+      <label for="text" class="field-label">نص الرسالة</label>
+      <div class="textarea-wrap">
+        <textarea id="text" name="text" rows="7" minlength="10" maxlength="2000" required data-counter="text-count"
+                  placeholder="مثال: عميلنا العزيز، سيتم إيقاف حسابك خلال 24 ساعة…">{{ text }}</textarea>
+        <button type="button" class="paste-btn" data-paste="text"><i class="bi bi-clipboard"></i> لصق</button>
+      </div>
+      <div class="field-meta">
+        <span><span id="text-count">{{ text|length }}</span> / 2000 حرف</span>
+        <span>الحد الأدنى 10 أحرف</span>
+      </div>
+      {% if error %}<p class="field-error" role="alert"><i class="bi bi-exclamation-circle"></i> {{ error }}</p>{% endif %}
+
+      <button class="btn-signal btn-wide" type="submit"><i class="bi bi-shield-check"></i> افحص الرسالة</button>
+    </form>
+
+    <p class="engine-note">
+      {% if ai_ready %}
+        <i class="bi bi-stars"></i> الفحص يجمع بين القواعد المحلية والذكاء الاصطناعي.
+      {% else %}
+        <i class="bi bi-cpu"></i> الذكاء الاصطناعي غير مفعّل، الفحص يتم بالقواعد المحلية فقط. أضف OPENROUTER_API_KEY في ملف .env لتفعيله.
+      {% endif %}
+    </p>
+  </div>
+
+  <div class="result-area" id="result">
+    {% if result %}
+      {% include "detector/result_card.html" %}
+    {% else %}
+      <div class="result-empty">
+        <img class="empty-art" src="{% static 'detector/images/scan.svg' %}" alt="">
+        <h2>النتيجة تظهر هنا</h2>
+        <p>بنعطيك نسبة أمان من 100، ونلوّن الكلمات المشبوهة داخل الرسالة نفسها، ونقول لك إذا الرقم أو الرابط مبلّغ عنه في المجتمع.</p>
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}
