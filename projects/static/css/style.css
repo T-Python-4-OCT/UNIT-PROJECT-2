@@ -883,6 +883,230 @@ h2 {
         padding: 32px 24px;
     }
 }
+/* =========================================================
+   HOME: LEADER QUOTE
+   ========================================================= */
+
+.quote-card {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 48px;
+    align-items: center;
+    padding: 40px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    box-shadow: var(--shadow);
+}
+
+.quote-photo {
+    margin: 0;
+    aspect-ratio: 4 / 5;
+    border-radius: 18px;
+    overflow: hidden;
+    background: var(--surface-2);
+}
+
+.quote-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.quote-icon {
+    font-size: 56px;
+    color: var(--gold);
+}
+
+.quote-body blockquote {
+    margin: 0;
+}
+
+.quote-ar {
+    font-family: 'Noto Kufi Arabic', sans-serif;
+    font-size: clamp(22px, 2.6vw, 30px);
+    font-weight: 600;
+    line-height: 1.9;
+}
+
+.quote-en {
+    margin-top: 14px;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.7;
+}
+
+.quote-author {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    margin: 24px 0 20px;
+    padding-left: 16px;
+    border-left: 3px solid var(--accent);
+}
+
+.quote-author span {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+.quote-body audio {
+    width: 100%;
+    max-width: 420px;
+}
+
+body[data-theme="dark"] .quote-body audio {
+    color-scheme: dark;
+}
+
+@media (max-width: 900px) {
+    .quote-card {
+        grid-template-columns: 1fr;
+        gap: 28px;
+        padding: 28px;
+    }
+
+    .quote-photo {
+        max-width: 260px;
+    }
+}
+/* =========================================================
+   ALL PROJECTS
+   ========================================================= */
+
+.hero.hero-page {
+    min-height: 420px;
+}
+
+.hero-page h1 {
+    font-size: clamp(36px, 5vw, 56px);
+}
+
+.toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-bottom: 36px;
+}
+
+.search-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    max-width: 640px;
+    padding: 6px 6px 6px 18px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    box-shadow: var(--shadow);
+    transition: border-color .2s ease;
+}
+
+.search-field:focus-within {
+    border-color: var(--accent);
+}
+
+.search-field > .material-symbols-outlined {
+    color: var(--muted);
+}
+
+.search-field .btn {
+    border-radius: 999px;
+    cursor: pointer;
+}
+
+.search-field input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font: inherit;
+    font-size: 15px;
+}
+
+.search-field input::placeholder {
+    color: var(--muted);
+}
+
+.chips {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.chip {
+    padding: 8px 18px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    background: var(--surface);
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+    transition: all .2s ease;
+}
+
+.chip:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+.chip.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-text);
+}
+
+.results-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+}
+
+.results-count {
+    font-size: 24px;
+}
+
+.empty-state {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    padding: 64px 24px;
+    text-align: center;
+    background: var(--surface);
+    border: 1px dashed var(--border);
+    border-radius: 20px;
+}
+
+.empty-state > .material-symbols-outlined {
+    font-size: 52px;
+    color: var(--accent);
+}
+
+.empty-state p {
+    color: var(--muted);
+    margin-bottom: 8px;
+}
+
+@media (max-width: 600px) {
+    .hero.hero-page {
+        min-height: 340px;
+    }
+
+    .search-field .btn {
+        padding: 10px 16px;
+    }
+
+    .results-count {
+        font-size: 20px;
+    }
+}
 
 /* ---------- Temporary (removed in later steps) ---------- */
 

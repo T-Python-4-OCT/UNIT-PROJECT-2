@@ -20,7 +20,31 @@ def home(request: HttpRequest):
 
 
 def all_projects(request: HttpRequest):
-    return render(request, 'projects/all_projects.html')
+    projects = load_projects()
+    categories = sorted({project['category'] for project in projects})
+
+    q = request.GET.get('q', '').strip()
+    category = request.GET.get('category', '')
+
+    if q:
+        text = q.lower()
+        projects = [
+            project for project in projects
+            if text in project['name'].lower()
+            or text in project['location'].lower()
+            or text in project['category'].lower()
+        ]
+
+    if category:
+        projects = [project for project in projects if project['category'] == category]
+
+    context = {
+        'projects': projects,
+        'categories': categories,
+        'q': q,
+        'category': category,
+    }
+    return render(request, 'projects/all_projects.html', context)
 
 
 def project_detail(request: HttpRequest, project_slug):

@@ -1,0 +1,16 @@
+{% load static %}
+<article class="project-card">
+    <a href="{% url 'projects:project_detail' project.slug %}">
+        <div class="card-img">
+            <img src="{% static project.image %}" alt="{{ project.name }}">
+            <span class="card-tag">{{ project.category }}</span>
+        </div>
+        <div class="card-body">
+            <h3>{{ project.name }}</h3>
+            <p>{{ project.tagline }}</p>
+            <span class="card-location">
+                <span class="material-symbols-outlined">location_on</span>{{ project.location }}
+            </span>
+        </div>
+    </a>
+</article>

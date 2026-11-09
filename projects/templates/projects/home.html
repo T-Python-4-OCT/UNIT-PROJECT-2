@@ -62,6 +62,31 @@
         <p>Effective, transparent and responsive to its people.</p>
     </div>
 </section>
+<!-- ================= LEADER QUOTE ================= -->
+<section class="container section">
+    <div class="quote-card">
+        <figure class="quote-photo">
+            <img src="{% static 'images/crown-prince.jpeg' %}" alt="Crown Prince Mohammed bin Salman">
+        </figure>
+
+        <div class="quote-body">
+            <span class="material-symbols-outlined quote-icon">format_quote</span>
+            <blockquote>
+                <p class="quote-ar" lang="ar" dir="rtl">همة السعوديين مثل جبل طويق، ولن تنكسر إلا إذا انهدّ هذا الجبل وتساوى بالأرض</p>
+                <p class="quote-en">"The determination of Saudis is like Mount Tuwaiq. It will not break unless this mountain crumbles and is levelled to the ground."</p>
+            </blockquote>
+
+            <div class="quote-author">
+                <strong>HRH Prince Mohammed bin Salman</strong>
+                <span>Crown Prince and Prime Minister</span>
+            </div>
+
+            <audio controls preload="none">
+                <source src="{% static 'audio/tuwaiq.mp3' %}" type="audio/mpeg">
+            </audio>
+        </div>
+    </div>
+</section>
 
 <!-- ================= PROJECTS ================= -->
 <section class="container section">
@@ -77,21 +102,7 @@
 
     <div class="cards-grid">
         {% for project in projects %}
-            <article class="project-card">
-                <a href="{% url 'projects:project_detail' project.slug %}">
-                    <div class="card-img">
-                        <img src="{% static project.image %}" alt="{{ project.name }}">
-                        <span class="card-tag">{{ project.category }}</span>
-                    </div>
-                    <div class="card-body">
-                        <h3>{{ project.name }}</h3>
-                        <p>{{ project.tagline }}</p>
-                        <span class="card-location">
-                            <span class="material-symbols-outlined">location_on</span>{{ project.location }}
-                        </span>
-                    </div>
-                </a>
-            </article>
+            {% include 'projects/project_card.html' %}
         {% endfor %}
     </div>
 </section>
