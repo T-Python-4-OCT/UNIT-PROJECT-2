@@ -28,6 +28,9 @@
       </div>
       {% if error %}<p class="field-error" role="alert"><i class="bi bi-exclamation-circle"></i> {{ error }}</p>{% endif %}
 
+      <label class="check-line">
+        <input type="checkbox" name="save" {% if save_on %}checked{% endif %}> <span>احفظ النتيجة في سجل الفحوصات</span>
+      </label>
       <button class="btn-signal btn-wide" type="submit"><i class="bi bi-shield-check"></i> افحص الرسالة</button>
     </form>
 
@@ -48,6 +51,7 @@
         <img class="empty-art" src="{% static 'detector/images/scan.svg' %}" alt="">
         <h2>النتيجة تظهر هنا</h2>
         <p>بنعطيك نسبة أمان من 100، ونلوّن الكلمات المشبوهة داخل الرسالة نفسها، ونقول لك إذا الرقم أو الرابط مبلّغ عنه في المجتمع.</p>
+        <a class="text-link" href="{% url 'detector:history' %}"><i class="bi bi-clock-history"></i> شوف سجل الفحوصات</a>
       </div>
     {% endif %}
   </div>

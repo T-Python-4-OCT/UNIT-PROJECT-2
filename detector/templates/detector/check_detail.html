@@ -1,0 +1,18 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'detector/css/detector.css' %}">{% endblock %}
+{% block title %}فحص رقم {{ result.id }}{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero-tight night">
+  <div class="container">
+    <a class="back-link" href="{% url 'detector:history' %}"><i class="bi bi-arrow-right"></i> سجل الفحوصات</a>
+    <h1>فحص رقم {{ result.id }}</h1>
+    <p>{{ result.created_at }}</p>
+  </div>
+</section>
+
+<section class="container section-tight narrow">
+  {% include "detector/result_card.html" %}
+</section>
+{% endblock %}
