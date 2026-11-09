@@ -1,0 +1,89 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}الفعاليات | الدرعية{% endblock %}
+
+{% block content %}
+
+<section class="events-hero">
+    <img
+        src="{% static 'main/images/event-salwa.webp' %}"
+        alt="عرض مرئي على واجهة قصر سلوى"
+        class="events-hero-image"
+    >
+
+    <div class="events-hero-overlay"></div>
+
+    <div class="events-hero-content">
+        <span class="events-label">فعاليات الدرعية</span>
+        <h1>الفعاليات</h1>
+        <p>اكتشف التجارب الثقافية التي تحكي تاريخ الدرعية وإرثها العريق.</p>
+    </div>
+</section>
+
+<section class="events-section" id="events">
+    <div class="events-container">
+
+        <div class="events-heading">
+            <span class="events-decoration">◆ ◆ ◆</span>
+            <h2>فعاليات الدرعية</h2>
+            <p>تجارب ثقافية تجمع بين أصالة التاريخ وروعة الحاضر.</p>
+        </div>
+
+        <div class="event-feature">
+
+            <div class="event-image-wrapper">
+                <img
+                    src="{% static 'main/images/event-salwa.webp' %}"
+                    alt="العرض المرئي على واجهة قصر سلوى"
+                    class="event-feature-image"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="event-info">
+                <span class="event-category">التراث والثقافة</span>
+
+                <h3>عرض مرئي على واجهة قصر سلوى</h3>
+
+                <p class="event-description">
+                    تجربة بصرية تستعرض جوانب من تاريخ الدرعية
+                    وإرث الدولة السعودية الأولى، من خلال عرض مرئي
+                    على واجهة قصر سلوى في حي الطريف التاريخي.
+                </p>
+
+                <div class="event-details">
+
+                    <div class="event-detail">
+                        <span class="event-detail-icon">✦</span>
+                        <div>
+                            <h4>الموقع</h4>
+                            <p>قصر سلوى – حي الطريف التاريخي</p>
+                        </div>
+                    </div>
+
+                    <div class="event-detail">
+                        <span class="event-detail-icon">✦</span>
+                        <div>
+                            <h4>نوع التجربة</h4>
+                            <p>عرض مرئي ثقافي وتراثي</p>
+                        </div>
+                    </div>
+
+                    <div class="event-detail">
+                        <span class="event-detail-icon">✦</span>
+                        <div>
+                            <h4>عن الفعالية</h4>
+                            <p>رحلة بصرية مستوحاة من تاريخ الدرعية</p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
