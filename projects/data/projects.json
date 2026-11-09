@@ -2,18 +2,251 @@
     {
         "slug": "diriyah",
         "name": "Diriyah",
+        "arabic_name": "الدرعية",
         "category": "Culture & Heritage",
         "location": "Riyadh",
         "tagline": "Where the Saudi story began.",
-        "image": "images/diriyah.jpg"
+        "image": "images/diriyah.jpg",
+        "hero": "images/diriyah-hero.jpg",
+        "collage": [
+            "images/diriyah-3.jpg",
+            "images/diriyah-1.jpg"
+        ],
+        "band_image": "images/diriyah-2.jpg",
+        "headline": "The Birthplace of the Saudi State",
+        "overview": "Founded in 1446, Diriyah became the capital of the First Saudi State in 1727. Today, the Diriyah giga-project is transforming the area around the historic At-Turaif District into a global destination for culture, heritage, dining and hospitality, inspired by traditional Najdi architecture.",
+        "badge": "UNESCO World Heritage Site",
+        "website": "https://www.diriyah.sa",
+        "stats": [
+            {
+                "value": "1446",
+                "label": "Founded"
+            },
+            {
+                "value": "$62.2B",
+                "label": "Investment"
+            },
+            {
+                "value": "50M+",
+                "label": "Visits by 2030"
+            }
+        ],
+        "timeline": [
+            {
+                "year": "1446",
+                "title": "The Founding",
+                "text": "Diriyah is founded on the banks of Wadi Hanifah."
+            },
+            {
+                "year": "1727",
+                "title": "A State is Born",
+                "text": "Diriyah becomes the capital of the First Saudi State."
+            },
+            {
+                "year": "2010",
+                "title": "World Heritage",
+                "text": "At-Turaif District joins the UNESCO World Heritage List."
+            },
+            {
+                "year": "2017",
+                "title": "A New Chapter",
+                "text": "The Diriyah giga-project begins."
+            },
+            {
+                "year": "2030",
+                "title": "The Vision",
+                "text": "Diriyah aims to welcome over 50 million visits a year."
+            }
+        ],
+        "highlights": [
+            {
+                "icon": "fort",
+                "title": "At-Turaif District",
+                "text": "The mud-brick city that was the seat of the First Saudi State, preserved as a UNESCO World Heritage Site.",
+                "image": "images/diriyah-3.jpg"
+            },
+            {
+                "icon": "restaurant",
+                "title": "Bujairi Terrace",
+                "text": "Restaurants and cafés overlooking At-Turaif, built in traditional Najdi style along Wadi Hanifah.",
+                "image": "images/diriyah-1.jpg"
+            },
+            {
+                "icon": "park",
+                "title": "Wadi Hanifah",
+                "text": "A restored green valley with walking trails."
+            },
+            {
+                "icon": "architecture",
+                "title": "Najdi Architecture",
+                "text": "Traditional design that shapes every new building."
+            }
+        ],
+        "gallery": [
+            {
+                "image": "images/diriyah-hero.jpg",
+                "caption": "At-Turaif at night",
+                "text": "UNESCO World Heritage Site"
+            },
+            {
+                "image": "images/diriyah-2.jpg",
+                "caption": "Bujairi entrance",
+                "text": "Gateway to the terrace"
+            },
+            {
+                "image": "images/diriyah-4.jpg",
+                "caption": "Najdi courtyard",
+                "text": "Traditional architecture"
+            },
+            {
+                "image": "images/diriyah-1.jpg",
+                "caption": "Bujairi Terrace",
+                "text": "Dining by Wadi Hanifah"
+            },
+            {
+                "image": "images/diriyah-3.jpg",
+                "caption": "Salwa Palace",
+                "text": "Seat of the First Saudi State"
+            }
+        ]
     },
     {
         "slug": "qiddiya",
         "name": "Qiddiya",
+        "arabic_name": "القدية",
         "category": "Entertainment",
         "location": "Riyadh",
         "tagline": "The capital of play.",
-        "image": "images/qiddiya.jpg"
+        "image": "images/qiddiya.jpg",
+        "hero": "images/qiddiya-band.jpg",
+        "collage": [
+            "images/qiddiya-1.jpg",
+            "images/qiddiya-2.jpg"
+        ],
+        "band_image": "images/qiddiya-band.jpg",
+        "headline": "A City Built Around Play",
+        "overview": "Qiddiya City, about 45 km from downtown Riyadh, is being built as a destination for entertainment, sports and culture. Its first major attractions, Six Flags Qiddiya City and the Aquarabia water theme park, are now open to visitors.",
+        "badge": "Home of the world's tallest coaster",
+        "website": "https://qiddiya.com",
+        "stats": [
+            {
+                "value": "195m",
+                "label": "Falcon's Flight"
+            },
+            {
+                "value": "28",
+                "label": "Rides at Six Flags"
+            },
+            {
+                "value": "45km",
+                "label": "From Riyadh"
+            }
+        ],
+        "ticker": [
+            "Six Flags Qiddiya City",
+            "Now Open",
+            "Aquarabia",
+            "World Records",
+            "Falcon's Flight",
+            "28 Rides",
+            "Six Themed Lands"
+        ],
+        "record": {
+            "name": "Falcon's Flight",
+            "text": "The marquee coaster at Six Flags Qiddiya City launches riders off the edge of the Tuwaiq cliffs, holding three world records at once.",
+            "gauges": [
+                {
+                    "value": "195",
+                    "unit": "m",
+                    "label": "World's tallest"
+                },
+                {
+                    "value": "250",
+                    "unit": "km/h",
+                    "label": "World's fastest"
+                },
+                {
+                    "value": "4.2",
+                    "unit": "km",
+                    "label": "World's longest"
+                }
+            ]
+        },
+        "zones": [
+            {
+                "title": "Six Flags Qiddiya City",
+                "text": "28 rides and attractions across six themed lands.",
+                "image": "images/qiddiya-band.jpg",
+                "tag": "Open"
+            },
+            {
+                "title": "Aquarabia",
+                "text": "The region's largest water theme park.",
+                "image": "images/qiddiya-1.jpg",
+                "tag": "Open"
+            },
+            {
+                "title": "Speed Park",
+                "text": "A motorsport track woven through the city.",
+                "image": "images/qiddiya-3.jpg",
+                "tag": "Planned"
+            },
+            {
+                "title": "Gaming & Esports District",
+                "text": "A home for gamers, creators and tournaments.",
+                "image": "images/qiddiya-4.jpg",
+                "tag": "Planned"
+            }
+        ],
+        "highlights": [
+            {
+                "icon": "rocket_launch",
+                "title": "Falcon's Flight",
+                "text": "The world's tallest, fastest and longest roller coaster."
+            },
+            {
+                "icon": "attractions",
+                "title": "Six Flags Qiddiya City",
+                "text": "28 rides and attractions across six themed lands."
+            },
+            {
+                "icon": "pool",
+                "title": "Aquarabia",
+                "text": "The region's largest water theme park."
+            },
+            {
+                "icon": "sports_soccer",
+                "title": "Sports & Culture",
+                "text": "Venues for sports, events and the arts."
+            }
+        ],
+        "gallery": [
+            {
+                "image": "images/qiddiya-1.jpg",
+                "caption": "Aquarabia",
+                "text": "The region's largest water theme park"
+            },
+            {
+                "image": "images/qiddiya-3.jpg",
+                "caption": "Speed Park",
+                "text": "Grandstands above the race track"
+            },
+            {
+                "image": "images/qiddiya-2.jpg",
+                "caption": "The Race Track",
+                "text": "A circuit woven through the city"
+            },
+            {
+                "image": "images/qiddiya-4.jpg",
+                "caption": "Gaming & Esports District",
+                "text": "A hub for gamers and creators"
+            },
+            {
+                "image": "images/qiddiya-5.jpg",
+                "caption": "Golf Course",
+                "text": "Greens beneath the Tuwaiq cliffs"
+            }
+        ]
     },
     {
         "slug": "red-sea",
@@ -21,7 +254,47 @@
         "category": "Tourism",
         "location": "Red Sea Coast",
         "tagline": "Luxury in harmony with nature.",
-        "image": "images/red-sea.jpg"
+        "image": "images/red-sea.jpg",
+        "headline": "Where the Desert Meets the Reef",
+        "overview": "The Red Sea destination covers 28,000 km² of the western coast, with an archipelago of more than 90 islands. Developed by Red Sea Global, it welcomed its first guests in 2023 and is planned around regenerative tourism, with most of the archipelago left untouched.",
+        "badge": "75% of the archipelago untouched",
+        "website": "https://www.redseaglobal.com",
+        "stats": [
+            {
+                "value": "28,000",
+                "label": "Square km"
+            },
+            {
+                "value": "90+",
+                "label": "Islands"
+            },
+            {
+                "value": "8,000",
+                "label": "Rooms by 2030"
+            }
+        ],
+        "highlights": [
+            {
+                "icon": "sailing",
+                "title": "Ummahat Island",
+                "text": "Island resorts surrounded by coral reefs."
+            },
+            {
+                "icon": "landscape",
+                "title": "Desert Rock",
+                "text": "A resort carved into the mountains."
+            },
+            {
+                "icon": "beach_access",
+                "title": "Shura Island",
+                "text": "The main island hub of the destination."
+            },
+            {
+                "icon": "eco",
+                "title": "Regenerative Tourism",
+                "text": "Nine islands set aside as conservation zones."
+            }
+        ]
     },
     {
         "slug": "alula",
@@ -29,7 +302,54 @@
         "category": "Culture & Heritage",
         "location": "AlUla",
         "tagline": "A living museum in the desert.",
-        "image": "images/alula.jpg"
+        "image": "images/alula.jpg",
+        "headline": "Thousands of Years of Living History",
+        "overview": "AlUla in north-west Saudi Arabia has been home to people for thousands of years, from the Dadanite and Lihyanite kingdoms to the Nabataeans. It is home to Hegra, the Kingdom's first UNESCO World Heritage Site, and is being developed by the Royal Commission for AlUla as a global destination for culture and nature.",
+        "badge": "Saudi Arabia's first UNESCO site",
+        "website": "https://www.experiencealula.com",
+        "stats": [
+            {
+                "value": "7,000+",
+                "label": "Years of history"
+            },
+            {
+                "value": "2008",
+                "label": "Hegra on UNESCO"
+            },
+            {
+                "value": "2017",
+                "label": "RCU founded"
+            }
+        ],
+        "highlights": [
+            {
+                "icon": "account_balance",
+                "title": "Hegra",
+                "text": "Monumental Nabataean tombs carved into sandstone."
+            },
+            {
+                "icon": "theater_comedy",
+                "title": "Maraya",
+                "text": "The world's largest mirrored building, used as a concert hall."
+            },
+            {
+                "icon": "landscape",
+                "title": "Elephant Rock",
+                "text": "A giant rock formation shaped like an elephant."
+            },
+            {
+                "icon": "home_work",
+                "title": "AlUla Old Town",
+                "text": "A historic mud-brick village with over 900 homes."
+            }
+        ],
+        "gallery": [
+            {
+                "image": "images/alula.jpg",
+                "caption": "AlUla desert",
+                "text": "Sandstone landscapes"
+            }
+        ]
     },
     {
         "slug": "king-salman-park",
@@ -37,7 +357,47 @@
         "category": "Quality of Life",
         "location": "Riyadh",
         "tagline": "A green heart for the capital.",
-        "image": "images/king-salman-park.jpg"
+        "image": "images/king-salman-park.jpg",
+        "headline": "Nature in the Heart of Riyadh",
+        "overview": "Built on the site of the former Riyadh Air Base, King Salman Park is planned as one of the largest urban parks in the world. It will bring green spaces, cultural venues and sports facilities to the heart of Riyadh, including the Royal Arts Complex.",
+        "badge": "One of the world's largest urban parks",
+        "website": "https://www.kingsalmanpark.sa",
+        "stats": [
+            {
+                "value": "16.6",
+                "label": "Square km"
+            },
+            {
+                "value": "1M",
+                "label": "Trees planned"
+            },
+            {
+                "value": "7.2km",
+                "label": "Urban loop path"
+            }
+        ],
+        "highlights": [
+            {
+                "icon": "museum",
+                "title": "Royal Arts Complex",
+                "text": "A museum, national theatre and arts institute."
+            },
+            {
+                "icon": "forest",
+                "title": "Green Spaces",
+                "text": "Over 11 km² of green space in the city."
+            },
+            {
+                "icon": "directions_walk",
+                "title": "Urban Loop",
+                "text": "A 7.2 km path circling the park."
+            },
+            {
+                "icon": "visibility",
+                "title": "Visitor Pavilion",
+                "text": "An environmental and cultural centre."
+            }
+        ]
     },
     {
         "slug": "roshn",
@@ -45,6 +405,46 @@
         "category": "Housing",
         "location": "Nationwide",
         "tagline": "Communities designed for living.",
-        "image": "images/roshn.jpg"
+        "image": "images/roshn.jpg",
+        "headline": "Homes for a New Generation",
+        "overview": "ROSHN is a real estate developer owned by the Public Investment Fund. It builds integrated communities across the Kingdom, with homes, schools, mosques, parks and retail, and aims to house more than 2.2 million people by 2030.",
+        "badge": "Owned by the Public Investment Fund",
+        "website": "https://www.roshn.sa",
+        "stats": [
+            {
+                "value": "2.2M+",
+                "label": "Residents by 2030"
+            },
+            {
+                "value": "4",
+                "label": "Flagship communities"
+            },
+            {
+                "value": "20M m²",
+                "label": "SEDRA alone"
+            }
+        ],
+        "highlights": [
+            {
+                "icon": "home",
+                "title": "SEDRA",
+                "text": "A 20 million m² community in Riyadh."
+            },
+            {
+                "icon": "holiday_village",
+                "title": "WAREFA",
+                "text": "A community in eastern Riyadh."
+            },
+            {
+                "icon": "waves",
+                "title": "ALAROUS",
+                "text": "A seaside community in north Jeddah."
+            },
+            {
+                "icon": "location_city",
+                "title": "ALFULWA",
+                "text": "A community in the Eastern Province."
+            }
+        ]
     }
 ]

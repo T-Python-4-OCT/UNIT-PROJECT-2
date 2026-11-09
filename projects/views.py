@@ -2,7 +2,7 @@ import json
 from pathlib import Path
 
 from django.shortcuts import render, redirect, resolve_url
-from django.http import HttpRequest
+from django.http import HttpRequest, Http404
 from django.utils.http import url_has_allowed_host_and_scheme
 
 
@@ -48,7 +48,20 @@ def all_projects(request: HttpRequest):
 
 
 def project_detail(request: HttpRequest, project_slug):
-    return render(request, 'projects/project_detail.html', {'project_slug': project_slug})
+    projects = load_projects()
+    project = next((item for item in projects if item['slug'] == project_slug), None)
+
+    if project is None:
+        raise Http404('Project not found')
+
+    others = [item for item in projects if item['slug'] != project_slug][:3]
+
+    context = {
+        'project': project,
+        'others': others,
+    }
+    templates = [f'projects/{project_slug}.html', 'projects/project_detail.html']
+    return render(request, templates, context)
 
 
 def about(request: HttpRequest):

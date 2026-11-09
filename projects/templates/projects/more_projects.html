@@ -1,0 +1,18 @@
+<!-- ================= MORE PROJECTS ================= -->
+<section class="container section more-projects">
+    <div class="section-head">
+        <div>
+            <span class="eyebrow">Keep Exploring</span>
+            <h2>More Projects</h2>
+        </div>
+        <a href="{% url 'projects:all_projects' %}" class="link-arrow">
+            View All <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+        </a>
+    </div>
+
+    <div class="cards-grid">
+        {% for project in others %}
+            {% include 'projects/project_card.html' %}
+        {% endfor %}
+    </div>
+</section>

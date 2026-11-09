@@ -1,10 +1,28 @@
-{% extends 'projects/base.html' %}
+{% extends 'projects/base.html' %} {% load static %} {% block title %}{{ project.name }}{% endblock %} {% block content %}
+arrow_back All Projects {{ project.category }} · {{ project.location }}
+{{ project.name }}
+{{ project.overview }}
 
-{% block title %}Project{% endblock %}
+{% if project.stats %}
+{% for stat in project.stats %}
+{{ stat.value }} {{ stat.label }}
+{% endfor %}
+{% endif %}
+{{ project.name }} {% for photo in project.collage %} {{ project.name }} {% endfor %} {% if project.badge %} workspace_premium{{ project.badge }} {% endif %}
+{% if project.highlights %}
+Highlights
+What to Explore
+{% for item in project.highlights %}
+{{ item.icon }}
+{{ item.title }}
+{{ item.text }}
 
-{% block content %}
-<section class="container placeholder">
-    <h1>{{ project_slug }}</h1>
-    <p>This page is coming in the next step.</p>
-</section>
+{% endfor %}
+{% endif %}
+{{ project.name }}
+{{ project.headline }}
+{{ project.tagline }}
+
+{% if project.website %} Official Website open_in_new {% endif %}
+{% include 'projects/project_gallery.html' %} {% include 'projects/more_projects.html' %}
 {% endblock %}

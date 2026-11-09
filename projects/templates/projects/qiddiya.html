@@ -1,0 +1,96 @@
+{% extends 'projects/base.html' %}
+{% load static %}
+
+{% block title %}{{ project.name }}{% endblock %}
+
+{% block content %}
+<div class="project-page page-qiddiya">
+
+<!-- ================= HERO ================= -->
+<section class="qd-hero" style="--hero-img: url('{% static project.hero %}')">
+    <div class="container qd-hero-inner">
+        <a href="{% url 'projects:all_projects' %}" class="back-link light">
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span> All Projects
+        </a>
+        <span class="qd-arabic" lang="ar" dir="rtl">{{ project.arabic_name }}</span>
+        <h1>{{ project.name }}</h1>
+        <p>{{ project.tagline }}</p>
+
+        <div class="qd-pills">
+            {% for stat in project.stats %}
+                <span><strong>{{ stat.value }}</strong> {{ stat.label }}</span>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ================= TICKER ================= -->
+<div class="qd-ticker" aria-hidden="true">
+    <div class="qd-ticker-track">
+        {% for item in project.ticker %}<span>{{ item }}</span>{% endfor %}
+        {% for item in project.ticker %}<span>{{ item }}</span>{% endfor %}
+    </div>
+</div>
+
+<!-- ================= INTRO ================= -->
+<section class="container section qd-intro">
+    <span class="eyebrow">Overview</span>
+    <h2>{{ project.headline }}</h2>
+    <p class="lead">{{ project.overview }}</p>
+    <a href="{{ project.website }}" class="btn btn-primary" target="_blank" rel="noopener">
+        Official Website <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+    </a>
+</section>
+
+<!-- ================= RECORD ================= -->
+<section class="qd-record">
+    <div class="container qd-record-inner">
+        <div class="qd-record-text">
+            <span class="eyebrow on-dark">Record Breaker</span>
+            <h2>{{ project.record.name }}</h2>
+            <p>{{ project.record.text }}</p>
+        </div>
+
+        <div class="qd-gauges">
+            {% for gauge in project.record.gauges %}
+                <div class="qd-gauge">
+                    <div class="qd-ring" aria-hidden="true"></div>
+                    <div class="qd-value">
+                        <strong>{{ gauge.value }}</strong>
+                        <span>{{ gauge.unit }}</span>
+                    </div>
+                    <p>{{ gauge.label }}</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ================= ZONES ================= -->
+<section class="container section">
+    <div class="section-head">
+        <div>
+            <span class="eyebrow">Play Zones</span>
+            <h2>Choose Your Adventure</h2>
+        </div>
+    </div>
+
+    <div class="qd-zones">
+        {% for zone in project.zones %}
+            <article class="qd-zone">
+                <img src="{% static zone.image %}" alt="{{ zone.title }}" loading="lazy">
+                <span class="qd-tag {% if zone.tag == 'Open' %}open{% endif %}">{{ zone.tag }}</span>
+                <div class="qd-zone-text">
+                    <h3>{{ zone.title }}</h3>
+                    <p>{{ zone.text }}</p>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+    {% include 'projects/project_gallery.html' %}
+    {% include 'projects/more_projects.html' %}
+
+</div>
+{% endblock %}
