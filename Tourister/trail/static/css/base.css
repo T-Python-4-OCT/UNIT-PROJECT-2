@@ -1,0 +1,377 @@
+/* Theme variables: dark values apply when <html> has data-bs-theme="dark" */
+:root {
+  --nt-accent: #c8731a;
+  --nt-terracotta: #c4452d;
+  --nt-teal: #17897a;
+  --nt-gold: #e0a21f;
+  --nt-plum: #7a2a6b;
+  --nt-bg: #fbf7f1;
+  --nt-surface: #ffffff;
+  --nt-text: #1f1a16;
+  --nt-muted: #6b6258;
+  --nt-pill: #f1e8dc;
+  --nt-border: #e4d8c8;
+  --nt-bar: linear-gradient(90deg, #e6d2b0, #d9bf96);
+  --nt-footer: #e3cfae;
+  --nt-strip: #e3cdaa;
+  --nt-overlay: 38, 22, 10;
+}
+
+[data-bs-theme="dark"] {
+  --nt-accent: #e8923a;
+  --nt-terracotta: #e2604a;
+  --nt-teal: #2fb5a2;
+  --nt-gold: #f0b93a;
+  --nt-plum: #b455a3;
+  --nt-bg: #14100d;
+  --nt-surface: #201914;
+  --nt-text: #f4ece2;
+  --nt-muted: #b3a79a;
+  --nt-pill: #2d241c;
+  --nt-border: #3d3228;
+  --nt-bar: linear-gradient(90deg, #241b14, #2f2218);
+  --nt-footer: #1a130e;
+  --nt-strip: #2f2218;
+}
+
+/* Base */
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Tajawal", sans-serif;
+  color: var(--nt-text);
+  background:
+    radial-gradient(circle at 90% 0%, color-mix(in srgb, var(--nt-gold) 18%, transparent), transparent 40%),
+    radial-gradient(circle at 0% 35%, color-mix(in srgb, var(--nt-teal) 12%, transparent), transparent 40%),
+    var(--nt-bg);
+}
+
+section[id] {
+  scroll-margin-top: 7rem;
+}
+
+/* Entrance animation (used by hero and page files) */
+@keyframes nt-fade-up {
+  from { opacity: 0; transform: translateY(24px); }
+  to { opacity: 1; transform: none; }
+}
+
+/* Navbar */
+.nt-navbar {
+  --bs-navbar-color: var(--nt-text);
+  --bs-navbar-hover-color: var(--nt-accent);
+  --bs-navbar-active-color: var(--nt-accent);
+  --bs-navbar-toggler-border-color: color-mix(in srgb, var(--nt-text) 25%, transparent);
+  background: var(--nt-bar);
+  border-bottom: 1px solid color-mix(in srgb, var(--nt-text) 14%, transparent);
+}
+
+.nt-brand {
+  font-weight: 800;
+  color: var(--nt-text) !important;
+}
+
+.nt-brand:hover {
+  color: var(--nt-accent) !important;
+}
+
+/* Make the mobile menu icon visible on the dark theme */
+[data-bs-theme="dark"] .nt-navbar .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.nt-theme-btn {
+  color: var(--nt-text);
+  border: 1px solid color-mix(in srgb, var(--nt-text) 30%, transparent);
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  padding: 0;
+  transition: transform 0.3s, background 0.2s, color 0.2s;
+}
+
+.nt-theme-btn:hover {
+  background: var(--nt-accent);
+  border-color: var(--nt-accent);
+  color: #ffffff;
+  transform: rotate(20deg);
+}
+
+/* Hero */
+.nt-hero {
+  position: relative;
+  min-height: 420px;
+  margin-top: 1.5rem;
+  border-radius: 24px;
+  overflow: hidden;
+  background: #8a6a4a center / cover no-repeat;
+  display: flex;
+  align-items: flex-end;
+}
+
+/* Warm brown overlay with a plum tint for text readability */
+.nt-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(to top, rgba(var(--nt-overlay), 0.78), rgba(var(--nt-overlay), 0.12)),
+    linear-gradient(120deg, color-mix(in srgb, var(--nt-plum) 40%, transparent), transparent 55%);
+}
+
+.nt-hero-text {
+  position: relative;
+  padding: 2rem 2rem 4.5rem;
+  color: #ffffff;
+}
+
+.nt-hero-text > * {
+  animation: nt-fade-up 0.8s both;
+}
+
+.nt-hero-text > *:nth-child(2) { animation-delay: 0.1s; }
+.nt-hero-text > *:nth-child(3) { animation-delay: 0.2s; }
+.nt-hero-text > *:nth-child(4) { animation-delay: 0.3s; }
+
+.nt-hero-text h1 {
+  font-size: clamp(2.4rem, 7vw, 4.6rem);
+  font-weight: 800;
+  margin: 0.6rem 0 0;
+}
+
+.nt-hero-text p {
+  font-size: 1.3rem;
+  opacity: 0.92;
+  margin: 0.3rem 0 1.2rem;
+}
+
+.nt-badge {
+  display: inline-block;
+  padding: 0.35rem 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.16);
+  backdrop-filter: blur(6px);
+  font-size: 0.85rem;
+}
+
+.nt-cta {
+  display: inline-block;
+  padding: 0.7rem 1.6rem;
+  border-radius: 999px;
+  background: var(--nt-gold);
+  color: #2a1a0a;
+  font-weight: 800;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.nt-cta:hover {
+  color: #2a1a0a;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(224, 162, 31, 0.45);
+}
+
+/* Moving triangle strip (used on city pages) */
+@keyframes nt-sadu-move {
+  from { background-position: -11px 0, -11px 0, 0 0; }
+  to { background-position: 209px 0, 209px 0, 0 0; }
+}
+
+.nt-sadu {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 22px;
+  background:
+    linear-gradient(135deg, var(--nt-gold) 25%, transparent 25%) -11px 0,
+    linear-gradient(225deg, var(--nt-terracotta) 25%, transparent 25%) -11px 0,
+    var(--nt-strip);
+  background-size: 22px 22px;
+  animation: nt-sadu-move 12s linear infinite;
+}
+
+/* Sticky tabs */
+.nt-tabs {
+  position: sticky;
+  top: 56px;
+  z-index: 10;
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  background: var(--nt-bg);
+  border-bottom: 1px solid var(--nt-border);
+  margin-top: 1.5rem;
+}
+
+.nt-tabs a {
+  padding: 1rem 0;
+  white-space: nowrap;
+  color: var(--nt-muted);
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 3px solid transparent;
+  transition: color 0.2s, border-color 0.2s;
+}
+
+.nt-tabs a:hover,
+.nt-tabs a.active {
+  color: var(--nt-accent);
+  border-bottom-color: var(--nt-accent);
+}
+
+@media (min-width: 769px) {
+  .nt-tabs {
+    justify-content: center;
+  }
+}
+
+/* Typography */
+.nt-title {
+  position: relative;
+  font-weight: 800;
+  font-size: clamp(1.8rem, 4vw, 2.6rem);
+  margin-bottom: 1.8rem;
+  padding-bottom: 0.8rem;
+}
+
+.nt-title::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: 0;
+  width: 90px;
+  height: 5px;
+  border-radius: 99px;
+  background: var(--nt-accent);
+}
+
+.lead {
+  color: var(--nt-text);
+  font-size: 1.1rem;
+}
+
+/* Category pills */
+.nt-pill {
+  display: inline-block;
+  background: var(--nt-pill);
+  color: var(--nt-text);
+  padding: 0.55rem 1.1rem;
+  border-radius: 999px;
+  font-size: 0.9rem;
+  transition: transform 0.2s;
+}
+
+.nt-pill:hover {
+  transform: translateY(-2px);
+}
+
+.nt-pill i {
+  color: var(--nt-accent);
+  margin-inline-end: 0.3rem;
+}
+
+.nt-pill--heritage { background: color-mix(in srgb, var(--nt-terracotta) 16%, transparent); }
+.nt-pill--heritage i { color: var(--nt-terracotta); }
+.nt-pill--nature { background: color-mix(in srgb, var(--nt-teal) 16%, transparent); }
+.nt-pill--nature i { color: var(--nt-teal); }
+.nt-pill--camping { background: color-mix(in srgb, var(--nt-gold) 20%, transparent); }
+.nt-pill--camping i { color: var(--nt-gold); }
+
+/* Footer */
+.nt-footer {
+  margin-top: 3rem;
+  background: var(--nt-footer);
+  color: var(--nt-text);
+  font-size: 0.9rem;
+  border-top: 1px solid color-mix(in srgb, var(--nt-text) 14%, transparent);
+}
+
+.nt-footer-title {
+  font-weight: 800;
+  margin-bottom: 1rem;
+}
+
+.nt-footer-text {
+  color: color-mix(in srgb, var(--nt-text) 78%, transparent);
+  max-width: 38ch;
+}
+
+.nt-footer-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  columns: 2;
+}
+
+.nt-footer-list li {
+  margin-bottom: 0.5rem;
+}
+
+.nt-footer a {
+  color: var(--nt-text);
+  text-decoration: none;
+}
+
+.nt-footer a:hover {
+  color: var(--nt-accent);
+}
+
+/* Social icons with per-brand hover colors */
+.nt-social {
+  display: flex;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
+}
+
+.nt-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  background: var(--nt-surface);
+  border: 1px solid color-mix(in srgb, var(--nt-text) 20%, transparent);
+  border-radius: 50%;
+  font-size: 1.15rem;
+  transition: transform 0.2s, background 0.2s, border-color 0.2s;
+}
+
+.nt-social a:hover {
+  transform: translateY(-4px) rotate(-6deg);
+  color: #ffffff;
+}
+
+.nt-social a.nt-social-instagram:hover { background: #e1306c; border-color: #e1306c; }
+.nt-social a.nt-social-youtube:hover { background: #ff0000; border-color: #ff0000; }
+.nt-social a.nt-social-whatsapp:hover { background: #25d366; border-color: #25d366; }
+.nt-social a.nt-social-x:hover { background: var(--nt-text); border-color: var(--nt-text); color: var(--nt-bg); }
+
+.nt-footer-source i {
+  margin-inline-end: 0.3rem;
+}
+
+/* Footer bottom bar */
+.nt-footer-bottom {
+  border-top: 1px solid color-mix(in srgb, var(--nt-text) 15%, transparent);
+  color: color-mix(in srgb, var(--nt-text) 78%, transparent);
+  font-size: 0.8rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nt-hero {
+    min-height: 340px;
+  }
+}
+
+/* Respect users who prefer less motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+}

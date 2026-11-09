@@ -37,6 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'trail',
 ]
 
 MIDDLEWARE = [
@@ -61,6 +62,9 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'trail.context_processors.theme',
+                'trail.context_processors.nav_cities',
+                'trail.context_processors.site_info',
             ],
         },
     },
@@ -102,9 +106,9 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/6.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'ar'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE = 'Asia/Riyadh'
 
 USE_I18N = True
 

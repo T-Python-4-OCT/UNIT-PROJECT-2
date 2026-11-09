@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg nt-navbar sticky-top">
+  <div class="container-fluid px-4">
+    <a class="navbar-brand nt-brand" href="{% url 'home' %}">مسار الشمال</a>
+
+    <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="القائمة">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navMenu">
+      <ul class="navbar-nav me-auto">
+        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">الرئيسية</a></li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">المحطات</a>
+          <ul class="dropdown-menu">
+            {% for c in cities %}
+              <li><a class="dropdown-item" href="{% url 'city_detail' c.slug %}">{{ c.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+      </ul>
+
+      <form method="post" action="{% url 'toggle_theme' %}" class="m-0">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        <button type="submit" class="btn nt-theme-btn" aria-label="تبديل الوضع">
+          {% if theme == "dark" %}
+            <i class="bi bi-sun"></i>
+             {% else %}
+              <i class="bi bi-moon-stars"></i>
+           {% endif %}
+        </button>
+      </form>
+    </div>
+  </div>
+</nav>

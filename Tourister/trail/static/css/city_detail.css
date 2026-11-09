@@ -1,0 +1,130 @@
+/* Gallery */
+.nt-city-hero::before {
+  z-index: 1;
+}
+
+.nt-city-hero-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.nt-city-hero--riyadh .nt-city-hero-image { object-position: 50% 47%; }
+.nt-city-hero--thadiq .nt-city-hero-image { object-position: 50% 58%; }
+.nt-city-hero--al-qassab .nt-city-hero-image { object-position: 50% 25%; }
+
+.nt-city-hero .nt-hero-text,
+.nt-city-hero .nt-sadu {
+  z-index: 2;
+}
+
+.nt-section-lead {
+  max-width: 760px;
+  color: var(--nt-muted);
+  margin: -0.5rem 0 1.5rem;
+}
+
+.nt-carousel {
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.nt-carousel img {
+  height: 480px;
+  object-fit: cover;
+}
+
+/* Landmark and event boxes */
+.nt-box {
+  background: var(--nt-surface);
+  border-radius: 20px;
+  border-top: 4px solid var(--nt-accent);
+  padding: 1.5rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s;
+}
+
+.nt-box:hover {
+  transform: translateY(-4px);
+}
+
+.nt-box--heritage { border-top-color: var(--nt-terracotta); }
+.nt-box--nature { border-top-color: var(--nt-teal); }
+.nt-box--camping { border-top-color: var(--nt-gold); }
+
+.nt-box h3 {
+  font-weight: 800;
+  font-size: 1.2rem;
+  margin: 1rem 0 0.5rem;
+}
+
+.nt-box p {
+  color: var(--nt-muted);
+  margin: 0;
+}
+
+/* Vertical timeline */
+.nt-timeline {
+  list-style: none;
+  margin: 0;
+  padding: 0 1.5rem 0 0;
+  border-inline-start: 3px solid var(--nt-accent);
+}
+
+.nt-timeline li {
+  position: relative;
+  padding: 0 1.5rem 1.8rem;
+}
+
+.nt-timeline li::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: -0.65rem;
+  top: 0.35rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: var(--nt-accent);
+  border: 3px solid var(--nt-bg);
+}
+
+.nt-period {
+  color: var(--nt-accent);
+  font-weight: 800;
+}
+
+.nt-timeline p {
+  margin: 0.3rem 0 0;
+}
+
+/* Empty state */
+.nt-empty {
+  text-align: center;
+  color: var(--nt-muted);
+  padding: 2rem 0;
+}
+
+/* Previous / next city pager */
+.nt-pager a {
+  background: var(--nt-pill);
+  color: var(--nt-text);
+  padding: 0.7rem 1.3rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nt-pager a:hover {
+  background: var(--nt-accent);
+  color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .nt-carousel img {
+    height: 260px;
+  }
+}

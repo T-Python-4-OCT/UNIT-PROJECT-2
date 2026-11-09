@@ -1,0 +1,13 @@
+{% extends "trail/base.html" %}
+{% block title %}الصفحة غير موجودة | مسار الشمال{% endblock %}
+{% load static %}
+{% block extra_css %}<link href="{% static 'css/404.css' %}" rel="stylesheet">{% endblock %}
+
+{% block content %}
+<div class="container nt-404">
+  <p class="nt-404-code">404</p>
+  <h1 class="nt-title">ضعنا عن المسار</h1>
+  <p class="lead">الصفحة التي تبحث عنها غير موجودة.</p>
+  <a href="{% url 'home' %}" class="nt-pill nt-404-btn"><i class="bi bi-house"></i> العودة للرئيسية</a>
+</div>
+{% endblock %}

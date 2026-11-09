@@ -1,0 +1,463 @@
+/* Color cycle (set from the template) */
+.nt-c1 { --c: var(--nt-accent); }
+.nt-c2 { --c: var(--nt-teal); }
+.nt-c3 { --c: var(--nt-terracotta); }
+.nt-c4 { --c: var(--nt-plum); }
+
+/* Route ticker at the bottom of the hero */
+@keyframes nt-ticker {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}
+
+.nt-ticker {
+  position: absolute;
+  inset: auto 0 0 0;
+  height: 54px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  background: var(--nt-strip);
+}
+
+.nt-ticker-track {
+  display: flex;
+  flex-shrink: 0;
+  width: max-content;
+  animation: nt-ticker 45s linear infinite;
+}
+
+/* Pause when the mouse is over the strip or a link has focus */
+.nt-ticker:hover .nt-ticker-track,
+.nt-ticker:focus-within .nt-ticker-track {
+  animation-play-state: paused;
+}
+
+.nt-ticker-group {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-shrink: 0;
+  min-width: 100vw;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nt-stop {
+  display: flex;
+  align-items: center;
+}
+
+/* Dashed connector to the next stop */
+.nt-stop::after {
+  content: "";
+  width: 44px;
+  margin-inline: 1rem;
+  border-top: 2px dashed var(--c);
+  opacity: 0.7;
+}
+
+.nt-stop a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  white-space: nowrap;
+  color: var(--nt-text);
+  font-weight: 800;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+
+.nt-stop a:hover {
+  color: var(--c);
+}
+
+/* Shapes */
+.nt-shape {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  background: var(--c);
+  transition: transform 0.25s;
+}
+
+.nt-stop a:hover .nt-shape {
+  transform: scale(1.35) rotate(15deg);
+}
+
+.nt-sh-tri { clip-path: polygon(50% 0, 100% 100%, 0 100%); }
+.nt-sh-dia { clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%); }
+.nt-sh-cir { border-radius: 50%; }
+.nt-sh-hex { clip-path: polygon(25% 6%, 75% 6%, 100% 50%, 75% 94%, 25% 94%, 0 50%); }
+
+/* Stats strip below the hero */
+.nt-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1rem;
+  margin-top: 1.25rem;
+}
+
+.nt-stat {
+  background: var(--c);
+  color: #ffffff;
+  border-radius: 18px;
+  padding: 1.1rem 0.5rem;
+  text-align: center;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.15);
+  animation: nt-fade-up 0.7s both;
+}
+
+.nt-stat:nth-child(2) { animation-delay: 0.1s; }
+.nt-stat:nth-child(3) { animation-delay: 0.2s; }
+.nt-stat:nth-child(4) { animation-delay: 0.3s; }
+
+.nt-stat strong {
+  display: block;
+  font-size: clamp(1.5rem, 4vw, 2.3rem);
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+.nt-stat span {
+  font-size: 0.9rem;
+  opacity: 0.92;
+}
+
+/* Route stepper */
+.nt-route {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem 0 1rem;
+  overflow-x: auto;
+}
+
+.nt-route li {
+  position: relative;
+  flex: 1;
+  min-width: 110px;
+  text-align: center;
+}
+
+/* Dashed connector to the next stop */
+.nt-route li:not(:last-child)::after {
+  content: "";
+  position: absolute;
+  top: 21px;
+  left: -50%;
+  width: 100%;
+  height: 3px;
+  background: repeating-linear-gradient(90deg, var(--c) 0 10px, transparent 10px 18px);
+}
+
+.nt-route a {
+  position: relative;
+  z-index: 1;
+  display: block;
+  color: var(--nt-text);
+  text-decoration: none;
+  font-weight: 700;
+}
+
+.nt-dot {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 0.5rem;
+  border-radius: 50%;
+  background: var(--c);
+  color: #ffffff;
+  font-weight: 800;
+  border: 4px solid var(--nt-bg);
+  box-shadow: 0 0 0 2px var(--c);
+  transition: transform 0.25s;
+}
+
+.nt-route a:hover .nt-dot {
+  transform: scale(1.2);
+}
+
+/* City cards */
+.nt-col {
+  animation: nt-fade-up 0.6s both;
+  animation-delay: calc(var(--i, 0) * 80ms);
+}
+
+.nt-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--nt-surface);
+  color: var(--nt-text);
+  border-radius: 24px;
+  overflow: hidden;
+  border-top: 5px solid var(--c);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.nt-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 14px 30px color-mix(in srgb, var(--c) 35%, transparent);
+  color: var(--nt-text);
+}
+
+.nt-card-img {
+  position: relative;
+  aspect-ratio: 4 / 3;
+  overflow: hidden;
+  background: #a88a6a;
+}
+
+.nt-card-img img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s;
+}
+
+.nt-city-card--riyadh .nt-card-img img { object-position: 50% 47%; }
+.nt-city-card--thadiq .nt-card-img img { object-position: 50% 58%; }
+.nt-city-card--al-qassab .nt-card-img img { object-position: 50% 25%; }
+
+.nt-card:hover .nt-card-img img {
+  transform: scale(1.1);
+}
+
+.nt-card-body {
+  flex: 1;
+  padding: 1.4rem 1.4rem 1.2rem;
+  text-align: center;
+  background: linear-gradient(to bottom, color-mix(in srgb, var(--c) 10%, transparent), transparent 60%);
+}
+
+.nt-card-body h3 {
+  font-weight: 800;
+  font-size: 1.3rem;
+}
+
+.nt-card-body p {
+  color: var(--nt-muted);
+  font-size: 0.95rem;
+  min-height: 4.5em;
+}
+
+.nt-link {
+  color: var(--c);
+  font-weight: 800;
+  font-size: 0.95rem;
+}
+
+.nt-link::after {
+  content: " \2190";
+  display: inline-block;
+  transition: transform 0.2s;
+}
+
+.nt-card:hover .nt-link::after {
+  transform: translateX(-5px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nt-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .nt-ticker {
+    height: 48px;
+  }
+}
+
+/* Visitor tips */
+.nt-tips {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 860px;
+}
+
+.nt-tip {
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  background: var(--nt-surface);
+  border-radius: 20px;
+  border-inline-start: 5px solid var(--c);
+  padding: 1.2rem 1.4rem;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.08);
+}
+
+.nt-tip-icon {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 54px;
+  height: 54px;
+  border-radius: 16px;
+  background: color-mix(in srgb, var(--c) 16%, transparent);
+  color: var(--c);
+  font-size: 1.5rem;
+}
+
+.nt-tip h3 {
+  margin: 0 0 0.25rem;
+  font-size: 1.1rem;
+  font-weight: 800;
+}
+
+.nt-tip p {
+  margin: 0;
+  color: var(--nt-muted);
+  font-size: 0.95rem;
+}
+
+/* FAQ accordion (native details element) */
+.nt-faq {
+  max-width: 860px;
+}
+
+.nt-faq-item {
+  background: var(--nt-surface);
+  border: 1px solid var(--nt-border);
+  border-radius: 16px;
+  margin-bottom: 0.8rem;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.nt-faq-item[open] {
+  border-color: var(--nt-accent);
+  box-shadow: 0 8px 22px color-mix(in srgb, var(--nt-accent) 20%, transparent);
+}
+
+.nt-faq-item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1.1rem 1.3rem;
+  cursor: pointer;
+  list-style: none;
+  font-size: 1.05rem;
+  font-weight: 800;
+}
+
+.nt-faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.nt-faq-item summary::after {
+  content: "+";
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  background: var(--nt-pill);
+  color: var(--nt-accent);
+  font-size: 1.4rem;
+  line-height: 1;
+  transition: background 0.2s, color 0.2s;
+}
+
+.nt-faq-item[open] summary::after {
+  content: "\2212";
+  background: var(--nt-accent);
+  color: #ffffff;
+}
+
+.nt-faq-item p {
+  margin: 0;
+  padding: 0 1.3rem 1.2rem;
+  color: var(--nt-muted);
+}
+
+.nt-intro {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 2rem;
+}
+
+.nt-poster {
+  display: block;
+  width: 170px;
+  max-height: 340px;
+  object-fit: contain;
+  border-radius: 18px;
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.14);
+}
+
+.nt-section-lead {
+  max-width: 760px;
+  color: var(--nt-muted);
+  margin: -0.5rem 0 1.5rem;
+}
+
+.nt-guide-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.25rem;
+}
+
+.nt-guide-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+  padding: 1.25rem;
+  background: var(--nt-surface);
+  border: 1px solid var(--nt-border);
+  border-radius: 22px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.06);
+}
+
+.nt-guide-card img {
+  display: block;
+  width: auto;
+  max-width: 100%;
+  max-height: 620px;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.nt-guide-card figcaption {
+  display: grid;
+  gap: 0.25rem;
+  align-self: stretch;
+  color: var(--nt-muted);
+}
+
+.nt-guide-card figcaption strong {
+  color: var(--nt-text);
+  font-size: 1.1rem;
+}
+
+@media (max-width: 768px) {
+  .nt-intro {
+    grid-template-columns: 1fr;
+  }
+
+  .nt-poster {
+    width: 140px;
+    max-height: 280px;
+    justify-self: center;
+  }
+
+  .nt-guide-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .nt-ticker-track {
+    animation: none;
+  }
+}

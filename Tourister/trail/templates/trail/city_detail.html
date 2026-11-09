@@ -1,0 +1,133 @@
+{% extends "trail/base.html" %}
+{% load static %}
+{% block extra_css %}<link href="{% static 'css/city_detail.css' %}" rel="stylesheet">{% endblock %}
+{% block title %}{{ city.name }} | مسار الشمال{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <section class="nt-hero nt-city-hero nt-city-hero--{{ city.slug }}">
+    <img class="nt-city-hero-image" src="{% static city.hero_image %}" alt="منظر من {{ city.name }}">
+    <div class="nt-hero-text">
+      <h1>{{ city.name }}</h1>
+      <p>{% if city.tagline %}{{ city.tagline }}{% else %}محطة على مسار الشمال{% endif %}</p>
+    </div>
+    <div class="nt-sadu"></div>
+  </section>
+
+  <nav class="nt-tabs">
+    <a href="#overview">نبذة</a>
+    {% if city.gallery %}<a href="#gallery">معرض الصور</a>{% endif %}
+    {% if city.landmarks %}<a href="#landmarks">أبرز المعالم</a>{% endif %}
+    {% if city.timeline %}<a href="#timeline">لمحة تاريخية</a>{% endif %}
+    {% if city.events %}<a href="#events">الفعاليات والتجارب</a>{% endif %}
+  </nav>
+
+  <section id="overview" class="py-5">
+    <h2 class="nt-title">نبذة عن {{ city.name }}</h2>
+    {% if city.summary %}
+      <p class="lead">{{ city.summary }}</p>
+    {% endif %}
+    <span class="nt-pill"><i class="bi bi-signpost-split"></i> المحطة {{ city.order }} على المسار</span>
+  </section>
+
+  {% if city.gallery %}
+  <section id="gallery" class="pb-5">
+    <h2 class="nt-title">معرض الصور</h2>
+    <div id="cityCarousel" class="carousel slide nt-carousel" data-bs-ride="carousel">
+      <div class="carousel-indicators">
+        {% for img in city.gallery %}
+          <button type="button" data-bs-target="#cityCarousel" data-bs-slide-to="{{ forloop.counter0 }}"
+                  {% if forloop.first %}class="active" aria-current="true"{% endif %}
+                  aria-label="الصورة {{ forloop.counter }}"></button>
+        {% endfor %}
+      </div>
+      <div class="carousel-inner">
+        {% for img in city.gallery %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <img src="{% static img %}" class="d-block w-100" alt="{{ city.name }} - صورة {{ forloop.counter }}">
+          </div>
+        {% endfor %}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#cityCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">السابق</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#cityCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">التالي</span>
+      </button>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if city.landmarks %}
+  <section id="landmarks" class="pb-5">
+    <h2 class="nt-title">أبرز المعالم</h2>
+    <div class="row g-4">
+      {% for place in city.landmarks %}
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="nt-box nt-box--{{ place.category }} h-100">
+            <span class="nt-pill">
+              {% if place.category == "heritage" %}<i class="bi bi-pencil"></i> أماكن تراثية وتاريخية
+              {% elif place.category == "nature" %}<i class="bi bi-tree"></i> مواقع طبيعية
+              {% elif place.category == "camping" %}<i class="bi bi-triangle"></i> التخييم
+              {% elif place.category == "culture" %}<i class="bi bi-shop"></i> أسواق وثقافة محلية
+              {% endif %}
+            </span>
+            <h3>{{ place.name }}</h3>
+            <p>{{ place.description }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if city.timeline %}
+  <section id="timeline" class="pb-5">
+    <h2 class="nt-title">لمحة تاريخية</h2>
+    <ul class="nt-timeline">
+      {% for item in city.timeline %}
+        <li>
+          <span class="nt-period">{{ item.period }}</span>
+          <p>{{ item.text }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if city.events %}
+  <section id="events" class="pb-5">
+    <h2 class="nt-title">تجارب مقترحة</h2>
+    <p class="nt-section-lead">هذه أفكار للزيارة وليست إعلانًا عن فعاليات بمواعيد محددة. تحقق من الجهات المنظمة قبل السفر.</p>
+    <div class="row g-4">
+      {% for event in city.events %}
+        <div class="col-12 col-md-6">
+          <div class="nt-box h-100">
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.description }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if not city.gallery and not city.landmarks and not city.timeline and not city.events %}
+    <p class="nt-empty">المزيد من التفاصيل عن {{ city.name }} قيد الإضافة.</p>
+  {% endif %}
+
+  <nav class="nt-pager d-flex justify-content-between gap-3 py-4">
+    {% if prev_city %}
+      <a href="{% url 'city_detail' prev_city.slug %}"><i class="bi bi-arrow-right"></i> {{ prev_city.name }}</a>
+    {% else %}<span></span>{% endif %}
+
+    {% if next_city %}
+      <a href="{% url 'city_detail' next_city.slug %}">{{ next_city.name }} <i class="bi bi-arrow-left"></i></a>
+    {% else %}<span></span>{% endif %}
+  </nav>
+
+</div>
+{% endblock %}
