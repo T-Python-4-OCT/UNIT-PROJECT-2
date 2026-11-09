@@ -1,7 +1,8 @@
 import { expect, test } from '@playwright/test';
 
-const coreBudget = 1_000_000;
-const sceneBudget = 3_000_000;
+const homeBudget = 600_000;
+const detailBudget = 450_000;
+const sceneBudget = 350_000;
 
 async function watchVitals(page) {
   await page.addInitScript(() => {
@@ -35,7 +36,7 @@ async function watchVitals(page) {
 
 test.use({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 3, trace: 'off' });
 
-for (const route of ['/', '/ar/', '/projects/neom/', '/ar/projects/diriyah/']) {
+for (const route of ['/', '/ar/', '/projects/neom/', '/ar/projects/diriyah/', '/timeline/']) {
   test(`cold mobile performance ${route}`, async ({ page, context }) => {
     const cdp = await context.newCDPSession(page);
     await cdp.send('Network.enable');
@@ -63,12 +64,12 @@ for (const route of ['/', '/ar/', '/projects/neom/', '/ar/projects/diriyah/']) {
     const core = Math.max(...samples.map((sample) => sample.transfer));
     console.log(`${route} LCP ${lcp[1]} ms median (${lcp.join(', ')}), max CLS ${cls.toFixed(4)}, max core ${core} bytes`);
     if (cls > 0.1) console.log(JSON.stringify(samples.map((sample) => sample.shifts)));
-    expect(lcp[1]).toBeLessThanOrEqual(2500);
-    expect(cls).toBeLessThanOrEqual(0.1);
+    expect(lcp[1]).toBeLessThanOrEqual(2000);
+    expect(cls).toBeLessThanOrEqual(0.05);
     expect(samples.every((sample) => sample.transfer > 0)).toBe(true);
-    expect(core).toBeLessThanOrEqual(coreBudget);
+    expect(core).toBeLessThanOrEqual(route.includes('/projects/') ? detailBudget : homeBudget);
 
-    if (!route.includes('/projects/')) {
+    if (route === '/' || route === '/ar/') {
       const toggle = page.locator('[data-atlas-toggle]');
       await toggle.click();
       await expect(page.locator('[data-atlas-canvas] canvas')).toBeVisible();

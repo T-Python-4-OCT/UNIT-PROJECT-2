@@ -18,13 +18,21 @@ bun run --bun build
 
 Open [English](http://127.0.0.1:8000/) or [Arabic](http://127.0.0.1:8000/ar/). The project uses an editorial dataset and needs no database setup.
 
-The compiler uses pinned `polib` to write Django's gettext `.mo` catalog on Windows. Changes to the Arabic `.po` require recompilation and a server restart. Changes to `projects/data/projects.json` also require a restart.
+The compiler uses pinned `polib` to write Django's gettext `.mo` catalog on Windows. Changes to the Arabic `.po` require recompilation and a server restart. Changes to the project records in `projects/data/projects/` also require a restart. Records are validated at startup when `ATLAS_DEBUG=1`, and a broken record stops the server with a list of problems.
 
 ## Work on the frontend
 
 In a separate shell run `bun run --bun dev`. In the Django shell set `$env:ATLAS_VITE_DEV = '1'` before running `manage.py runserver`. Django serves pages at port 8000 and Vite serves development assets at port 5173. Remove that variable to use the production build.
 
 Django resolves hashed scripts and styles from `static/build/.vite/manifest.json`. The local production-mode verification server serves collected files with WhiteNoise. To run it manually, set `$env:ATLAS_DEBUG = '0'` after building and collecting the assets.
+
+## Media
+
+Project images are generated as AVIF and WebP renditions from masters in `.media-archive/masters/`. To regenerate them, run `bun add -d sharp` once, then `bun scripts/build_media.mjs`, and copy the printed sizes and colors into the project records.
+
+## Production settings
+
+Set `ATLAS_DEBUG=0`, `ATLAS_SECRET_KEY`, `ATLAS_ALLOWED_HOSTS` (comma separated), `ATLAS_CSRF_TRUSTED_ORIGINS` and, behind HTTPS, `ATLAS_HTTPS=1`. With those set, `manage.py check --deploy` reports no warnings.
 
 ## Verify
 

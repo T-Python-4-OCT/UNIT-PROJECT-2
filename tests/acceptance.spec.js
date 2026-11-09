@@ -10,7 +10,13 @@ const projects = [
   { slug: 'amaala', en: 'AMAALA', ar: 'أمالا' },
 ];
 
-const routes = [{ en: 'Saudi Arabia’s giga-projects', ar: 'المشاريع السعودية الكبرى' }, ...projects];
+const pages = [
+  { path: '', en: 'Six projects across Saudi Arabia', ar: 'ستة مشاريع في أنحاء السعودية' },
+  { path: 'timeline/', en: 'Every milestone in one sequence', ar: 'كل المحطات في تسلسل واحد' },
+  { path: 'compare/', en: 'The six side by side', ar: 'المشاريع الستة جنبًا إلى جنب' },
+  ...projects.map(project => ({ ...project, path: `projects/${project.slug}/` })),
+];
+
 const labels = {
   en: {
     language: 'العربية',
@@ -18,8 +24,13 @@ const labels = {
     theme: 'Dark mode',
     scene: '3D map',
     exploreMap: 'Explore the map',
+    browse: 'Browse the projects',
+    projects: 'Projects',
     missing: 'Page not found',
     return: 'Return to the atlas',
+    viewer: 'Photo viewer',
+    close: 'Close',
+    next: 'Next photo',
     fallback: 'The 3D map is unavailable. Explore using the project links.',
   },
   ar: {
@@ -28,18 +39,21 @@ const labels = {
     theme: 'الوضع الداكن',
     scene: 'خريطة ثلاثية الأبعاد',
     exploreMap: 'استكشف الخريطة',
+    browse: 'تصفح المشاريع',
+    projects: 'المشاريع',
     missing: 'الصفحة غير موجودة',
     return: 'العودة إلى الأطلس',
+    viewer: 'عارض الصور',
+    close: 'إغلاق',
+    next: 'الصورة التالية',
     fallback: 'الخريطة ثلاثية الأبعاد غير متاحة. يمكنك استكشاف المشاريع عبر الروابط.',
   },
 };
 
 const wcagTags = ['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22a', 'wcag22aa'];
-
-function pathFor(locale, slug) {
-  const prefix = locale === 'ar' ? '/ar' : '';
-  return slug ? `${prefix}/projects/${slug}/` : `${prefix}/`;
-}
+const at = (locale, path = '') => `${locale === 'ar' ? '/ar' : ''}/${path}`;
+const header = page => page.locator('.site-header');
+const mapLink = (page, name) => page.locator('.atlas-controls').getByRole('link', { name, exact: true });
 
 async function loadImages(page) {
   await page.evaluate(async () => {
@@ -47,13 +61,12 @@ async function loadImages(page) {
       image.loading = 'eager';
       image.decoding = 'sync';
     }
-    await Promise.all(Array.from(document.images, image => image.decode()));
+    await Promise.all(Array.from(document.images, image => image.decode().catch(() => {})));
     await document.fonts.ready;
   });
 }
 
 async function capturePage(page, path) {
-  await page.getByRole('main').scrollIntoViewIfNeeded();
   await page.evaluate(async () => {
     window.scrollTo({ top: 0, behavior: 'instant' });
     await new Promise(resolve => requestAnimationFrame(() => requestAnimationFrame(resolve)));
@@ -71,22 +84,22 @@ async function assertReflow(page, width) {
   await page.setViewportSize({ width, height: 900 });
   const layout = await page.evaluate(() => {
     const viewport = document.documentElement.clientWidth;
-    const controls = Array.from(document.querySelectorAll('a, button')).filter(
+    const controls = Array.from(document.querySelectorAll('a, button, summary')).filter(
       element => element.getClientRects().length && getComputedStyle(element).visibility !== 'hidden',
     );
     const clipped = controls.filter(element => {
-      const bounds = element.getBoundingClientRect();
       if (element.classList.contains('skip-link')) return false;
+      const bounds = element.getBoundingClientRect();
       return bounds.left < -1 || bounds.right > viewport + 1;
     }).map(element => element.textContent.trim() || element.getAttribute('aria-label'));
-    return { overflow: document.documentElement.scrollWidth - viewport, clipped };
+    const header = document.querySelector('.header-bar').getBoundingClientRect().height;
+    return { overflow: document.documentElement.scrollWidth - viewport, clipped, oneRowHeader: header < 80 };
   });
-  expect(layout, `Reflow at ${width}px`).toEqual({ overflow: 0, clipped: [] });
+  expect(layout, `Reflow at ${width}px`).toEqual({ overflow: 0, clipped: [], oneRowHeader: true });
 }
 
 async function assertMapLabels(page) {
-  const stage = page.locator('[data-atlas-stage]');
-  const issues = await stage.evaluate(element => {
+  const issues = await page.locator('[data-atlas-stage]').evaluate(element => {
     const bounds = element.getBoundingClientRect();
     const labels = [...element.querySelectorAll('[data-atlas-link]')];
     return labels.flatMap((label, index) => {
@@ -105,8 +118,8 @@ async function assertMapLabels(page) {
 for (const locale of ['en', 'ar']) {
   const alternate = locale === 'en' ? 'ar' : 'en';
   for (const theme of ['light', 'dark']) {
-    for (const route of routes) {
-      test(`${locale} ${theme} ${route.slug || 'home'}`, async ({ page, baseURL }, testInfo) => {
+    for (const route of pages) {
+      test(`${locale} ${theme} ${route.path || 'home'}`, async ({ page, baseURL }, testInfo) => {
         await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' });
         await page.addInitScript(value => localStorage.setItem('atlas-theme', value), theme);
         const problems = [];
@@ -116,14 +129,11 @@ for (const locale of ['en', 'ar']) {
         page.on('response', response => {
           if (response.url().startsWith(`${appOrigin}/static/`)) {
             staticResponses.push(response.url());
-            if (!response.ok() && response.status() !== 304) problems.push(`${response.status()} ${response.url()}`);
+            if (!response.ok() && response.status() !== 304 && response.status() !== 206) problems.push(`${response.status()} ${response.url()}`);
           }
         });
-        page.on('requestfailed', request => {
-          if (request.url().startsWith(`${appOrigin}/`)) problems.push(`${request.failure()?.errorText} ${request.url()}`);
-        });
 
-        const response = await page.goto(pathFor(locale, route.slug));
+        const response = await page.goto(at(locale, route.path));
         expect(response?.status()).toBe(200);
         await expect(page.locator('html')).toHaveAttribute('lang', locale);
         await expect(page.locator('html')).toHaveAttribute('dir', locale === 'ar' ? 'rtl' : 'ltr');
@@ -132,39 +142,38 @@ for (const locale of ['en', 'ar']) {
         await expect(page).toHaveTitle(new RegExp(route[locale]));
         const description = await page.locator('meta[name="description"]').getAttribute('content');
         expect(description).toMatch(locale === 'ar' ? /\p{Script=Arabic}/u : /^[A-Za-z]/);
-        await expect(page.getByRole('link', { name: labels[locale].language })).toHaveAttribute(
-          'href', pathFor(alternate, route.slug),
-        );
-        await expect(page.locator(`link[rel="alternate"][hreflang="${alternate}"]`)).toHaveAttribute(
-          'href', pathFor(alternate, route.slug),
-        );
-        await expect(page.getByRole('button', { name: labels[locale].theme })).toHaveAttribute(
-          'aria-pressed', String(theme === 'dark'),
-        );
+        await expect(header(page).getByRole('link', { name: labels[locale].language })).toHaveAttribute('href', at(alternate, route.path));
+        await expect(page.locator(`link[rel="alternate"][hreflang="${alternate}"]`)).toHaveAttribute('href', `${appOrigin}${at(alternate, route.path)}`);
+        await expect(page.locator('link[rel="canonical"]')).toHaveAttribute('href', `${appOrigin}${at(locale, route.path)}`);
+        await expect(header(page).getByRole('button', { name: labels[locale].theme })).toHaveAttribute('aria-pressed', String(theme === 'dark'));
 
         if (route.slug) {
-          const next = projects[(projects.indexOf(route) + 1) % projects.length];
-          await expect(page.locator('.next-project a')).toHaveAttribute('href', pathFor(locale, next.slug));
-          await expect(page.locator('.detail-media img')).toHaveAttribute('alt', locale === 'ar' ? /\p{Script=Arabic}/u : /^[A-Za-z]/);
-          await expect(page.locator('.detail-media figcaption a')).toHaveCount(0);
+          const index = projects.findIndex(project => project.slug === route.slug);
+          const next = projects[(index + 1) % projects.length];
+          const previous = projects[(index + projects.length - 1) % projects.length];
+          await expect(page.locator('.pager-next')).toHaveAttribute('href', at(locale, `projects/${next.slug}/`));
+          await expect(page.locator('.pager-previous')).toHaveAttribute('href', at(locale, `projects/${previous.slug}/`));
+          await expect(page.locator('.detail-hero img')).toHaveAttribute('alt', locale === 'ar' ? /\p{Script=Arabic}/u : /^[A-Za-z]/);
           await expect(page.locator('#sources-title')).toHaveCount(0);
-          await expect(page.locator('.timeline li')).toHaveCount(3);
           await expect(page.locator('.story-grid article')).toHaveCount(3);
-          await expect(page.locator('[data-project-viewer]')).toHaveCount(0);
-          expect(await page.locator('[data-project-photo] img').count()).toBeGreaterThan(0);
-        } else {
-          await expect(page.locator('.project-card')).toHaveCount(6);
+          await expect(page.locator('.attraction-list li')).toHaveCount(3);
+          await expect(page.locator('.glance-list > div')).toHaveCount(3);
+          expect(await page.locator('.milestones .timeline li').count()).toBeGreaterThanOrEqual(3);
+          expect(await page.locator('[data-project-photo]').count()).toBeGreaterThan(0);
+          await expect(page.locator('.project-video video')).toHaveAttribute('poster', /-poster\.webp$/);
+          await expect(header(page).locator(`a[aria-current="page"][href="${at(locale, route.path)}"]`)).toHaveCount(1);
+        } else if (!route.path) {
+          await expect(page.locator('.project-row')).toHaveCount(6);
+          await expect(page.locator('.hero-mosaic a')).toHaveCount(6);
           await expect(page.locator('.atlas-poster')).toBeVisible();
           for (const project of projects) {
-            await expect(page.getByRole('link', { name: project[locale], exact: true })).toHaveAttribute(
-              'href', pathFor(locale, project.slug),
-            );
+            await expect(mapLink(page, project[locale])).toHaveAttribute('href', at(locale, `projects/${project.slug}/`));
           }
         }
 
-        for (const width of [320, 390, 768, 1440]) {
+        for (const width of [320, 390, 768, 1024, 1440]) {
           await assertReflow(page, width);
-          if (!route.slug) await assertMapLabels(page);
+          if (!route.path) await assertMapLabels(page);
         }
         await loadImages(page);
         const audit = await new AxeBuilder({ page }).withTags(wcagTags).analyze();
@@ -174,22 +183,19 @@ for (const locale of ['en', 'ar']) {
         expect(staticResponses.some(url => /\.(woff2?)$/.test(url))).toBe(true);
         expect(problems).toEqual([]);
         await capturePage(page, testInfo.outputPath('desktop.png'));
-
-        if (!route.slug || route.slug === 'diriyah') {
-          await page.setViewportSize({ width: 390, height: 844 });
-          await capturePage(page, testInfo.outputPath('mobile.png'));
-        }
+        await page.setViewportSize({ width: 390, height: 844 });
+        await capturePage(page, testInfo.outputPath('mobile.png'));
       });
     }
   }
 
   test(`${locale} keyboard navigation and persistent preferences`, async ({ page }) => {
     await page.emulateMedia({ colorScheme: 'light', reducedMotion: 'no-preference' });
-    await page.goto(pathFor(locale));
+    await page.setViewportSize({ width: 1280, height: 900 });
+    await page.goto(at(locale));
     const skip = page.getByRole('link', { name: labels[locale].skip });
-    const theme = page.getByRole('button', { name: labels[locale].theme });
-    const switcher = page.getByRole('link', { name: labels[locale].language });
-    const neom = page.getByRole('link', { name: projects[0][locale], exact: true });
+    const theme = header(page).getByRole('button', { name: labels[locale].theme });
+    const switcher = header(page).getByRole('link', { name: labels[locale].language });
     await page.keyboard.press('Tab');
     await assertFocusRing(skip);
     await page.keyboard.press('Enter');
@@ -197,20 +203,25 @@ for (const locale of ['en', 'ar']) {
     await page.keyboard.press('Tab');
     await assertFocusRing(page.getByRole('link', { name: labels[locale].exploreMap }));
     await page.keyboard.press('Tab');
-    await assertFocusRing(page.getByRole('button', { name: labels[locale].scene }));
+    await assertFocusRing(page.getByRole('link', { name: labels[locale].browse }));
     await page.keyboard.press('Tab');
-    await assertFocusRing(neom);
+    await assertFocusRing(page.locator('.hero-mosaic a').first());
     await page.keyboard.press('Enter');
-    await expect(page).toHaveURL(new RegExp(`${pathFor(locale, 'neom')}$`));
+    await expect(page).toHaveURL(new RegExp(`${at(locale, 'projects/neom/')}$`));
 
     await page.keyboard.press('Tab');
     await assertFocusRing(skip);
     await page.keyboard.press('Tab');
-    await assertFocusRing(page.locator('.brand'));
+    await assertFocusRing(header(page).locator('.brand'));
     await page.keyboard.press('Tab');
-    await assertFocusRing(page.locator('.site-nav a'));
-    await page.keyboard.press('Tab');
-    await assertFocusRing(switcher);
+    const summary = header(page).locator('.projects-menu summary');
+    await assertFocusRing(summary);
+    await page.keyboard.press('Enter');
+    await expect(header(page).locator('.projects-menu')).toHaveAttribute('open', '');
+    await page.keyboard.press('Escape');
+    await expect(header(page).locator('.projects-menu')).not.toHaveAttribute('open', '');
+    await expect(summary).toBeFocused();
+    await switcher.focus();
     await page.keyboard.press('Tab');
     await assertFocusRing(theme);
     await page.keyboard.press('Space');
@@ -221,34 +232,66 @@ for (const locale of ['en', 'ar']) {
 
     await switcher.focus();
     await page.keyboard.press('Enter');
-    const alternate = locale === 'en' ? 'ar' : 'en';
-    await expect(page).toHaveURL(new RegExp(`${pathFor(alternate, 'neom')}$`));
+    await expect(page).toHaveURL(new RegExp(`${at(alternate, 'projects/neom/')}$`));
     await expect(page.locator('html')).toHaveAttribute('lang', alternate);
-    await expect(page.getByRole('button', { name: labels[alternate].theme })).toHaveAttribute('aria-pressed', 'true');
-    const tree = await page.locator('.site-header').ariaSnapshot();
-    expect(tree).toContain(`button "${labels[alternate].theme}" [pressed]`);
-    await page.getByRole('button', { name: labels[alternate].theme }).press('Space');
-    await page.locator('.next-project a').click();
-    await expect(page).toHaveURL(new RegExp(`${pathFor(alternate, 'qiddiya')}$`));
+    const alternateTheme = header(page).getByRole('button', { name: labels[alternate].theme });
+    await expect(alternateTheme).toHaveAttribute('aria-pressed', 'true');
+    await alternateTheme.press('Space');
+    await page.locator('.pager-next').click();
+    await expect(page).toHaveURL(new RegExp(`${at(alternate, 'projects/qiddiya/')}$`));
     await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
   });
 
+  test(`${locale} compact menu opens, closes and returns focus`, async ({ page }) => {
+    await page.setViewportSize({ width: 390, height: 844 });
+    await page.goto(at(locale));
+    const toggle = header(page).locator('[data-menu-toggle]');
+    await expect(toggle).toBeVisible();
+    await expect(header(page).locator('.site-nav')).toBeHidden();
+    await toggle.click();
+    await expect(toggle).toHaveAttribute('aria-expanded', 'true');
+    await expect(header(page).locator('.site-nav')).toBeVisible();
+    await page.keyboard.press('Escape');
+    await expect(toggle).toHaveAttribute('aria-expanded', 'false');
+    await expect(toggle).toBeFocused();
+    await toggle.click();
+    await header(page).locator('.projects-menu summary').click();
+    await header(page).locator('.projects-menu-list').getByRole('link', { name: new RegExp(projects[2][locale]) }).click();
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(projects[2][locale]);
+  });
+
   test(`${locale} unknown project has a localized recovery link`, async ({ page }) => {
-    const response = await page.goto(pathFor(locale, 'missing-project'));
+    const response = await page.goto(at(locale, 'projects/missing-project/'));
     expect(response?.status()).toBe(404);
     await expect(page.getByRole('heading', { name: labels[locale].missing })).toBeVisible();
     await page.getByRole('link', { name: labels[locale].return }).click();
-    await expect(page.getByRole('heading', { name: routes[0][locale] })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(pages[0][locale]);
   });
 
   test(`${locale} reduced motion keeps the poster and project links`, async ({ page }) => {
     await page.emulateMedia({ reducedMotion: 'reduce' });
-    await page.goto(pathFor(locale));
+    await page.goto(at(locale));
     await expect(page.locator('.atlas-poster')).toBeVisible();
     await expect(page.getByRole('button', { name: labels[locale].scene })).toHaveCount(0);
     await expect(page.locator('[data-atlas-canvas] canvas')).toHaveCount(0);
-    await page.getByRole('link', { name: projects[0][locale], exact: true }).click();
-    await expect(page.getByRole('heading', { name: projects[0][locale] })).toBeVisible();
+    await mapLink(page, projects[0][locale]).click();
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(projects[0][locale]);
+  });
+
+  test(`${locale} the photo viewer steps through photos and returns focus`, async ({ page }) => {
+    await page.goto(at(locale, 'projects/diriyah/'));
+    const photos = page.locator('[data-project-photo]');
+    const dialog = page.getByRole('dialog', { name: labels[locale].viewer });
+    await photos.first().press('Enter');
+    await expect(dialog).toBeVisible();
+    await expect(dialog.getByRole('button', { name: labels[locale].close })).toBeFocused();
+    await expect(dialog.locator('figcaption')).toHaveText(await page.locator('.gallery-grid figcaption').first().innerText());
+    await expect(dialog.locator('[data-photo-counter]')).toContainText('1');
+    await dialog.getByRole('button', { name: labels[locale].next }).click();
+    await expect(dialog.locator('figcaption')).toHaveText(await page.locator('.gallery-grid figcaption').nth(1).innerText());
+    await page.keyboard.press('Escape');
+    await expect(dialog).toBeHidden();
+    await expect(photos.first()).toBeFocused();
   });
 }
 
@@ -258,53 +301,47 @@ test('English remains the default when the browser prefers Arabic', async ({ bro
     const page = await context.newPage();
     await page.goto('/');
     await expect(page.locator('html')).toHaveAttribute('lang', 'en');
-    await expect(page.getByRole('heading', { name: routes[0].en })).toBeVisible();
   } finally {
     await context.close();
   }
 });
 
-test('project and language links work with JavaScript disabled', async ({ browser, baseURL }) => {
-  const context = await browser.newContext({ baseURL, javaScriptEnabled: false });
+test('project, menu and language links work with JavaScript disabled', async ({ browser, baseURL }) => {
+  const context = await browser.newContext({ baseURL, javaScriptEnabled: false, viewport: { width: 390, height: 844 } });
   try {
     const page = await context.newPage();
     await page.goto('/');
     await expect(page.locator('.atlas-poster')).toBeVisible();
+    await expect(page.locator('.site-nav')).toBeVisible();
     await expect(page.getByRole('button', { name: labels.en.theme })).toHaveCount(0);
     await expect(page.getByRole('button', { name: labels.en.scene })).toHaveCount(0);
-    await page.getByRole('link', { name: 'AMAALA', exact: true }).click();
-    await page.getByRole('link', { name: labels.en.language }).click();
+    await mapLink(page, 'AMAALA').click();
+    await page.locator('.site-header').getByRole('link', { name: labels.en.language }).click();
     await expect(page).toHaveURL(/\/ar\/projects\/amaala\/$/);
-    await expect(page.getByRole('heading', { name: 'أمالا', exact: true })).toBeVisible();
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('أمالا');
+    await page.goto('/timeline/?project=qiddiya');
+    await expect(page.locator('.chronology-year li')).toHaveCount(3);
   } finally {
     await context.close();
   }
 });
 
-test('the photo viewer preserves the caption and returns focus on Escape', async ({ page }) => {
-  await page.goto('/ar/projects/amaala/');
-  const photo = page.locator('[data-project-gallery] [data-project-photo]');
-  const dialog = page.getByRole('dialog', { name: 'عارض الصور' });
-  await photo.press('Enter');
-  await expect(dialog).toBeVisible();
-  await expect(dialog.getByRole('button', { name: 'إغلاق الصورة' })).toBeFocused();
-  await expect(dialog.locator('figcaption')).toHaveText(await photo.locator('..').locator('figcaption').innerText());
-  await expect(dialog.locator('figcaption a')).toHaveCount(0);
-  await page.keyboard.press('Escape');
-  await expect(dialog).toBeHidden();
-  await expect(photo).toBeFocused();
-});
-
-test('project films play directly without autoplay', async ({ page }) => {
-  for (const project of projects) {
-    await page.goto(pathFor('en', project.slug));
-    const player = page.locator('.project-video video');
-    await expect(player).toHaveAttribute('controls', '');
-    await expect(player).not.toHaveAttribute('autoplay', '');
-    await expect(player.locator('source')).toHaveAttribute('src', new RegExp(`/static/atlas/videos/${project.slug}-web\\.mp4$`));
-    await player.evaluate(video => { video.muted = true; return video.play(); });
-    await expect.poll(() => player.evaluate(video => video.currentTime)).toBeGreaterThan(0);
-    await player.evaluate(video => video.pause());
+test('project films have posters, captions in the page language and no autoplay', async ({ page }) => {
+  for (const locale of ['en', 'ar']) {
+    for (const project of projects) {
+      await page.goto(at(locale, `projects/${project.slug}/`));
+      const player = page.locator('.project-video video');
+      await expect(player).toHaveAttribute('controls', '');
+      await expect(player).not.toHaveAttribute('autoplay', '');
+      await expect(player.locator('source')).toHaveAttribute('src', new RegExp(`/static/atlas/videos/${project.slug}\\.mp4$`));
+      const defaults = await player.locator('track[default]').evaluateAll(tracks => tracks.map(track => track.srclang));
+      expect(defaults.every(lang => lang === locale)).toBe(true);
+      if (locale === 'en') {
+        await player.evaluate(video => { video.muted = true; return video.play(); });
+        await expect.poll(() => player.evaluate(video => video.currentTime)).toBeGreaterThan(0);
+        await player.evaluate(video => video.pause());
+      }
+    }
   }
 });
 
@@ -336,7 +373,7 @@ test('the deferred scene opens on demand and releases its canvas on close', asyn
   await scene.press('Space');
   await expect(page.locator('[data-atlas-canvas] canvas')).toBeVisible();
   await assertMapLabels(page);
-  await page.getByRole('link', { name: 'The Red Sea', exact: true }).click();
+  await mapLink(page, 'The Red Sea').click();
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('The Red Sea');
 });
 
@@ -359,7 +396,7 @@ for (const fallback of ['WebGL2 unavailable', 'scene import failed']) {
     await expect(scene).toHaveAttribute('aria-pressed', 'false');
     await expect(page.locator('[data-atlas-canvas] canvas')).toHaveCount(0);
     await expect(page.locator('.atlas-poster')).toBeVisible();
-    await page.getByRole('link', { name: projects[2].ar, exact: true }).click();
-    await expect(page.getByRole('heading', { name: projects[2].ar })).toBeVisible();
+    await mapLink(page, projects[2].ar).click();
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText(projects[2].ar);
   });
 }

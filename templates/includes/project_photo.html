@@ -1,7 +1,0 @@
-{% load i18n static %}
-<a class="gallery-photo" href="{% static photo.path %}" data-project-photo aria-label="{% translate 'Open photo' %} · {{ photo.caption }}">
-  <img src="{% static photo.path %}" alt="{{ photo.alt }}" width="{{ photo.width }}" height="{{ photo.height }}" style="--focal: {{ photo.focal|default:'50% 50%' }}" {% if lead %}fetchpriority="high"{% else %}loading="lazy" decoding="async"{% endif %}>
-</a>
-<figcaption class="media-caption">
-  <span>{{ photo.caption }}</span>
-</figcaption>

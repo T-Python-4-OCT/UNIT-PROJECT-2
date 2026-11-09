@@ -1,0 +1,302 @@
+{
+  "slug": "qiddiya",
+  "order": 2,
+  "accent": {
+    "light": "#8a4512",
+    "dark": "#ecb37c"
+  },
+  "name": {
+    "en": "Qiddiya",
+    "ar": "القدية"
+  },
+  "category": {
+    "en": "Entertainment and sport",
+    "ar": "الترفيه والرياضة"
+  },
+  "region": {
+    "en": "Riyadh region",
+    "ar": "منطقة الرياض"
+  },
+  "tagline": {
+    "en": "Theme parks at the foot of Tuwaiq",
+    "ar": "متنزهات ترفيهية عند سفح طويق"
+  },
+  "summary": {
+    "en": "Qiddiya City is taking shape near Riyadh and the Tuwaiq Mountains. Its development spans theme parks, sports venues and cultural facilities. Six Flags Qiddiya City and Aquarabia are open to visitors.",
+    "ar": "تتطور مدينة القدية قرب الرياض وجبال طويق. ويشمل المشروع متنزهات ترفيهية ومنشآت رياضية ومرافق ثقافية. ويستقبل متنزها سيكس فلاغز وأكوارابيا الزوار في المدينة."
+  },
+  "status": {
+    "key": "partly-open",
+    "label": {
+      "en": "Partly open",
+      "ar": "افتتاح جزئي"
+    }
+  },
+  "facts": [
+    {
+      "label": {
+        "en": "Distance",
+        "ar": "المسافة"
+      },
+      "value": {
+        "en": "About 45 km from central Riyadh",
+        "ar": "نحو 45 كم من وسط الرياض"
+      }
+    },
+    {
+      "label": {
+        "en": "Open now",
+        "ar": "مفتوح الآن"
+      },
+      "value": {
+        "en": "Six Flags Qiddiya City and Aquarabia",
+        "ar": "سيكس فلاغز مدينة القدية وأكوارابيا"
+      }
+    },
+    {
+      "label": {
+        "en": "Developer",
+        "ar": "المطوّر"
+      },
+      "value": {
+        "en": "Qiddiya Investment Company",
+        "ar": "شركة القدية للاستثمار"
+      }
+    }
+  ],
+  "highlights": [
+    {
+      "en": "Six Flags Qiddiya City offers rides and attractions, including the Falcons Flight roller coaster.",
+      "ar": "يضم سيكس فلاغز مدينة القدية ألعابًا وتجارب ترفيهية، منها أفعوانية فالكونز فلايت."
+    },
+    {
+      "en": "Aquarabia is a water park with zones inspired by Saudi landscapes and wildlife.",
+      "ar": "أكوارابيا متنزه مائي يستلهم مناطقه من تضاريس السعودية وحياتها البرية."
+    },
+    {
+      "en": "PlayMaker Studios provides soundstages and outdoor sets for film production.",
+      "ar": "توفر بلاي ميكر مساحات تصوير داخلية ومواقع خارجية للإنتاج السينمائي."
+    }
+  ],
+  "milestones": [
+    {
+      "date": "2018",
+      "text": {
+        "en": "Qiddiya Investment Company launched.",
+        "ar": "انطلقت شركة القدية للاستثمار."
+      }
+    },
+    {
+      "date": "2025-12-31",
+      "text": {
+        "en": "Six Flags Qiddiya City opened to visitors.",
+        "ar": "افتتح سيكس فلاغز مدينة القدية أبوابه للزوار."
+      }
+    },
+    {
+      "date": "2026-04-23",
+      "text": {
+        "en": "Aquarabia opened to the public.",
+        "ar": "افتتح أكوارابيا أبوابه للجمهور."
+      }
+    }
+  ],
+  "details": [
+    {
+      "title": {
+        "en": "A city beside the escarpment",
+        "ar": "مدينة عند سفح طويق"
+      },
+      "body": {
+        "en": "Qiddiya City is about 45 kilometres from downtown Riyadh. Its setting at the Tuwaiq escarpment gives the city an abrupt change in elevation, a feature that informs the layout of its attractions.",
+        "ar": "تقع مدينة القدية على بُعد نحو 45 كيلومترًا من وسط الرياض. ويمنحها موقعها عند جرف طويق تفاوتًا واضحًا في الارتفاعات يؤثر في توزيع مرافقها الترفيهية."
+      }
+    },
+    {
+      "title": {
+        "en": "Theme park and water park",
+        "ar": "مدينة ألعاب ومدينة مائية"
+      },
+      "body": {
+        "en": "Six Flags Qiddiya City brings together rides including Falcons Flight. Aquarabia is a separate water park within the city, with a different mix of slides, pools and water-based attractions.",
+        "ar": "تضم سيكس فلاغز مدينة القدية ألعابًا من بينها أفعوانية فالكونز فلايت. أما أكوارابيا فهي مدينة مائية مستقلة داخل القدية، وتضم منزلقات ومسابح وتجارب مائية متنوعة."
+      }
+    },
+    {
+      "title": {
+        "en": "A base for screen production",
+        "ar": "مركز للإنتاج المرئي"
+      },
+      "body": {
+        "en": "PlayMaker Studios adds soundstages and production facilities to Qiddiya City. It serves film and television crews and broadens the project beyond visitor attractions.",
+        "ar": "تضيف استوديوهات بلاي ميكر مواقع تصوير داخلية ومرافق إنتاج إلى مدينة القدية، لخدمة فرق السينما والتلفزيون وتوسيع نطاق المشروع ليشمل الإنتاج المرئي."
+      }
+    }
+  ],
+  "image": {
+    "src": "atlas/media/qiddiya-blue-hour",
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 1600,
+    "height": 1067,
+    "color": "#3878a8",
+    "caption": {
+      "en": "Six Flags Qiddiya City at blue hour",
+      "ar": "سيكس فلاغز مدينة القدية في الساعة الزرقاء"
+    },
+    "alt": {
+      "en": "Six Flags Qiddiya City at blue hour",
+      "ar": "سيكس فلاغز مدينة القدية في الساعة الزرقاء"
+    }
+  },
+  "gallery": [
+    {
+      "src": "atlas/media/qiddiya-escarpment-park",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 1067,
+      "color": "#b8d8f8",
+      "caption": {
+        "en": "A landscaped park below the Qiddiya cliffs",
+        "ar": "حديقة عند سفح جرف القدية"
+      },
+      "alt": {
+        "en": "A landscaped park below the Qiddiya cliffs",
+        "ar": "حديقة عند سفح جرف القدية"
+      }
+    },
+    {
+      "src": "atlas/media/qiddiya-falcons-flight",
+      "widths": [
+        480,
+        960,
+        1280
+      ],
+      "width": 1280,
+      "height": 870,
+      "color": "#586878",
+      "caption": {
+        "en": "The Falcons Flight roller coaster",
+        "ar": "أفعوانية فالكونز فلايت"
+      },
+      "alt": {
+        "en": "The Falcons Flight roller coaster",
+        "ar": "أفعوانية فالكونز فلايت"
+      }
+    },
+    {
+      "src": "atlas/media/qiddiya-night",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "color": "#080818",
+      "caption": {
+        "en": "Qiddiya City lights from the top of Falcons Flight",
+        "ar": "أضواء مدينة القدية من قمة فالكونز فلايت"
+      },
+      "alt": {
+        "en": "Qiddiya City lights from the top of Falcons Flight",
+        "ar": "أضواء مدينة القدية من قمة فالكونز فلايت"
+      }
+    },
+    {
+      "src": "atlas/media/qiddiya-tuwaiq-sunset",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 1067,
+      "color": "#282828",
+      "caption": {
+        "en": "The Tuwaiq escarpment at sunset",
+        "ar": "جرف طويق عند الغروب"
+      },
+      "alt": {
+        "en": "The Tuwaiq escarpment at sunset",
+        "ar": "جرف طويق عند الغروب"
+      }
+    }
+  ],
+  "video": {
+    "youtube_id": "ZiwyxnHF5hU",
+    "title": {
+      "en": "Falcons Flight after dark",
+      "ar": "فالكونز فلايت بعد حلول الظلام"
+    },
+    "description": {
+      "en": "A view from the front of the train rises above the illuminated park and follows the track into the night.",
+      "ar": "ترتفع الكاميرا من مقدّمة القطار فوق المتنزه المضاء وتتبع مسار الأفعوانية ليلًا."
+    },
+    "start": 42,
+    "end": 88,
+    "duration": 46,
+    "source_url": "https://www.youtube.com/watch?v=ZiwyxnHF5hU",
+    "path": "atlas/videos/qiddiya.mp4",
+    "poster": "atlas/videos/qiddiya-poster.webp",
+    "captions": [],
+    "speech": false
+  },
+  "sources": [
+    {
+      "url": "https://qiddiya.com/projects/qiddiya-city/",
+      "label": {
+        "en": "Qiddiya City attractions",
+        "ar": "وجهات مدينة القدية"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.pif.gov.sa/en/our-investments/giga-projects/",
+      "label": {
+        "en": "PIF project overview",
+        "ar": "نبذة عن المشروع من صندوق الاستثمارات العامة"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.atkinsrealis.com/en/projects/qiddiya",
+      "label": {
+        "en": "Lead design consultant on the Six Flags opening",
+        "ar": "استشاري التصميم الرئيسي عن افتتاح سيكس فلاغز"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://qiddiya.com/media-centre/media-centre-listing/aquarabia-qiddiya-city-officially-welcomes-visitors-/",
+      "label": {
+        "en": "Qiddiya announcement of the Aquarabia opening",
+        "ar": "إعلان القدية عن افتتاح أكوارابيا"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://qiddiya.com/qiddiya-city/assets/aquarabia/",
+      "label": {
+        "en": "Aquarabia overview",
+        "ar": "نبذة عن أكوارابيا"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://qiddiya.com/media-centre/media-centre-listing/qiddiya-investment-company-announces-the-opening-of-playmaker-studios-at-qiddiya-city/",
+      "label": {
+        "en": "PlayMaker Studios opening",
+        "ar": "افتتاح استوديوهات بلاي ميكر"
+      },
+      "verified": "2026-11-08"
+    }
+  ]
+}

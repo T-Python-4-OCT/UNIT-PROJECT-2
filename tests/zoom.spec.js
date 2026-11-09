@@ -20,7 +20,7 @@ test('Edge reflows the full atlas at 200% browser zoom', async ({ baseURL }, tes
   try {
     const page = context.pages()[0];
     for (const prefix of ['', '/ar']) {
-      for (const path of ['/', ...projects.map((slug) => `/projects/${slug}/`)]) {
+      for (const path of ['/', '/timeline/', '/compare/', ...projects.map((slug) => `/projects/${slug}/`)]) {
         const response = await page.goto(`${baseURL}${prefix}${path}`);
         expect(response.status()).toBe(200);
         await page.evaluate(() => document.fonts.ready);

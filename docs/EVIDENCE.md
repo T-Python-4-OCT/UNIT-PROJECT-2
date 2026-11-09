@@ -1,60 +1,52 @@
-# Acceptance evidence
+# Acceptance evidence (v2)
 
-The results below describe the 8 November build, before the subsequent media and caption changes. They are historical and do not verify the current build or embedded film playback.
+Run on 9 November 2026 in a Linux preview environment, against the `upgrade/v2` working tree. This is not the Windows harness. The preview used Django 6.1.3 from the project's virtual environment, Python 3.13, Playwright 1.63 Chromium, axe-core from the project's `node_modules`, and an esbuild preview bundle in place of Vite because the registry was unreachable. Run `.\scripts\verify.ps1` on Windows to confirm these results with the pinned toolchain.
 
-Verified on 8 November 2026 on Windows with `./scripts/verify.ps1` in PowerShell. The harness served the Vite production build from Django's collected static directory with `ATLAS_DEBUG=0`. It compiled 28 Arabic messages, passed five Django tests and passed 44 browser tests. The frozen Bun install reproduced the locked dependencies.
+## Results
 
-| Requirement | Result | Evidence |
-| --- | --- | --- |
-| Django | Pass | `manage.py check` and five tests passed. |
-| Template inheritance | Pass | Home, project and 404 templates use `base.html`. |
-| Seven core pages | Pass | The homepage and six details rendered with distinct headings and content in both languages. |
-| Dynamic URLs | Pass | Django reversed the named routes and returned 404 for unknown slugs. Chromium exercised the localized recovery links. |
-| Static assets | Pass | Vite built hashed assets and Django collected them. Browser checks loaded the CSS, JavaScript, fonts, poster, all six WebPs and the deferred scene from `/static/`. |
-| Uniform design | Pass | Inspected 28 full-page captures and mobile samples for shared navigation, spacing, typography, and image treatment. |
-| Light and dark modes | Pass | Both themes rendered on every route. Keyboard tests changed the theme and confirmed persistence through reload, locale switch and next-project navigation. |
-| Responsive layout | Pass | Checked each of the 28 page states at 320, 390, 768 and 1440 px. Edge verified all 14 routes at actual 200% browser zoom in an isolated profile. |
-| English and Arabic | Pass | English stayed the root default with Arabic browser preferences. Arabic metadata, copy, captions, navigation, fallback messages and control names rendered with `lang="ar"` and RTL. Alternate links preserved the current project. |
-| Keyboard access | Pass | Verified the skip link, focus order and rings, native project links, language navigation, theme toggle and 3D toggle. Chromium exposed the theme button's name and pressed state in its accessibility tree. |
-| Contrast | Pass | The lowest measured text pair was 6.12:1 and the lowest control boundary was 3.32:1. The WCAG A/AA axe runs returned zero violations across the 28 page states and the open scene. See [design measurements](DESIGN.md). |
-| Motion and fallback | Pass | Verified reduced motion, blocked scene import, unavailable WebGL 2, context loss, and JavaScript-disabled navigation. Clicked all six canvas badges, and verified scene canvas release on close. |
-| Content accuracy | Pass | Each record includes primary sources and verification dates. The editorial register records the evidence for milestones and separates the two Red Sea Global destinations. See [sources](SOURCES.md). |
-| Clean copy and code | Pass | Reviewed the English and Arabic templates, catalog and project copy. Dataset tests check the editorial limits, and authored source contains no explanatory comments. |
-| Performance | Pass | Cold-load measurements below meet the transfer, LCP, CLS and mobile pixel-ratio targets. |
+| Check | Result |
+| --- | --- |
+| `manage.py check` | No issues |
+| `manage.py test` | 12 of 12 passed |
+| Content validation | All six records pass, including every image rendition, poster and caption file |
+| Browser acceptance suite | 51 of 51 passed. The film playback test was excluded because the preview held placeholder video files. It needs the Windows run. |
+| Route matrix | 9 routes × 2 languages × 2 themes, with no horizontal overflow and a one-row header at 320, 390, 768, 1024 and 1440 px |
+| Accessibility | Zero axe WCAG 2.2 A and AA violations on all 36 page states and the open 3D scene |
+| Keyboard | Skip link, mosaic, Projects menu with Escape and focus return, compact menu, theme persistence across reload and language switch, photo viewer stepping and focus return |
+| Fallbacks | JavaScript disabled, reduced motion, missing WebGL 2 and a failed scene import all keep the poster and links |
+| `check --deploy` | With `ATLAS_DEBUG=0` and `ATLAS_HTTPS=1`, no warnings |
 
-## Measured browser performance
+## Performance (preview server, WhiteNoise, mobile profile)
 
-Headless Chromium used a 390 × 844 CSS-pixel viewport, emulated 3× device pixel ratio, disabled network cache, 80 ms latency, 10 Mbps download, 5 Mbps upload and 4× CPU throttling. The server was on localhost. Each route had three cold navigations with trace capture disabled. The suite applies the 2.5 s LCP target to the median and checks the worst observed CLS and transfer. Core transfer counts the document and initially requested resources. Deferred transfer counts resources fetched after enabling 3D.
+390 × 844 viewport at 3× DPR, 80 ms latency, 10 Mbps down, 4× CPU throttling, three cold loads each.
 
-| Route | Median LCP and samples in ms | Maximum CLS | Maximum core transfer | Deferred scene |
+| Route | Median LCP | Max CLS | Max core transfer | Deferred scene |
 | --- | ---: | ---: | ---: | ---: |
-| `/` | 916 (496, 916, 1,340) | 0.0234 | 571,648 B | 138,997 B |
-| `/ar/` | 1,008 (816, 1,008, 3,264) | 0.0163 | 614,253 B | 138,997 B |
-| `/projects/neom/` | 920 (848, 920, 1,600) | 0.0010 | 266,008 B | — |
-| `/ar/projects/diriyah/` | 612 (548, 612, 1,812) | 0.0012 | 337,774 B | — |
+| `/` | 444 ms | 0.0006 | 357,892 B | 237,771 B |
+| `/ar/` | 440 ms | 0.0023 | 402,341 B | 237,771 B |
+| `/projects/neom/` | 356 ms | 0.0003 | 259,575 B | n/a |
+| `/ar/projects/diriyah/` | 384 ms | 0.0034 | 317,810 B | n/a |
+| `/timeline/` | 308 ms | 0.0201 | 144,121 B | n/a |
 
-Both homepages capped scene pixel ratio at 1.50. Vite emits its generic 500 kB warning for the deferred 559 kB minified chunk. The compressed browser transfer is about 139 kB against a 3 MB deferred budget. Individual paint times varied. An earlier trace-enabled Arabic Diriyah sample measured 5,412 ms, and one Arabic homepage sample in the final run measured 3,264 ms.
+All are within the budgets: LCP at most 2.0 s, CLS at most 0.05, 600 KB for the home page, 450 KB for a project page and 350 KB for the deferred scene.
 
-## Interface review
+## Quality scorecard
 
-Reviewed the homepage, six detail pages, localized 404 and map failure states. The layout follows the conventions in `PROJECT_PLAN.md` and `docs/DESIGN.md`. Django renders shared templates, and Tailwind and CSS tokens provide the shared styles.
+Scored from 1440 px and 390 px captures in English light and Arabic dark.
 
-| Domain | Evidence inspected | Result |
-| --- | --- | --- |
-| Accessibility | Keyboard paths, accessible names and state, visible focus, axe and reduced-motion behavior | Clear |
-| Layout | Desktop captures, 390 px mobile captures, four responsive widths and Edge 200% zoom | Clear |
-| Writing | Both catalogs and datasets, navigation labels and failure messages | Clear |
-| Typography | Plex families, Arabic heading leading, line wrapping and delayed font arrival | Clear |
-| Colors | Light and dark foreground pairs, outlines and focus token | Clear |
-| UI | Theme states, directional arrows, interactive map, poster and failure state | Clear |
+| Dimension | Score | Note |
+| --- | ---: | --- |
+| First impression | 4 | A bright mosaic of all six projects beside the headline replaces the dark hero |
+| Hierarchy | 4 | Small sections now use small headings |
+| Project identity | 4 | Accents, taglines and each project's own imagery |
+| Imagery | 3 | ROSHN stills are 480p, and two photos have unresolved attribution terms |
+| Map | 3 | The 2D map and labels work well, but the relief is still invented |
+| Arabic and RTL | 4 | Mirrored layouts, one digit system and unified names |
+| Dark mode | 4 | Designed surfaces and accents with measured contrast |
+| Mobile | 4 | One-row header and compact menu |
+| Accessibility | 4 | Zero axe violations, but ROSHN captions are missing |
+| Performance | 5 | Well inside every budget |
+| Accuracy | 4 | Every fact is sourced. Statuses were not re-checked online in this run. |
+| Code | 4 | One validated source, but the Windows harness has not yet been rerun |
 
-No actionable interface findings remain in the reviewed scope. The visual review used Chromium and Edge. Accessibility checks used the browser accessibility tree and axe, with no native screen-reader session.
-
-| Reproduction | Severity | Owner | Verified repair |
-| --- | --- | --- | --- |
-| In the first homepage and NEOM captures, inspect the theme glyph and follow the back or next arrows in both directions. | Medium | Noura | One theme glyph renders at a time. Directional icons now match the link action in LTR and RTL. |
-| Load Arabic Diriyah at 390 px under the mobile profile and delay font downloads. The header could switch rows twice and reached 0.6601 CLS. | High | Noura | The two-row grid keeps a stable order and height. Deliberately delaying fonts left the header and main positions unchanged. The cold production run passed the CLS budget. |
-| Open the desktop scene and inspect badge 01 near the top of the stage. | Medium | Rayan | Updated camera framing kept every badge visible at 320 and 1440 px. |
-| Inspect the empty scene status region before forcing a failed import. | Medium | Faisal | The live region remains in the accessibility tree before a failure and displays the localized fallback when populated. |
-
-**Approve** for the inspected interface scope. Browser evidence is generated under `verification/test-results/`, the run log is `verification/final-run.log`, and manual scene captures are under `verification/scene/`.
+The average is 3.9. The bar in `UPGRADE_PROMPT.md` is not yet met, mainly because of the open items in `UPGRADE_PLAN.md`.

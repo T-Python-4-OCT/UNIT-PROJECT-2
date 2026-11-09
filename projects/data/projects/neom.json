@@ -1,0 +1,279 @@
+{
+  "slug": "neom",
+  "order": 1,
+  "accent": {
+    "light": "#1d5677",
+    "dark": "#9ccbe4"
+  },
+  "name": {
+    "en": "NEOM",
+    "ar": "نيوم"
+  },
+  "category": {
+    "en": "Regional development",
+    "ar": "تنمية إقليمية"
+  },
+  "region": {
+    "en": "Northwest Saudi Arabia",
+    "ar": "شمال غرب السعودية"
+  },
+  "tagline": {
+    "en": "From the Gulf of Aqaba to Jabal Al-Lawz",
+    "ar": "من خليج العقبة إلى جبال اللوز"
+  },
+  "summary": {
+    "en": "NEOM is a developing region in northwest Saudi Arabia. Its plans span industry, logistics and new urban districts. NEOM Bay Airport and the Port of NEOM are already operational.",
+    "ar": "نيوم منطقة قيد التطوير في شمال غرب السعودية. تشمل خططها قطاعات الصناعة والخدمات اللوجستية وتطوير أحياء حضرية جديدة. ويعمل فيها حاليًا مطار خليج نيوم وميناء نيوم."
+  },
+  "status": {
+    "key": "operational",
+    "label": {
+      "en": "Partly operational",
+      "ar": "تشغيل جزئي"
+    }
+  },
+  "facts": [
+    {
+      "label": {
+        "en": "Setting",
+        "ar": "الموقع"
+      },
+      "value": {
+        "en": "Gulf of Aqaba coast and mountains",
+        "ar": "ساحل خليج العقبة والجبال"
+      }
+    },
+    {
+      "label": {
+        "en": "In operation",
+        "ar": "قيد التشغيل"
+      },
+      "value": {
+        "en": "NEOM Bay Airport and Port of NEOM",
+        "ar": "مطار خليج نيوم وميناء نيوم"
+      }
+    },
+    {
+      "label": {
+        "en": "Highest planned site",
+        "ar": "أعلى موقع مخطط"
+      },
+      "value": {
+        "en": "Trojena, up to 2,600 m",
+        "ar": "تروجينا، حتى 2,600 متر"
+      }
+    }
+  ],
+  "highlights": [
+    {
+      "en": "Oxagon brings together industrial development and port logistics.",
+      "ar": "تجمع أوكساغون بين التنمية الصناعية والخدمات اللوجستية للميناء."
+    },
+    {
+      "en": "Trojena is planned as a mountain destination in the Jabal Al-Lawz range.",
+      "ar": "تروجينا وجهة جبلية مخطط لها في سلسلة جبال اللوز."
+    },
+    {
+      "en": "The Port of NEOM handles freight on the Red Sea coast.",
+      "ar": "يتولى ميناء نيوم مناولة الشحن على ساحل البحر الأحمر."
+    }
+  ],
+  "milestones": [
+    {
+      "date": "2019",
+      "text": {
+        "en": "NEOM Bay Airport began operating.",
+        "ar": "بدأ تشغيل مطار خليج نيوم."
+      }
+    },
+    {
+      "date": "2021-11-16",
+      "text": {
+        "en": "Plans for the industrial city of Oxagon were announced.",
+        "ar": "أُعلن عن خطط إنشاء مدينة أوكساغون الصناعية."
+      }
+    },
+    {
+      "date": "2022",
+      "text": {
+        "en": "The port was transferred to NEOM.",
+        "ar": "انتقلت إدارة الميناء إلى نيوم."
+      }
+    }
+  ],
+  "details": [
+    {
+      "title": {
+        "en": "A region of contrasts",
+        "ar": "من الساحل إلى الجبال"
+      },
+      "body": {
+        "en": "NEOM spans desert, mountains and the Red Sea coast in northwest Saudi Arabia. The Gulf of Aqaba and the high ground around Jabal Al-Lawz give its coastal and inland developments very different settings.",
+        "ar": "تمتد نيوم عبر الصحراء والجبال وساحل البحر الأحمر في شمال غرب السعودية. ويمنح خليج العقبة والمرتفعات المحيطة بجبل اللوز مشاريعها الساحلية والداخلية بيئات مختلفة."
+      }
+    },
+    {
+      "title": {
+        "en": "Port and industry",
+        "ar": "الميناء والصناعة"
+      },
+      "body": {
+        "en": "The Port of NEOM anchors Oxagon. The development brings freight handling and industrial activity together on the Red Sea coast, with plans to attract manufacturers and logistics companies near the port.",
+        "ar": "يشكّل ميناء نيوم محور أوكساغون. ويجمع المشروع بين مناولة الشحن والنشاط الصناعي على ساحل البحر الأحمر، مع خطط لاستقطاب شركات التصنيع والخدمات اللوجستية قرب الميناء."
+      }
+    },
+    {
+      "title": {
+        "en": "Trojena and The Line",
+        "ar": "تروجينا وذا لاين"
+      },
+      "body": {
+        "en": "Trojena is planned as a year-round mountain destination in the Jabal Al-Lawz area, at elevations of up to 2,600 metres. The Line is a separate, phased urban development within NEOM’s long-term plan.",
+        "ar": "تروجينا وجهة جبلية مخطط لها على مدار العام في منطقة جبل اللوز، على ارتفاعات تصل إلى 2,600 متر. أما ذا لاين فهو مشروع حضري مستقل يُطوَّر على مراحل ضمن خطة نيوم طويلة الأمد."
+      }
+    }
+  ],
+  "image": {
+    "src": "atlas/media/neom-sindalah-marina",
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 1600,
+    "height": 720,
+    "color": "#b8c8b8",
+    "caption": {
+      "en": "Sindalah marina and resort buildings",
+      "ar": "مرسى سندالة ومبانيها الفندقية"
+    },
+    "alt": {
+      "en": "Sindalah marina and resort buildings",
+      "ar": "مرسى سندالة ومبانيها الفندقية"
+    },
+    "focal": "50% 72%"
+  },
+  "gallery": [
+    {
+      "src": "atlas/media/neom-sindalah-approach",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "color": "#182838",
+      "caption": {
+        "en": "A boat approaching Sindalah island",
+        "ar": "قارب يقترب من جزيرة سندالة"
+      },
+      "alt": {
+        "en": "A boat approaching Sindalah island",
+        "ar": "قارب يقترب من جزيرة سندالة"
+      }
+    },
+    {
+      "src": "atlas/media/neom-sindalah-dusk",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "color": "#181818",
+      "caption": {
+        "en": "Sindalah architecture at dusk",
+        "ar": "عمارة سندالة عند الغسق"
+      },
+      "alt": {
+        "en": "Sindalah architecture at dusk",
+        "ar": "عمارة سندالة عند الغسق"
+      }
+    },
+    {
+      "src": "atlas/media/neom-wadi-al-disah",
+      "widths": [
+        480,
+        960,
+        1536
+      ],
+      "width": 1536,
+      "height": 1022,
+      "color": "#98a8c8",
+      "caption": {
+        "en": "Wadi Al Disah in the Tabuk region",
+        "ar": "وادي الديسة في منطقة تبوك"
+      },
+      "alt": {
+        "en": "Wadi Al Disah in the Tabuk region",
+        "ar": "وادي الديسة في منطقة تبوك"
+      }
+    }
+  ],
+  "video": {
+    "youtube_id": "7o_DOopdtbo",
+    "title": {
+      "en": "Welcome to Sindalah",
+      "ar": "مرحبًا بكم في سندالة"
+    },
+    "description": {
+      "en": "A boat approaches Sindalah before the film moves from the marina to the island’s architecture and reef, then returns to a wide view at dusk.",
+      "ar": "يقترب قارب من سندالة، ثم تنتقل اللقطات من المرسى إلى عمارة الجزيرة وشعابها قبل أن تعود إلى مشهد واسع عند الغسق."
+    },
+    "start": 0,
+    "end": 34,
+    "duration": 34,
+    "source_url": "https://www.youtube.com/watch?v=7o_DOopdtbo",
+    "path": "atlas/videos/neom.mp4",
+    "captions": [
+      {
+        "src": "atlas/videos/neom-en.vtt",
+        "lang": "en",
+        "label": "English"
+      },
+      {
+        "src": "atlas/videos/neom-ar.vtt",
+        "lang": "ar",
+        "label": "العربية"
+      }
+    ],
+    "poster": "atlas/videos/neom-poster.webp",
+    "speech": true
+  },
+  "sources": [
+    {
+      "url": "https://www.neom.com/en-us/about",
+      "label": {
+        "en": "NEOM overview and timeline",
+        "ar": "نبذة عن نيوم ومحطات تطورها"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.neom.com/en-us/newsroom/hrh-prince-announces-oxagon",
+      "label": {
+        "en": "NEOM announcement of Oxagon",
+        "ar": "إعلان نيوم عن أوكساغون"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.neom.com/en-us/regions",
+      "label": {
+        "en": "NEOM regions and developments",
+        "ar": "مناطق نيوم ومشاريعها"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.neom.com/en-us/regions/trojena",
+      "label": {
+        "en": "NEOM Trojena overview",
+        "ar": "نبذة نيوم عن تروجينا"
+      },
+      "verified": "2026-11-09"
+    }
+  ]
+}

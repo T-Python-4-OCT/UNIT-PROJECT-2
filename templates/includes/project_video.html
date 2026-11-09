@@ -1,17 +1,21 @@
-{% load i18n static %}
+{% load i18n static %}{% get_current_language as page_language %}
 <section class="project-video shell" aria-labelledby="video-title">
-  <p class="eyebrow">{% translate "The short film" %}</p>
-  <h2 class="section-heading" id="video-title">{% translate "On film" %}</h2>
+  <div class="section-head">
+    <p class="eyebrow">{% translate "The short film" %}</p>
+    <h2 class="section-heading" id="video-title">{% translate "On film" %}</h2>
+  </div>
   <figure>
     <div class="project-video-player">
-      <video controls preload="none" aria-label="{{ project.video.title }}">
+      <video controls preload="none" playsinline poster="{% static project.video.poster %}" aria-label="{{ project.video.title }}">
         <source src="{% static project.video.path %}" type="video/mp4">
-        {% if project.video.captions %}<track kind="captions" src="{% static project.video.captions %}" srclang="en" label="English">{% endif %}
+        {% for track in project.video.captions %}<track kind="captions" src="{% static track.src %}" srclang="{{ track.lang }}" label="{{ track.label }}"{% if track.lang == page_language %} default{% endif %}>{% endfor %}
         <a href="{% static project.video.path %}">{{ project.video.title }}</a>
       </video>
     </div>
-    <figcaption class="media-caption">
-      <div><h3>{{ project.video.title }}</h3><p>{{ project.video.description }}</p></div>
+    <figcaption class="video-caption">
+      <h3>{{ project.video.title }} <span class="video-duration">{{ project.video.minutes }}</span></h3>
+      <p>{{ project.video.description }}</p>
+      {% if not project.video.speech %}<p class="video-note">{% translate "Music only, no narration." %}</p>{% elif not project.video.captions %}<p class="video-note">{% translate "Captions are not yet available for this film." %}</p>{% endif %}
     </figcaption>
   </figure>
 </section>

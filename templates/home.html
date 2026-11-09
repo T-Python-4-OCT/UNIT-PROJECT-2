@@ -1,33 +1,44 @@
 {% extends 'base.html' %}
-{% load i18n static %}
+{% load i18n static atlas %}
 
-{% block title %}{% translate "Saudi Arabia’s giga-projects" %} | {% translate "Saudi Giga Atlas" %}{% endblock %}
+{% block title %}{% translate "Six projects across Saudi Arabia" %} | {% translate "Saudi Giga Atlas" %}{% endblock %}
+
+{% block structured_data %}
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "{% translate 'Saudi Giga Atlas' %}", "url": "{{ absolute_paths.en }}", "inLanguage": ["en", "ar"]}</script>
+{% endblock %}
 
 {% block content %}
 <section class="home-hero" aria-labelledby="home-title">
-  <figure>
-  <div class="expedition-frame">
-    <picture>
-      <source media="(max-width: 40rem)" srcset="{% static 'atlas/media/tuwaiq-mobile.webp' %}" width="768" height="880">
-      <img class="expedition-image" src="{% static panorama.path %}" alt="{{ panorama.alt }}" width="{{ panorama.width }}" height="{{ panorama.height }}" fetchpriority="high">
-    </picture>
-      <div class="expedition-copy shell">
-        <p class="eyebrow">{% translate "From the plateau to the coast" %}</p>
-        <h1 class="hero-title" id="home-title">{% translate "Saudi Arabia’s giga-projects" %}</h1>
-        <p class="hero-summary">{% translate "Six projects across Saudi Arabia, from Najdi courtyards and the Tuwaiq cliffs to the islands of the Red Sea." %}</p>
-        <a class="expedition-link" href="#map">{% translate "Explore the map" %}{% include 'includes/arrow.html' %}</a>
+  <div class="shell home-hero-grid">
+    <div class="home-hero-copy">
+      <p class="eyebrow">{% translate "From the plateau to the coast" %}</p>
+      <h1 class="hero-title" id="home-title">{% translate "Six projects across Saudi Arabia" %}</h1>
+      <p class="hero-summary">{% translate "Najdi courtyards, new neighbourhoods, theme parks below the Tuwaiq cliffs and resorts on Red Sea islands, mapped and explained in one place." %}</p>
+      <div class="hero-actions">
+        <a class="button button-primary" href="#map">{% translate "Explore the map" %}{% include 'includes/arrow.html' with direction='down' %}</a>
+        <a class="button button-quiet" href="#projects">{% translate "Browse the projects" %}</a>
       </div>
+    </div>
+    <ul class="hero-mosaic" aria-label="{% translate 'The six projects' %}">
+      {% for project in projects %}
+      <li style="{{ project|accent_style }}">
+        <a href="{{ project.url }}">
+          {% picture project.image sizes="(max-width: 48rem) 50vw, 22vw" priority=forloop.first decorative=True %}
+          <span class="mosaic-label"><span class="mosaic-number" aria-hidden="true">{{ forloop.counter|stringformat:"02d" }}</span>{{ project.name }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
   </div>
-  <figcaption class="media-caption shell">{{ panorama.caption }}</figcaption>
-  </figure>
 </section>
+
 <section class="atlas-explorer shell" id="map" aria-labelledby="atlas-title" data-atlas>
   <div class="atlas-toolbar">
-    <div>
+    <div class="section-head">
       <p class="eyebrow">{% translate "Field map" %}</p>
       <h2 class="section-heading" id="atlas-title">{% translate "Project map" %}</h2>
     </div>
-    <button type="button" data-atlas-toggle aria-pressed="false" aria-controls="atlas-canvas" hidden>{% translate "3D map" %}</button>
+    <button type="button" class="button button-primary" data-atlas-toggle aria-pressed="false" aria-controls="atlas-canvas" hidden>{% translate "3D map" %}</button>
   </div>
   <div class="atlas-stage" data-atlas-stage>
     <img class="atlas-poster" src="{% static 'atlas/media/atlas-poster.svg' %}" alt="" width="1440" height="552" decoding="async">
@@ -36,7 +47,7 @@
       <ul>
         {% for project in projects %}
         {% if project.map_label %}
-        <li><a href="{{ project.url }}" data-atlas-link data-project="{{ project.slug }}" style="--map-x: {{ project.map_label.0 }}; --map-y: {{ project.map_label.1 }}">{{ project.name }}</a></li>
+        <li><a href="{{ project.url }}" data-atlas-link data-project="{{ project.slug }}" style="--map-x: {{ project.map_label.0 }}; --map-y: {{ project.map_label.1 }}; {{ project|accent_style }}">{{ project.name }}</a></li>
         {% endif %}
         {% endfor %}
       </ul>
@@ -47,19 +58,32 @@
     <p role="status" data-atlas-status data-unavailable-label="{% translate 'The 3D map is unavailable. Explore using the project links.' %}"></p>
   </div>
 </section>
+
 <section class="project-index shell" id="projects" aria-labelledby="projects-title">
-  <div class="index-heading">
-    <div>
-      <p class="eyebrow">{% translate "The itinerary" %}</p>
-      <h2 class="section-heading" id="projects-title">{% translate "Explore the projects" %}</h2>
-    </div>
-    <span class="index-count" aria-hidden="true">01 — {{ projects|length|stringformat:"02d" }}</span>
+  <div class="section-head">
+    <p class="eyebrow">{% translate "The itinerary" %}</p>
+    <h2 class="section-heading" id="projects-title">{% translate "Explore the projects" %}</h2>
   </div>
-  <ul class="project-grid">
+  <ol class="project-list">
     {% for project in projects %}
       {% include 'includes/project_card.html' %}
     {% endfor %}
-  </ul>
-  <p class="portfolio-note">{% translate "The Red Sea and AMAALA are separate destinations developed by Red Sea Global." %}</p>
+  </ol>
+</section>
+
+<section class="explore-more shell" aria-labelledby="explore-title">
+  <h2 class="visually-hidden" id="explore-title">{% translate "More ways to explore" %}</h2>
+  <a class="explore-card" href="{% url 'timeline' %}">
+    <span class="eyebrow">{% translate "Timeline" %}</span>
+    <span class="explore-title">{% translate "Every milestone in one sequence" %}</span>
+    <span class="explore-body">{% translate "From the UNESCO listing of At-Turaif in 2010 to this year’s openings." %}</span>
+    {% include 'includes/arrow.html' %}
+  </a>
+  <a class="explore-card" href="{% url 'compare' %}">
+    <span class="eyebrow">{% translate "Compare" %}</span>
+    <span class="explore-title">{% translate "The six side by side" %}</span>
+    <span class="explore-body">{% translate "Region, focus, developer and status for each project." %}</span>
+    {% include 'includes/arrow.html' %}
+  </a>
 </section>
 {% endblock %}

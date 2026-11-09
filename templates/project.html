@@ -1,33 +1,53 @@
 {% extends 'base.html' %}
-{% load i18n static %}
+{% load i18n static atlas %}
 
-{% block title %}{{ project.name }} | {% translate "Saudi Giga Atlas" %}{% endblock %}
+{% block title %}{{ project.name }}: {{ project.tagline }} | {% translate "Saudi Giga Atlas" %}{% endblock %}
 {% block description %}{{ project.summary }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_title %}{{ project.name }}: {{ project.tagline }}{% endblock %}
+{% block og_description %}{{ project.summary }}{% endblock %}
+{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% image_url project.image %}{% endblock %}
+{% block body_attrs %} class="project-page" style="{{ project|accent_style }}"{% endblock %}
+
+{% block structured_data %}{% get_current_language as page_language %}
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "TouristDestination", "name": "{{ project.name|escapejs }}", "description": "{{ project.summary|escapejs }}", "url": "{{ canonical_url }}", "image": "{{ request.scheme }}://{{ request.get_host }}{% image_url project.image %}", "inLanguage": "{{ page_language }}"}</script>
+{% endblock %}
 
 {% block content %}
-<header class="detail-hero shell">
-  <div class="detail-copy">
-    <a class="back-link" href="{% url 'home' %}#projects">{% include 'includes/arrow.html' %}{% translate "All projects" %}</a>
-    <div class="detail-meta">
-      <p class="eyebrow">{{ project.category }}</p>
-      <p class="detail-region">{{ project.region }}</p>
-    </div>
+<header class="detail-hero">
+  {% picture project.image sizes="100vw" priority=True css_class="detail-hero-image" %}
+  <div class="detail-hero-copy shell">
+    <a class="back-link" href="{% url 'home' %}#projects">{% include 'includes/arrow.html' with direction='back' %}{% translate "All projects" %}</a>
+    <p class="detail-kicker"><span>{{ project.category }}</span><span aria-hidden="true">·</span><span>{{ project.region }}</span></p>
     <h1 class="detail-title">{{ project.name }}</h1>
-    <p class="detail-summary">{{ project.summary }}</p>
+    <p class="detail-tagline">{{ project.tagline }}</p>
+    <p class="status-chip status-chip-on-image" data-status="{{ project.status.key }}">{{ project.status.label }}</p>
   </div>
 </header>
-{% if project.image %}
-<figure class="detail-media shell">
-  {% include 'includes/project_photo.html' with photo=project.image lead=True only %}
-</figure>
-{% endif %}
+<p class="shell media-caption hero-caption">{{ project.image.caption }}</p>
+
+<section class="detail-intro shell" aria-labelledby="glance-title">
+  <p class="detail-summary">{{ project.summary }}</p>
+  <div class="glance">
+    <h2 class="small-heading" id="glance-title">{% translate "At a glance" %}</h2>
+    <dl class="glance-list">
+      {% for fact in project.facts %}
+      <div><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>
+      {% endfor %}
+    </dl>
+  </div>
+</section>
+
 {% if project.details %}
 <section class="project-story shell" aria-labelledby="story-title">
-  <p class="eyebrow">{% translate "The story" %}</p>
-  <h2 class="section-heading" id="story-title">{% translate "Inside the project" %}</h2>
+  <div class="section-head">
+    <p class="eyebrow">{% translate "The story" %}</p>
+    <h2 class="section-heading" id="story-title">{% translate "Inside the project" %}</h2>
+  </div>
   <div class="story-grid">
     {% for detail in project.details %}
     <article>
+      <span class="story-number" aria-hidden="true">{{ forloop.counter|stringformat:"02d" }}</span>
       <h3>{{ detail.title }}</h3>
       <p>{{ detail.body }}</p>
     </article>
@@ -35,42 +55,50 @@
   </div>
 </section>
 {% endif %}
+
+{% if project.highlights %}
+<section class="attractions shell" aria-labelledby="highlights-title">
+  <h2 class="small-heading" id="highlights-title">{% translate "Top attractions" %}</h2>
+  <ul class="attraction-list">
+    {% for highlight in project.highlights %}<li>{{ highlight }}</li>{% endfor %}
+  </ul>
+</section>
+{% endif %}
+
 {% if project.gallery %}
 {% include 'includes/project_gallery.html' %}
 {% endif %}
+
 {% if project.video %}
 {% include 'includes/project_video.html' %}
 {% endif %}
-<div class="detail-layout shell">
-  {% if project.highlights %}
-  <section class="detail-section" aria-labelledby="highlights-title">
-    <h2 id="highlights-title">{% translate "Project highlights" %}</h2>
-    <ul class="highlights">
-      {% for highlight in project.highlights %}<li>{{ highlight }}</li>{% endfor %}
-    </ul>
-  </section>
-  {% endif %}
-  {% if project.milestones %}
-  <section class="detail-section" aria-labelledby="milestones-title">
-    <h2 id="milestones-title">{% translate "Milestones" %}</h2>
-    <ol class="timeline">
-      {% for milestone in project.milestones %}
-      <li>
-        {% if milestone.date %}<time class="timeline-date" datetime="{{ milestone.iso }}">{{ milestone.date|date:'j F Y' }}</time>{% else %}<span class="timeline-date">{{ milestone.iso }}</span>{% endif %}
-        <p>{{ milestone.text }}</p>
-      </li>
-      {% endfor %}
-    </ol>
-  </section>
-  {% endif %}
-</div>
-{% if next_project %}
-<nav class="next-project shell" aria-label="{% translate 'Next project' %}">
-  <a href="{{ next_project.url }}">
-    <span class="eyebrow">{% translate "Next project" %}</span>
-    <span class="next-title">{{ next_project.name }}</span>
-    {% include 'includes/arrow.html' %}
+
+{% if project.milestones %}
+<section class="milestones shell" aria-labelledby="milestones-title">
+  <div class="section-head">
+    <p class="eyebrow">{% translate "History" %}</p>
+    <h2 class="section-heading" id="milestones-title">{% translate "Milestones" %}</h2>
+  </div>
+  <ol class="timeline">
+    {% for milestone in project.milestones %}
+    <li>
+      {% if milestone.date %}<time class="timeline-date" datetime="{{ milestone.iso }}">{{ milestone.date|date:'j F Y' }}</time>{% else %}<time class="timeline-date" datetime="{{ milestone.iso }}">{{ milestone.iso }}</time>{% endif %}
+      <p>{{ milestone.text }}</p>
+    </li>
+    {% endfor %}
+  </ol>
+  <p class="text-link-row"><a class="text-link" href="{% url 'timeline' %}?project={{ project.slug }}">{% translate "See this project on the full timeline" %}{% include 'includes/arrow.html' %}</a></p>
+</section>
+{% endif %}
+
+<nav class="pager shell" aria-label="{% translate 'More projects' %}">
+  <a class="pager-link pager-previous" href="{{ previous_project.url }}" rel="prev" style="{{ previous_project|accent_style }}">
+    {% picture previous_project.image sizes="(max-width: 48rem) 40vw, 20vw" decorative=True %}
+    <span class="pager-text"><span class="eyebrow">{% translate "Previous project" %}</span><span class="pager-title">{% include 'includes/arrow.html' with direction='back' %}{{ previous_project.name }}</span></span>
+  </a>
+  <a class="pager-link pager-next" href="{{ next_project.url }}" rel="next" style="{{ next_project|accent_style }}">
+    {% picture next_project.image sizes="(max-width: 48rem) 40vw, 20vw" decorative=True %}
+    <span class="pager-text"><span class="eyebrow">{% translate "Next project" %}</span><span class="pager-title">{{ next_project.name }}{% include 'includes/arrow.html' %}</span></span>
   </a>
 </nav>
-{% endif %}
 {% endblock %}

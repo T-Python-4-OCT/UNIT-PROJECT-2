@@ -1,0 +1,275 @@
+{
+  "slug": "amaala",
+  "order": 6,
+  "accent": {
+    "light": "#9c3f2c",
+    "dark": "#f2a895"
+  },
+  "name": {
+    "en": "AMAALA",
+    "ar": "أمالا"
+  },
+  "category": {
+    "en": "Wellness and marine life",
+    "ar": "العافية والحياة البحرية"
+  },
+  "region": {
+    "en": "Northwest coast",
+    "ar": "الساحل الشمالي الغربي"
+  },
+  "tagline": {
+    "en": "Wellness and marine science at Triple Bay",
+    "ar": "العافية وعلوم البحار في تربل باي"
+  },
+  "summary": {
+    "en": "AMAALA is a coastal destination developed by Red Sea Global, with its first phase centered on Triple Bay. Its resorts and visitor attractions focus on wellness, art and marine life.",
+    "ar": "أمالا وجهة ساحلية تطوّرها شركة البحر الأحمر الدولية، وتتركز مرحلتها الأولى في تربل باي. وتهتم منتجعاتها ومرافقها السياحية بالعافية والفن والحياة البحرية."
+  },
+  "status": {
+    "key": "partly-open",
+    "label": {
+      "en": "Partly open",
+      "ar": "افتتاح جزئي"
+    }
+  },
+  "facts": [
+    {
+      "label": {
+        "en": "First phase",
+        "ar": "المرحلة الأولى"
+      },
+      "value": {
+        "en": "Triple Bay",
+        "ar": "تربل باي"
+      }
+    },
+    {
+      "label": {
+        "en": "Opened",
+        "ar": "الافتتاح"
+      },
+      "value": {
+        "en": "November 2025",
+        "ar": "نوفمبر 2025"
+      }
+    },
+    {
+      "label": {
+        "en": "Developer",
+        "ar": "المطوّر"
+      },
+      "value": {
+        "en": "Red Sea Global",
+        "ar": "البحر الأحمر الدولية"
+      }
+    }
+  ],
+  "highlights": [
+    {
+      "en": "Corallium is a marine life institute at Triple Bay, with exhibits about the Red Sea.",
+      "ar": "كوراليوم معهد للحياة البحرية في تربل باي، يضم معارض عن البحر الأحمر."
+    },
+    {
+      "en": "Jayasom Wellness Resort offers programs focused on health and wellbeing.",
+      "ar": "يقدّم منتجع جاياسوم للعافية برامج تركز على الصحة والعافية."
+    },
+    {
+      "en": "The Triple Bay waterfront includes a yacht club and marina.",
+      "ar": "تضم واجهة تربل باي البحرية ناديًا لليخوت ومرسى."
+    }
+  ],
+  "milestones": [
+    {
+      "date": "2018",
+      "text": {
+        "en": "The AMAALA development was announced.",
+        "ar": "أُعلن عن مشروع أمالا."
+      }
+    },
+    {
+      "date": "2025-11-11",
+      "text": {
+        "en": "Red Sea Global announced the opening of AMAALA Triple Bay.",
+        "ar": "أعلنت شركة البحر الأحمر الدولية عن افتتاح أمالا تربل باي."
+      }
+    },
+    {
+      "date": "2026-09-16",
+      "text": {
+        "en": "Red Sea Global reported that Jayasom Wellness Resort had opened.",
+        "ar": "أعلنت شركة البحر الأحمر الدولية بدء تشغيل منتجع جاياسوم للعافية."
+      }
+    }
+  ],
+  "details": [
+    {
+      "title": {
+        "en": "Triple Bay",
+        "ar": "تربل باي"
+      },
+      "body": {
+        "en": "Triple Bay is the focus of AMAALA on Saudi Arabia’s northwestern coast. The plan groups wellness resorts with a marina village and a waterfront that connects several parts of the destination.",
+        "ar": "تربل باي هو المحور الرئيسي لأمالا على الساحل الشمالي الغربي للسعودية. ويجمع المخطط بين منتجعات العافية وقرية المرسى وواجهة بحرية تربط أجزاء من الوجهة."
+      }
+    },
+    {
+      "title": {
+        "en": "Marine science at Corallium",
+        "ar": "علوم البحار في كوراليوم"
+      },
+      "body": {
+        "en": "Corallium is a marine life institute at Triple Bay. Its programme brings coral research and marine conservation together with public experiences designed to explain the ecosystems of the Red Sea.",
+        "ar": "كوراليوم معهد للحياة البحرية في تربل باي. ويجمع برنامجه بين أبحاث الشعاب المرجانية وحماية الحياة البحرية وتجارب تعرّف الزوار بالنظم البيئية للبحر الأحمر."
+      }
+    },
+    {
+      "title": {
+        "en": "Sailing and the marina",
+        "ar": "الإبحار والمرسى"
+      },
+      "body": {
+        "en": "The yacht club and marina are part of the waterfront plan. Red Sea Global has described a sailing academy alongside spaces for visiting boats and waterfront activity.",
+        "ar": "يشكّل نادي اليخوت والمرسى جزءًا من مخطط الواجهة البحرية. وتضم خطط البحر الأحمر الدولية أكاديمية للإبحار ومساحات للقوارب الزائرة والأنشطة على الواجهة البحرية."
+      }
+    }
+  ],
+  "image": {
+    "src": "atlas/media/amaala-triple-bay-lagoon",
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 1600,
+    "height": 900,
+    "color": "#6898d8",
+    "caption": {
+      "en": "Triple Bay lagoon and resort",
+      "ar": "بحيرة تربل باي ومنتجعها"
+    },
+    "alt": {
+      "en": "Triple Bay lagoon and resort",
+      "ar": "بحيرة تربل باي ومنتجعها"
+    }
+  },
+  "gallery": [
+    {
+      "src": "atlas/media/amaala-triple-bay-cove",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "color": "#6898d8",
+      "caption": {
+        "en": "A turquoise cove at Triple Bay",
+        "ar": "خليج فيروزي في تربل باي"
+      },
+      "alt": {
+        "en": "A turquoise cove at Triple Bay",
+        "ar": "خليج فيروزي في تربل باي"
+      }
+    },
+    {
+      "src": "atlas/media/amaala-triple-bay-hills",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "color": "#7898d8",
+      "caption": {
+        "en": "Palms and hills behind Triple Bay",
+        "ar": "نخيل وتلال خلف تربل باي"
+      },
+      "alt": {
+        "en": "Palms and hills behind Triple Bay",
+        "ar": "نخيل وتلال خلف تربل باي"
+      }
+    },
+    {
+      "src": "atlas/media/amaala-pavilion",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "color": "#a8d8f8",
+      "caption": {
+        "en": "A pavilion lounge facing the water",
+        "ar": "جناح استراحة يطل على الماء"
+      },
+      "alt": {
+        "en": "A pavilion lounge facing the water",
+        "ar": "جناح استراحة يطل على الماء"
+      }
+    }
+  ],
+  "video": {
+    "youtube_id": "u1Bh-Z2L2HU",
+    "start": 70,
+    "end": 124,
+    "duration": 54,
+    "title": {
+      "en": "From the pavilion to Triple Bay",
+      "ar": "من الصالة إلى تربل باي"
+    },
+    "description": {
+      "en": "The film moves through the Six Senses AMAALA arrival lounge and out to its terrace overlooking Triple Bay.",
+      "ar": "تنتقل اللقطات من صالة الاستقبال في سيكس سينسز أمالا إلى شرفتها المطلة على تربل باي."
+    },
+    "source_url": "https://www.youtube.com/watch?v=u1Bh-Z2L2HU",
+    "path": "atlas/videos/amaala.mp4",
+    "poster": "atlas/videos/amaala-poster.webp",
+    "captions": [],
+    "speech": false
+  },
+  "sources": [
+    {
+      "url": "https://www.redseaglobal.com/en/portfolio/amaala/",
+      "label": {
+        "en": "Red Sea Global overview of AMAALA",
+        "ar": "نبذة عن أمالا من البحر الأحمر الدولية"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.redseaglobal.com/en/media-center/news/red-sea-global-announces-the-opening-of-amaala-the-world-s-new-coastal-lifestyle-destination/",
+      "label": {
+        "en": "Red Sea Global announcement of the Triple Bay opening",
+        "ar": "إعلان البحر الأحمر الدولية عن افتتاح تربل باي"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.redseaglobal.com/en/media-center/news/Red-Sea-Global-announces-the-opening-of-Jayasom-Wellness-Resort-advancing-AMAALAs-wellness-vision/",
+      "label": {
+        "en": "Red Sea Global announcement of the Jayasom opening",
+        "ar": "إعلان البحر الأحمر الدولية عن افتتاح جاياسوم"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.redseaglobal.com/en/media-center/news/significant-progress-announced-in-development-of-luxury-tourism-destination-amaala/",
+      "label": {
+        "en": "Triple Bay development and marine institute",
+        "ar": "تطوير تربل باي ومعهد الحياة البحرية"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.redseaglobal.com/en/media-center/news/the-ocean-race-2027-will-finish-on-the-red-sea/",
+      "label": {
+        "en": "Sailing and marine science at AMAALA",
+        "ar": "الإبحار وعلوم البحار في أمالا"
+      },
+      "verified": "2026-11-08"
+    }
+  ]
+}

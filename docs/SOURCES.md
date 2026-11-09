@@ -16,10 +16,17 @@ Additional figures checked on 9 November 2026: [NEOM's Trojena elevation](https:
 | The Red Sea | West coast resorts and coral and mangrove restoration. The first resort received guests in 2023. Shebara and Desert Rock opened in 2024. Shura Island opened with initial resorts in 2025. | [Red Sea Global destination overview and timeline](https://www.redseaglobal.com/en/portfolio/the-red-sea/) |
 | AMAALA | Triple Bay, the Corallium Marine Life Institute and wellness resorts. The project was announced in 2018. Red Sea Global announced the opening of Triple Bay on 11 November 2025 and reported Jayasom's opening on 16 September 2026. | [Red Sea Global destination overview and timeline](https://www.redseaglobal.com/en/portfolio/amaala/), [Triple Bay opening announcement](https://www.redseaglobal.com/en/media-center/news/red-sea-global-announces-the-opening-of-amaala-the-world-s-new-coastal-lifestyle-destination/), [Jayasom opening announcement](https://www.redseaglobal.com/en/media-center/news/Red-Sea-Global-announces-the-opening-of-Jayasom-Wellness-Resort-advancing-AMAALAs-wellness-vision/) |
 
-## Films
+## Films and stills
 
-The atlas serves the six archived MP4 excerpts in native video players. On 9 November 2026 the user confirmed permission to host these files directly. Their original source links and excerpt ranges remain in the project data. English caption files are available for NEOM and Diriyah; the other four films have no caption files. The original downloads remain in the ignored local `.media-archive/` directory.
+The atlas serves the six official film excerpts in native players. On 9 November 2026 the user confirmed permission to host these files. Each film's source URL and excerpt range are in its project record. The films were re-encoded to 720p H.264 on 9 November 2026. The original downloads remain in the ignored `.media-archive/` folder.
 
+The lead and gallery images for NEOM (Sindalah), The Red Sea (Shebara), AMAALA (Triple Bay) and ROSHN (SEDRA), the Qiddiya night view and the Diriyah parapets are frames from those films. Frames showing recognizable faces were rejected. Burned-in titles were cropped out. `scripts/media-jobs.json` records each frame and crop, and the masters are kept in `.media-archive/masters/`.
+
+Captions were written from the narration on 9 November 2026: English for NEOM and Diriyah, and Arabic for NEOM. Diriyah has Arabic subtitles burned into the picture. The Qiddiya, The Red Sea and AMAALA films are music only. The ROSHN film has speech and still needs a transcript.
+
+## Photographs carried over from v1
+
+The v1 register recorded these terms: the Sindalah ISS photograph (NASA, public domain, now removed), At-Turaif (Xiquinho Silva, CC BY 2.0, now `diriyah-turaif-panorama`) and Northern Harrat Beach in Umluj (Saudi Press Agency, CC BY-SA 4.0, now `red-sea-umluj-coast`). CC BY and CC BY-SA require attribution, which conflicts with the no-credit rule in `AGENTS.md`. The other carried-over photos have no recorded terms: `diriyah-bujairi`, `diriyah-alley`, `diriyah-turaif-walls`, the four Qiddiya photographs, `neom-wadi-al-disah` and `red-sea-al-wajh-lagoon`. All of these need a decision. See `UPGRADE_PLAN.md`.
 
 ## Map geography
 

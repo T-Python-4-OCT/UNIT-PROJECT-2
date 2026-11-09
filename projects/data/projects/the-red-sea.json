@@ -1,0 +1,304 @@
+{
+  "slug": "the-red-sea",
+  "order": 5,
+  "accent": {
+    "light": "#0d6466",
+    "dark": "#86d8d1"
+  },
+  "name": {
+    "en": "The Red Sea",
+    "ar": "البحر الأحمر"
+  },
+  "category": {
+    "en": "Coastal tourism",
+    "ar": "السياحة الساحلية"
+  },
+  "region": {
+    "en": "Western coast",
+    "ar": "الساحل الغربي"
+  },
+  "tagline": {
+    "en": "Islands, reefs and resorts on the west coast",
+    "ar": "جزر وشعاب ومنتجعات على الساحل الغربي"
+  },
+  "summary": {
+    "en": "The Red Sea is a Red Sea Global tourism destination on Saudi Arabia’s western coast. It includes island and inland resorts. The developer runs coral and mangrove restoration programs alongside tourism operations.",
+    "ar": "البحر الأحمر وجهة سياحية تطوّرها شركة البحر الأحمر الدولية على الساحل الغربي للسعودية. تضم الوجهة منتجعات على الجزر وفي المناطق الداخلية. وتنفّذ الشركة برامج لاستعادة الشعاب المرجانية وغابات المانغروف إلى جانب تشغيل الوجهة السياحية."
+  },
+  "status": {
+    "key": "partly-open",
+    "label": {
+      "en": "Partly open",
+      "ar": "افتتاح جزئي"
+    }
+  },
+  "facts": [
+    {
+      "label": {
+        "en": "Destination area",
+        "ar": "مساحة الوجهة"
+      },
+      "value": {
+        "en": "28,000 km²",
+        "ar": "28,000 كم²"
+      }
+    },
+    {
+      "label": {
+        "en": "Islands",
+        "ar": "الجزر"
+      },
+      "value": {
+        "en": "More than 90",
+        "ar": "أكثر من 90 جزيرة"
+      }
+    },
+    {
+      "label": {
+        "en": "Developer",
+        "ar": "المطوّر"
+      },
+      "value": {
+        "en": "Red Sea Global",
+        "ar": "البحر الأحمر الدولية"
+      }
+    }
+  ],
+  "highlights": [
+    {
+      "en": "Shura Island includes resorts and the Shura Links golf course.",
+      "ar": "تضم جزيرة شورى منتجعات وملعب شورى لينكس للغولف."
+    },
+    {
+      "en": "Shebara is an island resort, while Desert Rock is set in the inland mountains.",
+      "ar": "يقع منتجع شيبارة على جزيرة، فيما يقع منتجع ديزرت روك بين الجبال في المناطق الداخلية."
+    },
+    {
+      "en": "Desert Rock was the first hotel in Saudi Arabia to receive three MICHELIN Keys.",
+      "ar": "ديزرت روك أول فندق في السعودية يحصل على ثلاثة مفاتيح ميشلان."
+    }
+  ],
+  "milestones": [
+    {
+      "date": "2023",
+      "text": {
+        "en": "The destination welcomed its first guests at Six Senses Southern Dunes.",
+        "ar": "استقبلت الوجهة أول زوارها في منتجع سيكس سينسز الكثبان الجنوبية."
+      }
+    },
+    {
+      "date": "2024",
+      "text": {
+        "en": "Shebara and Desert Rock opened.",
+        "ar": "افتُتح منتجعا شيبارة وديزرت روك."
+      }
+    },
+    {
+      "date": "2025",
+      "text": {
+        "en": "Shura Island opened with its first resorts.",
+        "ar": "افتُتحت جزيرة شورى مع أولى منتجعاتها."
+      }
+    }
+  ],
+  "details": [
+    {
+      "title": {
+        "en": "Shura Island",
+        "ar": "جزيرة شورى"
+      },
+      "body": {
+        "en": "Shura is a central island in The Red Sea destination, which Red Sea Global says spans 28,000 square kilometres and includes more than 90 islands. Foster + Partners designed Shura’s resort masterplan, and a bridge links the island with the mainland.",
+        "ar": "تقع شورى في قلب وجهة البحر الأحمر، التي تقول شركة البحر الأحمر الدولية إنها تمتد على 28,000 كيلومتر مربع وتضم أكثر من 90 جزيرة. وصمّمت فوستر وشركاؤه المخطط العام لمنتجعات شورى، ويربط جسر الجزيرة بالبر الرئيسي."
+      }
+    },
+    {
+      "title": {
+        "en": "From reef to rock",
+        "ar": "من الشعاب إلى الجبال"
+      },
+      "body": {
+        "en": "Shebara combines overwater and beachfront villas on Sheybarah Island in Al Wajh Lagoon. Desert Rock is inland near Umluj, where guest spaces are integrated into a rocky valley.",
+        "ar": "يجمع منتجع شيبارة بين الفلل فوق الماء والفلل الشاطئية في جزيرة شيبارة ببحيرة الوجه. أما ديزرت روك فيقع داخل اليابسة قرب أملج، وتندمج مرافقه مع تضاريس الوادي الصخري."
+      }
+    },
+    {
+      "title": {
+        "en": "The lagoon as habitat",
+        "ar": "البحيرة موطنًا للحياة البحرية"
+      },
+      "body": {
+        "en": "Coral reefs and mangroves are part of the landscape around the destination. Red Sea Global includes coral and mangrove restoration in its environmental work alongside resort development.",
+        "ar": "تشكّل الشعاب المرجانية وأشجار المانغروف جزءًا من البيئة المحيطة بالوجهة. وتعمل البحر الأحمر الدولية على استعادة الشعاب والمانغروف بالتوازي مع تطوير المنتجعات."
+      }
+    }
+  ],
+  "image": {
+    "src": "atlas/media/red-sea-shebara-arc",
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 1600,
+    "height": 720,
+    "color": "#7898b8",
+    "caption": {
+      "en": "Shebara overwater villas and beach",
+      "ar": "فلل شيبارة فوق الماء وشاطئها"
+    },
+    "alt": {
+      "en": "Shebara overwater villas and beach",
+      "ar": "فلل شيبارة فوق الماء وشاطئها"
+    }
+  },
+  "gallery": [
+    {
+      "src": "atlas/media/red-sea-shebara-dawn",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 738,
+      "color": "#c8d8e8",
+      "caption": {
+        "en": "Shebara at dawn",
+        "ar": "شيبارة عند الفجر"
+      },
+      "alt": {
+        "en": "Shebara at dawn",
+        "ar": "شيبارة عند الفجر"
+      }
+    },
+    {
+      "src": "atlas/media/red-sea-shebara-above",
+      "widths": [
+        480,
+        960,
+        1536
+      ],
+      "width": 1536,
+      "height": 886,
+      "color": "#08b8a8",
+      "caption": {
+        "en": "Shebara guest pavilions from above",
+        "ar": "مرافق شيبارة من الأعلى"
+      },
+      "alt": {
+        "en": "Shebara guest pavilions from above",
+        "ar": "مرافق شيبارة من الأعلى"
+      }
+    },
+    {
+      "src": "atlas/media/red-sea-reef",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 738,
+      "color": "#a8d8f8",
+      "caption": {
+        "en": "A coral reef in the Red Sea",
+        "ar": "شعاب مرجانية في البحر الأحمر"
+      },
+      "alt": {
+        "en": "A coral reef in the Red Sea",
+        "ar": "شعاب مرجانية في البحر الأحمر"
+      }
+    },
+    {
+      "src": "atlas/media/red-sea-al-wajh-lagoon",
+      "widths": [
+        480,
+        960,
+        1280
+      ],
+      "width": 1280,
+      "height": 853,
+      "color": "#181828",
+      "caption": {
+        "en": "Al Wajh Lagoon and its reefs from orbit",
+        "ar": "بحيرة الوجه وشعابها من الفضاء"
+      },
+      "alt": {
+        "en": "Al Wajh Lagoon and its reefs from orbit",
+        "ar": "بحيرة الوجه وشعابها من الفضاء"
+      }
+    },
+    {
+      "src": "atlas/media/red-sea-umluj-coast",
+      "widths": [
+        480,
+        960
+      ],
+      "width": 960,
+      "height": 640,
+      "color": "#b8c8e8",
+      "caption": {
+        "en": "Northern Harrat Beach in Umluj",
+        "ar": "شاطئ الحرة الشمالي في أملج"
+      },
+      "alt": {
+        "en": "Northern Harrat Beach in Umluj",
+        "ar": "شاطئ الحرة الشمالي في أملج"
+      }
+    }
+  ],
+  "video": {
+    "youtube_id": "aG58596tjhk",
+    "start": 16,
+    "end": 52,
+    "duration": 36,
+    "title": {
+      "en": "Shebara above the water",
+      "ar": "شيبارة فوق الماء"
+    },
+    "description": {
+      "en": "Aerial views trace the arc of Shebara’s overwater villas before moving closer to the island’s reflective architecture.",
+      "ar": "تتبع اللقطات الجوية قوس فلل شيبارة فوق الماء، ثم تقترب من عمارة الجزيرة ذات الأسطح العاكسة."
+    },
+    "source_url": "https://www.youtube.com/watch?v=aG58596tjhk",
+    "path": "atlas/videos/the-red-sea.mp4",
+    "poster": "atlas/videos/the-red-sea-poster.webp",
+    "captions": [],
+    "speech": false
+  },
+  "sources": [
+    {
+      "url": "https://www.redseaglobal.com/en/portfolio/the-red-sea/",
+      "label": {
+        "en": "Red Sea Global destination overview and timeline",
+        "ar": "نبذة عن الوجهة ومحطات تطورها من البحر الأحمر الدولية"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.redseaglobal.com/en/portfolio/projects/shura-island/",
+      "label": {
+        "en": "Shura Island masterplan",
+        "ar": "المخطط العام لجزيرة شورى"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.redseaglobal.com/en/portfolio/projects/shebara-island/",
+      "label": {
+        "en": "Shebara Island",
+        "ar": "جزيرة شيبارة"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.redseaglobal.com/en/media-center/news/desert-rock-becomes-first-hotel-in-saudi-arabia-to-receive-3-michelin-keys/",
+      "label": {
+        "en": "Desert Rock’s setting",
+        "ar": "موقع منتجع ديزرت روك"
+      },
+      "verified": "2026-11-08"
+    }
+  ]
+}

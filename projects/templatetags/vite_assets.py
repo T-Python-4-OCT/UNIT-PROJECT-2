@@ -16,6 +16,7 @@ THEME_BOOT = mark_safe("""<script>(()=>{
     saved = matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
   document.documentElement.dataset.theme = saved;
+  document.documentElement.classList.add('js');
 })();</script>""")
 
 

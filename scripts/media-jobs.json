@@ -1,0 +1,119 @@
+{
+ "neom-sindalah-marina": {
+  "master": "stills/neom-7.jpg",
+  "crop": [
+   0,
+   0,
+   1,
+   0.8
+  ]
+ },
+ "neom-sindalah-approach": {
+  "master": "stills/neom-0.5.jpg"
+ },
+ "neom-sindalah-dusk": {
+  "master": "stills/neom-31.jpg"
+ },
+ "neom-sindalah-orbit": {
+  "master": "photos/neom.webp"
+ },
+ "neom-wadi-al-disah": {
+  "master": "photos/neom-wadi-al-disah.webp"
+ },
+ "qiddiya-blue-hour": {
+  "master": "photos/qiddiya-blue-hour.webp"
+ },
+ "qiddiya-escarpment-park": {
+  "master": "photos/qiddiya-escarpment-park.webp"
+ },
+ "qiddiya-falcons-flight": {
+  "master": "photos/qiddiya-falcons-flight.webp"
+ },
+ "qiddiya-tuwaiq-sunset": {
+  "master": "photos/qiddiya-tuwaiq-sunset.webp"
+ },
+ "qiddiya-night": {
+  "master": "stills/qiddiya-40.jpg"
+ },
+ "diriyah-turaif-panorama": {
+  "master": "photos/diriyah.webp"
+ },
+ "diriyah-bujairi": {
+  "master": "photos/diriyah-bujairi.webp"
+ },
+ "diriyah-alley": {
+  "master": "photos/diriyah-alley.webp"
+ },
+ "diriyah-turaif-walls": {
+  "master": "photos/diriyah-turaif.webp"
+ },
+ "diriyah-parapets": {
+  "master": "stills/diriyah-17.jpg",
+  "crop": [
+   0,
+   0.13,
+   1,
+   0.8
+  ]
+ },
+ "roshn-sedra-street": {
+  "master": "stills/roshn-1.jpg"
+ },
+ "roshn-sedra-homes": {
+  "master": "stills/roshn-4.jpg"
+ },
+ "red-sea-shebara-arc": {
+  "master": "stills/the-red-sea-34.5.jpg",
+  "crop": [
+   0,
+   0,
+   1,
+   0.8
+  ]
+ },
+ "red-sea-shebara-dawn": {
+  "master": "stills/the-red-sea-1.jpg",
+  "crop": [
+   0,
+   0,
+   1,
+   0.82
+  ]
+ },
+ "red-sea-shebara-above": {
+  "master": "stills/the-red-sea-17.jpg",
+  "crop": [
+   0.2,
+   0,
+   1,
+   0.82
+  ]
+ },
+ "red-sea-reef": {
+  "master": "stills/the-red-sea-31.jpg",
+  "crop": [
+   0,
+   0,
+   1,
+   0.82
+  ]
+ },
+ "red-sea-al-wajh-lagoon": {
+  "master": "photos/the-red-sea-lagoon.webp"
+ },
+ "red-sea-umluj-coast": {
+  "master": "photos/the-red-sea.webp"
+ },
+ "amaala-triple-bay-lagoon": {
+  "master": "stills/amaala-46.jpg"
+ },
+ "amaala-triple-bay-cove": {
+  "master": "stills/amaala-40.jpg"
+ },
+ "amaala-triple-bay-hills": {
+  "master": "stills/amaala-52.5.jpg"
+ },
+ "amaala-pavilion": {
+  "master": "stills/amaala-3.jpg"
+ }
+}

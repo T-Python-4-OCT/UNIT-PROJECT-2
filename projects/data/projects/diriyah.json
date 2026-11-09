@@ -1,0 +1,307 @@
+{
+  "slug": "diriyah",
+  "order": 3,
+  "accent": {
+    "light": "#8a5528",
+    "dark": "#e0b68c"
+  },
+  "name": {
+    "en": "Diriyah",
+    "ar": "الدرعية"
+  },
+  "category": {
+    "en": "Heritage and urban development",
+    "ar": "التراث والتطوير الحضري"
+  },
+  "region": {
+    "en": "Riyadh region",
+    "ar": "منطقة الرياض"
+  },
+  "tagline": {
+    "en": "Mudbrick lanes above Wadi Hanifah",
+    "ar": "أزقة طينية تطل على وادي حنيفة"
+  },
+  "summary": {
+    "en": "Diriyah is a heritage-led development northwest of Riyadh. The historic At-Turaif district anchors the project. Traditional Najdi architecture informs the design of new places to live, work and visit.",
+    "ar": "الدرعية مشروع تطوير ينطلق من التراث المحلي شمال غرب الرياض، ويتمحور حول حي الطريف التاريخي. ويستوحي المشروع تصميم الأحياء السكنية وأماكن العمل والزيارة الجديدة من العمارة النجدية."
+  },
+  "status": {
+    "key": "partly-open",
+    "label": {
+      "en": "Partly open",
+      "ar": "افتتاح جزئي"
+    }
+  },
+  "facts": [
+    {
+      "label": {
+        "en": "Heritage core",
+        "ar": "النواة التاريخية"
+      },
+      "value": {
+        "en": "At-Turaif, UNESCO listed in 2010",
+        "ar": "حي الطريف، مدرج في اليونسكو عام 2010"
+      }
+    },
+    {
+      "label": {
+        "en": "World Heritage area",
+        "ar": "مساحة موقع التراث"
+      },
+      "value": {
+        "en": "28.78 hectares",
+        "ar": "28.78 هكتارًا"
+      }
+    },
+    {
+      "label": {
+        "en": "Developer",
+        "ar": "المطوّر"
+      },
+      "value": {
+        "en": "Diriyah Company",
+        "ar": "شركة الدرعية"
+      }
+    }
+  ],
+  "highlights": [
+    {
+      "en": "At-Turaif is a UNESCO World Heritage Site known for its Najdi mudbrick architecture.",
+      "ar": "حي الطريف موقع مدرج على قائمة اليونسكو للتراث العالمي، ويشتهر بعمارته النجدية المبنية بالطين."
+    },
+    {
+      "en": "Bujairi Terrace is a dining district near At-Turaif.",
+      "ar": "يضم مطل البجيري مجموعة من المطاعم بالقرب من حي الطريف."
+    },
+    {
+      "en": "The wider masterplan adds homes, hotels and offices in Najdi forms.",
+      "ar": "يضيف المخطط العام مساكن وفنادق ومكاتب مستوحاة من العمارة النجدية."
+    }
+  ],
+  "milestones": [
+    {
+      "date": "2010",
+      "text": {
+        "en": "UNESCO added At-Turaif to the World Heritage List.",
+        "ar": "أدرجت اليونسكو حي الطريف على قائمة التراث العالمي."
+      }
+    },
+    {
+      "date": "2017",
+      "text": {
+        "en": "The Diriyah Gate Development Authority was established.",
+        "ar": "أُنشئت هيئة تطوير بوابة الدرعية."
+      }
+    },
+    {
+      "date": "2022",
+      "text": {
+        "en": "Bujairi Terrace and At-Turaif opened to visitors as part of the Diriyah development.",
+        "ar": "استقبل مطل البجيري وحي الطريف الزوار ضمن مشروع تطوير الدرعية."
+      }
+    }
+  ],
+  "details": [
+    {
+      "title": {
+        "en": "At-Turaif’s historic fabric",
+        "ar": "النسيج العمراني للطريف"
+      },
+      "body": {
+        "en": "At-Turaif was the seat of the First Saudi State. UNESCO lists the World Heritage property at 28.78 hectares. Its mudbrick palaces, lanes and courtyards show how Najdi builders used local materials and arranged buildings around sheltered spaces.",
+        "ar": "كان حي الطريف مقر الدولة السعودية الأولى. وتبلغ مساحة الموقع المدرج على قائمة التراث العالمي لدى اليونسكو 28.78 هكتارًا. وتُظهر قصوره الطينية وأزقته وأفنيته كيف استخدم البناؤون النجديون المواد المحلية ونظّموا المباني حول مساحات محمية."
+      }
+    },
+    {
+      "title": {
+        "en": "The valley and Bujairi Terrace",
+        "ar": "الوادي ومطل البجيري"
+      },
+      "body": {
+        "en": "Bujairi Terrace looks toward At-Turaif from across Wadi Hanifah. Dining and public spaces give visitors a different view of the historic district and its relationship to the valley.",
+        "ar": "يطل البجيري على حي الطريف من الجهة المقابلة لوادي حنيفة. وتتيح المطاعم والمساحات العامة للزوار رؤية الحي التاريخي من زاوية مختلفة وفهم علاقته بالوادي."
+      }
+    },
+    {
+      "title": {
+        "en": "The wider masterplan",
+        "ar": "المخطط العام للدرعية"
+      },
+      "body": {
+        "en": "The wider Diriyah development includes homes, hotels, offices and retail alongside cultural destinations. The masterplan draws on Najdi architectural forms to connect the new districts with the setting of the historic site.",
+        "ar": "يضم تطوير الدرعية الأوسع مساكن وفنادق ومكاتب ومتاجر إلى جانب الوجهات الثقافية. ويستند المخطط العام إلى عناصر العمارة النجدية لربط الأحياء الجديدة بمحيط الموقع التاريخي."
+      }
+    }
+  ],
+  "image": {
+    "src": "atlas/media/diriyah-turaif-panorama",
+    "widths": [
+      480,
+      960,
+      1536
+    ],
+    "width": 1536,
+    "height": 580,
+    "color": "#f8f8f8",
+    "caption": {
+      "en": "At-Turaif district in Diriyah",
+      "ar": "حي الطريف في الدرعية"
+    },
+    "alt": {
+      "en": "At-Turaif district in Diriyah",
+      "ar": "حي الطريف في الدرعية"
+    }
+  },
+  "gallery": [
+    {
+      "src": "atlas/media/diriyah-bujairi",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 1067,
+      "color": "#081828",
+      "caption": {
+        "en": "Bujairi Terrace in Diriyah at night",
+        "ar": "مطل البجيري في الدرعية ليلًا"
+      },
+      "alt": {
+        "en": "Bujairi Terrace in Diriyah at night",
+        "ar": "مطل البجيري في الدرعية ليلًا"
+      }
+    },
+    {
+      "src": "atlas/media/diriyah-alley",
+      "widths": [
+        480,
+        811
+      ],
+      "width": 811,
+      "height": 1200,
+      "color": "#381808",
+      "caption": {
+        "en": "A passage in the historic At-Turaif district",
+        "ar": "ممر في حي الطريف التاريخي"
+      },
+      "alt": {
+        "en": "A passage in the historic At-Turaif district",
+        "ar": "ممر في حي الطريف التاريخي"
+      }
+    },
+    {
+      "src": "atlas/media/diriyah-turaif-walls",
+      "widths": [
+        480,
+        960,
+        1280
+      ],
+      "width": 1280,
+      "height": 960,
+      "color": "#5898d8",
+      "caption": {
+        "en": "Mudbrick walls in At-Turaif",
+        "ar": "جدران طينية في حي الطريف"
+      },
+      "alt": {
+        "en": "Mudbrick walls in At-Turaif",
+        "ar": "جدران طينية في حي الطريف"
+      }
+    },
+    {
+      "src": "atlas/media/diriyah-parapets",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 603,
+      "color": "#78a8b8",
+      "caption": {
+        "en": "Najdi parapets against the sky",
+        "ar": "شرفات نجدية في السماء"
+      },
+      "alt": {
+        "en": "Najdi parapets against the sky",
+        "ar": "شرفات نجدية في السماء"
+      }
+    }
+  ],
+  "video": {
+    "youtube_id": "tt20NlDTOqQ",
+    "title": {
+      "en": "A closer look at Najdi architecture",
+      "ar": "نظرة عن قرب على العمارة النجدية"
+    },
+    "description": {
+      "en": "Courtyards give way to close views of mudbrick walls, wooden beams and traditional rooflines in Diriyah.",
+      "ar": "تنتقل اللقطات من الساحات إلى تفاصيل الجدران الطينية والعوارض الخشبية والأسقف التقليدية في الدرعية."
+    },
+    "start": 0,
+    "end": 23,
+    "duration": 23,
+    "source_url": "https://www.youtube.com/watch?v=tt20NlDTOqQ",
+    "path": "atlas/videos/diriyah.mp4",
+    "captions": [
+      {
+        "src": "atlas/videos/diriyah-en.vtt",
+        "lang": "en",
+        "label": "English"
+      }
+    ],
+    "poster": "atlas/videos/diriyah-poster.webp",
+    "speech": true
+  },
+  "sources": [
+    {
+      "url": "https://www.diriyahcompany.sa/en",
+      "label": {
+        "en": "Diriyah Company master plan overview",
+        "ar": "نبذة عن المخطط العام لشركة الدرعية"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.diriyahcompany.sa/en/about",
+      "label": {
+        "en": "Diriyah Company on the development authority",
+        "ar": "شركة الدرعية عن هيئة تطوير بوابة الدرعية"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://whc.unesco.org/en/list/1329",
+      "label": {
+        "en": "UNESCO listing for At-Turaif",
+        "ar": "حي الطريف في قائمة اليونسكو"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.diriyahcompany.sa/en/news/diriyah-showcases-its-offering-to-the-world-at-the-arabian-travel-market",
+      "label": {
+        "en": "Diriyah Company on the first openings",
+        "ar": "شركة الدرعية عن افتتاح أولى وجهات المشروع"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.diriyahcompany.sa/en/masterplan",
+      "label": {
+        "en": "Diriyah masterplan",
+        "ar": "المخطط العام للدرعية"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.diriyahcompany.sa/en/news/work-commences-on-worlds-largest-cultural-and-heritage-development-diriyah-gate-starting-with-bujairi-district",
+      "label": {
+        "en": "Bujairi district development",
+        "ar": "تطوير حي البجيري"
+      },
+      "verified": "2026-11-08"
+    }
+  ]
+}
