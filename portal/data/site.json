@@ -53,6 +53,42 @@
       "name": "Arab News — How 'Absher' app liberates Saudis from government bureaucracy",
       "url": "https://www.arabnews.pk/node/1453341",
       "note": "Source for the launch of Absher Business (April 2018)."
+    },
+        {
+      "id": "spa_digital_ids",
+      "name": "Saudi Press Agency (via Al Riyadh Daily) — Absher Platform Provides Rapid Digital Solutions, Helps Issue over 28 Million Digital IDs",
+      "url": "https://alriyadhdaily.com/article/2157dfaef10d4d7f893fc381959d3908",
+      "note": "Report on the Ministry of Interior's announcement. The 25 Dec 2024 date is as reported by IDTechWire."
+    },
+    {
+      "id": "arabnews_absher_2020",
+      "name": "Arab News — 18m used Saudi Arabia's Absher services last year",
+      "url": "https://arab.news/83fw2",
+      "note": "Published 9 Dec 2020; covers 2019."
+    },
+    {
+      "id": "arabnews_absher_2022",
+      "name": "Arab News — 23 million people used Saudi Arabia's electronic Absher services last year",
+      "url": "https://www.arabnews.com/node/2010281",
+      "note": "Published 23 Jan 2022; covers 2021."
+    },
+    {
+      "id": "saudigazette_absher_2025",
+      "name": "Saudi Gazette — Interior Ministry launches new digital services on Absher platform",
+      "url": "https://saudigazette.com.sa/article/653643",
+      "note": "Published 23 July 2025."
+    },
+    {
+      "id": "ajel_civil_2026",
+      "name": "Ajel News — Saudi Interior Ministry launches new digital services on Absher platform",
+      "url": "https://english.ajel.sa/news/swq38wbko",
+      "note": "Civil Affairs services; published 30 July 2026."
+    },
+    {
+      "id": "aawsat_digital",
+      "name": "Asharq Al-Awsat — King Salman Era Marks Saudi Shift from Digital State to AI Sovereignty",
+      "url": "https://english.aawsat.com/node/5232804",
+      "note": "Source for SDAIA's role in developing Nafath."
     }
   ]
 }

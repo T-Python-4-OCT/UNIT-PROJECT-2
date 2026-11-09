@@ -1,0 +1,138 @@
+{
+  "absher": {
+    "title": "Absher Platform",
+    "subtitle": "The Ministry of Interior's gateway to digital services.",
+    "intro": "Absher is the Ministry of Interior's e-services platform. It lets citizens, residents, businesses, and government entities complete procedures online that once required a visit to a government office.",
+    "sections": [
+      {
+        "type": "cards",
+        "heading": "Three Channels",
+        "items": [
+          {
+            "title": "Absher Individuals",
+            "text": "Services for citizens and residents."
+          },
+          {
+            "title": "Absher Business",
+            "text": "Services for businesses and establishments."
+          },
+          {
+            "title": "Absher Government",
+            "text": "Services for government entities."
+          }
+        ]
+      },
+      {
+        "type": "stats",
+        "heading": "Absher Growth",
+        "items": [
+          {
+            "label": "Users in 2019",
+            "value": "18.3 million",
+            "as_of": "2019",
+            "source": "arabnews_absher_2020"
+          },
+          {
+            "label": "Services available in 2019",
+            "value": "280",
+            "as_of": "2019",
+            "source": "arabnews_absher_2020"
+          },
+          {
+            "label": "Users in 2021",
+            "value": "23 million",
+            "as_of": "2021",
+            "source": "arabnews_absher_2022"
+          },
+          {
+            "label": "Operations in 2021",
+            "value": "85 million+",
+            "as_of": "2021",
+            "source": "arabnews_absher_2022"
+          },
+          {
+            "label": "Services across the three channels",
+            "value": "460+",
+            "as_of": "2024",
+            "source": "saudipedia"
+          }
+        ]
+      }
+    ],
+    "sources": ["absher", "arabnews_absher_2020", "arabnews_absher_2022", "saudipedia"]
+  },
+  "digital_identity": {
+    "title": "Digital Identity",
+    "subtitle": "One verified identity across government and private services.",
+    "intro": "A digital identity lets a person prove who they are online without visiting an office. In Saudi Arabia the Ministry of Interior issues unified digital IDs through Absher, and the same identity can be used to sign in to other platforms through the national unified access service, Nafath.",
+    "sections": [
+      {
+        "type": "stats",
+        "heading": "Digital IDs at a Glance",
+        "items": [
+          {
+            "label": "Unified digital IDs issued through Absher",
+            "value": "28 million+",
+            "as_of": "2024-12-25",
+            "source": "spa_digital_ids"
+          }
+        ]
+      },
+      {
+        "type": "cards",
+        "heading": "Two Authorities, One Experience",
+        "items": [
+          {
+            "title": "Ministry of Interior: Absher",
+            "text": "Issues unified digital IDs through Absher. A digital ID opens the Ministry's own services and can also be used to connect to government or private platforms.",
+            "source": "spa_digital_ids"
+          },
+          {
+            "title": "SDAIA: Nafath",
+            "text": "Nafath is the national unified access service for signing in to government and private platforms. It is developed and run by the Saudi Data and AI Authority (SDAIA), not by the Ministry of Interior.",
+            "source": "aawsat_digital"
+          }
+        ]
+      }
+    ],
+    "sources": ["spa_digital_ids", "aawsat_digital"]
+  },
+  "digital_services": {
+    "title": "Digital Services",
+    "subtitle": "Procedures that moved from the counter to the screen.",
+    "intro": "Absher brings together services from across the Ministry of Interior's sectors, and new services are added regularly. The examples below are recent additions announced by the Ministry.",
+    "sections": [
+      {
+        "type": "stats",
+        "heading": "Scope",
+        "items": [
+          {
+            "label": "Ministry of Interior sectors served by Absher",
+            "value": "10",
+            "as_of": "2025",
+            "source": "saudipedia"
+          }
+        ]
+      },
+      {
+        "type": "cards",
+        "heading": "Recent Additions",
+        "items": [
+          {
+            "title": "Public Security",
+            "date": "July 2025",
+            "text": "New services on Absher Individuals include transferring vehicle ownership to businesses and added features for air rifle permits, such as ownership transfer and license renewal.",
+            "source": "saudigazette_absher_2025"
+          },
+          {
+            "title": "Civil Affairs",
+            "date": "July 2026",
+            "text": "New digital civil affairs services let users amend the information on birth certificates and death certificates.",
+            "source": "ajel_civil_2026"
+          }
+        ]
+      }
+    ],
+    "sources": ["saudipedia", "saudigazette_absher_2025", "ajel_civil_2026"]
+  }
+}
