@@ -1,0 +1,60 @@
+{
+  "title": "Vision 2030",
+  "subtitle": "The national blueprint behind Saudi Arabia's digital transformation.",
+  "intro": "Saudi Vision 2030 is the Kingdom's long-term roadmap, launched in 2016. It sets out how the country diversifies its economy, empowers its people, and builds a government that works effectively. Digital transformation is one of the main ways this vision reaches people's daily lives.",
+  "sections": [
+    {
+      "type": "cards",
+      "heading": "Three Pillars",
+      "items": [
+        {
+          "title": "A Vibrant Society",
+          "text": "A society where people can pursue their passions and enjoy a fulfilling life. It is the foundation on which the economy and the nation are built."
+        },
+        {
+          "title": "A Thriving Economy",
+          "text": "An economy that is diversifying and offers everyone the opportunity to succeed."
+        },
+        {
+          "title": "An Ambitious Nation",
+          "text": "A nation committed to efficiency and accountability, with a government that is effective, transparent, and high-performing."
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "heading": "Vision at a Glance",
+      "items": [
+        {
+          "label": "Launch date",
+          "value": "25 April 2016",
+          "source": "saudipedia",
+          "checked_on": "2026-11-08"
+        },
+        {
+          "label": "Vision pillars",
+          "value": "3",
+          "source": "vision2030",
+          "checked_on": "2026-11-08"
+        },
+        {
+          "label": "Vision Realization Programs",
+          "value": "11",
+          "source": "vision2030",
+          "checked_on": "2026-11-08"
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "heading": "From Vision to Digital Government",
+      "items": [
+        {
+          "title": "A Dedicated National Strategy",
+          "text": "The Digital Government Strategy 2023-2030 defines the Kingdom's ambitions, objectives, and roadmap for digital government, and is aligned with the goals of Vision 2030."
+        }
+      ]
+    }
+  ],
+  "sources": ["vision2030", "saudipedia", "dga"]
+}
