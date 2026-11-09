@@ -7,7 +7,7 @@ from django.shortcuts import redirect, render
 from main import json_store
 from detector.analyzer import build_segments, local_scan
 from detector.rules import RULES
-from main.content import CHANNELS, FAQ, FEEDBACK_TAGS, SCAM_TYPES, TIPS
+from main.content import CHANNELS, FAQ, FEEDBACK_TAGS, SCAM_TYPES, STORIES, TIPS, VIDEO_TRANSCRIPT
 
 
 HERO_SAMPLE = "عميلنا العزيز، سيتم إيقاف حسابك خلال 24 ساعة. حدّث بياناتك عبر alrajhi-update.com وأرسل رمز التحقق."
@@ -27,6 +27,8 @@ def home(request: HttpRequest) -> HttpResponse:
     context = {
         "hero": with_highlights(HERO_SAMPLE),
         "samples": samples,
+        "stories": STORIES,
+        "transcript": VIDEO_TRANSCRIPT,
         "channels": CHANNELS,
         "patterns_count": sum(len(rule["patterns"]) for rule in RULES),
     }

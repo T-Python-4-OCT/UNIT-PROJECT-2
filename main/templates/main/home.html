@@ -25,22 +25,22 @@
       </form>
     </div>
 
-    <div class="hero-visual" aria-hidden="true">
-      <div class="phone">
-        <div class="phone-top">
-          <span class="sender-avatar"><i class="bi bi-bank"></i></span>
-          <div><strong>BANK-ALERT</strong><small>رسالة نصية، الآن</small></div>
-        </div>
-        <div class="phone-body scanning">
-          <span class="scan-line"></span>
-          {# The same message is scanned by the real detector, so the highlights are real #}
-          <p class="bubble bubble-in">{% include "main/partials/marked_text.html" with segments=hero.segments %}</p>
-          <ul class="finding-tags">
-            {% for flag in hero.flags|slice:":4" %}<li style="--i: {{ forloop.counter }};">{{ flag.title }}</li>{% endfor %}
-          </ul>
-        </div>
+    <div class="hero-video">
+      <div class="video-frame">
+        <video controls preload="metadata" playsinline poster="{% static 'main/videos/ihdhar-awareness-poster.jpg' %}"
+               aria-describedby="video-transcript">
+          <source src="{% static 'main/videos/ihdhar-awareness.mp4' %}" type="video/mp4">
+          متصفحك لا يدعم تشغيل الفيديو.
+        </video>
       </div>
-      <div class="hero-verdict"><span class="dot"></span> احتيال</div>
+      <div class="video-caption">
+        <span><strong>شاهد: كيف تقع الضحية في ثوانٍ؟</strong> مقطع توعوي بصوت معلّق سعودي.</span>
+        <span class="badge"><i class="bi bi-volume-up"></i> أقل من دقيقة</span>
+      </div>
+      <details class="transcript" id="video-transcript">
+        <summary>نص المقطع</summary>
+        <ol>{% for line in transcript %}<li>{{ line }}</li>{% endfor %}</ol>
+      </details>
     </div>
   </div>
 </section>
@@ -61,6 +61,28 @@
           </div>
         </article>
       {% endfor %}
+    </div>
+
+    <div class="stories">
+      <header class="section-head">
+        <h2>ضحايا سابقون: لا تكون التالي</h2>
+        <p>كل قصة تبدأ برسالة عادية جداً. اقرأ وش صار، ووش كانت العلامة اللي لو انتبهوا لها ما خسروا شيء.</p>
+        <span class="story-note"><i class="bi bi-info-circle"></i> قصص توضيحية مبنية على أساليب احتيال منتشرة، والأسماء غير حقيقية</span>
+      </header>
+      <div class="story-grid">
+        {% for story in stories %}
+          <article class="story story-{{ story.tone }}">
+            <div class="story-top">
+              <span class="story-avatar"><i class="bi {{ story.icon }}"></i></span>
+              <div><strong>{{ story.name }}</strong><small>{{ story.age }} سنة، {{ story.city }}</small></div>
+            </div>
+            <h3>{{ story.title }}</h3>
+            <p class="story-text">{{ story.story }}</p>
+            <div class="story-loss"><span>الخسارة</span><strong>{{ story.loss }}</strong></div>
+            <p class="story-lesson"><span><i class="bi bi-exclamation-triangle"></i> {{ story.flag }}</span>{{ story.lesson }}</p>
+          </article>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>
