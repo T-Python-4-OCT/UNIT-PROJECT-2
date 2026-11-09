@@ -1,0 +1,112 @@
+{% extends 'projects/base.html' %}
+{% load static %}
+
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+<!-- ================= HERO ================= -->
+<section class="hero" style="--hero-img: url('{% static 'images/hero-home.jpg' %}')">
+    <div class="container hero-content">
+        <span class="eyebrow">Saudi Vision 2030</span>
+        <h1>Building the Kingdom <br>of Tomorrow</h1>
+        <p>Explore the giga-projects transforming Saudi Arabia into a global destination for culture, tourism and quality of life.</p>
+        <a href="{% url 'projects:all_projects' %}" class="btn btn-primary">
+            Explore Projects <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+    </div>
+</section>
+
+<!-- ================= ABOUT VISION ================= -->
+<section class="container section intro">
+    <div class="intro-text">
+        <span class="eyebrow">The Vision</span>
+        <h2>An Ambitious Nation, <br>A Thriving Future</h2>
+        <p class="intro-paragraph">
+            Launched in 2016, Saudi Vision 2030 is a national plan to diversify the economy, empower society
+            and open the Kingdom to the world. At the heart of this transformation are the giga-projects:
+            large-scale developments that celebrate Saudi heritage, create new destinations for tourism and
+            entertainment, and raise the quality of life for citizens and visitors alike.
+        </p>
+        <a href="{% url 'projects:about' %}" class="link-arrow">
+            Learn more about the Vision <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+    </div>
+
+    <figure class="intro-video">
+        <video autoplay muted loop playsinline poster="{% static 'images/riyadh-metro-poster.jpg' %}">
+            <source src="{% static 'videos/riyadh-metro.mp4' %}" type="video/mp4">
+        </video>
+        <figcaption>
+            <span class="material-symbols-outlined">train</span>
+            Riyadh Metro &amp; KAFD
+        </figcaption>
+    </figure>
+</section>
+
+<!-- ================= PILLARS ================= -->
+<section class="container pillars">
+    <div class="pillar">
+        <span class="material-symbols-outlined">diversity_3</span>
+        <h3>A Vibrant Society</h3>
+        <p>Proud of its heritage, its identity and its values.</p>
+    </div>
+    <div class="pillar">
+        <span class="material-symbols-outlined">trending_up</span>
+        <h3>A Thriving Economy</h3>
+        <p>Diverse, competitive and open to the world.</p>
+    </div>
+    <div class="pillar">
+        <span class="material-symbols-outlined">flag</span>
+        <h3>An Ambitious Nation</h3>
+        <p>Effective, transparent and responsive to its people.</p>
+    </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section class="container section">
+    <div class="section-head">
+        <div>
+            <span class="eyebrow">Giga-Projects</span>
+            <h2>Explore the Projects</h2>
+        </div>
+        <a href="{% url 'projects:all_projects' %}" class="link-arrow">
+            View All <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+    </div>
+
+    <div class="cards-grid">
+        {% for project in projects %}
+            <article class="project-card">
+                <a href="{% url 'projects:project_detail' project.slug %}">
+                    <div class="card-img">
+                        <img src="{% static project.image %}" alt="{{ project.name }}">
+                        <span class="card-tag">{{ project.category }}</span>
+                    </div>
+                    <div class="card-body">
+                        <h3>{{ project.name }}</h3>
+                        <p>{{ project.tagline }}</p>
+                        <span class="card-location">
+                            <span class="material-symbols-outlined">location_on</span>{{ project.location }}
+                        </span>
+                    </div>
+                </a>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ================= CALL TO ACTION ================= -->
+<section class="container">
+    <div class="cta">
+        <div>
+            <h2>Learn More About Vision 2030</h2>
+            <p>Discover the goals and programs shaping the future of the Kingdom.</p>
+        </div>
+        <a href="{% url 'projects:about' %}" class="btn btn-light">
+            About Ruya <span class="material-symbols-outlined">arrow_forward</span>
+        </a>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,50 @@
+[
+    {
+        "slug": "diriyah",
+        "name": "Diriyah",
+        "category": "Culture & Heritage",
+        "location": "Riyadh",
+        "tagline": "Where the Saudi story began.",
+        "image": "images/diriyah.jpg"
+    },
+    {
+        "slug": "qiddiya",
+        "name": "Qiddiya",
+        "category": "Entertainment",
+        "location": "Riyadh",
+        "tagline": "The capital of play.",
+        "image": "images/qiddiya.jpg"
+    },
+    {
+        "slug": "red-sea",
+        "name": "The Red Sea",
+        "category": "Tourism",
+        "location": "Red Sea Coast",
+        "tagline": "Luxury in harmony with nature.",
+        "image": "images/red-sea.jpg"
+    },
+    {
+        "slug": "alula",
+        "name": "AlUla",
+        "category": "Culture & Heritage",
+        "location": "AlUla",
+        "tagline": "A living museum in the desert.",
+        "image": "images/alula.jpg"
+    },
+    {
+        "slug": "king-salman-park",
+        "name": "King Salman Park",
+        "category": "Quality of Life",
+        "location": "Riyadh",
+        "tagline": "A green heart for the capital.",
+        "image": "images/king-salman-park.jpg"
+    },
+    {
+        "slug": "roshn",
+        "name": "ROSHN",
+        "category": "Housing",
+        "location": "Nationwide",
+        "tagline": "Communities designed for living.",
+        "image": "images/roshn.jpg"
+    }
+]
