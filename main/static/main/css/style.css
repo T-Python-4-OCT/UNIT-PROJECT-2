@@ -1,0 +1,38 @@
+
+@font-face {
+    font-family: 'Thmanyah';
+    src: url('../fonts/thmanyah-sans-Light.woff2') format('woff2');
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'Thmanyah';
+    src: url('../fonts/thmanyah-sans-Regular.woff2') format('woff2');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'Thmanyah';
+    src: url('../fonts/thmanyah-sans-Medium.woff2') format('woff2');
+    font-weight: 500;
+}
+
+@font-face {
+    font-family: 'Thmanyah';
+    src: url('../fonts/thmanyah-sans-Bold.woff2') format('woff2');
+    font-weight: 700;
+}
+
+@font-face {
+    font-family: 'Thmanyah';
+    src: url('../fonts/thmanyah-sans-Black.woff2') format('woff2');
+    font-weight: 900;
+}
+
+body {
+    font-family: 'Thmanyah', sans-serif;
+}
+
+button, input, select, textarea {
+    font-family: inherit;
+}
