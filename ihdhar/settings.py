@@ -71,3 +71,7 @@ USE_TZ = True
 
 STATIC_URL = "static/"
 # Every app keeps its own files in <app>/static/<app>/ (css, fonts, images)
+
+# Max size of an uploaded PDF (5 MB)
+DATA_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024
+FILE_UPLOAD_MAX_MEMORY_SIZE = 5 * 1024 * 1024

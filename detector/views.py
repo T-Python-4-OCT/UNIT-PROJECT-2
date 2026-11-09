@@ -1,10 +1,11 @@
-"""Views of the detector app: check a message and the checks history."""
+"""Views of the detector app: check a message, check a PDF, and the checks history."""
 
 from django.http import Http404, HttpRequest, HttpResponse
 from django.shortcuts import render
 
 from main import ai_client, json_store
 from detector.analyzer import VERDICTS, analyze
+from detector.pdf_reader import PDFError, analyze_pdf, extract_text
 
 MIN_LENGTH = 10
 MAX_LENGTH = 2000
@@ -28,7 +29,7 @@ def detector_home(request: HttpRequest) -> HttpResponse:
         if len(text) < MIN_LENGTH:
             context["error"] = f"النص قصير، الصق الرسالة كاملة ({MIN_LENGTH} أحرف على الأقل)."
         elif len(text) > MAX_LENGTH:
-            context["error"] = f"النص طويل، الحد الأقصى {MAX_LENGTH} حرف."
+            context["error"] = f"النص طويل، الحد الأقصى {MAX_LENGTH} حرف. للمستندات الطويلة استخدم فحص PDF."
         else:
             result = analyze(text)
 
@@ -40,6 +41,34 @@ def detector_home(request: HttpRequest) -> HttpResponse:
                 result["id"] = saved["id"]
             context["result"] = result
             context["verdict"] = VERDICTS[result["verdict"]]
+
+    return render(request, "detector/detector.html", context)
+
+
+def check_pdf(request: HttpRequest) -> HttpResponse:
+    context = {"mode": "pdf", "ai_ready": ai_client.is_ready(), "question": ""}
+
+    if request.method == "POST":
+        question = request.POST.get("question", "").strip()
+        uploaded = request.FILES.get("pdf")
+        context["question"] = question
+
+        if uploaded is None:
+            context["pdf_error"] = "اختر ملف PDF أولاً."
+        elif not uploaded.name.lower().endswith(".pdf"):
+            context["pdf_error"] = "الملف لازم يكون بصيغة PDF."
+        elif len(question) < 5:
+            context["pdf_error"] = "اكتب سؤالك عن الملف (5 أحرف على الأقل)."
+        else:
+            try:
+                text = extract_text(uploaded)
+            except PDFError as error:
+                context["pdf_error"] = str(error)
+            else:
+                result = analyze_pdf(text, question)
+                result["file_name"] = uploaded.name
+                context["pdf_result"] = result
+                context["verdict"] = VERDICTS[result["verdict"]]
 
     return render(request, "detector/detector.html", context)
 
