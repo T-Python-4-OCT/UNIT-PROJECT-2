@@ -1,8 +1,59 @@
 {% extends 'main/base.html' %}
+{% load static %}
 
 {% block title %}الرئيسية | الدرعية{% endblock %}
 
 {% block content %}
-    <h1>مرحبًا بك في الدرعية</h1>
-    <p>اكتشف تاريخ الدرعية وتراثها العريق.</p>
+
+<section class="home-hero">
+
+    <img
+        src="{% static 'main/images/at-turaif.webp' %}"
+        alt="حي الطريف التاريخي في الدرعية"
+        class="hero-image"
+    >
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-container">
+        <div class="hero-content">
+
+            <span class="hero-label">
+                مهد الدولة السعودية الأولى
+            </span>
+
+            <h1 class="hero-title">
+                اكتشف الدرعية
+                <span>تجربة تراث نجد</span>
+            </h1>
+
+            <p class="hero-description">
+                موطن الدولة السعودية الأولى، ووجهة تاريخية
+                وثقافية تجسد أصالة نجد وعمق المملكة.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="{% url 'main:places' %}" class="hero-button primary-button">
+                    اكتشف أماكن الزيارة
+                    <span aria-hidden="true">←</span>
+                </a>
+
+                <a
+                    href="{% static 'main/videos/diriyah-intro.mp4' %}"
+                    class="hero-button secondary-button"
+                    target="_blank"
+                    rel="noopener"
+                >
+                    شاهد الفيديو
+                    <span aria-hidden="true">▶</span>
+                </a>
+
+            </div>
+
+        </div>
+    </div>
+
+</section>
+
 {% endblock %}
