@@ -1,0 +1,118 @@
+{% extends "kingdom/base.html" %}
+{% load translations %}
+{% block title %}{{ city.name }} | {% if request.LANGUAGE_CODE == 'en' %}Hikayat Watan{% else %}حكاية وطن{% endif %}{% endblock %}
+{% block meta_description %}{% if request.LANGUAGE_CODE == 'en' %}Discover {{ city.name }}: an overview, top attractions, historical milestones, a photo gallery, and a video.{% else %}اكتشف {{ city.name }}: نبذة عن المدينة، أبرز المعالم، محطات من تاريخها، معرض صور وفيديو.{% endif %}{% endblock %}
+{% block content %}
+<section class="city-hero {{ city.theme }}">
+    <img class="city-hero-image" src="{{ city.gallery.0.url }}" alt="{{ city.name }}" fetchpriority="high">
+    <div class="city-hero-shade"></div>
+    <div class="container city-hero-content">
+        <a class="back-link" href="{% url 'kingdom:home' %}#cities"><span aria-hidden="true">→</span> {{ 'العودة إلى المدن'|tr }}</a>
+        <span class="eyebrow">{{ city.region }} <b>·</b> {{ city.english }}</span>
+        <h1>{{ city.name }}</h1>
+        <p>{{ city.tagline }}</p>
+        <a class="hero-scroll-link" href="#cityIntro">{{ 'اكتشف الحكاية'|tr }} <span aria-hidden="true">↓</span></a>
+    </div>
+    <div class="city-hero-stamp" aria-hidden="true">{{ city.english|upper }}</div>
+</section>
+
+<section class="section-pad city-content" id="cityIntro">
+    <div class="container">
+        <div class="city-intro-layout">
+            <div class="city-intro-label">
+                <span class="section-kicker">{{ '01 / نبذة عن المدينة'|tr }}</span>
+                <span class="vertical-label">A STORY OF PLACE</span>
+            </div>
+            <div class="city-intro">
+                <h2>{{ 'حكاية المكان'|tr }}</h2>
+                <p>{{ city.intro }}</p>
+            </div>
+        </div>
+
+        <div class="section-heading mt-5">
+            <div><span class="section-kicker">{{ '02 / لا تفوّت زيارتها'|tr }}</span><h2>{{ 'أبرز المعالم'|tr }}</h2></div>
+            <span class="heading-note">{{ 'أماكن تستحق أن تُكتشف'|tr }}</span>
+        </div>
+        <div class="row g-3 attractions-grid">
+            {% for item in city.attractions %}
+            <div class="col-sm-6 col-xl-3">
+                <article class="info-card attraction-card">
+                    <span class="info-number">0{{ forloop.counter }}</span>
+                    <span class="attraction-decoration" aria-hidden="true">✦</span>
+                    <h3>{{ item.0 }}</h3>
+                    <p>{{ item.1 }}</p>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+
+        <section class="gallery-section mt-5" aria-label="{% if request.LANGUAGE_CODE == 'en' %}Photo gallery for {{ city.name }}{% else %}معرض صور {{ city.name }}{% endif %}">
+            <div class="section-heading">
+                <div><span class="section-kicker">{{ '03 / مشاهد من المدينة'|tr }}</span><h2>{{ 'معرض الصور'|tr }}</h2></div>
+                <span class="heading-note">{{ 'صور مختارة من'|tr }} {{ city.name }}</span>
+            </div>
+            <div id="cityGallery" class="carousel slide city-gallery" data-bs-ride="false">
+                <div class="carousel-indicators">
+                    {% for image in city.gallery %}
+                    <button type="button" data-bs-target="#cityGallery" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" {% if forloop.first %}aria-current="true"{% endif %} aria-label="{{ 'الصورة'|tr }} {{ forloop.counter }}"></button>
+                    {% endfor %}
+                </div>
+                <div class="carousel-inner">
+                    {% for image in city.gallery %}
+                    <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                        <img src="{{ image.url }}" class="d-block w-100 gallery-image" alt="{{ image.caption }}" loading="lazy">
+                        <div class="gallery-caption">
+                            <div><strong>{{ image.caption }}</strong><small>{{ 'الصورة:'|tr }} {{ image.credit }}</small></div>
+                            <a href="{{ image.source }}" target="_blank" rel="noopener noreferrer">{{ 'مصدر الصورة ↗'|tr }}</a>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#cityGallery" data-bs-slide="prev" aria-label="{{ 'الصورة السابقة'|tr }}"><span class="carousel-control-prev-icon" aria-hidden="true"></span></button>
+                <button class="carousel-control-next" type="button" data-bs-target="#cityGallery" data-bs-slide="next" aria-label="{{ 'الصورة التالية'|tr }}"><span class="carousel-control-next-icon" aria-hidden="true"></span></button>
+            </div>
+        </section>
+
+        <div class="history-layout mt-5">
+            <div class="history-title">
+                <span class="section-kicker">{{ '04 / محطات من الماضي'|tr }}</span>
+                <h2>{{ 'خط زمني'|tr }}<br>{{ 'من تاريخ'|tr }} {{ city.name }}</h2>
+                <p>{{ 'محطات موجزة تساعد على فهم تطور المدينة ومكانتها عبر الزمن.'|tr }}</p>
+            </div>
+            <div class="timeline">
+                {% for item in city.history %}
+                <div class="timeline-item">
+                    <span class="timeline-dot"></span>
+                    <h3>{{ item.0 }}</h3>
+                    <p>{{ item.1 }}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="events-panel mt-5">
+            <div class="events-heading"><span class="section-kicker">{{ '05 / الحياة اليوم'|tr }}</span><h2>{{ 'فعاليات ومواسم'|tr }}</h2><p>{{ 'تجارب وفعاليات تعكس روح المدينة.'|tr }}</p></div>
+            <div class="event-tags">{% for event in city.events %}<span>{{ event }}</span>{% endfor %}</div>
+        </div>
+
+        <section class="video-section mt-5">
+            <div class="video-section-heading">
+                <span class="section-kicker">{{ '06 / شاهد واكتشف'|tr }}</span>
+                <h2>{{ 'شاهد'|tr }} {{ city.name }} {{ 'عن قرب'|tr }}</h2>
+                <p>{{ city.video_title }}</p>
+            </div>
+            <div class="video-frame">
+                <iframe src="https://www.youtube-nocookie.com/embed/{{ city.video_id }}" title="{{ 'فيديو عن'|tr }} {{ city.name }}" loading="lazy" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            </div>
+            <a class="video-source-link" href="https://www.youtube.com/watch?v={{ city.video_id }}" target="_blank" rel="noopener noreferrer">{{ 'مشاهدة الفيديو على YouTube ↗'|tr }}</a>
+        </section>
+    </div>
+</section>
+
+<section class="city-next-section">
+    <div class="container city-next-inner">
+        <div><span class="section-kicker">{{ 'واصل رحلتك'|tr }}</span><h2>{{ 'هناك حكاية أخرى بانتظارك'|tr }}</h2></div>
+        <a class="btn btn-gold" href="{% url 'kingdom:home' %}#cities">{{ 'استكشف بقية المدن'|tr }} <span aria-hidden="true">←</span></a>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,49 @@
+{% extends "kingdom/base.html" %}
+{% load translations %}
+{% block title %}{{ 'عن المشروع | حكاية وطن'|tr }}{% endblock %}
+{% block meta_description %}{{ 'تعرف على فكرة مشروع حكاية وطن والتقنيات المستخدمة وكيف يحقق متطلبات UNIT-PROJECT-2.'|tr }}{% endblock %}
+{% block content %}
+<section class="page-hero about-hero">
+    <div class="container page-hero-content">
+        <span class="eyebrow">UNIT-PROJECT-2 · SAUDI ARABIA</span>
+        <h1>{{ 'عن'|tr }} <em>{{ 'حكاية وطن'|tr }}</em></h1>
+        <p>{{ 'مشروع تعليمي باستخدام Django للتعريف بالمملكة العربية السعودية من خلال مدنها وتاريخها وتراثها ومعالمها.'|tr }}</p>
+    </div>
+</section>
+<section class="section-pad">
+    <div class="container">
+        <div class="about-grid">
+            <div>
+                <span class="section-kicker">{{ 'فكرة المشروع'|tr }}</span>
+                <h2>{{ 'نقرأ الماضي'|tr }}<br>{{ 'لنرى الحاضر بعمق'|tr }}</h2>
+            </div>
+            <div>
+                <p>{{ 'يهدف الموقع إلى تقديم محتوى مبسط ومنظم عن ست مدن سعودية: الرياض، أبها، مكة المكرمة، العلا، جدة، والمدينة المنورة. ويعرض أبرز المعالم ومحطات من تاريخ كل مدينة وفعالياتها، إلى جانب معرض صور وفيديو تعريفي. كما يضم صفحة مستقلة لتاريخ المملكة تستعرض مراحل التأسيس والتوحيد وملوك المملكة والمناسبات الوطنية.'|tr }}</p>
+                <p>{{ 'كما يضم قسمًا لقصص مختارة من القرآن الكريم، مع توضيح الآيات ذات الصلة والتمييز بين النص الديني والتحديدات التاريخية التي قد تكون محل بحث واختلاف.'|tr }}</p>
+            </div>
+        </div>
+
+        <div class="section-heading mt-5">
+            <div><span class="section-kicker">{{ 'متطلبات UNIT-PROJECT-2'|tr }}</span><h2>{{ 'كيف يحقق الموقع المطلوب؟'|tr }}</h2></div>
+            <span class="heading-note">{{ 'قائمة التحقق'|tr }}</span>
+        </div>
+        <div class="requirements-grid">
+            <article class="requirement-card"><span>✓</span><div><h3>Django</h3><p>{{ 'المشروع مبني باستخدام Django، مع مسارات URL وعروض Views.'|tr }}</p></div></article>
+            <article class="requirement-card"><span>✓</span><div><h3>Templates & Inheritance</h3><p>{{ 'كل الصفحات داخل مجلد templates، وتشترك في القالب الأساسي base.html.'|tr }}</p></div></article>
+            <article class="requirement-card"><span>✓</span><div><h3>Dynamic URLs</h3><p>{{ 'صفحات المدن والقصص تُفتح بروابط ديناميكية باستخدام slug، مع صفحة مستقلة لتاريخ المملكة.'|tr }}</p></div></article>
+            <article class="requirement-card"><span>✓</span><div><h3>Static Files</h3><p>{{ 'ملفات CSS وJavaScript والصور المساندة موجودة داخل مجلد static.'|tr }}</p></div></article>
+            <article class="requirement-card"><span>✓</span><div><h3>Homepage + 6 Pages</h3><p>{{ 'صفحة رئيسية وست صفحات مستقلة للمدن، وصفحة تاريخ المملكة، بالإضافة إلى صفحات القصص والتعريف بالمشروع.'|tr }}</p></div></article>
+            <article class="requirement-card"><span>✓</span><div><h3>Uniform Design</h3><p>{{ 'هوية بصرية موحدة، وألوان وخطوط ومكونات مشتركة في جميع الصفحات.'|tr }}</p></div></article>
+            <article class="requirement-card"><span>✓</span><div><h3>Dark & Light Mode</h3><p>{{ 'التبديل بين الوضع الليلي والنهاري مع حفظ اختيار المستخدم في المتصفح.'|tr }}</p></div></article>
+            <article class="requirement-card"><span>✓</span><div><h3>Responsive</h3><p>{{ 'تصميم متجاوب مع شاشات الجوال واللوحي والكمبيوتر باستخدام Bootstrap وCSS.'|tr }}</p></div></article>
+            <article class="requirement-card"><span>✓</span><div><h3>Arabic & English</h3><p>{{ 'يدعم الموقع اللغتين العربية والإنجليزية، ويحفظ اختيار اللغة في Cookie باستخدام نظام Django.'|tr }}</p></div></article>
+        </div>
+
+        <div class="tech-panel mt-5">
+            <div><span class="section-kicker">{{ 'بنية المشروع'|tr }}</span><h2>{{ 'تقنيات بسيطة وتنظيم واضح'|tr }}</h2></div>
+            <div class="tech-tags"><span>Django</span><span>Python</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap 5</span></div>
+            <p>{{ 'لا توجد نماذج بيانات مخصصة أو قاعدة بيانات للمحتوى؛ بيانات المدن والقصص محفوظة في الملف'|tr }} <code>kingdom/data.py</code>{{ '، وتُرسل إلى صفحات HTML عبر Django Views.'|tr }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}

@@ -1,0 +1,151 @@
+{% extends "kingdom/base.html" %}
+{% load static translations %}
+{% block title %}{{ 'تاريخ المملكة العربية السعودية | حكاية وطن'|tr }}{% endblock %}
+{% block meta_description %}{{ 'اكتشف محطات تاريخ المملكة العربية السعودية، من جذور الدرعية والدولة السعودية الأولى إلى التوحيد ورؤية السعودية 2030.'|tr }}{% endblock %}
+{% block content %}
+<section class="page-hero history-hero">
+    <div class="container page-hero-content">
+        <span class="eyebrow"><span class="eyebrow-line"></span> {{ 'جذور راسخة ومستقبل طموح'|tr }}</span>
+        <h1>{{ 'تاريخ المملكة'|tr }}<br><em>{{ 'العربية السعودية'|tr }}</em></h1>
+        <p>{{ 'حكاية وطن بدأت من الدرعية، وتواصلت عبر مراحل من التأسيس والتوحيد والبناء؛ لتصنع حاضرًا يعتز بجذوره ويتطلع إلى المستقبل.'|tr }}</p>
+        <div class="page-hero-meta"><span>{{ '1727م · تأسيس الدولة السعودية الأولى'|tr }}</span><i></i><span>{{ '1932م · توحيد المملكة'|tr }}</span></div>
+    </div>
+</section>
+
+<section class="history-intro section-pad">
+    <div class="container">
+        <div class="history-intro-grid">
+            <div>
+                <span class="section-kicker">{{ 'حكاية ممتدة عبر الزمن'|tr }}</span>
+                <h2>{{ 'من جذورٍ عريقة'|tr }}<br>{{ 'إلى وطنٍ'|tr }} <span class="text-accent">{{ 'طموح'|tr }}</span></h2>
+            </div>
+            <div class="history-intro-copy">
+                <p>{{ 'يمتد تاريخ الدولة السعودية عبر مراحل متعاقبة، ارتبطت بالدرعية ونشأة الدولة السعودية الأولى، ثم قيام الدولة السعودية الثانية، وصولًا إلى استعادة الرياض على يد الملك عبدالعزيز وإعلان توحيد المملكة العربية السعودية عام 1932م.'|tr }}</p>
+                <p>{{ 'واليوم تواصل المملكة مسيرتها التنموية مستندةً إلى تاريخها وهويتها، ومنطلقةً نحو مستقبل أكثر تنوعًا وازدهارًا.'|tr }}</p>
+            </div>
+        </div>
+        <div class="history-facts-row">
+            <div class="history-fact"><strong>1727</strong><span>{{ 'تأسيس الدولة السعودية الأولى'|tr }}</span></div>
+            <div class="history-fact"><strong>1902</strong><span>{{ 'استعادة مدينة الرياض'|tr }}</span></div>
+            <div class="history-fact"><strong>1932</strong><span>{{ 'إعلان توحيد المملكة'|tr }}</span></div>
+            <div class="history-fact"><strong>2030</strong><span>{{ 'رؤية لمستقبل الوطن'|tr }}</span></div>
+        </div>
+    </div>
+</section>
+
+<section class="history-timeline-section section-pad">
+    <div class="container">
+        <div class="section-heading section-heading-large">
+            <div>
+                <span class="section-kicker">{{ 'محطات صنعت الحكاية'|tr }}</span>
+                <h2>{{ 'رحلة عبر التاريخ'|tr }}</h2>
+                <p class="section-subtitle">{{ 'أبرز الأحداث التي شكّلت مراحل قيام الدولة السعودية وتوحيد المملكة.'|tr }}</p>
+            </div>
+            <span class="heading-note">{{ 'من 1446م إلى اليوم'|tr }} <i></i></span>
+        </div>
+        <div class="kingdom-timeline">
+            {% for item in milestones %}
+            <article class="kingdom-timeline-item">
+                <div class="kingdom-timeline-date">{{ item.date }}</div>
+                <span class="kingdom-timeline-marker" aria-hidden="true"></span>
+                <div class="kingdom-timeline-card">
+                    <span class="timeline-tag">{{ item.tag }}</span>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.text }}</p>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+        <p class="history-note">{{ 'ملاحظة تاريخية: تُعد سنة 1727م تاريخ تأسيس الدولة السعودية الأولى، أما عام 1446م فيشير إلى تأسيس الدرعية التي أصبحت لاحقًا عاصمة الدولة الأولى.'|tr }}</p>
+    </div>
+</section>
+
+<section class="history-visual-section section-pad">
+    <div class="container">
+        <div class="section-heading">
+            <div><span class="section-kicker">{{ 'صور تحكي الذاكرة'|tr }}</span><h2>{{ 'شواهد من تاريخ الوطن'|tr }}</h2></div>
+            <span class="heading-note">{{ 'من الماضي إلى الحاضر'|tr }} <i></i></span>
+        </div>
+        <div class="history-gallery-grid">
+            {% for image in gallery %}
+            <article class="history-photo-card {% if forloop.first %}history-photo-featured{% endif %}">
+                <a href="{{ image.source }}" target="_blank" rel="noopener noreferrer" class="history-photo-link">
+                    <img src="{{ image.url }}" alt="{{ image.caption }}" loading="lazy">
+                    <span class="history-photo-open" aria-hidden="true">↗</span>
+                </a>
+                <div class="history-photo-caption">
+                    <div><h3>{{ image.caption }}</h3><p>{{ image.description }}</p></div>
+                    <small>{{ 'الصورة:'|tr }} {{ image.credit }} · <a href="{{ image.source }}" target="_blank" rel="noopener noreferrer">{{ 'المصدر'|tr }}</a></small>
+                </div>
+            </article>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="kings-section section-pad">
+    <div class="container">
+        <div class="section-heading section-heading-large">
+            <div>
+                <span class="section-kicker">{{ 'مسيرة قيادة وبناء'|tr }}</span>
+                <h2>{{ 'ملوك المملكة العربية السعودية'|tr }}</h2>
+                <p class="section-subtitle">{{ 'تعاقب على قيادة المملكة ملوك من أبناء الملك المؤسس، وواصل كل عهد مسيرة الدولة في مجالات متعددة.'|tr }}</p>
+            </div>
+            <span class="heading-note">{{ 'سبعة ملوك'|tr }} <i></i></span>
+        </div>
+        <div class="row g-3 kings-grid">
+            {% for king in kings %}
+            <div class="col-md-6 col-xl-4">
+                <article class="king-card {% if forloop.first %}king-card-founder{% endif %}">
+                    <div class="king-card-top"><span class="king-number">{{ king.number }}</span><span class="king-symbol" aria-hidden="true">✦</span></div>
+                    <a class="king-portrait" href="{{ king.image_source }}" target="_blank" rel="noopener noreferrer" aria-label="{{ 'مصدر صورة'|tr }} {{ king.name }}">
+                        <img src="{{ king.image }}" alt="{{ 'صورة'|tr }} {{ king.name }}" loading="lazy">
+                    </a>
+                    <span class="king-role">{{ king.role }}</span>
+                    <h3>{{ king.name }}</h3>
+                    <span class="king-period">{{ king.period }}</span>
+                    <p>{{ king.text }}</p>
+                    <small class="king-image-credit">{{ 'الصورة:'|tr }} {{ king.image_credit }}</small>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="national-days-section section-pad">
+    <div class="container">
+        <div class="section-heading">
+            <div><span class="section-kicker">{{ 'مناسبتان وطنيتان'|tr }}</span><h2>{{ 'أيام نحتفي فيها بتاريخنا'|tr }}</h2></div>
+        </div>
+        <div class="row g-4">
+            {% for day in national_days %}
+            <div class="col-md-6">
+                <article class="national-day-card">
+                    <span class="national-day-symbol" aria-hidden="true">{{ day.symbol }}</span>
+                    <div><span class="national-day-date">{{ day.date }}</span><h3>{{ day.title }}</h3><p>{{ day.text }}</p></div>
+                </article>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="history-sources-section">
+    <div class="container history-sources-inner">
+        <div><span class="section-kicker">{{ 'للمعرفة والتوسع'|tr }}</span><h2>{{ 'مصادر تاريخية'|tr }}</h2><p>{{ 'للاطلاع على تفاصيل أوسع والتحقق من المعلومات التاريخية، يمكنك الرجوع إلى هذه المصادر.'|tr }}</p></div>
+        <div class="history-source-links">
+            {% for source in sources %}
+            <a href="{{ source.url }}" target="_blank" rel="noopener noreferrer"><span>{{ source.publisher }}</span><strong>{{ source.title }}</strong><b aria-hidden="true">↗</b></a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="city-next-section">
+    <div class="container city-next-inner">
+        <div><span class="section-kicker">{{ 'اكتشف حكايات المكان'|tr }}</span><h2>{{ 'التاريخ حاضر في كل مدينة'|tr }}</h2></div>
+        <a class="btn btn-gold" href="{% url 'kingdom:home' %}#cities">{{ 'استكشف مدن المملكة'|tr }} <span aria-hidden="true">←</span></a>
+    </div>
+</section>
+{% endblock %}
