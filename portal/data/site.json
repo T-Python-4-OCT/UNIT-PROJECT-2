@@ -1,0 +1,52 @@
+{
+  "site_name": "MOI Digital Evolution",
+  "tagline": "From Traditional Services to a Connected Digital Future.",
+  "disclaimer": "An independent educational project. Not affiliated with or endorsed by the Saudi Ministry of Interior.",
+  "pages": [
+    { "slug": "vision-2030",      "title": "Vision 2030",      "data_file": "vision.json" },
+    { "slug": "moi-evolution",    "title": "MOI Evolution",    "data_file": "history.json" },
+    { "slug": "absher",           "title": "Absher Platform",  "data_file": "services.json", "section": "absher" },
+    { "slug": "digital-identity", "title": "Digital Identity", "data_file": "services.json", "section": "digital_identity" },
+    { "slug": "smart-security",   "title": "Smart Security",   "data_file": "technologies.json" },
+    { "slug": "digital-services", "title": "Digital Services", "data_file": "services.json", "section": "digital_services" },
+    { "slug": "future-vision",    "title": "Future Vision",    "data_file": "future.json" }
+  ],
+  "references": [
+    {
+      "id": "vision2030",
+      "name": "Saudi Vision 2030 — Official Website",
+      "url": "https://www.vision2030.gov.sa/",
+      "note": "Verify launch date (25 April 2016) and number of strategic objectives here."
+    },
+    {
+      "id": "moi",
+      "name": "Ministry of Interior — Official Website",
+      "url": "https://www.moi.gov.sa/",
+      "note": "Verify the ministry timeline here."
+    },
+    {
+      "id": "absher",
+      "name": "Absher Platform",
+      "url": "https://www.absher.sa/",
+      "note": "Official platform of the Ministry of Interior."
+    },
+    {
+      "id": "saudipedia",
+      "name": "Saudipedia — Ministry of Media",
+      "url": "https://saudipedia.com/en/absher-platform",
+      "note": "Source for the MOI timeline and Absher background."
+    },
+    {
+      "id": "dga",
+      "name": "Digital Government Authority",
+      "url": "https://dga.gov.sa/en",
+      "note": "Source for the Digital Government Strategy 2023-2030."
+    },
+    {
+      "id": "mcit_egdi",
+      "name": "MCIT — UN E-Government Development Index 2024",
+      "url": "https://www.mcit.gov.sa/en/news/saudi-arabia-jumps-25-places-4th-position-globally-1st-regionally-digital-services-index-un",
+      "note": "Press release dated 20 Sept 2024."
+    }
+  ]
+}
