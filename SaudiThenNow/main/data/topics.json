@@ -1,0 +1,208 @@
+[
+  {
+    "slug": "riyadh",
+    "title": "Riyadh & Urban Growth",
+    "icon": "location_city",
+    "then": "Mud-brick towns",
+    "now": "Modern skylines",
+    "summary": "From the mud walls of old Riyadh to the towers of the King Abdullah Financial District.",
+    "image_then": "images/topics/riyadh-then.jpg",
+    "image_now": "images/topics/riyadh-now.jpg",
+    "now_focus": "center 70%",
+    "tagline": "From a walled town of 8,000 people to a capital of almost 7 million.",
+    "story_title": "The town behind nine gates",
+    "story": [
+      "On 15 January 1902, King Abdulaziz and his men stormed Masmak Fortress and took back Riyadh. The town he won was tiny: about 8,000 people packed into one square kilometre of mud-brick houses and lanes only three metres wide.",
+      "He wrapped it in new mud walls, 7.5 metres high, with nine gates. As late as 1917, those gates were still shut every Friday during the noon prayer. By 1932, when the Kingdom was united, around 30,000 people lived inside them.",
+      "Then the city stepped outside. In 1936 the King ordered Al Murabba Palace to be built two kilometres beyond the walls, and between 1950 and 1952 the walls themselves came down. New streets were planned sixteen metres wide.",
+      "Today, the old walled town would fit into Riyadh hundreds of times over. About 6.9 million people call it home, the 302-metre Kingdom Centre lights up the skyline, driverless trains run on 176 km of metro, and in 2030 the whole world is coming for Expo."
+    ],
+    "facts": [
+      {"icon": "groups", "label": "Population", "then": "8,000", "then_year": "1902", "now": "6.9 million", "now_year": "2022"},
+      {"icon": "fence", "label": "City walls", "then": "7.5 m, 9 gates", "then_year": "1902", "now": "Removed", "now_year": "1950–52"},
+      {"icon": "apartment", "label": "Tallest structure", "then": "12 m towers", "then_year": "city wall", "now": "302 m", "now_year": "Kingdom Centre"},
+      {"icon": "subway", "label": "Getting around", "then": "On foot & camel", "then_year": "1902", "now": "176 km metro", "now_year": "2024"}
+    ],
+    "timeline": [
+      {"year": "1902", "text": "King Abdulaziz recaptures Riyadh and rebuilds its walls."},
+      {"year": "1936", "text": "Al Murabba Palace is built outside the old walls."},
+      {"year": "1950", "text": "The old walls start to come down as the city grows."},
+      {"year": "2002", "text": "The 302-metre Kingdom Centre is completed."},
+      {"year": "2023", "text": "Riyadh wins the vote to host Expo 2030."},
+      {"year": "2024", "text": "The Riyadh Metro opens with 6 lines and 85 stations."}
+    ],
+    "video_file": "video/riyadh.mp4",
+    "video_credit": {"name": "@eve.media.studio", "url": "https://www.tiktok.com/@eve.media.studio/video/7495002438823431431"},
+    "sources": [
+      {"name": "Saudipedia: Old Riyadh Wall", "url": "https://saudipedia.com/en/old-riyadh-wall"},
+      {"name": "Saudipedia: Al Murabba Palace", "url": "https://saudipedia.com/en/article/856/history/landmarks-and-monuments/al-murabba-historical-palace"},
+      {"name": "Saudipedia: Top Saudi cities by population", "url": "https://saudipedia.com/en/article/4276/geography/provinces-and-cities/top-five-saudi-cities-by-population"},
+      {"name": "AramcoWorld: Riyadh's centennial", "url": "https://archive.aramcoworld.com/issue/199901/the.centennial.s.jewel.riyadh.htm"},
+      {"name": "CTBUH: Kingdom Centre", "url": "https://www.skyscrapercenter.com/building/wd/494"},
+      {"name": "Arab News: Riyadh Metro", "url": "https://www.arabnews.com/node/2590210"},
+      {"name": "Al Jazeera: Expo 2030 vote", "url": "https://www.aljazeera.com/news/2023/11/28/saudi-arabia-selected-to-host-world-expo-in-2030"}
+    ],
+    "ar": {
+      "title": "الرياض والنمو العمراني",
+      "then": "بلدات من الطين",
+      "now": "أبراج حديثة",
+      "summary": "من أسوار الرياض الطينية إلى أبراج مركز الملك عبدالله المالي.",
+      "tagline": "من بلدة مسوّرة يسكنها 8 آلاف شخص إلى عاصمة يسكنها قرابة 7 ملايين.",
+      "story_title": "البلدة خلف البوابات التسع",
+      "story": [
+        "في 15 يناير 1902 اقتحم الملك عبدالعزيز رحمه الله ورجاله قصر المصمك واستردوا الرياض. كانت بلدة صغيرة جدًا: نحو 8 آلاف شخص في كيلومتر مربع واحد من بيوت الطين، وأزقّة لا يتجاوز عرضها ثلاثة أمتار.",
+        "فأحاطها بأسوار طينية جديدة ارتفاعها 7.5 متر، ولها تسع بوابات. وحتى عام 1917 كانت هذه البوابات تُغلق كل جمعة وقت الصلاة. وعند توحيد المملكة عام 1932 كان يسكن داخلها نحو 30 ألف شخص.",
+        "ثم خرجت المدينة من أسوارها. في عام 1936 أمر الملك ببناء قصر المربع على بعد كيلومترين خارج السور، وبين 1950 و1952 أُزيلت الأسوار نفسها، وخُطّطت الشوارع الجديدة بعرض ستة عشر مترًا.",
+        "واليوم تتسع الرياض للبلدة القديمة مئات المرات. يسكنها نحو 6.9 ملايين شخص، ويضيء برج المملكة بارتفاع 302 متر سماءها، وتسير القطارات بلا سائق على 176 كم من المترو، وفي 2030 يأتيها العالم كله لمعرض إكسبو."
+      ],
+      "facts": [
+        {"icon": "groups", "label": "السكان", "then": "8,000", "then_year": "1902", "now": "6.9 مليون", "now_year": "2022"},
+        {"icon": "fence", "label": "أسوار المدينة", "then": "7.5 م، 9 بوابات", "then_year": "1902", "now": "أُزيلت", "now_year": "1950–52"},
+        {"icon": "apartment", "label": "أعلى مبنى", "then": "أبراج 12 م", "then_year": "سور المدينة", "now": "302 م", "now_year": "برج المملكة"},
+        {"icon": "subway", "label": "التنقل", "then": "مشيًا وعلى الإبل", "then_year": "1902", "now": "مترو 176 كم", "now_year": "2024"}
+      ],
+      "timeline": [
+        {"year": "1902", "text": "الملك عبدالعزيز يسترد الرياض ويعيد بناء أسوارها."},
+        {"year": "1936", "text": "بناء قصر المربع خارج الأسوار القديمة."},
+        {"year": "1950", "text": "بدء إزالة الأسوار القديمة مع توسّع المدينة."},
+        {"year": "2002", "text": "اكتمال برج المملكة بارتفاع 302 متر."},
+        {"year": "2023", "text": "الرياض تفوز بتصويت استضافة إكسبو 2030."},
+        {"year": "2024", "text": "افتتاح مترو الرياض بستة مسارات و85 محطة."}
+      ]
+    }
+  },
+  {
+    "slug": "transport",
+    "title": "Transport",
+    "icon": "train",
+    "then": "Camel caravans",
+    "now": "High-speed rail",
+    "summary": "Journeys that took weeks by camel now take hours by train, metro and plane.",
+    "image_then": "images/topics/transport-then.jpg",
+    "image_now": "images/topics/transport-now.jpg",
+    "tagline": "From caravans that took months to trains that run at 300 km/h.",
+    "story_title": "From caravans to 300 km/h",
+    "story": [
+      "For centuries, the only way across Arabia was on foot or by camel. Pilgrim caravans crossed the desert on journeys that could take weeks or even months.",
+      "In 1908 the Hejaz Railway reached Madinah, cutting the trip from Damascus from 40 days to just 5. But the line was badly damaged in the First World War, and by 1920 its southern section had fallen silent.",
+      "In 1945, President Roosevelt gave King Abdulaziz a Douglas DC-3, the plane that started Saudia. Six years later, in 1951, the Kingdom's first railway opened between Dammam and Riyadh: 569 km of track across the desert.",
+      "Today, trains on the Haramain High Speed Railway reach 300 km/h and link Makkah and Madinah in about 2 hours and 15 minutes. The national network has grown to 5,330 km, and Riyadh has a driverless metro."
+    ],
+    "facts": [
+      {"icon": "mosque", "label": "Pilgrim journeys", "then": "Weeks or months", "then_year": "by caravan", "now": "Hours", "now_year": "by train or plane"},
+      {"icon": "train", "label": "Makkah to Madinah", "then": "No railway", "then_year": "before 2018", "now": "2 h 15 min", "now_year": "2018"},
+      {"icon": "route", "label": "Railway network", "then": "569 km", "then_year": "1951", "now": "5,330 km", "now_year": "2023"},
+      {"icon": "flight", "label": "Saudia fleet", "then": "1 DC-3", "then_year": "1945", "now": "144 planes", "now_year": "2024"}
+    ],
+    "timeline": [
+      {"year": "1908", "text": "The Hejaz Railway reaches Madinah, cutting the trip from Damascus from 40 days to 5."},
+      {"year": "1920", "text": "War damage leaves the southern Hejaz line silent."},
+      {"year": "1945", "text": "Roosevelt gives King Abdulaziz a DC-3, and Saudia is founded."},
+      {"year": "1951", "text": "The first railway opens between Dammam and Riyadh: 569 km."},
+      {"year": "2018", "text": "The Haramain High Speed Railway links Makkah and Madinah in about 2 hours."},
+      {"year": "2024", "text": "The Riyadh Metro opens with 6 lines and 85 stations."}
+    ],
+    "sources": [
+      {"name": "Wikipedia: Hejaz Railway", "url": "https://en.wikipedia.org/wiki/Hejaz_railway"},
+      {"name": "Arab News: Pilgrim routes through history", "url": "https://www.arabnews.com/node/1897531"},
+      {"name": "Arab News: Saudi aviation since 1945", "url": "https://www.arabnews.com/node/2123186"},
+      {"name": "Arab News: Saudia fleet", "url": "https://www.arabnews.pk/node/2620307"},
+      {"name": "Saudipedia: Railway timeline", "url": "https://saudipedia.com/en/article/1562/government-and-politics/timeline-for-the-inauguration-of-railways-in-the-kingdom"},
+      {"name": "Saudipedia: Length of Saudi railways", "url": "https://saudipedia.com/en/article/2171/government-and-politics/transport/how-long-are-railways-in-saudi-arabia"},
+      {"name": "Pilgrim Experience Program: Haramain train", "url": "https://pep.gov.sa/en/news/953"},
+      {"name": "Arab News: Riyadh Metro", "url": "https://www.arabnews.com/node/2590210"}
+    ],
+    "ar": {
+      "title": "النقل",
+      "then": "قوافل الإبل",
+      "now": "القطار السريع",
+      "summary": "رحلات كانت تستغرق أسابيع على ظهور الإبل، أصبحت تستغرق ساعات بالقطار والمترو والطائرة.",
+      "tagline": "من قوافل تستغرق شهورًا إلى قطارات تسير بسرعة 300 كم/س.",
+      "story_title": "من القوافل إلى 300 كم/س",
+      "story": [
+        "لقرون طويلة، كان التنقل في الجزيرة العربية مشيًا أو على ظهور الإبل. وكانت قوافل الحجاج تعبر الصحراء في رحلات قد تستغرق أسابيع أو حتى شهورًا.",
+        "في عام 1908 وصلت سكة حديد الحجاز إلى المدينة المنورة، فاختصرت الرحلة من دمشق من 40 يومًا إلى 5 أيام فقط. لكن الخط تضرر كثيرًا في الحرب العالمية الأولى، وبحلول 1920 توقف جزؤه الجنوبي.",
+        "في عام 1945 أهدى الرئيس روزفلت الملك عبدالعزيز رحمه الله طائرة DC-3، وكانت بداية الخطوط السعودية. وبعد ست سنوات، في 1951، افتُتح أول خط حديدي في المملكة بين الدمام والرياض بطول 569 كم.",
+        "واليوم تسير قطارات الحرمين السريع بسرعة 300 كم/س، وتربط مكة المكرمة بالمدينة المنورة في نحو ساعتين وربع. وامتدت شبكة السكك الحديدية إلى 5,330 كم، وأصبح في الرياض مترو بلا سائق."
+      ],
+      "facts": [
+        {"icon": "mosque", "label": "رحلات الحج", "then": "أسابيع أو شهور", "then_year": "بالقوافل", "now": "ساعات", "now_year": "بالقطار أو الطائرة"},
+        {"icon": "train", "label": "من مكة إلى المدينة", "then": "لا يوجد قطار", "then_year": "قبل 2018", "now": "ساعتان وربع", "now_year": "2018"},
+        {"icon": "route", "label": "شبكة السكك الحديدية", "then": "569 كم", "then_year": "1951", "now": "5,330 كم", "now_year": "2023"},
+        {"icon": "flight", "label": "أسطول السعودية", "then": "طائرة DC-3 واحدة", "then_year": "1945", "now": "144 طائرة", "now_year": "2024"}
+      ],
+      "timeline": [
+        {"year": "1908", "text": "سكة حديد الحجاز تصل المدينة المنورة، وتختصر الرحلة من دمشق من 40 يومًا إلى 5."},
+        {"year": "1920", "text": "توقف الجزء الجنوبي من سكة حديد الحجاز بعد أضرار الحرب."},
+        {"year": "1945", "text": "روزفلت يهدي الملك عبدالعزيز طائرة DC-3، وتأسيس الخطوط السعودية."},
+        {"year": "1951", "text": "افتتاح أول خط حديدي بين الدمام والرياض بطول 569 كم."},
+        {"year": "2018", "text": "افتتاح قطار الحرمين السريع: من مكة إلى المدينة في نحو ساعتين."},
+        {"year": "2024", "text": "افتتاح مترو الرياض بستة مسارات و85 محطة."}
+      ]
+    }
+  },
+  {
+    "slug": "economy",
+    "title": "Economy & Energy",
+    "icon": "oil_barrel",
+    "then": "Pearls & trade",
+    "now": "Oil & Vision 2030",
+    "summary": "From pearl diving and caravan trade to oil, and now a future beyond oil.",
+    "image_then": "images/topics/economy-then.jpg",
+    "image_now": "images/topics/economy-now.jpg",
+    "ar": {
+      "title": "الاقتصاد والطاقة",
+      "then": "اللؤلؤ والتجارة",
+      "now": "النفط ورؤية 2030",
+      "summary": "من الغوص على اللؤلؤ وتجارة القوافل إلى النفط، والآن إلى مستقبل ما بعد النفط."
+    }
+  },
+  {
+    "slug": "education",
+    "title": "Education",
+    "icon": "school",
+    "then": "Kuttab lessons",
+    "now": "Modern universities",
+    "summary": "From small Quran schools to universities that work with the best in the world.",
+    "image_then": "images/topics/education-then.jpg",
+    "image_now": "images/topics/education-now.jpg",
+    "ar": {
+      "title": "التعليم",
+      "then": "دروس الكتاتيب",
+      "now": "جامعات حديثة",
+      "summary": "من كتاتيب تحفيظ القرآن الصغيرة إلى جامعات تتعاون مع أفضل جامعات العالم."
+    }
+  },
+  {
+    "slug": "tourism",
+    "title": "Tourism",
+    "icon": "travel_explore",
+    "then": "Pilgrims only",
+    "now": "Open to the world",
+    "summary": "Once visited mainly for Hajj and Umrah, the Kingdom now welcomes tourists from everywhere.",
+    "image_then": "images/topics/tourism-then.jpg",
+    "image_now": "images/topics/tourism-now.jpg",
+    "ar": {
+      "title": "السياحة",
+      "then": "للحجاج فقط",
+      "now": "مفتوحة للعالم",
+      "summary": "كانت تُزار غالبًا للحج والعمرة، واليوم ترحب المملكة بالسياح من كل مكان."
+    }
+  },
+  {
+    "slug": "events",
+    "title": "Sports, Entertainment & Global Events",
+    "icon": "stadium",
+    "then": "Dirt pitches",
+    "now": "Expo 2030 & World Cup 2034",
+    "summary": "From football on dirt pitches to Riyadh Season, Expo 2030 and the FIFA World Cup 2034.",
+    "image_then": "images/topics/events-then.jpg",
+    "image_now": "images/topics/events-now.jpg",
+    "ar": {
+      "title": "الرياضة والترفيه والفعاليات العالمية",
+      "then": "ملاعب ترابية",
+      "now": "إكسبو 2030 وكأس العالم 2034",
+      "summary": "من كرة القدم على الملاعب الترابية إلى موسم الرياض وإكسبو 2030 وكأس العالم 2034."
+    }
+  }
+]

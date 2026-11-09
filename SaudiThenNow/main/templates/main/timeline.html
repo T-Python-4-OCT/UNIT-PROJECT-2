@@ -1,11 +1,12 @@
 {% extends "main/base.html" %}
 
-{% block title %}Timeline{% endblock %}
+{% block title %}{{ t.timeline_title }}{% endblock %}
 
 {% block content %}
-  <section class="container page-head">
-    <span class="eyebrow">1727 – 2034</span>
-    <h1>Timeline</h1>
-    <p>The full timeline comes in step 5.</p>
+  <section class="page-head parapet">
+    <div class="container">
+      <h1>{{ t.timeline_title }}</h1>
+      <p>{{ t.timeline_text }}</p>
+    </div>
   </section>
 {% endblock %}

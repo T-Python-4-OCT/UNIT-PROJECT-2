@@ -18,3 +18,13 @@ const header = document.getElementById("site-header");
 window.addEventListener("scroll", () => {
   header.classList.toggle("scrolled", window.scrollY > 10);
 });
+
+const compareSlider = document.getElementById("compare-slider");
+
+if (compareSlider) {
+  const range = compareSlider.querySelector("input");
+
+  range.addEventListener("input", () => {
+    compareSlider.style.setProperty("--pos", range.value + "%");
+  });
+}

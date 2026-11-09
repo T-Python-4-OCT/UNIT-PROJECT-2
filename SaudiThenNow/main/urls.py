@@ -9,4 +9,5 @@ urlpatterns = [
     path("timeline/", views.timeline_view, name="timeline"),
     path("about/", views.about_view, name="about"),
     path("theme/", views.theme_view, name="theme"),
+    path("lang/<str:lang>/", views.lang_view, name="lang"),
 ]

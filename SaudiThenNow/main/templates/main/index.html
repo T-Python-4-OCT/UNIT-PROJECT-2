@@ -1,95 +1,82 @@
 {% extends "main/base.html" %}
 {% load static %}
 
-{% block title %}Home{% endblock %}
+{% block title %}{{ t.nav_home }}{% endblock %}
 
 {% block content %}
 
-  <section class="hero">
-    <div class="hero-media">
-      <img src="{% static 'images/hero-now.jpg' %}" alt="Riyadh today" class="hero-now">
-      <img src="{% static 'images/hero-then.jpg' %}" alt="Old Riyadh" class="hero-then">
-      <span class="hero-tag tag-then">Then</span>
-      <span class="hero-tag tag-now">Now</span>
-    </div>
+  <section class="hero parapet">
+    <div class="container hero-inner">
+      <div class="hero-text">
+        <h1 class="fade-up">{{ t.hero_line_1 }} <span>{{ t.hero_line_2 }}</span></h1>
+        <p class="fade-up delay-1">{{ t.hero_text }}</p>
+        <div class="hero-buttons fade-up delay-2">
+          <a href="#topics" class="btn btn-primary">
+            {{ t.explore_topics }}
+            <span class="material-symbols-outlined">arrow_downward</span>
+          </a>
+          <a href="{% url 'main:timeline' %}" class="btn btn-outline">{{ t.view_timeline }}</a>
+        </div>
+      </div>
 
-    <div class="container hero-content">
-      <span class="eyebrow fade-up">1932 – Today</span>
-           <h1 class="fade-up delay-1">From Sand <em>to Skyline</em></h1>
-            <p class="fade-up delay-2">One century. A whole new Kingdom.</p>
-      <div class="hero-buttons fade-up delay-3">
-        <a href="#topics" class="btn btn-primary">
-          Explore Topics
-          <span class="material-symbols-outlined">arrow_downward</span>
-        </a>
-        <a href="{% url 'main:timeline' %}" class="btn btn-light">View Timeline</a>
+      <div class="doors">
+        <div class="door door-then">
+          <img src="{% static 'images/hero-then.jpg' %}" alt="">
+          <span class="door-tag">{{ t.then }}</span>
+        </div>
+        <div class="door door-now">
+          <img src="{% static 'images/hero-now.jpg' %}" alt="">
+          <span class="door-tag">{{ t.now }}</span>
+        </div>
       </div>
     </div>
   </section>
 
   <section class="container section intro">
     <div class="intro-text">
-      <span class="eyebrow">A century of change</span>
-      <h2>One country, two different worlds</h2>
-      <p>In 1932, King Abdulaziz united the Kingdom of Saudi Arabia. Back then, most people lived in small mud-brick towns or as Bedouin in the desert, travelling by camel and living from farming, trade and pearl diving.</p>
-      <p>The discovery of oil in 1938 changed everything. And since 2016, Vision 2030 has opened a new chapter: new cities, new industries and a country open to the world.</p>
+      <h2>{{ t.intro_title }}</h2>
+      <p>{{ t.intro_p1 }}</p>
+      <p>{{ t.intro_p2 }}</p>
     </div>
 
     <div class="stats">
-      <div class="stat">
-        <span class="material-symbols-outlined">groups</span>
-        <p class="stat-label">Population</p>
-        <p class="stat-then">7.0 million <small>(1974)</small></p>
-        <p class="stat-now">32.2 million <small>(2022)</small></p>
-      </div>
-      <div class="stat">
-        <span class="material-symbols-outlined">favorite</span>
-        <p class="stat-label">Life expectancy</p>
-        <p class="stat-then">45.6 years <small>(1960)</small></p>
-        <p class="stat-now">75.3 years <small>(2020)</small></p>
-      </div>
-      <div class="stat">
-        <span class="material-symbols-outlined">train</span>
-        <p class="stat-label">High-speed rail</p>
-        <p class="stat-then">0 km <small>(before 2018)</small></p>
-        <p class="stat-now">453 km <small>(2018)</small></p>
-      </div>
-      <div class="stat">
-        <span class="material-symbols-outlined">flight_land</span>
-        <p class="stat-label">Tourists per year</p>
-        <p class="stat-then">No tourist visa <small>(before 2019)</small></p>
-        <p class="stat-now">116 million <small>(2024)</small></p>
-      </div>
+      {% for stat in t.stats %}
+        <div class="stat">
+          <span class="material-symbols-outlined">{{ stat.icon }}</span>
+          <p class="stat-label">{{ stat.label }}</p>
+          <p class="stat-then" data-label="{{ t.then }}">{{ stat.then }} <small>(<bdi>{{ stat.then_year }}</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">{{ stat.now }} <small>(<bdi>{{ stat.now_year }}</bdi>)</small></p>
+        </div>
+      {% endfor %}
     </div>
   </section>
 
   <section class="container section" id="topics">
     <div class="section-head">
-      <span class="eyebrow">Then &amp; Now</span>
-      <h2>Six stories of change</h2>
-      <p>Hover over a card to see the past. Click to read the full story.</p>
+      <h2>{{ t.topics_title }}</h2>
+      <p>{{ t.topics_text }}</p>
     </div>
 
     <div class="topics">
       {% for topic in topics %}
         <a href="{% url 'main:topic' topic.slug %}" class="topic-card">
           <div class="topic-img">
-            <img src="{% static topic.image_now %}" alt="{{ topic.title }} today">
-            <img src="{% static topic.image_then %}" alt="{{ topic.title }} in the past" class="img-then">
+            <img src="{% static topic.image_now %}" alt="{{ topic.title }}">
+            <img src="{% static topic.image_then %}" alt="" class="img-then">
             <span class="topic-badge">
-              <span class="badge-now">Now</span>
-              <span class="badge-then">Then</span>
+              <span class="badge-now">{{ t.now }}</span>
+              <span class="badge-then">{{ t.then }}</span>
             </span>
           </div>
 
           <div class="topic-body">
             <span class="topic-icon material-symbols-outlined">{{ topic.icon }}</span>
             <h3>{{ topic.title }}</h3>
-            <p class="topic-change">{{ topic.then }} <span>→</span> {{ topic.now }}</p>
+            <p class="topic-change">{{ topic.then }} {% if lang == 'ar' %}←{% else %}→{% endif %} {{ topic.now }}</p>
             <p class="topic-summary">{{ topic.summary }}</p>
             <span class="topic-link">
-              Read the story
-              <span class="material-symbols-outlined">arrow_forward</span>
+              {{ t.read_story }}
+              <span class="material-symbols-outlined flip-rtl">arrow_forward</span>
             </span>
           </div>
         </a>
@@ -99,41 +86,22 @@
 
   <section class="container section">
     <div class="section-head">
-      <span class="eyebrow">Key moments</span>
-      <h2>Milestones that shaped the Kingdom</h2>
+      <h2>{{ t.moments_title }}</h2>
     </div>
 
     <div class="moments">
-      <div class="moment">
-        <strong>1727</strong>
-        <p>The First Saudi State is founded in Diriyah.</p>
-      </div>
-      <div class="moment">
-        <strong>1902</strong>
-        <p>King Abdulaziz recaptures Riyadh.</p>
-      </div>
-      <div class="moment">
-        <strong>1932</strong>
-        <p>The Kingdom of Saudi Arabia is unified.</p>
-      </div>
-      <div class="moment">
-        <strong>1938</strong>
-        <p>Oil is discovered at Dammam Well No. 7.</p>
-      </div>
-      <div class="moment">
-        <strong>2016</strong>
-        <p>Vision 2030 is launched.</p>
-      </div>
-      <div class="moment">
-        <strong>2034</strong>
-        <p>The Kingdom hosts the FIFA World Cup.</p>
-      </div>
+      {% for moment in t.moments %}
+        <div class="moment {% if moment.year >= '2000' %}now{% endif %}">
+          <strong>{{ moment.year }}</strong>
+          <p>{{ moment.text }}</p>
+        </div>
+      {% endfor %}
     </div>
 
     <div class="center">
       <a href="{% url 'main:timeline' %}" class="btn btn-outline">
-        See the full timeline
-        <span class="material-symbols-outlined">arrow_forward</span>
+        {{ t.full_timeline }}
+        <span class="material-symbols-outlined flip-rtl">arrow_forward</span>
       </a>
     </div>
   </section>
