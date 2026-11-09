@@ -1,0 +1,25 @@
+{
+  "hero": {
+    "eyebrow": "Saudi Vision 2030 · Digital Transformation",
+    "description": "An independent look at how the Ministry of Interior's services moved from the counter to the screen, and where the transformation is heading next.",
+    "primary_cta": { "label": "Start the Journey", "slug": "vision-2030" },
+    "secondary_cta": { "label": "See the Future", "slug": "future-vision" }
+  },
+  "journey": {
+    "heading": "The Journey",
+    "intro": "Seven pages follow the story from the national vision to the technology shaping what comes next.",
+    "steps": [
+      { "slug": "vision-2030", "teaser": "The national blueprint and the three pillars behind the transformation." },
+      { "slug": "moi-evolution", "teaser": "A timeline from an early administrative authority to today's digital ministry." },
+      { "slug": "absher", "teaser": "The Ministry's e-services platform and how it has grown." },
+      { "slug": "digital-identity", "teaser": "How one verified identity opens government and private services." },
+      { "slug": "smart-security", "teaser": "Unified platforms and AI in public security, with what is operating and what is planned." },
+      { "slug": "digital-services", "teaser": "Recent services that moved from the counter to the screen." },
+      { "slug": "future-vision", "teaser": "The 2030 roadmap, global rankings, and announced next steps." }
+    ]
+  },
+  "about": {
+    "heading": "About This Project",
+    "text": "MOI Digital Evolution is an educational project. Every figure on the site carries its source and date, and announced plans are clearly separated from services that are already operating."
+  }
+}
