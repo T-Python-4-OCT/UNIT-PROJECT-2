@@ -107,6 +107,24 @@
       "name": "Informed Infrastructure — Unified Security Operations Center (911) in Makkah",
       "url": "https://informedinfrastructure.com/?p=35049",
       "note": "Technology-industry article; source for the start of 911 in Makkah (2015). Verify on moi.gov.sa."
+    },
+        {
+      "id": "un_egovkb",
+      "name": "UN DESA — E-Government Knowledgebase: Saudi Arabia",
+      "url": "https://publicadministration.un.org/egovkb/en-us/Data/Country-Information/id/149-Saudi-Arabia",
+      "note": "Official UN data: EGDI and E-Participation ranks by survey edition."
+    },
+    {
+      "id": "arabnews_gtmi",
+      "name": "Arab News — Saudi Arabia ranks 2nd globally in digital government, World Bank 2025 index shows",
+      "url": "https://www.arabnews.pk/node/2626749",
+      "note": "Published 19 Dec 2025; also reported by Saudi Gazette on 18 Dec 2025."
+    },
+    {
+      "id": "arabnews_kpmg",
+      "name": "Arab News — Saudi Arabia's digital government push driving top-10 ranking ambition: KPMG",
+      "url": "https://www.arabnews.pk/node/2613094",
+      "note": "Published 26 Aug 2025; source for the goal of consolidating 800+ platforms."
     }
   ]
 }
