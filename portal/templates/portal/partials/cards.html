@@ -1,0 +1,20 @@
+<div class="row row-cols-1 row-cols-md-2 g-4">
+  {% for item in section.items %}
+    <div class="col">
+      <article class="card h-100 info-card">
+        <div class="card-body">
+          {% if item.date or item.status %}
+            <p class="card-meta">
+              {% if item.date %}<span class="meta-date">{{ item.date }}</span>{% endif %}
+              {% if item.status %}
+                <span class="status-badge status-{{ item.status|slugify }}">{{ item.status|capfirst }}</span>
+              {% endif %}
+            </p>
+          {% endif %}
+          <h3 class="h5 card-title">{{ item.title }}</h3>
+          <p class="card-text">{{ item.text }}{% include "portal/partials/source_ref.html" %}</p>
+        </div>
+      </article>
+    </div>
+  {% endfor %}
+</div>

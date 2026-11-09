@@ -1,0 +1,13 @@
+<section class="sources py-4">
+  <div class="container">
+    <h2 class="h4">Sources</h2>
+    <ol class="source-list">
+      {% for ref in page.source_refs %}
+        <li id="source-{{ ref.number }}">
+          <a href="{{ ref.url }}" target="_blank" rel="noopener">{{ ref.name }}</a>
+          {% if ref.note %}<span class="source-note small text-body-secondary"> — {{ ref.note }}</span>{% endif %}
+        </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>

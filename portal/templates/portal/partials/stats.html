@@ -1,0 +1,14 @@
+<div class="row row-cols-1 row-cols-sm-2 row-cols-lg-3 g-4">
+  {% for item in section.items %}
+    <div class="col">
+      <div class="stat-card h-100">
+        <p class="stat-value">{{ item.value }}</p>
+        <p class="stat-label">{{ item.label }}</p>
+        <p class="stat-meta small">
+          {% if item.as_of %}As of {{ item.as_of }}{% elif item.checked_on %}Checked {{ item.checked_on }}{% endif %}
+          {% include "portal/partials/source_ref.html" %}
+        </p>
+      </div>
+    </div>
+  {% endfor %}
+</div>
