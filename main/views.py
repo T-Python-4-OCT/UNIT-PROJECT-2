@@ -1,9 +1,13 @@
-from django.shortcuts import render
 
-# Create your views here.
+from django.shortcuts import render
+from django.http import Http404
+from .data import PLACES
+
 
 def home(request):
-    return render(request, 'main/home.html')
+    return render(request, 'main/home.html', {
+        'places': PLACES,
+    })
 
 
 def about(request):
@@ -11,11 +15,23 @@ def about(request):
 
 
 def places(request):
-    return render(request, 'main/places.html')
+    return render(request, 'main/places.html', {
+        'places': PLACES,
+    })
 
 
 def place_detail(request, slug):
-    return render(request, 'main/place_detail.html')
+    place = next(
+        (item for item in PLACES if item['slug'] == slug),
+        None
+    )
+
+    if place is None:
+        raise Http404("المكان غير موجود")
+
+    return render(request, 'main/place_detail.html', {
+        'place': place,
+    })
 
 
 def events(request):

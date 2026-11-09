@@ -1,0 +1,53 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ place.title }} | الدرعية{% endblock %}
+
+{% block content %}
+
+<section class="place-detail-hero">
+
+    <img
+        src="{% static 'main/images/' %}{{ place.image }}"
+        alt="{{ place.title }}"
+        class="place-detail-image"
+    >
+
+    <div class="place-detail-overlay"></div>
+
+    <div class="place-detail-heading">
+        <span>{{ place.tag }}</span>
+        <h1>{{ place.title }}</h1>
+        <p>{{ place.subtitle }}</p>
+    </div>
+
+</section>
+
+<section class="place-detail-section">
+    <div class="place-detail-container">
+
+        <a href="{% url 'main:places' %}" class="back-to-places">
+            → العودة إلى أماكن الزيارة
+        </a>
+
+        <div class="place-detail-text">
+            <span class="section-decoration">◆ ◆ ◆</span>
+            <h2>اكتشف {{ place.title }}</h2>
+            <p>{{ place.description }}</p>
+        </div>
+
+        <div class="place-features">
+            {% for detail in place.details %}
+
+            <div class="place-feature">
+                <span class="feature-symbol">✦</span>
+                <p>{{ detail }}</p>
+            </div>
+
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

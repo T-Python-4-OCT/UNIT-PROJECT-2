@@ -1,0 +1,63 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}أماكن الزيارة | الدرعية{% endblock %}
+
+{% block content %}
+
+<section class="places-page-hero">
+    <div class="places-page-intro">
+        <span>اكتشف وجهات الدرعية</span>
+        <h1>أماكن الزيارة</h1>
+        <p>
+            وجهات متنوعة تجمع بين التاريخ والثقافة
+            والضيافة والطبيعة في قلب الدرعية.
+        </p>
+    </div>
+</section>
+
+<section class="places-section" id="places">
+    <div class="places-container">
+
+        <div class="section-heading">
+            <span class="section-decoration">◆ ◆ ◆</span>
+            <h2>اكتشف الدرعية</h2>
+            <p>اختر وجهتك المفضلة وتعرّف على تفاصيلها.</p>
+        </div>
+
+        <div class="places-grid">
+
+            {% for place in places %}
+            <a href="{% url 'main:place_detail' place.slug %}" class="place-card">
+
+                <img
+                    src="{% static 'main/images/' %}{{ place.image }}"
+                    alt="{{ place.title }}"
+                    loading="lazy"
+                    decoding="async"
+                >
+
+                <div class="place-card-overlay"></div>
+
+                <div class="place-card-content">
+                    <span class="place-tag">{{ place.tag }}</span>
+
+                    <h3>{{ place.title }}</h3>
+
+                    <p>{{ place.subtitle }}</p>
+
+                    <span class="place-card-link">
+                        اكتشف المكان
+                        <span aria-hidden="true">←</span>
+                    </span>
+                </div>
+
+            </a>
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
