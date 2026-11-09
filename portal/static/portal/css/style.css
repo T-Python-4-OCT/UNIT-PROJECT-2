@@ -1,0 +1,807 @@
+
+/* ==============================
+   الإعدادات العامة
+============================== */
+
+:root {
+    --green: #087a45;
+    --green-dark: #075c36;
+    --green-light: #e8f4ed;
+    --white: #ffffff;
+    --text: #18352a;
+    --muted: #687d72;
+    --background: #f5f8f6;
+    --surface: #ffffff;
+    --border: #e0e9e3;
+    --shadow: 0 8px 30px rgba(12, 65, 39, 0.07);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--background);
+    color: var(--text);
+    line-height: 1.8;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+a {
+    text-decoration: none;
+}
+
+/* ==============================
+   القائمة العلوية
+============================== */
+
+.site-header {
+    background-color: var(--white);
+    border-bottom: 3px solid var(--green);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, 0.06);
+}
+
+.navbar {
+    min-height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    color: var(--green-dark);
+    font-size: 18px;
+    font-weight: bold;
+    transition: opacity 0.3s ease;
+}
+
+.logo:hover {
+    opacity: 0.85;
+}
+
+.logo-mark {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(145deg, #0b9658, #075c36);
+    color: var(--white);
+    border-radius: 10px;
+    font-size: 27px;
+    font-weight: bold;
+    box-shadow: 0 4px 12px rgba(8, 122, 69, 0.2);
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5;
+    letter-spacing: 0.3px;
+}
+
+.logo-text small {
+    color: var(--muted);
+    font-size: 12px;
+    font-weight: normal;
+    letter-spacing: 0;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+}
+
+.nav-links > a {
+    position: relative;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: bold;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+}
+
+.nav-links > a::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    bottom: 2px;
+    width: 0;
+    height: 2px;
+    background-color: var(--green);
+    transition: width 0.3s ease;
+}
+
+.nav-links > a:hover {
+    color: var(--green);
+}
+
+.nav-links > a:hover::after {
+    width: 100%;
+}
+
+.nav-links form {
+    margin: 0;
+}
+
+/* زر الشمس والقمر */
+
+.theme-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+    margin: 0;
+    background: transparent;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    border-radius: 0;
+    cursor: pointer;
+    color: inherit;
+    appearance: none;
+}
+
+.theme-icon {
+    display: inline-block;
+    font-size: 30px;
+    line-height: 1;
+    color: inherit;
+    background: transparent;
+    border: none;
+    box-shadow: none;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-icon {
+    transform: rotate(25deg);
+}
+
+.theme-toggle:focus-visible {
+    outline: 2px solid var(--green);
+    outline-offset: 4px;
+}
+
+/* ==============================
+   الواجهة الرئيسية
+============================== */
+
+.hero {
+    min-height: 600px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 29, 18, 0.15),
+            rgba(3, 29, 18, 0.82)
+        ),
+        url("../images/hero.png") center center / cover no-repeat;
+}
+
+.hero-content {
+    max-width: 700px;
+    padding: 90px 0;
+    color: var(--white);
+    animation: fadeUp 1s ease both;
+}
+
+.hero-label {
+    display: inline-block;
+    padding: 7px 16px;
+    margin-bottom: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+.hero h1 {
+    font-size: 46px;
+    line-height: 1.4;
+    margin-bottom: 24px;
+    color: var(--white);
+    font-weight: 700;
+}
+
+.hero h1 span {
+    display: block;
+    color: #a8e0bd;
+}
+
+.hero-content p {
+    max-width: 560px;
+    font-size: 17px;
+    line-height: 1.9;
+    color: #f0f5f1;
+    margin-bottom: 30px;
+}
+
+.hero-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 18px;
+    padding: 15px 30px;
+    background: linear-gradient(135deg, #0b9658, #087a45);
+    color: var(--white);
+    border: 1px solid rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: bold;
+    box-shadow: 0 5px 18px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+}
+
+.hero-button:hover {
+    background: linear-gradient(135deg, #087a45, #075c36);
+    transform: translateY(-4px);
+    box-shadow: 0 9px 22px rgba(0, 0, 0, 0.3);
+}
+
+/* ==============================
+   عناوين الأقسام
+============================== */
+
+.section-heading {
+    text-align: center;
+    max-width: 750px;
+    margin: 0 auto 50px;
+}
+
+.section-heading > span {
+    display: inline-block;
+    color: var(--green);
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.section-heading h2 {
+    color: var(--text);
+    font-size: 34px;
+    margin-bottom: 12px;
+}
+
+.section-heading p {
+    color: var(--muted);
+    font-size: 16px;
+}
+
+/* ==============================
+   المشهد الرقمي
+============================== */
+
+.about {
+    padding: 90px 0;
+    background-color: var(--white);
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.about-card {
+    position: relative;
+    overflow: hidden;
+    padding: 0;
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-right: 4px solid var(--green);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.about-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--green);
+    box-shadow: var(--shadow);
+}
+
+.about-card img {
+    width: 100%;
+    height: 190px;
+    object-fit: cover;
+    display: block;
+}
+
+.about-card h3,
+.about-card p {
+    margin-right: 22px;
+    margin-left: 22px;
+}
+
+.about-card h3 {
+    color: var(--green-dark);
+    font-size: 21px;
+    margin-top: 22px;
+    margin-bottom: 15px;
+}
+
+.about-card p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+    margin-bottom: 22px;
+}
+
+/* ==============================
+   محاور الموقع
+============================== */
+
+.topics {
+    padding: 90px 0;
+    background-color: var(--background);
+}
+
+.topics-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.topic-card {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    min-height: 220px;
+    padding: 0;
+    overflow: hidden;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 7px;
+    transition: 0.3s;
+}
+
+.topic-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--green);
+    box-shadow: 0 12px 28px rgba(8, 122, 69, 0.12);
+}
+
+.topic-image {
+    height: 190px;
+    flex-shrink: 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.topic-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.topic-card:hover .topic-image img {
+    transform: scale(1.06);
+}
+
+.topic-image .topic-number {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    z-index: 1;
+}
+
+.topic-info {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 22px;
+}
+
+.topic-info h3 {
+    color: var(--green-dark);
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.topic-info p {
+    color: var(--muted);
+    font-size: 14px;
+    flex: 1;
+    margin-bottom: 18px;
+}
+
+.topic-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 15px;
+    color: var(--green);
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.topic-info .topic-link {
+    display: inline-flex;
+    gap: 8px;
+}
+
+.topic-link span {
+    transition: transform 0.3s;
+}
+
+.topic-card:hover .topic-link span {
+    transform: translateX(-6px);
+}
+
+/* أرقام المحاور */
+
+.topic-number {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    margin-bottom: 22px;
+    color: var(--green);
+    background-color: var(--green-light);
+    border-radius: 8px;
+    font-size: 21px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.topic-card:hover .topic-number {
+    background-color: var(--green);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+/* ==============================
+   قسم المبادرات
+============================== */
+
+.initiatives {
+    padding: 60px 0 35px;
+    background-color: var(--white);
+}
+
+.initiative-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    column-gap: 35px;
+    row-gap: 25px;
+}
+
+.initiative-item {
+    padding: 32px;
+    background-color: var(--background);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.initiative-item:hover {
+    transform: translateY(-6px);
+    border-color: var(--green);
+    box-shadow: var(--shadow);
+}
+
+.initiative-image {
+    width: 100%;
+    height: 190px;
+    overflow: hidden;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.initiative-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center;
+    background-color: #ffffff;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.initiative-item:hover .initiative-image img {
+    transform: scale(1.06);
+}
+
+.initiative-item > span {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background-color: var(--green-light);
+    color: var(--green);
+    border-radius: 8px;
+    font-size: 20px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.initiative-item:hover > span {
+    background-color: var(--green);
+    color: var(--white);
+    transform: translateY(-3px);
+}
+
+.initiative-item h3 {
+    color: var(--text);
+    font-size: 20px;
+    margin: 20px 0 12px;
+}
+
+.initiative-item p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+/* ==============================
+   تذييل الموقع
+============================== */
+
+.site-footer {
+    padding: 25px 0 12px;
+    background-color: #073d29;
+    color: #ffffff;
+}
+
+.footer-content {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr;
+    gap: 30px;
+    padding-bottom: 18px;
+}
+
+.footer-content h3 {
+    font-size: 15px;
+    margin-bottom: 10px;
+    color: #ffffff;
+}
+
+.footer-content p {
+    color: #d0e4d7;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.footer-brand p,
+.footer-info p {
+    max-width: 380px;
+}
+
+.footer-info p + p {
+    margin-top: 8px;
+}
+
+.footer-sources {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+}
+
+.footer-sources h3 {
+    font-size: 17px;
+    margin-bottom: 5px;
+    color: #ffffff;
+}
+
+.footer-sources a {
+    color: #d0e4d7;
+    font-size: 13px;
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+
+.footer-sources a:hover {
+    color: #ffffff;
+}
+
+.footer-bottom {
+    border-top: 1px solid rgba(255, 255, 255, 0.18);
+    padding-top: 10px;
+    text-align: center;
+}
+
+.footer-bottom p {
+    color: #d0e4d7;
+    font-size: 11px;
+}
+
+/* ==============================
+   الوضع الداكن
+============================== */
+
+.dark-theme {
+    --text: #e7f1ea;
+    --muted: #a8b9ad;
+    --background: #101d17;
+    --surface: #192a20;
+    --border: #304638;
+    --shadow: 0 8px 30px rgba(0, 0, 0, 0.2);
+}
+
+.dark-theme .site-header {
+    background-color: #15251c;
+    border-color: var(--border);
+}
+
+.dark-theme .logo,
+.dark-theme .nav-links > a {
+    color: var(--text);
+}
+
+.dark-theme .logo-mark {
+    background: linear-gradient(145deg, #0b9658, #075c36);
+}
+
+.dark-theme .about,
+.dark-theme .initiatives {
+    background-color: #14231a;
+}
+
+.dark-theme .about-card,
+.dark-theme .topic-card,
+.dark-theme .initiative-item {
+    background-color: var(--surface);
+    border-color: var(--border);
+}
+
+.dark-theme .about-card h3,
+.dark-theme .topic-card h3,
+.dark-theme .initiative-item h3,
+.dark-theme .section-heading h2 {
+    color: #a8e0bd;
+}
+
+.dark-theme .topic-number,
+.dark-theme .initiative-item > span {
+    background-color: #244b35;
+    color: #a8e0bd;
+}
+
+/* لون أيقونة الوضع الليلي */
+
+.dark-theme .theme-toggle {
+    color: #a8e0bd;
+}
+
+/* لون أيقونة الوضع الفاتح */
+
+.light-theme .theme-toggle {
+    color: #087a45;
+}
+
+/* ==============================
+   الحركات
+============================== */
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==============================
+   الشاشات المتوسطة
+============================== */
+
+@media (max-width: 900px) {
+    .nav-links {
+        gap: 15px;
+    }
+
+    .topics-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .about-content,
+    .initiative-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .hero h1 {
+        font-size: 44px;
+    }
+}
+
+/* ==============================
+   الشاشات الصغيرة
+============================== */
+
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        padding: 18px 0;
+        gap: 18px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .footer-brand,
+    .footer-info {
+        max-width: 100%;
+    }
+}
+
+@media (max-width: 600px) {
+    .hero {
+        min-height: 520px;
+        background-size: cover;
+        background-position: 20% center;
+    }
+
+    .hero-content {
+        padding: 65px 0;
+    }
+
+    .hero h1 {
+        font-size: 34px;
+    }
+
+    .hero-content p {
+        font-size: 15px;
+    }
+
+    .section-heading h2 {
+        font-size: 27px;
+    }
+
+    .topics-grid,
+    .about-content,
+    .initiative-content {
+        grid-template-columns: 1fr;
+    }
+
+    .about,
+    .topics,
+    .initiatives {
+        padding: 65px 0;
+    }
+
+    .topic-image {
+        height: 200px;
+    }
+
+    .footer-sources {
+        gap: 10px;
+    }
+}

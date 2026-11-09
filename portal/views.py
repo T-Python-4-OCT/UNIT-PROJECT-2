@@ -1,3 +1,21 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 
-# Create your views here.
+
+def home(request):
+    return render(request, 'portal/home.html')
+
+
+def toggle_theme(request):
+    if request.method == 'POST':
+        current_theme = request.COOKIES.get('theme', 'dark')
+
+        new_theme = 'light' if current_theme == 'dark' else 'dark'
+
+        response = redirect(request.META.get('HTTP_REFERER', 'home'))
+        response.set_cookie('theme', new_theme, max_age=31536000)
+
+        return response
+
+    return redirect('home')
+def digital_transformation(request):
+    return render(request, 'portal/digital_transformation.html')
