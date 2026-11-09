@@ -1,0 +1,169 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Saudi Space | Home{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="saudi-hero">
+    <div class="saudi-hero-image"></div>
+    <div class="saudi-hero-overlay"></div>
+
+    <div class="container saudi-hero-content">
+
+        <span class="saudi-badge">SAUDI ARABIA · SPACE SECTOR</span>
+
+        <h1>
+            THE FUTURE<br>
+            IS <span>BEYOND.</span>
+        </h1>
+
+        <p>
+            Discover Saudi Arabia's journey in space exploration,
+            innovation, and scientific achievement.
+        </p>
+
+        <a href="{% url 'missions' %}" class="saudi-btn">
+            EXPLORE OUR JOURNEY <span>↗</span>
+        </a>
+
+    </div>
+
+    <div class="saudi-hero-footer container">
+        <span>SAUDI SPACE & ASTRONOMY</span>
+        <span>VISION 2030</span>
+    </div>
+</section>
+
+
+<!-- INTRO -->
+<section class="saudi-intro container">
+
+    <div class="saudi-section-label">01 — OUR JOURNEY</div>
+
+    <div class="saudi-intro-grid">
+
+        <h2>
+            A NEW ERA OF<br>
+            <span>SAUDI INNOVATION.</span>
+        </h2>
+
+        <p>
+            Saudi Arabia is advancing its space sector through
+            scientific research, national talent, and advanced
+            technologies, supporting the ambitions of Vision 2030.
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- HIGHLIGHT -->
+<section class="saudi-highlight">
+
+    <div class="container saudi-highlight-grid">
+
+        <div>
+            <div class="saudi-section-label">02 — HISTORIC MILESTONE</div>
+
+            <h2>
+                SAUDI ARABIA<br>
+                <span>REACHES SPACE.</span>
+            </h2>
+
+            <p>
+                In 2023, Saudi astronauts Rayyanah Barnawi
+                and Ali Alqarni joined the Ax-2 mission
+                to the International Space Station.
+            </p>
+
+            <a href="{% url 'astronauts' %}" class="saudi-inline-link">
+                MEET THE ASTRONAUTS ↗
+            </a>
+        </div>
+
+        <div class="saudi-highlight-image"></div>
+
+    </div>
+
+</section>
+
+
+<!-- EXPLORE -->
+<section class="saudi-explore">
+
+    <div class="container">
+
+        <div class="saudi-section-label">03 — EXPLORE SAUDI SPACE</div>
+
+        <h2 class="saudi-explore-title">
+            DISCOVER WHAT'S <span>OUT THERE.</span>
+        </h2>
+
+        <div class="saudi-explore-grid">
+
+            <a href="{% url 'astronauts' %}" class="saudi-explore-card">
+                <span>01</span>
+                <h3>Astronauts</h3>
+                <p>Meet Saudi space pioneers.</p>
+                <b>↗</b>
+            </a>
+
+            <a href="{% url 'missions' %}" class="saudi-explore-card">
+                <span>02</span>
+                <h3>Missions</h3>
+                <p>Explore Saudi space missions.</p>
+                <b>↗</b>
+            </a>
+
+            <a href="{% url 'satellites' %}" class="saudi-explore-card">
+                <span>03</span>
+                <h3>Satellites</h3>
+                <p>Discover Saudi space technology.</p>
+                <b>↗</b>
+            </a>
+
+            <a href="{% url 'research' %}" class="saudi-explore-card">
+                <span>04</span>
+                <h3>Research</h3>
+                <p>Explore scientific achievements.</p>
+                <b>↗</b>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- VISION -->
+<section class="saudi-vision">
+
+    <div class="saudi-vision-image"></div>
+
+    <div class="container saudi-vision-content">
+
+        <span class="saudi-section-label">04 — VISION 2030</span>
+
+        <h2>
+            DREAM BIG.<br>
+            <span>GO BEYOND.</span>
+        </h2>
+
+        <p>
+            Building national capabilities and shaping
+            Saudi Arabia's future in the global space sector.
+        </p>
+
+        <a href="{% url 'future' %}" class="saudi-btn">
+            DISCOVER THE FUTURE <span>↗</span>
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

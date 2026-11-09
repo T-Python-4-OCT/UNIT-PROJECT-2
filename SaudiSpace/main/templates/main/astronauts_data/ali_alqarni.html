@@ -1,0 +1,228 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Ali Alqarni | Saudi Space{% endblock %}
+
+{% block content %}
+
+<section class="rayyanah-hero"
+    style="background-image: linear-gradient(90deg, rgba(5,12,24,.96), rgba(5,12,24,.65) 55%, rgba(5,12,24,.15)), url('{% static 'main/images/ali-alqarni.jpg' %}');">
+
+    <div class="rayyanah-hero-overlay"></div>
+
+    <div class="container rayyanah-hero-content">
+
+        <a href="{% url 'astronauts' %}" class="rayyanah-back">
+            ← BACK TO ASTRONAUTS
+        </a>
+
+        <span class="rayyanah-label">SAUDI SPACE PIONEER · 02</span>
+
+        <h1>ALI<br><span>ALQARNI.</span></h1>
+
+        <p>
+            A Saudi astronaut and experienced fighter pilot
+            who represented the Kingdom aboard the
+            International Space Station.
+        </p>
+
+        <div class="rayyanah-hero-meta">
+            <span>FIGHTER PILOT</span>
+            <span>AX-2 MISSION · 2023</span>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-about container">
+
+    <div class="rayyanah-section-label">01 — HIS STORY</div>
+
+    <div class="rayyanah-about-grid">
+
+        <div class="rayyanah-about-heading">
+            <span class="rayyanah-label">FROM THE SKIES TO SPACE</span>
+            <h2>A JOURNEY<br>OF <span>AMBITION.</span></h2>
+        </div>
+
+        <div class="rayyanah-biography">
+
+            <p>
+                Ali Alqarni is a Saudi astronaut and experienced
+                fighter pilot who served as a mission specialist
+                on Axiom Mission 2 (Ax-2), traveling to the
+                International Space Station in 2023.
+            </p>
+
+            <p>
+                He has more than 12 years of flying experience
+                and approximately 2,387 flight hours. His
+                professional background includes operating
+                F-15SA fighter aircraft, as well as experience
+                with several other aircraft types.
+            </p>
+
+            <p>
+                Throughout his career, Alqarni developed
+                experience in aircraft operations, team
+                coordination, and managing complex mission
+                scenarios. These skills supported his role
+                in carrying out scientific activities in space.
+            </p>
+
+            <p>
+                His interest in space exploration grew after
+                visiting NASA's Johnson Space Center during
+                professional training in the United States.
+                He later joined the Saudi National Astronaut
+                Program and became part of the Ax-2 crew.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-achievement">
+
+    <div class="container rayyanah-achievement-grid">
+
+        <div class="rayyanah-achievement-content">
+
+            <span class="rayyanah-label">02 — SPACE MISSION</span>
+
+            <h2>BEYOND<br><span>THE SKIES.</span></h2>
+
+            <p>
+                In May 2023, Ali Alqarni travelled to the
+                International Space Station as a member of
+                Axiom Mission 2 alongside Saudi astronaut
+                Rayyanah Barnawi. During the mission, the crew
+                conducted scientific research in microgravity.
+            </p>
+
+            <a href="{% url 'missions' %}" class="saudi-btn">
+                EXPLORE THE MISSION <span>↗</span>
+            </a>
+
+        </div>
+
+        <div class="rayyanah-achievement-facts">
+
+            <div class="rayyanah-fact">
+                <strong>2023</strong>
+                <span>AX-2 SPACE MISSION</span>
+            </div>
+
+            <div class="rayyanah-fact">
+                <strong>12+</strong>
+                <span>YEARS OF FLYING EXPERIENCE</span>
+            </div>
+
+            <div class="rayyanah-fact">
+                <strong>2,387</strong>
+                <span>APPROXIMATE FLIGHT HOURS</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-education container">
+
+    <div class="rayyanah-section-label">03 — ACADEMIC BACKGROUND</div>
+
+    <h2>EDUCATION & <span>EXPERTISE.</span></h2>
+
+    <div class="rayyanah-education-grid">
+
+        <article class="rayyanah-education-card">
+            <span>BACHELOR'S DEGREE</span>
+            <h3>Aerospace Science</h3>
+            <p>
+                King Faisal Air Academy
+                <br>
+                Riyadh, Saudi Arabia
+            </p>
+            <small>Academic qualification</small>
+        </article>
+
+        <article class="rayyanah-education-card">
+            <span>PROFESSIONAL EXPERIENCE</span>
+            <h3>Fighter Pilot</h3>
+            <p>
+                Royal Saudi Air Force
+                <br>
+                F-15SA aircraft
+            </p>
+            <small>Military aviation background</small>
+        </article>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-fast-facts">
+
+    <div class="container">
+
+        <div class="rayyanah-section-label">04 — QUICK PROFILE</div>
+
+        <h2>FAST <span>FACTS.</span></h2>
+
+        <div class="rayyanah-facts-list">
+
+            <div class="rayyanah-fact-row">
+                <span>01</span>
+                <p>Saudi astronaut and Ax-2 mission specialist.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>02</span>
+                <p>Former fighter pilot in the Royal Saudi Air Force.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>03</span>
+                <p>More than 12 years of flying experience.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>04</span>
+                <p>Approximately 2,387 flight hours.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>05</span>
+                <p>Holds a bachelor's degree in aerospace science from King Faisal Air Academy.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>06</span>
+                <p>Travelled to the International Space Station in May 2023.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-bottom container">
+
+    <span class="rayyanah-label">SAUDI SPACE PROGRAM</span>
+
+    <h2>HIS JOURNEY.<br><span>OUR INSPIRATION.</span></h2>
+
+    <a href="{% url 'astronauts' %}" class="saudi-btn">
+        MEET OTHER ASTRONAUTS <span>↗</span>
+    </a>
+
+</section>
+
+{% endblock %}

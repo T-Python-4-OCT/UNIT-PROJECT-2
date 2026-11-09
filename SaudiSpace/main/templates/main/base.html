@@ -1,0 +1,156 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en" data-theme="{{ request.COOKIES.theme|default:'dark' }}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Saudi Space & Astronomy{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <header class="site-header">
+
+        <nav class="navbar container">
+
+            <a href="{% url 'home' %}" class="logo">
+                <span class="logo-symbol">✦</span>
+
+                <span class="logo-text">
+                    SAUDI<span>SPACE</span>
+                    <small>SPACE & ASTRONOMY</small>
+                </span>
+            </a>
+
+            <div class="nav-links">
+
+                <a href="{% url 'home' %}"
+                   class="{% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                    Home
+                </a>
+
+                <a href="{% url 'astronauts' %}"
+                   class="{% if request.resolver_match.url_name == 'astronauts' %}active{% endif %}">
+                    Astronauts
+                </a>
+
+                <a href="{% url 'missions' %}"
+                   class="{% if request.resolver_match.url_name == 'missions' %}active{% endif %}">
+                    Missions
+                </a>
+
+                <a href="{% url 'satellites' %}"
+                   class="{% if request.resolver_match.url_name == 'satellites' %}active{% endif %}">
+                    Satellites
+                </a>
+
+                <a href="{% url 'astronomy' %}"
+                   class="{% if request.resolver_match.url_name == 'astronomy' %}active{% endif %}">
+                    Astronomy
+                </a>
+
+                <a href="{% url 'research' %}"
+                   class="{% if request.resolver_match.url_name == 'research' %}active{% endif %}">
+                    Research
+                </a>
+
+                <a href="{% url 'future' %}"
+                   class="{% if request.resolver_match.url_name == 'future' %}active{% endif %}">
+                    Future
+                </a>
+
+            </div>
+
+           <form method="POST" action="{% url 'toggle_theme' %}" class="theme-form">
+    {% csrf_token %}
+
+    {% if request.COOKIES.theme == 'light' %}
+        <input type="hidden" name="theme" value="dark">
+        <button type="submit" class="theme-toggle" aria-label="Switch to dark mode">
+            ☾
+        </button>
+    {% else %}
+        <input type="hidden" name="theme" value="light">
+        <button type="submit" class="theme-toggle" aria-label="Switch to light mode">
+            ☀
+        </button>
+    {% endif %}
+</form>
+        </nav>
+
+    </header>
+
+
+    <!-- Page Content -->
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+
+    <!-- Footer -->
+    <footer class="site-footer">
+
+        <div class="container">
+
+            <div class="footer-main">
+
+                <div class="footer-brand">
+
+                    <a href="{% url 'home' %}" class="logo">
+                        <span class="logo-symbol">✦</span>
+
+                        <span class="logo-text">
+                            SAUDI<span>SPACE</span>
+                            <small>SPACE & ASTRONOMY</small>
+                        </span>
+                    </a>
+
+                    <p>
+                        Exploring the unknown. Advancing knowledge.
+                        Shaping the future beyond our planet.
+                    </p>
+
+                </div>
+
+                <div class="footer-links">
+                    <span>EXPLORE</span>
+                    <a href="{% url 'astronauts' %}">Astronauts</a>
+                    <a href="{% url 'missions' %}">Missions</a>
+                    <a href="{% url 'satellites' %}">Satellites</a>
+                </div>
+
+                <div class="footer-links">
+                    <span>DISCOVER</span>
+                    <a href="{% url 'astronomy' %}">Astronomy</a>
+                    <a href="{% url 'research' %}">Research</a>
+                    <a href="{% url 'future' %}">The Future</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom">
+                <p>© 2026 Saudi Space & Astronomy</p>
+                <p>BEYOND EARTH. BEYOND LIMITS.</p>
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <script src="{% static 'main/js/main.js' %}"></script>
+
+</body>
+</html>

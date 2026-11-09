@@ -1,0 +1,173 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Saudi Space | Astronauts{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="astronauts-hero">
+    <div class="astronauts-hero-overlay"></div>
+
+    <div class="container astronauts-hero-content">
+        <span class="astronauts-label">SAUDI SPACE PROGRAM</span>
+
+        <h1>
+            THE PEOPLE<br>
+            <span>BEHIND THE MISSION.</span>
+        </h1>
+
+        <p>
+            Meet the Saudi astronauts representing the Kingdom
+            in human spaceflight and scientific exploration.
+        </p>
+    </div>
+</section>
+
+
+<!-- ASTRONAUTS -->
+<section class="astronauts-section container">
+
+    <div class="astronauts-heading">
+        <div>
+            <span class="astronauts-label">SAUDI SPACE PIONEERS</span>
+
+            <h2>
+                MEET OUR <span>ASTRONAUTS.</span>
+            </h2>
+        </div>
+
+        <p>
+            Saudi talent. National ambition.
+            A journey beyond Earth.
+        </p>
+    </div>
+
+
+    <div class="astronauts-grid">
+
+        <!-- RAYYANAH -->
+        <article class="astronaut-card">
+
+            <a href="{% url 'rayyanah' %}" class="astronaut-image-link">
+                <div class="astronaut-card-image">
+                    <img src="{% static 'main/images/rayyanah.jpg' %}"
+                         alt="Rayyanah Barnawi">
+                    <span>PRIMARY CREW</span>
+                </div>
+            </a>
+
+            <div class="astronaut-card-content">
+                <span>01 / SAUDI ASTRONAUT</span>
+                <h3>Rayyanah Barnawi</h3>
+                <p>Biomedical Researcher</p>
+
+                <a href="{% url 'rayyanah' %}">
+                    DISCOVER HER STORY ↗
+                </a>
+            </div>
+
+        </article>
+
+
+        <!-- ALI ALQARNI -->
+        <article class="astronaut-card">
+
+            <a href="{% url 'ali_alqarni' %}" class="astronaut-image-link">
+                <div class="astronaut-card-image">
+                    <img src="{% static 'main/images/ali-alqarni.jpg' %}"
+                         alt="Ali Alqarni">
+                    <span>PRIMARY CREW</span>
+                </div>
+            </a>
+
+            <div class="astronaut-card-content">
+                <span>02 / SAUDI ASTRONAUT</span>
+                <h3>Ali Alqarni</h3>
+                <p>Former Fighter Pilot</p>
+
+                <a href="{% url 'ali_alqarni' %}">
+                    DISCOVER HIS STORY ↗
+                </a>
+            </div>
+
+        </article>
+
+
+        <!-- ALI ALGHAMDI -->
+        <article class="astronaut-card">
+
+            <a href="{% url 'ali_alghamdi' %}" class="astronaut-image-link">
+                <div class="astronaut-card-image">
+                    <img src="{% static 'main/images/ali-alghamdi.jpg' %}"
+                         alt="Ali Alghamdi">
+                    <span>BACKUP CREW</span>
+                </div>
+            </a>
+
+            <div class="astronaut-card-content">
+                <span>03 / BACKUP CREW MEMBER</span>
+                <h3>Ali Alghamdi</h3>
+                <p>Aviation Specialist</p>
+
+                <a href="{% url 'ali_alghamdi' %}">
+                    DISCOVER HIS STORY ↗
+                </a>
+            </div>
+
+        </article>
+
+
+        <!-- MARIAM FARDOUS -->
+        <article class="astronaut-card">
+
+            <a href="{% url 'mariam_fardous' %}" class="astronaut-image-link">
+                <div class="astronaut-card-image">
+                    <img src="{% static 'main/images/mariam-fardous.jpg' %}"
+                         alt="Mariam Fardous">
+                    <span>BACKUP CREW</span>
+                </div>
+            </a>
+
+            <div class="astronaut-card-content">
+                <span>04 / BACKUP CREW MEMBER</span>
+                <h3>Mariam Fardous</h3>
+                <p>Medical Doctor</p>
+
+                <a href="{% url 'mariam_fardous' %}">
+                    DISCOVER HER STORY ↗
+                </a>
+            </div>
+
+        </article>
+
+    </div>
+</section>
+
+
+<!-- MISSION BANNER -->
+<section class="astronauts-banner">
+    <div class="container">
+
+        <span class="astronauts-label">A HISTORIC ACHIEVEMENT</span>
+
+        <h2>
+            SAUDI ARABIA<br>
+            <span>IN SPACE · 2023</span>
+        </h2>
+
+        <p>
+            Rayyanah Barnawi and Ali Alqarni made history
+            as members of the Ax-2 mission to the
+            International Space Station.
+        </p>
+
+        <a href="{% url 'missions' %}" class="saudi-btn">
+            EXPLORE THE MISSION <span>↗</span>
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}
