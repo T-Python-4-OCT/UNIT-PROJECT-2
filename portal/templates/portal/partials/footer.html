@@ -1,0 +1,13 @@
+<footer class="site-footer py-4 mt-5">
+  <div class="container">
+    <p class="footer-tagline mb-2">{{ site.tagline }}</p>
+    <ul class="list-inline small mb-2">
+      {% for nav_page in site.pages %}
+        <li class="list-inline-item">
+          <a href="{% url 'portal:page' nav_page.slug %}">{{ nav_page.title }}</a>
+        </li>
+      {% endfor %}
+    </ul>
+    <p class="small mb-0">{{ site.disclaimer }}</p>
+  </div>
+</footer>

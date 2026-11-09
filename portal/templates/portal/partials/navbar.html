@@ -1,0 +1,23 @@
+<nav class="navbar navbar-expand-xl site-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'portal:home' %}">{{ site.site_name }}</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#mainNav" aria-controls="mainNav"
+            aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto">
+        {% for nav_page in site.pages %}
+          <li class="nav-item">
+            <a class="nav-link{% if nav_page.slug == current_slug %} active{% endif %}"
+               href="{% url 'portal:page' nav_page.slug %}"
+               {% if nav_page.slug == current_slug %}aria-current="page"{% endif %}>
+              {{ nav_page.title }}
+            </a>
+          </li>
+        {% endfor %}
+      </ul>
+    </div>
+  </div>
+</nav>
