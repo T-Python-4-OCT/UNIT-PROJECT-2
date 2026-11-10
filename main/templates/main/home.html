@@ -103,6 +103,7 @@
                     src="{% static 'main/images/' %}{{ place.image }}"
                     alt="{{ place.title }}"
                     loading="lazy"
+                    decoding="async"
                 >
 
                 <div class="place-card-overlay"></div>
@@ -183,6 +184,43 @@
                 </a>
 
             </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="home-about" id="about">
+    <div class="home-about-container">
+
+        <div class="home-about-image">
+            <img
+                src="{% static 'main/images/at-turaif.webp' %}"
+                alt="حي الطريف التاريخي في الدرعية"
+                loading="lazy"
+                decoding="async"
+            >
+        </div>
+
+        <div class="home-about-content">
+
+            <span class="about-label">
+                عن الدرعية
+            </span>
+
+            <h2>أكثر من مجرد وجهة تاريخية</h2>
+
+            <p>
+                الدرعية هي مهد الدولة السعودية الأولى،
+                ومركز للحضارة والقيادة في نجد،
+                حيث تلتقي العمارة النجدية الأصيلة
+                بالمشاريع الثقافية والحضارية الحديثة.
+            </p>
+
+            <a href="{% url 'main:about' %}" class="about-button">
+                تعرف على الدرعية
+                <span aria-hidden="true">←</span>
+            </a>
 
         </div>
 
