@@ -1,16 +1,1 @@
-{% extends "main/topic.html" %}
-
-{% block topic_extra %}
-  <section class="container section">
-    <div class="did-you-know">
-      <span class="material-symbols-outlined">lightbulb</span>
-      {% if lang == 'ar' %}
-        <h3>هل تعلم؟</h3>
-        <p>باب قصر المصمك مصنوع من خشب النخل، وفيه فتحة صغيرة تُسمّى «الخوخة». واليوم صار القصر متحفًا مفتوحًا للزوار منذ عام 1995.</p>
-      {% else %}
-        <h3>Did you know?</h3>
-        <p>The gate of Masmak Fortress is made of palm wood and has a small opening called al-Khokha. Today the fort is a museum, open to visitors since 1995.</p>
-      {% endif %}
-    </div>
-  </section>
-{% endblock %}
+{% extends "main/topics/topic_base.html" %}

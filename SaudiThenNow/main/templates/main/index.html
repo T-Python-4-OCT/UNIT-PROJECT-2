@@ -21,11 +21,19 @@
 
       <div class="doors">
         <div class="door door-then">
-          <img src="{% static 'images/hero-then.jpg' %}" alt="">
+          <div class="door-view">
+            <img src="{% static 'images/hero-then.jpg' %}" alt="">
+            <span class="leaf leaf-left"></span>
+            <span class="leaf leaf-right"></span>
+          </div>
           <span class="door-tag">{{ t.then }}</span>
         </div>
         <div class="door door-now">
-          <img src="{% static 'images/hero-now.jpg' %}" alt="">
+          <div class="door-view">
+            <img src="{% static 'images/hero-now.jpg' %}" alt="">
+            <span class="leaf leaf-left"></span>
+            <span class="leaf leaf-right"></span>
+          </div>
           <span class="door-tag">{{ t.now }}</span>
         </div>
       </div>
@@ -51,36 +59,29 @@
     </div>
   </section>
 
-  <section class="container section" id="topics">
-    <div class="section-head">
-      <h2>{{ t.topics_title }}</h2>
-      <p>{{ t.topics_text }}</p>
-    </div>
+  <section class="stories" id="topics">
+    <div class="stories-pin">
+      <div class="container">
+        <div class="section-head">
+          <h2>{{ t.topics_title }}</h2>
+          <p>{{ t.topics_text }}</p>
+        </div>
+      </div>
 
-    <div class="topics">
-      {% for topic in topics %}
-        <a href="{% url 'main:topic' topic.slug %}" class="topic-card">
-          <div class="topic-img">
+      <div class="stories-track">
+        {% for topic in topics %}
+          <a href="{% url 'main:topic' topic.slug %}" class="story-card">
             <img src="{% static topic.image_now %}" alt="{{ topic.title }}">
             <img src="{% static topic.image_then %}" alt="" class="img-then">
-            <span class="topic-badge">
-              <span class="badge-now">{{ t.now }}</span>
-              <span class="badge-then">{{ t.then }}</span>
-            </span>
-          </div>
-
-          <div class="topic-body">
-            <span class="topic-icon material-symbols-outlined">{{ topic.icon }}</span>
-            <h3>{{ topic.title }}</h3>
-            <p class="topic-change">{{ topic.then }} {% if lang == 'ar' %}←{% else %}→{% endif %} {{ topic.now }}</p>
-            <p class="topic-summary">{{ topic.summary }}</p>
-            <span class="topic-link">
-              {{ t.read_story }}
-              <span class="material-symbols-outlined flip-rtl">arrow_forward</span>
-            </span>
-          </div>
-        </a>
-      {% endfor %}
+            <span class="story-tag story-then">{{ topic.then }}</span>
+            <span class="story-tag story-now">{{ topic.now }}</span>
+            <div class="story-title">
+              <span class="material-symbols-outlined">{{ topic.icon }}</span>
+              <h3>{{ topic.title }}</h3>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
     </div>
   </section>
 

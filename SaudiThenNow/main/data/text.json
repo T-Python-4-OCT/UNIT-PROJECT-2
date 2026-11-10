@@ -23,7 +23,7 @@
       {"icon": "train", "label": "High-speed rail", "then": "0 km", "then_year": "before 2018", "now": "453 km", "now_year": "2018"},
       {"icon": "flight_land", "label": "Tourists per year", "then": "No tourist visa", "then_year": "before 2019", "now": "116 million", "now_year": "2024"}
     ],
-    "topics_title": "Six stories of change",
+    "topics_title": "Seven stories of change",
     "topics_text": "Hover over a card to see the past. Click to read the full story.",
     "read_story": "Read the story",
     "moments_title": "Milestones that shaped the Kingdom",
@@ -41,7 +41,9 @@
     "key_moments": "Key moments",
     "watch_title": "See it for yourself",
     "video_by": "Video by",
-    "sources_title": "Where the facts come from",
+    "future_title": "Tomorrow",
+    "future_text": "What is already on the way, based on official plans.",
+    "source": "Source",
     "more_title": "More stories of change",
     "timeline_title": "Timeline",
     "timeline_text": "The full timeline is coming soon.",
@@ -54,15 +56,15 @@
     "copyright": "© 2026 Saudi Then & Now. Student project by Mohammed Alnsafi, Tuwaiq Academy."
   },
   "ar": {
-    "site_name": "السعودية بين الأمس واليوم",
+    "site_name": "السعودية بين الماضي والحاضر",
     "nav_home": "الرئيسية",
     "nav_topics": "المواضيع",
     "nav_timeline": "الخط الزمني",
     "nav_about": "عن المشروع",
     "switch_theme": "تبديل الوضع",
     "open_menu": "فتح القائمة",
-    "then": "الأمس",
-    "now": "اليوم",
+    "then": "الماضي",
+    "now": "الحاضر",
     "hero_line_1": "من الرمال",
     "hero_line_2": "إلى ناطحات السحاب",
     "hero_text": "قرن واحد، ومملكة جديدة بالكامل.",
@@ -77,7 +79,7 @@
       {"icon": "train", "label": "القطار السريع", "then": "0 كم", "then_year": "قبل 2018", "now": "453 كم", "now_year": "2018"},
       {"icon": "flight_land", "label": "السياح سنويًا", "then": "لا توجد تأشيرة سياحية", "then_year": "قبل 2019", "now": "116 مليون", "now_year": "2024"}
     ],
-    "topics_title": "ست قصص عن التغيير",
+    "topics_title": "سبع قصص عن التغيير",
     "topics_text": "مرّر على البطاقة لترى الماضي، واضغط لتقرأ القصة كاملة.",
     "read_story": "اقرأ القصة",
     "moments_title": "محطات صنعت المملكة",
@@ -91,11 +93,13 @@
     ],
     "full_timeline": "شاهد الخط الزمني كاملًا",
     "all_topics": "كل المواضيع",
-    "compare_label": "اسحب للمقارنة بين الأمس واليوم",
+    "compare_label": "اسحب للمقارنة بين الماضي والحاضر",
     "key_moments": "أبرز المحطات",
     "watch_title": "شاهد بنفسك",
     "video_by": "الفيديو من",
-    "sources_title": "من أين جاءت المعلومات",
+    "future_title": "المستقبل",
+    "future_text": "ما هو قادم في الطريق، بحسب الخطط الرسمية.",
+    "source": "المصدر",
     "more_title": "قصص أخرى عن التغيير",
     "timeline_title": "الخط الزمني",
     "timeline_text": "الخط الزمني الكامل قريبًا.",
@@ -105,6 +109,6 @@
     "explore": "استكشف",
     "sources": "المصادر",
     "heritage": "هيئة التراث",
-    "copyright": "© 2026 السعودية بين الأمس واليوم. مشروع طالب: محمد النصافي، أكاديمية طويق."
+    "copyright": "© 2026 السعودية بين الماضي والحاضر. مشروع طالب: محمد النصافي، أكاديمية طويق."
   }
 }

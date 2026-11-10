@@ -1,0 +1,208 @@
+{
+  "slug": "education",
+  "title": "Education",
+  "icon": "school",
+  "then": "Kuttab lessons",
+  "now": "Modern universities",
+  "summary": "From small Quran schools to universities that work with the best in the world.",
+  "image_then": "images/topics/education-then.jpg",
+  "image_now": "images/topics/education-now.jpg",
+  "tagline": "From a circle around one teacher to 36,800 schools.",
+  "story_title": "From the kuttab to the campus",
+  "story": [
+    "For generations, learning meant the kuttab: children sat in a circle around one teacher in a mosque or a house, memorizing the Quran and learning to read, write and count. In 1905 the merchant Mohammed Ali Zainal opened Al-Falah School in Jeddah.",
+    "In 1926 the Directorate of Knowledge was set up, and by 1932 it supervised 323 schools. The Ministry of Knowledge followed in 1953 with King Fahd as its first minister, King Saud University opened in 1957 as the first university, and in 1959 a presidency for girls' education was created.",
+    "Today 36,800 schools teach 6.7 million students, half of them girls, and 29 public universities serve the country. Adult literacy rose from about 40% in 1972 to 97.9% in 2024, and since 2005 a national scholarship program has sent Saudis to study at universities around the world."
+  ],
+  "facts": [
+    {
+      "icon": "menu_book",
+      "label": "Adults who can read",
+      "then": "About 40%",
+      "then_year": "1972",
+      "now": "97.9%",
+      "now_year": "2024"
+    },
+    {
+      "icon": "domain",
+      "label": "Schools",
+      "then": "323",
+      "then_year": "1932",
+      "now": "36,800",
+      "now_year": "2024"
+    },
+    {
+      "icon": "account_balance",
+      "label": "Universities",
+      "then": "1",
+      "then_year": "1957",
+      "now": "29 public",
+      "now_year": "today"
+    },
+    {
+      "icon": "girl",
+      "label": "Girls in school",
+      "then": "No public schools",
+      "then_year": "before 1959",
+      "now": "3.3 million",
+      "now_year": "2024"
+    }
+  ],
+  "timeline": [
+    {
+      "year": "1905",
+      "text": "Mohammed Ali Zainal opens Al-Falah School in Jeddah."
+    },
+    {
+      "year": "1926",
+      "text": "The Directorate of Knowledge is founded."
+    },
+    {
+      "year": "1953",
+      "text": "The Ministry of Knowledge is created, with King Fahd as its first minister."
+    },
+    {
+      "year": "1957",
+      "text": "King Saud University opens as the first university."
+    },
+    {
+      "year": "1959",
+      "text": "A general presidency for girls' education is established."
+    },
+    {
+      "year": "2005",
+      "text": "A national scholarship program starts sending students abroad."
+    }
+  ],
+  "future": [
+    {
+      "year": "2030",
+      "icon": "flight_takeoff",
+      "title": "70,000 scholarships",
+      "text": "The Human Capability Development Program aims to send 70,000 citizens to the world's top 200 universities and training institutions by 2030.",
+      "source": "https://saudipedia.com/en/article/366/economy-and-business/saudi-vision-2030/human-capability-development-program"
+    },
+    {
+      "year": "2030",
+      "icon": "workspace_premium",
+      "title": "Five universities in the top 200",
+      "text": "Vision 2030 aims for at least five Saudi universities among the top 200 in international rankings.",
+      "source": "https://www.moe.gov.sa/en/education/Pages/DRI.aspx"
+    }
+  ],
+  "video": {
+    "file": "video/Education.mp4",
+    "tall": false
+  },
+  "sources": [
+    {
+      "name": "Saudipedia: Education in Saudi Arabia",
+      "url": "https://saudipedia.com/en/education-in-saudi-arabia"
+    },
+    {
+      "name": "Saudipedia: Al-Falah Schools",
+      "url": "https://saudipedia.com/en/al-falah-private-schools"
+    },
+    {
+      "name": "Arab News: Illiteracy since 1972",
+      "url": "https://arabnews.com/node/1408346"
+    },
+    {
+      "name": "World Bank via FRED: Adult literacy rate",
+      "url": "https://fred.stlouisfed.org/series/SEADTLITRZSSAU"
+    },
+    {
+      "name": "Argaam: Students and teachers 2024",
+      "url": "https://www.argaam.com/en/article/articledetail/id/1762550"
+    }
+  ],
+  "ar": {
+    "title": "التعليم",
+    "then": "دروس الكتاتيب",
+    "now": "جامعات حديثة",
+    "summary": "من كتاتيب تحفيظ القرآن الصغيرة إلى جامعات تتعاون مع أفضل جامعات العالم.",
+    "tagline": "من حلقة حول معلّم واحد إلى 36,800 مدرسة.",
+    "story_title": "من الكُتّاب إلى الحرم الجامعي",
+    "story": [
+      "لأجيال طويلة كان التعليم يعني الكُتّاب: أطفال يجلسون في حلقة حول معلّم واحد في مسجد أو بيت، يحفظون القرآن ويتعلمون القراءة والكتابة والحساب. وفي عام 1905 افتتح التاجر محمد علي زينل مدرسة الفلاح في جدة.",
+      "في عام 1926 أُنشئت مديرية المعارف، وبحلول 1932 كانت تشرف على 323 مدرسة. ثم تأسست وزارة المعارف عام 1953 وكان الملك فهد أول وزير لها، وافتُتحت جامعة الملك سعود عام 1957 أول جامعة في المملكة، وفي 1959 أُنشئت رئاسة لتعليم البنات.",
+      "واليوم تعلّم 36,800 مدرسة نحو 6.7 ملايين طالب وطالبة، نصفهم تقريبًا من البنات، وتخدم البلاد 29 جامعة حكومية. وارتفعت نسبة من يقرؤون ويكتبون من الكبار من نحو 40% عام 1972 إلى 97.9% عام 2024، ومنذ 2005 يبتعث برنامج وطني الطلاب إلى جامعات العالم."
+    ],
+    "facts": [
+      {
+        "icon": "menu_book",
+        "label": "الكبار الذين يقرؤون",
+        "then": "نحو 40%",
+        "then_year": "1972",
+        "now": "97.9%",
+        "now_year": "2024"
+      },
+      {
+        "icon": "domain",
+        "label": "المدارس",
+        "then": "323",
+        "then_year": "1932",
+        "now": "36,800",
+        "now_year": "2024"
+      },
+      {
+        "icon": "account_balance",
+        "label": "الجامعات",
+        "then": "1",
+        "then_year": "1957",
+        "now": "29 جامعة حكومية",
+        "now_year": "اليوم"
+      },
+      {
+        "icon": "girl",
+        "label": "البنات في المدارس",
+        "then": "لا مدارس حكومية",
+        "then_year": "قبل 1959",
+        "now": "3.3 مليون",
+        "now_year": "2024"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "1905",
+        "text": "محمد علي زينل يفتتح مدرسة الفلاح في جدة."
+      },
+      {
+        "year": "1926",
+        "text": "تأسيس مديرية المعارف."
+      },
+      {
+        "year": "1953",
+        "text": "إنشاء وزارة المعارف، والملك فهد أول وزير لها."
+      },
+      {
+        "year": "1957",
+        "text": "افتتاح جامعة الملك سعود، أول جامعة في المملكة."
+      },
+      {
+        "year": "1959",
+        "text": "إنشاء الرئاسة العامة لتعليم البنات."
+      },
+      {
+        "year": "2005",
+        "text": "انطلاق برنامج وطني لابتعاث الطلاب إلى الخارج."
+      }
+    ],
+    "future": [
+      {
+        "year": "2030",
+        "icon": "flight_takeoff",
+        "title": "70 ألف مبتعث",
+        "text": "يهدف برنامج تنمية القدرات البشرية إلى ابتعاث 70 ألف مواطن إلى أفضل 200 جامعة ومؤسسة تدريب في العالم بحلول 2030.",
+        "source": "https://saudipedia.com/en/article/366/economy-and-business/saudi-vision-2030/human-capability-development-program"
+      },
+      {
+        "year": "2030",
+        "icon": "workspace_premium",
+        "title": "خمس جامعات ضمن أفضل 200",
+        "text": "تهدف رؤية 2030 إلى وجود خمس جامعات سعودية على الأقل ضمن أفضل 200 جامعة في التصنيفات الدولية.",
+        "source": "https://www.moe.gov.sa/en/education/Pages/DRI.aspx"
+      }
+    ]
+  }
+}

@@ -1,16 +1,1 @@
-{% extends "main/topic.html" %}
-
-{% block topic_extra %}
-  <section class="container section">
-    <div class="did-you-know">
-      <span class="material-symbols-outlined">lightbulb</span>
-      {% if lang == 'ar' %}
-        <h3>هل تعلم؟</h3>
-        <p>محطة سكة حديد الحجاز القديمة في المدينة المنورة، ويسمّيها الناس «الإستسيون»، صارت اليوم متحف سكة حديد الحجاز، وافتُتحت مرحلته الأولى عام 2013.</p>
-      {% else %}
-        <h3>Did you know?</h3>
-        <p>The old Hejaz Railway station in Madinah, known locally as the "Istasyon", is now the Hejaz Railway Museum. Its first phase opened in 2013.</p>
-      {% endif %}
-    </div>
-  </section>
-{% endblock %}
+{% extends "main/topics/topic_base.html" %}

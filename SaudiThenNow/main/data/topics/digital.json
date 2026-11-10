@@ -1,0 +1,226 @@
+{
+  "slug": "digital",
+  "title": "Digital Government",
+  "icon": "smartphone",
+  "then": "Paper & queues",
+  "now": "Services on your phone",
+  "summary": "From paper files and long queues to hundreds of government services on your phone.",
+  "image_then": "images/topics/digital-then.jpg",
+  "image_now": "images/topics/digital-now.jpg",
+  "tagline": "From the waiting room to the phone screen.",
+  "story_title": "From the queue to the app",
+  "story": [
+    "Not long ago, almost every government errand meant a trip to an office: paper forms, photocopies and stamps, long queues, and often a mu'aqqib paid to follow up the papers for you.",
+    "The change began in 2003, when a royal decree set up e-government. In 2005 the Yesser program started moving services online, and in 2010 the Ministry of Interior launched Absher. Step by step, passports, IDs, licences and visas moved to the screen.",
+    "During COVID-19 in 2020, the Tawakkalna app showed how far things had come. It began as a health app and grew into an everyday companion with 225 services. Today the Kingdom is among the world's leaders: 6th in the UN e-government index in 2024, and 2nd of 197 countries in the World Bank's GovTech index in 2025."
+  ],
+  "facts": [
+    {
+      "icon": "apps",
+      "label": "Absher services",
+      "then": "160 services",
+      "then_year": "2015",
+      "now": "460+ services",
+      "now_year": "2024"
+    },
+    {
+      "icon": "fingerprint",
+      "label": "Digital IDs",
+      "then": "None",
+      "then_year": "before 2021",
+      "now": "28 million+",
+      "now_year": "2024"
+    },
+    {
+      "icon": "public",
+      "label": "UN e-government rank",
+      "then": "#31",
+      "then_year": "2022",
+      "now": "#6",
+      "now_year": "2024"
+    },
+    {
+      "icon": "id_card",
+      "label": "Renewing your ID",
+      "then": "Visit an office",
+      "then_year": "before 2022",
+      "now": "Online via Absher",
+      "now_year": "2022"
+    }
+  ],
+  "timeline": [
+    {
+      "year": "2005",
+      "text": "The Yesser program starts moving government services online."
+    },
+    {
+      "year": "2010",
+      "text": "The Ministry of Interior launches the Absher platform."
+    },
+    {
+      "year": "2020",
+      "text": "Tawakkalna launches on 3 May to help fight COVID-19."
+    },
+    {
+      "year": "2021",
+      "text": "The Digital Government Authority is founded, and the digital ID arrives in Absher."
+    },
+    {
+      "year": "2024",
+      "text": "The UN ranks the Kingdom 6th in e-government and 4th in online services."
+    },
+    {
+      "year": "2025",
+      "text": "The World Bank ranks the Kingdom 2nd of 197 countries in digital government."
+    }
+  ],
+  "future": [
+    {
+      "year": "2030",
+      "icon": "workspace_premium",
+      "title": "Top 3 in the world",
+      "text": "The Digital Government Strategy aims to place the Kingdom among the top 3 countries in digital government maturity by 2030, adding more than 26,000 jobs.",
+      "source": "https://my.gov.sa/en/content/digital-strategy"
+    },
+    {
+      "year": "2030",
+      "icon": "smart_toy",
+      "title": "Top 15 in AI",
+      "text": "The National Strategy for Data and AI aims to make the Kingdom one of the world's top 15 countries in AI and to attract SAR 75 billion of investment.",
+      "source": "https://saudipedia.com/en/national-strategy-for-data-and-ai-nsdai"
+    },
+    {
+      "year": "2030",
+      "icon": "school",
+      "title": "20,000 AI specialists",
+      "text": "The same strategy aims to build 20,000 data and AI specialists and to train 40% of the workforce in basic data and AI skills.",
+      "source": "https://saudipedia.com/en/national-strategy-for-data-and-ai-nsdai"
+    }
+  ],
+  "sources": [
+    {
+      "name": "Saudipedia: Absher timeline",
+      "url": "https://saudipedia.com/en/article/3646/government-and-politics/digital-government/abshers-development-timeline"
+    },
+    {
+      "name": "Saudipedia: Tawakkalna",
+      "url": "https://saudipedia.com/en/article/387/government-and-politics/digital-government/tawakkalna-application"
+    },
+    {
+      "name": "Saudipedia: Digital Government Authority",
+      "url": "https://saudipedia.com/en/digital-government-authority"
+    },
+    {
+      "name": "Wikipedia: E-Government in Saudi Arabia",
+      "url": "https://en.wikipedia.org/wiki/E-Government_in_Saudi_Arabia"
+    },
+    {
+      "name": "Enterprise: UN e-government ranking 2024",
+      "url": "https://enterpriseam.com/ksa/2024/09/26/saudi-arabia-sixth-globally-in-e-government-ranking-un-report-says/"
+    },
+    {
+      "name": "Arab News: UN online services index 2024",
+      "url": "https://arabnews.com/node/2571785"
+    },
+    {
+      "name": "Arab News: World Bank GovTech index 2025",
+      "url": "https://www.arabnews.pk/node/2626749"
+    }
+  ],
+  "ar": {
+    "title": "الحكومة الرقمية",
+    "then": "ورق وطوابير",
+    "now": "الخدمات في جوالك",
+    "summary": "من الملفات الورقية والطوابير الطويلة إلى مئات الخدمات الحكومية في جوالك.",
+    "tagline": "من صالة الانتظار إلى شاشة الجوال.",
+    "story_title": "من الطابور إلى التطبيق",
+    "story": [
+      "قبل سنوات قليلة، كانت أغلب المعاملات الحكومية تعني مشوارًا إلى الدائرة: نماذج ورقية وصور وأختام، وطوابير طويلة، وكثيرًا ما كان الناس يدفعون لمعقّب يتابع أوراقهم عنهم.",
+      "بدأ التحول عام 2003 حين صدر أمر ملكي بإنشاء التعاملات الإلكترونية الحكومية. وفي 2005 انطلق برنامج «يسّر» لنقل الخدمات إلى الإنترنت، ثم أطلقت وزارة الداخلية منصة «أبشر» عام 2010، فانتقلت الجوازات والهويات والرخص والتأشيرات خطوة بخطوة إلى الشاشة.",
+      "وفي جائحة كورونا عام 2020 ظهر حجم هذا التحول مع تطبيق «توكلنا»: بدأ تطبيقًا صحيًا، ثم أصبح رفيقًا يوميًا يضم 225 خدمة. واليوم تأتي المملكة بين رواد العالم: المركز السادس في مؤشر الأمم المتحدة للحكومة الإلكترونية 2024، والثانية من بين 197 دولة في مؤشر البنك الدولي للتقنية الحكومية 2025."
+    ],
+    "facts": [
+      {
+        "icon": "apps",
+        "label": "خدمات أبشر",
+        "then": "160 خدمة",
+        "then_year": "2015",
+        "now": "أكثر من 460 خدمة",
+        "now_year": "2024"
+      },
+      {
+        "icon": "fingerprint",
+        "label": "الهويات الرقمية",
+        "then": "لا يوجد",
+        "then_year": "قبل 2021",
+        "now": "أكثر من 28 مليون",
+        "now_year": "2024"
+      },
+      {
+        "icon": "public",
+        "label": "ترتيب الأمم المتحدة",
+        "then": "المركز 31",
+        "then_year": "2022",
+        "now": "المركز 6",
+        "now_year": "2024"
+      },
+      {
+        "icon": "id_card",
+        "label": "تجديد الهوية",
+        "then": "زيارة الأحوال المدنية",
+        "then_year": "قبل 2022",
+        "now": "إلكترونيًا عبر أبشر",
+        "now_year": "2022"
+      }
+    ],
+    "timeline": [
+      {
+        "year": "2005",
+        "text": "انطلاق برنامج «يسّر» لنقل الخدمات الحكومية إلى الإنترنت."
+      },
+      {
+        "year": "2010",
+        "text": "وزارة الداخلية تطلق منصة «أبشر»."
+      },
+      {
+        "year": "2020",
+        "text": "إطلاق تطبيق «توكلنا» في 3 مايو للمساعدة في مواجهة كورونا."
+      },
+      {
+        "year": "2021",
+        "text": "تأسيس هيئة الحكومة الرقمية، ووصول الهوية الرقمية إلى «أبشر»."
+      },
+      {
+        "year": "2024",
+        "text": "الأمم المتحدة تضع المملكة في المركز 6 عالميًا في الحكومة الإلكترونية، والرابع في الخدمات الرقمية."
+      },
+      {
+        "year": "2025",
+        "text": "البنك الدولي يضع المملكة في المركز الثاني من بين 197 دولة في الحكومة الرقمية."
+      }
+    ],
+    "future": [
+      {
+        "year": "2030",
+        "icon": "workspace_premium",
+        "title": "ضمن أفضل 3 دول",
+        "text": "تهدف استراتيجية الحكومة الرقمية إلى وضع المملكة ضمن أفضل 3 دول في العالم في نضج الحكومة الرقمية بحلول 2030، مع أكثر من 26 ألف وظيفة جديدة.",
+        "source": "https://my.gov.sa/en/content/digital-strategy"
+      },
+      {
+        "year": "2030",
+        "icon": "smart_toy",
+        "title": "ضمن أفضل 15 دولة في الذكاء الاصطناعي",
+        "text": "تهدف الاستراتيجية الوطنية للبيانات والذكاء الاصطناعي إلى جعل المملكة ضمن أفضل 15 دولة في الذكاء الاصطناعي، واستقطاب استثمارات بقيمة 75 مليار ريال.",
+        "source": "https://saudipedia.com/en/national-strategy-for-data-and-ai-nsdai"
+      },
+      {
+        "year": "2030",
+        "icon": "school",
+        "title": "20 ألف متخصص",
+        "text": "وتهدف الاستراتيجية نفسها إلى تأهيل 20 ألف متخصص في البيانات والذكاء الاصطناعي، وتدريب 40% من القوى العاملة على أساسياتهما.",
+        "source": "https://saudipedia.com/en/national-strategy-for-data-and-ai-nsdai"
+      }
+    ]
+  }
+}
