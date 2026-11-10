@@ -2,7 +2,7 @@ from django.http import Http404, HttpRequest
 from django.shortcuts import redirect, render
 from django.utils.http import url_has_allowed_host_and_scheme
 
-from .data import CITIES, COUNTDOWN_TARGET, EXPLORE, STATS, get_city
+from .data import CITIES, COUNTDOWN_TARGET, EXPLORE, STATS, get_city, stadiums_in
 
 
 def home_view(request: HttpRequest):
@@ -18,7 +18,12 @@ def city_view(request: HttpRequest, slug):
     city = get_city(slug)
     if city is None:
         raise Http404("City not found")
-    return render(request, "main/coming_soon.html", {"title": city["name"]})
+    other_cities = [c for c in CITIES if c["slug"] != slug]
+    return render(request, "main/city.html", {
+        "city": city,
+        "stadiums": stadiums_in(slug),
+        "other_cities": other_cities,
+    })
 
 
 def stadiums_view(request: HttpRequest):
