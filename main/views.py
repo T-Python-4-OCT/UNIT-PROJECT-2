@@ -1,5 +1,6 @@
 from django.http import Http404, HttpRequest
 from django.shortcuts import redirect, render
+from django.utils.http import url_has_allowed_host_and_scheme
 
 from .data import CITIES, COUNTDOWN_TARGET, EXPLORE, STATS, get_city
 
@@ -41,5 +42,11 @@ def about_view(request: HttpRequest):
 
 
 def toggle_theme_view(request: HttpRequest):
-    # Dark mode with cookies is added in the next commit
-    return redirect(request.GET.get("next", "/"))
+    """Switch light/dark mode, save it in a cookie, then return to the same page."""
+    next_url = request.GET.get("next", "/")
+    if not url_has_allowed_host_and_scheme(next_url, allowed_hosts={request.get_host()}):
+        next_url = "/"
+    new_theme = "light" if request.COOKIES.get("theme") == "dark" else "dark"
+    response = redirect(next_url)
+    response.set_cookie("theme", new_theme, max_age=60 * 60 * 24 * 365)
+    return response
