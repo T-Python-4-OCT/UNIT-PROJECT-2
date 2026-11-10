@@ -1,10 +1,147 @@
 {% extends 'projects/base.html' %}
+{% load static %}
 
 {% block title %}About{% endblock %}
 
 {% block content %}
-<section class="container placeholder">
-    <h1>About</h1>
-    <p>This page is coming in the next step.</p>
+
+<!-- ================= HERO ================= -->
+<section class="hero hero-page" style="--hero-img: url('{% static 'images/site/about-hero.jpg' %}')">
+    <div class="container hero-content">
+        <span class="eyebrow">About Ruya</span>
+        <h1>The Vision Behind <br>the Projects</h1>
+        <p>Ruya means "vision" in Arabic. This site tells the story of Saudi Vision 2030 through its giga-projects.</p>
+    </div>
 </section>
+
+<!-- ================= WHAT IS VISION 2030 ================= -->
+<section class="container section ab-intro">
+    <div>
+        <span class="eyebrow">Saudi Vision 2030</span>
+        <h2>A Plan for the Kingdom's Future</h2>
+        {% for paragraph in vision.intro %}
+            <p class="lead">{{ paragraph }}</p>
+        {% endfor %}
+    </div>
+
+    <figure class="ab-photo">
+        <img src="{% static 'images/site/riyadh-kingdom-centre.jpg' %}" alt="Kingdom Centre in Riyadh">
+        <figcaption>
+            <span class="material-symbols-outlined" aria-hidden="true">event</span>
+            <span>Launched<strong>{{ vision.launch }}</strong></span>
+        </figcaption>
+    </figure>
+</section>
+
+<!-- ================= PILLARS ================= -->
+<section class="container ab-pillars-section">
+    <div class="section-head center">
+        <div>
+            <span class="eyebrow">Three Pillars</span>
+            <h2>What the Vision Stands On</h2>
+        </div>
+    </div>
+
+    <div class="ab-pillars">
+        {% for pillar in vision.pillars %}
+            <article class="ab-pillar">
+                <span class="ab-pillar-num">0{{ forloop.counter }}</span>
+                <span class="material-symbols-outlined" aria-hidden="true">{{ pillar.icon }}</span>
+                <h3>{{ pillar.title }}</h3>
+                <p>{{ pillar.text }}</p>
+                <div class="ab-goal">
+                    <small>Example goal</small>
+                    {{ pillar.goal }}
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ================= PROGRESS ================= -->
+<section class="ab-progress" style="--band-img: url('{% static 'images/site/riyadh-kafd.jpg' %}')">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <span class="eyebrow on-dark">Progress</span>
+                <h2>The Vision in Numbers</h2>
+            </div>
+        </div>
+        <div class="ab-numbers">
+            {% for item in vision.progress %}
+                <div>
+                    <strong>{{ item.value }}</strong>
+                    <span>{{ item.label }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ================= MILESTONES ================= -->
+<section class="container section">
+    <div class="section-head center">
+        <div>
+            <span class="eyebrow">Milestones</span>
+            <h2>The Road to 2030</h2>
+        </div>
+    </div>
+
+    <ol class="ab-road">
+        {% for step in vision.milestones %}
+            <li>
+                <strong>{{ step.year }}</strong>
+                <span>{{ step.text }}</span>
+            </li>
+        {% endfor %}
+    </ol>
+</section>
+
+<!-- ================= LEADERSHIP ================= -->
+<section class="container section ab-leaders-section">
+    <div class="section-head center">
+        <div>
+            <span class="eyebrow">Leadership</span>
+            <h2>The Leaders of the Vision</h2>
+        </div>
+    </div>
+
+    <div class="ab-leaders">
+        {% for leader in vision.leaders %}
+            <article class="ab-leader">
+                <div class="ab-portrait">
+                    {% if leader.image %}
+                        <img src="{% static leader.image %}" alt="{{ leader.name }}">
+                    {% else %}
+                        <div class="img-empty">
+                            <span class="material-symbols-outlined" aria-hidden="true">photo_camera</span>
+                            Photo coming soon
+                        </div>
+                    {% endif %}
+                </div>
+                <div class="ab-leader-text">
+                    <span class="ab-leader-title">{{ leader.title }}</span>
+                    <h3>{{ leader.name }}</h3>
+                    <p class="ab-leader-ar" lang="ar" dir="rtl">{{ leader.arabic_name }}</p>
+                    <span class="ab-since">{{ leader.since }}</span>
+                    <p>{{ leader.text }}</p>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ================= CALL TO ACTION ================= -->
+<section class="container">
+    <div class="cta">
+        <div>
+            <h2>Explore the Giga-Projects</h2>
+            <p>See how the Vision is coming to life across the Kingdom.</p>
+        </div>
+        <a href="{% url 'projects:all_projects' %}" class="btn btn-light">
+            All Projects <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+        </a>
+    </div>
+</section>
+
 {% endblock %}

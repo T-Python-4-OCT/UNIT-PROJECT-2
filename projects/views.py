@@ -6,7 +6,9 @@ from django.http import HttpRequest, Http404
 from django.utils.http import url_has_allowed_host_and_scheme
 
 
-DATA_FILE = Path(__file__).resolve().parent / 'data' / 'projects.json'
+DATA_DIR = Path(__file__).resolve().parent / 'data'
+DATA_FILE = DATA_DIR / 'projects.json'
+VISION_FILE = DATA_DIR / 'vision.json'
 
 
 def load_projects():
@@ -65,7 +67,9 @@ def project_detail(request: HttpRequest, project_slug):
 
 
 def about(request: HttpRequest):
-    return render(request, 'projects/about.html')
+    with open(VISION_FILE, 'r', encoding='utf-8') as file:
+        vision = json.load(file)
+    return render(request, 'projects/about.html', {'vision': vision})
 
 
 def set_theme(request: HttpRequest, theme):

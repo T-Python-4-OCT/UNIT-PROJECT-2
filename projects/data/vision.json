@@ -1,0 +1,85 @@
+{
+    "launch": "25 April 2016",
+    "intro": [
+        "Saudi Vision 2030 is the Kingdom's long-term plan to diversify its economy, develop public services and open the country to the world. It was launched on 25 April 2016 by HRH Crown Prince Mohammed bin Salman.",
+        "The Vision is built on three pillars and 96 strategic objectives, delivered through Vision Realization Programs and large-scale giga-projects like the ones featured on this site."
+    ],
+    "pillars": [
+        {
+            "icon": "diversity_3",
+            "title": "A Vibrant Society",
+            "text": "A society proud of its identity, with a better quality of life, healthcare and culture.",
+            "goal": "Raise average life expectancy to 80 years"
+        },
+        {
+            "icon": "trending_up",
+            "title": "A Thriving Economy",
+            "text": "A diverse, competitive economy that supports investment, entrepreneurs and new jobs.",
+            "goal": "Grow the private sector's share of GDP from 40% to 65%"
+        },
+        {
+            "icon": "flag",
+            "title": "An Ambitious Nation",
+            "text": "An effective, transparent government and citizens who take responsibility.",
+            "goal": "Raise non-oil government revenue to SAR 1 trillion a year"
+        }
+    ],
+    "progress": [
+        {
+            "value": "100M+",
+            "label": "Tourists in 2024, beating the original 2030 target"
+        },
+        {
+            "value": "7%",
+            "label": "Unemployment target reached in 2024"
+        },
+        {
+            "value": "47%",
+            "label": "Private sector share of GDP in 2024"
+        },
+        {
+            "value": "85%",
+            "label": "Of 1,500+ initiatives completed or on track"
+        }
+    ],
+    "milestones": [
+        {
+            "year": "2016",
+            "text": "Vision 2030 is launched"
+        },
+        {
+            "year": "2019",
+            "text": "Tourist visas open the Kingdom to the world"
+        },
+        {
+            "year": "2023",
+            "text": "Riyadh wins the bid to host Expo 2030"
+        },
+        {
+            "year": "2024",
+            "text": "Saudi Arabia confirmed as FIFA World Cup 2034 host"
+        },
+        {
+            "year": "2030",
+            "text": "The Vision's target year"
+        }
+    ],
+    "leaders": [
+        {
+            "name": "King Salman bin Abdulaziz Al Saud",
+            "arabic_name": "الملك سلمان بن عبدالعزيز آل سعود",
+            "title": "Custodian of the Two Holy Mosques",
+            "since": "King since 2015",
+            "text": "Vision 2030 was approved by the Council of Ministers under his leadership in April 2016.",
+            "image": "images/site/king-salman.jpg"
+        },
+        {
+            "name": "Mohammed bin Salman Al Saud",
+            "arabic_name": "الأمير محمد بن سلمان بن عبدالعزيز آل سعود",
+            "title": "Crown Prince and Prime Minister",
+            "since": "Crown Prince since 2017",
+            "text": "He launched Vision 2030 and chairs the Council of Economic and Development Affairs, which oversees it.",
+            "image": "images/site/crown-prince-about.jpg"
+        }
+    ]
+}
