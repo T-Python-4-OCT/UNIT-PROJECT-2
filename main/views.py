@@ -2,6 +2,7 @@ from django.http import Http404, HttpRequest
 from django.shortcuts import redirect, render
 from django.utils.http import url_has_allowed_host_and_scheme
 
+from .history_data import LEGENDS, MOMENTS, TOURNAMENTS, summary
 from .data import CITIES, COUNTDOWN_TARGET, EXPLORE, STADIUMS, STATS, get_city, get_stadium, stadiums_in
 
 
@@ -59,7 +60,12 @@ def stadium_view(request: HttpRequest, slug):
 
 
 def history_view(request: HttpRequest):
-    return render(request, "main/coming_soon.html", {"title": "الأخضر في المونديال"})
+    return render(request, "main/history.html", {
+        "tournaments": TOURNAMENTS,
+        "moments": MOMENTS,
+        "legends": LEGENDS,
+        "summary": summary(),
+    })
 
 
 def journey_view(request: HttpRequest):
