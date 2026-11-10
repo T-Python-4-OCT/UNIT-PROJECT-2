@@ -1,14 +1,22 @@
 <nav class="navbar navbar-expand-lg nt-navbar sticky-top">
-  <div class="container-fluid px-4">
-    <a class="navbar-brand nt-brand" href="{% url 'home' %}">مسار الشمال</a>
+  <div class="container nt-navbar-inner">
+    <a class="navbar-brand nt-brand" href="{% url 'home' %}">
+      <span class="nt-brand-mark" aria-hidden="true"></span>
+      <span>مسار الشمال</span>
+    </a>
 
     <button class="navbar-toggler border-0" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-label="القائمة">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navMenu">
-      <ul class="navbar-nav me-auto">
-        <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">الرئيسية</a></li>
+      <ul class="navbar-nav nt-primary-nav">
+        <li class="nav-item"><a class="nav-link nt-section-link" data-scrollspy href="{% url 'home' %}#top">الرئيسية</a></li>
+        <li class="nav-item"><a class="nav-link nt-section-link" data-scrollspy href="{% url 'home' %}#about">عن المسار</a></li>
+        <li class="nav-item"><a class="nav-link nt-section-link" data-scrollspy href="{% url 'home' %}#route">الخريطة والنقل</a></li>
+        <li class="nav-item"><a class="nav-link nt-section-link" data-scrollspy href="{% url 'home' %}#stations">الوجهات</a></li>
+        <li class="nav-item"><a class="nav-link nt-section-link" data-scrollspy href="{% url 'home' %}#tips">نصائح للزوار</a></li>
+        <li class="nav-item"><a class="nav-link nt-section-link" data-scrollspy href="{% url 'home' %}#faq">الأسئلة الشائعة</a></li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">المحطات</a>
           <ul class="dropdown-menu">
@@ -19,7 +27,8 @@
         </li>
       </ul>
 
-      <form method="post" action="{% url 'toggle_theme' %}" class="m-0">
+      <div class="nt-navbar-actions">
+        <form method="post" action="{% url 'toggle_theme' %}" class="m-0">
         {% csrf_token %}
         <input type="hidden" name="next" value="{{ request.get_full_path }}">
         <button type="submit" class="btn nt-theme-btn" aria-label="تبديل الوضع">
@@ -29,7 +38,8 @@
               <i class="bi bi-moon-stars"></i>
            {% endif %}
         </button>
-      </form>
+        </form>
+      </div>
     </div>
   </div>
 </nav>
