@@ -32,6 +32,7 @@
             </p>
 
             <div class="hero-buttons">
+
                 <a href="{% url 'main:places' %}" class="hero-button primary-button">
                     اكتشف أماكن الزيارة
                     <span aria-hidden="true">←</span>
@@ -46,6 +47,7 @@
                     شاهد الفيديو
                     <span aria-hidden="true">▶</span>
                 </a>
+
             </div>
 
         </div>
@@ -95,6 +97,7 @@
         </div>
 
         <div class="places-grid">
+
             {% for place in places %}
 
             <a href="{% url 'main:place_detail' place.slug %}" class="place-card">
@@ -110,7 +113,9 @@
 
                 <div class="place-card-content">
                     <span class="place-tag">{{ place.tag }}</span>
+
                     <h3>{{ place.title }}</h3>
+
                     <p>{{ place.subtitle }}</p>
 
                     <span class="place-card-link">
@@ -122,6 +127,7 @@
             </a>
 
             {% endfor %}
+
         </div>
 
         <div class="places-more">
@@ -151,6 +157,7 @@
                     alt="عرض مرئي على واجهة قصر سلوى"
                     class="event-feature-image"
                     loading="lazy"
+                    decoding="async"
                 >
             </div>
 
@@ -169,13 +176,16 @@
                 </p>
 
                 <div class="event-details">
+
                     <div class="event-detail">
                         <span class="event-detail-icon">✦</span>
+
                         <div>
                             <h4>الموقع</h4>
                             <p>قصر سلوى – حي الطريف التاريخي</p>
                         </div>
                     </div>
+
                 </div>
 
                 <a href="{% url 'main:events' %}" class="places-more-button">
@@ -225,6 +235,39 @@
         </div>
 
     </div>
+</section>
+
+<section class="heritage-home-preview" id="history">
+
+    <div class="heritage-home-preview-content">
+
+        <span class="heritage-history-kicker">
+            الدرعية عبر التاريخ
+        </span>
+
+        <h2>من هنا بدأت الحكاية</h2>
+
+        <p>
+            من تأسيس الدرعية عام 1446م إلى وجهة
+            عالمية تحتفي بتاريخها وتراثها.
+            اكتشف المحطات التي صنعت تاريخ الدرعية
+            وإرثها العريق.
+        </p>
+
+        <a href="{% url 'main:history' %}" class="heritage-history-button">
+            استكشف تاريخ الدرعية
+            <span aria-hidden="true">←</span>
+        </a>
+
+    </div>
+
+    <img
+        src="{% static 'main/images/history-1446.webp' %}"
+        alt="صورة تاريخية لوادي حنيفة"
+        loading="lazy"
+        decoding="async"
+    >
+
 </section>
 
 {% endblock %}
