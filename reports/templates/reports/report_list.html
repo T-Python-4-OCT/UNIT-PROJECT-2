@@ -23,6 +23,20 @@
     <button class="btn-signal btn-sm" type="submit">ابحث</button>
   </form>
 
+  {# Recent searches come from a cookie saved in the visitor's browser #}
+  {% if recent %}
+    <div class="recent-searches">
+      <span><i class="bi bi-clock-history"></i> آخر بحث لك:</span>
+      {% for value in recent %}
+        <a href="?q={{ value|urlencode }}" dir="ltr">{{ value }}</a>
+      {% endfor %}
+      <form method="post" action="{% url 'reports:clear_searches' %}">
+        {% csrf_token %}
+        <button type="submit" class="link-btn"><i class="bi bi-x-circle"></i> مسح</button>
+      </form>
+    </div>
+  {% endif %}
+
   {% if lookup %}
     {% if lookup.found %}
       <div class="lookup-result lookup-hit" role="status">

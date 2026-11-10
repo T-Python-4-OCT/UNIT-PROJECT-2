@@ -138,3 +138,6 @@
   .history-row { grid-template-columns: auto 1fr; }
   .history-row time { grid-column: 2; align-items: flex-start; }
 }
+
+/* Small note under the two checkboxes (their values are kept in cookies) */
+.cookie-note { margin: -.25rem 0 1rem; font-size: .8rem; color: var(--muted); }

@@ -41,6 +41,9 @@
         <label class="check-line">
           <input type="checkbox" name="save" {% if save_on %}checked{% endif %}> <span>احفظ النتيجة في سجل الفحوصات</span>
         </label>
+        {# the detector page asks the server to remember these two choices in cookies #}
+        <input type="hidden" name="remember" value="on">
+        <p class="cookie-note"><i class="bi bi-cookie"></i> نتذكر اختيارك لهذين الخيارين في متصفحك (كوكيز).</p>
         <button class="btn-signal btn-wide" type="submit"><i class="bi bi-shield-check"></i> افحص الرسالة</button>
       </form>
     {% else %}

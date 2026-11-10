@@ -35,3 +35,11 @@
 .case-warning { margin: .5rem 0 0; color: #f3dda0; font-weight: 700; }
 .contact-chips { display: flex; flex-wrap: wrap; gap: .4rem; margin-top: .75rem; }
 .contact-chips span { padding: .15rem .7rem; border-radius: 999px; background: rgba(255, 255, 255, .12); color: #fff; font-size: .85rem; direction: ltr; }
+
+
+/* ---------- Recent searches (saved in a cookie) ---------- */
+.recent-searches { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem; margin: -.5rem 0 1.25rem; font-size: .9rem; color: var(--muted); }
+.recent-searches a { padding: .2rem .75rem; border-radius: 999px; background: var(--paper); border: 1px solid var(--line); color: var(--text); font-family: "Space Mono", monospace; font-size: .82rem; text-decoration: none; }
+.recent-searches a:hover { border-color: var(--violet); color: var(--violet-deep); }
+.recent-searches form { margin: 0; }
+.link-btn { padding: 0; border: 0; background: none; color: var(--fraud); font: inherit; font-size: .85rem; cursor: pointer; }

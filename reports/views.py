@@ -1,6 +1,7 @@
 """Views of the reports app: community reports list, new report, report details."""
 
 import re
+from urllib.parse import quote, unquote
 
 from django.contrib import messages
 from django.http import Http404, HttpRequest, HttpResponse
@@ -13,6 +14,17 @@ from reports.report_types import REPORT_TYPES
 
 PHONE = re.compile(r"^\+?[0-9 ]{7,15}$")
 EMAIL = re.compile(r"^[\w.+-]+@[\w-]+\.[\w.-]+$")
+
+# Cookie with the last 5 searches of this visitor (kept for 30 days)
+RECENT_COOKIE = "recent_searches"
+RECENT_MAX = 5
+RECENT_AGE = 60 * 60 * 24 * 30
+
+
+def read_recent(request: HttpRequest) -> list[str]:
+    """The cookie looks like 0551234567|bit.ly%2Fabc (each value is quoted, then joined with |)."""
+    raw = request.COOKIES.get(RECENT_COOKIE, "")
+    return [unquote(value) for value in raw.split("|") if value][:RECENT_MAX]
 
 
 def validate(form: dict) -> list[str]:
@@ -53,10 +65,29 @@ def report_list(request: HttpRequest) -> HttpResponse:
     for report in reports:
         report["type_info"] = REPORT_TYPES[report["type"]]
 
+    # Put the new search first, without repeating it, and keep only the last 5
+    recent = read_recent(request)
+    if query:
+        value = contacts.clean(query)
+        recent = ([value] + [item for item in recent if item != value])[:RECENT_MAX]
+
     context = {"reports": reports, "types": REPORT_TYPES, "selected": selected, "query": query,
-               "lookup": lookup, "total": len(all_reports),
+               "lookup": lookup, "total": len(all_reports), "recent": recent,
                "auto_count": len([report for report in all_reports if report["auto"]])}
-    return render(request, "reports/report_list.html", context)
+    response = render(request, "reports/report_list.html", context)
+    if query:
+        response.set_cookie(RECENT_COOKIE, "|".join(quote(item, safe="") for item in recent),
+                            max_age=RECENT_AGE, httponly=True, samesite="Lax")
+    return response
+
+
+def clear_searches(request: HttpRequest) -> HttpResponse:
+    """Delete the recent searches cookie, then go back to the reports list."""
+    response = redirect("reports:list")
+    if request.method == "POST":
+        response.delete_cookie(RECENT_COOKIE)
+        messages.success(request, "مسحنا آخر عمليات البحث من متصفحك.")
+    return response
 
 
 def new_report(request: HttpRequest) -> HttpResponse:

@@ -11,6 +11,11 @@ from reports import store
 MIN_LENGTH = 10
 MAX_LENGTH = 2000
 
+# Cookies: remember the user's choices for the two checkboxes for one year
+COOKIE_AGE = 60 * 60 * 24 * 365
+SAVE_COOKIE = "save_checks"
+PUBLISH_COOKIE = "warn_community"
+
 
 def detector_home(request: HttpRequest) -> HttpResponse:
     """GET: show the form. POST: analyze the message and show the result."""
@@ -18,8 +23,9 @@ def detector_home(request: HttpRequest) -> HttpResponse:
         "mode": "text",
         "text": request.GET.get("text", ""),
         "ai_ready": ai_client.is_ready(),
-        "save_on": True,
-        "publish_on": True,
+        # read the cookies: "on" by default the first time
+        "save_on": request.COOKIES.get(SAVE_COOKIE, "on") == "on",
+        "publish_on": request.COOKIES.get(PUBLISH_COOKIE, "on") == "on",
     }
 
     if request.method == "POST":
@@ -55,7 +61,12 @@ def detector_home(request: HttpRequest) -> HttpResponse:
             context["result"] = result
             context["verdict"] = VERDICTS[result["verdict"]]
 
-    return render(request, "detector/detector.html", context)
+    # render() gives us an HttpResponse, and we add the cookies to it before sending it
+    response = render(request, "detector/detector.html", context)
+    if request.method == "POST" and request.POST.get("remember") == "on":
+        response.set_cookie(SAVE_COOKIE, "on" if context["save_on"] else "off", max_age=COOKIE_AGE, samesite="Lax")
+        response.set_cookie(PUBLISH_COOKIE, "on" if context["publish_on"] else "off", max_age=COOKIE_AGE, samesite="Lax")
+    return response
 
 
 def check_pdf(request: HttpRequest) -> HttpResponse:
