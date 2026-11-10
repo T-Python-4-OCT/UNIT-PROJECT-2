@@ -251,10 +251,18 @@
     {
         "slug": "red-sea",
         "name": "The Red Sea",
+        "arabic_name": "البحر الأحمر",
         "category": "Tourism",
         "location": "Red Sea Coast",
         "tagline": "Luxury in harmony with nature.",
         "image": "images/red-sea.jpg",
+        "hero": "images/red-sea-hero.jpg",
+        "reef_image": "images/red-sea-reef.jpg",
+        "collage": [
+            "images/red-sea-1.jpg",
+            "images/red-sea-2.jpg"
+        ],
+        "band_image": "images/red-sea-4.jpg",
         "headline": "Where the Desert Meets the Reef",
         "overview": "The Red Sea destination covers 28,000 km² of the western coast, with an archipelago of more than 90 islands. Developed by Red Sea Global, it welcomed its first guests in 2023 and is planned around regenerative tourism, with most of the archipelago left untouched.",
         "badge": "75% of the archipelago untouched",
@@ -271,6 +279,61 @@
             {
                 "value": "8,000",
                 "label": "Rooms by 2030"
+            }
+        ],
+        "depths": [
+            {
+                "depth": "0 m",
+                "name": "The Surface"
+            },
+            {
+                "depth": "-10 m",
+                "name": "The Islands"
+            },
+            {
+                "depth": "-30 m",
+                "name": "The Reef"
+            }
+        ],
+        "islands": [
+            {
+                "icon": "hub",
+                "title": "Shura Island",
+                "text": "The main hub of the destination, home to resorts and a golf course."
+            },
+            {
+                "icon": "sailing",
+                "title": "Ummahat Island",
+                "text": "Island resorts surrounded by coral reefs and clear water."
+            },
+            {
+                "icon": "bubble_chart",
+                "title": "Shebara",
+                "text": "Villas that float above the turquoise sea."
+            },
+            {
+                "icon": "landscape",
+                "title": "Desert Rock",
+                "text": "A resort carved into the granite mountains."
+            },
+            {
+                "icon": "wb_sunny",
+                "title": "Southern Dunes",
+                "text": "A desert resort among golden sand dunes."
+            }
+        ],
+        "reef": [
+            {
+                "value": "75%",
+                "text": "of the archipelago left untouched"
+            },
+            {
+                "value": "9",
+                "text": "islands set aside as conservation zones"
+            },
+            {
+                "value": "200 km",
+                "text": "of coastline"
             }
         ],
         "highlights": [
@@ -293,6 +356,28 @@
                 "icon": "eco",
                 "title": "Regenerative Tourism",
                 "text": "Nine islands set aside as conservation zones."
+            }
+        ],
+        "gallery": [
+            {
+                "image": "images/red-sea-1.jpg",
+                "caption": "Overwater villas",
+                "text": "Resorts above the turquoise sea"
+            },
+            {
+                "image": "images/red-sea-4.jpg",
+                "caption": "Desert meets sea",
+                "text": "Golden dunes beside the reef"
+            },
+            {
+                "image": "images/red-sea-3.jpg",
+                "caption": "Beneath the surface",
+                "text": "Coral reefs full of life"
+            },
+            {
+                "image": "images/red-sea-2.jpg",
+                "caption": "A shipwreck from above",
+                "text": "Clear water on the Saudi coast"
             }
         ]
     },
