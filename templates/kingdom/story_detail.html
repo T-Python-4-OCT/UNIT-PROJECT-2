@@ -3,6 +3,8 @@
 {% block title %}{{ story.title }} | {% if request.LANGUAGE_CODE == 'en' %}Hikayat Watan{% else %}حكاية وطن{% endif %}{% endblock %}
 {% block meta_description %}{{ story.summary }}{% endblock %}
 {% block content %}
+
+
 <section class="page-hero story-detail-hero">
     <div class="container page-hero-content">
         <a class="back-link" href="{% url 'kingdom:stories' %}"><span aria-hidden="true">→</span> {{ 'العودة إلى القصص'|tr }}</a>
@@ -11,12 +13,17 @@
         <p>{{ story.summary }}</p>
     </div>
 </section>
+
+
 <section class="section-pad">
     <div class="container story-reading">
         <div class="story-meta">
             <div><small>{{ 'المكان المذكور أو المرتبط'|tr }}</small><strong>{{ story.place }}</strong></div>
             <div><small>{{ 'مواضع القصة في القرآن'|tr }}</small><strong>{{ story.verses }}</strong></div>
         </div>
+
+
+        
         <div class="reading-body">
             <span class="section-kicker">{{ 'من القصة'|tr }}</span>
             {% for paragraph in story.body %}<p class="reading-paragraph">{{ paragraph }}</p>{% endfor %}

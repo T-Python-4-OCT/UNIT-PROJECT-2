@@ -3,6 +3,8 @@
 {% block title %}{{ 'قصص من القرآن الكريم | حكاية وطن'|tr }}{% endblock %}
 {% block meta_description %}{{ 'اقرأ مختارات من قصص الأنبياء الواردة في القرآن الكريم مع الآيات والملاحظات التاريخية.'|tr }}{% endblock %}
 {% block content %}
+
+
 <section class="page-hero stories-hero">
     <div class="container page-hero-content">
         <span class="eyebrow">{{ 'نافذة معرفية · قصص من القرآن الكريم'|tr }}</span>
@@ -11,6 +13,9 @@
         <div class="page-hero-meta"><span>{{ '03 قصص مختارة'|tr }}</span><i></i><span>{{ 'تدبر · معرفة · أثر'|tr }}</span></div>
     </div>
 </section>
+
+
+
 <section class="section-pad stories-content">
     <div class="container">
         <div class="notice-box"><strong>{{ 'تنبيه معرفي:'|tr }}</strong> {{ 'نلتزم بما ورد في القرآن الكريم، ونميّز بين النص الديني والمعلومات الأثرية أو التحديدات الجغرافية التي قد تكون محل بحث واختلاف.'|tr }}</div>
@@ -18,6 +23,8 @@
             <div><span class="section-kicker">{{ 'اقرأ وتأمل'|tr }}</span><h2>{{ 'قصص مختارة'|tr }}</h2></div>
             <span class="heading-note">{{ stories|length }} {% if request.LANGUAGE_CODE == 'en' %}stories{% else %}قصص{% endif %}</span>
         </div>
+
+
         <div class="row g-4">
             {% for story in stories %}
             <div class="col-md-6 col-xl-4">
