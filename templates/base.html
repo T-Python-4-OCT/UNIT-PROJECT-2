@@ -1,0 +1,55 @@
+{% load static i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
+<!doctype html>
+<html lang="{{ CURRENT_LANGUAGE }}" dir="{% if CURRENT_LANGUAGE == 'ar' %}rtl{% else %}ltr{% endif %}">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f6f4ed">
+  <meta name="description" content="{% if CURRENT_LANGUAGE == 'en' %}Explore Saudi industrial sectors, achievements and national awards.{% else %}اكتشف قطاعات الصناعة السعودية وإنجازاتها والجوائز الوطنية.{% endif %}">
+  <title>{% block title %}{% if CURRENT_LANGUAGE == 'en' %}Senaa | Saudi Industries{% else %}صناعة | حكاية وطن يصنع{% endif %}{% endblock %}</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/site.css' %}?v=20261110-site-language8">
+  <link rel="stylesheet" href="{% static 'css/achievements.css' %}?v=20261110-unique-awards-video2">
+  <link rel="stylesheet" href="{% static 'css/sector.css' %}?v=20261110-sector-editorial4">
+  <link rel="stylesheet" href="{% static 'css/interactions.css' %}?v=20261110-navigation-review1">
+  <link rel="stylesheet" href="{% static 'css/map.css' %}?v=20261110-map-cinematic3">
+  {% block extra_head %}{% endblock %}
+</head>
+<body>
+  <div class="announcement"><span class="announcement-dot"></span>{% if CURRENT_LANGUAGE == 'en' %}The story of Saudi industry — shaping tomorrow from our resources{% else %}حكاية الصناعة السعودية — من مواردنا، نصنع مستقبلنا{% endif %}</div>
+  <header class="site-header">
+    <a class="brand" href="{% url 'home' %}" aria-label="{% if CURRENT_LANGUAGE == 'en' %}Senaa, homepage{% else %}صناعة، الصفحة الرئيسية{% endif %}">
+      <span class="brand-mark"><span></span><span></span><span></span></span>
+      <span class="brand-text">صناعة<small>SAUDI INDUSTRIES</small></span>
+    </a>
+    <button class="menu-toggle" aria-label="{% if CURRENT_LANGUAGE == 'en' %}Open menu{% else %}فتح القائمة{% endif %}" aria-expanded="false">☰</button>
+    <nav class="main-nav" aria-label="{% if CURRENT_LANGUAGE == 'en' %}Main navigation{% else %}القائمة الرئيسية{% endif %}">
+      <a href="{% url 'home' %}">{% if CURRENT_LANGUAGE == 'en' %}Home{% else %}الرئيسية{% endif %}</a>
+      <a href="{% url 'industry_list' %}">{% if CURRENT_LANGUAGE == 'en' %}Sectors{% else %}القطاعات{% endif %}</a>
+      <a href="{% url 'industrial_map' %}">{% if CURRENT_LANGUAGE == 'en' %}Industrial Map{% else %}الخريطة الصناعية{% endif %}</a>
+      <a href="{% url 'awards' %}">{% if CURRENT_LANGUAGE == 'en' %}Awards & Achievements{% else %}الجوائز والإنجازات{% endif %}</a>
+      <a href="{% url 'about' %}">{% if CURRENT_LANGUAGE == 'en' %}About{% else %}عن المشروع{% endif %}</a>
+    </nav>
+    <div class="header-actions">
+      <form class="language-form" action="{% url 'set_language' %}" method="post">{% csrf_token %}<input type="hidden" name="next" value="{{ request.get_full_path }}"><input type="hidden" name="language" value="{% if CURRENT_LANGUAGE == 'ar' %}en{% else %}ar{% endif %}"><button class="language-toggle" type="submit" lang="{% if CURRENT_LANGUAGE == 'ar' %}en{% else %}ar{% endif %}" aria-label="{% if CURRENT_LANGUAGE == 'ar' %}Switch to English{% else %}التبديل إلى العربية{% endif %}"><span class="language-choice{% if CURRENT_LANGUAGE == 'en' %} is-current{% endif %}">EN</span><span class="language-divider" aria-hidden="true">/</span><span class="language-choice{% if CURRENT_LANGUAGE == 'ar' %} is-current{% endif %}">عربي</span></button></form>
+      <button class="presentation-toggle" type="button" aria-pressed="false" aria-label="{% if CURRENT_LANGUAGE == 'en' %}Toggle presentation mode{% else %}تفعيل وضع العرض{% endif %}"><span class="presentation-aa" aria-hidden="true">Aa</span><span class="presentation-label">{% if CURRENT_LANGUAGE == 'en' %}Present{% else %}وضع العرض{% endif %}</span></button>
+      <button class="theme-toggle" type="button" aria-label="{% if CURRENT_LANGUAGE == 'en' %}Toggle color theme{% else %}تبديل الوضع اللوني{% endif %}"><span class="theme-icon">☾</span><span class="theme-label">{% if CURRENT_LANGUAGE == 'en' %}Dark mode{% else %}الوضع الليلي{% endif %}</span></button>
+    </div>
+  </header>
+  <main>{% block content %}{% endblock %}</main>
+  <footer class="site-footer">
+    <div class="footer-main">
+      <a class="brand footer-brand" href="{% url 'home' %}"><span class="brand-mark"><span></span><span></span><span></span></span><span class="brand-text">صناعة<small>SAUDI INDUSTRIES</small></span></a>
+      <p>{% if CURRENT_LANGUAGE == 'en' %}A journey through the industries shaping Saudi Arabia today and opening its future.{% else %}رحلة في قطاعات تصنع حاضر المملكة وتفتح آفاق مستقبلها.{% endif %}</p>
+      <a class="footer-link" href="{% url 'industry_list' %}">{% if CURRENT_LANGUAGE == 'en' %}Explore sectors{% else %}استكشف القطاعات{% endif %} <span>←</span></a>
+    </div>
+    <div class="footer-bottom"><span>{% if CURRENT_LANGUAGE == 'en' %}An educational project about industries in Saudi Arabia{% else %}مشروع تعليمي عن الصناعات في المملكة العربية السعودية{% endif %}</span><span>Vision 2030 · {% if CURRENT_LANGUAGE == 'en' %}National ambition{% else %}طموح وطن{% endif %}</span></div>
+  </footer>
+  <script src="{% static 'js/site.js' %}"></script>
+  <script src="{% static 'js/enhancements.js' %}?v=20261110-lazy-video3" defer></script>
+  {% block extra_js %}{% endblock %}
+</body>
+</html>
