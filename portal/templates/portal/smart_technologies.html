@@ -1,0 +1,270 @@
+
+{% extends 'portal/base.html' %}
+{% load static %}
+
+{% block title %}التقنيات الذكية والابتكار | SAUDI CYBER FUTURE{% endblock %}
+
+{% block content %}
+
+<section class="topic-detail">
+    <div class="container">
+
+        <!-- Page Heading -->
+        <div class="detail-heading">
+            <span>عصر التقنيات الحديثة</span>
+            <h1>التقنيات الذكية والابتكار</h1>
+            <p>
+                تقنيات تصنع المستقبل، وأفكار مبتكرة تسهم في تطوير
+                الحياة وتعزيز مكانة المملكة في العالم الرقمي.
+            </p>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="media-placeholder detail-hero">
+            <img src="{% static 'portal/images/smart-technologies-hero.jpg' %}"
+                 alt="التقنيات الذكية والابتكار">
+        </div>
+
+        <!-- Image Gallery -->
+        <section class="detail-section">
+            <div class="section-heading">
+                <span>اكتشف التقنيات</span>
+                <h2>عالم من الابتكار والتطور</h2>
+                <p>
+                    نماذج من التقنيات الحديثة التي تفتح آفاقًا جديدة
+                    للتطور في مختلف المجالات.
+                </p>
+            </div>
+
+            <div class="detail-gallery">
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/smart-technologies-1.jpg' %}"
+                         alt="الذكاء الاصطناعي">
+                    <div class="gallery-info">
+                        <h3>الذكاء الاصطناعي</h3>
+                        <p>
+                            تقنيات تساعد على تحليل البيانات وتطوير
+                            الخدمات واتخاذ القرارات بطرق أكثر ذكاءً.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/smart-technologies-2.jpg' %}"
+                         alt="الروبوتات والتقنيات الحديثة">
+                    <div class="gallery-info">
+                        <h3>الروبوتات والأتمتة</h3>
+                        <p>
+                            أنظمة ذكية تساعد على تنفيذ المهام
+                            وتحسين الإنتاجية في القطاعات المختلفة.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/smart-technologies-3.jpg' %}"
+                         alt="المدن الذكية">
+                    <div class="gallery-info">
+                        <h3>المدن الذكية</h3>
+                        <p>
+                            توظيف التقنية والبيانات لتطوير المدن
+                            وتحسين جودة الحياة والخدمات اليومية.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="detail-section">
+            <div class="section-heading">
+                <span>شاهد واستكشف</span>
+                <h2>التقنيات تصنع المستقبل</h2>
+                <p>
+                    تعرّف على دور التقنيات الحديثة في تغيير
+                    طريقة العمل والحياة.
+                </p>
+            </div>
+
+            <div class="detail-video">
+                <video controls preload="metadata">
+                    <source src="{% static 'portal/videos/smart-technologies-video.mp4' %}"
+                            type="video/mp4">
+                    المتصفح لا يدعم تشغيل الفيديو.
+                </video>
+            </div>
+        </section>
+
+        <!-- Technologies -->
+        <section class="detail-section">
+            <div class="section-heading">
+                <span>تقنيات المستقبل</span>
+                <h2>مجالات تقود الابتكار</h2>
+                <p>
+                    تتنوع التقنيات الحديثة وتتكامل لتقديم حلول
+                    أكثر تطورًا وفاعلية.
+                </p>
+            </div>
+
+            <div class="detail-content">
+
+                <div class="detail-card">
+                    <h3>إنترنت الأشياء</h3>
+                    <p>
+                        ربط الأجهزة والأنظمة بالإنترنت لتبادل البيانات
+                        والتحكم بها، مما يساعد على تطوير المنازل
+                        والمرافق والخدمات الذكية.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>الحوسبة السحابية</h3>
+                    <p>
+                        توفير خدمات التخزين والمعالجة عبر الإنترنت،
+                        بما يدعم الوصول إلى البيانات وتشغيل التطبيقات
+                        بمرونة وكفاءة.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>تحليل البيانات</h3>
+                    <p>
+                        الاستفادة من البيانات واستخراج المعلومات
+                        منها لفهم التحديات وتحسين الأداء ودعم
+                        القرارات.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="detail-section">
+            <div class="section-heading">
+                <span>رحلة التطور</span>
+                <h2>محطات في عالم التقنية</h2>
+                <p>
+                    مراحل بارزة ساهمت في تطور التقنيات
+                    والابتكار في المملكة.
+                </p>
+            </div>
+
+            <div class="progress-timeline">
+
+                <div class="progress-step">
+                    <div class="progress-year">2016</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>رؤية السعودية 2030</h3>
+                        <p>
+                            انطلاق مرحلة جديدة من التحول والتطوير
+                            التقني ضمن مستهدفات الرؤية.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">2019</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>تأسيس الهيئة السعودية للبيانات والذكاء الاصطناعي</h3>
+                        <p>
+                            تأسيس سدايا لدعم التوجه الوطني في
+                            مجالات البيانات والذكاء الاصطناعي.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">2020</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>الاستراتيجية الوطنية للبيانات والذكاء الاصطناعي</h3>
+                        <p>
+                            إطلاق استراتيجية لتعزيز مكانة المملكة
+                            في مجالات البيانات والذكاء الاصطناعي.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">2021</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>توسع الابتكار التقني</h3>
+                        <p>
+                            تنامي المبادرات والاستثمارات في التقنيات
+                            الحديثة وتطبيقاتها.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">2030</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>مستقبل تقني متقدم</h3>
+                        <p>
+                            مواصلة تطوير الابتكار والتقنيات الحديثة
+                            لتحقيق مستهدفات رؤية السعودية 2030.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Initiatives -->
+        <section class="detail-section">
+            <div class="section-heading">
+                <span>نحو المستقبل</span>
+                <h2>مبادرات وطنية في التقنية</h2>
+                <p>
+                    جهود ومبادرات تدعم الابتكار وتطوير
+                    القدرات التقنية في المملكة.
+                </p>
+            </div>
+
+            <div class="detail-content">
+
+                <div class="detail-card">
+                    <h3>سدايا</h3>
+                    <p>
+                        دعم تطوير البيانات والذكاء الاصطناعي
+                        وتعزيز استخدامهما في مختلف القطاعات.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>نيوم</h3>
+                    <p>
+                        وجهة مستقبلية تعتمد على الابتكار
+                        والتقنيات المتقدمة في تطوير المدن
+                        وأنماط الحياة.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>الاستراتيجية الوطنية للذكاء الاصطناعي</h3>
+                    <p>
+                        تعزيز استخدام الذكاء الاصطناعي
+                        وتنمية الكفاءات والقدرات الوطنية
+                        في هذا المجال.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- العودة للمحاور -->
+<a href="{% url 'home' %}#topics" class="detail-back">
+    ← العودة إلى جميع المحاور
+</a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

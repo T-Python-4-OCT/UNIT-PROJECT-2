@@ -1,0 +1,267 @@
+
+{% extends 'portal/base.html' %}
+{% load static %}
+
+{% block title %}الحكومة الرقمية | SAUDI CYBER FUTURE{% endblock %}
+
+{% block content %}
+
+<section class="topic-detail">
+    <div class="container">
+
+        <!-- Page Heading -->
+        <div class="detail-heading">
+            <span>خدمات حكومية متطورة</span>
+            <h1>الحكومة الرقمية في المملكة</h1>
+            <p>
+                خدمات حكومية أكثر سهولة وسرعة، تتيح للأفراد
+                والمنشآت إنجاز معاملاتهم والاستفادة من الخدمات إلكترونيًا.
+            </p>
+        </div>
+
+        <!-- Hero Image -->
+        <div class="media-placeholder detail-hero">
+            <img src="{% static 'portal/images/digital-government-hero.jpg' %}"
+                 alt="الحكومة الرقمية في المملكة">
+        </div>
+
+        <!-- Image Gallery -->
+        <section class="detail-section">
+            <div class="section-heading">
+                <span>خدمات رقمية متكاملة</span>
+                <h2>منصات تسهّل حياة الجميع</h2>
+                <p>
+                    تقدم المنصات الحكومية الرقمية خدمات متنوعة
+                    تساعد المستفيدين على إنجاز معاملاتهم بسهولة.
+                </p>
+            </div>
+
+            <div class="detail-gallery">
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/digital-government-1.jpg' %}"
+                         alt="منصة أبشر">
+                    <div class="gallery-info">
+                        <h3>منصة أبشر</h3>
+                        <p>
+                            خدمات إلكترونية تمكّن الأفراد من تنفيذ
+                            العديد من الإجراءات الحكومية عبر الإنترنت.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/digital-government-2.jpg' %}"
+                         alt="منصة توكلنا">
+                    <div class="gallery-info">
+                        <h3>منصة توكلنا</h3>
+                        <p>
+                            خدمات رقمية متنوعة تجمع عددًا من الخدمات
+                            والمعلومات في تجربة إلكترونية واحدة.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/digital-government-3.jpg' %}"
+                         alt="منصة ناجز">
+                    <div class="gallery-info">
+                        <h3>منصة ناجز</h3>
+                        <p>
+                            خدمات عدلية إلكترونية تساعد المستفيدين
+                            على الوصول إلى الخدمات وإنجاز الإجراءات.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Video Section -->
+        <section class="detail-section">
+            <div class="section-heading">
+                <span>شاهد واستكشف</span>
+                <h2>الحكومة في العصر الرقمي</h2>
+                <p>
+                    تعرّف على دور الخدمات الإلكترونية
+                    في تطوير تجربة المستفيد.
+                </p>
+            </div>
+
+            <div class="detail-video">
+                <video controls preload="metadata">
+                    <source src="{% static 'portal/videos/digital-government-video.mp4' %}"
+                            type="video/mp4">
+                   
+                </video>
+            </div>
+        </section>
+
+        <!-- Digital Services -->
+        <section class="detail-section">
+            <div class="section-heading">
+                <span>خدمات متاحة للجميع</span>
+                <h2>كيف غيّرت الحكومة الرقمية الخدمات؟</h2>
+                <p>
+                    ساهمت الخدمات الرقمية في تطوير طريقة الوصول
+                    إلى المعاملات الحكومية وتنفيذها.
+                </p>
+            </div>
+
+            <div class="detail-content">
+
+                <div class="detail-card">
+                    <h3>إنجاز المعاملات إلكترونيًا</h3>
+                    <p>
+                        تنفيذ العديد من الإجراءات الحكومية
+                        عبر المنصات الرقمية دون الحاجة إلى
+                        زيارة الجهات بشكل مباشر.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>سهولة الوصول للخدمات</h3>
+                    <p>
+                        توفير الخدمات الإلكترونية للمستفيدين
+                        عبر المواقع والتطبيقات، بما يسهل
+                        الوصول إليها في مختلف الأوقات.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>تكامل الجهات الحكومية</h3>
+                    <p>
+                        ربط الخدمات والأنظمة الرقمية بين الجهات
+                        الحكومية لدعم تبادل المعلومات وتحسين
+                        تجربة المستفيد.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Timeline -->
+        <section class="detail-section">
+            <div class="section-heading">
+                <span>رحلة التطور</span>
+                <h2>محطات في الحكومة الرقمية</h2>
+                <p>
+                    مراحل بارزة في تطوير الخدمات الحكومية
+                    والتحول نحو البيئة الرقمية.
+                </p>
+            </div>
+
+            <div class="progress-timeline">
+
+                <div class="progress-step">
+                    <div class="progress-year">2003</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>بداية الخدمات الإلكترونية</h3>
+                        <p>
+                            بداية التوجه نحو استخدام التقنية
+                            لتطوير الخدمات الحكومية.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">2010</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>توسع الخدمات الرقمية</h3>
+                        <p>
+                            تطور المنصات الحكومية وتوسع
+                            تقديم الخدمات الإلكترونية.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">2016</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>رؤية السعودية 2030</h3>
+                        <p>
+                            تعزيز التحول الرقمي وتطوير
+                            الخدمات الحكومية ضمن مستهدفات الرؤية.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">2021</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>هيئة الحكومة الرقمية</h3>
+                        <p>
+                            إنشاء هيئة الحكومة الرقمية لدعم
+                            تطوير الخدمات والمنصات الحكومية.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">2030</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>حكومة رقمية متقدمة</h3>
+                        <p>
+                            مواصلة تطوير الخدمات الحكومية
+                            وتعزيز التكامل والابتكار الرقمي.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- National Initiatives -->
+        <section class="detail-section">
+            <div class="section-heading">
+                <span>منصات ومبادرات وطنية</span>
+                <h2>نماذج من الخدمات الحكومية الرقمية</h2>
+                <p>
+                    منصات وطنية تقدم خدمات متنوعة للأفراد
+                    والقطاعات المختلفة.
+                </p>
+            </div>
+
+            <div class="detail-content">
+
+                <div class="detail-card">
+                    <h3>أبشر</h3>
+                    <p>
+                        منصة تقدم خدمات وزارة الداخلية
+                        إلكترونيًا للأفراد والمنشآت.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>ناجز</h3>
+                    <p>
+                        منصة للخدمات العدلية الإلكترونية
+                        التابعة لوزارة العدل.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>هيئة الحكومة الرقمية</h3>
+                    <p>
+                        جهة تعمل على تنظيم وتطوير
+                        أعمال الحكومة الرقمية في المملكة.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Back Link -->
+        <a href="{% url 'home' %}#topics" class="detail-back">
+            ← العودة إلى جميع المحاور
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}

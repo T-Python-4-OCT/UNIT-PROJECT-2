@@ -10,4 +10,19 @@ urlpatterns = [
         views.digital_transformation,
         name='digital_transformation'
     ),
+path(
+    'smart-technologies/',
+    views.smart_technologies,
+    name='smart_technologies'
+),
+path(
+    'digital-government/',
+    views.digital_government,
+    name='digital_government'
+),
+path(
+    'cybersecurity-development/',
+    views.cybersecurity_development,
+    name='cybersecurity_development'
+),
 ]

@@ -630,6 +630,15 @@ a {
     color: #d0e4d7;
     font-size: 11px;
 }
+a,
+a:visited {
+    color: #00a86b;
+}
+
+a:hover,
+a:focus {
+    color: #a8e6c5;
+}
 
 /* ==============================
    الوضع الداكن
@@ -804,4 +813,448 @@ a {
     .footer-sources {
         gap: 10px;
     }
+}
+
+/* ========================================
+   صفحة تفاصيل المحاور
+======================================== */
+
+/* العنوان والمحتوى الرئيسي */
+
+.topic-detail {
+    padding: 65px 0 80px;
+    min-height: 700px;
+    background-color: var(--background);
+}
+
+.detail-heading {
+    max-width: 850px;
+    margin-bottom: 35px;
+}
+
+.detail-heading > span {
+    display: inline-block;
+    color: var(--green);
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 12px;
+}
+
+.detail-heading h1 {
+    color: var(--text);
+    font-size: 38px;
+    line-height: 1.5;
+    margin-bottom: 15px;
+}
+
+.detail-heading p {
+    color: var(--muted);
+    font-size: 17px;
+    line-height: 2;
+}
+
+
+/* الصورة الرئيسية */
+
+.detail-hero {
+    width: 100%;
+    height: 370px;
+    min-height: 350px;
+    margin-bottom: 35px;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.detail-hero img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+
+/* أماكن الصور البديلة */
+
+.media-placeholder {
+    position: relative;
+    overflow: hidden;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.media-placeholder img {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.media-placeholder span {
+    min-height: inherit;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    color: var(--muted);
+    text-align: center;
+}
+
+
+/* الأقسام الداخلية */
+
+.detail-section {
+    margin-top: 75px;
+}
+
+
+/* معرض الصور */
+
+.detail-gallery {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+.gallery-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 0.3s ease;
+}
+
+.gallery-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.gallery-card img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-info {
+    padding: 22px;
+    text-align: right;
+}
+
+.gallery-info h3 {
+    color: var(--text);
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.gallery-info p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 2;
+}
+
+
+/* بطاقات أبرز الإنجازات */
+
+.detail-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+    margin-bottom: 35px;
+}
+
+.detail-card {
+    padding: 28px;
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-right: 4px solid var(--green);
+    border-radius: 9px;
+    transition: 0.3s ease;
+}
+
+.detail-card:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow);
+}
+
+.detail-card h2 {
+    color: var(--text);
+    font-size: 20px;
+    margin-bottom: 12px;
+}
+
+.detail-card p {
+    color: var(--muted);
+    font-size: 14px;
+    line-height: 2;
+}
+
+
+/* فيديو المحور */
+
+.detail-video {
+    width: 100%;
+    max-width: 900px;
+    aspect-ratio: 16 / 9;
+    margin: auto;
+    overflow: hidden;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.detail-video video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: contain;
+    background: #000;
+}
+
+.detail-video iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+    border: none;
+    border-radius: 12px;
+}
+
+/* ========================================
+   الخط الزمني المتدرج
+======================================== */
+
+.progress-timeline {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    position: relative;
+    max-width: 1200px;
+    margin: 100px auto 60px;
+    padding: 0 15px;
+    gap: 15px;
+}
+
+/* إخفاء الخط المستقيم */
+
+.progress-timeline::before {
+    display: none;
+}
+
+/* المحطات */
+
+.progress-step {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    text-align: center;
+    padding-top: 35px;
+}
+
+/* نقاط السنوات */
+
+.progress-dot {
+    position: absolute;
+    top: -10px;
+    right: 50%;
+    transform: translateX(50%);
+    width: 24px;
+    height: 24px;
+    border: 5px solid var(--green);
+    background: var(--surface);
+    border-radius: 50%;
+    z-index: 3;
+    box-shadow: 0 0 0 5px var(--background);
+}
+
+/* السنوات */
+
+.progress-year {
+    display: inline-block;
+    color: var(--green);
+    font-size: 19px;
+    font-weight: bold;
+    margin-bottom: 14px;
+    direction: ltr;
+    unicode-bidi: isolate;
+}
+
+/* بطاقات المحطات */
+
+.progress-info {
+    position: relative;
+    z-index: 2;
+    min-height: 175px;
+    padding: 20px 15px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: 0.3s ease;
+}
+
+.progress-info:hover {
+    transform: translateY(-6px);
+}
+
+.progress-info h3 {
+    color: var(--text);
+    font-size: 17px;
+    margin-bottom: 12px;
+}
+
+.progress-info p {
+    color: var(--muted);
+    font-size: 13px;
+    line-height: 1.9;
+}
+
+/* تدرج ارتفاع المحطات */
+
+.progress-step:nth-child(1) {
+    margin-top: 120px;
+}
+
+.progress-step:nth-child(2) {
+    margin-top: 85px;
+}
+
+.progress-step:nth-child(3) {
+    margin-top: 50px;
+}
+
+.progress-step:nth-child(4) {
+    margin-top: 15px;
+}
+
+.progress-step:nth-child(5) {
+    margin-top: -20px;
+}
+
+/* الخطوط المائلة بين المحطات */
+
+.progress-step:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 2px;
+    right: 50%;
+    width: calc(100% + 15px);
+    height: 4px;
+    background: linear-gradient(
+        to left,
+        var(--green),
+        #42ad78
+    );
+    border-radius: 10px;
+    transform: rotate(9deg);
+    transform-origin: right center;
+    z-index: 1;
+}
+
+
+/* زر العودة */
+
+.detail-back {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px 22px;
+    color: var(--white);
+    background-color: var(--green);
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: bold;
+    transition: 0.3s ease;
+}
+
+.detail-back:hover {
+    background-color: var(--green-dark);
+    transform: translateY(-3px);
+}
+
+
+/* ========================================
+   الشاشات المتوسطة
+======================================== */
+
+@media (max-width: 900px) {
+
+    .detail-gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .detail-content {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .progress-timeline {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+        margin-top: 50px;
+    }
+
+    .progress-step,
+    .progress-step:nth-child(n) {
+        margin-top: 0;
+        padding-top: 25px;
+    }
+
+    .progress-step:not(:last-child)::after {
+        display: none;
+    }
+
+    .progress-dot {
+        top: -3px;
+    }
+
+}
+
+
+/* ========================================
+   الهواتف
+======================================== */
+
+@media (max-width: 600px) {
+
+    .topic-detail {
+        padding: 40px 0 55px;
+    }
+
+    .detail-heading h1 {
+        font-size: 26px;
+    }
+
+    .detail-heading p {
+        font-size: 15px;
+    }
+
+    .detail-hero {
+        height: 220px;
+        min-height: 220px;
+    }
+
+    .detail-gallery,
+    .detail-content {
+        grid-template-columns: 1fr;
+    }
+
+    .gallery-card img {
+        height: 220px;
+    }
+
+    .detail-video {
+        aspect-ratio: 16 / 9;
+    }
+
+    .progress-timeline {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .progress-info {
+        min-height: auto;
+    }
+
 }

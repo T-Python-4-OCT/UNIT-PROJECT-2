@@ -19,3 +19,12 @@ def toggle_theme(request):
     return redirect('home')
 def digital_transformation(request):
     return render(request, 'portal/digital_transformation.html')
+
+def smart_technologies(request):
+    return render(request, 'portal/smart_technologies.html')
+
+def digital_government(request):
+    return render(request, 'portal/digital_government.html')
+
+def cybersecurity_development(request):
+    return render(request, 'portal/cybersecurity_development.html')
