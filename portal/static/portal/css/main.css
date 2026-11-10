@@ -59,12 +59,14 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
 }
 
 .journey h2,
-.about h2 {
+.about h2,
+.section-heading {
   padding-bottom: 0.6rem;
 }
 
 .journey h2::after,
-.about h2::after {
+.about h2::after,
+.section-heading::after {
   content: "";
   display: block;
   width: 48px;
@@ -122,7 +124,7 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
   position: relative;
   overflow: hidden;
   color: #fff;
-  background: linear-gradient(135deg, #072a20 0%, #0b3d2e 55%, #14594a 100%);
+  background: var(--hero-gradient);
 }
 
 .hero::after {
@@ -227,4 +229,175 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
 .footer-tagline {
   color: #d4b15f;
   font-weight: 600;
+}
+
+/* ===== Inner pages: tokens ===== */
+:root,
+[data-bs-theme="light"] {
+  --hero-gradient: linear-gradient(135deg, #072a20 0%, #0b3d2e 55%, #14594a 100%);
+  --c-ok-bg: #d9efe4;
+  --c-ok-text: #0b3d2e;
+  --c-wip-bg: #f6ecd0;
+  --c-wip-text: #5e4a10;
+  --c-plan-bg: #e3e8ee;
+  --c-plan-text: #2f3b4a;
+}
+
+[data-bs-theme="dark"] {
+  --c-ok-bg: #16382f;
+  --c-ok-text: #9be3c4;
+  --c-wip-bg: #3a3115;
+  --c-wip-text: #e8cd84;
+  --c-plan-bg: #223040;
+  --c-plan-text: #b9c8da;
+}
+
+/* ===== Page header ===== */
+.page-header {
+  color: #fff;
+  background: var(--hero-gradient);
+  border-bottom: 3px solid var(--c-accent);
+}
+
+.page-header h1 {
+  color: #fff;
+  font-size: clamp(1.9rem, 4vw, 2.75rem);
+  font-weight: 700;
+}
+
+.page-subtitle { color: #d4b15f; }
+
+.page-intro {
+  max-width: 70ch;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+}
+
+/* ===== Content sections ===== */
+.section-heading { margin-bottom: 1rem; }
+
+/* ===== Info cards ===== */
+.info-card { border-top: 3px solid var(--c-accent); }
+
+.card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.meta-date { color: var(--c-accent-text); }
+
+.status-badge {
+  padding: 0.15rem 0.65rem;
+  border-radius: 999px;
+}
+
+.status-operating { color: var(--c-ok-text); background: var(--c-ok-bg); }
+.status-in-development { color: var(--c-wip-text); background: var(--c-wip-bg); }
+.status-planned { color: var(--c-plan-text); background: var(--c-plan-bg); }
+
+/* ===== Stat cards ===== */
+.stat-card {
+  padding: 1.25rem;
+  background: var(--c-surface);
+  border: 1px solid var(--c-border);
+  border-top: 3px solid var(--c-accent);
+  border-radius: var(--bs-border-radius);
+}
+
+.stat-value {
+  margin: 0 0 0.25rem;
+  color: var(--c-heading);
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  font-weight: 700;
+  line-height: 1.1;
+}
+
+.stat-label { margin-bottom: 0.75rem; }
+.stat-meta { margin: 0; color: var(--c-muted); }
+
+/* ===== Timeline ===== */
+.timeline {
+  margin: 0;
+  padding: 0 0 0 1.5rem;
+  list-style: none;
+  border-inline-start: 2px solid var(--c-border);
+}
+
+.timeline-item {
+  position: relative;
+  padding-bottom: 1.75rem;
+}
+
+.timeline-item:last-child { padding-bottom: 0; }
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  inset-inline-start: calc(-1.5rem - 8px);
+  top: 0.3rem;
+  width: 14px;
+  height: 14px;
+  background: var(--c-accent);
+  border: 3px solid var(--c-bg);
+  border-radius: 50%;
+}
+
+.timeline-date {
+  color: var(--c-accent-text);
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.timeline-hijri {
+  margin-inline-start: 0.5rem;
+  color: var(--c-muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+}
+
+.timeline-body h3 { margin: 0.15rem 0 0.35rem; }
+
+.timeline-body p {
+  max-width: 70ch;
+  margin: 0;
+}
+
+/* ===== Sources ===== */
+.source-ref {
+  margin-inline-start: 0.2rem;
+  color: var(--c-accent-text);
+  font-size: 0.75em;
+  font-weight: 600;
+  text-decoration: none;
+  vertical-align: super;
+}
+
+.source-ref:hover { text-decoration: underline; }
+
+.sources {
+  margin-top: 2rem;
+  background: var(--c-surface);
+  border-top: 1px solid var(--c-border);
+}
+
+.source-list {
+  margin: 0;
+  padding-inline-start: 1.25rem;
+}
+
+.source-list li {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  scroll-margin-top: 5rem;
+}
+
+.source-list li:target {
+  background: color-mix(in srgb, var(--c-accent) 22%, transparent);
 }
