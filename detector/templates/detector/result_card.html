@@ -9,6 +9,18 @@
     </div>
   </header>
 
+  {% if result.community.times %}
+    <section class="community-alert">
+      <i class="bi bi-people-fill"></i>
+      <div>
+        <strong>المرسل مبلّغ عنه {{ result.community.times }} مرة في بلاغات المجتمع</strong>
+        <p>
+          {% for report in result.community.matches %}<a href="{% url 'reports:detail' report.id %}">{{ report.title }}</a>{% if not forloop.last %}، {% endif %}{% endfor %}
+        </p>
+      </div>
+    </section>
+  {% endif %}
+
   <section class="xray">
     <h3><i class="bi bi-search"></i> الرسالة تحت المجهر</h3>
     <p class="bubble bubble-in bubble-big">{% include "main/partials/marked_text.html" with segments=result.segments %}</p>
@@ -58,9 +70,22 @@
     </details>
   {% endif %}
 
+  {% if result.published %}
+    <section class="published-note">
+      <i class="bi bi-megaphone-fill"></i>
+      <p>
+        {% if result.published.is_new %}نشرنا تحذير للمجتمع تلقائياً:{% else %}أضفنا بلاغك للبلاغ الموجود، وصار المرسل مبلّغ عنه {{ result.published.count }} مرة:{% endif %}
+        <a href="{% url 'reports:detail' result.published.id %}">{{ result.published.title }}</a>
+      </p>
+    </section>
+  {% endif %}
+
   <footer class="result-actions">
     {% if not from_history %}
       <a class="btn-ghost" href="{% url 'detector:home' %}"><i class="bi bi-arrow-counterclockwise"></i> افحص رسالة ثانية</a>
+    {% endif %}
+    {% if result.verdict != "safe" and not result.published %}
+      <a class="btn-ghost" href="{% url 'reports:new' %}?message={{ result.text|urlencode }}"><i class="bi bi-megaphone"></i> بلّغ عن هذه الرسالة</a>
     {% endif %}
     <span class="source-note">{% if result.source == "ai" %}قواعد محلية + ذكاء اصطناعي{% else %}قواعد محلية فقط{% endif %}{% if result.id %}، محفوظ في السجل برقم {{ result.id }}{% endif %}</span>
   </footer>

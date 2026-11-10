@@ -8,7 +8,7 @@
 <section class="page-hero page-hero-tight night">
   <div class="container">
     <h1>الكاشف الذكي</h1>
-    <p>افحص رسالة نصية أو ملف PDF، واعرف إذا كان فيه احتيال ووش تسوي.</p>
+    <p>افحص رسالة نصية أو ملف PDF، واعرف إذا كان فيه احتيال، وإذا كان المرسل مبلّغ عنه قبل.</p>
   </div>
 </section>
 
@@ -34,6 +34,10 @@
         </div>
         {% if error %}<p class="field-error" role="alert"><i class="bi bi-exclamation-circle"></i> {{ error }}</p>{% endif %}
 
+        <label class="check-line">
+          <input type="checkbox" name="publish" {% if publish_on %}checked{% endif %}>
+          <span><strong>حذّر المجتمع تلقائياً:</strong> إذا طلعت الرسالة احتيال أو مشبوهة، ننشر بلاغ باسم الحيلة ورقم أو رابط المرسل.</span>
+        </label>
         <label class="check-line">
           <input type="checkbox" name="save" {% if save_on %}checked{% endif %}> <span>احفظ النتيجة في سجل الفحوصات</span>
         </label>

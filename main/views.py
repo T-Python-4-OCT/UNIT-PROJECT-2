@@ -7,6 +7,8 @@ from django.shortcuts import redirect, render
 from main import json_store
 from detector.analyzer import build_segments, local_scan
 from detector.rules import RULES
+from reports import store
+from reports.report_types import REPORT_TYPES
 from main.content import CHANNELS, FAQ, FEEDBACK_TAGS, SCAM_TYPES, STORIES, TIPS, VIDEO_TRANSCRIPT
 
 
@@ -24,12 +26,21 @@ def home(request: HttpRequest) -> HttpResponse:
     for scam in SCAM_TYPES:
         samples.append({**scam, **with_highlights(scam["sample"])})
 
+    checks = json_store.load("checks")
+    reports = json_store.newest_first(store.load_reports())
+    for report in reports:
+        report["type_info"] = REPORT_TYPES[report["type"]]
     context = {
         "hero": with_highlights(HERO_SAMPLE),
         "samples": samples,
         "stories": STORIES,
         "transcript": VIDEO_TRANSCRIPT,
+        "auto_count": len([report for report in reports if report["auto"]]),
         "channels": CHANNELS,
+        "latest_reports": reports[:3],
+        "checks_count": len(checks),
+        "fraud_count": len([check for check in checks if check["verdict"] == "fraud"]),
+        "reports_count": len(reports),
         "patterns_count": sum(len(rule["patterns"]) for rule in RULES),
     }
     return render(request, "main/home.html", context)

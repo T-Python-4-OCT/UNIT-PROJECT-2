@@ -3,9 +3,10 @@
 from django.http import Http404, HttpRequest, HttpResponse
 from django.shortcuts import render
 
-from main import ai_client, json_store
+from main import ai_client, contacts, json_store
 from detector.analyzer import VERDICTS, analyze
 from detector.pdf_reader import PDFError, analyze_pdf, extract_text
+from reports import store
 
 MIN_LENGTH = 10
 MAX_LENGTH = 2000
@@ -18,13 +19,16 @@ def detector_home(request: HttpRequest) -> HttpResponse:
         "text": request.GET.get("text", ""),
         "ai_ready": ai_client.is_ready(),
         "save_on": True,
+        "publish_on": True,
     }
 
     if request.method == "POST":
         text = request.POST.get("text", "").strip()
         save = request.POST.get("save") == "on"
+        publish = request.POST.get("publish") == "on"
         context["text"] = text
         context["save_on"] = save
+        context["publish_on"] = publish
 
         if len(text) < MIN_LENGTH:
             context["error"] = f"النص قصير، الصق الرسالة كاملة ({MIN_LENGTH} أحرف على الأقل)."
@@ -32,6 +36,15 @@ def detector_home(request: HttpRequest) -> HttpResponse:
             context["error"] = f"النص طويل، الحد الأقصى {MAX_LENGTH} حرف. للمستندات الطويلة استخدم فحص PDF."
         else:
             result = analyze(text)
+
+            # Did the community report the same number / email / link before?
+            found = contacts.find_contacts(text)
+            matches = store.find_matches(contacts.all_contacts(found))
+            result["community"] = {"matches": matches[:3], "times": store.times_reported(matches)}
+
+            # Publish a warning for other people automatically (fraud / suspicious only)
+            if publish and result["verdict"] != "safe":
+                result["published"] = store.auto_report(result)
 
             if save:
                 saved = json_store.add("checks", {
