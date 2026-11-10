@@ -7,7 +7,7 @@
             <p class="card-meta">
               {% if item.date %}<span class="meta-date">{{ item.date }}</span>{% endif %}
               {% if item.status %}
-                <span class="status-badge status-{{ item.status|slugify }}">{{ item.status|capfirst }}</span>
+                <span class="status-badge status-{{ item.status|slugify }}">{{ item.status_label|default:item.status|capfirst }}</span>
               {% endif %}
             </p>
           {% endif %}

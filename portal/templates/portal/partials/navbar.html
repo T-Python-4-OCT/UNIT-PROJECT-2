@@ -6,7 +6,7 @@
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#mainNav" aria-controls="mainNav"
-            aria-expanded="false" aria-label="Toggle navigation">
+            aria-expanded="false" aria-label="{{ ui.toggle_navigation }}">
       <span class="navbar-toggler-icon"></span>
     </button>
 
@@ -23,13 +23,34 @@
         {% endfor %}
       </ul>
 
-      <button
-        class="btn btn-sm btn-outline-light ms-xl-3 mt-2 mt-xl-0"
-        type="button"
-        id="themeToggle"
-        aria-label="Switch color theme">
-        Dark mode
-      </button>
+      <div class="d-flex flex-wrap align-items-center gap-2 ms-xl-3 mt-2 mt-xl-0">
+        <form method="post" action="{% url 'portal:set_language' %}">
+          {% csrf_token %}
+          {% if language == "en" %}
+            <input type="hidden" name="language" value="ar">
+            <button class="btn btn-sm btn-outline-light" type="submit">
+              العربية
+            </button>
+          {% else %}
+            <input type="hidden" name="language" value="en">
+            <button class="btn btn-sm btn-outline-light" type="submit">
+              English
+            </button>
+          {% endif %}
+        </form>
+
+        <button
+          class="btn btn-sm btn-outline-light"
+          type="button"
+          id="themeToggle"
+          data-dark-label="{{ ui.dark_mode }}"
+          data-light-label="{{ ui.light_mode }}"
+          data-dark-aria="{{ ui.dark_aria }}"
+          data-light-aria="{{ ui.light_aria }}"
+          aria-label="{{ ui.dark_aria }}">
+          {{ ui.dark_mode }}
+        </button>
+      </div>
     </div>
   </div>
 </nav>

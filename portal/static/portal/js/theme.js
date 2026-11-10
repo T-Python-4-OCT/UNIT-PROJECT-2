@@ -9,11 +9,16 @@ document.addEventListener("DOMContentLoaded", function () {
   function updateThemeButton(theme) {
     const isDark = theme === "dark";
 
-    themeToggle.textContent = isDark ? "Light mode" : "Dark mode";
-    themeToggle.setAttribute(
-      "aria-label",
-      isDark ? "Switch to light mode" : "Switch to dark mode"
-    );
+    const label = isDark
+      ? themeToggle.dataset.lightLabel
+      : themeToggle.dataset.darkLabel;
+
+    const ariaLabel = isDark
+      ? themeToggle.dataset.lightAria
+      : themeToggle.dataset.darkAria;
+
+    themeToggle.textContent = label;
+    themeToggle.setAttribute("aria-label", ariaLabel);
   }
 
   const currentTheme = root.getAttribute("data-bs-theme") || "light";

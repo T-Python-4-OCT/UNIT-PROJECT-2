@@ -5,7 +5,7 @@
         <p class="stat-value">{{ item.value }}</p>
         <p class="stat-label">{{ item.label }}</p>
         <p class="stat-meta small">
-          {% if item.as_of %}As of {{ item.as_of }}{% elif item.checked_on %}Checked {{ item.checked_on }}{% endif %}
+          {% if item.as_of %}{{ ui.as_of }} {{ item.as_of }}{% elif item.checked_on %}{{ ui.checked }} {{ item.checked_on }}{% endif %}
           {% include "portal/partials/source_ref.html" %}
         </p>
       </div>

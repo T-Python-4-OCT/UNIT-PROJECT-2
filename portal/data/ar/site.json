@@ -1,0 +1,130 @@
+{
+  "site_name": "التحول الرقمي لوزارة الداخلية",
+  "tagline": "من الخدمات التقليدية إلى مستقبل رقمي مترابط.",
+  "disclaimer": "مشروع تعليمي مستقل، غير تابع لوزارة الداخلية السعودية ولا يحظى باعتمادها أو تأييدها.",
+  "pages": [
+    { "slug": "vision-2030", "title": "رؤية السعودية 2030", "data_file": "vision.json" },
+    { "slug": "moi-evolution", "title": "تطور وزارة الداخلية", "data_file": "history.json" },
+    { "slug": "absher", "title": "منصة أبشر", "data_file": "services.json", "section": "absher" },
+    { "slug": "digital-identity", "title": "الهوية الرقمية", "data_file": "services.json", "section": "digital_identity" },
+    { "slug": "smart-security", "title": "الأمن الذكي", "data_file": "technologies.json" },
+    { "slug": "digital-services", "title": "الخدمات الرقمية", "data_file": "services.json", "section": "digital_services" },
+    { "slug": "future-vision", "title": "رؤية المستقبل", "data_file": "future.json" }
+  ],
+  "references": [
+    {
+      "id": "vision2030",
+      "name": "رؤية السعودية 2030 — الموقع الرسمي",
+      "url": "https://www.vision2030.gov.sa/",
+      "note": "المصدر الرسمي للركائز الثلاث وبرامج تحقيق رؤية 2030 الأحد عشر."
+    },
+    {
+      "id": "moi",
+      "name": "وزارة الداخلية — الموقع الرسمي",
+      "url": "https://www.moi.gov.sa/",
+      "note": "المصدر الرسمي للتطور التاريخي للوزارة والتواريخ الهجرية."
+    },
+    {
+      "id": "absher",
+      "name": "منصة أبشر",
+      "url": "https://www.absher.sa/",
+      "note": "المنصة الرسمية للخدمات الإلكترونية التابعة لوزارة الداخلية."
+    },
+    {
+      "id": "saudipedia",
+      "name": "سعوديبيديا — وزارة الإعلام",
+      "url": "https://saudipedia.com/en/absher-platform",
+      "note": "موسوعة حكومية تتناول خلفية منصة أبشر وتاريخ إطلاق رؤية 2030."
+    },
+    {
+      "id": "dga",
+      "name": "هيئة الحكومة الرقمية",
+      "url": "https://dga.gov.sa/en",
+      "note": "مصدر استراتيجية الحكومة الرقمية 2023–2030."
+    },
+    {
+      "id": "mcit_egdi",
+      "name": "وزارة الاتصالات وتقنية المعلومات — مؤشر تنمية الحكومة الإلكترونية للأمم المتحدة 2024",
+      "url": "https://www.mcit.gov.sa/en/news/saudi-arabia-jumps-25-places-4th-position-globally-1st-regionally-digital-services-index-un",
+      "note": "بيان صحفي منشور بتاريخ 20 سبتمبر 2024."
+    },
+    {
+      "id": "arabnews_absher",
+      "name": "عرب نيوز — كيف أسهم تطبيق أبشر في تسهيل الإجراءات الحكومية",
+      "url": "https://www.arabnews.pk/node/1453341",
+      "note": "مصدر إطلاق خدمة أبشر أعمال في أبريل 2018."
+    },
+    {
+      "id": "spa_digital_ids",
+      "name": "وكالة الأنباء السعودية (عبر الرياض ديلي) — منصة أبشر تصدر أكثر من 28 مليون هوية رقمية",
+      "url": "https://alriyadhdaily.com/article/2157dfaef10d4d7f893fc381959d3908",
+      "note": "تقرير عن إعلان وزارة الداخلية، ويشير تاريخ 25 ديسمبر 2024 إلى ما أورده موقع IDTechWire."
+    },
+    {
+      "id": "arabnews_absher_2020",
+      "name": "عرب نيوز — استخدام 18 مليون شخص لخدمات أبشر في السعودية خلال العام السابق",
+      "url": "https://arab.news/83fw2",
+      "note": "نُشر في 9 ديسمبر 2020 ويتناول بيانات عام 2019."
+    },
+    {
+      "id": "arabnews_absher_2022",
+      "name": "عرب نيوز — استخدام 23 مليون شخص لخدمات أبشر الإلكترونية خلال العام السابق",
+      "url": "https://www.arabnews.com/node/2010281",
+      "note": "نُشر في 23 يناير 2022 ويتناول بيانات عام 2021."
+    },
+    {
+      "id": "saudigazette_absher_2025",
+      "name": "سعودي جازيت — وزارة الداخلية تطلق خدمات رقمية جديدة عبر منصة أبشر",
+      "url": "https://saudigazette.com.sa/article/653643",
+      "note": "نُشر في 23 يوليو 2025."
+    },
+    {
+      "id": "ajel_civil_2026",
+      "name": "عاجل — وزارة الداخلية السعودية تطلق خدمات رقمية جديدة عبر منصة أبشر",
+      "url": "https://english.ajel.sa/news/swq38wbko",
+      "note": "خدمات الأحوال المدنية، نُشر في 30 يوليو 2026."
+    },
+    {
+      "id": "aawsat_digital",
+      "name": "الشرق الأوسط — تحول السعودية من الدولة الرقمية إلى السيادة في الذكاء الاصطناعي",
+      "url": "https://english.aawsat.com/node/5232804",
+      "note": "مصدر يوضح دور الهيئة السعودية للبيانات والذكاء الاصطناعي في تطوير نفاذ."
+    },
+    {
+      "id": "saudigazette_911_2025",
+      "name": "سعودي جازيت — البسامي يكشف خطة لتوسيع خدمة 911 لتشمل جميع مناطق المملكة",
+      "url": "https://cdn.saudigazette.com.sa/article/657527/SAUDI-ARABIA/Al-Bassami-unveils-plan-to-expand-security-reporting-service-911-to-all-Saudi-regions",
+      "note": "تصريح مدير الأمن العام خلال مؤتمر أبشر 2025، نُشر في 18 ديسمبر 2025."
+    },
+    {
+      "id": "asharq_security",
+      "name": "الشرق الأوسط — السعودية تعزز السلامة العامة بإجراءات أمنية ذكية",
+      "url": "https://english.aawsat.com/gulf/5289994-saudi-arabia-strengthens-public-safety-smart-security-measures",
+      "note": "مصدر نظام تصنيف الجرائم الموحد."
+    },
+    {
+      "id": "informedinfrastructure_911",
+      "name": "إنفورمد إنفراستركتشر — مركز العمليات الأمنية الموحد 911 في مكة المكرمة",
+      "url": "https://informedinfrastructure.com/?p=35049",
+      "note": "مقال متخصص في التقنية والبنية التحتية، ومصدر ثانوي لبداية تطبيق 911 في مكة عام 2015."
+    },
+    {
+      "id": "un_egovkb",
+      "name": "الأمم المتحدة — قاعدة بيانات الحكومة الإلكترونية: المملكة العربية السعودية",
+      "url": "https://publicadministration.un.org/egovkb/en-us/Data/Country-Information/id/149-Saudi-Arabia",
+      "note": "بيانات الأمم المتحدة الرسمية لمؤشري تنمية الحكومة الإلكترونية والمشاركة الإلكترونية حسب إصدارات المسح."
+    },
+    {
+      "id": "arabnews_gtmi",
+      "name": "عرب نيوز — السعودية تحتل المركز الثاني عالميًا في الحكومة الرقمية وفق مؤشر البنك الدولي 2025",
+      "url": "https://www.arabnews.pk/node/2626749",
+      "note": "نُشر في 19 ديسمبر 2025، كما نشرته صحيفة سعودي جازيت في 18 ديسمبر 2025."
+    },
+    {
+      "id": "arabnews_kpmg",
+      "name": "عرب نيوز — جهود الحكومة الرقمية السعودية وطموح الوصول إلى قائمة العشرة الأوائل: KPMG",
+      "url": "https://www.arabnews.pk/node/2613094",
+      "note": "نُشر في 26 أغسطس 2025، ويُعد مصدرًا لهدف دمج أكثر من 800 منصة."
+    }
+  ]
+}
