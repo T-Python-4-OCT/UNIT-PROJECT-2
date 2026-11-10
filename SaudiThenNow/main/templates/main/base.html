@@ -14,7 +14,42 @@
 </head>
 <body>
 
-  {% include "main/partials/header.html" %}
+  <header class="site-header" id="site-header">
+    <div class="container header-inner">
+      <a href="{% url 'main:home' %}" class="logo">
+        <svg class="logo-mark" viewBox="0 0 34 34" aria-hidden="true">
+          <polygon points="17,3 31,31 3,31"/>
+          <polygon class="logo-inner" points="17,15 23,27 11,27"/>
+        </svg>
+        <span>{{ t.site_name }}</span>
+      </a>
+
+      <nav class="nav" id="nav">
+        {% with page=request.resolver_match.url_name %}
+          <a href="{% url 'main:home' %}" class="nav-link {% if page == 'home' %}active{% endif %}">{{ t.nav_home }}</a>
+          <a href="{% url 'main:home' %}#topics" class="nav-link {% if page == 'topic' %}active{% endif %}">{{ t.nav_topics }}</a>
+          <a href="{% url 'main:timeline' %}" class="nav-link {% if page == 'timeline' %}active{% endif %}">{{ t.nav_timeline }}</a>
+          <a href="{% url 'main:about' %}" class="nav-link {% if page == 'about' %}active{% endif %}">{{ t.nav_about }}</a>
+        {% endwith %}
+      </nav>
+
+      <div class="header-actions">
+        {% if lang == 'ar' %}
+          <a href="{% url 'main:lang' 'en' %}?next={{ request.path }}" class="icon-btn lang-btn" lang="en">EN</a>
+        {% else %}
+          <a href="{% url 'main:lang' 'ar' %}?next={{ request.path }}" class="icon-btn lang-btn" lang="ar">ع</a>
+        {% endif %}
+        <a href="{% url 'main:theme' %}?next={{ request.path }}" class="icon-btn" aria-label="{{ t.switch_theme }}">
+          <span class="material-symbols-outlined icon-dark">dark_mode</span>
+          <span class="material-symbols-outlined icon-light">light_mode</span>
+        </a>
+        <button type="button" class="icon-btn menu-btn" id="menu-btn" aria-label="{{ t.open_menu }}" aria-expanded="false">
+          <span class="material-symbols-outlined">menu</span>
+        </button>
+      </div>
+    </div>
+    <div class="progress" id="progress"></div>
+  </header>
 
   <main>
     {% block content %}{% endblock %}

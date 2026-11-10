@@ -4,12 +4,9 @@ from django.utils.http import url_has_allowed_host_and_scheme
 from .translations import load_json, get_lang, localize
 
 
-TOPIC_ORDER = ["riyadh", "transport", "economy", "education", "tourism", "events", "digital"]
-
-
 def get_topics(request):
     lang = get_lang(request)
-    return [localize(load_json(f"topics/{slug}.json"), lang) for slug in TOPIC_ORDER]
+    return [localize(topic, lang) for topic in load_json("topics.json")]
 
 
 def go_back(request):
@@ -29,8 +26,7 @@ def topic_view(request, slug):
     for topic in topics:
         if topic["slug"] == slug:
             others = [other for other in topics if other["slug"] != slug]
-            templates = [f"main/topics/{slug}.html", "main/topics/topic_base.html"]
-            return render(request, templates, {"topic": topic, "others": others})
+            return render(request, "main/topic.html", {"topic": topic, "others": others})
 
     raise Http404("Topic not found")
 
