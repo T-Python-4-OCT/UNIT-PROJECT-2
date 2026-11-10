@@ -5,13 +5,15 @@
     "light": "#9c3f2c",
     "dark": "#f2a895"
   },
+  "logo": "atlas/logos/red-sea-global.png",
+  "texture": "atlas/textures/amaala.svg",
   "name": {
     "en": "AMAALA",
     "ar": "أمالا"
   },
   "category": {
     "en": "Wellness and marine life",
-    "ar": "العافية والحياة البحرية"
+    "ar": "الاستشفاء والحياة البحرية"
   },
   "region": {
     "en": "Northwest coast",
@@ -19,11 +21,11 @@
   },
   "tagline": {
     "en": "Wellness and marine science at Triple Bay",
-    "ar": "العافية وعلوم البحار في تربل باي"
+    "ar": "الاستشفاء واكتشاف الحياة البحرية في تربل باي"
   },
   "summary": {
     "en": "AMAALA is a coastal destination developed by Red Sea Global, with its first phase centered on Triple Bay. Its resorts and visitor attractions focus on wellness, art and marine life.",
-    "ar": "أمالا وجهة ساحلية تطوّرها شركة البحر الأحمر الدولية، وتتركز مرحلتها الأولى في تربل باي. وتهتم منتجعاتها ومرافقها السياحية بالعافية والفن والحياة البحرية."
+    "ar": "أمالا وجهة ساحلية تطوّرها شركة البحر الأحمر الدولية، وتتركز مرحلتها الأولى في تربل باي. وتهتم منتجعاتها ومرافقها السياحية بالاستشفاء والفن والحياة البحرية."
   },
   "status": {
     "key": "partly-open",
@@ -67,15 +69,79 @@
   "highlights": [
     {
       "en": "Corallium is a marine life institute at Triple Bay, with exhibits about the Red Sea.",
-      "ar": "كوراليوم معهد للحياة البحرية في تربل باي، يضم معارض عن البحر الأحمر."
+      "ar": "كوراليوم مركز للحياة البحرية في تربل باي، يضم معارض عن البحر الأحمر."
     },
     {
       "en": "Jayasom Wellness Resort offers programs focused on health and wellbeing.",
-      "ar": "يقدّم منتجع جاياسوم للعافية برامج تركز على الصحة والعافية."
+      "ar": "يقدّم منتجع جيسوم للاستشفاء برامج تركز على الصحة والعافية."
     },
     {
       "en": "The Triple Bay waterfront includes a yacht club and marina.",
       "ar": "تضم واجهة تربل باي البحرية ناديًا لليخوت ومرسى."
+    }
+  ],
+  "things_to_do": [
+    {
+      "name": {
+        "en": "AMAALA resorts",
+        "ar": "منتجعات أمالا"
+      },
+      "brief": {
+        "en": "Seven resorts now open on the coast, including Rosewood, Six Senses, Four Seasons and Equinox.",
+        "ar": "سبعة منتجعات مفتوحة الآن على الساحل، منها روزوود وسيكس سينسز وفور سيزونز وإكوينوكس."
+      },
+      "image": {
+        "src": "atlas/media/amaala-triple-bay-lagoon",
+        "widths": [
+          480,
+          960,
+          1600
+        ],
+        "width": 1600,
+        "height": 900,
+        "color": "#6898d8",
+        "caption": {
+          "en": "Triple Bay lagoon and resort",
+          "ar": "بحيرة تربل باي ومنتجعها"
+        },
+        "alt": {
+          "en": "Triple Bay lagoon and resort",
+          "ar": "بحيرة تربل باي ومنتجعها"
+        }
+      }
+    },
+    {
+      "name": {
+        "en": "Paddleboard or kayak",
+        "ar": "التجديف بالألواح أو الكاياك"
+      },
+      "brief": {
+        "en": "An hour on the calm coastal water, open to beginners aged eight and over.",
+        "ar": "ساعة على مياه الساحل الهادئة، متاحة للمبتدئين من عمر ثماني سنوات."
+      },
+      "price": {
+        "en": "SAR 200 per hour",
+        "ar": "200 ريال للساعة"
+      },
+      "image": {
+        "src": "atlas/media/amaala-triple-bay-cove",
+        "widths": [
+          480,
+          960,
+          1600
+        ],
+        "width": 1600,
+        "height": 900,
+        "color": "#6898d8",
+        "caption": {
+          "en": "A turquoise cove at Triple Bay",
+          "ar": "خليج فيروزي في تربل باي"
+        },
+        "alt": {
+          "en": "A turquoise cove at Triple Bay",
+          "ar": "خليج فيروزي في تربل باي"
+        }
+      }
     }
   ],
   "milestones": [
@@ -97,7 +163,7 @@
       "date": "2026-09-16",
       "text": {
         "en": "Red Sea Global reported that Jayasom Wellness Resort had opened.",
-        "ar": "أعلنت شركة البحر الأحمر الدولية بدء تشغيل منتجع جاياسوم للعافية."
+        "ar": "أعلنت شركة البحر الأحمر الدولية بدء تشغيل منتجع جيسوم للاستشفاء."
       }
     }
   ],
@@ -109,7 +175,7 @@
       },
       "body": {
         "en": "Triple Bay is the focus of AMAALA on Saudi Arabia’s northwestern coast. The plan groups wellness resorts with a marina village and a waterfront that connects several parts of the destination.",
-        "ar": "تربل باي هو المحور الرئيسي لأمالا على الساحل الشمالي الغربي للسعودية. ويجمع المخطط بين منتجعات العافية وقرية المرسى وواجهة بحرية تربط أجزاء من الوجهة."
+        "ar": "تربل باي هو المحور الرئيسي لأمالا على الساحل الشمالي الغربي للسعودية. ويجمع المخطط بين منتجعات الاستشفاء وقرية المرسى وواجهة بحرية تربط أجزاء من الوجهة."
       }
     },
     {
@@ -119,7 +185,7 @@
       },
       "body": {
         "en": "Corallium is a marine life institute at Triple Bay. Its programme brings coral research and marine conservation together with public experiences designed to explain the ecosystems of the Red Sea.",
-        "ar": "كوراليوم معهد للحياة البحرية في تربل باي. ويجمع برنامجه بين أبحاث الشعاب المرجانية وحماية الحياة البحرية وتجارب تعرّف الزوار بالنظم البيئية للبحر الأحمر."
+        "ar": "كوراليوم مركز للحياة البحرية في تربل باي. ويجمع برنامجه بين أبحاث الشعاب المرجانية وحماية الحياة البحرية وتجارب تعرّف الزوار بالنظم البيئية للبحر الأحمر."
       }
     },
     {
@@ -225,7 +291,6 @@
       "ar": "تنتقل اللقطات من صالة الاستقبال في سيكس سينسز أمالا إلى شرفتها المطلة على تربل باي."
     },
     "source_url": "https://www.youtube.com/watch?v=u1Bh-Z2L2HU",
-    "path": "atlas/videos/amaala.mp4",
     "poster": "atlas/videos/amaala-poster.webp",
     "captions": [],
     "speech": false
@@ -251,7 +316,7 @@
       "url": "https://www.redseaglobal.com/en/media-center/news/Red-Sea-Global-announces-the-opening-of-Jayasom-Wellness-Resort-advancing-AMAALAs-wellness-vision/",
       "label": {
         "en": "Red Sea Global announcement of the Jayasom opening",
-        "ar": "إعلان البحر الأحمر الدولية عن افتتاح جاياسوم"
+        "ar": "إعلان البحر الأحمر الدولية عن افتتاح جيسوم"
       },
       "verified": "2026-11-08"
     },
@@ -259,7 +324,7 @@
       "url": "https://www.redseaglobal.com/en/media-center/news/significant-progress-announced-in-development-of-luxury-tourism-destination-amaala/",
       "label": {
         "en": "Triple Bay development and marine institute",
-        "ar": "تطوير تربل باي ومعهد الحياة البحرية"
+        "ar": "تطوير تربل باي ومركز الحياة البحرية"
       },
       "verified": "2026-11-08"
     },
@@ -270,6 +335,22 @@
         "ar": "الإبحار وعلوم البحار في أمالا"
       },
       "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.amaala.com/en/resorts",
+      "label": {
+        "en": "AMAALA resorts",
+        "ar": "منتجعات أمالا"
+      },
+      "verified": "2026-11-12"
+    },
+    {
+      "url": "https://www.amaala.com/en/experiences/water-sports/above-water",
+      "label": {
+        "en": "AMAALA water experiences",
+        "ar": "تجارب أمالا المائية"
+      },
+      "verified": "2026-11-12"
     }
   ]
 }

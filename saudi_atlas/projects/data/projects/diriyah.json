@@ -5,6 +5,8 @@
     "light": "#8a5528",
     "dark": "#e0b68c"
   },
+  "logo": "atlas/logos/diriyah.svg",
+  "texture": "atlas/textures/diriyah.svg",
   "name": {
     "en": "Diriyah",
     "ar": "الدرعية"
@@ -78,6 +80,131 @@
       "ar": "يضيف المخطط العام مساكن وفنادق ومكاتب مستوحاة من العمارة النجدية."
     }
   ],
+  "things_to_do": [
+    {
+      "name": {
+        "en": "At-Turaif",
+        "ar": "حي الطريف"
+      },
+      "brief": {
+        "en": "Mudbrick palaces and lanes of the first Saudi state’s capital, a UNESCO World Heritage Site.",
+        "ar": "قصور وأزقة طينية في عاصمة الدولة السعودية الأولى، المدرجة في قائمة التراث العالمي لليونسكو."
+      },
+      "price": {
+        "en": "Free until 5 pm, then SAR 50",
+        "ar": "مجانًا حتى الخامسة مساءً، ثم 50 ريالًا"
+      },
+      "image": {
+        "src": "atlas/media/diriyah-turaif-panorama",
+        "widths": [
+          480,
+          960,
+          1536
+        ],
+        "width": 1536,
+        "height": 580,
+        "color": "#f8f8f8",
+        "caption": {
+          "en": "At-Turaif district in Diriyah",
+          "ar": "حي الطريف في الدرعية"
+        },
+        "alt": {
+          "en": "At-Turaif district in Diriyah",
+          "ar": "حي الطريف في الدرعية"
+        }
+      }
+    },
+    {
+      "name": {
+        "en": "Bujairi Terrace",
+        "ar": "مطل البجيري"
+      },
+      "brief": {
+        "en": "Restaurants and cafés facing At-Turaif across Wadi Hanifah.",
+        "ar": "مطاعم ومقاهٍ تطل على حي الطريف عبر وادي حنيفة."
+      },
+      "price": {
+        "en": "Free until 5 pm, then SAR 50 to spend on dining",
+        "ar": "مجانًا حتى الخامسة مساءً، ثم 50 ريالًا تُحتسب من قيمة الطعام"
+      },
+      "image": {
+        "src": "atlas/media/diriyah-bujairi",
+        "widths": [
+          480,
+          960,
+          1600
+        ],
+        "width": 1600,
+        "height": 1067,
+        "color": "#081828",
+        "caption": {
+          "en": "Bujairi Terrace in Diriyah at night",
+          "ar": "مطل البجيري في الدرعية ليلًا"
+        },
+        "alt": {
+          "en": "Bujairi Terrace in Diriyah at night",
+          "ar": "مطل البجيري في الدرعية ليلًا"
+        }
+      }
+    },
+    {
+      "name": {
+        "en": "At-Turaif guided tour",
+        "ar": "جولة إرشادية في حي الطريف"
+      },
+      "brief": {
+        "en": "A guide through the lanes of At-Turaif, booked with your access pass or at the visitor centre.",
+        "ar": "مرشد يرافقك في أزقة حي الطريف، يُحجز مع تصريح الدخول أو من مركز خدمة الزوار."
+      },
+      "image": {
+        "src": "atlas/media/diriyah-alley",
+        "widths": [
+          480,
+          811
+        ],
+        "width": 811,
+        "height": 1200,
+        "color": "#381808",
+        "caption": {
+          "en": "A passage in the historic At-Turaif district",
+          "ar": "ممر في حي الطريف التاريخي"
+        },
+        "alt": {
+          "en": "A passage in the historic At-Turaif district",
+          "ar": "ممر في حي الطريف التاريخي"
+        }
+      }
+    },
+    {
+      "name": {
+        "en": "At-Turaif self-led tour",
+        "ar": "جولة ذاتية في حي الطريف"
+      },
+      "brief": {
+        "en": "Explore the historic streets and landmarks of At-Turaif at your own pace.",
+        "ar": "تجوّل بين أزقة حي الطريف التاريخية ومعالمه بالوتيرة التي تناسبك."
+      },
+      "image": {
+        "src": "atlas/media/diriyah-turaif-panorama",
+        "widths": [
+          480,
+          960,
+          1536
+        ],
+        "width": 1536,
+        "height": 580,
+        "color": "#f8f8f8",
+        "caption": {
+          "en": "At-Turaif district in Diriyah",
+          "ar": "حي الطريف في الدرعية"
+        },
+        "alt": {
+          "en": "At-Turaif district in Diriyah",
+          "ar": "حي الطريف في الدرعية"
+        }
+      }
+    }
+  ],
   "milestones": [
     {
       "date": "2010",
@@ -119,7 +246,7 @@
       },
       "body": {
         "en": "Bujairi Terrace looks toward At-Turaif from across Wadi Hanifah. Dining and public spaces give visitors a different view of the historic district and its relationship to the valley.",
-        "ar": "يطل البجيري على حي الطريف من الجهة المقابلة لوادي حنيفة. وتتيح المطاعم والمساحات العامة للزوار رؤية الحي التاريخي من زاوية مختلفة وفهم علاقته بالوادي."
+        "ar": "يطل مطل البجيري على حي الطريف من الجهة المقابلة لوادي حنيفة. وتتيح المطاعم والمساحات العامة للزوار رؤية الحي التاريخي من زاوية مختلفة وفهم علاقته بالوادي."
       }
     },
     {
@@ -221,11 +348,11 @@
       "color": "#78a8b8",
       "caption": {
         "en": "Najdi parapets against the sky",
-        "ar": "شرفات نجدية في السماء"
+        "ar": "شرفات نجدية في مواجهة السماء"
       },
       "alt": {
         "en": "Najdi parapets against the sky",
-        "ar": "شرفات نجدية في السماء"
+        "ar": "شرفات نجدية في مواجهة السماء"
       }
     }
   ],
@@ -243,7 +370,6 @@
     "end": 23,
     "duration": 23,
     "source_url": "https://www.youtube.com/watch?v=tt20NlDTOqQ",
-    "path": "atlas/videos/diriyah.mp4",
     "captions": [
       {
         "src": "atlas/videos/diriyah-en.vtt",
@@ -302,6 +428,22 @@
         "ar": "تطوير حي البجيري"
       },
       "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.diriyah.sa/en/faq",
+      "label": {
+        "en": "Diriyah visitor FAQ on passes",
+        "ar": "أسئلة زوار الدرعية عن تصاريح الدخول"
+      },
+      "verified": "2026-11-12"
+    },
+    {
+      "url": "https://www.diriyah.sa/en/experiences/at-turaif-tour",
+      "label": {
+        "en": "At-Turaif self-led tour",
+        "ar": "جولة ذاتية في حي الطريف"
+      },
+      "verified": "2026-11-12"
     }
   ]
 }

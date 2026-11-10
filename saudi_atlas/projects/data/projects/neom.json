@@ -5,6 +5,8 @@
     "light": "#1d5677",
     "dark": "#9ccbe4"
   },
+  "logo": "atlas/logos/neom.png",
+  "texture": "atlas/textures/neom.svg",
   "name": {
     "en": "NEOM",
     "ar": "نيوم"
@@ -67,7 +69,7 @@
   "highlights": [
     {
       "en": "Oxagon brings together industrial development and port logistics.",
-      "ar": "تجمع أوكساغون بين التنمية الصناعية والخدمات اللوجستية للميناء."
+      "ar": "تجمع أوكساچون بين التنمية الصناعية والخدمات اللوجستية للميناء."
     },
     {
       "en": "Trojena is planned as a mountain destination in the Jabal Al-Lawz range.",
@@ -76,6 +78,10 @@
     {
       "en": "The Port of NEOM handles freight on the Red Sea coast.",
       "ar": "يتولى ميناء نيوم مناولة الشحن على ساحل البحر الأحمر."
+    },
+    {
+      "en": "Sindalah is NEOM’s island destination, with a marina and a yacht club.",
+      "ar": "سندالة وجهة جزيرية في نيوم تضم مرسى وناديًا لليخوت."
     }
   ],
   "milestones": [
@@ -90,7 +96,7 @@
       "date": "2021-11-16",
       "text": {
         "en": "Plans for the industrial city of Oxagon were announced.",
-        "ar": "أُعلن عن خطط إنشاء مدينة أوكساغون الصناعية."
+        "ar": "أُعلن عن خطط إنشاء مدينة أوكساچون الصناعية."
       }
     },
     {
@@ -119,7 +125,7 @@
       },
       "body": {
         "en": "The Port of NEOM anchors Oxagon. The development brings freight handling and industrial activity together on the Red Sea coast, with plans to attract manufacturers and logistics companies near the port.",
-        "ar": "يشكّل ميناء نيوم محور أوكساغون. ويجمع المشروع بين مناولة الشحن والنشاط الصناعي على ساحل البحر الأحمر، مع خطط لاستقطاب شركات التصنيع والخدمات اللوجستية قرب الميناء."
+        "ar": "يشكّل ميناء نيوم محور أوكساچون. ويجمع المشروع بين مناولة الشحن والنشاط الصناعي على ساحل البحر الأحمر، مع خطط لاستقطاب شركات التصنيع والخدمات اللوجستية قرب الميناء."
       }
     },
     {
@@ -226,7 +232,6 @@
     "end": 34,
     "duration": 34,
     "source_url": "https://www.youtube.com/watch?v=7o_DOopdtbo",
-    "path": "atlas/videos/neom.mp4",
     "captions": [
       {
         "src": "atlas/videos/neom-en.vtt",
@@ -255,7 +260,7 @@
       "url": "https://www.neom.com/en-us/newsroom/hrh-prince-announces-oxagon",
       "label": {
         "en": "NEOM announcement of Oxagon",
-        "ar": "إعلان نيوم عن أوكساغون"
+        "ar": "إعلان نيوم عن أوكساچون"
       },
       "verified": "2026-11-08"
     },
@@ -274,6 +279,14 @@
         "ar": "نبذة نيوم عن تروجينا"
       },
       "verified": "2026-11-09"
+    },
+    {
+      "url": "https://www.neom.com/ar-sa/newsroom/hrh-announces-sindalah",
+      "label": {
+        "en": "NEOM announcement of Sindalah",
+        "ar": "إعلان نيوم عن سندالة"
+      },
+      "verified": "2026-11-12"
     }
   ]
 }

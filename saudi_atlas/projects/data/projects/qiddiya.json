@@ -5,6 +5,8 @@
     "light": "#8a4512",
     "dark": "#ecb37c"
   },
+  "logo": "atlas/logos/qiddiya.png",
+  "texture": "atlas/textures/qiddiya.svg",
   "name": {
     "en": "Qiddiya",
     "ar": "القدية"
@@ -23,7 +25,7 @@
   },
   "summary": {
     "en": "Qiddiya City is taking shape near Riyadh and the Tuwaiq Mountains. Its development spans theme parks, sports venues and cultural facilities. Six Flags Qiddiya City and Aquarabia are open to visitors.",
-    "ar": "تتطور مدينة القدية قرب الرياض وجبال طويق. ويشمل المشروع متنزهات ترفيهية ومنشآت رياضية ومرافق ثقافية. ويستقبل متنزها سيكس فلاغز وأكوارابيا الزوار في المدينة."
+    "ar": "تتطور مدينة القدية قرب الرياض وجبال طويق. ويشمل المشروع متنزهات ترفيهية ومنشآت رياضية ومرافق ثقافية. ويستقبل متنزها سيكس فلاغز وأكواريبيا الزوار في المدينة."
   },
   "status": {
     "key": "partly-open",
@@ -50,7 +52,7 @@
       },
       "value": {
         "en": "Six Flags Qiddiya City and Aquarabia",
-        "ar": "سيكس فلاغز مدينة القدية وأكوارابيا"
+        "ar": "سيكس فلاغز مدينة القدية وأكواريبيا"
       }
     },
     {
@@ -71,11 +73,79 @@
     },
     {
       "en": "Aquarabia is a water park with zones inspired by Saudi landscapes and wildlife.",
-      "ar": "أكوارابيا متنزه مائي يستلهم مناطقه من تضاريس السعودية وحياتها البرية."
+      "ar": "أكواريبيا متنزه مائي يستلهم مناطقه من تضاريس السعودية وحياتها البرية."
     },
     {
       "en": "PlayMaker Studios provides soundstages and outdoor sets for film production.",
-      "ar": "توفر بلاي ميكر مساحات تصوير داخلية ومواقع خارجية للإنتاج السينمائي."
+      "ar": "توفر استوديوهات بلاي ميكر مساحات تصوير داخلية ومواقع خارجية للإنتاج السينمائي."
+    }
+  ],
+  "things_to_do": [
+    {
+      "name": {
+        "en": "Six Flags Qiddiya City",
+        "ar": "سيكس فلاغز مدينة القدية"
+      },
+      "brief": {
+        "en": "Saudi Arabia’s first Six Flags theme park, with record-breaking rides at the foot of the Tuwaiq escarpment.",
+        "ar": "أول مدينة ألعاب من سيكس فلاغز في السعودية، بألعاب حطمت أرقامًا قياسية عند سفح جبال طويق."
+      },
+      "price": {
+        "en": "From SAR 250 per day",
+        "ar": "من 250 ريالًا لليوم"
+      },
+      "image": {
+        "src": "atlas/media/qiddiya-blue-hour",
+        "widths": [
+          480,
+          960,
+          1600
+        ],
+        "width": 1600,
+        "height": 1067,
+        "color": "#3878a8",
+        "caption": {
+          "en": "Six Flags Qiddiya City at blue hour",
+          "ar": "سيكس فلاغز مدينة القدية وقت الغسق"
+        },
+        "alt": {
+          "en": "Six Flags Qiddiya City at blue hour",
+          "ar": "سيكس فلاغز مدينة القدية وقت الغسق"
+        }
+      }
+    },
+    {
+      "name": {
+        "en": "Falcons Flight",
+        "ar": "فالكونز فلايت"
+      },
+      "brief": {
+        "en": "The longest, tallest and fastest roller coaster in the world.",
+        "ar": "أطول وأعلى وأسرع أفعوانية في العالم."
+      },
+      "price": {
+        "en": "Included with a park ticket",
+        "ar": "مشمولة في تذكرة المدينة"
+      },
+      "image": {
+        "src": "atlas/media/qiddiya-falcons-flight",
+        "widths": [
+          480,
+          960,
+          1280
+        ],
+        "width": 1280,
+        "height": 870,
+        "color": "#586878",
+        "caption": {
+          "en": "The Falcons Flight roller coaster",
+          "ar": "أفعوانية فالكونز فلايت"
+        },
+        "alt": {
+          "en": "The Falcons Flight roller coaster",
+          "ar": "أفعوانية فالكونز فلايت"
+        }
+      }
     }
   ],
   "milestones": [
@@ -97,7 +167,7 @@
       "date": "2026-04-23",
       "text": {
         "en": "Aquarabia opened to the public.",
-        "ar": "افتتح أكوارابيا أبوابه للجمهور."
+        "ar": "افتتح أكواريبيا أبوابه للجمهور."
       }
     }
   ],
@@ -119,7 +189,7 @@
       },
       "body": {
         "en": "Six Flags Qiddiya City brings together rides including Falcons Flight. Aquarabia is a separate water park within the city, with a different mix of slides, pools and water-based attractions.",
-        "ar": "تضم سيكس فلاغز مدينة القدية ألعابًا من بينها أفعوانية فالكونز فلايت. أما أكوارابيا فهي مدينة مائية مستقلة داخل القدية، وتضم منزلقات ومسابح وتجارب مائية متنوعة."
+        "ar": "تضم سيكس فلاغز مدينة القدية ألعابًا من بينها أفعوانية فالكونز فلايت. أما أكواريبيا فهي مدينة مائية مستقلة داخل القدية، وتضم منزلقات ومسابح وتجارب مائية متنوعة."
       }
     },
     {
@@ -145,11 +215,11 @@
     "color": "#3878a8",
     "caption": {
       "en": "Six Flags Qiddiya City at blue hour",
-      "ar": "سيكس فلاغز مدينة القدية في الساعة الزرقاء"
+      "ar": "سيكس فلاغز مدينة القدية وقت الغسق"
     },
     "alt": {
       "en": "Six Flags Qiddiya City at blue hour",
-      "ar": "سيكس فلاغز مدينة القدية في الساعة الزرقاء"
+      "ar": "سيكس فلاغز مدينة القدية وقت الغسق"
     }
   },
   "gallery": [
@@ -244,7 +314,6 @@
     "end": 88,
     "duration": 46,
     "source_url": "https://www.youtube.com/watch?v=ZiwyxnHF5hU",
-    "path": "atlas/videos/qiddiya.mp4",
     "poster": "atlas/videos/qiddiya-poster.webp",
     "captions": [],
     "speech": false
@@ -278,7 +347,7 @@
       "url": "https://qiddiya.com/media-centre/media-centre-listing/aquarabia-qiddiya-city-officially-welcomes-visitors-/",
       "label": {
         "en": "Qiddiya announcement of the Aquarabia opening",
-        "ar": "إعلان القدية عن افتتاح أكوارابيا"
+        "ar": "إعلان القدية عن افتتاح أكواريبيا"
       },
       "verified": "2026-11-08"
     },
@@ -286,7 +355,7 @@
       "url": "https://qiddiya.com/qiddiya-city/assets/aquarabia/",
       "label": {
         "en": "Aquarabia overview",
-        "ar": "نبذة عن أكوارابيا"
+        "ar": "نبذة عن أكواريبيا"
       },
       "verified": "2026-11-08"
     },
@@ -297,6 +366,14 @@
         "ar": "افتتاح استوديوهات بلاي ميكر"
       },
       "verified": "2026-11-08"
+    },
+    {
+      "url": "https://sixflagsqiddiyacity.com/en/tickets-passes",
+      "label": {
+        "en": "Six Flags Qiddiya City tickets",
+        "ar": "تذاكر سيكس فلاغز مدينة القدية"
+      },
+      "verified": "2026-11-12"
     }
   ]
 }

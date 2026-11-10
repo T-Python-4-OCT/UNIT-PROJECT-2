@@ -5,6 +5,8 @@
     "light": "#2c6a3a",
     "dark": "#a2d6a9"
   },
+  "logo": "atlas/logos/roshn.png",
+  "texture": "atlas/textures/roshn.svg",
   "name": {
     "en": "ROSHN",
     "ar": "روشن"
@@ -134,61 +136,100 @@
     }
   ],
   "image": {
-    "src": "atlas/media/roshn-sedra-street",
+    "src": "atlas/media/roshn-sedra-villas",
     "widths": [
       480,
-      848
+      960,
+      1600
     ],
-    "width": 848,
-    "height": 480,
-    "color": "#080808",
+    "width": 1600,
+    "height": 899,
+    "color": "#f8c8a8",
     "caption": {
-      "en": "A residential street in SEDRA, Riyadh",
-      "ar": "شارع سكني في سدرة بالرياض"
+      "en": "Two-storey homes on a SEDRA street",
+      "ar": "منازل من طابقين في أحد شوارع سدرة"
     },
     "alt": {
-      "en": "A residential street in SEDRA, Riyadh",
-      "ar": "شارع سكني في سدرة بالرياض"
+      "en": "Two-storey villas with shaded parking on a landscaped street in SEDRA, Riyadh",
+      "ar": "فلل من طابقين بمظلات للسيارات في شارع مزروع بسدرة في الرياض"
     }
   },
   "gallery": [
     {
-      "src": "atlas/media/roshn-sedra-homes",
+      "src": "atlas/media/roshn-sedra-dusk",
       "widths": [
         480,
-        848
+        960,
+        1600
       ],
-      "width": 848,
-      "height": 480,
-      "color": "#98a8d8",
+      "width": 1600,
+      "height": 757,
+      "color": "#3a4a5c",
       "caption": {
-        "en": "Homes and shaded parking in SEDRA",
-        "ar": "منازل ومظلات في سدرة"
+        "en": "A tree-lined SEDRA street at dusk",
+        "ar": "شارع تصطف على جانبيه الأشجار في سدرة عند الغسق"
       },
       "alt": {
-        "en": "Homes and shaded parking in SEDRA",
-        "ar": "منازل ومظلات في سدرة"
+        "en": "Townhouses and young trees along a SEDRA street, with streetlights coming on at dusk",
+        "ar": "منازل متلاصقة وأشجار على امتداد شارع في سدرة مع إضاءة الشارع عند الغسق"
+      }
+    },
+    {
+      "src": "atlas/media/roshn-sedra-walkway",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 1200,
+      "color": "#1c2a4a",
+      "caption": {
+        "en": "Shared e-scooters on a lit walkway in SEDRA at night",
+        "ar": "سكوترات كهربائية مشتركة على ممشى مضاء في سدرة ليلًا"
+      },
+      "alt": {
+        "en": "A row of green shared e-scooters parked beside a lamp-lit walkway at night",
+        "ar": "صف من السكوترات الكهربائية الخضراء بجوار ممشى مضاء بالمصابيح ليلًا"
+      }
+    },
+    {
+      "src": "atlas/media/roshn-sedra-park",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 1066,
+      "color": "#d8b8a8",
+      "caption": {
+        "en": "A pocket park beside SEDRA homes",
+        "ar": "حديقة صغيرة بجوار منازل سدرة"
+      },
+      "alt": {
+        "en": "A bench, lawn and young tree in a small park between SEDRA homes",
+        "ar": "مقعد وعشب وشجرة صغيرة في حديقة صغيرة بين منازل سدرة"
       }
     }
   ],
   "video": {
-    "youtube_id": "mIYR--jKZas",
+    "youtube_id": "DXEo_XjCqyY",
     "title": {
-      "en": "A visit to SEDRA in Riyadh",
-      "ar": "زيارة إلى مجتمع سدرة في الرياض"
+      "en": "SEDRA from above",
+      "ar": "سدرة من الأعلى"
     },
     "description": {
-      "en": "A visit to SEDRA starts on a landscaped Riyadh street and passes the façades and entrances of the new homes.",
-      "ar": "تبدأ جولة سدرة من شارع مزروع بالأشجار في الرياض وتمرّ بواجهات المنازل الجديدة ومداخلها."
+      "en": "A drone glides over the tree-lined streets and townhouses of SEDRA, ROSHN’s first community in north Riyadh.",
+      "ar": "تحلّق الكاميرا فوق الشوارع المشجّرة والمنازل المتلاصقة في سدرة، أول مجتمعات روشن في شمال الرياض."
     },
-    "start": 0,
-    "end": 21,
-    "duration": 21,
-    "source_url": "https://www.youtube.com/watch?v=mIYR--jKZas",
-    "path": "atlas/videos/roshn.mp4",
+    "start": 0.6,
+    "end": 9.8,
+    "duration": 9,
+    "source_url": "https://www.youtube.com/watch?v=DXEo_XjCqyY",
     "poster": "atlas/videos/roshn-poster.webp",
     "captions": [],
-    "speech": true
+    "speech": false
   },
   "sources": [
     {

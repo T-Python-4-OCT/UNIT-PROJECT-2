@@ -5,6 +5,8 @@
     "light": "#0d6466",
     "dark": "#86d8d1"
   },
+  "logo": "atlas/logos/red-sea-global.png",
+  "texture": "atlas/textures/the-red-sea.svg",
   "name": {
     "en": "The Red Sea",
     "ar": "البحر الأحمر"
@@ -78,6 +80,95 @@
       "ar": "ديزرت روك أول فندق في السعودية يحصل على ثلاثة مفاتيح ميشلان."
     }
   ],
+  "things_to_do": [
+    {
+      "name": {
+        "en": "Shebara",
+        "ar": "شيبارة"
+      },
+      "brief": {
+        "en": "An island resort of 38 overwater villas and 35 beach villas, each with a private pool.",
+        "ar": "منتجع على جزيرة يضم 38 فيلا فوق الماء و35 فيلا على الشاطئ، لكل منها مسبح خاص."
+      },
+      "image": {
+        "src": "atlas/media/red-sea-shebara-arc",
+        "widths": [
+          480,
+          960,
+          1600
+        ],
+        "width": 1600,
+        "height": 720,
+        "color": "#7898b8",
+        "caption": {
+          "en": "Shebara overwater villas and beach",
+          "ar": "فلل شيبارة فوق الماء وشاطئها"
+        },
+        "alt": {
+          "en": "Shebara overwater villas and beach",
+          "ar": "فلل شيبارة فوق الماء وشاطئها"
+        }
+      }
+    },
+    {
+      "name": {
+        "en": "Reef snorkelling",
+        "ar": "الغطس السطحي في الشعاب"
+      },
+      "brief": {
+        "en": "Guided trips to the house reefs and outer reefs, open to beginners aged six and over.",
+        "ar": "رحلات بصحبة مرشد إلى الشعاب القريبة والبعيدة، متاحة للمبتدئين من عمر ست سنوات."
+      },
+      "image": {
+        "src": "atlas/media/red-sea-reef",
+        "widths": [
+          480,
+          960,
+          1600
+        ],
+        "width": 1600,
+        "height": 738,
+        "color": "#a8d8f8",
+        "caption": {
+          "en": "A coral reef in the Red Sea",
+          "ar": "شعاب مرجانية في البحر الأحمر"
+        },
+        "alt": {
+          "en": "A coral reef in the Red Sea",
+          "ar": "شعاب مرجانية في البحر الأحمر"
+        }
+      }
+    },
+    {
+      "name": {
+        "en": "The Spa at Shebara",
+        "ar": "سبا شيبارة"
+      },
+      "brief": {
+        "en": "Wellness treatments and hammam rituals at Shebara island resort.",
+        "ar": "علاجات استرخاء وتجارب حمّام في منتجع شيبارة على الجزيرة."
+      },
+      "image": {
+        "src": "atlas/media/red-sea-shebara-arc",
+        "widths": [
+          480,
+          960,
+          1600
+        ],
+        "width": 1600,
+        "height": 720,
+        "color": "#7898b8",
+        "caption": {
+          "en": "Shebara overwater villas and beach",
+          "ar": "فلل شيبارة فوق الماء وشاطئها"
+        },
+        "alt": {
+          "en": "Shebara overwater villas and beach",
+          "ar": "فلل شيبارة فوق الماء وشاطئها"
+        }
+      }
+    }
+  ],
   "milestones": [
     {
       "date": "2023",
@@ -125,7 +216,7 @@
     {
       "title": {
         "en": "The lagoon as habitat",
-        "ar": "البحيرة موطنًا للحياة البحرية"
+        "ar": "البحيرة موطن للحياة البحرية"
       },
       "body": {
         "en": "Coral reefs and mangroves are part of the landscape around the destination. Red Sea Global includes coral and mangrove restoration in its environmental work alongside resort development.",
@@ -262,7 +353,6 @@
       "ar": "تتبع اللقطات الجوية قوس فلل شيبارة فوق الماء، ثم تقترب من عمارة الجزيرة ذات الأسطح العاكسة."
     },
     "source_url": "https://www.youtube.com/watch?v=aG58596tjhk",
-    "path": "atlas/videos/the-red-sea.mp4",
     "poster": "atlas/videos/the-red-sea-poster.webp",
     "captions": [],
     "speech": false
@@ -299,6 +389,30 @@
         "ar": "موقع منتجع ديزرت روك"
       },
       "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.visitredsea.com/en/resorts/shebara",
+      "label": {
+        "en": "Shebara resort page",
+        "ar": "صفحة منتجع شيبارة"
+      },
+      "verified": "2026-11-12"
+    },
+    {
+      "url": "https://www.visitredsea.com/en/experiences/water-sports/snorkeling",
+      "label": {
+        "en": "Red Sea snorkelling experiences",
+        "ar": "تجارب الغطس السطحي في البحر الأحمر"
+      },
+      "verified": "2026-11-12"
+    },
+    {
+      "url": "https://www.visitredsea.com/en/wellness/the-spa-at-shebara",
+      "label": {
+        "en": "The Spa at Shebara",
+        "ar": "سبا شيبارة"
+      },
+      "verified": "2026-11-12"
     }
   ]
 }
