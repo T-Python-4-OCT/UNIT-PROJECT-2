@@ -1,11 +1,15 @@
 <nav class="navbar navbar-expand-xl site-navbar">
   <div class="container">
-    <a class="navbar-brand" href="{% url 'portal:home' %}">{{ site.site_name }}</a>
+    <a class="navbar-brand" href="{% url 'portal:home' %}">
+      {{ site.site_name }}
+    </a>
+
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
             data-bs-target="#mainNav" aria-controls="mainNav"
             aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav ms-auto">
         {% for nav_page in site.pages %}
@@ -18,6 +22,14 @@
           </li>
         {% endfor %}
       </ul>
+
+      <button
+        class="btn btn-sm btn-outline-light ms-xl-3 mt-2 mt-xl-0"
+        type="button"
+        id="themeToggle"
+        aria-label="Switch color theme">
+        Dark mode
+      </button>
     </div>
   </div>
 </nav>
