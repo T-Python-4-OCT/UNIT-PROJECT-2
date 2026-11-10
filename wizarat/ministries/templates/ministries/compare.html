@@ -1,0 +1,70 @@
+{% extends "ministries/base.html" %}
+
+{% block title %}قارن بين وزارتين | وِجهة{% endblock %}
+
+{% block content %}
+<header class="page-heading">
+  <div class="container">
+    <span class="eyebrow">{{ site_content.compare_page.eyebrow }}</span>
+    <h1>{{ site_content.compare_page.title }}</h1>
+    <p>{{ site_content.compare_page.description }}</p>
+  </div>
+</header>
+<section class="section-wrap">
+  <div class="container">
+    <form class="compare-form" method="get" action="{% url 'ministries:compare' %}">
+      <div>
+        <label for="compareFirst">{{ site_content.compare_page.first }}</label>
+        <select class="compare-select" id="compareFirst" name="first" required>
+          <option value="">{{ site_content.compare_page.select }}</option>
+          {% for ministry in ministries %}
+          <option value="{{ ministry.slug }}" {% if first.slug == ministry.slug %}selected{% endif %}>{{ ministry.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <div>
+        <label for="compareSecond">{{ site_content.compare_page.second }}</label>
+        <select class="compare-select" id="compareSecond" name="second" required>
+          <option value="">{{ site_content.compare_page.select }}</option>
+          {% for ministry in ministries %}
+          <option value="{{ ministry.slug }}" {% if second.slug == ministry.slug %}selected{% endif %}>{{ ministry.name }}</option>
+          {% endfor %}
+        </select>
+      </div>
+      <button class="btn-gold" type="submit">{{ site_content.compare_page.submit }} <i class="bi bi-arrow-left-right"></i></button>
+    </form>
+
+    {% if selected %}
+    <div class="compare-table-wrap">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th scope="col">{{ site_content.compare_page.field }}</th>
+            {% for ministry in selected %}<th scope="col">{{ ministry.name }}</th>{% endfor %}
+          </tr>
+        </thead>
+        <tbody>
+          <tr><th scope="row">{{ site_content.compare_page.category }}</th>{% for ministry in selected %}<td>{{ ministry.category|default:"—" }}</td>{% endfor %}</tr>
+          <tr><th scope="row">{{ site_content.compare_page.founded }}</th>{% for ministry in selected %}<td>{{ ministry.founded|default:"—" }}</td>{% endfor %}</tr>
+          <tr><th scope="row">{{ site_content.compare_page.headquarters }}</th>{% for ministry in selected %}<td>{{ ministry.hq|default:"—" }}</td>{% endfor %}</tr>
+          <tr><th scope="row">{{ site_content.compare_page.minister }}</th>{% for ministry in selected %}<td>{{ ministry.minister|default:"—" }}</td>{% endfor %}</tr>
+          <tr><th scope="row">{{ site_content.compare_page.overview }}</th>{% for ministry in selected %}<td>{{ ministry.about|default:"—" }}</td>{% endfor %}</tr>
+          <tr>
+            <th scope="row">{{ site_content.compare_page.tasks }}</th>
+            {% for ministry in selected %}
+            <td><ul class="content-list">{% for task in ministry.tasks %}<li>{{ task }}</li>{% empty %}—{% endfor %}</ul></td>
+            {% endfor %}
+          </tr>
+          <tr><th scope="row">{{ site_content.compare_page.website }}</th>{% for ministry in selected %}<td>{% if ministry.website %}<a href="{{ ministry.website }}" target="_blank" rel="noopener noreferrer">{{ site_content.compare_page.visit }}</a>{% else %}—{% endif %}</td>{% endfor %}</tr>
+        </tbody>
+      </table>
+    </div>
+    {% else %}
+    <div class="compare-prompt">
+      <i class="bi bi-arrow-left-right" aria-hidden="true"></i>
+      <p class="mb-0">{% if first and second %}{{ site_content.compare_page.different_prompt }}{% else %}{{ site_content.compare_page.choose_prompt }}{% endif %}</p>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

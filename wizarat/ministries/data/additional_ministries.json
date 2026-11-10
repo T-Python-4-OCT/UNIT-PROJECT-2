@@ -1,0 +1,90 @@
+[
+  {
+    "slug": "national-guard",
+    "name": "وزارة الحرس الوطني",
+    "category": "سيادية",
+    "summary": "جهة حكومية تتولى شؤون الحرس الوطني ومهامه.",
+    "icon": "bi-shield-check",
+    "website": "https://www.sang.gov.sa/"
+  },
+  {
+    "slug": "economy-planning",
+    "name": "وزارة الاقتصاد والتخطيط",
+    "category": "اقتصادية",
+    "summary": "تعنى بالاقتصاد والتخطيط على مستوى المملكة.",
+    "icon": "bi-graph-up",
+    "website": "https://www.mep.gov.sa/"
+  },
+  {
+    "slug": "industry-mineral-resources",
+    "name": "وزارة الصناعة والثروة المعدنية",
+    "category": "اقتصادية",
+    "summary": "تعنى بقطاعي الصناعة والثروة المعدنية.",
+    "icon": "bi-gear-wide-connected",
+    "website": "https://mim.gov.sa/"
+  },
+  {
+    "slug": "investment",
+    "name": "وزارة الاستثمار",
+    "category": "اقتصادية",
+    "summary": "تعنى بقطاع الاستثمار وتطوير بيئته في المملكة.",
+    "icon": "bi-cash-stack",
+    "website": "https://misa.gov.sa/"
+  },
+  {
+    "slug": "transport-logistics",
+    "name": "وزارة النقل والخدمات اللوجستية",
+    "category": "اقتصادية",
+    "summary": "تعنى بقطاع النقل والخدمات اللوجستية.",
+    "icon": "bi-truck",
+    "website": ""
+  },
+  {
+    "slug": "human-resources",
+    "name": "وزارة الموارد البشرية والتنمية الاجتماعية",
+    "category": "خدمية",
+    "summary": "تعنى بالموارد البشرية والتنمية الاجتماعية.",
+    "icon": "bi-people",
+    "website": "https://www.hrsd.gov.sa/"
+  },
+  {
+    "slug": "municipal-housing",
+    "name": "وزارة البلديات والإسكان",
+    "category": "خدمية",
+    "summary": "تعنى بشؤون البلديات والإسكان.",
+    "icon": "bi-houses",
+    "website": "https://momah.gov.sa/"
+  },
+  {
+    "slug": "environment-water-agriculture",
+    "name": "وزارة البيئة والمياه والزراعة",
+    "category": "خدمية",
+    "summary": "تعنى بقطاعات البيئة والمياه والزراعة.",
+    "icon": "bi-tree",
+    "website": "https://www.mewa.gov.sa/"
+  },
+  {
+    "slug": "islamic-affairs",
+    "name": "وزارة الشؤون الإسلامية والدعوة والإرشاد",
+    "category": "مجتمع وثقافة",
+    "summary": "تعنى بالشؤون الإسلامية والدعوة والإرشاد.",
+    "icon": "bi-moon-stars",
+    "website": "https://www.moia.gov.sa/"
+  },
+  {
+    "slug": "media",
+    "name": "وزارة الإعلام",
+    "category": "مجتمع وثقافة",
+    "summary": "تعنى بشؤون الإعلام في المملكة.",
+    "icon": "bi-broadcast",
+    "website": "https://media.gov.sa/"
+  },
+  {
+    "slug": "culture",
+    "name": "وزارة الثقافة",
+    "category": "مجتمع وثقافة",
+    "summary": "تعنى بالشأن الثقافي في المملكة.",
+    "icon": "bi-palette",
+    "website": "https://www.moc.gov.sa/"
+  }
+]

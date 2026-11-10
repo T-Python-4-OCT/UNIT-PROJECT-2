@@ -1,0 +1,81 @@
+{% extends "ministries/base.html" %}
+
+{% block title %}{{ site_content.directory_page.title }} | وِجهة{% endblock %}
+
+{% block content %}
+<header class="page-heading">
+  <div class="container">
+    <span class="eyebrow">{{ site_content.directory_page.eyebrow }}</span>
+    <h1>{{ site_content.directory_page.title }}</h1>
+    <p>{{ site_content.directory_page.description }}</p>
+    <div class="directory-total">
+      <strong>{{ directory_ministries|length }}</strong>
+      <span>{{ site_content.directory_page.count_label }}</span>
+    </div>
+  </div>
+</header>
+
+<section class="section-wrap">
+  <div class="container">
+    <div class="directory-tools">
+      <label class="search-field">
+        <span class="visually-hidden">{{ site_content.directory_page.search_label }}</span>
+        <i class="bi bi-search" aria-hidden="true"></i>
+        <input class="js-directory-search" type="search"
+          placeholder="{{ site_content.directory_page.search_placeholder }}" autocomplete="off">
+      </label>
+      <label>
+        <span class="visually-hidden">{{ site_content.directory_page.all_categories }}</span>
+        <select class="filter-select js-directory-category">
+          <option value="">{{ site_content.directory_page.all_categories }}</option>
+          {% for category in directory_categories %}
+          <option value="{{ category }}">{{ category }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <span class="directory-count" aria-live="polite">
+        <span class="js-directory-count">{{ directory_ministries|length }}</span> {{ site_content.directory_page.count_label }}
+      </span>
+    </div>
+
+    <div class="row g-4">
+      {% for ministry in directory_ministries %}
+      <div class="col-12 col-md-6 col-xl-4 js-directory-card reveal"
+        data-search="{{ ministry.name }} {{ ministry.category }} {{ ministry.summary }}"
+        data-category="{{ ministry.category }}">
+        <article class="directory-card">
+          <div class="directory-card-head">
+            <span class="directory-card-icon"><i class="bi {{ ministry.icon|default:'bi-building' }}" aria-hidden="true"></i></span>
+            <span class="directory-card-number">{{ forloop.counter|stringformat:"02d" }}</span>
+          </div>
+          <span class="directory-card-category">{{ ministry.category }}</span>
+          <h2>{{ ministry.name }}</h2>
+          <p>{{ ministry.summary }}</p>
+          <div class="directory-card-actions">
+            {% if ministry.detail_slug %}
+            <a class="directory-action" href="{% url 'ministries:detail' ministry.detail_slug %}">
+              {{ site_content.directory_page.open_details }} <i class="bi bi-arrow-left"></i>
+            </a>
+            {% else %}
+            <span class="directory-action is-muted">{{ site_content.directory_page.details_unavailable }}</span>
+            {% endif %}
+            {% if ministry.website %}
+            <a class="directory-site" href="{{ ministry.website }}" target="_blank" rel="noopener noreferrer"
+              aria-label="{{ site_content.directory_page.official_site }}: {{ ministry.name }}">
+              <i class="bi bi-box-arrow-up-left" aria-hidden="true"></i>
+            </a>
+            {% else %}
+            <span class="directory-site is-muted" aria-label="{{ site_content.directory_page.no_site }}">
+              <i class="bi bi-link-45deg" aria-hidden="true"></i>
+            </span>
+            {% endif %}
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="empty-state js-directory-empty" role="status">{{ site_content.directory_page.no_results }}</div>
+    <p class="editorial-note mt-4"><i class="bi bi-info-circle"></i> {{ site_content.directory_page.note }}</p>
+  </div>
+</section>
+{% endblock %}

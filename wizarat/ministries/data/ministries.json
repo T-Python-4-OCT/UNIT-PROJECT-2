@@ -1,0 +1,15 @@
+[
+  {"slug": "foreign", "name": "وزارة الخارجية", "tagline": "صوت المملكة أمام العالم", "icon": "bi-globe2", "category": "سيادية", "founded": "1349هـ / 1930م", "minister": "الأمير فيصل بن فرحان آل سعود"},
+  {"slug": "interior", "name": "وزارة الداخلية", "tagline": "أمن الوطن وطمأنينة المجتمع", "icon": "bi-shield-lock", "category": "سيادية", "founded": "1350هـ / 1931م", "minister": "الأمير عبدالعزيز بن سعود بن نايف آل سعود"},
+  {"slug": "defense", "name": "وزارة الدفاع", "tagline": "درع الوطن وحصنه المنيع", "icon": "bi-shield-fill", "category": "سيادية", "founded": "1363هـ / 1943م", "minister": "الأمير خالد بن سلمان آل سعود"},
+  {"slug": "finance", "name": "وزارة المالية", "tagline": "إدارة مالية لمستقبل مستدام", "icon": "bi-cash-coin", "category": "سيادية", "founded": "1351هـ / 1932م", "minister": "محمد بن عبدالله الجدعان"},
+  {"slug": "health", "name": "وزارة الصحة", "tagline": "صحة الإنسان أولًا", "icon": "bi-heart-pulse", "category": "خدمية", "founded": "1370هـ / 1951م", "minister": "فهد بن عبدالرحمن الجلاجل"},
+  {"slug": "education", "name": "وزارة التعليم", "tagline": "نبني الأجيال ونصنع المستقبل", "icon": "bi-mortarboard", "category": "خدمية", "founded": "1373هـ / 1953م", "minister": "يوسف بن عبدالله البنيان"},
+  {"slug": "justice", "name": "وزارة العدل", "tagline": "عدالة ناجزة وخدمات ميسرة", "icon": "bi-bank", "category": "خدمية", "founded": "1382هـ / 1962م", "minister": "وليد بن محمد الصمعاني"},
+  {"slug": "hajj", "name": "وزارة الحج والعمرة", "tagline": "شرف خدمة ضيوف الرحمن", "icon": "bi-moon-stars", "category": "خدمية", "founded": "1381هـ / 1962م", "minister": "توفيق بن فوزان الربيعة"},
+  {"slug": "commerce", "name": "وزارة التجارة", "tagline": "بيئة أعمال تنافسية وموثوقة", "icon": "bi-shop", "category": "اقتصادية", "founded": "1373هـ / 1954م", "minister": "ماجد بن عبدالله القصبي"},
+  {"slug": "energy", "name": "وزارة الطاقة", "tagline": "طاقة تحرك الحاضر والمستقبل", "icon": "bi-lightning-charge", "category": "اقتصادية", "founded": "1440هـ / 2019م", "minister": "الأمير عبدالعزيز بن سلمان آل سعود"},
+  {"slug": "mcit", "name": "وزارة الاتصالات وتقنية المعلومات", "tagline": "مملكة رقمية بلا حدود", "icon": "bi-cpu", "category": "اقتصادية", "founded": "1372هـ / 1953م", "minister": "عبدالله بن عامر السواحه"},
+  {"slug": "tourism", "name": "وزارة السياحة", "tagline": "وجهة العالم الجديدة", "icon": "bi-airplane", "category": "جودة الحياة", "founded": "1441هـ / 2020م", "minister": "أحمد بن عقيل الخطيب"},
+  {"slug": "sports", "name": "وزارة الرياضة", "tagline": "مجتمع حيوي وأبطال عالميون", "icon": "bi-trophy", "category": "جودة الحياة", "founded": "1441هـ / 2020م", "minister": "الأمير عبدالعزيز بن تركي الفيصل آل سعود"}
+]

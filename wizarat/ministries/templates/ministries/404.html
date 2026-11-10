@@ -1,0 +1,15 @@
+{% extends "ministries/base.html" %}
+
+{% block title %}{{ site_content.not_found.title }} | وِجهة{% endblock %}
+
+{% block content %}
+<section class="section-wrap text-center">
+  <div class="container">
+    <div class="error-mark" aria-hidden="true"><i class="bi bi-compass"></i></div>
+    <span class="eyebrow">{{ site_content.not_found.eyebrow }}</span>
+    <h1 class="page-heading-title">{{ site_content.not_found.heading }}</h1>
+    <p class="text-secondary">{{ site_content.not_found.description }}</p>
+    <a class="btn-gold mt-3" href="{% url 'ministries:home' %}">{{ site_content.not_found.home }} <i class="bi bi-arrow-left"></i></a>
+  </div>
+</section>
+{% endblock %}
