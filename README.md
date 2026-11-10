@@ -1,76 +1,57 @@
-# UNIT-PROJECT-2
+# صِناعة | صناعة سعودية بروح المستقبل
 
-## Using Django create a project about our beloved kingdom of your choosing. Examples :
-- Tourism in Saudi Arabia.
-- Culture & Heritage in Saudi Arabia.
-- Manufacturing & Industries in Saudi Arabia.
-- Agriculture in Saudi Arabia.
-- Science in Saudi Arabia.
-- History of Saudi Arabia.
-- etc.....
+موقع تعليمي باللغة العربية يستكشف قطاعات الصناعة في المملكة العربية السعودية، ويعرّف بمبادرات وجوائز وطنية مرتبطة بالتميز والابتكار والمحتوى المحلي. بُني باستخدام Django.
 
+## صفحات الموقع
 
-# Minumum Requirements
-- Use Django.
-- Use templates & templates inheritance.
-- Use dynamic urls where applicable.
-- Use static files where applicable.
-- homepage + at least 6 pages.
-- Coherent, uniform design .
-- Implement dark and light mode.
-- Must be Responsive. 
-- You can use a CSS library to style your website (such as Bootstrap or equivalent)
-- You can use a cdn or a cloud storage to host large files such as large videos (example: Goolge Firebase Cloud Storage: https://firebase.google.com/docs/storage)
+- الصفحة الرئيسية.
+- صفحة القطاعات، وصفحة مقالة تفصيلية مستقلة لكل قطاع: سياق القطاع، قصة تطوره، إنجازات وأرقام مع تواريخ ومصادر، أثره الوطني، فرصه وتحدياته، ومراجع إضافية.
+- القطاعات: الطاقة المتجددة، البتروكيماويات، التعدين والمعادن، الصناعات الدوائية، الصناعات الغذائية، السيارات والتنقل، والصناعات الدفاعية.
+- صفحة موسّعة للإنجازات الصناعية: أرقام موثقة، محطات زمنية من 2019 إلى 2025، وفائزون في جوائز وطنية مع روابط المصادر الرسمية.
+- خريطة جغرافية تفاعلية تستخدم Leaflet وبلاطات OSM-DE لعرض بيانات OpenStreetMap، مع بحث عن المدينة والمنطقة والنشاط الصناعي، وفلتر يبرز المواقع المرتبطة بالنشاط المختار، وإحداثيات ومراجع لكل موقع. العلامات تمثل المدينة أو المنطقة الصناعية، ولا تدعي تحديد بوابة منشأة بعينها.
+- طبقة حدود وأسماء للمناطق الإدارية السعودية الثلاث عشرة، مبنية من [بيانات العنوان الوطني المفتوحة](https://github.com/yasseralsamman/saudi-national-address) والمنشورة بترخيص CC0.
+- صفحة عن المشروع.
 
+## المتطلبات التي يحققها المشروع
 
+- Django وواجهات مبنية بقوالب مع توريث `base.html`.
+- روابط ديناميكية للقطاعات باستخدام slug مثل `/industry/energy/`.
+- ملفات ثابتة منفصلة للتنسيق والتفاعل في `static/`.
+- صفحة رئيسية وأكثر من 6 صفحات محتوى.
+- تصميم عربي موحّد باتجاه RTL، متجاوب مع الجوال، مع وضع ليلي ونهاري محفوظ في المتصفح.
+- JavaScript: بحث وفلاتر للقطاعات والخريطة، اختصارات لوحة المفاتيح، مشاركة الروابط، قائمة جوال محسّنة، مؤشر تقدم القراءة، زر العودة للأعلى، وتأثيرات ظهور تراعي إعداد تقليل الحركة.
 
-# Example : TOURISM-PROJECT
+## التشغيل محليًا
 
-## Using Django create a website for Tourism in Saudi Arabia . The project name is : Tourister
+يتطلب Python 3.10 أو أحدث.
 
-### Your website has the following pages :
+```powershell
+python -m venv .venv
+.venv\Scripts\Activate.ps1
+pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
 
-#### "" : home page , with the following content:
-- Title of the page , with a catchy phrase about tourism in Saudi Arabia
-- A single wide image covering the page.
-- A paragraph about the tourism in Saudi Arabia in General.
-- A list of cities pages with links to them (the pages are listed down below).
+ثم افتح `http://127.0.0.1:8000/` في المتصفح.
 
+## مصادر قسم الجوائز
 
-#### "city/Riyadh/"
-- Title of city with a catchy phrase
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+- [تدشين برنامج ندلب عام 2019 – وكالة الأنباء السعودية](https://www.spa.gov.sa/w827781)
+- [نظام الاستثمار التعديني – هيئة الخبراء بمجلس الوزراء](https://laws.boe.gov.sa/BoeLaws/Laws/LawDetails/9560f620-e77e-476c-b9ea-abdd00b87480/1)
+- [إطلاق الاستراتيجية الوطنية للصناعة عام 2022 – وكالة الأنباء السعودية](https://www.spa.gov.sa/ar/db25840ad2s)
+- [برنامج صنع في السعودية – وكالة الأنباء السعودية](https://www.spa.gov.sa/2341386)
 
-#### "city/Abha/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+- [جائزة التميز الصناعي – مدن (تغطية وكالة الأنباء السعودية)](https://www.spa.gov.sa/en/N2392258)
+- [جوائز MUSAHAMA – صندوق الاستثمارات العامة](https://www.pif.gov.sa/en/private-sector-hub/private-sector-initiatives/musahama-program/musahama-awards/)
+- [إطلاق جائزة الابتكار الصناعي – وكالة الأنباء السعودية](https://www.spa.gov.sa/N2293393)
+- [الفائزون بجوائز مساهمة 2026 – صندوق الاستثمارات العامة](https://annualreport.pif.gov.sa/ar/private-sector-hub/private-sector-initiatives/musahama-program/musahama-awards/)
+- [إنجازات الصناعة والتعدين لعام 2025 – وكالة الأنباء السعودية](https://spa.gov.sa/en/N2584688)
+- [إنجازات البرنامج الوطني للتنمية الصناعية 2024 – التقرير السنوي لرؤية السعودية 2030](https://www.vision2030.gov.sa/media/uvknp4di/nidlp_annual_report-2024_-en.pdf)
+- [مؤشرات الطاقة المتجددة والصناعة لعام 2025 – وكالة الأنباء السعودية](https://www.spa.gov.sa/en/N2615760)
+- [مصنع الإنسولين في سدير – وكالة الأنباء السعودية](https://www.spa.gov.sa/en/N2261488)
+- [مصنع هيونداي المتكامل – وكالة الأنباء السعودية](https://spa.gov.sa/en/N2319490)
+- [تجمع الصناعات الغذائية في جدة – وكالة الأنباء السعودية](https://spa.gov.sa/N2212954)
+- [نتائج توطين الصناعات العسكرية لعام 2025 – وكالة الأنباء السعودية](https://www.spa.gov.sa/en/N2710019)
 
-#### "city/Mekkah/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
-
-#### "city/AlUla/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+تستخدم الخريطة Leaflet وبلاطات OSM-DE، ويظهر إسناد مساهمي OpenStreetMap وOSM-DE داخل الخريطة. حدود المناطق محفوظة محليًا في `static/geo/saudi-regions.geojson`، أما مرجع الحدود الرسمي للمملكة فهو [خريطة الهيئة العامة للمساحة والمعلومات الجيومكانية](https://www.geosa.gov.sa/en/About/Pages/OfficialSaudiMap.aspx). تحتاج بلاطات الخريطة والصور المستضافة عبر Unsplash إلى اتصال بالإنترنت.
