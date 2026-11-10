@@ -82,4 +82,111 @@
     </div>
 </section>
 
+<section class="places-section" id="places">
+    <div class="places-container">
+
+        <div class="section-heading">
+            <span class="section-decoration">◆ ◆ ◆</span>
+            <h2>أماكن الزيارة</h2>
+            <p>
+                اكتشف أبرز وجهات الدرعية التي تجمع بين
+                التاريخ والثقافة والضيافة والطبيعة.
+            </p>
+        </div>
+
+        <div class="places-grid">
+            {% for place in places %}
+
+            <a href="{% url 'main:place_detail' place.slug %}" class="place-card">
+
+                <img
+                    src="{% static 'main/images/' %}{{ place.image }}"
+                    alt="{{ place.title }}"
+                    loading="lazy"
+                >
+
+                <div class="place-card-overlay"></div>
+
+                <div class="place-card-content">
+                    <span class="place-tag">{{ place.tag }}</span>
+                    <h3>{{ place.title }}</h3>
+                    <p>{{ place.subtitle }}</p>
+
+                    <span class="place-card-link">
+                        اكتشف المكان
+                        <span aria-hidden="true">←</span>
+                    </span>
+                </div>
+
+            </a>
+
+            {% endfor %}
+        </div>
+
+        <div class="places-more">
+            <a href="{% url 'main:places' %}" class="places-more-button">
+                جميع أماكن الزيارة
+                <span aria-hidden="true">←</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section class="events-section" id="events">
+    <div class="events-container">
+
+        <div class="events-heading">
+            <span class="events-decoration">◆ ◆ ◆</span>
+            <h2>فعاليات الدرعية</h2>
+            <p>تجربة بصرية تجمع أصالة التاريخ وروعة الحاضر.</p>
+        </div>
+
+        <div class="event-feature">
+
+            <div class="event-image-wrapper">
+                <img
+                    src="{% static 'main/images/event-salwa.webp' %}"
+                    alt="عرض مرئي على واجهة قصر سلوى"
+                    class="event-feature-image"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="event-info">
+
+                <span class="event-category">
+                    التراث والثقافة
+                </span>
+
+                <h3>عرض مرئي على واجهة قصر سلوى</h3>
+
+                <p class="event-description">
+                    استمتع بتجربة بصرية تستعرض جوانب من تاريخ
+                    الدرعية وإرث الدولة السعودية الأولى، من خلال
+                    عرض مرئي على واجهة قصر سلوى في حي الطريف التاريخي.
+                </p>
+
+                <div class="event-details">
+                    <div class="event-detail">
+                        <span class="event-detail-icon">✦</span>
+                        <div>
+                            <h4>الموقع</h4>
+                            <p>قصر سلوى – حي الطريف التاريخي</p>
+                        </div>
+                    </div>
+                </div>
+
+                <a href="{% url 'main:events' %}" class="places-more-button">
+                    اكتشف الفعالية
+                    <span aria-hidden="true">←</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
 {% endblock %}
