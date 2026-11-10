@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">وحدات القط العسيري</title><desc id="desc">تركيب هندسي ملون مستوحى من زخارف القط العسيري.</desc>
+  <rect width="1200" height="800" fill="#f6e6cf"/>
+  <path d="M0 0h1200v88H0zm0 712h1200v88H0z" fill="#16644a"/>
+  <g fill="#8e2f22"><path d="M0 112h1200v22H0zm0 554h1200v22H0z"/></g>
+  <g stroke="#16644a" stroke-width="16" fill="#f5d140">
+    <path d="M94 246 194 146l100 100-100 100z"/><path d="M306 246 406 146l100 100-100 100z"/><path d="M518 246 618 146l100 100-100 100z"/><path d="M730 246 830 146l100 100-100 100z"/><path d="M942 246 1042 146l100 100-100 100z"/>
+  </g>
+  <g fill="#1b8f84" stroke="#8e2f22" stroke-width="12">
+    <circle cx="194" cy="470" r="88"/><circle cx="406" cy="470" r="88"/><circle cx="618" cy="470" r="88"/><circle cx="830" cy="470" r="88"/><circle cx="1042" cy="470" r="88"/>
+  </g>
+  <g fill="#f6e6cf"><path d="m194 398 18 54 54 18-54 18-18 54-18-54-54-18 54-18z"/><path d="m406 398 18 54 54 18-54 18-18 54-18-54-54-18 54-18z"/><path d="m618 398 18 54 54 18-54 18-18 54-18-54-54-18 54-18z"/><path d="m830 398 18 54 54 18-54 18-18 54-18-54-54-18 54-18z"/><path d="m1042 398 18 54 54 18-54 18-18 54-18-54-54-18 54-18z"/></g>
+  <g fill="#d8a102"><circle cx="194" cy="470" r="16"/><circle cx="406" cy="470" r="16"/><circle cx="618" cy="470" r="16"/><circle cx="830" cy="470" r="16"/><circle cx="1042" cy="470" r="16"/></g>
+</svg>
