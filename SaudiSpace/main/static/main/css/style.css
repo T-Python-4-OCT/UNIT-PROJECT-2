@@ -1,47 +1,49 @@
-/* =========================================
-   DESIGN SYSTEM
-========================================= */
-
-/* DARK MODE - DEFAULT */
 
 :root {
     color-scheme: dark;
 
-    --bg-color: #080d18;
-    --surface-color: #101827;
-    --surface-hover: #162236;
-    --card-color: #111c2e;
+    --bg-color: #070b14;
+    --surface-color: #0f1828;
+    --surface-hover: #182640;
+    --card-color: #142036;
 
     --text-color: #f8fafc;
-    --secondary-text: #94a3b8;
+    --secondary-text: #a3b1c6;
 
     --primary-color: #35c99a;
-    --primary-hover: #48d9aa;
+    --primary-hover: #5ae0b1;
 
-    --border-color: rgba(148, 163, 184, 0.15);
-    --header-bg: rgba(8, 13, 24, 0.88);
+    --border-color: rgba(148, 163, 184, 0.18);
+    --header-bg: rgba(7, 11, 20, 0.9);
+    --shadow: 0 12px 32px rgba(0, 0, 0, 0.35);
 
-    --button-text: #071a14;
+    --button-text: #04130e;
+
+    /* Hero sections use photos, so their colors stay the same in both themes */
+    --hero-bg: #070b14;
+    --hero-text: #f8fafc;
+    --hero-muted: #c3cedb;
+    --hero-accent: #35c99a;
 }
 
 /* LIGHT MODE */
-
-html[data-theme="light"] {
+:root[data-theme="light"] {
     color-scheme: light;
 
-    --bg-color: #f5f7fa;
+    --bg-color: #eef2f7;
     --surface-color: #ffffff;
-    --surface-hover: #edf3f8;
+    --surface-hover: #e3eaf3;
     --card-color: #ffffff;
 
-    --text-color: #172033;
-    --secondary-text: #64748b;
+    --text-color: #0f172a;
+    --secondary-text: #475569;
 
-    --primary-color: #087f5b;
-    --primary-hover: #066b4d;
+    --primary-color: #047857;
+    --primary-hover: #065f46;
 
-    --border-color: #e2e8f0;
-    --header-bg: rgba(255, 255, 255, 0.92);
+    --border-color: #cbd5e1;
+    --header-bg: rgba(255, 255, 255, 0.94);
+    --shadow: 0 10px 28px rgba(15, 23, 42, 0.08);
 
     --button-text: #ffffff;
 }
@@ -62,15 +64,21 @@ html {
 }
 
 body {
-    font-family: 'Inter', sans-serif;
+    font-family: 'Inter', system-ui, sans-serif;
+    line-height: 1.6;
     background: var(--bg-color);
     color: var(--text-color);
     transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 a {
-    text-decoration: none;
     color: inherit;
+    text-decoration: none;
+}
+
+img {
+    max-width: 100%;
+    display: block;
 }
 
 button {
@@ -92,6 +100,68 @@ main {
     margin: 0;
 }
 
+/* Shared label style */
+.saudi-section-label,
+.saudi-badge,
+.sat-eyebrow,
+.sat-section-label,
+.rayyanah-section-label,
+.missions-header > span,
+.mission-heading > span,
+.mission-video-heading > span,
+.missions-footer > span {
+    color: var(--primary-color);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+/* Shared buttons */
+.saudi-btn,
+.sat-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 25px;
+    padding: 15px 22px;
+    background: var(--primary-color);
+    border: 1px solid var(--primary-color);
+    color: var(--button-text);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    transition: 0.3s ease;
+}
+
+.saudi-btn:hover,
+.sat-button:hover {
+    background: var(--primary-hover);
+    border-color: var(--primary-hover);
+    color: var(--button-text);
+    transform: translateY(-3px);
+}
+
+.saudi-btn span,
+.sat-button span {
+    font-size: 17px;
+}
+
+.mission-button {
+    display: inline-block;
+    padding: 14px 25px;
+    background: var(--primary-color);
+    color: var(--button-text);
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.mission-button:hover {
+    background: var(--primary-hover);
+    transform: translateY(-3px);
+}
+
 
 /* =========================================
    NAVIGATION
@@ -101,27 +171,20 @@ main {
     position: sticky;
     top: 0;
     z-index: 1000;
-
     background: var(--header-bg);
     backdrop-filter: blur(18px);
     -webkit-backdrop-filter: blur(18px);
-
     border-bottom: 1px solid var(--border-color);
-    transition: background 0.3s ease, border-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
 }
 
 .navbar {
     min-height: 86px;
-
     display: flex;
     justify-content: space-between;
     align-items: center;
-
     gap: 35px;
 }
-
-
-/* LOGO */
 
 .logo {
     display: flex;
@@ -138,7 +201,6 @@ main {
 .logo-text {
     display: flex;
     flex-direction: column;
-
     font-size: 17px;
     font-weight: 800;
     letter-spacing: 1.5px;
@@ -150,15 +212,11 @@ main {
 
 .logo-text small {
     margin-top: 4px;
-
     color: var(--secondary-text);
     font-size: 8px;
     font-weight: 500;
     letter-spacing: 2px;
 }
-
-
-/* NAV LINKS */
 
 .nav-links {
     display: flex;
@@ -169,11 +227,9 @@ main {
 .nav-links a {
     position: relative;
     padding: 10px 0;
-
     color: var(--secondary-text);
     font-size: 12px;
     font-weight: 500;
-
     transition: color 0.3s ease;
 }
 
@@ -184,37 +240,26 @@ main {
 
 .nav-links a.active::after {
     content: "";
-
     position: absolute;
     bottom: 0;
     left: 0;
-
     width: 100%;
     height: 2px;
-
     background: var(--primary-color);
 }
-
-
-/* THEME BUTTON */
 
 .theme-toggle {
     width: 42px;
     height: 42px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     border: 1px solid var(--border-color);
     border-radius: 50%;
-
     background: var(--surface-color);
     color: var(--text-color);
-
     font-size: 21px;
     cursor: pointer;
-
     transition: 0.3s ease;
 }
 
@@ -231,25 +276,21 @@ main {
 
 .site-footer {
     padding: 75px 0 25px;
-
     background: var(--surface-color);
     border-top: 1px solid var(--border-color);
-
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .footer-main {
     display: grid;
     grid-template-columns: 2fr 1fr 1fr;
     gap: 70px;
-
     padding-bottom: 55px;
 }
 
 .footer-brand > p {
     max-width: 330px;
     margin-top: 22px;
-
     color: var(--secondary-text);
     font-size: 13px;
     line-height: 1.9;
@@ -263,7 +304,6 @@ main {
 
 .footer-links > span {
     margin-bottom: 5px;
-
     color: var(--primary-color);
     font-size: 10px;
     font-weight: 700;
@@ -272,11 +312,9 @@ main {
 
 .footer-links a {
     width: fit-content;
-
     color: var(--secondary-text);
     font-size: 12px;
-
-    transition: color 0.3s;
+    transition: color 0.3s ease;
 }
 
 .footer-links a:hover {
@@ -287,7 +325,6 @@ main {
     display: flex;
     justify-content: space-between;
     gap: 20px;
-
     padding-top: 25px;
     border-top: 1px solid var(--border-color);
 }
@@ -300,155 +337,121 @@ main {
 
 
 /* =========================================
+   SHARED HERO (photo backgrounds, always dark)
+========================================= */
+
+.saudi-hero,
+.saudi-vision,
+.astronauts-hero,
+.astronauts-banner,
+.rayyanah-hero {
+    position: relative;
+    overflow: hidden;
+    background-color: var(--hero-bg);
+    color: var(--hero-text);
+}
+
+.saudi-hero,
+.saudi-vision,
+.astronauts-hero,
+.rayyanah-hero {
+    display: flex;
+    align-items: center;
+}
+
+.saudi-hero-content > p,
+.saudi-vision-content > p,
+.astronauts-hero p,
+.astronauts-banner p,
+.rayyanah-hero-content > p {
+    color: var(--hero-muted);
+    line-height: 1.9;
+}
+
+.saudi-hero h1 span,
+.saudi-vision-content h2 span,
+.astronauts-hero h1 span,
+.astronauts-banner h2 span,
+.rayyanah-hero h1 span {
+    color: var(--hero-accent);
+}
+
+
+/* =========================================
    HOME PAGE
 ========================================= */
 
-
-/* HERO SECTION */
+/* Hero */
 
 .saudi-hero {
     min-height: 720px;
-    position: relative;
+}
 
-    display: flex;
-    align-items: center;
-
-    overflow: hidden;
-
-    background: #080d12;
-    color: #f1f5f9;
+.saudi-hero-image,
+.saudi-vision-image {
+    position: absolute;
+    inset: 0;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .saudi-hero-image {
-    position: absolute;
-    inset: 0;
-
-    background:
-        url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=2000&q=90")
-        center / cover no-repeat;
-
+    background-image: url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=2000&q=90");
     transform: scale(1.02);
 }
 
 .saudi-hero-overlay {
     position: absolute;
     inset: 0;
-
     background:
-        linear-gradient(
-            90deg,
-            #080d12 5%,
-            rgba(8, 13, 18, 0.85) 45%,
-            rgba(8, 13, 18, 0.15)
-        ),
-        linear-gradient(
-            0deg,
-            #080d12,
-            transparent 40%
-        );
+        linear-gradient(90deg, var(--hero-bg) 5%, rgba(7, 11, 20, 0.85) 45%, rgba(7, 11, 20, 0.15)),
+        linear-gradient(0deg, var(--hero-bg), transparent 40%);
 }
 
 .saudi-hero-content {
     position: relative;
     z-index: 2;
-
     padding-top: 100px;
     padding-bottom: 120px;
 }
 
-.saudi-badge {
-    display: inline-block;
-
-    color: #35c99a;
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 2.5px;
-}
-
 .saudi-hero h1 {
     margin: 35px 0 25px;
-
-    color: #f8fafc;
+    color: var(--hero-text);
     font-size: clamp(55px, 9vw, 110px);
     line-height: 0.98;
     letter-spacing: -5px;
     font-weight: 800;
 }
 
-.saudi-hero h1 span {
-    color: #35c99a;
-}
-
 .saudi-hero-content > p {
     max-width: 480px;
-
-    color: #b6c2cf;
     font-size: 14px;
-    line-height: 1.9;
 }
 
 .saudi-hero .saudi-btn {
     margin-top: 30px;
 }
 
-.saudi-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 25px;
-
-    padding: 15px 22px;
-
-    background: #35c99a;
-    border: 1px solid #35c99a;
-    color: #071a14;
-
-    font-size: 10px;
-    font-weight: 700;
-    letter-spacing: 1.2px;
-
-    transition: 0.3s ease;
-}
-
-.saudi-btn:hover {
-    background: #48d9aa;
-    border-color: #48d9aa;
-    transform: translateY(-3px);
-}
-
-.saudi-btn span {
-    font-size: 17px;
-}
-
 .saudi-hero-footer {
     position: absolute;
     z-index: 2;
-
     bottom: 25px;
     left: 0;
     right: 0;
-
     display: flex;
     justify-content: space-between;
-
-    color: #a8b3c2;
+    color: var(--hero-muted);
     font-size: 9px;
     letter-spacing: 2px;
 }
 
-
-/* INTRODUCTION SECTION */
+/* Intro */
 
 .saudi-intro {
-    padding-top: 120px;
-    padding-bottom: 120px;
-}
-
-.saudi-section-label {
-    color: var(--primary-color);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 2px;
+    padding: 120px 0;
+    background: var(--bg-color);
 }
 
 .saudi-intro-grid {
@@ -456,7 +459,6 @@ main {
     grid-template-columns: 1.2fr 0.8fr;
     align-items: end;
     gap: 80px;
-
     margin-top: 45px;
 }
 
@@ -477,14 +479,12 @@ main {
     line-height: 2;
 }
 
-
-/* HIGHLIGHT SECTION */
+/* Highlight */
 
 .saudi-highlight {
     padding: 110px 0;
     background: var(--surface-color);
-
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .saudi-highlight-grid {
@@ -496,7 +496,6 @@ main {
 
 .saudi-highlight h2 {
     margin: 30px 0 20px;
-
     color: var(--text-color);
     font-size: clamp(38px, 5vw, 62px);
     line-height: 1.1;
@@ -509,7 +508,6 @@ main {
 
 .saudi-highlight p {
     max-width: 480px;
-
     color: var(--secondary-text);
     font-size: 14px;
     line-height: 1.9;
@@ -518,13 +516,11 @@ main {
 .saudi-inline-link {
     display: inline-block;
     margin-top: 25px;
-
     color: var(--primary-color);
-    font-size: 10px;
+    font-size: 11px;
     font-weight: 700;
     letter-spacing: 1.2px;
-
-    transition: 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .saudi-inline-link:hover {
@@ -533,25 +529,20 @@ main {
 
 .saudi-highlight-image {
     min-height: 420px;
-
-    background:
-        url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85")
-        center / cover no-repeat;
+    background: url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1200&q=85") center / cover no-repeat;
+    border-radius: 8px;
 }
 
-
-/* EXPLORE SECTION */
+/* Explore */
 
 .saudi-explore {
     padding: 110px 0;
     background: var(--bg-color);
-
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
 }
 
 .saudi-explore-title {
     margin: 30px 0 45px;
-
     color: var(--text-color);
     font-size: clamp(32px, 5vw, 55px);
     letter-spacing: -2px;
@@ -569,17 +560,14 @@ main {
 
 .saudi-explore-card {
     position: relative;
-
     min-height: 210px;
     padding: 30px;
-
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-
     background: var(--card-color);
     border: 1px solid var(--border-color);
-
+    box-shadow: var(--shadow);
     transition: 0.3s ease;
 }
 
@@ -596,7 +584,6 @@ main {
 
 .saudi-explore-card h3 {
     margin: 18px 0 8px;
-
     color: var(--text-color);
     font-size: 25px;
     font-weight: 600;
@@ -611,10 +598,8 @@ main {
     position: absolute;
     top: 25px;
     right: 25px;
-
     color: var(--primary-color);
     font-size: 22px;
-
     transition: 0.3s ease;
 }
 
@@ -622,64 +607,36 @@ main {
     transform: translate(3px, -3px);
 }
 
-
-/* VISION 2030 SECTION */
+/* Vision 2030 */
 
 .saudi-vision {
     min-height: 580px;
-    position: relative;
-
-    display: flex;
-    align-items: center;
-
-    overflow: hidden;
-
-    background: #080d12;
-    color: #f1f5f9;
 }
 
 .saudi-vision-image {
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            90deg,
-            #080d12 5%,
-            rgba(8, 13, 18, 0.8) 55%,
-            rgba(8, 13, 18, 0.2)
-        ),
-        url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1800&q=85")
-        center / cover no-repeat;
+    background-image:
+        linear-gradient(90deg, var(--hero-bg) 5%, rgba(7, 11, 20, 0.8) 55%, rgba(7, 11, 20, 0.2)),
+        url("https://images.unsplash.com/photo-1462331940025-496dfbfc7564?auto=format&fit=crop&w=1800&q=85");
 }
 
 .saudi-vision-content {
     position: relative;
     z-index: 1;
-
     padding-top: 100px;
     padding-bottom: 100px;
 }
 
 .saudi-vision-content h2 {
     margin: 30px 0;
-
-    color: #f1f5f9;
+    color: var(--hero-text);
     font-size: clamp(48px, 7vw, 85px);
     line-height: 1.02;
     letter-spacing: -4px;
 }
 
-.saudi-vision-content h2 span {
-    color: #35c99a;
-}
-
 .saudi-vision-content > p {
     max-width: 460px;
-
-    color: #b6c2cf;
     font-size: 13px;
-    line-height: 1.9;
 }
 
 .saudi-vision-content .saudi-btn {
@@ -691,40 +648,25 @@ main {
    ASTRONAUTS PAGE
 ========================================= */
 
-
-/* HERO */
-
 .astronauts-hero {
     min-height: 430px;
-    position: relative;
-
-    display: flex;
-    align-items: center;
-
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            90deg,
-            #080d12 10%,
-            rgba(8, 13, 18, 0.65)
-        ),
-        url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1800&q=85")
-        center / cover no-repeat;
-
-    color: #f1f5f9;
+    background-image:
+        linear-gradient(90deg, var(--hero-bg) 10%, rgba(7, 11, 20, 0.65)),
+        url("https://images.unsplash.com/photo-1446776811953-b23d57bd21aa?auto=format&fit=crop&w=1800&q=85");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .astronauts-hero-content {
     position: relative;
     z-index: 2;
-
     padding-top: 90px;
     padding-bottom: 90px;
 }
 
 .astronauts-label {
-    color: #35c99a;
+    color: var(--hero-accent);
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 2px;
@@ -732,31 +674,20 @@ main {
 
 .astronauts-hero h1 {
     margin: 25px 0;
-
-    color: #f1f5f9;
+    color: var(--hero-text);
     font-size: clamp(45px, 7vw, 82px);
     line-height: 1.05;
     letter-spacing: -3px;
 }
 
-.astronauts-hero h1 span {
-    color: #35c99a;
-}
-
 .astronauts-hero p {
     max-width: 480px;
-
-    color: #b6c2cf;
     font-size: 14px;
-    line-height: 1.9;
 }
 
-
-/* ASTRONAUTS SECTION */
-
 .astronauts-section {
-    padding-top: 110px;
-    padding-bottom: 120px;
+    padding: 110px 0 120px;
+    background: var(--bg-color);
 }
 
 .astronauts-heading {
@@ -764,13 +695,11 @@ main {
     align-items: end;
     justify-content: space-between;
     gap: 40px;
-
     margin-bottom: 45px;
 }
 
 .astronauts-heading h2 {
     margin-top: 20px;
-
     color: var(--text-color);
     font-size: clamp(35px, 5vw, 58px);
     letter-spacing: -2px;
@@ -782,14 +711,10 @@ main {
 
 .astronauts-heading > p {
     max-width: 280px;
-
     color: var(--secondary-text);
     font-size: 13px;
     line-height: 1.9;
 }
-
-
-/* GRID */
 
 .astronauts-grid {
     display: grid;
@@ -797,15 +722,11 @@ main {
     gap: 25px;
 }
 
-
-/* CARD */
-
 .astronaut-card {
     overflow: hidden;
-
     background: var(--surface-color);
     border: 1px solid var(--border-color);
-
+    box-shadow: var(--shadow);
     transition: 0.3s ease;
 }
 
@@ -814,26 +735,27 @@ main {
     border-color: var(--primary-color);
 }
 
-
-/* IMAGE */
+.astronaut-card-link,
+.astronaut-image-link,
+.sat-card-link {
+    display: block;
+    color: inherit;
+    text-decoration: none;
+    min-width: 0;
+}
 
 .astronaut-card-image {
     height: 380px;
     position: relative;
     overflow: hidden;
-
     background: var(--surface-hover);
 }
 
 .astronaut-card-image img {
     width: 100%;
     height: 100%;
-
-    display: block;
-
     object-fit: cover;
     object-position: center 30%;
-
     transition: 0.5s ease;
 }
 
@@ -841,23 +763,21 @@ main {
     transform: scale(1.04);
 }
 
+.astronaut-image-link img {
+    cursor: pointer;
+}
+
 .astronaut-card-image > span {
     position: absolute;
     bottom: 18px;
     left: 18px;
-
     padding: 9px 13px;
-
     background: var(--primary-color);
     color: var(--button-text);
-
     font-size: 9px;
     font-weight: 700;
     letter-spacing: 1px;
 }
-
-
-/* CARD CONTENT */
 
 .astronaut-card-content {
     padding: 27px;
@@ -872,7 +792,6 @@ main {
 
 .astronaut-card-content h3 {
     margin: 15px 0 8px;
-
     color: var(--text-color);
     font-size: 25px;
     font-weight: 600;
@@ -880,7 +799,6 @@ main {
 
 .astronaut-card-content p {
     margin-bottom: 22px;
-
     color: var(--secondary-text);
     font-size: 12px;
 }
@@ -890,53 +808,34 @@ main {
     font-size: 10px;
     font-weight: 700;
     letter-spacing: 1px;
-
-    transition: 0.3s ease;
+    transition: color 0.3s ease;
 }
 
 .astronaut-card-content a:hover {
     color: var(--primary-hover);
 }
 
-
-/* MISSION BANNER */
-
 .astronauts-banner {
     padding: 100px 0;
-
-    position: relative;
-    overflow: hidden;
-
-    background:
-        linear-gradient(
-            90deg,
-            #080d12 10%,
-            rgba(8, 13, 18, 0.7)
-        ),
-        url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=85")
-        center / cover no-repeat;
-
-    color: #f1f5f9;
+    background-image:
+        linear-gradient(90deg, var(--hero-bg) 10%, rgba(7, 11, 20, 0.7)),
+        url("https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1800&q=85");
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .astronauts-banner h2 {
     margin: 25px 0;
-
+    color: var(--hero-text);
     font-size: clamp(42px, 6vw, 72px);
     line-height: 1.05;
     letter-spacing: -3px;
 }
 
-.astronauts-banner h2 span {
-    color: #35c99a;
-}
-
 .astronauts-banner p {
     max-width: 460px;
-
-    color: #b6c2cf;
     font-size: 13px;
-    line-height: 1.9;
 }
 
 .astronauts-banner .saudi-btn {
@@ -945,11 +844,989 @@ main {
 
 
 /* =========================================
-   RESPONSIVE DESIGN
+   RAYYANAH BARNAWI PROFILE
+========================================= */
+
+.rayyanah-hero {
+    min-height: 680px;
+    background:
+        linear-gradient(90deg, rgba(7, 11, 20, 0.96) 0%, rgba(7, 11, 20, 0.78) 48%, rgba(7, 11, 20, 0.2) 100%),
+        url("../images/rayyanah.jpg") center 25% / cover no-repeat;
+}
+
+.rayyanah-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(0deg, rgba(7, 11, 20, 0.55), transparent 55%);
+}
+
+.rayyanah-hero-content {
+    position: relative;
+    z-index: 1;
+    padding-top: 70px;
+    padding-bottom: 70px;
+}
+
+.rayyanah-back {
+    display: inline-block;
+    margin-bottom: 75px;
+    color: var(--hero-text);
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease;
+}
+
+.rayyanah-back:hover {
+    color: var(--hero-accent);
+}
+
+.rayyanah-label {
+    display: block;
+    color: var(--hero-accent);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.rayyanah-hero h1 {
+    color: var(--hero-text);
+    font-size: clamp(55px, 8vw, 105px);
+    line-height: 0.95;
+    margin: 22px 0;
+    font-weight: 800;
+    letter-spacing: -4px;
+}
+
+.rayyanah-hero-content > p {
+    max-width: 510px;
+    font-size: 16px;
+}
+
+.rayyanah-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px 35px;
+    margin-top: 45px;
+}
+
+.rayyanah-hero-meta span {
+    color: var(--hero-text);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    border-left: 2px solid var(--hero-accent);
+    padding-left: 12px;
+}
+
+.rayyanah-about {
+    padding: 110px 0;
+    background: var(--bg-color);
+}
+
+.rayyanah-section-label {
+    margin-bottom: 45px;
+}
+
+.rayyanah-about-grid {
+    display: grid;
+    grid-template-columns: 0.85fr 1.15fr;
+    gap: 80px;
+}
+
+.rayyanah-about-heading h2,
+.rayyanah-achievement h2,
+.rayyanah-education h2,
+.rayyanah-fast-facts h2,
+.rayyanah-bottom h2 {
+    color: var(--text-color);
+    font-size: clamp(35px, 5vw, 58px);
+    line-height: 1.1;
+    margin-top: 20px;
+    font-weight: 800;
+    letter-spacing: -2px;
+}
+
+.rayyanah-about-heading h2 span,
+.rayyanah-achievement h2 span,
+.rayyanah-education h2 span,
+.rayyanah-fast-facts h2 span,
+.rayyanah-bottom h2 span {
+    color: var(--primary-color);
+}
+
+.rayyanah-biography p {
+    color: var(--secondary-text);
+    font-size: 15px;
+    line-height: 2;
+    margin-bottom: 22px;
+}
+
+.rayyanah-achievement {
+    background: var(--surface-color);
+    padding: 100px 0;
+}
+
+.rayyanah-achievement-grid {
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    align-items: center;
+    gap: 80px;
+}
+
+.rayyanah-achievement-content > p {
+    color: var(--secondary-text);
+    max-width: 550px;
+    line-height: 1.9;
+    margin: 25px 0 35px;
+}
+
+.rayyanah-achievement-facts {
+    display: flex;
+    flex-direction: column;
+}
+
+.rayyanah-fact {
+    padding: 25px 0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.rayyanah-fact strong {
+    color: var(--primary-color);
+    font-size: 45px;
+    font-weight: 800;
+}
+
+.rayyanah-fact span {
+    color: var(--secondary-text);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+}
+
+.rayyanah-education {
+    padding: 110px 0;
+    background: var(--bg-color);
+}
+
+.rayyanah-education h2,
+.rayyanah-fast-facts h2 {
+    margin-bottom: 45px;
+}
+
+.rayyanah-education-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+}
+
+.rayyanah-education-card {
+    padding: 35px;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    transition: 0.3s ease;
+}
+
+.rayyanah-education-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--primary-color);
+}
+
+.rayyanah-education-card > span {
+    color: var(--primary-color);
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    font-weight: 700;
+}
+
+.rayyanah-education-card h3 {
+    color: var(--text-color);
+    font-size: 23px;
+    margin: 25px 0 15px;
+}
+
+.rayyanah-education-card p {
+    color: var(--secondary-text);
+    line-height: 1.8;
+}
+
+.rayyanah-education-card small {
+    display: inline-block;
+    color: var(--primary-color);
+    margin-top: 15px;
+}
+
+.rayyanah-fast-facts {
+    background: var(--surface-color);
+    padding: 100px 0;
+}
+
+.rayyanah-facts-list {
+    max-width: 850px;
+}
+
+.rayyanah-fact-row {
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    gap: 20px;
+    padding: 23px 0;
+    border-bottom: 1px solid var(--border-color);
+    align-items: center;
+}
+
+.rayyanah-fact-row span {
+    color: var(--primary-color);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.rayyanah-fact-row p {
+    color: var(--text-color);
+    line-height: 1.7;
+    margin: 0;
+}
+
+.rayyanah-bottom {
+    padding: 100px 0 110px;
+    background: var(--bg-color);
+}
+
+.rayyanah-bottom h2 {
+    margin-bottom: 35px;
+}
+
+
+/* =========================================
+   MISSIONS PAGE
+========================================= */
+
+.missions-page {
+    width: 100%;
+    padding-bottom: 80px;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.missions-header {
+    text-align: center;
+    padding: 110px 20px 85px;
+    background: var(--surface-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.missions-header h1 {
+    font-size: clamp(38px, 6vw, 68px);
+    margin: 20px 0;
+    letter-spacing: 2px;
+}
+
+.missions-header p {
+    max-width: 600px;
+    margin: auto;
+    color: var(--secondary-text);
+    line-height: 1.8;
+}
+
+.mission-section {
+    max-width: 1200px;
+    margin: 100px auto;
+    padding: 0 30px;
+    scroll-margin-top: 100px;
+}
+
+.mission-heading {
+    margin-bottom: 40px;
+}
+
+.mission-heading h2 {
+    font-size: clamp(32px, 5vw, 50px);
+    margin: 15px 0 10px;
+}
+
+.mission-heading p {
+    color: var(--secondary-text);
+    font-size: 16px;
+}
+
+.mission-content {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 55px;
+    align-items: center;
+}
+
+.mission-image {
+    height: 430px;
+    overflow: hidden;
+    border-radius: 12px;
+    background: var(--surface-color);
+    box-shadow: var(--shadow);
+}
+
+.mission-image img,
+.mission-gallery img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.mission-image:hover img {
+    transform: scale(1.04);
+}
+
+.mission-details h3 {
+    font-size: 28px;
+    margin-bottom: 22px;
+}
+
+.mission-details p {
+    color: var(--secondary-text);
+    line-height: 1.9;
+    margin-bottom: 18px;
+    font-size: 15px;
+}
+
+.mission-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin: 30px 0;
+    padding: 22px 0;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.mission-facts div {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.mission-facts span {
+    color: var(--primary-color);
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.mission-facts small {
+    color: var(--secondary-text);
+    font-size: 12px;
+}
+
+.mission-video {
+    margin-top: 75px;
+    scroll-margin-top: 100px;
+}
+
+.mission-video-heading {
+    margin-bottom: 25px;
+}
+
+.mission-video-heading h3 {
+    font-size: 25px;
+    margin-top: 12px;
+}
+
+.video-container {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    overflow: hidden;
+    border-radius: 12px;
+    background: #000;
+}
+
+.video-container iframe,
+.video-container video {
+    width: 100%;
+    height: 100%;
+    display: block;
+    border: 0;
+    object-fit: cover;
+}
+
+.mission-gallery {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+    margin-top: 65px;
+}
+
+.mission-gallery div {
+    position: relative;
+    height: 320px;
+    overflow: hidden;
+    border-radius: 10px;
+    background: var(--surface-color);
+}
+
+.mission-gallery div:hover img {
+    transform: scale(1.05);
+}
+
+.mission-gallery span {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding: 25px 20px 18px;
+    color: #ffffff;
+    font-weight: 700;
+    background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
+}
+
+.missions-footer {
+    text-align: center;
+    margin: 120px 30px 0;
+    padding: 80px 20px;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.missions-footer h2 {
+    font-size: clamp(25px, 4vw, 42px);
+    margin: 20px 0;
+}
+
+.missions-footer p {
+    color: var(--secondary-text);
+    margin-bottom: 30px;
+}
+
+
+/* =========================================
+   SATELLITES PAGE (list)
+========================================= */
+
+.satellites-page,
+.sat-detail-page {
+    overflow: hidden;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.sat-hero {
+    min-height: 650px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 100px 8%;
+    isolation: isolate;
+    background: var(--bg-color);
+}
+
+.sat-hero-content {
+    max-width: 650px;
+    position: relative;
+    z-index: 2;
+}
+
+.sat-hero h1 {
+    color: var(--text-color);
+    font-size: clamp(3.5rem, 8vw, 7rem);
+    line-height: 0.95;
+    letter-spacing: -4px;
+    margin: 25px 0;
+    font-weight: 800;
+}
+
+.sat-hero h1 span,
+.sat-intro h2 span,
+.sat-timeline > h2 span,
+.sat-cta h2 span {
+    color: var(--primary-color);
+}
+
+.sat-hero-content > p {
+    max-width: 480px;
+    color: var(--secondary-text);
+    font-size: 1rem;
+    line-height: 1.9;
+    margin-bottom: 35px;
+}
+
+.sat-hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.sat-hero-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 55%;
+    opacity: 0.55;
+}
+
+.sat-image-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        var(--bg-color) 0%,
+        color-mix(in srgb, var(--bg-color) 88%, transparent) 35%,
+        color-mix(in srgb, var(--bg-color) 30%, transparent) 100%
+    );
+}
+
+.sat-hero-number {
+    position: absolute;
+    bottom: 35px;
+    right: 8%;
+    color: var(--secondary-text);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+}
+
+.sat-intro {
+    padding: 110px 8%;
+    border-top: 1px solid var(--border-color);
+    background: var(--bg-color);
+}
+
+.sat-intro-content {
+    display: grid;
+    grid-template-columns: 1fr 0.8fr;
+    align-items: center;
+    gap: 60px;
+    margin-top: 35px;
+}
+
+.sat-intro h2,
+.sat-timeline > h2 {
+    color: var(--text-color);
+    font-size: clamp(2.5rem, 5vw, 4.5rem);
+    line-height: 1.05;
+    letter-spacing: -2px;
+}
+
+.sat-intro-content p {
+    color: var(--secondary-text);
+    font-size: 1rem;
+    line-height: 2;
+    max-width: 500px;
+}
+
+.sat-collection {
+    padding: 100px 8%;
+    background: var(--surface-color);
+}
+
+.sat-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.sat-section-heading h2 {
+    color: var(--text-color);
+    font-size: clamp(2rem, 4vw, 3.5rem);
+    margin-top: 15px;
+    letter-spacing: -1px;
+}
+
+.sat-section-heading > p {
+    max-width: 350px;
+    color: var(--secondary-text);
+    line-height: 1.8;
+}
+
+.sat-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.sat-card {
+    min-width: 0;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    transition: 0.35s ease;
+}
+
+.sat-card:hover {
+    transform: translateY(-7px);
+    border-color: var(--primary-color);
+}
+
+.sat-card-large {
+    grid-column: span 2;
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+}
+
+.sat-card-image {
+    width: 100%;
+    height: 280px;
+    position: relative;
+    overflow: hidden;
+    background: var(--surface-hover);
+}
+
+.sat-card-large .sat-card-image {
+    height: 100%;
+    min-height: 350px;
+}
+
+.sat-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.6s ease;
+}
+
+.sat-card:hover .sat-card-image img {
+    transform: scale(1.05);
+}
+
+.sat-card-year {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    padding: 9px 14px;
+    background: var(--primary-color);
+    color: var(--button-text);
+    font-size: 0.75rem;
+    font-weight: 800;
+    border-radius: 2px;
+}
+
+.sat-card-info {
+    padding: 30px;
+}
+
+.sat-card-category {
+    color: var(--primary-color);
+    font-size: 0.65rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.sat-card-info h3 {
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin: 15px 0;
+    letter-spacing: -0.5px;
+}
+
+.sat-card-info p {
+    color: var(--secondary-text);
+    line-height: 1.8;
+    font-size: 0.9rem;
+    min-height: 80px;
+}
+
+.sat-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    margin-top: 25px;
+}
+
+.sat-card-meta span {
+    color: var(--secondary-text);
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+}
+
+.sat-card-meta strong {
+    color: var(--primary-color);
+    font-size: 0.95rem;
+}
+
+.sat-card-action {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: var(--primary-color);
+    font-size: 0.7rem;
+    font-weight: 800;
+    letter-spacing: 1.5px;
+    border-top: 1px solid var(--border-color);
+    padding-top: 20px;
+    margin-top: 22px;
+}
+
+.sat-card-action span {
+    font-size: 1.2rem;
+    transition: transform 0.3s ease;
+}
+
+.sat-card-link:hover .sat-card-action span {
+    transform: translate(4px, -4px);
+}
+
+.sat-timeline {
+    padding: 110px 8%;
+    background: var(--bg-color);
+}
+
+.sat-timeline > h2 {
+    margin-top: 25px;
+}
+
+.sat-timeline-items {
+    max-width: 850px;
+    margin: 60px auto 0;
+    border-left: 1px solid var(--primary-color);
+}
+
+.sat-timeline-item {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 30px;
+    padding: 0 0 45px 35px;
+    position: relative;
+}
+
+.sat-timeline-item::before {
+    content: "";
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    left: -5px;
+    top: 5px;
+    box-shadow: 0 0 12px var(--primary-color);
+}
+
+.sat-timeline-item > span {
+    color: var(--primary-color);
+    font-size: 1.1rem;
+    font-weight: 800;
+}
+
+.sat-timeline-item h3 {
+    color: var(--text-color);
+    font-size: 1rem;
+    margin-bottom: 10px;
+}
+
+.sat-timeline-item p {
+    color: var(--secondary-text);
+    line-height: 1.8;
+    font-size: 0.9rem;
+}
+
+.sat-cta {
+    margin: 30px 8% 100px;
+    padding: 90px 30px;
+    text-align: center;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+}
+
+.sat-cta h2 {
+    color: var(--text-color);
+    font-size: clamp(3rem, 7vw, 5.5rem);
+    line-height: 1;
+    margin: 25px 0;
+    letter-spacing: -3px;
+}
+
+.sat-cta p {
+    max-width: 500px;
+    margin: 0 auto 30px;
+    color: var(--secondary-text);
+    line-height: 1.8;
+}
+
+.sat-cta .sat-button {
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   SATELLITE DETAIL PAGE
+========================================= */
+
+.sat-detail-hero {
+    min-height: 600px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    padding: 100px 8%;
+    isolation: isolate;
+}
+
+.sat-detail-image {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.sat-detail-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    opacity: 0.55;
+}
+
+.sat-detail-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        var(--bg-color) 0%,
+        color-mix(in srgb, var(--bg-color) 85%, transparent) 50%,
+        color-mix(in srgb, var(--bg-color) 20%, transparent) 100%
+    );
+}
+
+.sat-detail-content {
+    max-width: 750px;
+}
+
+.sat-back {
+    display: block;
+    width: fit-content;
+    margin-bottom: 55px;
+    color: var(--secondary-text);
+    font-size: 0.75rem;
+    letter-spacing: 1.5px;
+    transition: color 0.3s ease;
+}
+
+.sat-back:hover {
+    color: var(--primary-color);
+}
+
+.sat-detail-content h1 {
+    color: var(--text-color);
+    font-size: clamp(3rem, 7vw, 6rem);
+    line-height: 1;
+    letter-spacing: -3px;
+    margin: 25px 0;
+}
+
+.sat-detail-content > p {
+    max-width: 550px;
+    color: var(--secondary-text);
+    line-height: 1.9;
+}
+
+.sat-detail-year {
+    margin-top: 35px;
+    color: var(--primary-color);
+    font-size: 0.8rem;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.sat-detail-information,
+.sat-mission-details {
+    padding: 100px 8%;
+    background: var(--bg-color);
+}
+
+.sat-purpose {
+    padding: 100px 8%;
+    background: var(--surface-color);
+}
+
+.sat-detail-information h2,
+.sat-purpose h2,
+.sat-mission-details h2 {
+    color: var(--text-color);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    line-height: 1.05;
+    margin: 25px 0 50px;
+    letter-spacing: -2px;
+}
+
+.sat-detail-information h2 span,
+.sat-purpose h2 span,
+.sat-significance h2 span {
+    color: var(--primary-color);
+}
+
+.sat-info-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.sat-info-card {
+    padding: 30px;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+}
+
+.sat-info-card span {
+    color: var(--primary-color);
+    font-size: 0.7rem;
+    font-weight: 700;
+    letter-spacing: 2px;
+}
+
+.sat-info-card h3 {
+    margin-top: 18px;
+    color: var(--text-color);
+    font-size: 1.1rem;
+    overflow-wrap: anywhere;
+}
+
+.sat-purpose > p,
+.sat-mission-details > p,
+.sat-significance > p {
+    max-width: 800px;
+    color: var(--secondary-text);
+    font-size: 1rem;
+    line-height: 2;
+}
+
+.sat-significance {
+    margin: 30px 8% 100px;
+    padding: 90px 30px;
+    text-align: center;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    box-shadow: var(--shadow);
+}
+
+.sat-significance h2 {
+    color: var(--text-color);
+    font-size: clamp(3rem, 7vw, 5rem);
+    line-height: 1;
+    margin: 25px 0;
+}
+
+.sat-significance > p {
+    margin: 0 auto 30px;
+}
+
+.sat-significance .sat-button {
+    margin: 0 auto;
+}
+
+
+/* =========================================
+   RESPONSIVE
 ========================================= */
 
 @media (max-width: 1050px) {
-
     .navbar {
         flex-wrap: wrap;
         gap: 15px;
@@ -959,10 +1836,8 @@ main {
     .nav-links {
         order: 3;
         width: 100%;
-
         overflow-x: auto;
         gap: 24px;
-
         scrollbar-width: none;
     }
 
@@ -979,9 +1854,7 @@ main {
     }
 }
 
-
 @media (max-width: 900px) {
-
     .saudi-intro-grid,
     .saudi-highlight-grid {
         grid-template-columns: 1fr;
@@ -993,15 +1866,55 @@ main {
     }
 }
 
+@media (max-width: 850px) {
+    .mission-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .mission-image {
+        height: 380px;
+    }
+
+    .sat-hero {
+        min-height: 570px;
+        padding: 90px 6%;
+    }
+
+    .sat-intro,
+    .sat-collection,
+    .sat-timeline {
+        padding: 80px 6%;
+    }
+
+    .sat-intro-content {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .sat-section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .sat-card-large {
+        grid-template-columns: 1fr;
+    }
+
+    .sat-card-large .sat-card-image {
+        height: 280px;
+        min-height: unset;
+    }
+}
 
 @media (max-width: 768px) {
-
     .astronauts-heading {
         align-items: flex-start;
         flex-direction: column;
     }
 
-    .astronauts-grid {
+    .astronauts-grid,
+    .rayyanah-education-grid {
         grid-template-columns: 1fr;
     }
 
@@ -1012,11 +1925,68 @@ main {
     .astronauts-hero {
         min-height: 380px;
     }
+
+    .rayyanah-hero {
+        min-height: 600px;
+        background-position: 60% center;
+    }
+
+    .rayyanah-hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .rayyanah-back {
+        margin-bottom: 65px;
+    }
+
+    .rayyanah-about,
+    .rayyanah-education {
+        padding: 75px 0;
+    }
+
+    .rayyanah-about-grid,
+    .rayyanah-achievement-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .rayyanah-achievement,
+    .rayyanah-fast-facts {
+        padding: 75px 0;
+    }
+
+    .rayyanah-bottom {
+        padding: 75px 0;
+    }
 }
 
+@media (max-width: 650px) {
+    .sat-detail-hero {
+        min-height: 550px;
+        padding: 80px 6%;
+    }
+
+    .sat-detail-content h1 {
+        letter-spacing: -1px;
+    }
+
+    .sat-detail-information,
+    .sat-purpose,
+    .sat-mission-details {
+        padding: 75px 6%;
+    }
+
+    .sat-info-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sat-significance {
+        margin: 20px 5% 70px;
+        padding: 65px 20px;
+    }
+}
 
 @media (max-width: 600px) {
-
     .navbar {
         min-height: auto;
     }
@@ -1086,14 +2056,75 @@ main {
     .saudi-vision-content h2 {
         letter-spacing: -2px;
     }
+
+    .sat-hero {
+        min-height: 540px;
+    }
+
+    .sat-hero h1 {
+        letter-spacing: -2px;
+    }
+
+    .sat-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .sat-card-large {
+        grid-column: span 1;
+    }
+
+    .sat-card-image,
+    .sat-card-large .sat-card-image {
+        height: 230px;
+        min-height: unset;
+    }
+
+    .sat-card-info {
+        padding: 24px;
+    }
+
+    .sat-timeline-item {
+        grid-template-columns: 75px 1fr;
+        gap: 15px;
+        padding-left: 25px;
+    }
+
+    .sat-cta {
+        margin: 20px 5% 70px;
+        padding: 65px 20px;
+    }
+
+    .missions-header {
+        padding: 75px 20px;
+    }
+
+    .mission-section {
+        margin: 70px auto;
+        padding: 0 18px;
+    }
+
+    .mission-image {
+        height: 280px;
+    }
+
+    .mission-facts,
+    .mission-gallery {
+        grid-template-columns: 1fr;
+    }
+
+    .mission-gallery div {
+        height: 280px;
+    }
+
+    .missions-footer {
+        margin: 70px 18px 0;
+        padding: 55px 15px;
+    }
 }
 
-
 @media (max-width: 480px) {
-
     .astronauts-section {
-        padding-top: 75px;
-        padding-bottom: 80px;
+        padding: 75px 0 80px;
     }
 
     .astronaut-card-image {
@@ -1107,365 +2138,6 @@ main {
     .astronauts-banner {
         padding: 75px 0;
     }
-}
-.astronaut-card-link {
-    display: block;
-    color: inherit;
-    text-decoration: none;
-}
-
-.astronaut-card-link:hover {
-    color: inherit;
-}
-.astronaut-image-link {
-    display: block;
-    text-decoration: none;
-    color: inherit;
-}
-
-.astronaut-image-link img {
-    cursor: pointer;
-}
-
-.astronaut-image-link:hover {
-    color: inherit;
-}
-
-/* =================================
-   RAYYANAH BARNAWI PROFILE
-================================= */
-
-.rayyanah-hero {
-    min-height: 680px;
-    position: relative;
-    display: flex;
-    align-items: center;
-    background:
-        linear-gradient(90deg, rgba(5, 12, 24, .96) 0%, rgba(5, 12, 24, .78) 48%, rgba(5, 12, 24, .2) 100%),
-        url("../images/rayyanah.jpg") center 25% / cover no-repeat;
-    overflow: hidden;
-}
-
-.rayyanah-hero-overlay {
-    position: absolute;
-    inset: 0;
-    background: linear-gradient(0deg, rgba(5, 12, 24, .55), transparent 55%);
-}
-
-.rayyanah-hero-content {
-    position: relative;
-    z-index: 1;
-    padding-top: 70px;
-    padding-bottom: 70px;
-}
-
-.rayyanah-back {
-    display: inline-block;
-    margin-bottom: 75px;
-    color: #fff;
-    text-decoration: none;
-    font-size: 12px;
-    letter-spacing: 1.5px;
-    transition: .3s;
-}
-
-.rayyanah-back:hover {
-    color: var(--primary-color);
-}
-
-.rayyanah-label {
-    display: block;
-    color: var(--primary-color);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-}
-
-.rayyanah-hero h1 {
-    color: #fff;
-    font-size: clamp(55px, 8vw, 105px);
-    line-height: .95;
-    margin: 22px 0;
-    font-weight: 800;
-    letter-spacing: -4px;
-}
-
-.rayyanah-hero h1 span,
-.rayyanah-about-heading h2 span,
-.rayyanah-achievement h2 span,
-.rayyanah-education h2 span,
-.rayyanah-fast-facts h2 span,
-.rayyanah-bottom h2 span {
-    color: var(--primary-color);
-}
-
-.rayyanah-hero-content > p {
-    color: #d1d5db;
-    max-width: 510px;
-    line-height: 1.9;
-    font-size: 16px;
-}
-
-.rayyanah-hero-meta {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 15px 35px;
-    margin-top: 45px;
-}
-
-.rayyanah-hero-meta span {
-    color: #fff;
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    border-left: 2px solid var(--primary-color);
-    padding-left: 12px;
-}
-
-
-/* ABOUT */
-
-.rayyanah-about {
-    padding-top: 110px;
-    padding-bottom: 110px;
-}
-
-.rayyanah-section-label {
-    color: var(--primary-color);
-    font-size: 11px;
-    font-weight: 700;
-    letter-spacing: 2px;
-    margin-bottom: 45px;
-}
-
-.rayyanah-about-grid {
-    display: grid;
-    grid-template-columns: .85fr 1.15fr;
-    gap: 80px;
-}
-
-.rayyanah-about-heading h2,
-.rayyanah-achievement h2,
-.rayyanah-education h2,
-.rayyanah-fast-facts h2,
-.rayyanah-bottom h2 {
-    color: var(--text-color);
-    font-size: clamp(35px, 5vw, 58px);
-    line-height: 1.1;
-    margin-top: 20px;
-    font-weight: 800;
-    letter-spacing: -2px;
-}
-
-.rayyanah-biography p {
-    color: var(--secondary-text);
-    font-size: 15px;
-    line-height: 2;
-    margin-bottom: 22px;
-}
-
-
-/* ACHIEVEMENT */
-
-.rayyanah-achievement {
-    background: var(--surface-color);
-    padding: 100px 0;
-}
-
-.rayyanah-achievement-grid {
-    display: grid;
-    grid-template-columns: 1.2fr .8fr;
-    align-items: center;
-    gap: 80px;
-}
-
-.rayyanah-achievement-content > p {
-    color: var(--secondary-text);
-    max-width: 550px;
-    line-height: 1.9;
-    margin: 25px 0 35px;
-}
-
-.rayyanah-achievement-facts {
-    display: flex;
-    flex-direction: column;
-}
-
-.rayyanah-fact {
-    padding: 25px 0;
-    border-bottom: 1px solid var(--border-color);
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.rayyanah-fact strong {
-    color: var(--primary-color);
-    font-size: 45px;
-    font-weight: 800;
-}
-
-.rayyanah-fact span {
-    color: var(--secondary-text);
-    font-size: 10px;
-    letter-spacing: 1.5px;
-}
-
-
-/* EDUCATION */
-
-.rayyanah-education {
-    padding-top: 110px;
-    padding-bottom: 110px;
-}
-
-.rayyanah-education h2,
-.rayyanah-fast-facts h2 {
-    margin-bottom: 45px;
-}
-
-.rayyanah-education-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-}
-
-.rayyanah-education-card {
-    padding: 35px;
-    background: var(--card-color);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-    transition: .3s;
-}
-
-.rayyanah-education-card:hover {
-    transform: translateY(-5px);
-    border-color: var(--primary-color);
-}
-
-.rayyanah-education-card > span {
-    color: var(--primary-color);
-    font-size: 10px;
-    letter-spacing: 1.5px;
-    font-weight: 700;
-}
-
-.rayyanah-education-card h3 {
-    color: var(--text-color);
-    font-size: 23px;
-    margin: 25px 0 15px;
-}
-
-.rayyanah-education-card p {
-    color: var(--secondary-text);
-    line-height: 1.8;
-}
-
-.rayyanah-education-card small {
-    display: inline-block;
-    color: var(--primary-color);
-    margin-top: 15px;
-}
-
-
-/* FAST FACTS */
-
-.rayyanah-fast-facts {
-    background: var(--surface-color);
-    padding: 100px 0;
-}
-
-.rayyanah-facts-list {
-    max-width: 850px;
-}
-
-.rayyanah-fact-row {
-    display: grid;
-    grid-template-columns: 60px 1fr;
-    gap: 20px;
-    padding: 23px 0;
-    border-bottom: 1px solid var(--border-color);
-    align-items: center;
-}
-
-.rayyanah-fact-row span {
-    color: var(--primary-color);
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.rayyanah-fact-row p {
-    color: var(--text-color);
-    line-height: 1.7;
-    margin: 0;
-}
-
-
-/* BOTTOM */
-
-.rayyanah-bottom {
-    padding-top: 100px;
-    padding-bottom: 110px;
-}
-
-.rayyanah-bottom h2 {
-    margin-bottom: 35px;
-}
-
-
-/* LIGHT MODE */
-
-html[data-theme="light"] .rayyanah-hero {
-    background-image:
-        linear-gradient(90deg, rgba(5, 12, 24, .92), rgba(5, 12, 24, .65) 55%, rgba(5, 12, 24, .15)),
-        url("../images/rayyanah.jpg");
-}
-
-
-/* RESPONSIVE */
-
-@media (max-width: 768px) {
-
-    .rayyanah-hero {
-        min-height: 600px;
-        background-position: 60% center;
-    }
-
-    .rayyanah-hero h1 {
-        letter-spacing: -2px;
-    }
-
-    .rayyanah-back {
-        margin-bottom: 65px;
-    }
-
-    .rayyanah-about,
-    .rayyanah-education {
-        padding-top: 75px;
-        padding-bottom: 75px;
-    }
-
-    .rayyanah-about-grid,
-    .rayyanah-achievement-grid {
-        grid-template-columns: 1fr;
-        gap: 35px;
-    }
-
-    .rayyanah-education-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .rayyanah-achievement,
-    .rayyanah-fast-facts {
-        padding: 75px 0;
-    }
-
-    .rayyanah-bottom {
-        padding-top: 75px;
-        padding-bottom: 75px;
-    }
-}
-
-@media (max-width: 480px) {
 
     .rayyanah-hero {
         min-height: 550px;
@@ -1484,297 +2156,4 @@ html[data-theme="light"] .rayyanah-hero {
         grid-template-columns: 35px 1fr;
         gap: 12px;
     }
-}
-/* ==============================
-   MISSIONS PAGE
-============================== */
-
-.missions-page {
-    width: 100%;
-    padding-bottom: 80px;
-    background: var(--bg-color);
-    color: var(--text-color);
-}
-
-.missions-header {
-    text-align: center;
-    padding: 110px 20px 85px;
-    background: var(--surface-color);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.missions-header > span,
-.mission-heading > span,
-.mission-video-heading > span,
-.missions-footer > span {
-    color: var(--primary-color);
-    font-size: 12px;
-    font-weight: 700;
-    letter-spacing: 3px;
-}
-
-.missions-header h1 {
-    font-size: clamp(38px, 6vw, 68px);
-    margin: 20px 0;
-    letter-spacing: 2px;
-}
-
-.missions-header p {
-    max-width: 600px;
-    margin: auto;
-    color: var(--secondary-text);
-    line-height: 1.8;
-}
-
-/* MISSION SECTION */
-
-.mission-section {
-    max-width: 1200px;
-    margin: 100px auto;
-    padding: 0 30px;
-    scroll-margin-top: 100px;
-}
-
-.mission-heading {
-    margin-bottom: 40px;
-}
-
-.mission-heading h2 {
-    font-size: clamp(32px, 5vw, 50px);
-    margin: 15px 0 10px;
-}
-
-.mission-heading p {
-    color: var(--secondary-text);
-    font-size: 16px;
-}
-
-/* CONTENT */
-
-.mission-content {
-    display: grid;
-    grid-template-columns: 1.1fr 1fr;
-    gap: 55px;
-    align-items: center;
-}
-
-.mission-image {
-    height: 430px;
-    overflow: hidden;
-    border-radius: 12px;
-    background: var(--surface-color);
-}
-
-.mission-image img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    display: block;
-    transition: transform .5s ease;
-}
-
-.mission-image:hover img {
-    transform: scale(1.04);
-}
-
-.mission-details h3 {
-    font-size: 28px;
-    margin-bottom: 22px;
-}
-
-.mission-details p {
-    color: var(--secondary-text);
-    line-height: 1.9;
-    margin-bottom: 18px;
-    font-size: 15px;
-}
-
-/* FACTS */
-
-.mission-facts {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 12px;
-    margin: 30px 0;
-    padding: 22px 0;
-    border-top: 1px solid var(--border-color);
-    border-bottom: 1px solid var(--border-color);
-}
-
-.mission-facts div {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-}
-
-.mission-facts span {
-    color: var(--primary-color);
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.mission-facts small {
-    color: var(--secondary-text);
-    font-size: 12px;
-}
-
-/* BUTTON */
-
-.mission-button {
-    display: inline-block;
-    padding: 14px 25px;
-    background: var(--primary-color);
-    color: var(--button-text);
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 13px;
-    font-weight: 700;
-    transition: .3s;
-}
-
-.mission-button:hover {
-    background: var(--primary-hover);
-    transform: translateY(-3px);
-}
-
-/* VIDEO */
-
-.mission-video {
-    margin-top: 75px;
-    scroll-margin-top: 100px;
-}
-
-.mission-video-heading {
-    margin-bottom: 25px;
-}
-
-.mission-video-heading h3 {
-    font-size: 25px;
-    margin-top: 12px;
-}
-
-.video-container {
-    position: relative;
-    width: 100%;
-    aspect-ratio: 16 / 9;
-    overflow: hidden;
-    border-radius: 12px;
-    background: #000;
-}
-
-.video-container iframe {
-    width: 100%;
-    height: 100%;
-    border: 0;
-}
-
-/* AX-2 GALLERY */
-
-.mission-gallery {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 25px;
-    margin-top: 65px;
-}
-
-.mission-gallery div {
-    position: relative;
-    height: 320px;
-    overflow: hidden;
-    border-radius: 10px;
-    background: var(--surface-color);
-}
-
-.mission-gallery img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transition: .4s;
-}
-
-.mission-gallery div:hover img {
-    transform: scale(1.05);
-}
-
-.mission-gallery span {
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    padding: 25px 20px 18px;
-    color: #fff;
-    font-weight: 700;
-    background: linear-gradient(transparent, rgba(0, 0, 0, .8));
-}
-
-/* FOOTER */
-
-.missions-footer {
-    text-align: center;
-    margin: 120px 30px 0;
-    padding: 80px 20px;
-    background: var(--surface-color);
-    border: 1px solid var(--border-color);
-    border-radius: 12px;
-}
-
-.missions-footer h2 {
-    font-size: clamp(25px, 4vw, 42px);
-    margin: 20px 0;
-}
-
-.missions-footer p {
-    color: var(--secondary-text);
-    margin-bottom: 30px;
-}
-
-/* RESPONSIVE */
-
-@media (max-width: 850px) {
-    .mission-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-
-    .mission-image {
-        height: 380px;
-    }
-}
-
-@media (max-width: 550px) {
-    .missions-header {
-        padding: 75px 20px;
-    }
-
-    .mission-section {
-        margin: 70px auto;
-        padding: 0 18px;
-    }
-
-    .mission-image {
-        height: 280px;
-    }
-
-    .mission-facts {
-        grid-template-columns: 1fr;
-    }
-
-    .mission-gallery {
-        grid-template-columns: 1fr;
-    }
-
-    .mission-gallery div {
-        height: 280px;
-    }
-
-    .missions-footer {
-        margin: 70px 18px 0;
-        padding: 55px 15px;
-    }
-}
-.video-container video {
-    width: 100%;
-    height: 100%;
-    display: block;
-    object-fit: cover;
 }

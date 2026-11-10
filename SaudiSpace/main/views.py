@@ -1,8 +1,14 @@
 from django.shortcuts import render
- 
-# Create your views here.
+
+import json
+
+from pathlib import Path 
+
 from django.shortcuts import redirect
 
+from django.http import Http404
+
+# Create your views here.
 
 def toggle_theme(request):
     if request.method == 'POST':
@@ -38,7 +44,11 @@ def missions(request):
 
 
 def satellites(request):
-    return render(request, 'main/satellites.html')
+    data = get_satellites()
+
+    return render(request, 'main/satellites.html', {
+        'satellites': data
+    })
 
 
 def astronomy(request):
@@ -65,3 +75,24 @@ def ali_alghamdi(request):
 
 def mariam_fardous(request):
     return render(request, 'main/astronauts_data/mariam_fardous.html')
+
+def get_satellites():
+    file_path = Path(__file__).resolve().parent / 'data' / 'satellites.json'
+
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return json.load(file)
+    
+def satellite_detail(request, slug):
+    data = get_satellites()
+
+    satellite = next(
+        (item for item in data if item['id'] == slug),
+        None
+    )
+
+    if satellite is None:
+        raise Http404("Satellite not found")
+
+    return render(request, 'main/satellite_detail.html', {
+        'satellite': satellite
+    })

@@ -1,0 +1,72 @@
+[
+    {
+        "id": "saudisat-1",
+        "name": "SaudiSat 1A / 1B",
+        "year": "2000",
+        "launch_date": "September 26, 2000",
+        "launch_location": "Baikonur Cosmodrome, Kazakhstan",
+        "rocket": "RS-20",
+        "category": "COMMUNICATION & EDUCATION",
+        "image": "main/images/saudisat-1.jpg",
+        "short_description": "Saudi Arabia's first satellites, marking the beginning of the Kingdom's space journey.",
+        "purpose": "The satellites were designed for educational purposes and amateur radio communications. They were capable of receiving, storing, and transmitting data to ground stations.",
+        "mission_details": "SaudiSat 1A and SaudiSat 1B were the first Saudi satellites launched into orbit. Their mission helped develop local knowledge and experience in satellite technology and space communications.",
+        "significance": "These satellites marked the beginning of Saudi Arabia's satellite development program."
+    },
+    {
+        "id": "saudisat-5",
+        "name": "SaudiSat 5A / 5B",
+        "year": "2018",
+        "launch_date": "December 7, 2018",
+        "launch_location": "Jiuquan Satellite Launch Center, China",
+        "rocket": "Long March 2D",
+        "category": "EARTH OBSERVATION",
+        "image": "main/images/saudisat-5.jpg",
+        "short_description": "Two Saudi satellites developed to support Earth observation and imaging.",
+        "purpose": "Their main purpose was Earth observation using optical imaging technology to collect images and information about the Earth's surface.",
+        "mission_details": "SaudiSat 5A and 5B were developed and manufactured by Saudi national teams at King Abdulaziz City for Science and Technology. They were launched together in December 2018.",
+        "significance": "The mission demonstrated the Kingdom's growing capabilities in satellite design, manufacturing, and Earth observation."
+    },
+    {
+        "id": "sgs-1",
+        "name": "SaudiGeoSat (SGS-1)",
+        "year": "2019",
+        "launch_date": "February 5, 2019",
+        "launch_location": "French Guiana Space Center",
+        "rocket": "Ariane 5",
+        "category": "SATELLITE COMMUNICATIONS",
+        "image": "main/images/sgs-1.jpg",
+        "short_description": "Saudi Arabia's first dedicated communications satellite.",
+        "purpose": "SGS-1 provides secure satellite communications with high-speed data transmission and advanced communication capabilities.",
+        "mission_details": "The satellite was developed in cooperation with Lockheed Martin and launched aboard an Ariane 5 rocket. It uses advanced technologies designed to provide secure and reliable communications.",
+        "significance": "SGS-1 supports the localization of strategic technologies and the development of Saudi expertise in the satellite communications industry."
+    },
+    {
+        "id": "shaheen-sat",
+        "name": "Shaheen Sat",
+        "year": "2021",
+        "launch_date": "March 22, 2021",
+        "launch_location": "Baikonur Cosmodrome, Kazakhstan",
+        "rocket": "Soyuz-2",
+        "category": "EARTH OBSERVATION",
+        "image": "main/images/shaheen-sat.jpg",
+        "short_description": "A Saudi small satellite designed for Earth imaging and maritime vessel tracking.",
+        "purpose": "Shaheen Sat was designed to capture high-resolution images of Earth and track ships using an automatic identification system.",
+        "mission_details": "Developed by Saudi researchers at King Abdulaziz City for Science and Technology, the satellite carries a high-resolution imaging telescope and a maritime vessel tracking payload.",
+        "significance": "The mission contributed to the development of local satellite manufacturing and advanced Earth observation technologies."
+    },
+    {
+        "id": "6u-cubesat",
+        "name": "6U CubeSat",
+        "year": "2023",
+        "launch_date": "2023",
+        "launch_location": "Not specified",
+        "rocket": "Not specified",
+        "category": "SCIENTIFIC RESEARCH",
+        "image": "main/images/cubesat-6u.jpg",
+        "short_description": "A small Saudi satellite designed to collect environmental data.",
+        "purpose": "The satellite was designed to collect accurate data about terrestrial, coastal, and oceanic ecosystems around the world.",
+        "mission_details": "The 6U CubeSat represents the use of compact satellite technology for scientific research and environmental monitoring.",
+        "significance": "Its mission supports environmental research and demonstrates the potential of small satellites in scientific applications."
+    }
+]

@@ -15,4 +15,8 @@ urlpatterns = [
     path('astronauts/ali-alqarni/', views.ali_alqarni, name='ali_alqarni'),
     path('astronauts/ali-alghamdi/', views.ali_alghamdi, name='ali_alghamdi'),
     path('astronauts/mariam-fardous/', views.mariam_fardous, name='mariam_fardous'),
+    path('satellites/', views.satellites, name='satellites'),
+    path( 'satellites/<slug:slug>/',views.satellite_detail,    name='satellite_detail'),
+
+
     ]

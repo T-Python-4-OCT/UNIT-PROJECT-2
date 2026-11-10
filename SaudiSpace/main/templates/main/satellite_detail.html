@@ -1,0 +1,157 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ satellite.name }} | Saudi Space{% endblock %}
+
+{% block content %}
+
+<main class="sat-detail-page">
+
+    <!-- HERO -->
+
+    <section class="sat-detail-hero">
+
+        <div class="sat-detail-image">
+
+            <img src="{% static satellite.image %}"
+                 alt="{{ satellite.name }}">
+
+            <div class="sat-detail-overlay"></div>
+
+        </div>
+
+        <div class="sat-detail-content">
+
+            <a href="{% url 'satellites' %}" class="sat-back">
+                ← BACK TO SATELLITES
+            </a>
+
+            <span class="sat-eyebrow">
+                {{ satellite.category }}
+            </span>
+
+            <h1>{{ satellite.name }}</h1>
+
+            <p>
+                {{ satellite.short_description }}
+            </p>
+
+            <div class="sat-detail-year">
+                LAUNCHED IN {{ satellite.year }}
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- INFORMATION -->
+
+    <section class="sat-detail-information">
+
+        <div class="sat-section-label">
+            01 — MISSION INFORMATION
+        </div>
+
+        <h2>
+            GET TO KNOW<br>
+            <span>{{ satellite.name }}</span>
+        </h2>
+
+        <div class="sat-info-grid">
+
+            <div class="sat-info-card">
+
+                <span>LAUNCH DATE</span>
+
+                <h3>{{ satellite.launch_date }}</h3>
+
+            </div>
+
+            <div class="sat-info-card">
+
+                <span>LAUNCH LOCATION</span>
+
+                <h3>{{ satellite.launch_location }}</h3>
+
+            </div>
+
+            <div class="sat-info-card">
+
+                <span>LAUNCH VEHICLE</span>
+
+                <h3>{{ satellite.rocket }}</h3>
+
+            </div>
+
+            <div class="sat-info-card">
+
+                <span>MISSION CATEGORY</span>
+
+                <h3>{{ satellite.category }}</h3>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- PURPOSE -->
+
+    <section class="sat-purpose">
+
+        <div class="sat-section-label">
+            02 — MISSION OBJECTIVES
+        </div>
+
+        <h2>WHAT WAS<br><span>ITS PURPOSE?</span></h2>
+
+        <p>
+            {{ satellite.purpose }}
+        </p>
+
+    </section>
+
+
+    <!-- DETAILS -->
+
+    <section class="sat-mission-details">
+
+        <div class="sat-section-label">
+            03 — MISSION DETAILS
+        </div>
+
+        <h2>THE MISSION</h2>
+
+        <p>
+            {{ satellite.mission_details }}
+        </p>
+
+    </section>
+
+
+    <!-- SIGNIFICANCE -->
+
+    <section class="sat-significance">
+
+        <span class="sat-eyebrow">
+            SAUDI SPACE ACHIEVEMENTS
+        </span>
+
+        <h2>WHY DOES IT<br><span>MATTER?</span></h2>
+
+        <p>
+            {{ satellite.significance }}
+        </p>
+
+        <a href="{% url 'satellites' %}" class="sat-button">
+            EXPLORE MORE SATELLITES
+            <span>↗</span>
+        </a>
+
+    </section>
+
+</main>
+
+{% endblock %}
