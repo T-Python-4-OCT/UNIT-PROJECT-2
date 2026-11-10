@@ -2,7 +2,8 @@ from django.apps import AppConfig
 
 
 class ProjectsConfig(AppConfig):
-    name = "projects"
+    name = "saudi_atlas.projects"
+    label = "projects"
 
     def ready(self):
         from .content import debug_validate
