@@ -7,3 +7,5 @@ urlpatterns = [
     path("detector/", include("detector.urls")),
     path("reports/", include("reports.urls")),
 ]
+
+handler404 = "main.views.page_not_found"

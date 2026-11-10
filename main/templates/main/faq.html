@@ -13,10 +13,21 @@
   <div class="faq-list">
     {% for item in faq %}
       <details class="faq-item" {% if forloop.first %}open{% endif %}>
-        <summary>{{ item.q }}</summary>
+        <summary>{{ forloop.counter }}. {{ item.q }}</summary>
         <p>{{ item.a }}</p>
       </details>
+    {% empty %}
+      <p>ما فيه أسئلة للحين.</p>
     {% endfor %}
   </div>
+
+  <h2 class="block-title" style="margin-top: 2.5rem;">نسبة الأمان باختصار</h2>
+  <ul class="score-ranges">
+    {% for name, score_range in score_ranges.items %}
+      <li class="{% if name == "آمنة" %}range-safe{% elif name == "مشبوهة" %}range-suspicious{% else %}range-fraud{% endif %}">
+        <strong>{{ name }}</strong><span dir="ltr">{{ score_range }}</span>
+      </li>
+    {% endfor %}
+  </ul>
 </section>
 {% endblock %}

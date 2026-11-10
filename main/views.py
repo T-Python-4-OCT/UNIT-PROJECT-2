@@ -9,7 +9,7 @@ from detector.analyzer import build_segments, local_scan
 from detector.rules import RULES
 from reports import store
 from reports.report_types import REPORT_TYPES
-from main.content import CHANNELS, FAQ, FEEDBACK_TAGS, SCAM_TYPES, STORIES, TIPS, VIDEO_TRANSCRIPT
+from main.content import CHANNELS, FAQ, SCORE_RANGES, FEEDBACK_TAGS, SCAM_TYPES, STORIES, TIPS, VIDEO_TRANSCRIPT
 
 
 HERO_SAMPLE = "عميلنا العزيز، سيتم إيقاف حسابك خلال 24 ساعة. حدّث بياناتك عبر alrajhi-update.com وأرسل رمز التحقق."
@@ -62,7 +62,7 @@ def scam_detail(request: HttpRequest, scam_key: str) -> HttpResponse:
 
 
 def faq(request: HttpRequest) -> HttpResponse:
-    return render(request, "main/faq.html", {"faq": FAQ})
+    return render(request, "main/faq.html", {"faq": FAQ, "score_ranges": SCORE_RANGES})
 
 
 def feedback(request: HttpRequest) -> HttpResponse:
@@ -99,3 +99,7 @@ def feedback(request: HttpRequest) -> HttpResponse:
         "latest_feedback": json_store.newest_first(all_feedback)[:4],
     }
     return render(request, "main/feedback.html", context)
+
+
+def page_not_found(request: HttpRequest, exception=None) -> HttpResponse:
+    return render(request, "main/404.html", status=404)

@@ -1,0 +1,10 @@
+{% extends "main/base.html" %}
+{% block title %}الصفحة غير موجودة{% endblock %}
+{% block content %}
+<section class="container empty-page">
+  <i class="bi bi-signpost-split"></i>
+  <h1>هذه الصفحة غير موجودة</h1>
+  <p>ممكن الرابط قديم أو فيه خطأ. وإذا وصلك هذا الرابط في رسالة غريبة، فهذا سبب زيادة إنك تنتبه.</p>
+  <a class="btn-signal" href="{% url 'main:home' %}">ارجع للرئيسية</a>
+</section>
+{% endblock %}
