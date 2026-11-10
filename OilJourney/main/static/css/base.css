@@ -111,6 +111,8 @@ a:hover { color: var(--oj-text); }
 
 .oj-header {
   position: sticky;
+  top: 0;
+  z-index: 1030;
   background: var(--oj-header-bg);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--oj-line);
@@ -191,6 +193,9 @@ body.dark .oj-theme-toggle .icon-moon { display: none; }
 
 
 .oj-rail {
+  --stage: 1;
+  --stage-count: 7;
+  --stage-position: calc((var(--stage) - 1) / (var(--stage-count) - 1) * 100%);
   position: absolute;
   inset-inline: 0;
   bottom: -1px;
@@ -200,13 +205,14 @@ body.dark .oj-theme-toggle .icon-moon { display: none; }
 .oj-rail__dot {
   position: absolute;
   top: 50%;
-  inset-inline-start: calc(var(--stage, 0) * (100% - 13px) / 6);
+  inset-inline-start: var(--stage-position, 0%);
   width: 13px;
   height: 13px;
   border-radius: 50%;
   border: 3px solid var(--oj-accent);
   background: var(--oj-bg);
-  transform: translateY(-50%);
+  transform: translate(50%, -50%);
+  transition: inset-inline-start 0.6s ease;
 }
 
 .oj-footer {

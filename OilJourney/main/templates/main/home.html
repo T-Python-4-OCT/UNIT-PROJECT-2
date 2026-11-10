@@ -1,3 +1,326 @@
 {% extends "main/base.html" %}
+{% load static %}
 
-{% block title %}الرئيسية{% endblock %}
+{% block title %}الرئيسية | رحلة النفط{% endblock %}
+
+{% block stage %}1{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'css/home.css' %}">
+
+
+<main class="home-page">
+
+    <section class="home-hero">
+
+        <div class="hero-content">
+            <span class="hero-label">رحلة وطن وصناعة</span>
+
+            <h1>
+                من أعماق الأرض
+                <span>إلى آفاق المستقبل</span>
+            </h1>
+
+            <p>
+                رحلة الصناعة النفطية في المملكة العربية السعودية،
+                من البدايات الأولى للاكتشاف <br> إلى بناء قطاع طاقة
+                أصبح جزءاً أساسياً من الاقتصاد والتنمية.
+            </p>
+
+            <div class="hero-actions">
+                <a href="#journey" class="home-btn primary-btn">
+                    اكتشف الرحلة
+                    <span>←</span>
+                </a>
+
+                <a href="#introduction" class="home-btn secondary-btn">
+                    تعرف على القصة
+                </a>
+            </div>
+        </div>
+
+
+        <div class="hero-image">
+            <div class="image-placeholder">
+                <img src="{% static 'images/DammamWell7.jpg' %}">
+            </div>
+        </div>
+
+        <div class="hero-bottom">
+            <span>رحلة عبر تاريخ الصناعة النفطية</span>
+            <a href="#introduction">اكتشف المزيد ↓</a>
+        </div>
+
+    </section>
+
+
+    <section class="home-intro oj-reveal" id="introduction">
+
+        <div class="intro-image">
+            <div class="image-placeholder">
+                <img src="{% static 'images/img2.jpg' %}">
+            </div>
+        </div>
+
+        <div class="intro-content">
+
+            <span class="section-label">البداية والتحول</span>
+
+
+            <h2>
+                قصة بدأت من الصحراء
+                <span>وامتدت إلى العالم</span>
+            </h2>
+
+            <p>
+                شهدت المملكة العربية السعودية تحولاً تاريخياً كبيراً
+                مع اكتشاف النفط في أراضيها، حيث بدأت رحلة جديدة
+                انتقلت بها من اقتصاد يعتمد على التجارة والزراعة
+                والحج والأنشطة التقليدية، إلى مرحلة واسعة من النمو
+                الصناعي والاقتصادي.
+            </p>
+
+            <p>
+                لم يكن النفط مجرد مورد طبيعي، بل كان نقطة انطلاق
+                لنهضة شاملة امتدت إلى مختلف جوانب الحياة، وأسهم
+                في بناء المدن الحديثة، وتطوير البنية التحتية،
+                وتعزيز التعليم والصحة، وتأسيس صناعة نفطية
+                أصبحت ذات مكانة مؤثرة على مستوى العالم.
+            </p>
+
+            <p>
+                ومنذ البدايات الأولى للتنقيب وحتى التحولات الاقتصادية
+                التي تشهدها المملكة اليوم، تروي هذه الرحلة قصة وطن
+                استطاع تحويل ثروته الطبيعية إلى فرص للنمو والتقدم،
+                ومواصلة بناء مستقبل أكثر تنوعاً واستدامة.
+            </p>
+
+
+            <a href="#journey" class="text-link">
+                استكشف مراحل التحول ←
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <section class="home-journey" id="journey">
+
+        <div class="section-heading oj-reveal">
+            <span class="section-label">محطات تاريخية</span>
+
+            <h2>رحلة النفط عبر الزمن</h2>
+
+            <p>
+                تعرف على أبرز المراحل التي شكلت تاريخ
+                الصناعة النفطية في المملكة.
+            </p>
+        </div>
+
+        <div class="timeline">
+
+            <div class="timeline-line"></div>
+
+            <article class="timeline-item oj-reveal">
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+                    <span class="timeline-number">01</span>
+                    <span class="timeline-period">البدايات</span>
+
+                    <h3>ما قبل النفط</h3>
+
+                    <p>
+                        الحياة الاقتصادية والاجتماعية في المملكة قبل اكتشاف النفط،
+                        حيث اعتمد السكان على التجارة والزراعة وتربية المواشي
+                        وصيد اللؤلؤ، إلى جانب خدمة الحجاج والتبادل التجاري
+                        مع المناطق المجاورة.
+                    </p>
+
+                    <a href="{% url 'main:pre_oil' %}" class="text-link">اكتشف المرحلة ←</a>
+                </div>
+            </article>
+
+
+            <article class="timeline-item oj-reveal">
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+                    <span class="timeline-number">02</span>
+                     <span class="timeline-period">الاكتشاف</span>
+
+                    <h3>اكتشاف النفط</h3>
+
+                    <p>
+                        المحطة التاريخية التي بدأت معها ملامح صناعة النفط
+                        في المملكة، من توقيع اتفاقية الامتياز والتنقيب
+                        حتى اكتشاف النفط بكميات تجارية، لتبدأ مرحلة
+                        جديدة في تاريخ الاقتصاد السعودي.
+                    </p>
+
+                    <a href="{% url 'main:discovery' %}" class="text-link">اكتشف المرحلة ←</a>
+                </div>
+            </article>
+
+
+            <article class="timeline-item oj-reveal">
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+                    <span class="timeline-number">03</span>
+                    
+                    <span class="timeline-period">التوسع</span>
+
+                    <h3>أرامكو والنمو</h3>
+
+                    <p>
+                        انطلاقة صناعة النفط السعودية، وتوسع الإنتاج والتصدير،
+                        وبناء المدن والمنشآت النفطية التي أسهمت في ترسيخ
+                        مكانة المملكة كإحدى أبرز الدول المنتجة للنفط في العالم.
+                    </p>
+
+
+                    <a href="#" class="text-link">اكتشف المرحلة ←</a>
+                </div>
+            </article>
+
+
+            <article class="timeline-item oj-reveal">
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+                    <span class="timeline-number">04</span>
+                    <span class="timeline-period">التطور والسيطرة</span>
+
+                    <h3>السيطرة</h3>
+
+                    <p>
+                        تطور الصناعة النفطية في المملكة، وانتقالها إلى
+                        مراحل متقدمة من الإنتاج والتصدير، بالتزامن مع
+                        تعزيز السيطرة الوطنية على الموارد النفطية،
+                        وصولاً إلى امتلاك المملكة كامل حصتها في أرامكو
+                        وإدارة ثرواتها النفطية.
+                    </p>
+
+                    <a href="#" class="text-link">اكتشف المرحلة ←</a>
+                </div>
+            </article>
+
+
+            <article class="timeline-item oj-reveal">
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+                    <span class="timeline-number">05</span>
+                    <span class="timeline-period">التنمية والتغيير</span>
+
+                    <h3>أثر النفط </h3>
+
+                    <p>
+                        كيف أسهمت عائدات النفط في تطوير التعليم والصحة
+                        والبنية التحتية، وبناء المدن الحديثة، وتحسين
+                        مستوى المعيشة ودعم مسيرة التنمية في المملكة.
+                    </p>
+
+
+                    <a href="#" class="text-link">اكتشف المرحلة ←</a>
+                </div>
+            </article>
+            <article class="timeline-item oj-reveal">
+                <div class="timeline-dot"></div>
+
+                <div class="timeline-card">
+                    <span class="timeline-number">06</span>
+                    <span class="timeline-period">المستقبل والتحول</span>
+
+                    <h3>رؤية 2030 والتحول الاقتصادي</h3>
+
+                    <p>
+                        مرحلة جديدة نحو اقتصاد أكثر تنوعاً واستدامة،
+                        من خلال تطوير الطاقة المتجددة، والاستثمار
+                        في التقنيات الحديثة، ودعم القطاعات الواعدة،
+                        وتقليل الاعتماد على النفط.
+                    </p>
+
+                    <a href="#" class="text-link">اكتشف المرحلة ←</a>
+                </div>
+            </article>
+
+
+        </div>
+
+    </section>
+
+
+    <section class="home-transformation oj-reveal">
+
+        <div class="transformation-content">
+            <span class="section-label">من الماضي إلى المستقبل</span>
+
+            <h2>
+                النفط لم يغير
+                <span>مصدر الطاقة فقط</span>
+            </h2>
+
+            <p>
+                لم يكن اكتشاف النفط مجرد حدث اقتصادي عابر، بل كان
+                نقطة تحول رئيسية في تاريخ المملكة العربية السعودية،
+                إذ ساهم في إحداث تغييرات واسعة امتدت إلى مختلف
+                جوانب الحياة، وأعاد تشكيل ملامح الاقتصاد والمجتمع.
+            </p>
+
+            <p>
+                فمن خلال عائداته، شهدت المملكة تطوراً كبيراً في
+                الصناعة والتجارة والبنية التحتية، وتوسعت المدن،
+                وانتشرت المدارس والجامعات والمستشفيات، وتحسنت
+                الخدمات العامة، مما ساهم في رفع مستوى المعيشة
+                وتعزيز مسيرة التنمية.
+            </p>
+
+            <p>
+                ومع مرور السنوات، لم يتوقف هذا التحول عند حدود
+                الصناعة النفطية، بل امتد نحو بناء اقتصاد أكثر تنوعاً،
+                والاستثمار في التقنيات الحديثة والطاقة المتجددة،
+                وصولاً إلى رؤية السعودية 2030 التي تسعى إلى
+                تحقيق مستقبل أكثر استدامة وازدهاراً.
+            </p>
+
+        </div>
+
+        <div class="transformation-image">
+            <div class="image-placeholder">
+                <img src="{% static 'images/img2.jpg' %}">
+            </div>
+        </div>
+
+    </section>
+
+
+    <section class="home-ending oj-reveal">
+
+        <span class="section-label">رحلة مستمرة</span>
+
+        <h2>
+            من تاريخ النفط
+            <span>إلى مستقبل الطاقة</span>
+        </h2>
+
+        <p>
+            اكتشف كيف تحولت رحلة النفط إلى قصة من
+            التطور والإنجاز والطموح نحو المستقبل.
+        </p>
+
+        <a href="{% url 'main:pre_oil' %}" class="home-btn primary-btn">
+            ابدأ رحلتك الآن
+            <span>←</span>
+        </a>
+
+    </section>
+
+</main>
+
+<script src="{% static 'js/home.js' %}"></script>
+
+{% endblock %}

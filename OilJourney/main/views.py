@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 
 
 def mode_view(request: HttpRequest, mode):
+    '''Switch between light and dark modes and save the preference in a cookie.'''
 
     response = redirect(request.GET.get("next", "/"))
 

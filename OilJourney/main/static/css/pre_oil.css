@@ -1,0 +1,601 @@
+/* ==============================
+   PRE OIL VARIABLES
+============================== */
+
+.pre-oil-page {
+    --pre-blue: #00A3E0;
+    --pre-dark-blue: #0033A0;
+    --pre-green: #84BD00;
+    --pre-dark-green: #00843D;
+
+    --pre-bg: #ffffff;
+    --pre-card: #f5f7f8;
+    --pre-text: #172b40;
+    --pre-muted: #687889;
+    --pre-border: #e2e8ed;
+
+    background: var(--pre-bg);
+    color: var(--pre-text);
+    overflow: hidden;
+}
+
+body.dark .pre-oil-page {
+    --pre-bg: #071525;
+    --pre-card: #10243a;
+    --pre-text: #f0f5fa;
+    --pre-muted: #a6b6c7;
+    --pre-border: #263c52;
+}
+
+.pre-oil-page * {
+    box-sizing: border-box;
+}
+
+.pre-oil-page section {
+    padding: 95px 8%;
+}
+
+.pre-oil-page h2 {
+    font-size: clamp(28px, 4vw, 42px);
+    line-height: 1.5;
+    font-weight: 800;
+    margin: 10px 0 20px;
+}
+
+.pre-oil-page p {
+    color: var(--pre-muted);
+    line-height: 2;
+    font-size: 15px;
+}
+
+.pre-oil-page .pre-label {
+    color: var(--pre-dark-green);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+body.dark .pre-oil-page .pre-label {
+    color: var(--pre-green);
+}
+
+
+/* ==============================
+   IMAGE PLACEHOLDER
+============================== */
+
+.pre-oil-page .pre-image-placeholder {
+    width: 100%;
+    height: 100%;
+    min-height: 180px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+
+    border-radius: 8px;
+    background: linear-gradient(
+        135deg,
+        #dce8eb,
+        #b7cbd0,
+        #e4e9e4
+    );
+
+    color: #34566b;
+    text-align: center;
+}
+
+.pre-oil-page .pre-image-placeholder span {
+    font-weight: 800;
+}
+
+.pre-oil-page .pre-image-placeholder small {
+    font-size: 12px;
+}
+
+body.dark .pre-oil-page .pre-image-placeholder {
+    background: linear-gradient(
+        135deg,
+        #18344a,
+        #294653,
+        #193b3a
+    );
+    color: #dcebf0;
+}
+
+
+/* ==============================
+   HERO
+============================== */
+
+.pre-oil-page .pre-hero {
+    min-height: 650px;
+    position: relative;
+
+    display: flex;
+    align-items: center;
+
+    background: var(--pre-bg);
+}
+
+.pre-oil-page .pre-hero-content {
+    width: 48%;
+    position: relative;
+    z-index: 2;
+}
+
+.pre-oil-page .pre-hero-content h1 {
+    font-size: clamp(40px, 5vw, 64px);
+    font-weight: 900;
+    line-height: 1.5;
+    margin: 20px 0;
+}
+
+.pre-oil-page .pre-hero-content h1 span {
+    display: block;
+    color: var(--pre-blue);
+}
+
+.pre-oil-page .pre-hero-content p {
+    max-width: 520px;
+    margin-bottom: 30px;
+}
+
+.pre-oil-page .pre-hero-image {
+    position: absolute;
+    left: 8%;
+    top: 12%;
+    width: 45%;
+    height: 75%;
+}
+
+.pre-oil-page .pre-hero-image .pre-image-placeholder {
+    border-radius: 8px;
+    transition: .5s;
+}
+
+.pre-oil-page .pre-hero-image:hover .pre-image-placeholder {
+    transform: scale(1.02);
+}
+
+.pre-oil-page .pre-hero-caption {
+    position: absolute;
+    bottom: 25px;
+    right: 8%;
+    color: var(--pre-muted);
+    font-size: 13px;
+}
+
+
+/* ==============================
+   BUTTON
+============================== */
+
+.pre-oil-page .pre-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    padding: 14px 24px;
+    background: var(--pre-dark-blue);
+    color: white;
+
+    border-radius: 5px;
+    font-weight: 700;
+    text-decoration: none;
+
+    transition: .3s;
+}
+
+.pre-oil-page .pre-button:hover {
+    background: var(--pre-blue);
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 163, 224, .2);
+}
+
+.pre-oil-page .pre-button span {
+    transition: .3s;
+}
+
+.pre-oil-page .pre-button:hover span {
+    transform: translateY(4px);
+}
+
+
+/* ==============================
+   INTRODUCTION
+============================== */
+
+.pre-oil-page .pre-intro {
+    background: var(--pre-card);
+
+    display: grid;
+    grid-template-columns: .8fr 1.2fr;
+    gap: 70px;
+    align-items: start;
+}
+
+.pre-oil-page .pre-section-heading {
+    max-width: 650px;
+    margin: 0 auto 55px;
+    text-align: center;
+}
+
+.pre-oil-page .pre-section-heading h2 {
+    margin-bottom: 12px;
+}
+
+.pre-oil-page .pre-intro .pre-section-heading {
+    margin: 0;
+    text-align: right;
+}
+
+.pre-oil-page .pre-intro-content p {
+    margin: 0 0 20px;
+    font-size: 16px;
+}
+
+
+/* ==============================
+   LIFESTYLE CARDS
+============================== */
+
+.pre-oil-page .pre-lifestyle {
+    background: var(--pre-bg);
+}
+
+.pre-oil-page .pre-lifestyle-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 30px;
+}
+
+.pre-oil-page .pre-lifestyle-card {
+    background: var(--pre-card);
+    border: 1px solid var(--pre-border);
+    border-radius: 8px;
+    overflow: hidden;
+
+    transition: .4s ease;
+}
+
+.pre-oil-page .pre-lifestyle-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--pre-blue);
+    box-shadow: 0 15px 35px rgba(0, 51, 160, .1);
+}
+
+.pre-oil-page .pre-card-image {
+    height: 260px;
+    overflow: hidden;
+}
+
+.pre-oil-page .pre-card-image .pre-image-placeholder {
+    border-radius: 0;
+    transition: transform .6s ease;
+}
+
+.pre-oil-page .pre-lifestyle-card:hover .pre-image-placeholder {
+    transform: scale(1.05);
+}
+
+.pre-oil-page .pre-card-content {
+    padding: 25px;
+}
+
+.pre-oil-page .pre-card-content > span {
+    color: var(--pre-dark-green);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+body.dark .pre-oil-page .pre-card-content > span {
+    color: var(--pre-green);
+}
+
+.pre-oil-page .pre-card-content h3 {
+    font-size: 22px;
+    margin: 12px 0;
+}
+
+.pre-oil-page .pre-card-content p {
+    margin: 0;
+}
+
+
+/* ==============================
+   HISTORICAL TIMELINE
+============================== */
+
+.pre-oil-page .pre-history {
+    background: var(--pre-card);
+}
+
+.pre-oil-page .pre-timeline {
+    max-width: 850px;
+    margin: auto;
+    position: relative;
+    padding: 15px 0;
+}
+
+.pre-oil-page .pre-timeline-line {
+    position: absolute;
+    right: 30px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+
+    background: linear-gradient(
+        to bottom,
+        var(--pre-blue),
+        var(--pre-green)
+    );
+}
+
+.pre-oil-page .pre-timeline-item {
+    position: relative;
+    padding: 15px 90px 45px 0;
+}
+
+.pre-oil-page .pre-timeline-marker {
+    position: absolute;
+    right: 0;
+    top: 20px;
+
+    width: 62px;
+    height: 62px;
+    border-radius: 50%;
+
+    display: grid;
+    place-items: center;
+
+    background: var(--pre-bg);
+    border: 2px solid var(--pre-blue);
+
+    color: var(--pre-dark-blue);
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.pre-oil-page .pre-timeline-marker span {
+    font-size: 14px;
+}
+
+.pre-oil-page .pre-timeline-content {
+    background: var(--pre-bg);
+    border: 1px solid var(--pre-border);
+    border-radius: 8px;
+    padding: 25px 30px;
+    transition: .35s ease;
+}
+
+.pre-oil-page .pre-timeline-content:hover {
+    transform: translateX(-8px);
+    border-color: var(--pre-blue);
+    box-shadow: 0 12px 30px rgba(0, 51, 160, .08);
+}
+
+.pre-oil-page .pre-date {
+    display: inline-block;
+    color: var(--pre-blue);
+    font-size: 17px;
+    font-weight: 900;
+    margin-bottom: 10px;
+}
+
+.pre-oil-page .pre-timeline-content h3 {
+    font-size: 21px;
+    font-weight: 800;
+    margin: 5px 0 12px;
+}
+
+.pre-oil-page .pre-timeline-content p {
+    margin: 0;
+}
+
+
+/* ==============================
+   TRANSITION SECTION
+============================== */
+
+.pre-oil-page .pre-transition {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 60px;
+
+    background:
+        radial-gradient(
+            circle at 10% 80%,
+            rgba(0, 163, 224, .1),
+            transparent 40%
+        ),
+        var(--pre-bg);
+}
+
+.pre-oil-page .pre-transition-content h2 span {
+    display: block;
+    color: var(--pre-blue);
+}
+
+.pre-oil-page .pre-transition-content p {
+    margin: 20px 0 25px;
+}
+
+.pre-oil-page .pre-transition-image {
+    height: 340px;
+    overflow: hidden;
+    border-radius: 8px;
+}
+
+.pre-oil-page .pre-transition-image .pre-image-placeholder {
+    transition: transform .5s ease;
+}
+
+.pre-oil-page .pre-transition-image:hover .pre-image-placeholder {
+    transform: scale(1.04);
+}
+
+
+/* ==============================
+   SCROLL ANIMATIONS
+============================== */
+
+.pre-oil-page .pre-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity .7s ease,
+        transform .7s ease;
+}
+
+.pre-oil-page .pre-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ==============================
+   RESPONSIVE
+============================== */
+
+@media (max-width: 900px) {
+
+    .pre-oil-page .pre-hero {
+        min-height: 750px;
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .pre-oil-page .pre-hero-content {
+        width: 100%;
+    }
+
+    .pre-oil-page .pre-hero-image {
+        position: relative;
+        left: auto;
+        top: auto;
+        width: 100%;
+        height: 280px;
+        margin-top: 30px;
+    }
+
+    .pre-oil-page .pre-intro {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .pre-oil-page .pre-transition {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .pre-oil-page .pre-transition-image {
+        height: 300px;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .pre-oil-page section {
+        padding: 65px 6%;
+    }
+
+    .pre-oil-page .pre-hero {
+        min-height: auto;
+        padding-bottom: 80px;
+    }
+
+    .pre-oil-page .pre-hero-content h1 {
+        font-size: 38px;
+    }
+
+    .pre-oil-page .pre-hero-content p {
+        font-size: 14px;
+    }
+
+    .pre-oil-page .pre-hero-image {
+        height: 210px;
+    }
+
+    .pre-oil-page .pre-hero-caption {
+        right: 6%;
+        font-size: 11px;
+    }
+
+    .pre-oil-page .pre-lifestyle-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .pre-oil-page .pre-card-image {
+        height: 220px;
+    }
+
+    .pre-oil-page .pre-card-content {
+        padding: 20px;
+    }
+
+    .pre-oil-page .pre-card-content h3 {
+        font-size: 19px;
+    }
+
+    .pre-oil-page .pre-timeline {
+        padding-right: 0;
+    }
+
+    .pre-oil-page .pre-timeline-line {
+        right: 19px;
+    }
+
+    .pre-oil-page .pre-timeline-item {
+        padding: 15px 65px 30px 0;
+    }
+
+    .pre-oil-page .pre-timeline-marker {
+        width: 42px;
+        height: 42px;
+    }
+
+    .pre-oil-page .pre-timeline-marker span {
+        font-size: 12px;
+    }
+
+    .pre-oil-page .pre-timeline-content {
+        padding: 18px;
+    }
+
+    .pre-oil-page .pre-timeline-content h3 {
+        font-size: 18px;
+    }
+
+    .pre-oil-page .pre-timeline-content p {
+        font-size: 13px;
+    }
+
+    .pre-oil-page .pre-transition-image {
+        height: 220px;
+    }
+}
+
+
+/* ==============================
+   REDUCED MOTION
+============================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .pre-oil-page *,
+    .pre-oil-page *::before,
+    .pre-oil-page *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+    }
+
+    .pre-oil-page .pre-reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
