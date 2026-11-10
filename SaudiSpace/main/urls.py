@@ -7,7 +7,6 @@ urlpatterns = [
     path('astronauts/', views.astronauts, name='astronauts'),
     path('missions/', views.missions, name='missions'),
     path('satellites/', views.satellites, name='satellites'),
-    path('astronomy/', views.astronomy, name='astronomy'),
     path('research/', views.research, name='research'),
     path('future/', views.future, name='future'),
     path('toggle-theme/', views.toggle_theme, name='toggle_theme'),
@@ -17,6 +16,6 @@ urlpatterns = [
     path('astronauts/mariam-fardous/', views.mariam_fardous, name='mariam_fardous'),
     path('satellites/', views.satellites, name='satellites'),
     path( 'satellites/<slug:slug>/',views.satellite_detail,    name='satellite_detail'),
-
-
+    path('astronomy/', views.astronomy, name='astronomy'),
+    path('astronomy/<slug:slug>/', views.planet_detail, name='planet_detail'),
     ]

@@ -51,16 +51,14 @@ def satellites(request):
     })
 
 
-def astronomy(request):
-    return render(request, 'main/astronomy.html')
-
-
 def research(request):
     return render(request, 'main/research.html')
 
 
 def future(request):
     return render(request, 'main/future.html')
+
+
 
 def rayyanah(request):
     return render(request, 'main/astronauts_data/rayyanah.html')
@@ -95,4 +93,40 @@ def satellite_detail(request, slug):
 
     return render(request, 'main/satellite_detail.html', {
         'satellite': satellite
+    })
+    
+    import json
+from pathlib import Path
+from django.http import Http404
+from django.shortcuts import render
+
+
+def get_planets():
+    file_path = Path(__file__).resolve().parent / 'data' / 'planets.json'
+
+    with open(file_path, 'r', encoding='utf-8') as file:
+        return json.load(file)
+
+
+def astronomy(request):
+    planets = get_planets()
+
+    return render(request, 'main/astronomy.html', {
+        'planets': planets
+    })
+
+
+def planet_detail(request, slug):
+    planets = get_planets()
+
+    planet = next(
+        (item for item in planets if item['id'] == slug),
+        None
+    )
+
+    if planet is None:
+        raise Http404("Planet not found")
+
+    return render(request, 'main/planet_detail.html', {
+        'planet': planet
     })

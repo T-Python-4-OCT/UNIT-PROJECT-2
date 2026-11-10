@@ -1,0 +1,503 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Research | Saudi Space{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+
+<main class="research-page">
+
+    <!-- HERO -->
+    <section class="research-hero">
+
+        <div class="research-hero-image">
+            <img src="{% static "main/images/hero1.jpg" %}"
+                 alt="Earth from space">
+        </div>
+
+        <div class="research-hero-overlay"></div>
+        <div class="research-stars"></div>
+
+        <div class="research-hero-content">
+            <span class="research-eyebrow">SAUDI SPACE AGENCY / SCIENCE</span>
+
+            <h1>
+                RESEARCH<br>
+                <span>BEYOND</span> EARTH.
+            </h1>
+
+            <p>
+                Exploring the unknown through scientific discovery.
+                Discover how Saudi research in space is advancing
+                knowledge and creating opportunities for humanity.
+            </p>
+
+            <a href="#research-discover" class="research-button">
+                EXPLORE RESEARCH <span>↓</span>
+            </a>
+        </div>
+
+        <div class="research-hero-bottom">
+            <span>SCIENTIFIC DISCOVERY</span>
+            <span>SPACE EXPLORATION — 2026</span>
+        </div>
+
+        <div class="research-scroll">
+            <span></span>
+            SCROLL TO DISCOVER
+        </div>
+
+    </section>
+
+
+    <!-- INTRO -->
+    <section class="research-intro research-reveal" id="research-discover">
+
+        <div class="research-container">
+
+            <span class="research-label">01 / THE PURPOSE</span>
+
+            <div class="research-intro-grid">
+
+                <h2>
+                    SCIENCE THAT<br>
+                    <span>GOES BEYOND</span><br>
+                    OUR PLANET.
+                </h2>
+
+                <div class="research-intro-text">
+                    <p>
+                        Space provides a unique environment for scientific
+                        research. Microgravity allows researchers to study
+                        biological, physical, and material processes in ways
+                        that are difficult to reproduce on Earth.
+                    </p>
+
+                    <p>
+                        Through its Human Space Flight Program, the Saudi
+                        Space Agency supports scientific experiments that
+                        can contribute to human health, technology, and
+                        future space exploration.
+                    </p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- STATS -->
+    <section class="research-stats">
+
+        <div class="research-container research-stats-grid">
+
+            <div class="research-stat research-reveal">
+                <strong data-count="11">0</strong>
+                <span>SCIENTIFIC RESEARCH EXPERIMENTS</span>
+            </div>
+
+            <div class="research-stat research-reveal">
+                <strong data-count="12000">0</strong>
+                <span>STUDENTS ENGAGED</span>
+            </div>
+
+            <div class="research-stat research-reveal">
+                <strong data-count="47">0</strong>
+                <span>LOCATIONS ACROSS SAUDI ARABIA</span>
+            </div>
+
+            <div class="research-stat research-reveal">
+                <strong data-count="2023">0</strong>
+                <span>FIRST HUMAN SPACE FLIGHT MISSION</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- MICROGRAVITY -->
+    <section class="research-microgravity research-reveal">
+
+        <div class="research-microgravity-image">
+            <img src="{% static "main/images/erth1.jpg" %}"
+                 alt="Earth and space">
+        </div>
+
+        <div class="research-microgravity-content">
+
+            <span class="research-label">02 / THE ENVIRONMENT</span>
+
+            <h2>
+                A NEW WAY<br>
+                TO UNDERSTAND<br>
+                <span>SCIENCE.</span>
+            </h2>
+
+            <p>
+                Microgravity changes how materials, fluids, and living
+                organisms behave. Studying these changes helps scientists
+                understand processes that affect life on Earth and in space.
+            </p>
+
+            <div class="research-microgravity-note">
+                <span>MICROGRAVITY</span>
+                <span>THE SPACE LABORATORY</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- RESEARCH FIELDS -->
+    <section class="research-fields research-section">
+
+        <div class="research-container">
+
+            <div class="research-heading research-reveal">
+                <div>
+                    <span class="research-label">03 / RESEARCH AREAS</span>
+                    <h2>FIELDS OF <span>DISCOVERY.</span></h2>
+                </div>
+
+                <p>
+                    Research areas supported by the Saudi Human Space Flight
+                    Program and its scientific activities.
+                </p>
+            </div>
+
+
+            <div class="research-fields-grid">
+
+                <article class="research-field-card research-reveal">
+                    <div class="research-field-number">01</div>
+                    <div class="research-field-icon">✚</div>
+                    <h3>Human Health</h3>
+                    <p>
+                        Studying how spaceflight affects the human body,
+                        brain, and physiological systems.
+                    </p>
+                    <span>01 — HEALTH SCIENCE</span>
+                </article>
+
+                <article class="research-field-card research-reveal">
+                    <div class="research-field-number">02</div>
+                    <div class="research-field-icon">⌬</div>
+                    <h3>Biology & Biotechnology</h3>
+                    <p>
+                        Exploring cells, biological processes, and
+                        biotechnology in microgravity.
+                    </p>
+                    <span>02 — LIFE SCIENCE</span>
+                </article>
+
+                <article class="research-field-card research-reveal">
+                    <div class="research-field-number">03</div>
+                    <div class="research-field-icon">◈</div>
+                    <h3>Physical Science</h3>
+                    <p>
+                        Understanding how materials and physical processes
+                        behave in a microgravity environment.
+                    </p>
+                    <span>03 — PHYSICAL SCIENCE</span>
+                </article>
+
+                <article class="research-field-card research-reveal">
+                    <div class="research-field-number">04</div>
+                    <div class="research-field-icon">◎</div>
+                    <h3>Earth Science</h3>
+                    <p>
+                        Investigating weather, climate, and environmental
+                        processes to support life on Earth.
+                    </p>
+                    <span>04 — EARTH SCIENCE</span>
+                </article>
+
+                <article class="research-field-card research-reveal">
+                    <div class="research-field-number">05</div>
+                    <div class="research-field-icon">⌘</div>
+                    <h3>Space Technology</h3>
+                    <p>
+                        Developing technologies and capabilities for
+                        scientific activities in space.
+                    </p>
+                    <span>05 — TECHNOLOGY</span>
+                </article>
+
+                <article class="research-field-card research-reveal">
+                    <div class="research-field-number">06</div>
+                    <div class="research-field-icon">◇</div>
+                    <h3>In-Space Manufacturing</h3>
+                    <p>
+                        Exploring the potential of producing materials
+                        and products in the space environment.
+                    </p>
+                    <span>06 — FUTURE INDUSTRY</span>
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- EXPERIMENTS -->
+    <section class="research-experiments research-section">
+
+        <div class="research-container">
+
+            <div class="research-heading research-reveal">
+                <div>
+                    <span class="research-label">04 / SCIENTIFIC EXPERIMENTS</span>
+                    <h2>EXPERIMENTS IN <span>ORBIT.</span></h2>
+                </div>
+
+                <p>
+                    Examples of scientific experiments connected to
+                    Saudi Arabia's first human space flight mission.
+                </p>
+            </div>
+
+
+            <article class="research-experiment research-reveal">
+
+                <div class="research-experiment-image">
+                    <img src="{% static "main/images/doa.jpg" %}"
+                         alt="Scientific laboratory experiment">
+                    <span>01 / BIOLOGY</span>
+                </div>
+
+                <div class="research-experiment-content">
+                    <span class="research-label">CELL SCIENCE</span>
+                    <h3>Experiments in Cell Science</h3>
+
+                    <p>
+                        Researchers studied cellular responses in
+                        microgravity, including messenger RNA and
+                        inflammatory processes. This work can help
+                        improve understanding of biological changes
+                        during spaceflight.
+                    </p>
+
+                    <span class="research-experiment-tag">HUMAN HEALTH · BIOLOGY</span>
+                </div>
+
+            </article>
+
+
+            <article class="research-experiment research-experiment-reverse research-reveal">
+
+                <div class="research-experiment-image">
+                    <img src="{% static "main/images/dr.jpg" %}"
+                         alt="Medical research and laboratory">
+                    <span>02 / MEDICAL</span>
+                </div>
+
+                <div class="research-experiment-content">
+                    <span class="research-label">HUMAN HEALTH</span>
+                    <h3>Blood-Based Biomarkers</h3>
+
+                    <p>
+                        This research investigates blood-based biomarkers
+                        to better understand the effects of spaceflight
+                        on the human brain and help assess astronaut health.
+                    </p>
+
+                    <span class="research-experiment-tag">MEDICAL RESEARCH · SPACE HEALTH</span>
+                </div>
+
+            </article>
+
+
+            <article class="research-experiment research-reveal">
+
+                <div class="research-experiment-image">
+                    <img src="{% static "main/images/jar.jpg" %}"
+                         alt="Clouds and atmosphere">
+                    <span>03 / CLIMATE</span>
+                </div>
+
+                <div class="research-experiment-content">
+                    <span class="research-label">WEATHER & CLIMATE</span>
+                    <h3>Cloud Seeding in Microgravity</h3>
+
+                    <p>
+                        Researchers compared cloud-seeding processes
+                        on Earth and in microgravity to understand
+                        how gravity influences water vapor and
+                        condensation.
+                    </p>
+
+                    <span class="research-experiment-tag">EARTH SCIENCE · CLIMATE</span>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- SAUDI MISSION -->
+    <section class="research-saudi">
+
+        <div class="research-saudi-image">
+            <img src="{% static "main/images/erth1.jpg" %}"
+                 alt="International Space Station above Earth">
+        </div>
+
+        <div class="research-saudi-overlay"></div>
+
+        <div class="research-container research-saudi-content research-reveal">
+
+            <span class="research-label">05 / SAUDI SPACE MISSION</span>
+
+            <h2>
+                SAUDI SCIENCE<br>
+                <span>IN ORBIT.</span>
+            </h2>
+
+            <p>
+                On May 21, 2023, Saudi astronauts Rayyanah Barnawi and
+                Ali Alqarni launched to the International Space Station
+                as part of the Kingdom's first human space flight mission.
+            </p>
+
+            <div class="research-saudi-facts">
+                <div>
+                    <strong>10</strong>
+                    <span>MISSION DAYS</span>
+                </div>
+
+                <div>
+                    <strong>408 KM</strong>
+                    <span>ORBITAL ALTITUDE</span>
+                </div>
+
+                <div>
+                    <strong>2023</strong>
+                    <span>MISSION YEAR</span>
+                </div>
+            </div>
+
+            <a href="{% url 'missions' %}" class="research-button">
+                EXPLORE THE MISSION <span>↗</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- BIOGRAVITY -->
+    <section class="research-biogravity research-section">
+
+        <div class="research-container research-biogravity-grid">
+
+            <div class="research-biogravity-image research-reveal">
+                <img src="{% static "main/images/dod.jpg" %}"
+                     alt="Biomedical research laboratory">
+                <span>THE FUTURE OF BIOMEDICAL RESEARCH</span>
+            </div>
+
+            <div class="research-biogravity-content research-reveal">
+
+                <span class="research-label">06 / NEW INITIATIVES</span>
+
+                <h2>
+                    THE FUTURE OF<br>
+                    <span>BIOMEDICAL</span><br>
+                    RESEARCH.
+                </h2>
+
+                <p>
+                    The Saudi Space Agency's BioGravity initiative aims
+                    to empower scientists and researchers to conduct
+                    biomedical research in microgravity and strengthen
+                    national and international scientific collaboration.
+                </p>
+
+                <a href="https://ssa.gov.sa/en/newsItem/?path=%2Fnews%2Fbiogravity-initiative%2F"
+                   target="_blank" rel="noopener noreferrer"
+                   class="research-text-link">
+                    DISCOVER BIOGRAVITY <span>↗</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FUTURE -->
+    <section class="research-future research-reveal">
+
+        <div class="research-container">
+
+            <span class="research-label">07 / LOOKING AHEAD</span>
+
+            <h2>
+                RESEARCH TODAY.<br>
+                <span>DISCOVERIES TOMORROW.</span>
+            </h2>
+
+            <p>
+                Scientific research in space can support future missions
+                to the Moon and Mars while creating knowledge and
+                technologies that benefit life on Earth.
+            </p>
+
+            <a href="{% url 'astronomy' %}" class="research-button">
+                EXPLORE THE UNIVERSE <span>↗</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- SOURCES -->
+    <section class="research-sources">
+
+        <div class="research-container">
+
+            <span class="research-label">REFERENCES & FURTHER READING</span>
+
+            <div class="research-source-links">
+                <a href="https://ssa.gov.sa/en/humanSpaceProgram/" target="_blank" rel="noopener noreferrer">
+                    Saudi Human Space Flight Program ↗
+                </a>
+
+                <a href="https://my.gov.sa/en/services/2572165" target="_blank" rel="noopener noreferrer">
+                    Microgravity Research Service ↗
+                </a>
+
+                <a href="https://www.spa.gov.sa/N2475985" target="_blank" rel="noopener noreferrer">
+                    Saudi Space Research Outcomes ↗
+                </a>
+
+            </div>
+
+            <p>
+                Research information is summarized from official Saudi
+                Space Agency and Saudi Press Agency publications.
+                Images are illustrative.
+            </p>
+
+        </div>
+
+    </section>
+
+</main>
+
+<script src="{% static 'main/js/research.js' %}"></script>
+
+{% endblock %}

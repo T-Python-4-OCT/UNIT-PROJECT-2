@@ -1,0 +1,452 @@
+
+[
+    {
+        "id": "mercury",
+        "name": "Mercury",
+        "order": 1,
+        "type": "Terrestrial Planet",
+        "category": "Rocky Planet",
+        "image": "main/images/mercury.jpg",
+        "temperature": {
+            "average_celsius": 167,
+            "description": "Extreme temperature changes between day and night."
+        },
+        "habitability": {
+            "known_life": false,
+            "life_probability_percent": null,
+            "human_habitability": "Not habitable",
+            "assessment": "No known life. Mercury has almost no atmosphere and extreme temperatures.",
+            "liquid_water": "No stable liquid water on the surface. Water ice may exist in permanently shadowed polar craters."
+        },
+        "physical_properties": {
+            "diameter_km": 4879,
+            "mass_kg": 3.30e23,
+            "gravity_m_s2": 3.7,
+            "density_kg_m3": 5429,
+            "escape_velocity_km_s": 4.3
+        },
+        "orbit": {
+            "distance_from_sun_million_km": 57.9,
+            "orbital_period_days": 88,
+            "day_length_hours": 4222.6,
+            "rotation_period_hours": 1407.6,
+            "orbital_speed_km_s": 47.4
+        },
+        "atmosphere": {
+            "type": "Extremely thin exosphere",
+            "main_gases": ["Oxygen", "Sodium", "Hydrogen", "Helium", "Potassium"],
+            "surface_pressure_bars": 0
+        },
+        "moons": {
+            "count": 0,
+            "names": []
+        },
+        "rings": false,
+        "magnetic_field": true,
+        "surface": "Rocky, heavily cratered surface.",
+        "water": "Water ice may exist in permanently shadowed polar craters.",
+        "interesting_facts": [
+            "Mercury is the closest planet to the Sun.",
+            "It is the smallest planet in the solar system.",
+            "A year on Mercury lasts only 88 Earth days.",
+            "Despite being closest to the Sun, it is not the hottest planet."
+        ],
+        "exploration": {
+            "missions": ["Mariner 10", "MESSENGER", "BepiColombo"],
+            "first_spacecraft_visit": "Mariner 10, 1974"
+        }
+    },
+    {
+        "id": "venus",
+        "name": "Venus",
+        "order": 2,
+        "type": "Terrestrial Planet",
+        "category": "Rocky Planet",
+        "image": "main/images/venus.jpg",
+        "temperature": {
+            "average_celsius": 464,
+            "description": "The hottest planetary surface in the solar system."
+        },
+        "habitability": {
+            "known_life": false,
+            "life_probability_percent": null,
+            "human_habitability": "Not habitable",
+            "assessment": "No known life. Extreme heat, pressure, and atmospheric chemistry make the surface extremely hostile.",
+            "liquid_water": "No stable liquid water on the surface."
+        },
+        "physical_properties": {
+            "diameter_km": 12104,
+            "mass_kg": 4.87e24,
+            "gravity_m_s2": 8.9,
+            "density_kg_m3": 5243,
+            "escape_velocity_km_s": 10.4
+        },
+        "orbit": {
+            "distance_from_sun_million_km": 108.2,
+            "orbital_period_days": 224.7,
+            "day_length_hours": 2802,
+            "rotation_period_hours": -5832.5,
+            "orbital_speed_km_s": 35.0
+        },
+        "atmosphere": {
+            "type": "Very thick atmosphere",
+            "main_gases": ["Carbon dioxide", "Nitrogen"],
+            "surface_pressure_bars": 92
+        },
+        "moons": {
+            "count": 0,
+            "names": []
+        },
+        "rings": false,
+        "magnetic_field": false,
+        "surface": "Volcanic plains, mountains, and impact craters.",
+        "water": "Very little water vapor in the atmosphere and no known surface oceans.",
+        "interesting_facts": [
+            "Venus is the hottest planet in our solar system.",
+            "Its atmosphere is mostly carbon dioxide.",
+            "Its thick atmosphere creates an extreme greenhouse effect.",
+            "Venus rotates in the opposite direction to most planets."
+        ],
+        "exploration": {
+            "missions": ["Venera 7", "Magellan", "Akatsuki"],
+            "first_spacecraft_visit": "Mariner 2, 1962"
+        }
+    },
+    {
+        "id": "earth",
+        "name": "Earth",
+        "order": 3,
+        "type": "Terrestrial Planet",
+        "category": "Rocky Planet",
+        "image": "main/images/earth.jpg",
+        "temperature": {
+            "average_celsius": 15,
+            "description": "Average global surface temperature."
+        },
+        "habitability": {
+            "known_life": true,
+            "life_probability_percent": null,
+            "human_habitability": "Habitable",
+            "assessment": "The only known planet with life. It has liquid water, a protective atmosphere, and suitable environmental conditions.",
+            "liquid_water": "Abundant liquid water on the surface.",
+            "surface_water_coverage_percent": 71
+        },
+        "physical_properties": {
+            "diameter_km": 12756,
+            "mass_kg": 5.97e24,
+            "gravity_m_s2": 9.8,
+            "density_kg_m3": 5514,
+            "escape_velocity_km_s": 11.2
+        },
+        "orbit": {
+            "distance_from_sun_million_km": 149.6,
+            "orbital_period_days": 365.2,
+            "day_length_hours": 24,
+            "rotation_period_hours": 23.9,
+            "orbital_speed_km_s": 29.8
+        },
+        "atmosphere": {
+            "type": "Nitrogen-oxygen atmosphere",
+            "main_gases": ["Nitrogen", "Oxygen", "Argon", "Carbon dioxide"],
+            "surface_pressure_bars": 1
+        },
+        "moons": {
+            "count": 1,
+            "names": ["Moon"]
+        },
+        "rings": false,
+        "magnetic_field": true,
+        "surface": "Oceans, continents, mountains, deserts, and polar ice.",
+        "water": "Liquid water covers approximately 71% of Earth's surface.",
+        "interesting_facts": [
+            "Earth is the only known world with life.",
+            "It is the fifth-largest planet in the solar system.",
+            "Its atmosphere protects life from much harmful radiation.",
+            "Earth has one natural moon."
+        ],
+        "exploration": {
+            "missions": ["Apollo", "Landsat", "International Space Station"],
+            "first_spacecraft_visit": "Luna 2, 1959"
+        }
+    },
+    {
+        "id": "mars",
+        "name": "Mars",
+        "order": 4,
+        "type": "Terrestrial Planet",
+        "category": "Rocky Planet",
+        "image": "main/images/mars.jpg",
+        "temperature": {
+            "average_celsius": -65,
+            "description": "Cold desert environment with large temperature variations."
+        },
+        "habitability": {
+            "known_life": false,
+            "life_probability_percent": null,
+            "human_habitability": "Not currently habitable without life-support systems",
+            "assessment": "No confirmed life has been discovered. Scientists investigate whether ancient microbial life may once have existed.",
+            "liquid_water": "Water ice exists. Liquid water is not stable on most of the surface under present conditions."
+        },
+        "physical_properties": {
+            "diameter_km": 6792,
+            "mass_kg": 6.42e23,
+            "gravity_m_s2": 3.7,
+            "density_kg_m3": 3934,
+            "escape_velocity_km_s": 5.0
+        },
+        "orbit": {
+            "distance_from_sun_million_km": 228.0,
+            "orbital_period_days": 687,
+            "day_length_hours": 24.7,
+            "rotation_period_hours": 24.6,
+            "orbital_speed_km_s": 24.1
+        },
+        "atmosphere": {
+            "type": "Thin atmosphere",
+            "main_gases": ["Carbon dioxide", "Nitrogen", "Argon"],
+            "surface_pressure_bars": 0.01
+        },
+        "moons": {
+            "count": 2,
+            "names": ["Phobos", "Deimos"]
+        },
+        "rings": false,
+        "magnetic_field": false,
+        "surface": "Red rocky deserts, volcanoes, valleys, and ancient river channels.",
+        "water": "Water ice exists beneath the surface and near the polar regions.",
+        "interesting_facts": [
+            "Mars is known as the Red Planet.",
+            "It has the largest volcano in the solar system, Olympus Mons.",
+            "A day on Mars is slightly longer than an Earth day.",
+            "Scientists search for signs of ancient microbial life on Mars."
+        ],
+        "exploration": {
+            "missions": ["Viking 1", "Curiosity", "Perseverance", "Mars Reconnaissance Orbiter"],
+            "first_spacecraft_visit": "Mariner 4, 1965"
+        }
+    },
+    {
+        "id": "jupiter",
+        "name": "Jupiter",
+        "order": 5,
+        "type": "Gas Giant",
+        "category": "Gas Giant",
+        "image": "main/images/jupiter.jpg",
+        "temperature": {
+            "average_celsius": -110,
+            "description": "Approximate temperature at the 1-bar atmospheric pressure level."
+        },
+        "habitability": {
+            "known_life": false,
+            "life_probability_percent": null,
+            "human_habitability": "Not habitable",
+            "assessment": "No known life. Jupiter has no solid surface and has extreme atmospheric conditions.",
+            "liquid_water": "Water exists in its atmosphere, but no confirmed surface oceans."
+        },
+        "physical_properties": {
+            "diameter_km": 142984,
+            "mass_kg": 1.898e27,
+            "gravity_m_s2": 23.1,
+            "density_kg_m3": 1326,
+            "escape_velocity_km_s": 59.5
+        },
+        "orbit": {
+            "distance_from_sun_million_km": 778.5,
+            "orbital_period_days": 4331,
+            "day_length_hours": 9.9,
+            "rotation_period_hours": 9.9,
+            "orbital_speed_km_s": 13.1
+        },
+        "atmosphere": {
+            "type": "Thick atmosphere",
+            "main_gases": ["Hydrogen", "Helium"],
+            "surface_pressure_bars": null
+        },
+        "moons": {
+            "count": 95,
+            "names": ["Io", "Europa", "Ganymede", "Callisto"]
+        },
+        "rings": true,
+        "magnetic_field": true,
+        "surface": "No solid surface. Its atmosphere gradually becomes denser with depth.",
+        "water": "Water vapor and clouds exist in the atmosphere. Europa, one of its moons, has a subsurface ocean.",
+        "interesting_facts": [
+            "Jupiter is the largest planet in the solar system.",
+            "Its Great Red Spot is a giant long-lasting storm.",
+            "Ganymede, one of its moons, is larger than Mercury.",
+            "Europa is considered an important target in the search for environments that could support life."
+        ],
+        "exploration": {
+            "missions": ["Pioneer 10", "Galileo", "Juno"],
+            "first_spacecraft_visit": "Pioneer 10, 1973"
+        }
+    },
+    {
+        "id": "saturn",
+        "name": "Saturn",
+        "order": 6,
+        "type": "Gas Giant",
+        "category": "Gas Giant",
+        "image": "main/images/saturn.jpg",
+        "temperature": {
+            "average_celsius": -140,
+            "description": "Approximate temperature at the 1-bar atmospheric pressure level."
+        },
+        "habitability": {
+            "known_life": false,
+            "life_probability_percent": null,
+            "human_habitability": "Not habitable",
+            "assessment": "No known life on Saturn. Some of its moons are interesting places to investigate for conditions that might support life.",
+            "liquid_water": "No known surface oceans on Saturn. Its moon Enceladus has a subsurface ocean."
+        },
+        "physical_properties": {
+            "diameter_km": 120536,
+            "mass_kg": 5.68e26,
+            "gravity_m_s2": 9.0,
+            "density_kg_m3": 687,
+            "escape_velocity_km_s": 35.5
+        },
+        "orbit": {
+            "distance_from_sun_million_km": 1432.0,
+            "orbital_period_days": 10747,
+            "day_length_hours": 10.7,
+            "rotation_period_hours": 10.7,
+            "orbital_speed_km_s": 9.7
+        },
+        "atmosphere": {
+            "type": "Thick atmosphere",
+            "main_gases": ["Hydrogen", "Helium"],
+            "surface_pressure_bars": null
+        },
+        "moons": {
+            "count": 274,
+            "names": ["Titan", "Enceladus", "Rhea", "Iapetus"]
+        },
+        "rings": true,
+        "magnetic_field": true,
+        "surface": "No solid surface. Saturn is mostly hydrogen and helium.",
+        "water": "Its moon Enceladus has a global subsurface ocean. Titan has lakes and seas of liquid methane and ethane.",
+        "interesting_facts": [
+            "Saturn is famous for its spectacular ring system.",
+            "It is less dense than water on average.",
+            "Titan has lakes and rivers of liquid hydrocarbons.",
+            "Enceladus releases water-rich plumes into space."
+        ],
+        "exploration": {
+            "missions": ["Pioneer 11", "Voyager 1", "Cassini-Huygens"],
+            "first_spacecraft_visit": "Pioneer 11, 1979"
+        }
+    },
+    {
+        "id": "uranus",
+        "name": "Uranus",
+        "order": 7,
+        "type": "Ice Giant",
+        "category": "Ice Giant",
+        "image": "main/images/uranus.jpg",
+        "temperature": {
+            "average_celsius": -195,
+            "description": "Extremely cold atmosphere."
+        },
+        "habitability": {
+            "known_life": false,
+            "life_probability_percent": null,
+            "human_habitability": "Not habitable",
+            "assessment": "No known life. Uranus has no accessible solid surface and has an extremely cold atmosphere.",
+            "liquid_water": "No known surface liquid water. Water is thought to exist deep inside the planet in exotic high-pressure conditions."
+        },
+        "physical_properties": {
+            "diameter_km": 51118,
+            "mass_kg": 8.68e25,
+            "gravity_m_s2": 8.7,
+            "density_kg_m3": 1270,
+            "escape_velocity_km_s": 21.3
+        },
+        "orbit": {
+            "distance_from_sun_million_km": 2867.0,
+            "orbital_period_days": 30589,
+            "day_length_hours": 17.2,
+            "rotation_period_hours": -17.2,
+            "orbital_speed_km_s": 6.8
+        },
+        "atmosphere": {
+            "type": "Cold atmosphere",
+            "main_gases": ["Hydrogen", "Helium", "Methane"],
+            "surface_pressure_bars": null
+        },
+        "moons": {
+            "count": 28,
+            "names": ["Miranda", "Ariel", "Umbriel", "Titania", "Oberon"]
+        },
+        "rings": true,
+        "magnetic_field": true,
+        "surface": "No solid surface. The planet is composed mainly of hot dense fluids beneath its atmosphere.",
+        "water": "Water is believed to exist deep inside the planet as part of its icy interior.",
+        "interesting_facts": [
+            "Uranus rotates almost on its side.",
+            "It has a faint ring system.",
+            "Methane in its atmosphere gives it a blue-green appearance.",
+            "It experiences extreme seasonal changes."
+        ],
+        "exploration": {
+            "missions": ["Voyager 2"],
+            "first_spacecraft_visit": "Voyager 2, 1986"
+        }
+    },
+    {
+        "id": "neptune",
+        "name": "Neptune",
+        "order": 8,
+        "type": "Ice Giant",
+        "category": "Ice Giant",
+        "image": "main/images/neptune.jpg",
+        "temperature": {
+            "average_celsius": -200,
+            "description": "Approximate temperature in the upper atmosphere."
+        },
+        "habitability": {
+            "known_life": false,
+            "life_probability_percent": null,
+            "human_habitability": "Not habitable",
+            "assessment": "No known life. Neptune is extremely cold and has no accessible solid surface.",
+            "liquid_water": "No known surface liquid water. Water is believed to exist deep inside the planet."
+        },
+        "physical_properties": {
+            "diameter_km": 49528,
+            "mass_kg": 1.02e26,
+            "gravity_m_s2": 11.0,
+            "density_kg_m3": 1638,
+            "escape_velocity_km_s": 23.5
+        },
+        "orbit": {
+            "distance_from_sun_million_km": 4515.0,
+            "orbital_period_days": 59800,
+            "day_length_hours": 16.1,
+            "rotation_period_hours": 16.1,
+            "orbital_speed_km_s": 5.4
+        },
+        "atmosphere": {
+            "type": "Cold, dynamic atmosphere",
+            "main_gases": ["Hydrogen", "Helium", "Methane"],
+            "surface_pressure_bars": null
+        },
+        "moons": {
+            "count": 16,
+            "names": ["Triton"]
+        },
+        "rings": true,
+        "magnetic_field": true,
+        "surface": "No solid surface. Neptune has a deep atmosphere above a dense interior.",
+        "water": "Water is thought to exist deep inside Neptune, mixed with other materials.",
+        "interesting_facts": [
+            "Neptune is the farthest recognized planet from the Sun.",
+            "It has some of the fastest winds in the solar system.",
+            "Triton, its largest moon, orbits in the opposite direction to Neptune's rotation.",
+            "One year on Neptune lasts about 165 Earth years."
+        ],
+        "exploration": {
+            "missions": ["Voyager 2"],
+            "first_spacecraft_visit": "Voyager 2, 1989"
+        }
+    }
+]
