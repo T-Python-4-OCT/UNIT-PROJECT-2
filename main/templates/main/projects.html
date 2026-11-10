@@ -1,0 +1,137 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}مشاريع الدرعية | الدرعية{% endblock %}
+
+{% block content %}
+
+<section class="diriyah-project-hero">
+
+    <img
+        src="{% static 'main/images/hero.jpg' %}"
+        alt="مشاريع تطوير الدرعية"
+        class="diriyah-project-hero-image"
+    >
+
+    <div class="diriyah-project-hero-overlay"></div>
+
+    <div class="diriyah-project-hero-content">
+
+        <span class="diriyah-project-label">
+            نحو مستقبل يجمع الأصالة والابتكار
+        </span>
+
+        <h1>مشاريع الدرعية</h1>
+
+        <p>
+            اكتشف أبرز المشاريع التي تساهم في تطوير الدرعية
+            وتحويلها إلى وجهة عالمية تجمع التاريخ والثقافة
+            والضيافة ونمط الحياة المعاصر.
+        </p>
+
+        <a href="#all-projects" class="diriyah-project-hero-button">
+            استكشف المشاريع
+            <span aria-hidden="true">↓</span>
+        </a>
+
+    </div>
+
+</section>
+
+<section class="diriyah-project-section" id="all-projects">
+
+    <div class="diriyah-project-container">
+
+        <div class="diriyah-project-heading">
+
+            <span class="diriyah-project-decoration">◆ ◆ ◆</span>
+
+            <span class="diriyah-project-kicker">
+                رؤية للمستقبل
+            </span>
+
+            <h2>مشاريع تصنع المستقبل</h2>
+
+            <p>
+                مجموعة من المشاريع النوعية التي تعكس
+                الهوية النجدية وتقدم تجارب متنوعة
+                في مجالات الثقافة والضيافة والترفيه.
+            </p>
+
+        </div>
+
+        <div class="diriyah-project-grid">
+
+            {% for project in projects %}
+
+            <a
+                href="{% url 'main:project_detail' project.slug %}"
+                class="diriyah-project-card"
+            >
+
+                <div class="diriyah-project-card-image">
+
+                    <img
+                        src="{% static 'main/images/' %}{{ project.image }}"
+                        alt="{{ project.title }}"
+                        loading="lazy"
+                    >
+
+                    <span class="diriyah-project-number">
+                        {{ project.number }}
+                    </span>
+
+                </div>
+
+                <div class="diriyah-project-card-content">
+
+                    <span class="diriyah-project-category">
+                        {{ project.category }}
+                    </span>
+
+                    <h3>{{ project.title }}</h3>
+
+                    <h4>{{ project.subtitle }}</h4>
+
+                    <p>{{ project.summary }}</p>
+
+                    <span class="diriyah-project-card-link">
+                        اكتشف المشروع
+                        <span aria-hidden="true">←</span>
+                    </span>
+
+                </div>
+
+            </a>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="diriyah-project-outro">
+
+    <div class="diriyah-project-outro-content">
+
+        <span class="diriyah-project-decoration">◆ ◆ ◆</span>
+
+        <h2>الدرعية.. حيث يبدأ المستقبل من التاريخ</h2>
+
+        <p>
+            تستلهم مشاريع الدرعية هويتها من تاريخ المكان،
+            لتقدم تجارب معاصرة تعكس أصالة الثقافة السعودية.
+        </p>
+
+        <a href="{% url 'main:about' %}" class="diriyah-project-hero-button">
+            تعرف على الدرعية
+            <span aria-hidden="true">←</span>
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}
