@@ -1,11 +1,35 @@
-"""Views of the reports app: community reports list and report details."""
+"""Views of the reports app: community reports list, new report, report details."""
 
+import re
+
+from django.contrib import messages
 from django.http import Http404, HttpRequest, HttpResponse
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 
 from main import json_store
 from reports import store
+from reports.moderation import ai_review, local_review
 from reports.report_types import REPORT_TYPES
+
+PHONE = re.compile(r"^\+?[0-9 ]{7,15}$")
+EMAIL = re.compile(r"^[\w.+-]+@[\w-]+\.[\w.-]+$")
+
+
+def validate(form: dict) -> list[str]:
+    errors = []
+    if len(form["title"]) < 5:
+        errors.append("اكتب عنوان واضح للبلاغ (5 أحرف على الأقل).")
+    if form["type"] not in REPORT_TYPES:
+        errors.append("اختر نوع البلاغ.")
+    if not form["contact"]:
+        errors.append("اكتب رقم أو بريد أو حساب المحتال.")
+    elif form["type"] in ("sms", "call") and not PHONE.match(form["contact"]) and not form["contact"].isalpha():
+        errors.append("رقم الهاتف غير صحيح (من 7 إلى 15 رقم).")
+    elif form["type"] == "email" and not EMAIL.match(form["contact"]):
+        errors.append("البريد الإلكتروني غير صحيح.")
+    if len(form["description"]) < 20:
+        errors.append("اكتب وصف للحالة لا يقل عن 20 حرف، حتى يستفيد غيرك.")
+    return errors
 
 
 def report_list(request: HttpRequest) -> HttpResponse:
@@ -22,6 +46,27 @@ def report_list(request: HttpRequest) -> HttpResponse:
     context = {"reports": reports, "types": REPORT_TYPES, "selected": selected, "total": len(all_reports),
                "auto_count": len([report for report in all_reports if report["auto"]])}
     return render(request, "reports/report_list.html", context)
+
+
+def new_report(request: HttpRequest) -> HttpResponse:
+    form = {"title": "", "type": "sms", "contact": "", "description": "", "message": request.GET.get("message", "")}
+    errors = []
+
+    if request.method == "POST":
+        form = {key: request.POST.get(key, "").strip() for key in form}
+        errors = validate(form)
+        if not errors:
+            form["type_title"] = REPORT_TYPES[form["type"]]["title"]
+            reason = local_review(form["title"], form["description"]) or ai_review(form)
+            if reason:
+                errors.append(f"ما قدرنا ننشر البلاغ: {reason} عدّله وحاول مرة ثانية.")
+            else:
+                report = store.add_manual(form)
+                messages.success(request, "تم نشر بلاغك، شكراً لأنك تحمي غيرك.")
+                return redirect("reports:detail", report_id=report["id"])
+
+    context = {"form": form, "errors": errors, "types": REPORT_TYPES}
+    return render(request, "reports/new_report.html", context)
 
 
 def report_detail(request: HttpRequest, report_id: int) -> HttpResponse:

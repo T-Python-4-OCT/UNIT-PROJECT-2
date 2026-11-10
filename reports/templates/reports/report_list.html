@@ -10,6 +10,7 @@
       <h1>بلاغات المجتمع</h1>
       <p>{{ total }} بلاغ عن أرقام وحسابات ورسائل احتيال من المجتمع. اقرأها قبل ما ترد على رقم غريب.</p>
     </div>
+    <a class="btn-signal" href="{% url 'reports:new' %}"><i class="bi bi-megaphone"></i> أبلغ عن حالة</a>
   </div>
 </section>
 
@@ -32,7 +33,8 @@
         <p>ما فيه بلاغات من هذا النوع للحين.</p>
         <a class="text-link" href="{% url 'reports:list' %}">اعرض كل البلاغات</a>
       {% else %}
-        <p>ما فيه بلاغات للحين.</p>
+        <p>ما فيه بلاغات للحين. افحص رسالة احتيال في الكاشف وبيتنشر تحذيرها هنا، أو بلّغ بنفسك.</p>
+        <a class="btn-signal" href="{% url 'reports:new' %}">أبلغ عن حالة</a>
       {% endif %}
     </div>
   {% endif %}
