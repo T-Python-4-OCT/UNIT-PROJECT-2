@@ -20,6 +20,14 @@
     {% if city.summary %}
       <p class="lead">{{ city.summary }}</p>
     {% endif %}
+    {% if city.overview_details %}
+      <p class="nt-overview-details">{{ city.overview_details }}</p>
+    {% endif %}
+    {% if city.overview_source %}
+      <p class="nt-source-link">المصدر:
+        <a href="{{ city.overview_source.url }}" target="_blank" rel="noopener">{{ city.overview_source.label }}</a>
+      </p>
+    {% endif %}
     <span class="nt-pill"><i class="bi bi-signpost-split"></i> المحطة {{ city.order }} على المسار</span>
   </section>
 
@@ -42,11 +50,13 @@
             <span><strong>الاتجاهات بالسيارة</strong><small>من {{ access_origin.name }} إلى {{ city.name }}</small></span>
             <i class="bi bi-arrow-up-left nt-access-external" aria-hidden="true"></i>
           </a>
-          <a class="nt-access-link nt-access-link--transit" href="https://www.google.com/maps/dir/?api=1&amp;origin={{ access_origin.name|urlencode }}&amp;destination={{ city.name|urlencode }}&amp;travelmode=transit" target="_blank" rel="noopener">
-            <span class="nt-access-icon"><i class="bi bi-bus-front-fill"></i></span>
-            <span><strong>النقل العام</strong><small>الخيارات المتاحة حسب الوجهة</small></span>
-            <i class="bi bi-arrow-up-left nt-access-external" aria-hidden="true"></i>
-          </a>
+          {% if city.has_train %}
+            <a class="nt-access-link nt-access-link--transit" href="https://www.google.com/maps/dir/?api=1&amp;origin={{ access_origin.name|urlencode }}&amp;destination={{ city.name|urlencode }}&amp;travelmode=transit" target="_blank" rel="noopener">
+              <span class="nt-access-icon"><i class="bi bi-bus-front-fill"></i></span>
+              <span><strong>النقل العام</strong><small>الخيارات المتاحة حسب الوجهة</small></span>
+              <i class="bi bi-arrow-up-left nt-access-external" aria-hidden="true"></i>
+            </a>
+          {% endif %}
         {% else %}
           <a class="nt-access-link nt-access-link--driving" href="https://www.google.com/maps/search/?api=1&amp;query={{ city.name|urlencode }}" target="_blank" rel="noopener">
             <span class="nt-access-icon"><i class="bi bi-map-fill"></i></span>
@@ -95,6 +105,9 @@
       {% for place in city.landmarks %}
         <div class="col-12 col-md-6 col-lg-4">
           <div class="nt-box nt-box--{{ place.category }} h-100">
+            {% if place.photo %}
+              <img class="nt-card-photo" src="{{ place.photo.url }}" alt="{{ place.photo.alt }}" loading="lazy">
+            {% endif %}
             <span class="nt-pill">
               {% if place.category == "heritage" %}<i class="bi bi-pencil"></i> أماكن تراثية وتاريخية
               {% elif place.category == "nature" %}<i class="bi bi-tree"></i> مواقع طبيعية
@@ -133,6 +146,9 @@
       {% for event in city.events %}
         <div class="col-12 col-md-6">
           <div class="nt-box h-100">
+            {% if event.photo %}
+              <img class="nt-card-photo" src="{{ event.photo.url }}" alt="{{ event.photo.alt }}" loading="lazy">
+            {% endif %}
             <h3>{{ event.title }}</h3>
             <p>{{ event.description }}</p>
           </div>

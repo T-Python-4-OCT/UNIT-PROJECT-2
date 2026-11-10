@@ -1,4 +1,4 @@
-from .data import CITIES
+from .data import ordered_cities
 
 SOCIAL_LINKS = [
     {"name": "Instagram", "icon": "bi-instagram", "url": "https://www.instagram.com/visitsaudi/"},
@@ -13,7 +13,7 @@ def theme(request):
 
 
 def nav_cities(request):
-    return {"cities": sorted(CITIES, key=lambda c: c["order"])}
+    return {"cities": ordered_cities()}
 
 
 def site_info(request):

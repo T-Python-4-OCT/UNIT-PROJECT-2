@@ -54,6 +54,22 @@
   margin: -0.5rem 0 1.5rem;
 }
 
+.nt-overview-details {
+  max-width: 900px;
+  line-height: 1.9;
+}
+
+.nt-source-link {
+  color: var(--nt-muted);
+  font-size: 0.82rem;
+}
+
+.nt-source-link a {
+  color: var(--nt-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.15em;
+}
+
 .nt-access-box {
   display: flex;
   align-items: center;
@@ -168,6 +184,8 @@
 
 /* Landmark and event boxes */
 .nt-box {
+  display: flex;
+  flex-direction: column;
   background: var(--nt-surface);
   border: 1px solid var(--nt-border);
   border-top: 3px solid var(--nt-accent);
@@ -175,6 +193,17 @@
   padding: 1.5rem;
   box-shadow: 0 8px 24px rgba(49, 33, 22, 0.055);
   transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.nt-card-photo {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 10;
+  margin-bottom: 0.75rem;
+  border-radius: 14px;
+  object-fit: cover;
+  background: var(--nt-pill);
 }
 
 .nt-box:hover {
@@ -195,6 +224,7 @@
 .nt-box p {
   color: var(--nt-muted);
   margin: 0;
+  line-height: 1.75;
 }
 
 /* Vertical timeline */
