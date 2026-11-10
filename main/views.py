@@ -2,7 +2,7 @@ from django.http import Http404, HttpRequest
 from django.shortcuts import redirect, render
 from django.utils.http import url_has_allowed_host_and_scheme
 
-from .data import CITIES, COUNTDOWN_TARGET, EXPLORE, STATS, get_city, stadiums_in
+from .data import CITIES, COUNTDOWN_TARGET, EXPLORE, STADIUMS, STATS, get_city, get_stadium, stadiums_in
 
 
 def home_view(request: HttpRequest):
@@ -27,11 +27,35 @@ def city_view(request: HttpRequest, slug):
 
 
 def stadiums_view(request: HttpRequest):
-    return render(request, "main/coming_soon.html", {"title": "الملاعب"})
+    # Query parameters: ?city=riyadh  and  ?sort=capacity
+    city_slug = request.GET.get("city", "")
+    sort = request.GET.get("sort", "")
+
+    stadiums = stadiums_in(city_slug) if get_city(city_slug) else list(STADIUMS)
+    if sort == "capacity":
+        stadiums = sorted(stadiums, key=lambda s: s["capacity"], reverse=True)
+
+    total = sum(s["capacity"] for s in stadiums)
+    return render(request, "main/stadiums.html", {
+        "stadiums": stadiums,
+        "cities": CITIES,
+        "selected_city": get_city(city_slug),
+        "sort": sort,
+        "total_capacity": f"{total:,}",
+    })
 
 
 def stadium_view(request: HttpRequest, slug):
-    return render(request, "main/coming_soon.html", {"title": "الملعب"})
+    stadium = get_stadium(slug)
+    if stadium is None:
+        raise Http404("Stadium not found")
+    city = get_city(stadium["city"])
+    neighbours = [s for s in stadiums_in(stadium["city"]) if s["slug"] != slug]
+    return render(request, "main/stadium.html", {
+        "stadium": stadium,
+        "city": city,
+        "neighbours": neighbours,
+    })
 
 
 def history_view(request: HttpRequest):

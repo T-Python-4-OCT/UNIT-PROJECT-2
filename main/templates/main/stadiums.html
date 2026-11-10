@@ -1,0 +1,55 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}الملاعب{% endblock %}
+{% block nav_stadiums %}active{% endblock %}
+
+{% block content %}
+
+<!-- ===== HEADER ===== -->
+<section class="page-hero page-hero-sm">
+    <img src="{% static 'main/images/card-stadium-jawhara.jpg' %}" alt="ملعب الجوهرة بالجماهير" class="page-hero-img">
+    <div class="container page-hero-content">
+        <nav class="crumbs" aria-label="مسار الصفحة">
+            <a href="{% url 'main:home' %}">الرئيسية</a>
+            <i class="bi bi-chevron-left"></i>
+            <span>الملاعب</span>
+        </nav>
+        <h1>ملاعب المونديال</h1>
+        <p class="page-hero-tagline">15 ملعباً في 5 مدن</p>
+    </div>
+</section>
+
+<!-- ===== FILTERS (query parameters) ===== -->
+<section class="container">
+    <div class="filter-bar reveal">
+        <div class="filter-chips">
+            <a href="{% url 'main:stadiums' %}{% if sort %}?sort={{ sort }}{% endif %}" class="filter-chip {% if not selected_city %}active{% endif %}">كل المدن</a>
+            {% for c in cities %}
+                <a href="?city={{ c.slug }}{% if sort %}&sort={{ sort }}{% endif %}" class="filter-chip {% if selected_city.slug == c.slug %}active{% endif %}">{{ c.name }}</a>
+            {% endfor %}
+        </div>
+        <div class="sort-links">
+            <span>الترتيب:</span>
+            <a href="?{% if selected_city %}city={{ selected_city.slug }}{% endif %}" class="{% if sort != 'capacity' %}active{% endif %}">الافتراضي</a>
+            <a href="?{% if selected_city %}city={{ selected_city.slug }}&{% endif %}sort=capacity" class="{% if sort == 'capacity' %}active{% endif %}">الأكبر سعة</a>
+        </div>
+    </div>
+
+    <p class="results-line">
+        {{ stadiums|length }} {% if stadiums|length == 1 %}ملعب{% else %}ملاعب{% endif %}
+        {% if selected_city %}في {{ selected_city.name }}{% endif %}
+        · إجمالي السعة {{ total_capacity }} مقعد
+    </p>
+
+    <!-- ===== GRID ===== -->
+    <div class="row g-4">
+        {% for stadium in stadiums %}
+            <div class="col-12 col-sm-6 col-lg-4 reveal">
+                {% include "main/partials/stadium_card.html" with stadium=stadium %}
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+{% endblock %}

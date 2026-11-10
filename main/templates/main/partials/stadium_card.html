@@ -1,0 +1,20 @@
+{% load static %}
+{# Reusable stadium card: include with stadium=... #}
+<a href="{% url 'main:stadium' stadium.slug %}" class="stadium-card">
+    <div class="stadium-card-img">
+        {% if stadium.image %}
+            <img src="{% static stadium.image %}" alt="{{ stadium.name }}" loading="lazy">
+        {% else %}
+            {% include "main/partials/stadium_placeholder.html" %}
+        {% endif %}
+        {% if stadium.badge %}<span class="stadium-badge"><i class="bi bi-star-fill"></i> {{ stadium.badge }}</span>{% endif %}
+        <span class="stadium-status">{{ stadium.status }}</span>
+    </div>
+    <div class="stadium-card-body">
+        <h3>{{ stadium.name }}</h3>
+        <div class="stadium-meta">
+            <span><i class="bi bi-people"></i> {{ stadium.capacity_display }} مقعد</span>
+            <span><i class="bi bi-calendar3"></i> {{ stadium.completion }}</span>
+        </div>
+    </div>
+</a>
