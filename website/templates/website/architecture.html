@@ -1,12 +1,12 @@
 {% extends "website/base.html" %}
 {% block title %}العمارة والتصميم الحضري{% endblock %}
 {% block content %}
-{% include "website/_page_head.html" with title="العمارة والتصميم الحضري" tagline="من الطين إلى الأبراج" lead="العمارة السعودية تستجيب للمناخ بمواد محلية وتفاصيل عملية، من البيوت القديمة إلى أحياء اليوم." image="architecture/architecture-forms.svg" image_alt="رسم توضيحي يجمع العمارة النجدية والمباني المعاصرة" %}
+{% include "website/_page_head.html" with title="العمارة والتصميم الحضري" tagline="من الطين إلى الأبراج" lead="العمارة السعودية تستجيب للمناخ بمواد محلية وتفاصيل عملية، من البيوت القديمة إلى أحياء اليوم." image="architecture/diriyah.jpg" image_alt="العمارة الطينية في حي الطريف بالدرعية" %}
 <section class="section section--tint"><div class="container">
   <div class="section-head"><h2>طرازان تقليديان</h2><p>أساليب معمارية صاغها المكان والمواد المتاحة.</p></div>
   <div class="styles">
-    <article class="style-card"><p class="style-card__lead">بنية تحمي من الحرارة</p><h3>العمارة النجدية</h3><ul class="ticks"><li>الطين واللبن مع جذوع النخل في الأسقف.</li><li>جدران سميكة وفتحات صغيرة.</li><li>فناء داخلي للضوء والتهوية.</li><li>شرفات مثلثة تتوّج الجدران.</li></ul><p>مثال: حي الطريف في الدرعية.</p></article>
-    <article class="style-card"><p class="style-card__lead">واجهات تتنفس</p><h3>العمارة الحجازية</h3><ul class="ticks"><li>الحجر المنقبي والخشب.</li><li>رواشين بارزة للتهوية والخصوصية.</li><li>بيوت متعددة الطوابق.</li><li>واجهات خشبية منقوشة.</li></ul><p>مثال: جدة التاريخية.</p></article>
+    <article class="style-card">{% include "website/_media.html" with file="architecture/diriyah.jpg" alt="مبانٍ طينية حقيقية في حي الطريف بالدرعية" class="media--wide" %}<p class="style-card__lead">بنية تحمي من الحرارة</p><h3>العمارة النجدية</h3><ul class="ticks"><li>الطين واللبن مع جذوع النخل في الأسقف.</li><li>جدران سميكة وفتحات صغيرة.</li><li>فناء داخلي للضوء والتهوية.</li><li>شرفات مثلثة تتوّج الجدران.</li></ul><p>مثال: حي الطريف في الدرعية.</p></article>
+    <article class="style-card">{% include "website/_media.html" with file="architecture/historic-jeddah.jpg" alt="بيوت جدة التاريخية ورواشينها الخشبية" class="media--wide" %}<p class="style-card__lead">واجهات تتنفس</p><h3>العمارة الحجازية</h3><ul class="ticks"><li>الحجر المنقبي والخشب.</li><li>رواشين بارزة للتهوية والخصوصية.</li><li>بيوت متعددة الطوابق.</li><li>واجهات خشبية منقوشة.</li></ul><p>مثال: جدة التاريخية.</p></article>
   </div>
 </div></section>
 <section class="section container"><div class="section-head"><h2>معالم ومشاريع عمرانية</h2><p>مواقع تراثية ومشاريع حديثة في مدن المملكة.</p></div><div class="rows">

@@ -45,6 +45,20 @@
 - A briefe history / timeline of the city.
 - Major events in the city.
 
+## Run the site in VS Code
+
+Open this folder in VS Code, then open **Terminal → New Terminal** and run:
+
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
+
+Open `http://127.0.0.1:8000/` in a browser. The project root contains `manage.py`, `config`, and `website`.
+
 #### "city/Abha/"
 - Title of city with a catchy phrase.
 - Top Attractions in the city.
