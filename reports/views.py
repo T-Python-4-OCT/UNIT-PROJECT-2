@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.http import Http404, HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
 
-from main import json_store
+from main import contacts, json_store
 from reports import store
 from reports.moderation import ai_review, local_review
 from reports.report_types import REPORT_TYPES
@@ -35,15 +35,26 @@ def validate(form: dict) -> list[str]:
 def report_list(request: HttpRequest) -> HttpResponse:
     all_reports = json_store.newest_first(store.load_reports())
     selected = request.GET.get("type", "")
+    query = request.GET.get("q", "").strip()
     reports = all_reports
+    lookup = None
 
     if selected in REPORT_TYPES:
         reports = [report for report in reports if report["type"] == selected]
+    if query:
+        # 1) the same phone / email / link, written in any format
+        matches = store.find_matches([query], reports)
+        # 2) or the words inside the title, description or message
+        words = [report for report in reports if report not in matches and
+                 (query in report["title"] or query in report["description"] or query in report["message"])]
+        reports = matches + words
+        lookup = {"value": contacts.clean(query), "times": store.times_reported(matches), "found": bool(matches)}
 
     for report in reports:
         report["type_info"] = REPORT_TYPES[report["type"]]
 
-    context = {"reports": reports, "types": REPORT_TYPES, "selected": selected, "total": len(all_reports),
+    context = {"reports": reports, "types": REPORT_TYPES, "selected": selected, "query": query,
+               "lookup": lookup, "total": len(all_reports),
                "auto_count": len([report for report in all_reports if report["auto"]])}
     return render(request, "reports/report_list.html", context)
 

@@ -8,13 +8,41 @@
   <div class="container page-hero-row">
     <div>
       <h1>بلاغات المجتمع</h1>
-      <p>{{ total }} بلاغ عن أرقام وحسابات ورسائل احتيال من المجتمع. اقرأها قبل ما ترد على رقم غريب.</p>
+      <p>{{ total }} بلاغ عن أرقام وحسابات ورسائل احتيال، منها {{ auto_count }} نشرها الكاشف تلقائياً. قبل ما ترد على رقم غريب، ابحث عنه هنا.</p>
     </div>
     <a class="btn-signal" href="{% url 'reports:new' %}"><i class="bi bi-megaphone"></i> أبلغ عن حالة</a>
   </div>
 </section>
 
 <section class="container section-tight">
+  <form class="search-bar" method="get" action="{% url 'reports:list' %}" role="search">
+    {% if selected %}<input type="hidden" name="type" value="{{ selected }}">{% endif %}
+    <i class="bi bi-search"></i>
+    <label for="q" class="visually-hidden">ابحث في البلاغات</label>
+    <input id="q" name="q" type="search" value="{{ query }}" placeholder="رقم جوال بأي صيغة، بريد، رابط، أو كلمة من الرسالة">
+    <button class="btn-signal btn-sm" type="submit">ابحث</button>
+  </form>
+
+  {% if lookup %}
+    {% if lookup.found %}
+      <div class="lookup-result lookup-hit" role="status">
+        <i class="bi bi-exclamation-octagon-fill"></i>
+        <div>
+          <strong dir="auto">{{ lookup.value }} مبلّغ عنه {{ lookup.times }} مرة</strong>
+          <p>لا ترد، ولا تحوّل أي مبلغ، ولا تشارك أي رمز. اقرأ البلاغات تحت.</p>
+        </div>
+      </div>
+    {% else %}
+      <div class="lookup-result lookup-miss" role="status">
+        <i class="bi bi-info-circle-fill"></i>
+        <div>
+          <strong dir="auto">ما لقينا بلاغات عن {{ lookup.value }}</strong>
+          <p>هذا ما يعني إنه آمن. تحقق دائماً من القنوات الرسمية قبل أي تحويل أو مشاركة بيانات.</p>
+        </div>
+      </div>
+    {% endif %}
+  {% endif %}
+
   <nav class="filter-chips" aria-label="تصفية حسب النوع">
     <a href="{% url 'reports:list' %}" {% if not selected %}aria-current="true"{% endif %}>الكل <span class="chip-count">{{ total }}</span></a>
     {% for key, info in types.items %}
@@ -26,7 +54,7 @@
     <div class="report-strip">
       {% for report in reports %}{% include "reports/report_row.html" %}{% endfor %}
     </div>
-  {% else %}
+  {% elif not lookup %}
     <div class="empty-inline">
       <img class="reports-art" src="{% static 'reports/images/megaphone.svg' %}" alt="">
       {% if selected %}
