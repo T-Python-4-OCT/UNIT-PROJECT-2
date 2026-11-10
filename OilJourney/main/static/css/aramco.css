@@ -1,0 +1,903 @@
+/* ========================================
+   ARAMCO & GROWTH PAGE
+======================================== */
+
+.aramco-page {
+    /* Brand colors */
+    --ar-blue: #00A3E0;
+    --ar-dark-blue: #0033A0;
+    --ar-green: #84BD00;
+    --ar-dark-green: #00843D;
+
+    /* Theme (light) */
+    --ar-bg: #ffffff;
+    --ar-bg-soft: #f5f8fa;
+    --ar-card: #ffffff;
+    --ar-text: #172b3a;
+    --ar-muted: #667783;
+    --ar-border: rgba(0, 51, 160, 0.12);
+
+    /* Design tokens */
+    --ar-radius: 8px;
+    --ar-radius-sm: 6px;
+    --ar-ease: 0.3s ease;
+    --ar-shadow-card: 0 15px 35px rgba(0, 51, 160, 0.09);
+    --ar-shadow-soft: 0 12px 30px rgba(0, 51, 160, 0.08);
+    --ar-overlay-fade: linear-gradient(transparent, rgba(0, 20, 40, 0.85));
+    --ar-font-heading: "Cairo", sans-serif;
+    --ar-font-body: "IBM Plex Sans Arabic", sans-serif;
+
+    background: var(--ar-bg);
+    color: var(--ar-text);
+    overflow-x: clip;
+    font-family: var(--ar-font-body);
+}
+
+
+/* Dark Mode */
+body.dark.aramco-page {
+    --ar-bg: #101b25;
+    --ar-bg-soft: #162633;
+    --ar-card: #1b2c3a;
+    --ar-text: #edf4f8;
+    --ar-muted: #aabac5;
+    --ar-border: rgba(255, 255, 255, 0.1);
+}
+
+
+.aramco-page *,
+.aramco-page *::before,
+.aramco-page *::after {
+    box-sizing: border-box;
+}
+
+.aramco-page img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.aramco-page a {
+    text-decoration: none;
+}
+
+.aramco-page :focus-visible {
+    outline: 3px solid var(--ar-blue);
+    outline-offset: 3px;
+    border-radius: 4px;
+}
+
+.ar-container {
+    width: min(1180px, calc(100% - 48px));
+    margin-inline: auto;
+}
+
+.ar-section {
+    padding: 110px 0;
+}
+
+#growth {
+    scroll-margin-top: 80px;
+}
+
+.ar-section-heading {
+    max-width: 700px;
+    margin-bottom: 55px;
+}
+
+.ar-section-heading.ar-center {
+    margin-inline: auto;
+    text-align: center;
+}
+
+.ar-section-label {
+    display: inline-block;
+    color: var(--ar-dark-green);
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 17px;
+    letter-spacing: 0.3px;
+}
+
+body.dark.aramco-page .ar-section-label {
+    color: var(--ar-green);
+}
+
+.ar-section-heading h2,
+.ar-infra-content h2,
+.ar-impact-content h2 {
+    font-family: var(--ar-font-heading);
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.5;
+    font-weight: 900;
+    margin: 0 0 18px;
+    color: var(--ar-text);
+}
+
+.ar-section-heading h2 span,
+.ar-infra-content h2 span,
+.ar-impact-content h2 span {
+    color: var(--ar-blue);
+}
+
+.ar-section-heading > p {
+    color: var(--ar-muted);
+    font-size: 16px;
+    line-height: 2;
+    margin: 0;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.ar-hero {
+    min-height: 150px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: url("../images/aramco-hero.jpg") center / cover no-repeat;
+    color: #ffffff;
+}
+
+.ar-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        270deg,
+        rgba(0, 24, 55, 0.94) 0%,
+        rgba(0, 36, 78, 0.78) 48%,
+        rgba(0, 25, 55, 0.25) 100%
+    );
+}
+
+.ar-hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 70px;
+    padding-bottom: 80px;
+}
+
+.ar-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #b8e5f5;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.ar-eyebrow::before {
+    content: "";
+    width: 30px;
+    height: 2px;
+    background: var(--ar-green);
+}
+
+.ar-hero h1 {
+    font-family: var(--ar-font-heading);
+    font-size: clamp(52px, 8vw, 88px);
+    line-height: 1.2;
+    font-weight: 900;
+    margin: 0 0 25px;
+    max-width: 700px;
+}
+
+.ar-hero h1 span {
+    display: block;
+    color: var(--ar-green);
+}
+
+.ar-hero-content > p {
+    max-width: 570px;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 18px;
+    line-height: 2.1;
+    margin-bottom: 35px;
+}
+
+.ar-primary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 10px 25px;
+    border-radius: var(--ar-radius-sm);
+    background: var(--ar-green);
+    color: #10252c;
+    font-size: 15px;
+    font-weight: 800;
+    transition: background-color var(--ar-ease), transform var(--ar-ease);
+}
+
+.ar-primary-btn span {
+    font-size: 21px;
+    transition: transform var(--ar-ease);
+}
+
+.ar-hero-caption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    margin-top: 65px;
+}
+
+.ar-hero-caption span {
+    width: 7px;
+    height: 7px;
+    background: var(--ar-green);
+    border-radius: 50%;
+}
+
+.ar-hero-bottom {
+    position: absolute;
+    z-index: 2;
+    bottom: 25px;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+}
+
+.ar-scroll-line {
+    width: 45px;
+    height: 1px;
+    background: var(--ar-green);
+}
+
+
+/* ========================================
+   INTRODUCTION
+======================================== */
+
+.ar-intro {
+    background: var(--ar-bg);
+}
+
+.ar-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+}
+
+.ar-intro-text p,
+.ar-infra-content > p,
+.ar-impact-content > p {
+    color: var(--ar-muted);
+    font-size: 16px;
+    line-height: 2.1;
+    margin: 0 0 20px;
+}
+
+.ar-intro-image,
+.ar-infra-image,
+.ar-impact-image {
+    position: relative;
+    border-radius: var(--ar-radius);
+    overflow: hidden;
+}
+
+.ar-intro-image {
+    height: 390px;
+}
+
+.ar-intro-image img,
+.ar-infra-image img {
+    transition: transform 0.7s ease;
+}
+
+.ar-image-caption {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 18px 22px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    background: var(--ar-overlay-fade);
+}
+
+
+/* ========================================
+   COMPANY DEVELOPMENT CARDS
+======================================== */
+
+.ar-company {
+    background: var(--ar-bg-soft);
+}
+
+.ar-company-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+.ar-company-card {
+    position: relative;
+    min-height: 320px;
+    padding: 30px 24px;
+    background: var(--ar-card);
+    border: 1px solid var(--ar-border);
+    border-radius: var(--ar-radius);
+    overflow: hidden;
+    transition: transform var(--ar-ease), box-shadow var(--ar-ease);
+}
+
+.ar-company-card::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(to left, var(--ar-blue), var(--ar-green));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.35s ease;
+}
+
+.ar-card-number {
+    position: absolute;
+    top: 15px;
+    left: 20px;
+    color: var(--ar-border);
+    font-size: 35px;
+    font-weight: 900;
+}
+
+.ar-card-icon {
+    width: 52px;
+    height: 52px;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 163, 224, 0.1);
+    color: var(--ar-blue);
+    border-radius: var(--ar-radius);
+    font-size: 27px;
+    margin-bottom: 23px;
+}
+
+.ar-card-year {
+    display: block;
+    color: var(--ar-dark-green);
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 9px;
+}
+
+body.dark.aramco-page .ar-card-year {
+    color: var(--ar-green);
+}
+
+.ar-company-card h3 {
+    color: var(--ar-text);
+    font-family: var(--ar-font-heading);
+    font-size: 19px;
+    font-weight: 800;
+    margin: 0 0 13px;
+}
+
+.ar-company-card p {
+    color: var(--ar-muted);
+    font-size: 14px;
+    line-height: 2;
+    margin: 0;
+}
+
+
+/* ========================================
+   INFRASTRUCTURE
+======================================== */
+
+.ar-infrastructure {
+    background: var(--ar-bg);
+}
+
+.ar-infra-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.ar-infra-image {
+    height: 510px;
+}
+
+.ar-infra-content h2 {
+    margin-bottom: 22px;
+}
+
+.ar-infra-points {
+    display: grid;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.ar-infra-point {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+}
+
+.ar-infra-point > span {
+    width: 40px;
+    height: 40px;
+    flex-shrink: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 163, 224, 0.1);
+    color: var(--ar-blue);
+    font-size: 13px;
+    font-weight: 900;
+    border-radius: var(--ar-radius-sm);
+}
+
+.ar-infra-point h3 {
+    color: var(--ar-text);
+    font-family: var(--ar-font-heading);
+    font-size: 16px;
+    font-weight: 800;
+    margin: 0 0 5px;
+}
+
+.ar-infra-point p {
+    color: var(--ar-muted);
+    font-size: 13px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+
+/* ========================================
+   TIMELINE
+======================================== */
+
+.ar-timeline-section {
+    background: var(--ar-bg-soft);
+}
+
+.ar-timeline {
+    position: relative;
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.ar-timeline::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 90px;
+    width: 2px;
+    background: linear-gradient(to bottom, var(--ar-blue), var(--ar-green));
+}
+
+.ar-timeline-item {
+    position: relative;
+    display: grid;
+    grid-template-columns: 90px 30px 1fr;
+    align-items: start;
+    gap: 20px;
+    margin-bottom: 45px;
+}
+
+.ar-timeline-item:last-child {
+    margin-bottom: 0;
+}
+
+.ar-timeline-year {
+    padding-top: 20px;
+    color: var(--ar-dark-green);
+    font-size: 17px;
+    font-weight: 900;
+    text-align: left;
+}
+
+body.dark.aramco-page .ar-timeline-year {
+    color: var(--ar-green);
+}
+
+.ar-timeline-dot {
+    position: relative;
+    z-index: 2;
+    width: 14px;
+    height: 14px;
+    margin-top: 24px;
+    background: var(--ar-green);
+    border: 3px solid var(--ar-bg-soft);
+    border-radius: 50%;
+    box-shadow: 0 0 0 3px rgba(132, 189, 0, 0.2);
+}
+
+.ar-timeline-card {
+    display: grid;
+    grid-template-columns: 190px 1fr;
+    min-height: 165px;
+    background: var(--ar-card);
+    border: 1px solid var(--ar-border);
+    border-radius: var(--ar-radius);
+    overflow: hidden;
+    transition: transform var(--ar-ease), box-shadow var(--ar-ease);
+}
+
+.ar-timeline-card > img {
+    min-height: 165px;
+}
+
+.ar-timeline-info {
+    padding: 22px 25px;
+}
+
+.ar-timeline-info > span {
+    color: var(--ar-dark-green);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+body.dark.aramco-page .ar-timeline-info > span {
+    color: var(--ar-green);
+}
+
+.ar-timeline-info h3 {
+    color: var(--ar-text);
+    font-family: var(--ar-font-heading);
+    font-size: 18px;
+    font-weight: 800;
+    margin: 8px 0;
+}
+
+.ar-timeline-info p {
+    color: var(--ar-muted);
+    font-size: 13px;
+    line-height: 1.9;
+    margin: 0;
+}
+
+
+/* ========================================
+   NATIONAL IMPACT
+======================================== */
+
+.ar-impact {
+    background: var(--ar-bg);
+}
+
+.ar-impact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.ar-impact-content h2 {
+    margin-bottom: 22px;
+}
+
+.ar-impact-image {
+    height: 430px;
+}
+
+.ar-impact-image::after {
+    content: "";
+    position: absolute;
+    inset: 35% 0 0;
+    background: var(--ar-overlay-fade);
+}
+
+.ar-impact-image-caption {
+    position: absolute;
+    z-index: 2;
+    bottom: 25px;
+    right: 25px;
+    left: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #ffffff;
+}
+
+.ar-impact-image-caption strong {
+    font-family: var(--ar-font-heading);
+    font-size: 22px;
+}
+
+.ar-impact-image-caption span {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+}
+
+
+/* ========================================
+   ENDING
+======================================== */
+
+.ar-ending {
+    min-height: 430px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: url("../images/aramco-ending.jpg") center / cover no-repeat;
+    color: #ffffff;
+    text-align: center;
+}
+
+.ar-ending-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 29, 61, 0.88);
+}
+
+.ar-ending-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+.ar-ending .ar-section-label {
+    color: var(--ar-green);
+}
+
+.ar-ending h2 {
+    font-family: var(--ar-font-heading);
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.5;
+    font-weight: 900;
+    margin: 0 0 18px;
+}
+
+.ar-ending h2 span {
+    color: var(--ar-green);
+}
+
+.ar-ending p {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 16px;
+    line-height: 2;
+}
+
+
+/* ========================================
+   HOVER EFFECTS 
+======================================== */
+
+@media (hover: hover) and (pointer: fine) {
+
+    .ar-primary-btn:hover {
+        background: #a1d52d;
+        transform: translateY(-3px);
+    }
+
+    .ar-primary-btn:hover span {
+        transform: translateX(-5px);
+    }
+
+    .ar-intro-image:hover img,
+    .ar-infra-image:hover img {
+        transform: scale(1.04);
+    }
+
+    .ar-company-card:hover {
+        transform: translateY(-8px);
+        box-shadow: var(--ar-shadow-card);
+    }
+
+    .ar-company-card:hover::after {
+        transform: scaleX(1);
+    }
+
+    .ar-timeline-card:hover {
+        transform: translateX(-5px);
+        box-shadow: var(--ar-shadow-soft);
+    }
+
+}
+
+
+/* ========================================
+   REVEAL ANIMATION
+======================================== */
+
+.ar-reveal {
+    opacity: 1;
+    transform: none;
+    transition:
+        opacity 0.75s ease,
+        transform 0.75s ease;
+}
+
+.ar-reveal.ar-reveal-pending {
+    opacity: 0;
+    transform: translateY(30px);
+    will-change: opacity, transform;
+}
+
+.ar-reveal.ar-reveal-pending.ar-visible {
+    opacity: 1;
+    transform: translateY(0);
+    will-change: auto;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .ar-company-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ar-intro-grid,
+    .ar-infra-grid,
+    .ar-impact-grid {
+        gap: 40px;
+    }
+
+    .ar-infra-image {
+        height: 430px;
+    }
+
+}
+
+
+@media (max-width: 700px) {
+
+    .ar-container {
+        width: min(100% - 32px, 550px);
+    }
+
+    .ar-section {
+        padding: 75px 0;
+    }
+
+    .ar-hero {
+        min-height: 590px;
+        background-position: 60% center;
+    }
+
+    .ar-hero-overlay {
+        background: rgba(0, 27, 58, 0.82);
+    }
+
+    .ar-hero-content {
+        padding-top: 65px;
+        padding-bottom: 80px;
+    }
+
+    .ar-hero h1 {
+        font-size: 53px;
+    }
+
+    .ar-hero-content > p {
+        font-size: 15px;
+    }
+
+    .ar-hero-caption {
+        margin-top: 45px;
+    }
+
+    .ar-section-heading {
+        margin-bottom: 35px;
+    }
+
+    .ar-section-heading h2,
+    .ar-infra-content h2,
+    .ar-impact-content h2 {
+        font-size: 29px;
+    }
+
+    .ar-intro-grid,
+    .ar-infra-grid,
+    .ar-impact-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .ar-intro-image {
+        height: 300px;
+    }
+
+    .ar-company-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .ar-company-card {
+        min-height: auto;
+        padding: 25px;
+    }
+
+    .ar-infra-image,
+    .ar-impact-image {
+        height: 310px;
+    }
+
+    .ar-timeline::before {
+        right: 57px;
+    }
+
+    .ar-timeline-item {
+        grid-template-columns: 57px 18px 1fr;
+        gap: 10px;
+        margin-bottom: 30px;
+    }
+
+    .ar-timeline-year {
+        font-size: 13px;
+        padding-top: 17px;
+    }
+
+    .ar-timeline-dot {
+        width: 12px;
+        height: 12px;
+        margin-top: 20px;
+    }
+
+    .ar-timeline-card {
+        grid-template-columns: 1fr;
+    }
+
+    .ar-timeline-card > img {
+        height: 175px;
+        min-height: 175px;
+    }
+
+    .ar-timeline-info {
+        padding: 18px;
+    }
+
+    .ar-timeline-info h3 {
+        font-size: 16px;
+    }
+
+    .ar-ending {
+        min-height: 400px;
+    }
+
+    .ar-ending-content {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .ar-ending p {
+        font-size: 14px;
+    }
+
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .aramco-page *,
+    .aramco-page *::before,
+    .aramco-page *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+
+    .ar-reveal,
+    .ar-reveal.ar-reveal-pending,
+    .ar-reveal.ar-reveal-pending.ar-visible {
+        opacity: 1;
+        transform: none;
+    }
+
+}
