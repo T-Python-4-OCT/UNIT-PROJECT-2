@@ -6,15 +6,17 @@
 {% block content %}
 
 <section class="home-hero">
+
     <img
         src="{% static 'main/images/hero.jpg' %}"
-        alt="الدرعية التاريخية ليلًا"
+        alt="الدرعية التاريخية"
         class="hero-image"
     >
 
     <div class="hero-overlay"></div>
 
     <div class="hero-container">
+
         <div class="hero-content">
 
             <span class="hero-label">
@@ -27,92 +29,201 @@
             </h1>
 
             <p class="hero-description">
-                موطن الدولة السعودية الأولى، ووجهة تاريخية
-                وثقافية تجسد أصالة نجد وعمق المملكة.
+                حيث يلتقي التاريخ العريق بالحاضر،
+                وتنبض العمارة النجدية بالحياة.
+                اكتشف معالم الدرعية ووجهاتها الثقافية
+                وتجاربها الفريدة.
             </p>
 
             <div class="hero-buttons">
 
-                <a href="{% url 'main:places' %}" class="hero-button primary-button">
-                    اكتشف أماكن الزيارة
+                <a
+                    href="{% url 'main:places' %}"
+                    class="hero-button primary-button"
+                >
+                    استكشف الدرعية
                     <span aria-hidden="true">←</span>
                 </a>
 
                 <a
-                    href="{% static 'main/videos/diriyah-intro.mp4' %}"
+                    href="#intro-video"
                     class="hero-button secondary-button"
-                    target="_blank"
-                    rel="noopener"
                 >
-                    شاهد الفيديو
-                    <span aria-hidden="true">▶</span>
+                    شاهد الفيديو التعريفي
+                    <span aria-hidden="true">↓</span>
                 </a>
 
             </div>
 
         </div>
+
     </div>
+
 </section>
 
 <section class="home-highlights">
+
     <div class="highlights-container">
 
         <div class="highlight-card">
-            <div class="highlight-icon">
-                <span aria-hidden="true">⌂</span>
-            </div>
-            <h3>عمارة نجدية أصيلة</h3>
-            <p>بيوت طينية تحكي قصة المكان</p>
+
+            <span class="highlight-icon" aria-hidden="true">
+                ◆
+            </span>
+
+            <h3>تاريخ عريق</h3>
+
+            <p>
+                موطن الدولة السعودية الأولى
+                وجذور تاريخ المملكة.
+            </p>
+
         </div>
 
         <div class="highlight-card">
-            <div class="highlight-icon">
-                <span aria-hidden="true">♜</span>
-            </div>
-            <h3>إرث تاريخي عريق</h3>
-            <p>مهد الدولة السعودية الأولى</p>
+
+            <span class="highlight-icon" aria-hidden="true">
+                ◆
+            </span>
+
+            <h3>تراث نجدي أصيل</h3>
+
+            <p>
+                عمارة فريدة تعكس هوية
+                المكان وثقافته.
+            </p>
+
         </div>
 
         <div class="highlight-card">
-            <div class="highlight-icon">
-                <span aria-hidden="true">✦</span>
-            </div>
-            <h3>وجهة ثقافية عالمية</h3>
-            <p>تجارب تراثية وفنية فريدة</p>
+
+            <span class="highlight-icon" aria-hidden="true">
+                ◆
+            </span>
+
+            <h3>وجهة متجددة</h3>
+
+            <p>
+                تجارب ثقافية وسياحية
+                تجمع الماضي بالمستقبل.
+            </p>
+
         </div>
 
     </div>
+
+</section>
+
+<section class="events-section" id="intro-video">
+
+    <div class="events-container">
+
+        <div class="events-heading">
+
+            <span class="events-decoration">◆ ◆ ◆</span>
+
+            <h2>الدرعية.. قصة مكان</h2>
+
+            <p>
+                شاهد لمحة عن الدرعية
+                وتعرّف على جمالها وتراثها الأصيل.
+            </p>
+
+        </div>
+
+        <div class="event-feature">
+
+            <div class="event-image-wrapper">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                    poster="{% static 'main/images/hero.jpg' %}"
+                    style="position:absolute;inset:0;width:100%;height:100%;object-fit:cover;"
+                >
+                    <source
+                        src="{% static 'main/videos/diriyah-intro.mp4' %}"
+                        type="video/mp4"
+                    >
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+
+            </div>
+
+            <div class="event-info">
+
+                <span class="event-category">
+                    اكتشف الدرعية
+                </span>
+
+                <h3>
+                    رحلة إلى مهد التاريخ السعودي
+                </h3>
+
+                <p class="event-description">
+                    الدرعية ليست مجرد مكان تاريخي،
+                    بل قصة تمتد عبر القرون.
+                    تعرّف على ملامحها النجدية
+                    وتاريخها ووجهاتها المعاصرة.
+                </p>
+
+                <a
+                    href="{% url 'main:about' %}"
+                    class="about-button"
+                >
+                    المزيد عن الدرعية
+                    <span aria-hidden="true">←</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
 </section>
 
 <section class="places-section" id="places">
+
     <div class="places-container">
 
         <div class="section-heading">
+
             <span class="section-decoration">◆ ◆ ◆</span>
-            <h2>أماكن الزيارة</h2>
+
+            <h2>أماكن تستحق الزيارة</h2>
+
             <p>
-                اكتشف أبرز وجهات الدرعية التي تجمع بين
-                التاريخ والثقافة والضيافة والطبيعة.
+                استكشف أبرز معالم الدرعية
+                ووجهاتها التاريخية والثقافية
+                وتجارب الضيافة والطبيعة.
             </p>
+
         </div>
 
         <div class="places-grid">
 
             {% for place in places %}
 
-            <a href="{% url 'main:place_detail' place.slug %}" class="place-card">
+            <a
+                href="{% url 'main:place_detail' place.slug %}"
+                class="place-card"
+            >
 
                 <img
                     src="{% static 'main/images/' %}{{ place.image }}"
                     alt="{{ place.title }}"
                     loading="lazy"
-                    decoding="async"
                 >
 
                 <div class="place-card-overlay"></div>
 
                 <div class="place-card-content">
-                    <span class="place-tag">{{ place.tag }}</span>
+
+                    <span class="place-tag">
+                        {{ place.tag }}
+                    </span>
 
                     <h3>{{ place.title }}</h3>
 
@@ -122,6 +233,7 @@
                         اكتشف المكان
                         <span aria-hidden="true">←</span>
                     </span>
+
                 </div>
 
             </a>
@@ -131,65 +243,102 @@
         </div>
 
         <div class="places-more">
-            <a href="{% url 'main:places' %}" class="places-more-button">
-                جميع أماكن الزيارة
+
+            <a
+                href="{% url 'main:places' %}"
+                class="places-more-button"
+            >
+                عرض جميع الأماكن
                 <span aria-hidden="true">←</span>
             </a>
+
         </div>
 
     </div>
+
 </section>
 
 <section class="events-section" id="events">
+
     <div class="events-container">
 
         <div class="events-heading">
+
             <span class="events-decoration">◆ ◆ ◆</span>
+
             <h2>فعاليات الدرعية</h2>
-            <p>تجربة بصرية تجمع أصالة التاريخ وروعة الحاضر.</p>
+
+            <p>
+                تجارب ثقافية وتاريخية
+                تستحضر أصالة الدرعية
+                وتقدمها بأسلوب معاصر.
+            </p>
+
         </div>
 
         <div class="event-feature">
 
             <div class="event-image-wrapper">
+
                 <img
                     src="{% static 'main/images/event-salwa.webp' %}"
-                    alt="عرض مرئي على واجهة قصر سلوى"
+                    alt="العروض المرئية على قصر سلوى"
                     class="event-feature-image"
                     loading="lazy"
-                    decoding="async"
                 >
+
             </div>
 
             <div class="event-info">
 
                 <span class="event-category">
-                    التراث والثقافة
+                    فعالية ثقافية وتاريخية
                 </span>
 
-                <h3>عرض مرئي على واجهة قصر سلوى</h3>
+                <h3>قصر سلوى.. حكاية التاريخ</h3>
 
                 <p class="event-description">
-                    استمتع بتجربة بصرية تستعرض جوانب من تاريخ
-                    الدرعية وإرث الدولة السعودية الأولى، من خلال
-                    عرض مرئي على واجهة قصر سلوى في حي الطريف التاريخي.
+                    تجربة تستحضر تاريخ الدرعية
+                    من خلال عروض مرئية وفنية
+                    تبرز إرث المكان ودوره
+                    في التاريخ السعودي.
                 </p>
 
                 <div class="event-details">
 
                     <div class="event-detail">
-                        <span class="event-detail-icon">✦</span>
+
+                        <span class="event-detail-icon">
+                            ◆
+                        </span>
 
                         <div>
                             <h4>الموقع</h4>
-                            <p>قصر سلوى – حي الطريف التاريخي</p>
+                            <p>حي الطريف التاريخي، الدرعية</p>
                         </div>
+
+                    </div>
+
+                    <div class="event-detail">
+
+                        <span class="event-detail-icon">
+                            ◆
+                        </span>
+
+                        <div>
+                            <h4>نوع التجربة</h4>
+                            <p>ثقافية وتراثية</p>
+                        </div>
+
                     </div>
 
                 </div>
 
-                <a href="{% url 'main:events' %}" class="places-more-button">
-                    اكتشف الفعالية
+                <a
+                    href="{% url 'main:events' %}"
+                    class="about-button"
+                >
+                    استكشف الفعاليات
                     <span aria-hidden="true">←</span>
                 </a>
 
@@ -198,18 +347,21 @@
         </div>
 
     </div>
+
 </section>
 
 <section class="home-about" id="about">
+
     <div class="home-about-container">
 
         <div class="home-about-image">
+
             <img
                 src="{% static 'main/images/at-turaif.webp' %}"
-                alt="حي الطريف التاريخي في الدرعية"
+                alt="العمارة النجدية في الدرعية"
                 loading="lazy"
-                decoding="async"
             >
+
         </div>
 
         <div class="home-about-content">
@@ -218,55 +370,162 @@
                 عن الدرعية
             </span>
 
-            <h2>أكثر من مجرد وجهة تاريخية</h2>
+            <h2>
+                الدرعية.. أرض التاريخ
+                ومنطلق المستقبل
+            </h2>
 
             <p>
-                الدرعية هي مهد الدولة السعودية الأولى،
-                ومركز للحضارة والقيادة في نجد،
-                حيث تلتقي العمارة النجدية الأصيلة
-                بالمشاريع الثقافية والحضارية الحديثة.
+                تقع الدرعية شمال غرب مدينة الرياض،
+                وتحمل مكانة تاريخية وثقافية مهمة
+                في المملكة العربية السعودية.
             </p>
 
-            <a href="{% url 'main:about' %}" class="about-button">
-                تعرف على الدرعية
+            <p>
+                شهدت الدرعية تأسيس الدولة السعودية الأولى،
+                وتتميز بمعالمها التاريخية
+                وعمارتها النجدية الأصيلة،
+                وفي مقدمتها حي الطريف التاريخي.
+            </p>
+
+            <a
+                href="{% url 'main:about' %}"
+                class="about-button"
+            >
+                اكتشف قصة الدرعية
                 <span aria-hidden="true">←</span>
             </a>
 
         </div>
 
     </div>
+
 </section>
 
 <section class="heritage-home-preview" id="history">
 
-    <div class="heritage-home-preview-content">
+    <div class="heritage-home-content">
 
         <span class="heritage-history-kicker">
-            الدرعية عبر التاريخ
+            رحلة عبر الزمن
         </span>
 
-        <h2>من هنا بدأت الحكاية</h2>
+        <h2>تاريخ الدرعية</h2>
 
         <p>
-            من تأسيس الدرعية عام 1446م إلى وجهة
-            عالمية تحتفي بتاريخها وتراثها.
-            اكتشف المحطات التي صنعت تاريخ الدرعية
-            وإرثها العريق.
+            من تأسيس الدرعية على ضفاف وادي حنيفة
+            إلى قيام الدولة السعودية الأولى،
+            مرورًا بمحطات تاريخية مهمة
+            وصولًا إلى مرحلة التطوير الحديثة.
         </p>
 
-        <a href="{% url 'main:history' %}" class="heritage-history-button">
+        <a
+            href="{% url 'main:history' %}"
+            class="heritage-history-button"
+        >
             استكشف تاريخ الدرعية
             <span aria-hidden="true">←</span>
         </a>
 
     </div>
 
-    <img
-        src="{% static 'main/images/history-1446.webp' %}"
-        alt="صورة تاريخية لوادي حنيفة"
-        loading="lazy"
-        decoding="async"
-    >
+    <div class="heritage-home-image">
+
+        <img
+            src="{% static 'main/images/history-1446.webp' %}"
+            alt="تاريخ الدرعية ووادي حنيفة"
+            loading="lazy"
+        >
+
+    </div>
+
+</section>
+
+<section class="diriyah-project-section diriyah-project-home" id="projects">
+
+    <div class="diriyah-project-container">
+
+        <div class="diriyah-project-heading">
+
+            <span class="diriyah-project-decoration">
+                ◆ ◆ ◆
+            </span>
+
+            <span class="diriyah-project-kicker">
+                مستقبل الدرعية
+            </span>
+
+            <h2>مشاريع الدرعية</h2>
+
+            <p>
+                رحلة تطوير تستلهم أصالة الماضي
+                وتفتح آفاقًا جديدة للثقافة
+                والضيافة والتجارب المعاصرة.
+            </p>
+
+        </div>
+
+        <div class="diriyah-project-grid">
+
+            {% for project in featured_projects %}
+
+            <a
+                href="{% url 'main:project_detail' project.slug %}"
+                class="diriyah-project-card"
+            >
+
+                <div class="diriyah-project-card-image">
+
+                    <img
+                        src="{% static 'main/images/' %}{{ project.image }}"
+                        alt="{{ project.title }}"
+                        loading="lazy"
+                    >
+
+                    <span class="diriyah-project-number">
+                        {{ project.number }}
+                    </span>
+
+                </div>
+
+                <div class="diriyah-project-card-content">
+
+                    <span class="diriyah-project-category">
+                        {{ project.category }}
+                    </span>
+
+                    <h3>{{ project.title }}</h3>
+
+                    <h4>{{ project.subtitle }}</h4>
+
+                    <p>{{ project.summary }}</p>
+
+                    <span class="diriyah-project-card-link">
+                        اكتشف المشروع
+                        <span aria-hidden="true">←</span>
+                    </span>
+
+                </div>
+
+            </a>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="diriyah-project-more">
+
+            <a
+                href="{% url 'main:projects' %}"
+                class="diriyah-project-hero-button"
+            >
+                استكشف جميع المشاريع
+                <span aria-hidden="true">←</span>
+            </a>
+
+        </div>
+
+    </div>
 
 </section>
 

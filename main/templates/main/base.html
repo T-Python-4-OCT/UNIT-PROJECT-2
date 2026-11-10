@@ -1,90 +1,183 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}الدرعية{% endblock %}</title>
-    <link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="اكتشف الدرعية وتاريخها العريق وأماكن الزيارة والفعاليات والمشاريع الثقافية والسياحية."
+    >
+
+    <title>
+        {% block title %}الدرعية{% endblock %}
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'main/css/style.css' %}"
+    >
+
+    {% block extra_head %}{% endblock %}
+
 </head>
+
 <body>
 
     <header class="site-header">
+
         <div class="header-container">
 
-            <a href="{% url 'main:home' %}" class="site-logo">
-                <img src="{% static 'main/images/diriyah-logo.png' %}" alt="شعار الدرعية">
+            <a
+                href="{% url 'main:home' %}"
+                class="site-logo"
+                aria-label="الدرعية - الصفحة الرئيسية"
+            >
+
+                <img
+                    src="{% static 'main/images/diriyah-logo.png' %}"
+                    alt="شعار الدرعية"
+                >
+
                 <span>الدرعية</span>
+
             </a>
 
-            <nav class="desktop-nav" aria-label="التنقل الرئيسي">
+            <nav
+                class="desktop-nav"
+                aria-label="التنقل الرئيسي"
+            >
 
-                <a href="{% url 'main:home' %}"
-                   class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}">
+                <a
+                    href="{% url 'main:home' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+                >
                     الرئيسية
                 </a>
 
-                <a href="{% url 'main:about' %}"
-                   class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}">
+                <a
+                    href="{% url 'main:about' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
+                >
                     عن الدرعية
                 </a>
 
-                <a href="{% url 'main:places' %}"
-                   class="nav-link {% if request.resolver_match.url_name == 'places' or request.resolver_match.url_name == 'place_detail' %}active{% endif %}">
+                <a
+                    href="{% url 'main:places' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'places' or request.resolver_match.url_name == 'place_detail' %}active{% endif %}"
+                >
                     أماكن الزيارة
                 </a>
 
-                <a href="{% url 'main:events' %}"
-                   class="nav-link {% if request.resolver_match.url_name == 'events' %}active{% endif %}">
+                <a
+                    href="{% url 'main:events' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'events' %}active{% endif %}"
+                >
                     الفعاليات
                 </a>
 
-                <a href="{% url 'main:history' %}"
-                   class="nav-link {% if request.resolver_match.url_name == 'history' %}active{% endif %}">
-                    تاريخ الدرعية
+                <a
+                    href="{% url 'main:history' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'history' %}active{% endif %}"
+                >
+                    التاريخ
                 </a>
 
-                <a href="{% url 'main:gallery' %}"
-                   class="nav-link {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}">
-                    معرض الدرعية
+                <a
+                    href="{% url 'main:projects' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'projects' or request.resolver_match.url_name == 'project_detail' %}active{% endif %}"
+                >
+                    المشاريع
+                </a>
+
+                <a
+                    href="{% url 'main:gallery' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}"
+                >
+                    معرض الصور
                 </a>
 
             </nav>
 
             <details class="mobile-menu">
+
                 <summary aria-label="فتح قائمة التنقل">
-                    <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
-                        <path d="M4 6H20M4 12H20M4 18H20"
-                              stroke="currentColor"
-                              stroke-width="2"
-                              stroke-linecap="round"/>
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
                     </svg>
+
                 </summary>
 
-                <nav class="mobile-nav" aria-label="التنقل للجوال">
+                <nav
+                    class="mobile-nav"
+                    aria-label="قائمة الجوال"
+                >
 
-                    <a href="{% url 'main:home' %}">الرئيسية</a>
+                    <a href="{% url 'main:home' %}">
+                        الرئيسية
+                    </a>
 
-                    <a href="{% url 'main:about' %}">عن الدرعية</a>
+                    <a href="{% url 'main:about' %}">
+                        عن الدرعية
+                    </a>
 
-                    <a href="{% url 'main:places' %}">أماكن الزيارة</a>
+                    <a href="{% url 'main:places' %}">
+                        أماكن الزيارة
+                    </a>
 
-                    <a href="{% url 'main:events' %}">الفعاليات</a>
+                    <a href="{% url 'main:events' %}">
+                        الفعاليات
+                    </a>
 
-                    <a href="{% url 'main:history' %}">تاريخ الدرعية</a>
+                    <a href="{% url 'main:history' %}">
+                        تاريخ الدرعية
+                    </a>
 
-                    <a href="{% url 'main:gallery' %}">معرض الدرعية</a>
+                    <a href="{% url 'main:projects' %}">
+                        مشاريع الدرعية
+                    </a>
+
+                    <a href="{% url 'main:gallery' %}">
+                        معرض الصور
+                    </a>
 
                 </nav>
+
             </details>
 
         </div>
+
     </header>
 
     <main>
+
         {% block content %}
         {% endblock %}
+
     </main>
 
 </body>
+
 </html>
