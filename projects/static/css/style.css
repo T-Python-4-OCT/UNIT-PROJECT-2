@@ -3298,6 +3298,35 @@ body[data-theme="dark"] .page-alula .al-stars {
     }
 }
 
+/* =========================================================
+   MISSING IMAGES
+   ========================================================= */
+
+.img-empty {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    height: 100%;
+    background:
+        radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 60%),
+        var(--surface-2);
+    color: var(--muted);
+    font-size: 14px;
+    font-weight: 600;
+}
+
+.img-empty .material-symbols-outlined {
+    font-size: 36px;
+    color: var(--accent);
+}
+
+.co-band {
+    background-color: var(--accent);
+}
+
 /* ---------- Temporary (removed in later steps) ---------- */
 
 .placeholder {

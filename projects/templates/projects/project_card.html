@@ -2,7 +2,14 @@
 <article class="project-card">
     <a href="{% url 'projects:project_detail' project.slug %}">
         <div class="card-img">
-            <img src="{% static project.image %}" alt="{{ project.name }}">
+            {% if project.image %}
+                <img src="{% static project.image %}" alt="{{ project.name }}">
+            {% else %}
+                <div class="img-empty">
+                    <span class="material-symbols-outlined" aria-hidden="true">photo_camera</span>
+                    Photos coming soon
+                </div>
+            {% endif %}
             <span class="card-tag">{{ project.category }}</span>
         </div>
         <div class="card-body">

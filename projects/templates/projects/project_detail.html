@@ -1,28 +1,90 @@
-{% extends 'projects/base.html' %} {% load static %} {% block title %}{{ project.name }}{% endblock %} {% block content %}
-arrow_back All Projects {{ project.category }} · {{ project.location }}
-{{ project.name }}
-{{ project.overview }}
+{% extends 'projects/base.html' %}
+{% load static %}
 
-{% if project.stats %}
-{% for stat in project.stats %}
-{{ stat.value }} {{ stat.label }}
-{% endfor %}
-{% endif %}
-{{ project.name }} {% for photo in project.collage %} {{ project.name }} {% endfor %} {% if project.badge %} workspace_premium{{ project.badge }} {% endif %}
-{% if project.highlights %}
-Highlights
-What to Explore
-{% for item in project.highlights %}
-{{ item.icon }}
-{{ item.title }}
-{{ item.text }}
+{% block title %}{{ project.name }}{% endblock %}
 
-{% endfor %}
-{% endif %}
-{{ project.name }}
-{{ project.headline }}
-{{ project.tagline }}
+{% block content %}
+<div class="project-page">
 
-{% if project.website %} Official Website open_in_new {% endif %}
-{% include 'projects/project_gallery.html' %} {% include 'projects/more_projects.html' %}
+    <!-- ================= HERO ================= -->
+    <section class="container co-top">
+        <div class="co-text">
+            <a href="{% url 'projects:all_projects' %}" class="back-link dark">
+                <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span> All Projects
+            </a>
+            <span class="eyebrow">{{ project.category }} · {{ project.location }}</span>
+            <h1>{{ project.name }}</h1>
+            <p class="lead">{{ project.overview }}</p>
+
+            {% if project.stats %}
+                <div class="co-stats">
+                    {% for stat in project.stats %}
+                        <div>
+                            <strong>{{ stat.value }}</strong>
+                            <span>{{ stat.label }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        </div>
+
+        <div class="co-collage {% if project.collage %}full{% endif %}">
+            {% if project.hero or project.image %}
+                <img class="co-main" src="{% static project.hero|default:project.image %}" alt="{{ project.name }}">
+            {% else %}
+                <div class="co-main img-empty">
+                    <span class="material-symbols-outlined" aria-hidden="true">photo_camera</span>
+                    Photos coming soon
+                </div>
+            {% endif %}
+            {% for photo in project.collage %}
+                <img class="co-small" src="{% static photo %}" alt="{{ project.name }}">
+            {% endfor %}
+            {% if project.badge %}
+                <span class="co-badge">
+                    <span class="material-symbols-outlined" aria-hidden="true">workspace_premium</span>{{ project.badge }}
+                </span>
+            {% endif %}
+        </div>
+    </section>
+
+    {% if project.highlights %}
+        <section class="container section">
+            <div class="section-head center">
+                <div>
+                    <span class="eyebrow">Highlights</span>
+                    <h2>What to Explore</h2>
+                </div>
+            </div>
+            <div class="icon-grid">
+                {% for item in project.highlights %}
+                    <div class="icon-card">
+                        <span class="material-symbols-outlined" aria-hidden="true">{{ item.icon }}</span>
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.text }}</p>
+                    </div>
+                {% endfor %}
+            </div>
+        </section>
+    {% endif %}
+
+    <section class="container">
+        <div class="co-band" {% if project.band_image or project.image %}style="--band-img: url('{% static project.band_image|default:project.image %}')"{% endif %}>
+            <div>
+                <span class="eyebrow on-dark">{{ project.name }}</span>
+                <h2>{{ project.headline }}</h2>
+                <p>{{ project.tagline }}</p>
+                {% if project.website %}
+                    <a href="{{ project.website }}" class="btn btn-primary" target="_blank" rel="noopener">
+                        Official Website <span class="material-symbols-outlined" aria-hidden="true">open_in_new</span>
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </section>
+
+    {% include 'projects/project_gallery.html' %}
+    {% include 'projects/more_projects.html' %}
+
+</div>
 {% endblock %}
