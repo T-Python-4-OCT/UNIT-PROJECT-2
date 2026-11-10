@@ -1,0 +1,133 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}الرئيسية{% endblock %}
+{% block nav_home %}active{% endblock %}
+
+{% block content %}
+
+<!-- ===== HERO ===== -->
+<section class="hero">
+    <div class="hero-bg">
+        <img src="{% static 'main/images/hero-jawhara-tifo.jpg' %}" alt="تيفو الجماهير السعودية في ملعب الجوهرة بجدة">
+    </div>
+    <span class="photo-credit">الصورة: الشرق الأوسط</span>
+    <div class="container hero-content">
+      <div class="hero-inner">
+        <span class="hero-badge"><i class="bi bi-trophy-fill"></i> كأس العالم 2034</span>
+        <h1 class="hero-title">العالم على موعد<br><span>مع المملكة</span></h1>
+        <p class="hero-text">خمس مدن، وخمسة عشر ملعباً، وحلم واحد. هنا تبدأ حكاية أكبر نسخة من كأس العالم على أرض المملكة العربية السعودية.</p>
+        <div class="d-flex flex-wrap gap-2">
+            <a href="#cities" class="btn-main">استكشف المدن <i class="bi bi-arrow-left"></i></a>
+            <a href="{% url 'main:stadiums' %}" class="btn-ghost">الملاعب</a>
+        </div>
+      </div>
+    </div>
+</section>
+
+<!-- ===== COUNTDOWN ===== -->
+<section class="container">
+    <div class="countdown reveal" id="countdown" data-target="{{ countdown_target }}">
+        <div class="countdown-label">
+            <i class="bi bi-hourglass-split"></i>
+            <div>
+                <strong>العد التنازلي</strong>
+                <small>حتى بداية عام 2034</small>
+            </div>
+        </div>
+        <div class="countdown-units">
+            <div class="cd-unit"><span id="cd-days">0</span><small>يوم</small></div>
+            <div class="cd-unit"><span id="cd-hours">0</span><small>ساعة</small></div>
+            <div class="cd-unit"><span id="cd-minutes">0</span><small>دقيقة</small></div>
+            <div class="cd-unit"><span id="cd-seconds">0</span><small>ثانية</small></div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== ABOUT + STATS ===== -->
+<section class="section container">
+    <div class="row g-4 g-lg-5 align-items-center">
+        <div class="col-12 col-lg-6 reveal">
+            <span class="eyebrow">عن الاستضافة</span>
+            <h2 class="section-title">المملكة تستضيف العالم</h2>
+            <p class="lead-text">في 11 ديسمبر 2024 أعلن الاتحاد الدولي لكرة القدم رسمياً المملكة العربية السعودية دولةً مستضيفة لكأس العالم 2034. وستكون أول نسخة تقام بـ 48 منتخباً في دولة واحدة.</p>
+            <p class="lead-text">تتوزع المباريات على خمس مدن هي الرياض وجدة والخبر وأبها ونيوم، في ملاعب تجمع بين الهوية السعودية وأحدث تقنيات العمارة الرياضية.</p>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="stats-grid">
+                {% for s in stats %}
+                    <div class="stat-card reveal" style="transition-delay: {{ forloop.counter0 }}00ms">
+                        <i class="bi {{ s.icon }}"></i>
+                        <strong class="counter" data-target="{{ s.value }}">{{ s.value }}</strong>
+                        <span>{{ s.label }}</span>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== HOST CITIES ===== -->
+<section class="section container" id="cities">
+    <div class="section-head reveal">
+        <div>
+            <span class="eyebrow">المدن المستضيفة</span>
+            <h2 class="section-title">خمس مدن، خمس حكايات</h2>
+        </div>
+    </div>
+    <div class="row g-4">
+        {% for city in cities %}
+            <div class="col-12 col-sm-6 {% if forloop.counter <= 2 %}col-lg-6{% else %}col-lg-4{% endif %} reveal">
+                <a href="{% url 'main:city' city.slug %}" class="city-card {% if forloop.counter <= 2 %}city-card-lg{% endif %}">
+                    <img src="{% static city.image %}" alt="{{ city.name }}" loading="lazy">
+                    <div class="city-card-overlay">
+                        <span class="city-card-count"><i class="bi bi-building"></i> {{ city.stadiums_count }} {% if city.stadiums_count == 1 %}ملعب{% else %}ملاعب{% endif %}</span>
+                        <h3>{{ city.name }} <small>{{ city.name_en }}</small></h3>
+                        <p>{{ city.tagline }}</p>
+                        <span class="city-card-link">اكتشف المدينة <i class="bi bi-arrow-left"></i></span>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ===== EXPLORE MORE ===== -->
+<section class="section container">
+    <div class="section-head reveal">
+        <div>
+            <span class="eyebrow">استكشف أكثر</span>
+            <h2 class="section-title">الحكاية من كل الزوايا</h2>
+        </div>
+    </div>
+    <div class="row g-4">
+        {% for item in explore %}
+            <div class="col-12 col-md-4 reveal" style="transition-delay: {{ forloop.counter0 }}00ms">
+                <a href="{% url item.url_name %}" class="explore-card">
+                    <div class="explore-img">
+                        <img src="{% static item.image %}" alt="{{ item.title }}" loading="lazy">
+                        <span class="explore-icon"><i class="bi {{ item.icon }}"></i></span>
+                    </div>
+                    <div class="explore-body">
+                        <h3>{{ item.title }}</h3>
+                        <p>{{ item.text }}</p>
+                    </div>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="container">
+    <div class="cta reveal">
+        <img src="{% static 'main/images/cta-green-falcons.jpg' %}" alt="تيفو الصقور الخضر في ملعب الجوهرة" loading="lazy">
+        <div class="cta-content">
+            <h2>الطريق إلى 2034 بدأ</h2>
+            <p>تابع المدن والملاعب، وكن جزءاً من الحكاية.</p>
+            <a href="{% url 'main:stadiums' %}" class="btn-main btn-gold">شاهد الملاعب <i class="bi bi-arrow-left"></i></a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

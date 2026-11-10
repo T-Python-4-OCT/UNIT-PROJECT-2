@@ -1,0 +1,13 @@
+{% extends "main/base.html" %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<section class="placeholder text-center">
+    <div class="container">
+        <h1>{{ title }}</h1>
+        <p>هذه الصفحة قيد الإنشاء — قريباً</p>
+        <a href="{% url 'main:home' %}" class="btn-main">العودة للرئيسية</a>
+    </div>
+</section>
+{% endblock %}
