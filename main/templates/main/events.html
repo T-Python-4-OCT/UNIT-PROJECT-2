@@ -3,6 +3,10 @@
 
 {% block title %}الفعاليات | الدرعية{% endblock %}
 
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'main/css/events_extra.css' %}">
+{% endblock %}
+
 {% block content %}
 
 <section class="events-hero">
@@ -56,6 +60,7 @@
 
                     <div class="event-detail">
                         <span class="event-detail-icon">✦</span>
+
                         <div>
                             <h4>الموقع</h4>
                             <p>قصر سلوى – حي الطريف التاريخي</p>
@@ -64,6 +69,7 @@
 
                     <div class="event-detail">
                         <span class="event-detail-icon">✦</span>
+
                         <div>
                             <h4>نوع التجربة</h4>
                             <p>عرض مرئي ثقافي وتراثي</p>
@@ -72,6 +78,7 @@
 
                     <div class="event-detail">
                         <span class="event-detail-icon">✦</span>
+
                         <div>
                             <h4>عن الفعالية</h4>
                             <p>رحلة بصرية مستوحاة من تاريخ الدرعية</p>
@@ -79,11 +86,110 @@
                     </div>
 
                 </div>
+
             </div>
 
         </div>
 
     </div>
+</section>
+
+<section class="salwa-location-section" id="salwa-location">
+
+    <div class="salwa-location-container">
+
+        <div class="salwa-location-heading">
+            <span class="salwa-pattern" aria-hidden="true">
+                ◆ ◆ ◆
+            </span>
+
+            <h2>الموقع وكيف تصل</h2>
+
+            <p>
+                اكتشف موقع قصر سلوى
+                واحجز تصريح الدخول من الموقع الرسمي
+            </p>
+        </div>
+
+        <div class="salwa-location-grid">
+
+            <div class="salwa-location-map">
+                <iframe
+                    src="https://maps.google.com/maps?q=24.733%2C46.5751&amp;z=16&amp;hl=ar&amp;output=embed"
+                    title="خريطة حي الطريف التاريخي في الدرعية"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen
+                ></iframe>
+            </div>
+
+            <div class="salwa-location-card">
+
+                <span class="salwa-location-icon" aria-hidden="true">
+                    ✦
+                </span>
+
+                <h3>قصر سلوى</h3>
+
+                <p class="salwa-location-address">
+                    حي الطريف التاريخي، الدرعية،
+                    الرياض، المملكة العربية السعودية.
+                </p>
+
+                <div class="salwa-location-info">
+                    <span aria-hidden="true">✦</span>
+
+                    <p>
+                        الدخول إلى العرض المرئي مشمول
+                        ضمن تذكرة دخول الدرعية.
+                    </p>
+                </div>
+
+                <div class="salwa-location-actions">
+
+                    <a
+                        href="https://tickets.bujairi.sa/ar/d/3552/diriyah-access"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="salwa-action salwa-action-primary"
+                    >
+                        احجز تذاكر الدخول
+                        <span aria-hidden="true">↗</span>
+                    </a>
+
+                    <a
+                        href="https://www.google.com/maps/search/?api=1&amp;query=24.733%2C46.5751"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="salwa-action salwa-action-outline"
+                    >
+                        فتح في خرائط Google
+                        <span aria-hidden="true">↗</span>
+                    </a>
+
+                    <a
+                        href="https://www.diriyah.sa/ar/things-to-do/events/salwa-palace-projection-show"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="salwa-action salwa-action-outline"
+                    >
+                        الصفحة الرسمية للفعالية
+                        <span aria-hidden="true">↗</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <p class="salwa-location-note">
+            إذا لم تظهر الخريطة داخل الصفحة، استخدم زر فتح في خرائط Google.
+            تحقق من مواعيد العرض وتوافر التذاكر قبل الزيارة.
+        </p>
+
+    </div>
+
 </section>
 
 {% endblock %}

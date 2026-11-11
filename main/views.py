@@ -1,10 +1,8 @@
 from django.shortcuts import render
-from django.http import Http404
-
-from main.services import place_context, project_context
-from .data import PLACES, PROJECTS
-from .search_service import get_search_context
 from django.views.decorators.http import require_POST
+from .data import PLACES, PROJECTS
+from .services import place_context, project_context
+from .search_service import get_search_context
 from .theme_service import change_theme
 
 
@@ -27,7 +25,6 @@ def places(request):
 
 def place_detail(request, slug):
     return render(request, 'main/place_detail.html', place_context(slug))
-    
 
 
 def events(request):
@@ -48,7 +45,6 @@ def project_detail(request, slug):
     return render(request, 'main/project_detail.html', project_context(slug))
 
 
-
 def gallery(request):
     return render(request, 'main/gallery.html')
 
@@ -59,6 +55,7 @@ def search(request):
         'main/search.html',
         get_search_context(request.GET)
     )
+
 
 @require_POST
 def toggle_theme(request):
