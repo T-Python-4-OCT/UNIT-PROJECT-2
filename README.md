@@ -12,7 +12,6 @@
 
 <br>
 
-<br>
 
 ---
 
@@ -20,11 +19,7 @@
 
 يعرض الموقع تاريخ الدرعية وأبرز أماكن الزيارة والفعاليات والمشاريع الكبرى ومعرض صور، مع بحث داخلي وفيديو تعريفي.
 
-<br>
 
-> مشروع تعليمي ضمن **UNIT-PROJECT-2**: موقع عن المملكة العربية السعودية باستخدام Django.
-
-<br>
 
 <br>
 
@@ -32,8 +27,10 @@
 
 ## 🗺️ الصفحات
 
+<div align="center">
+
 | الصفحة | المسار |
-|---|---|
+|:---:|:---:|
 | الرئيسية | `/` |
 | عن الدرعية | `/about/` |
 | أماكن الزيارة | `/places/` |
@@ -45,9 +42,10 @@
 | المعرض | `/gallery/` |
 | البحث | `/search/` |
 
-<br>
+</div>
 
 <br>
+
 
 ### 📍 أماكن الزيارة
 
@@ -63,7 +61,6 @@
 
 <br>
 
-<br>
 
 ### 🏗️ المشاريع
 
@@ -79,7 +76,6 @@
 
 <br>
 
-<br>
 
 ---
 
@@ -99,21 +95,25 @@
 
 <br>
 
-<br>
 
 ---
 
 ## 🛠️ التقنيات
 
-![Python](https://img.shields.io/badge/Python-3776AB?logo=python&logoColor=white)
-![Django](https://img.shields.io/badge/Django-092E20?logo=django&logoColor=white)
-![HTML5](https://img.shields.io/badge/HTML5-E34F26?logo=html5&logoColor=white)
-![CSS3](https://img.shields.io/badge/CSS3-1572B6?logo=css3&logoColor=white)
-![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?logo=javascript&logoColor=black)
+<div align="center">
+
+| التقنية | الاستخدام |
+|:---:|:---:|
+| Python | لغة البرمجة |
+| Django | إطار بناء الموقع |
+| HTML | هيكل الصفحات |
+| CSS | التصميم والألوان |
+| JavaScript | حركة الخط الزمني |
+
+</div>
 
 <br>
 
-<br>
 
 ---
 
@@ -127,11 +127,15 @@ python -m venv venv
 
 **2. تفعيل البيئة**
 
-```bash
-# ويندوز
-venv\Scripts\activate
+على ويندوز:
 
-# ماك / لينكس
+```bash
+venv\Scripts\activate
+```
+
+على ماك / لينكس:
+
+```bash
 source venv/bin/activate
 ```
 
@@ -149,4 +153,4 @@ python manage.py runserver
 
 <br>
 
-ثم افتح: <http://127.0.0.1:8000/>
+ثم افتح الرابط: `http://127.0.0.1:8000/`
