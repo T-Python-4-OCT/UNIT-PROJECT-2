@@ -79,12 +79,13 @@
 .published-note p { margin: 0; font-size: .93rem; }
 
 .flag-list ul, .reasons ul, .ai-quotes ul { margin: 0; padding: 0; list-style: none; }
-.flag-item { display: flex; flex-direction: column; padding: .7rem 1rem; border-inline-start: 4px solid var(--amber-deep); background: #fffcf4; border-radius: var(--radius-sm); }
+.flag-item { display: flex; flex-direction: column; padding: .7rem 1rem; border-inline-start: 4px solid var(--amber-deep); background: #fffbea; border-radius: var(--radius-sm); }
 .flag-item + .flag-item { margin-top: .5rem; }
 .flag-item strong { font-weight: 700; }
 .flag-item span { color: var(--muted); font-size: .92rem; }
-.flag-item.flag-relative, .flag-item.flag-credentials, .flag-item.flag-personal_data, .flag-item.flag-fake_domain, .flag-item.flag-short_link { border-color: var(--fraud); background: #fff6f6; }
-.flag-item.flag-threat, .flag-item.flag-prize, .flag-item.flag-too_good, .flag-item.flag-money, .flag-item.flag-urgency { border-color: var(--sus); background: #fffaf2; }
+/* Same colors as the highlights: red = dangerous (weight 25+), yellow (above) = suspicious */
+.flag-item.flag-relative, .flag-item.flag-credentials, .flag-item.flag-personal_data, .flag-item.flag-fake_domain,
+.flag-item.flag-short_link, .flag-item.flag-prize { border-color: var(--fraud); background: #fff6f6; }
 .flag-chips { display: flex; flex-wrap: wrap; gap: .5rem; }
 .flag-chips .flag-item + .flag-item { margin-top: 0; }
 

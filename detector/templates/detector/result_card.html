@@ -24,6 +24,7 @@
   <section class="xray">
     <h3><i class="bi bi-search"></i> الرسالة تحت المجهر</h3>
     <p class="bubble bubble-in bubble-big">{% include "main/partials/marked_text.html" with segments=result.segments %}</p>
+    {% include "main/partials/mark_legend.html" %}
     {% if not result.flags and not result.ai_flags %}
       <p class="muted">ما لقينا كلمات أو روابط من أنماط الاحتيال المعروفة.</p>
     {% endif %}

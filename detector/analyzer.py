@@ -9,7 +9,7 @@ If the AI is not available (no key / no internet), the local result is used alon
 import re
 
 from main import ai_client
-from detector.rules import DANGEROUS_PAIRS, RULES, SAFE_HINTS
+from detector.rules import DANGER_WEIGHT, DANGEROUS_PAIRS, RULES, SAFE_HINTS
 
 TASHKEEL = re.compile(r"[ً-ْٰـ]")  # harakat + tatweel
 LETTER_MAP = str.maketrans({"أ": "ا", "إ": "ا", "آ": "ا", "ة": "ه", "ى": "ي", "ؤ": "و", "ئ": "ي"})
@@ -85,8 +85,15 @@ def local_scan(text: str) -> dict:
                 spans.append((start, end, rule["key"]))
                 found.setdefault(rule["key"], rule)
 
+    # Reassuring words ("do not share it"): kept apart, they are shown in green only if the message is safe
+    safe_spans = []
+    for pattern in SAFE_HINTS:
+        for match in re.finditer(pattern, clean, re.IGNORECASE):
+            start, end = widen_to_word(text, positions[match.start()], positions[match.end() - 1] + 1)
+            safe_spans.append((start, end, "safe"))
+
     # A real OTP message says "do not share it" and has no link: that is a warning, not a request
-    is_warning_only = any(re.search(pattern, clean) for pattern in SAFE_HINTS)
+    is_warning_only = bool(safe_spans)
     if "credentials" in found and is_warning_only and not ({"link", "short_link", "fake_domain"} & found.keys()):
         del found["credentials"]
         spans = [span for span in spans if span[2] != "credentials"]
@@ -104,6 +111,7 @@ def local_scan(text: str) -> dict:
     return {
         "rules": sorted(found.values(), key=lambda rule: rule["weight"], reverse=True),
         "spans": spans,
+        "safe_spans": safe_spans,
         "safety": 100 - risk,
         "has_signature": any(a in found and b in found for a, b in DANGEROUS_PAIRS),
     }
@@ -113,11 +121,19 @@ def build_segments(text: str, spans: list[tuple]) -> list[dict]:
     """Cut the message into pieces so the template can highlight the risky parts."""
     titles = {rule["key"]: rule["title"] for rule in RULES}
     titles["ai"] = "رصدها الذكاء الاصطناعي"
+    titles["safe"] = "كلام يطمّن: الرسالة تحذّرك وما تطلب منك شيء"
+    # How risky each key is: it decides the color when two highlights overlap
+    weights = {rule["key"]: rule["weight"] for rule in RULES}
+    weights["ai"] = DANGER_WEIGHT  # words the AI quoted are dangerous (red)
+    weights["safe"] = 0            # a green word never hides a risky one
+
     spans = sorted(spans)
     merged = []
     for start, end, key in spans:
-        if merged and start < merged[-1][1]:  # overlaps the previous one -> join them
+        if merged and start < merged[-1][1]:  # overlaps the previous one -> join them, keep the most risky color
             merged[-1][1] = max(merged[-1][1], end)
+            if weights[key] > weights[merged[-1][2]]:
+                merged[-1][2] = key
         else:
             merged.append([start, end, key])
 
@@ -270,6 +286,8 @@ def analyze(text: str) -> dict:
 
     verdict = verdict_for(score)
     spans = local["spans"] + (ai_spans(text, ai["red_flags"]) if ai else [])
+    if verdict == "safe":
+        spans += local["safe_spans"]  # green words, only when the message is safe
     scam_type = ai["scam_type"] if ai and ai["scam_type"] else (local["rules"][0]["title"] if local["rules"] else "رسالة عادية")
 
     return {

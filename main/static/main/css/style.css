@@ -16,7 +16,7 @@
   --gold: #c8a45c;           /* official gold accent */
   --gold-soft: #f6efe0;
   --amber-deep: #b97a00;
-  --amber-soft: #fff3d6;
+  --amber-soft: #fff0b8;     /* yellow highlight: suspicious words */
   --teal-glow: #4fd1a0;
 
   /* Surfaces & text */
@@ -30,6 +30,7 @@
   /* Verdicts */
   --fraud: #e5383b;
   --fraud-soft: #ffe6e7;
+  --mark-danger: #ffcfd2;    /* red highlight: dangerous words (a bit stronger than --fraud-soft) */
   --sus: #e07c00;
   --sus-soft: #fff0db;
   --safe: #129c79;
@@ -423,15 +424,22 @@ mark.flag {
   box-shadow: inset 0 -2px 0 var(--amber-deep);
   cursor: help;
 }
-mark.flag-credentials, mark.flag-personal_data, mark.flag-fake_domain, mark.flag-short_link {
-  background: var(--fraud-soft);
+/* Yellow (above) = suspicious. Red = dangerous: the rules with weight 25+ (see detector/rules.py) and the AI quotes */
+mark.flag-credentials, mark.flag-personal_data, mark.flag-fake_domain, mark.flag-short_link,
+mark.flag-prize, mark.flag-relative, mark.flag-ai {
+  background: var(--mark-danger);
   box-shadow: inset 0 -2px 0 var(--fraud);
 }
-mark.flag-relative, mark.flag-threat, mark.flag-prize, mark.flag-too_good, mark.flag-money, mark.flag-urgency {
-  background: var(--sus-soft);
-  box-shadow: inset 0 -2px 0 var(--sus);
-}
-mark.flag-ai { background: var(--violet-soft); box-shadow: inset 0 -2px 0 var(--violet); }
+/* Green = reassuring words ("do not share it") in a safe message */
+mark.flag-safe { background: var(--safe-soft); box-shadow: inset 0 -2px 0 var(--safe); }
+
+/* The small key under a message: red / yellow / green */
+.mark-legend { display: flex; flex-wrap: wrap; gap: .4rem 1rem; margin: .6rem 0 0; font-size: .82rem; color: var(--muted); }
+.mark-legend span { display: inline-flex; align-items: center; gap: .35rem; }
+.mark-legend i { width: 12px; height: 12px; border-radius: 4px; border-bottom: 2px solid; }
+.legend-danger i { background: var(--mark-danger); border-color: var(--fraud); }
+.legend-warning i { background: var(--amber-soft); border-color: var(--amber-deep); }
+.legend-safe i { background: var(--safe-soft); border-color: var(--safe); }
 
 /* ---------- Sections ---------- */
 .section { padding-block: 6rem; }
@@ -779,8 +787,7 @@ fieldset { margin: 0; padding: 0; border: 0; }
 /* ---------- The one orchestrated moment: the hero scan ---------- */
 .scan-line { position: absolute; inset-inline: 0; top: 0; height: 70px; background: linear-gradient(180deg, transparent, rgba(255, 176, 32, .3) 80%, var(--amber) 100%); opacity: 0; animation: scan-down 2.4s ease-in-out .4s 1 forwards; pointer-events: none; }
 .scanning mark.flag { background: transparent; box-shadow: inset 0 0 0 transparent; animation: mark-in .5s ease forwards; animation-delay: calc(var(--i) * .32s + .6s); }
-.scanning mark.flag-credentials, .scanning mark.flag-personal_data, .scanning mark.flag-fake_domain, .scanning mark.flag-short_link { --mark-bg: var(--fraud-soft); --mark-line: var(--fraud); }
-.scanning mark.flag-threat, .scanning mark.flag-urgency, .scanning mark.flag-prize, .scanning mark.flag-money, .scanning mark.flag-too_good { --mark-bg: var(--sus-soft); --mark-line: var(--sus); }
+.scanning mark.flag-credentials, .scanning mark.flag-personal_data, .scanning mark.flag-fake_domain, .scanning mark.flag-short_link, .scanning mark.flag-prize, .scanning mark.flag-relative { --mark-bg: var(--fraud-soft); --mark-line: var(--fraud); }
 .finding-tags li { opacity: 0; transform: translateY(8px); animation: tag-in .45s ease forwards; animation-delay: calc(var(--i) * .25s + 2.8s); }
 .hero-verdict { opacity: 0; transform: scale(.9); animation: verdict-in .5s cubic-bezier(.2, 1.4, .4, 1) 3.9s forwards; }
 

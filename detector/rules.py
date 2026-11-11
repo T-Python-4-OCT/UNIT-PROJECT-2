@@ -157,3 +157,9 @@ DANGEROUS_PAIRS = [
 
 # Words that mean the message is only WARNING you (like a real OTP message: "do not share this code")
 SAFE_HINTS = [r"لا (ت)?شارك", r"لا تعطي", r"لا تفصح", r"لن (نطلب|يطلب)", r"do not share", r"never share"]
+
+# Colors of the highlighted words inside the message:
+# a rule with weight 25 or more is DANGEROUS (red), a lighter rule is SUSPICIOUS (yellow),
+# and the SAFE_HINTS words are green (only when the whole message is safe).
+# The same red keys are listed in main/css/style.css (mark.flag-...) and detector/css/detector.css (.flag-item...).
+DANGER_WEIGHT = 25
