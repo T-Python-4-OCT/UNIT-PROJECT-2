@@ -1,0 +1,106 @@
+{% extends 'projects/base.html' %}
+{% load static %}
+
+{% block title %}{{ project.name }}{% endblock %}
+
+{% block content %}
+<div class="project-page page-red-sea">
+
+<div class="rs-ocean">
+
+    <!-- ================= SURFACE ================= -->
+    <section class="rs-hero" {% if project.hero %}style="--hero-img: url('{% static project.hero %}')"{% endif %}>
+        <div class="container rs-hero-inner">
+            <a href="{% url 'projects:all_projects' %}" class="back-link light">
+                <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span> All Projects
+            </a>
+            <span class="rs-arabic" lang="ar" dir="rtl">{{ project.arabic_name }}</span>
+            <h1>{{ project.name }}</h1>
+            <p>{{ project.tagline }}</p>
+        </div>
+    </section>
+
+    <!-- ================= DEPTH 1: OVERVIEW ================= -->
+    <section class="rs-zone">
+        <div class="container rs-zone-inner">
+            <div class="rs-depth">
+                <strong>{{ project.depths.0.depth }}</strong>
+                <span>{{ project.depths.0.name }}</span>
+            </div>
+            <div>
+                <span class="eyebrow on-dark">{{ project.category }} · {{ project.location }}</span>
+                <h2>{{ project.headline }}</h2>
+                <p class="rs-lead">{{ project.overview }}</p>
+
+                <div class="rs-stats">
+                    {% for stat in project.stats %}
+                        <div>
+                            <strong>{{ stat.value }}</strong>
+                            <span>{{ stat.label }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <a href="{{ project.website }}" class="rs-link" target="_blank" rel="noopener">
+                    Visit the official website <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= DEPTH 2: ISLANDS ================= -->
+    <section class="rs-zone">
+        <div class="container rs-zone-inner">
+            <div class="rs-depth">
+                <strong>{{ project.depths.1.depth }}</strong>
+                <span>{{ project.depths.1.name }}</span>
+            </div>
+            <div>
+                <span class="eyebrow on-dark">Destinations</span>
+                <h2>Island Hopping</h2>
+                <div class="rs-islands">
+                    {% for island in project.islands %}
+                        <article class="rs-island">
+                            <span class="material-symbols-outlined" aria-hidden="true">{{ island.icon }}</span>
+                            <h3>{{ island.title }}</h3>
+                            <p>{{ island.text }}</p>
+                        </article>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= DEPTH 3: REEF ================= -->
+    <section class="rs-zone rs-deep" {% if project.reef_image %}style="--reef-img: url('{% static project.reef_image %}')"{% endif %}>
+        <div class="rs-bubbles" aria-hidden="true">
+            <span></span><span></span><span></span><span></span><span></span><span></span>
+        </div>
+        <div class="container rs-zone-inner">
+            <div class="rs-depth">
+                <strong>{{ project.depths.2.depth }}</strong>
+                <span>{{ project.depths.2.name }}</span>
+            </div>
+            <div>
+                <span class="eyebrow on-dark">Regenerative Tourism</span>
+                <h2>Protecting the Reef</h2>
+                <div class="rs-reef">
+                    {% for item in project.reef %}
+                        <div>
+                            <span class="visually-hidden">{{ item.value }}</span>
+                            <strong class="rs-count" style="--num: {{ item.number }}" data-unit="{{ item.unit }}" aria-hidden="true"></strong>
+                            <span>{{ item.text }}</span>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </section>
+
+</div>
+
+    {% include 'projects/project_gallery.html' %}
+    {% include 'projects/more_projects.html' %}
+
+</div>
+{% endblock %}

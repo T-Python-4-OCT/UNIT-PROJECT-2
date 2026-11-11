@@ -1,0 +1,91 @@
+{% extends 'projects/base.html' %}
+{% load static %}
+
+{% block title %}All Projects{% endblock %}
+
+{% block content %}
+
+<!-- ================= BANNER ================= -->
+<section class="pj-banner">
+    <span class="pj-stars" aria-hidden="true"></span>
+    <span class="pj-glow" aria-hidden="true"></span>
+
+    <div class="container pj-banner-inner">
+        <div class="pj-text">
+            <span class="pj-ar" lang="ar" dir="rtl">رؤية</span>
+            <span class="pj-line" aria-hidden="true"></span>
+            <span class="eyebrow on-dark">Giga-Projects</span>
+            <h1>All Projects</h1>
+            <p>Explore the landmark developments shaping the future of Saudi Arabia.</p>
+            <div class="pj-count">
+                <strong>{{ projects|length }}</strong>
+                <span>projects across the Kingdom</span>
+            </div>
+        </div>
+
+        <div class="pj-art" aria-hidden="true">
+            <div class="pj-year">
+                <span>2</span><span>0</span><span>3</span><span>0</span>
+            </div>
+            <div class="pj-skyline">
+                <span class="pj-b b1"></span>
+                <span class="pj-kc"></span>
+                <span class="pj-b b2"></span>
+                <span class="pj-fs"></span>
+                <span class="pj-b b3"></span>
+                <span class="pj-b b4"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="pj-strip" aria-hidden="true">
+        <span class="pj-light"></span>
+        <span class="pj-light l2"></span>
+    </div>
+</section>
+
+<section class="container section">
+
+    <!-- ================= SEARCH & FILTERS ================= -->
+    <div class="toolbar">
+        <form class="search-field" action="{% url 'projects:all_projects' %}" method="get">
+            {% if category %}<input type="hidden" name="category" value="{{ category }}">{% endif %}
+            <span class="material-symbols-outlined">search</span>
+            <input type="search" name="q" value="{{ q }}" placeholder="Search by name, city or category..." aria-label="Search projects">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+
+        <nav class="chips" aria-label="Filter by category">
+            <a href="{% url 'projects:all_projects' %}{% if q %}?q={{ q|urlencode }}{% endif %}" class="chip {% if not category %}active{% endif %}">All</a>
+            {% for item in categories %}
+                <a href="?category={{ item|urlencode }}{% if q %}&q={{ q|urlencode }}{% endif %}" class="chip {% if item == category %}active{% endif %}">{{ item }}</a>
+            {% endfor %}
+        </nav>
+    </div>
+
+    <div class="results-head">
+        <h2 class="results-count">{{ projects|length }} Project{{ projects|length|pluralize }} Found</h2>
+        {% if q or category %}
+            <a href="{% url 'projects:all_projects' %}" class="link-arrow">Clear filters</a>
+        {% endif %}
+    </div>
+
+    <!-- ================= PROJECTS ================= -->
+    {% if projects %}
+        <div class="cards-grid">
+            {% for project in projects %}
+                {% include 'projects/project_card.html' %}
+            {% endfor %}
+        </div>
+    {% else %}
+        <div class="empty-state">
+            <span class="material-symbols-outlined">travel_explore</span>
+            <h3>No projects found</h3>
+            <p>Try a different search or category.</p>
+            <a href="{% url 'projects:all_projects' %}" class="btn btn-primary">Show All Projects</a>
+        </div>
+    {% endif %}
+
+</section>
+
+{% endblock %}

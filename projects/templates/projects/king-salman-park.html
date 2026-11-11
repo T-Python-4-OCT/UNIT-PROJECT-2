@@ -1,0 +1,241 @@
+{% extends 'projects/base.html' %}
+{% load static %}
+
+{% block title %}{{ project.name }}{% endblock %}
+
+{% block content %}
+<div class="project-page page-ksp">
+
+<!-- ================= HERO ================= -->
+<section class="ks-hero" {% if project.hero %}style="--hero-img: url('{% static project.hero %}')"{% endif %}>
+    <div class="ks-leaves" aria-hidden="true">
+        <span></span><span></span><span></span><span></span><span></span><span></span>
+    </div>
+    <div class="container ks-hero-inner">
+        <div>
+            <a href="{% url 'projects:all_projects' %}" class="back-link light">
+                <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span> All Projects
+            </a>
+            <span class="ks-arabic" lang="ar" dir="rtl">{{ project.arabic_name }}</span>
+            <h1>{{ project.name }}</h1>
+            <p>{{ project.tagline }}</p>
+        </div>
+
+        <div class="ks-ring">
+            <strong>{{ project.stats.0.value }}</strong>
+            <span>km² of park</span>
+        </div>
+    </div>
+</section>
+
+<!-- ================= INTRO ================= -->
+<section class="container section ks-intro">
+    <div>
+        <span class="eyebrow">{{ project.category }} · {{ project.location }}</span>
+        <h2>{{ project.headline }}</h2>
+    </div>
+    <div>
+        <p class="lead">{{ project.overview }}</p>
+        <div class="ks-stats">
+            {% for stat in project.stats %}
+                <div>
+                    <strong>{{ stat.value }}</strong>
+                    <span>{{ stat.label }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ================= COMPARE ================= -->
+<section class="ks-compare">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <span class="eyebrow">Scale</span>
+                <h2>Bigger Than the World's Famous Parks</h2>
+            </div>
+        </div>
+
+        <ul class="ks-bars">
+            {% for park in project.compare %}
+                <li class="{% if park.highlight %}main{% endif %}">
+                    <div class="ks-bar-label">
+                        <strong>{{ park.name }}</strong>
+                        <span>{{ park.city }}</span>
+                    </div>
+                    <div class="ks-track">
+                        <div class="ks-fill" style="--w: {% widthratio park.area 16.6 100 %}%">
+                            <span>{{ park.area }} km²</span>
+                        </div>
+                    </div>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</section>
+
+<!-- ================= MAP ================= -->
+<section class="container section">
+    <div class="section-head center">
+        <div>
+            <span class="eyebrow">Park Map</span>
+            <h2>Explore the Park</h2>
+        </div>
+    </div>
+
+    <div class="ks-explorer">
+        {% for place in project.map %}
+            <input type="radio" name="park-place" id="place-{{ forloop.counter }}" class="ks-radio" {% if forloop.first %}checked{% endif %}>
+        {% endfor %}
+
+        <div class="ks-tabs">
+            {% for place in project.map %}
+                <label for="place-{{ forloop.counter }}" class="ks-tab ks-tab-{{ forloop.counter }}">
+                    <span>{{ forloop.counter }}</span>{{ place.title }}
+                </label>
+            {% endfor %}
+        </div>
+
+        <div class="ks-map">
+            <div class="ks-world">
+                <span class="ks-district"></span>
+                <span class="ks-wing north"></span>
+                <span class="ks-wing west"></span>
+                <span class="ks-wing east"></span>
+                <span class="ks-wing south"></span>
+                <span class="ks-highway"></span>
+                <span class="ks-avenue"></span>
+                <span class="ks-core"></span>
+                <span class="ks-lake"></span>
+                <span class="ks-terraces"></span>
+                <span class="ks-dome"></span>
+                <span class="ks-campus"></span>
+                <div class="ks-loop" aria-hidden="true">
+                    <span class="ks-walker"></span>
+                    <span class="ks-walker late"></span>
+                </div>
+                {% for place in project.map %}
+                    <label for="place-{{ forloop.counter }}" class="ks-pin ks-pin-{{ forloop.counter }}" style="--x: {{ place.x }}%; --y: {{ place.y }}%" title="{{ place.title }}">
+                        <span class="ks-pin-head">
+                            <span class="material-symbols-outlined" aria-hidden="true">{{ place.icon }}</span>
+                            <em>{{ forloop.counter }}</em>
+                        </span>
+                    </label>
+                {% endfor %}
+            </div>
+            <span class="ks-map-hint">
+                <span class="material-symbols-outlined" aria-hidden="true">touch_app</span> Tap a pin
+            </span>
+        </div>
+
+        <div class="ks-info">
+            {% for place in project.map %}
+                <article class="ks-card ks-card-{{ forloop.counter }}">
+                    <div class="ks-scene">
+                        <span class="ks-card-num">0{{ forloop.counter }}</span>
+                        {% if place.scene == 'arts' %}
+                        <div class="scene scene-arts" aria-hidden="true">
+                            <span class="beam beam-left"></span>
+                            <span class="beam beam-right"></span>
+                            <span class="star s1"></span>
+                            <span class="star s2"></span>
+                            <span class="star s3"></span>
+                            <div class="building">
+                                <span class="roof"></span>
+                                <div class="hall">
+                                    <span class="col"></span>
+                                    <span class="col"></span>
+                                    <span class="door"></span>
+                                    <span class="col"></span>
+                                    <span class="col"></span>
+                                </div>
+                                <span class="step"></span>
+                                <span class="step wide"></span>
+                            </div>
+                        </div>
+                        {% elif place.scene == 'pavilion' %}
+                        <div class="scene scene-pavilion" aria-hidden="true">
+                            <span class="sun"></span>
+                            <span class="bird-lane"></span>
+                            <span class="bird-lane b2"></span>
+                            <div class="dome"></div>
+                            <span class="ground"></span>
+                            <span class="visitor-lane"></span>
+                        </div>
+                        {% elif place.scene == 'green' %}
+                        <div class="scene scene-green" aria-hidden="true">
+                            <strong class="count">1 million trees planned</strong>
+                            <span class="hill"></span>
+                            <div class="trees">
+                                <span class="tree"></span>
+                                <span class="tree"></span>
+                                <span class="tree"></span>
+                                <span class="tree"></span>
+                                <span class="tree"></span>
+                            </div>
+                        </div>
+                        {% elif place.scene == 'loop' %}
+                        <div class="scene scene-loop" aria-hidden="true">
+                            <div class="loop-track">
+                                <span class="runner"></span>
+                                <span class="runner r2"></span>
+                            </div>
+                            <strong class="km">7.2 km</strong>
+                        </div>
+                        {% elif place.scene == 'tunnel' %}
+                        <div class="scene scene-tunnel" aria-hidden="true">
+                            <div class="tunnel">
+                                <span class="lamp"></span>
+                                <span class="lamp"></span>
+                                <span class="lamp"></span>
+                            </div>
+                            <div class="road">
+                                <span class="lane"></span>
+                                <span class="car-lane"></span>
+                                <span class="car-lane back"></span>
+                            </div>
+                        </div>
+                        {% endif %}
+                    </div>
+                    <h3>{{ place.title }}</h3>
+                    <p>{{ place.text }}</p>
+                </article>
+            {% endfor %}
+        </div>
+
+    </div>
+</section>
+
+<!-- ================= GROWTH ================= -->
+<section class="container ks-growth">
+    <div class="ks-growth-card">
+        <div>
+            {% if project.launch %}
+                <figure class="ks-launch">
+                    <img src="{% static project.launch.image %}" alt="Launch of King Salman Park" loading="lazy">
+                    <figcaption>{{ project.launch.caption }}</figcaption>
+                </figure>
+            {% endif %}
+            <span class="eyebrow on-dark">Milestones</span>
+            <h2>Growing Year by Year</h2>
+            <a href="{{ project.website }}" class="btn btn-light" target="_blank" rel="noopener">
+                Official Website <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+            </a>
+        </div>
+        <ol class="ks-steps">
+            {% for step in project.timeline %}
+                <li>
+                    <strong>{{ step.year }}</strong>
+                    <span>{{ step.text }}</span>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+</section>
+
+    {% include 'projects/project_gallery.html' %}
+    {% include 'projects/more_projects.html' %}
+
+</div>
+{% endblock %}

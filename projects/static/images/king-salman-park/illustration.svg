@@ -1,0 +1,103 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#bfe3cf"/>
+      <stop offset=".6" stop-color="#f3e6c6"/>
+      <stop offset="1" stop-color="#f7d9a8"/>
+    </linearGradient>
+    <radialGradient id="sun">
+      <stop offset="0" stop-color="#fff6d8"/>
+      <stop offset=".55" stop-color="#ffd27a"/>
+      <stop offset="1" stop-color="#ffd27a" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="hillBack" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#7cc48a"/>
+      <stop offset="1" stop-color="#4fae6a"/>
+    </linearGradient>
+    <linearGradient id="hillFront" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#3f9a5b"/>
+      <stop offset="1" stop-color="#1e5a3a"/>
+    </linearGradient>
+  </defs>
+
+  <style>
+    .sun { animation: glow 6s ease-in-out infinite; transform-origin: 900px 230px; }
+    .cloud { animation: drift 40s linear infinite; }
+    .cloud.slow { animation-duration: 60s; }
+    .birds { animation: fly 22s linear infinite; }
+    .tree { transform-box: fill-box; transform-origin: 50% 100%; animation: sway 4s ease-in-out infinite; }
+    .tree:nth-of-type(2n) { animation-duration: 5s; animation-delay: -1s; }
+    .tree:nth-of-type(3n) { animation-duration: 6s; animation-delay: -2s; }
+    .loop { stroke-dasharray: 14 12; animation: walk 3s linear infinite; }
+    .fountain { transform-box: fill-box; transform-origin: 50% 100%; animation: spray 2s ease-in-out infinite; }
+    @keyframes glow { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.08); } }
+    @keyframes drift { from { transform: translateX(-300px); } to { transform: translateX(1300px); } }
+    @keyframes fly { from { transform: translateX(-200px); } to { transform: translateX(1400px); } }
+    @keyframes sway { 0%, 100% { transform: rotate(-2deg); } 50% { transform: rotate(2deg); } }
+    @keyframes walk { to { stroke-dashoffset: -52; } }
+    @keyframes spray { 0%, 100% { transform: scaleY(1); } 50% { transform: scaleY(1.25); } }
+    @media (prefers-reduced-motion: reduce) { * { animation: none !important; } }
+  </style>
+
+  <rect width="1200" height="700" fill="url(#sky)"/>
+
+  <circle class="sun" cx="900" cy="230" r="150" fill="url(#sun)"/>
+  <circle cx="900" cy="230" r="56" fill="#fff1c9"/>
+
+  <g class="cloud" fill="#ffffff" opacity=".8">
+    <ellipse cx="200" cy="120" rx="70" ry="22"/>
+    <ellipse cx="240" cy="105" rx="45" ry="22"/>
+  </g>
+  <g class="cloud slow" fill="#ffffff" opacity=".6">
+    <ellipse cx="620" cy="80" rx="90" ry="20"/>
+    <ellipse cx="660" cy="66" rx="50" ry="20"/>
+  </g>
+
+  <g class="birds" fill="none" stroke="#2f5a44" stroke-width="3" stroke-linecap="round">
+    <path d="M100 180 q10 -10 20 0 q10 -10 20 0"/>
+    <path d="M150 160 q8 -8 16 0 q8 -8 16 0"/>
+    <path d="M60 150 q7 -7 14 0 q7 -7 14 0"/>
+  </g>
+
+  <g fill="#a9c3b2">
+    <rect x="200" y="360" width="40" height="110"/>
+    <rect x="250" y="330" width="30" height="140"/>
+    <path d="M330 470 L360 230 L390 470 Z"/>
+    <circle cx="360" cy="275" r="14" fill="#c4d8ca"/>
+    <rect x="420" y="380" width="50" height="90"/>
+    <path d="M520 470 L540 190 Q548 150 556 190 L576 470 Z"/>
+    <path d="M600 470 L612 200 L628 160 L644 200 L656 470 Z"/>
+    <path d="M610 470 L612 260 Q628 210 644 260 L646 470 Z" fill="#f3e6c6"/>
+    <rect x="700" y="350" width="44" height="120"/>
+    <rect x="760" y="380" width="36" height="90"/>
+    <rect x="980" y="370" width="46" height="100"/>
+    <rect x="1040" y="340" width="34" height="130"/>
+  </g>
+
+  <path d="M0 470 C200 420 380 470 600 440 C820 410 1000 460 1200 430 L1200 700 L0 700 Z" fill="url(#hillBack)"/>
+
+  <g>
+    <g class="tree"><rect x="118" y="420" width="6" height="34" fill="#6b4a2b"/><circle cx="121" cy="412" r="22" fill="#2f7d4a"/></g>
+    <g class="tree"><rect x="300" y="425" width="6" height="30" fill="#6b4a2b"/><circle cx="303" cy="418" r="18" fill="#3f9a5b"/></g>
+    <g class="tree"><rect x="470" y="420" width="6" height="34" fill="#6b4a2b"/><circle cx="473" cy="410" r="24" fill="#2f7d4a"/></g>
+    <g class="tree"><rect x="820" y="410" width="6" height="34" fill="#6b4a2b"/><circle cx="823" cy="402" r="22" fill="#3f9a5b"/></g>
+    <g class="tree"><rect x="1080" y="420" width="6" height="30" fill="#6b4a2b"/><circle cx="1083" cy="412" r="19" fill="#2f7d4a"/></g>
+  </g>
+
+  <path d="M0 560 C220 500 420 560 640 530 C860 500 1020 560 1200 520 L1200 700 L0 700 Z" fill="url(#hillFront)"/>
+
+  <ellipse class="loop" cx="600" cy="620" rx="470" ry="58" fill="none" stroke="#f6e7c8" stroke-width="6" opacity=".85"/>
+
+  <g>
+    <g class="tree"><rect x="60" y="520" width="9" height="50" fill="#5a3d22"/><circle cx="64" cy="505" r="36" fill="#1e5a3a"/><circle cx="84" cy="520" r="24" fill="#2f7d4a"/></g>
+    <g class="tree"><rect x="240" y="505" width="8" height="46" fill="#5a3d22"/><circle cx="244" cy="492" r="30" fill="#2f7d4a"/></g>
+    <g class="tree"><rect x="760" y="500" width="8" height="46" fill="#5a3d22"/><circle cx="764" cy="486" r="32" fill="#1e5a3a"/></g>
+    <g class="tree"><rect x="960" y="510" width="9" height="50" fill="#5a3d22"/><circle cx="964" cy="494" r="36" fill="#2f7d4a"/><circle cx="944" cy="510" r="22" fill="#3f9a5b"/></g>
+    <g class="tree"><rect x="1130" y="500" width="8" height="46" fill="#5a3d22"/><circle cx="1134" cy="487" r="30" fill="#1e5a3a"/></g>
+  </g>
+
+  <g>
+    <ellipse cx="560" cy="585" rx="60" ry="12" fill="#7fd1dc"/>
+    <path class="fountain" d="M560 585 Q552 545 560 520 Q568 545 560 585 Z" fill="#bff0f5"/>
+  </g>
+</svg>

@@ -1,0 +1,120 @@
+{% extends 'projects/base.html' %}
+{% load static %}
+
+{% block title %}{{ project.name }}{% endblock %}
+
+{% block content %}
+<div class="project-page page-diriyah">
+
+<!-- ================= HERO ================= -->
+<section class="dr-hero" style="--hero-img: url('{% static project.hero %}')">
+    <div class="container dr-hero-inner">
+        <a href="{% url 'projects:all_projects' %}" class="back-link light">
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span> All Projects
+        </a>
+        <span class="dr-arabic" lang="ar" dir="rtl">{{ project.arabic_name }}</span>
+        <h1>{{ project.name }}</h1>
+        <p>{{ project.tagline }}</p>
+        <span class="eyebrow on-dark">{{ project.category }} · {{ project.location }}</span>
+    </div>
+    <div class="najdi-edge" aria-hidden="true"></div>
+</section>
+
+<div class="container">
+
+    <!-- ================= STATS ================= -->
+    <div class="dr-stats">
+        {% for stat in project.stats %}
+            <div>
+                <strong>{{ stat.value }}</strong>
+                <span>{{ stat.label }}</span>
+            </div>
+        {% endfor %}
+        <div class="dr-stat-badge">
+            <span class="material-symbols-outlined" aria-hidden="true">workspace_premium</span>
+            <span>{{ project.badge }}</span>
+        </div>
+    </div>
+
+    <!-- ================= INTRO ================= -->
+    <section class="section dr-intro">
+        <div>
+            <span class="eyebrow">Overview</span>
+            <h2>{{ project.headline }}</h2>
+        </div>
+        <div>
+            <p class="lead">{{ project.overview }}</p>
+            <a href="{{ project.website }}" class="link-arrow" target="_blank" rel="noopener">
+                Visit the official website <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+            </a>
+        </div>
+    </section>
+
+</div>
+
+<!-- ================= TIMELINE ================= -->
+<section class="dr-history">
+    <div class="najdi-edge top" aria-hidden="true"></div>
+    <div class="container">
+        <div class="section-head center">
+            <div>
+                <span class="eyebrow on-dark">History</span>
+                <h2>Six Centuries of Story</h2>
+            </div>
+        </div>
+
+        <ol class="dr-timeline">
+            {% for step in project.timeline %}
+                <li>
+                    <span class="dr-year">{{ step.year }}</span>
+                    <h3>{{ step.title }}</h3>
+                    <p>{{ step.text }}</p>
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+    <div class="najdi-edge" aria-hidden="true"></div>
+</section>
+
+<!-- ================= DISCOVER ================= -->
+<section class="container section">
+    <div class="section-head center">
+        <div>
+            <span class="eyebrow">Highlights</span>
+            <h2>Discover Diriyah</h2>
+        </div>
+    </div>
+
+    {% for item in project.highlights %}
+        {% if item.image %}
+            <article class="dr-feature">
+                <div class="dr-feature-img">
+                    <img src="{% static item.image %}" alt="{{ item.title }}" loading="lazy">
+                </div>
+                <div class="dr-feature-text">
+                    <span class="dr-feature-num">0{{ forloop.counter }}</span>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.text }}</p>
+                </div>
+            </article>
+        {% endif %}
+    {% endfor %}
+
+    <div class="dr-mini">
+        {% for item in project.highlights %}
+            {% if not item.image %}
+                <div class="icon-card">
+                    <span class="material-symbols-outlined" aria-hidden="true">{{ item.icon }}</span>
+                    <h3>{{ item.title }}</h3>
+                    <p>{{ item.text }}</p>
+                </div>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+
+    {% include 'projects/project_gallery.html' %}
+    {% include 'projects/more_projects.html' %}
+
+</div>
+{% endblock %}

@@ -1,0 +1,105 @@
+{% extends 'projects/base.html' %}
+{% load static %}
+
+{% block title %}{{ project.name }}{% endblock %}
+
+{% block content %}
+<div class="project-page page-alula">
+
+<!-- ================= MUSEUM ================= -->
+<section class="al-museum">
+    <div class="al-stars" aria-hidden="true"></div>
+
+    <div class="container">
+
+        <!-- ===== TITLE ===== -->
+        <div class="al-top">
+            <div>
+                <a href="{% url 'projects:all_projects' %}" class="back-link">
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span> All Projects
+                </a>
+                <span class="eyebrow">{{ project.category }} · {{ project.location }}</span>
+                <h1>{{ project.name }}</h1>
+                <p class="al-tagline">{{ project.tagline }}</p>
+            </div>
+            <span class="al-arabic" lang="ar" dir="rtl">{{ project.arabic_name }}</span>
+        </div>
+
+        <!-- ===== STATS ===== -->
+        <div class="al-meta">
+            {% for stat in project.stats %}
+                <div>
+                    <strong>{{ stat.value }}</strong>
+                    <span>{{ stat.label }}</span>
+                </div>
+            {% endfor %}
+            <div>
+                <strong>{{ project.kingdoms|length }}</strong>
+                <span>Ancient kingdoms</span>
+            </div>
+        </div>
+
+        <div class="al-overview">
+            <p>{{ project.overview }}</p>
+            <a href="{{ project.website }}" class="al-link" target="_blank" rel="noopener">
+                Visit the official website <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+            </a>
+        </div>
+
+        <!-- ===== EXHIBITS ===== -->
+        <div class="al-wall">
+            {% for place in project.landmarks %}
+                {% if place.image %}
+                    <figure class="al-exhibit {% if place.mirror %}mirror{% endif %}">
+                        <div class="al-frame">
+                            <img src="{% static place.image %}" alt="{{ place.title }}" loading="lazy">
+                        </div>
+                        <figcaption class="al-label">
+                            <small>Exhibit 0{{ forloop.counter }}</small>
+                            <h3>{{ place.title }}</h3>
+                            <p>{{ place.text }}</p>
+                        </figcaption>
+                    </figure>
+                {% endif %}
+            {% endfor %}
+        </div>
+
+        {% for place in project.landmarks %}
+            {% if not place.image %}
+                <div class="al-note">
+                    <span class="material-symbols-outlined" aria-hidden="true">{{ place.icon }}</span>
+                    <div>
+                        <small>Exhibit 0{{ forloop.counter }}</small>
+                        <h3>{{ place.title }}</h3>
+                        <p>{{ place.text }}</p>
+                    </div>
+                </div>
+            {% endif %}
+        {% endfor %}
+
+        <!-- ===== KINGDOMS ===== -->
+        <div class="section-head center al-rooms-head">
+            <div>
+                <span class="eyebrow">Gallery Two</span>
+                <h2>Kingdoms of the Desert</h2>
+            </div>
+        </div>
+
+        <ol class="al-rooms">
+            {% for kingdom in project.kingdoms %}
+                <li>
+                    <small>Room {{ forloop.counter }} · {{ kingdom.era }}</small>
+                    <h3>{{ kingdom.name }}</h3>
+                    <p>{{ kingdom.text }}</p>
+                </li>
+            {% endfor %}
+        </ol>
+
+    </div>
+</section>
+
+    {% include 'projects/project_gallery.html' %}
+    {% include 'projects/more_projects.html' %}
+
+</div>
+{% endblock %}

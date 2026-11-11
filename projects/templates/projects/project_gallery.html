@@ -1,0 +1,29 @@
+{% load static %}
+<!-- ================= GALLERY ================= -->
+{% if project.gallery %}
+    <section class="container section" id="gallery">
+        <div class="section-head">
+            <div>
+                <span class="eyebrow">Gallery</span>
+                <h2>Moments in {{ project.name }}</h2>
+            </div>
+            <span class="scroll-hint">
+                Scroll <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
+            </span>
+        </div>
+
+        <div class="gallery-strip">
+            {% for photo in project.gallery %}
+                <figure>
+                    <div class="gallery-photo">
+                        <img src="{% static photo.image %}" alt="{{ photo.caption }}" loading="lazy">
+                    </div>
+                    <figcaption>
+                        <strong>{{ photo.caption }}</strong>
+                        <span>{{ photo.text }}</span>
+                    </figcaption>
+                </figure>
+            {% endfor %}
+        </div>
+    </section>
+{% endif %}
