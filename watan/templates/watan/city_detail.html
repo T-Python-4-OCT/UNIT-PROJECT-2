@@ -47,6 +47,44 @@
   </div>
 </section>
 
+
+{# ===== أبرز المعالم ===== #}
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">أبرز المعالم</span><h2 class="section-title">ماذا تزور في {{ city.name }}؟</h2></div>
+    <div class="row g-4">
+      {% for a in city.attractions %}
+      <div class="col-md-6 col-lg-4 reveal"><div class="attraction-card">
+        <div class="icon-bubble"><i class="bi {{ a.icon }}"></i></div>
+        <h3>{{ a.name }}</h3><p>{{ a.description }}</p>
+      </div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ===== الخط الزمني ===== #}
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">موجز تاريخي</span><h2 class="section-title">محطات من تاريخ {{ city.name }}</h2></div>
+    {% include "watan/partials/_timeline.html" with items=city.timeline icon="bi-clock-history" %}
+  </div>
+</section>
+
+{# ===== الفعاليات ===== #}
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">فعاليات</span><h2 class="section-title">أبرز الفعاليات في {{ city.name }}</h2></div>
+    <div class="row g-4">
+      {% for e in city.events %}
+      <div class="col-lg-6 reveal"><div class="event-card">
+        <div class="icon-bubble"><i class="bi {{ e.icon }}"></i></div>
+        <div><span class="event-season"><i class="bi bi-calendar-event"></i> {{ e.season }}</span><h3>{{ e.name }}</h3><p>{{ e.description }}</p></div>
+      </div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
 {# ===== معرض الصور (Carousel) ===== #}
 <section class="section section-alt">
   <div class="container">
@@ -116,57 +154,50 @@
     </div>
   </div>
 </section>
-{# ===== أبرز المعالم ===== #}
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head reveal"><span class="eyebrow">أبرز المعالم</span><h2 class="section-title">ماذا تزور في {{ city.name }}؟</h2></div>
-    <div class="row g-4">
-      {% for a in city.attractions %}
-      <div class="col-md-6 col-lg-4 reveal"><div class="attraction-card">
-        <div class="icon-bubble"><i class="bi {{ a.icon }}"></i></div>
-        <h3>{{ a.name }}</h3><p>{{ a.description }}</p>
-      </div></div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
-
-{# ===== الخط الزمني ===== #}
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal"><span class="eyebrow">موجز تاريخي</span><h2 class="section-title">محطات من تاريخ {{ city.name }}</h2></div>
-    {% include "watan/partials/_timeline.html" with items=city.timeline icon="bi-clock-history" %}
-  </div>
-</section>
-
-{# ===== الفعاليات ===== #}
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head reveal"><span class="eyebrow">فعاليات</span><h2 class="section-title">أبرز الفعاليات في {{ city.name }}</h2></div>
-    <div class="row g-4">
-      {% for e in city.events %}
-      <div class="col-lg-6 reveal"><div class="event-card">
-        <div class="icon-bubble"><i class="bi {{ e.icon }}"></i></div>
-        <div><span class="event-season"><i class="bi bi-calendar-event"></i> {{ e.season }}</span><h3>{{ e.name }}</h3><p>{{ e.description }}</p></div>
-      </div></div>
-      {% endfor %}
-    </div>
-  </div>
-</section>
 
 {# ===== المدينة السابقة / التالية + مدن أخرى ===== #}
 <section class="section">
   <div class="container">
-    <div class="pager mb-5">
-      {% if next_city %}<a class="next" href="{% url 'watan:city_detail' next_city.slug %}"><small><i class="bi bi-arrow-right"></i> المدينة التالية</small>{{ next_city.name }}</a>{% else %}<span></span>{% endif %}
-      {% if prev_city %}<a class="prev" href="{% url 'watan:city_detail' prev_city.slug %}"><small>المدينة السابقة <i class="bi bi-arrow-left"></i></small>{{ prev_city.name }}</a>{% else %}<span></span>{% endif %}
+
+    <div class="pager mb-5" style="direction: rtl;">
+
+      {# المدينة السابقة - يمين #}
+      {% if prev_city %}
+      <a class="prev" href="{% url 'watan:city_detail' prev_city.slug %}"
+         style="text-align: right;">
+        <small>المدينة السابقة <i class="bi bi-arrow-right"></i></small>
+        {{ prev_city.name }}
+      </a>
+      {% else %}
+      <span></span>
+      {% endif %}
+
+      {# المدينة التالية - يسار #}
+      {% if next_city %}
+      <a class="next" href="{% url 'watan:city_detail' next_city.slug %}"
+         style="text-align: left;">
+        <small><i class="bi bi-arrow-left"></i> المدينة التالية</small>
+        {{ next_city.name }}
+      </a>
+      {% else %}
+      <span></span>
+      {% endif %}
+
     </div>
-    <div class="section-head reveal"><span class="eyebrow">تابع الرحلة</span><h2 class="section-title">مدن أخرى</h2></div>
+
+    <div class="section-head reveal">
+      <span class="eyebrow">تابع الرحلة</span>
+      <h2 class="section-title">مدن أخرى</h2>
+    </div>
+
     <div class="row g-4">
       {% for city in other_cities|slice:":3" %}
-      <div class="col-md-6 col-lg-4 reveal">{% include "watan/partials/_city_card.html" %}</div>
+      <div class="col-md-6 col-lg-4 reveal">
+        {% include "watan/partials/_city_card.html" %}
+      </div>
       {% endfor %}
     </div>
+
   </div>
 </section>
 {% endblock %}
