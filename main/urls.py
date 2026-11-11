@@ -11,4 +11,6 @@ urlpatterns = [
     path("guide/<slug:scam_key>/", views.scam_detail, name="scam_detail"),
     path("faq/", views.faq, name="faq"),
     path("feedback/", views.feedback, name="feedback"),
+    # The dark / light mode button posts here, and the view saves the choice in a cookie
+    path("theme/", views.toggle_theme, name="theme"),
 ]

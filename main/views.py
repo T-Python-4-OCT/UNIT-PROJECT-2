@@ -1,8 +1,9 @@
-"""Views of the main app: home, guide, FAQ and feedback."""
+"""Views of the main app: home, guide, FAQ, feedback and the dark / light theme."""
 
 from django.contrib import messages
 from django.http import Http404, HttpRequest, HttpResponse
 from django.shortcuts import redirect, render
+from django.utils.http import url_has_allowed_host_and_scheme
 
 from main import json_store
 from detector.analyzer import build_segments, local_scan
@@ -14,6 +15,11 @@ from main.content import (CHANNELS, FAQ, SCORE_RANGES, FEEDBACK_TAGS, REPORT_SMS
 
 
 HERO_SAMPLE = "عميلنا العزيز، سيتم إيقاف حسابك خلال 24 ساعة. حدّث بياناتك عبر alrajhi-update.com وأرسل رمز التحقق."
+
+# Cookie with the visitor's theme ("light" or "dark"), kept for one year
+THEME_COOKIE = "theme"
+THEMES = ("light", "dark")
+THEME_AGE = 60 * 60 * 24 * 365
 
 
 def with_highlights(text: str) -> dict:
@@ -132,6 +138,21 @@ def feedback(request: HttpRequest) -> HttpResponse:
         "latest_feedback": json_store.newest_first(all_feedback)[:4],
     }
     return render(request, "main/feedback.html", context)
+
+
+def toggle_theme(request: HttpRequest) -> HttpResponse:
+    """Save the chosen theme (light / dark) in a cookie, then go back to the same page."""
+    next_url = request.POST.get("next", "")
+    # Only go back to a page of our own site, never to another website
+    if not url_has_allowed_host_and_scheme(next_url, allowed_hosts={request.get_host()}):
+        next_url = "main:home"
+
+    # redirect() gives us an HttpResponse, and we add the cookie to it before sending it
+    response = redirect(next_url)
+    theme = request.POST.get("theme", "")
+    if request.method == "POST" and theme in THEMES:
+        response.set_cookie(THEME_COOKIE, theme, max_age=THEME_AGE, samesite="Lax")
+    return response
 
 
 def page_not_found(request: HttpRequest, exception=None) -> HttpResponse:

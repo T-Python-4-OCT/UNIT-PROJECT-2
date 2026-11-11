@@ -43,3 +43,6 @@
 .recent-searches a:hover { border-color: var(--violet); color: var(--violet-deep); }
 .recent-searches form { margin: 0; }
 .link-btn { padding: 0; border: 0; background: none; color: var(--fraud); font: inherit; font-size: .85rem; cursor: pointer; }
+
+/* ---------- Dark mode (the colors that are not variables) ---------- */
+[data-theme="dark"] .lookup-hit { color: #ffb3b6; }

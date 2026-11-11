@@ -1,5 +1,6 @@
 {% load static %}<!doctype html>
-<html lang="ar" dir="rtl">
+{# The theme comes from the "theme" cookie (saved by main.views.toggle_theme). Light is the default. #}
+<html lang="ar" dir="rtl" data-theme="{% if request.COOKIES.theme == "dark" %}dark{% else %}light{% endif %}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">

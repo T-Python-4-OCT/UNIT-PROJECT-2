@@ -8,7 +8,6 @@
     </a>
 
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
-    <label for="nav-toggle" class="nav-burger" aria-label="فتح القائمة"><i class="bi bi-list"></i></label>
 
     <ul class="nav-links">
       <li><a href="{% url 'main:home' %}" {% if current == "main:home" %}aria-current="page"{% endif %}>الرئيسية</a></li>
@@ -18,6 +17,20 @@
       <li><a href="{% url 'main:faq' %}" {% if current == "main:faq" %}aria-current="page"{% endif %}>الأسئلة الشائعة</a></li>
       <li class="nav-cta"><a href="{% url 'detector:home' %}" class="btn-signal btn-sm"><i class="bi bi-search"></i> افحص رسالة</a></li>
     </ul>
+
+    <div class="nav-tools">
+      {# Dark / light mode: the button sends the new theme, and the server saves it in a cookie #}
+      <form method="post" action="{% url 'main:theme' %}" class="theme-form">
+        {% csrf_token %}
+        <input type="hidden" name="next" value="{{ request.get_full_path }}">
+        {% if request.COOKIES.theme == "dark" %}
+          <button type="submit" name="theme" value="light" class="theme-btn" title="الوضع الفاتح"><i class="bi bi-sun-fill"></i><span class="visually-hidden">غيّر للوضع الفاتح</span></button>
+        {% else %}
+          <button type="submit" name="theme" value="dark" class="theme-btn" title="الوضع الداكن"><i class="bi bi-moon-stars-fill"></i><span class="visually-hidden">غيّر للوضع الداكن</span></button>
+        {% endif %}
+      </form>
+      <label for="nav-toggle" class="nav-burger" aria-label="فتح القائمة"><i class="bi bi-list"></i></label>
+    </div>
   </nav>
 </header>
 {% endwith %}

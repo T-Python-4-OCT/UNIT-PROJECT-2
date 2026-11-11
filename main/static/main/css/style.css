@@ -212,6 +212,7 @@ a:hover { color: var(--violet); }
   align-items: center;
   gap: .2rem;
   margin: 0;
+  margin-inline-start: auto;
   padding: 0;
   list-style: none;
 }
@@ -230,6 +231,12 @@ a:hover { color: var(--violet); }
 .nav-links .nav-cta a { color: var(--violet-deep); background: #fff; font-weight: 700; }
 
 .nav-toggle, .nav-burger { display: none; }
+
+/* Dark / light mode button (a small form, the server saves the choice in a cookie) */
+.nav-tools { display: flex; align-items: center; gap: .5rem; }
+.theme-form { margin: 0; }
+.theme-btn { display: grid; place-items: center; width: 40px; height: 40px; padding: 0; border-radius: 50%; border: 1px solid rgba(255, 255, 255, .25); background: rgba(255, 255, 255, .08); color: #fff; font-size: 1.05rem; cursor: pointer; transition: background-color .15s ease; }
+.theme-btn:hover { background: rgba(255, 255, 255, .18); }
 
 /* ---------- Flash messages ---------- */
 .toast-area { padding-top: 1rem; }
@@ -308,7 +315,7 @@ a:hover { color: var(--violet); }
   padding: 1rem 1.15rem;
   border: 0;
   border-radius: var(--radius-lg);
-  background: #fff;
+  background: var(--paper);
   color: var(--text);
   font: inherit;
 }
@@ -661,7 +668,7 @@ mark.flag-safe { background: var(--safe-soft); box-shadow: inset 0 -2px 0 var(--
 }
 .tool-form input:focus,
 .tool-form textarea:focus,
-.search-bar input:focus { outline: none; border-color: var(--violet); box-shadow: 0 0 0 4px rgba(22, 135, 90, .15); background: #fff; }
+.search-bar input:focus { outline: none; border-color: var(--violet); box-shadow: 0 0 0 4px rgba(22, 135, 90, .15); background: var(--paper); }
 .tool-form textarea { resize: vertical; line-height: 1.9; }
 .tool-form .btn-wide { margin-top: 1.25rem; }
 
@@ -813,7 +820,7 @@ fieldset { margin: 0; padding: 0; border: 0; }
   .nav-links a { padding: .75rem 1rem; }
   .nav-links .nav-cta { margin: .5rem 0 0; }
   .nav-toggle:checked ~ .nav-links { display: flex; }
-  .nav-toggle:focus-visible + .nav-burger { outline: 3px solid var(--gold); }
+  .nav-bar:has(.nav-toggle:focus-visible) .nav-burger { outline: 3px solid var(--gold); }
 
   .hero-grid { grid-template-columns: 1fr; padding-block: 3rem 6rem; gap: 3.5rem; }
   .video-grid, .how-grid, .form-layout { grid-template-columns: 1fr; }
@@ -955,4 +962,48 @@ fieldset { margin: 0; padding: 0; border: 0; }
   .compare-table td::before { content: attr(data-label); display: block; font-size: .8rem; font-weight: 700; }
   .compare-table td:first-child::before { color: var(--safe); }
   .compare-table td:last-child::before { color: var(--fraud); }
+}
+
+/* ---------- Dark mode ----------
+   base.html writes the theme from the "theme" cookie on <html data-theme="...">.
+   In dark mode we only change the color variables (from :root at the top),
+   so every page of every app follows. Then we fix the few places that use fixed colors. */
+[data-theme="dark"] {
+  color-scheme: dark;       /* the browser's own parts (scrollbars, checkboxes) turn dark too */
+  --mist: #0a1712;          /* page background */
+  --paper: #11231b;         /* cards and boxes */
+  --line: #23392e;
+  --text: #e4efe9;
+  --muted: #9cb3a7;
+  --violet-deep: #4fd1a0;   /* the green of links and small text: lighter so it reads on dark */
+  --violet-soft: #143428;
+  --gold-soft: #2a2416;
+  --amber-soft: #3b2c08;
+  --fraud-soft: #3a1618;
+  --mark-danger: #561c21;
+  --sus-soft: #3a2509;
+  --safe-soft: #0e3127;
+  --shadow: 0 24px 50px -28px rgba(0, 0, 0, .8);
+  --shadow-soft: 0 10px 30px -18px rgba(0, 0, 0, .7);
+}
+[data-theme="dark"] a:hover { color: #7fe3bb; }
+[data-theme="dark"] .btn-signal:hover { background: #1c9e69; }
+[data-theme="dark"] .night .btn-signal,
+[data-theme="dark"] .nav-links .nav-cta a { color: #0e6b47; }
+[data-theme="dark"] .night .btn-signal:hover { background: #f6efe0; }
+[data-theme="dark"] .story-violet { --tone: var(--violet-deep); }
+[data-theme="dark"] .steps li::before { background: linear-gradient(140deg, var(--violet), #0e6b47); }
+[data-theme="dark"] .flash { color: #7fe0c0; }
+[data-theme="dark"] .error-box { color: #ffb3b6; }
+[data-theme="dark"] .type-email .report-icon { background: #16294a; color: #8fb3ff; }
+[data-theme="dark"] .stars label { color: #33493e; }
+[data-theme="dark"] .stars input:checked ~ label,
+[data-theme="dark"] .stars label:hover,
+[data-theme="dark"] .stars label:hover ~ label { color: var(--gold); }
+[data-theme="dark"] .empty-inline { background: rgba(255, 255, 255, .03); }
+[data-theme="dark"] body::before {
+  background:
+    radial-gradient(700px 500px at 100% 0%, rgba(22, 135, 90, .14), transparent 70%),
+    radial-gradient(600px 500px at 0% 100%, rgba(200, 164, 92, .06), transparent 70%),
+    radial-gradient(rgba(79, 209, 160, .07) 1px, transparent 1.4px) 0 0 / 24px 24px;
 }
