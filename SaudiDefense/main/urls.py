@@ -10,5 +10,6 @@ urlpatterns = [
     path("vision/", views.vision_view, name="vision_view"),
     path("history/", views.history_view, name="history_view"),
     path("events/", views.events_view, name="events_view"),
+    path("careers/", views.careers_view, name="careers_view"),
     path("lang/<lang_code>/", views.set_language_view, name="set_language_view"),
 ]

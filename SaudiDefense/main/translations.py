@@ -1,17 +1,16 @@
-# ------------------------------------------------------------
 # نصوص الواجهة بلغتين
 # في القالب نكتب {{ t.home }} بدل "الرئيسية"
-# ------------------------------------------------------------
 
 UI = {
     "ar": {
         # عام
-        "brand": "درع الوطن",
+        "brand": "صناعة العز",
         "comma": "،",
         "site_title": "الصناعات العسكرية السعودية",
         "topbar_text": "منصة تعليمية عن توطين الصناعات العسكرية · رؤية المملكة 2030",
         "nav_cta": "معرض 2028",
         "switch_lang": "English",
+        "lang_short": "EN",
         "theme_toggle": "تبديل الوضع الداكن / الفاتح",
         "menu": "القائمة",
         "read_more": "اقرأ المزيد",
@@ -50,6 +49,17 @@ UI = {
         "vision": "رؤية 2030",
         "history": "التاريخ",
         "events": "المعارض",
+        "careers": "الوظائف",
+        "careers_title": "الوظائف والتدريب",
+        "careers_lead": "ابدأ مستقبلك في الصناعات العسكرية السعودية",
+        "careers_label": "فرص للشباب",
+        "careers_heading": "برامج رسمية تقدر تبدأ منها",
+        "careers_intro": "روابط رسمية لوظائف وبرامج ابتعاث وتدريب في قطاع الصناعات العسكرية.",
+        "careers_who": "لمن؟",
+        "majors_label": "التخصصات",
+        "majors_title": "تخصصات مطلوبة في القطاع",
+        "majors_intro": "من أكثر التخصصات اللي تطلبها شركات القطاع في إعلانات الخريجين:",
+        "careers_note": "الروابط تفتح المواقع الرسمية. مواعيد التقديم تتغير، فتأكد منها في كل موقع.",
 
         # الفوتر
         "footer_about": "موقع تعليمي يعرّف بالصناعات العسكرية في المملكة العربية السعودية، ورحلتها نحو التوطين ضمن رؤية 2030.",
@@ -159,12 +169,13 @@ UI = {
 
     "en": {
         # General
-        "brand": "Watan Shield",
+        "brand": "Sinaat Al-Izz",
         "comma": ",",
         "site_title": "Saudi Military Industries",
         "topbar_text": "An educational platform on military industry localization · Saudi Vision 2030",
         "nav_cta": "WDS 2028",
         "switch_lang": "العربية",
+        "lang_short": "ع",
         "theme_toggle": "Toggle dark / light mode",
         "menu": "Menu",
         "read_more": "Read more",
@@ -203,6 +214,17 @@ UI = {
         "vision": "Vision 2030",
         "history": "History",
         "events": "Exhibitions",
+        "careers": "Careers",
+        "careers_title": "Careers & training",
+        "careers_lead": "Start your future in Saudi military industries",
+        "careers_label": "Opportunities for youth",
+        "careers_heading": "Official programs you can start with",
+        "careers_intro": "Official links to jobs, scholarships and training in the military industries sector.",
+        "careers_who": "For whom?",
+        "majors_label": "Majors",
+        "majors_title": "Majors the sector needs",
+        "majors_intro": "Some of the majors most requested in sector graduate announcements:",
+        "careers_note": "Links open the official websites. Application dates change, so check each site.",
 
         # Footer
         "footer_about": "An educational site about the military industries of Saudi Arabia and their journey to localization under Vision 2030.",

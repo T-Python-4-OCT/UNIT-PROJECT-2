@@ -1,14 +1,10 @@
-# ------------------------------------------------------------
 # بيانات الموقع بلغتين: "ar" عربي و "en" إنجليزي
 # الـ views تختار اللغة المناسبة وترسلها للقالب
 # ملاحظة: المعلومات والأرقام عامة وتقريبية، راجعها من المصادر الرسمية قبل التسليم
 # video_id = رقم فيديو يوتيوب (الجزء اللي بعد v= في الرابط)، اتركه فاضي لو ما عندك فيديو
-# ------------------------------------------------------------
 
 
-# ============================================================
 # القطاعات
-# ============================================================
 SECTORS = {
     "ar": {
         "land": {
@@ -186,9 +182,7 @@ SECTORS = {
 }
 
 
-# ============================================================
 # الجهات
-# ============================================================
 COMPANIES = {
     "ar": {
         "sami": {
@@ -314,9 +308,7 @@ COMPANIES = {
 }
 
 
-# ============================================================
 # التاريخ
-# ============================================================
 HISTORY = {
     "ar": [
         ("1949", "بداية التصنيع العسكري في مصانع الخرج لإنتاج الذخائر."),
@@ -341,10 +333,8 @@ HISTORY = {
 }
 
 
-# ============================================================
 # المعارض التي أُقيمت (المصدر: صفحة الإنجازات في gami.gov.sa)
 # achievements = (الرقم، الوصف)
-# ============================================================
 EVENTS = {
     "ar": [
         {"name": "معرض الدفاع العالمي 2026", "date_text": "8 – 12 فبراير 2026", "place": "الرياض",
@@ -413,9 +403,7 @@ EVENTS = {
 }
 
 
-# ============================================================
 # الأسئلة الشائعة (السؤال، الجواب)
-# ============================================================
 FAQ = {
     "ar": [
         ("وش هي SAMI؟",
@@ -454,10 +442,8 @@ FAQ = {
 }
 
 
-# ============================================================
 # المعارض القادمة (المصدر: الموقع الرسمي worlddefenseshow.com)
 # start = تاريخ البداية (سنة، شهر، يوم) عشان نحسب كم يوم باقي
-# ============================================================
 UPCOMING_EVENTS = {
     "ar": [
         {
@@ -487,4 +473,61 @@ UPCOMING_EVENTS = {
             "contact_url": "https://www.worlddefenseshow.com/en/support/general-enquiry",
         },
     ],
+}
+
+
+# الوظائف والتدريب (روابط رسمية فقط)
+CAREERS = {
+    "ar": [
+        {"icon": "bi-briefcase-fill",
+         "title": "وظائف الشركة السعودية للصناعات العسكرية SAMI",
+         "who": "الخريجين وأصحاب الخبرة",
+         "text": "ابحث في الوظائف المتاحة وقدّم مباشرة، أو سجّل في برنامج التدريب، أو أرسل سيرتك الذاتية.",
+         "url": "https://sami.jobs.hr.cloud.sap/search/?createNewAlert=false&q=",
+         "button": "الوظائف المتاحة",
+         "extra": [("برنامج التدريب", "https://www.sami.com.sa/en/join-internship-program/"),
+                   ("أرسل سيرتك الذاتية", "https://www.sami.com.sa/en/submit-your-resume/")]},
+        {"icon": "bi-mortarboard-fill",
+         "title": "برنامج ابتعاث قطاع الصناعات العسكرية (MISP)",
+         "who": "خريجي الثانوية والجامعة، وموظفي منشآت القطاع",
+         "text": "أطلقته الهيئة العامة للصناعات العسكرية في أكتوبر 2022، لابتعاث الكفاءات السعودية للحصول على شهادات البكالوريوس والدراسات العليا، مع برامج تدريب خلال الدراسة.",
+         "url": "https://www.gami.gov.sa/en/military-industries-scholarship-program-misp",
+         "button": "صفحة البرنامج"},
+        {"icon": "bi-people-fill",
+         "title": "استراتيجية القوى البشرية للقطاع",
+         "who": "كل المهتمين بالعمل في القطاع",
+         "text": "مبادرات الهيئة لتأهيل الشباب السعودي للعمل في الصناعات العسكرية، ومنها برامج الأكاديمية الوطنية للصناعات العسكرية مثل التدريب المنتهي بالتوظيف.",
+         "url": "https://www.gami.gov.sa/ar/human-capital-strategy",
+         "button": "المبادرات والبرامج"},
+    ],
+    "en": [
+        {"icon": "bi-briefcase-fill",
+         "title": "Careers at Saudi Arabian Military Industries (SAMI)",
+         "who": "Graduates and experienced professionals",
+         "text": "Search open jobs and apply directly, join the internship program, or submit your resume.",
+         "url": "https://sami.jobs.hr.cloud.sap/search/?createNewAlert=false&q=",
+         "button": "Open positions",
+         "extra": [("Internship program", "https://www.sami.com.sa/en/join-internship-program/"),
+                   ("Submit your resume", "https://www.sami.com.sa/en/submit-your-resume/")]},
+        {"icon": "bi-mortarboard-fill",
+         "title": "Military Industries Scholarship Program (MISP)",
+         "who": "High school and university graduates, and sector employees",
+         "text": "Launched by GAMI in October 2022 to sponsor Saudi talent for bachelor's and postgraduate degrees, with training during their studies.",
+         "url": "https://www.gami.gov.sa/en/military-industries-scholarship-program-misp",
+         "button": "Program page"},
+        {"icon": "bi-people-fill",
+         "title": "The sector's human capital strategy",
+         "who": "Anyone interested in working in the sector",
+         "text": "GAMI's initiatives to prepare young Saudis for military industry jobs, including National Academy for Military Industries programs such as training that leads to employment.",
+         "url": "https://www.gami.gov.sa/en/human-capital-strategy",
+         "button": "Initiatives and programs"},
+    ],
+}
+
+# التخصصات المطلوبة في القطاع (من إعلانات SAMI للخريجين)
+CAREER_MAJORS = {
+    "ar": ["الهندسة الكهربائية", "الهندسة الميكانيكية", "هندسة الميكاترونكس",
+           "هندسة الحاسب", "علوم الحاسب", "هندسة البرمجيات"],
+    "en": ["Electrical engineering", "Mechanical engineering", "Mechatronics engineering",
+           "Computer engineering", "Computer science", "Software engineering"],
 }
