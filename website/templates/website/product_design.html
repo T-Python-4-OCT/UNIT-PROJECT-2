@@ -1,7 +1,7 @@
 {% extends "website/base.html" %}
 {% block title %}تصميم المنتجات والأزياء والديكور{% endblock %}
 {% block content %}
-{% include "website/_page_head.html" with title="تصميم المنتجات والأزياء والديكور" tagline="تراث يُلمس باليد" lead="يربط تصميم المنتج بين الاستخدام اليومي والخامة المحلية والهوية البصرية." image="product/furniture.jpg" image_alt="مصممة سعودية بجوار قطعة أثاث معاصرة" %}
+{% include "website/_page_head.html" with title="تصميم المنتجات والأزياء والديكور" tagline="تراث يُلمس باليد" lead="يربط تصميم المنتج بين الاستخدام اليومي والخامة المحلية والهوية البصرية." image="product/product-fashion-hero.png" image_alt="عباءة مطرزة مستوحاة من السدو مع سلة خوص ومنسوجات محلية في مساحة داخلية سعودية" %}
 <!-- This page presents products, fashion, and interiors. -->
 <!-- Overview of product design. -->
 <section class="section container"><p class="lead">من الأثاث إلى التغليف، يوازن التصميم الناجح بين الوظيفة والجمال وسهولة الاستخدام.</p></section>
@@ -17,9 +17,12 @@
 <!-- Local materials and sustainability. -->
 <section class="section section--tint"><div class="container product"><div class="product__media">{% include "website/_media.html" with file="product/palm-basket.jpg" alt="سلة منسوجة يدوياً من سعف النخيل" class="media--tall" %}</div><div class="product__body"><p class="product__lead">الخامة أول عناصر الهوية</p><h2>المواد المحلية والاستدامة</h2><p>يربط الخوص والصوف والحجر المنتج ببيئته وموارده.</p><h3>أفكار تصميمية</h3><ul class="ticks"><li>الخوص للديكور والتغليف.</li><li>الصوف والنسيج للمفروشات.</li><li>الطين والحجر للأثاث الخارجي.</li></ul></div></div></section>
 <!-- Local projects and initiatives. -->
-<section class="section container"><div class="section-head"><h2>مبادرات وتجارب محلية</h2><p>مشاريع تفتح مساحة للمصممين والمنتجات السعودية.</p></div><div class="grid grid--3">
-  <article class="plain-card"><span class="card__kind">مبادرة · المملكة</span><h3>Designed in Saudi</h3><p>منصة تبرز مواهب تصميم المنتجات الناشئة، وتدعم فرص العرض والتعاون والتجريب مع الجامعات.</p></article>
-  <article class="plain-card"><span class="card__kind">معرض دولي · ميلانو</span><h3>مجموعات جسور للتصميم</h3><p>عرض يقدم مصممين سعوديين ومنتجات وتجارب محلية لجمهور أسبوع ميلانو للتصميم.</p></article>
-  <article class="plain-card"><span class="card__kind">حرفة تقليدية · أنحاء المملكة</span><h3>السدو</h3><p>نسيج يدوي يلهم الأزياء والمنتجات المعاصرة، وتمنح وحداته الهندسية المتكررة القطع هوية مميزة.</p></article>
-</div></section>
+<section class="section container">
+  <div class="section-head"><h2>من التراث إلى التصميم</h2><p>كيف تتحول التفاصيل المحلية إلى منتجات وأزياء معاصرة؟</p></div>
+  <div class="grid grid--3">
+    <article class="plain-card"><h3>استلهم العنصر</h3><p>ابدأ بنقشة أو حرفة أو شكل من البيئة السعودية، وافهم قصته قبل استخدامه.</p></article>
+    <article class="plain-card"><h3>اختر الخامة</h3><p>استخدم خامة مناسبة للقطعة، مثل النسيج أو الخوص، ووازن بين ملمسها ومتانتها.</p></article>
+    <article class="plain-card"><h3>صمّم للاستخدام اليومي</h3><p>حوّل الإلهام إلى قطعة عملية ومريحة، مع الحفاظ على لمسة محلية واضحة.</p></article>
+  </div>
+</section>
 {% endblock %}
