@@ -2,7 +2,7 @@
 
 
 
-/* Shared colors, fonts, and layout sizes. */
+/*Shared colors, fonts, and layout sizes. */
 :root {
   --font-display: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
   --font-body: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, Arial, sans-serif;
@@ -68,7 +68,7 @@
 }
 
 
-/* Replace the shared colors when dark mode is active. */
+/*Replace the shared colors when dark mode is active. */
 [data-theme="dark"] {
   --bg: var(--gray-950);
   --surface: var(--gray-900);
