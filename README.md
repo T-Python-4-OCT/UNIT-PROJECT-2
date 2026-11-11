@@ -1,6 +1,6 @@
-# Sinaat Al-Ezz | Saudi Military Industries
+# Saudi Military Industries
 
-A Django website about the military industries of Saudi Arabia and the Kingdom's journey from importing arms to manufacturing them locally under Vision 2030.
+A bilingual Django website showcasing Saudi Arabia's military industries: its sectors, key entities, history and events, and the Vision 2030 goal of localizing over 50% of military spending.
 
 > **Made in Saudi Arabia… to protect Saudi Arabia**
 
