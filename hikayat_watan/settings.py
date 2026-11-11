@@ -1,16 +1,8 @@
-"""
-إعدادات مشروع «حكاية وطن».
-
-المشروع لا يستخدم قاعدة بيانات: كل المحتوى محفوظ في ملف JSON
-(watan/data/content.json)، لذلك DATABASES فارغة وتم حذف التطبيقات
-التي تحتاج إلى قاعدة بيانات (admin / auth / sessions ...).
-"""
 import os
 from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-# للتطوير فقط. في الإنتاج عيّن متغير البيئة DJANGO_SECRET_KEY.
 SECRET_KEY = os.environ.get(
     "DJANGO_SECRET_KEY",
     "dev-only-key-change-me-hikayat-watan-9f2c1b7e5a",
@@ -19,12 +11,16 @@ SECRET_KEY = os.environ.get(
 DEBUG = os.environ.get("DJANGO_DEBUG", "1") == "1"
 
 ALLOWED_HOSTS = (
-    ["*"] if DEBUG else os.environ.get("DJANGO_ALLOWED_HOSTS", "localhost,127.0.0.1").split(",")
+    ["*"] if DEBUG else
+    os.environ.get(
+        "DJANGO_ALLOWED_HOSTS",
+        "localhost,127.0.0.1"
+    ).split(",")
 )
 
 INSTALLED_APPS = [
     "django.contrib.staticfiles",
-    "watan",
+    "hikayat_watan.watan.apps.WatanConfig",
 ]
 
 MIDDLEWARE = [
@@ -45,7 +41,7 @@ TEMPLATES = [
             "context_processors": [
                 "django.template.context_processors.request",
                 "django.template.context_processors.csrf",
-                "watan.context_processors.site_data",
+                "hikayat_watan.watan.context_processors.site_data",
             ],
         },
     },
@@ -54,18 +50,22 @@ TEMPLATES = [
 WSGI_APPLICATION = "hikayat_watan.wsgi.application"
 ASGI_APPLICATION = "hikayat_watan.asgi.application"
 
-# لا توجد قاعدة بيانات — المحتوى في ملف JSON
 DATABASES = {}
 
-# ملف المحتوى (JSON)
-CONTENT_FILE = BASE_DIR / "watan" / "data" / "content.json"
+# JSON content file
+CONTENT_FILE = (
+    BASE_DIR / "hikayat_watan" / "watan" / "data" / "content.json"
+)
 
 LANGUAGE_CODE = "ar"
+
 TIME_ZONE = "Asia/Riyadh"
+
 USE_I18N = True
 USE_TZ = True
 
 STATIC_URL = "static/"
-STATIC_ROOT = BASE_DIR / "staticfiles"  # للأمر collectstatic عند النشر
+
+STATIC_ROOT = BASE_DIR / "staticfiles"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
