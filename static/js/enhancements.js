@@ -122,6 +122,40 @@
   presentationButton?.addEventListener('click', () => setPresentationMode(!root.classList.contains('presentation-mode')));
 
 
+  // Selecting a timeline milestone updates its project, figure and source.
+  document.querySelectorAll('[data-sector-timeline]').forEach((timeline) => {
+    const points = [...timeline.querySelectorAll('[data-timeline-point]')];
+    const panel = timeline.querySelector('.sector-timeline-panel');
+    if (!points.length || !panel) return;
+
+    const year = panel.querySelector('[data-timeline-year]');
+    const value = panel.querySelector('[data-timeline-value]');
+    const title = panel.querySelector('[data-timeline-title]');
+    const description = panel.querySelector('[data-timeline-description]');
+    const source = panel.querySelector('[data-timeline-source]');
+    const sourceLink = panel.querySelector('[data-timeline-link]');
+
+    points.forEach((point) => point.addEventListener('click', () => {
+      points.forEach((item) => {
+        const selected = item === point;
+        item.classList.toggle('is-active', selected);
+        item.setAttribute('aria-pressed', String(selected));
+      });
+
+      panel.classList.add('is-changing');
+      window.requestAnimationFrame(() => {
+        year.textContent = point.dataset.year;
+        value.textContent = point.dataset.value;
+        title.textContent = point.dataset.title;
+        description.textContent = point.dataset.description;
+        source.textContent = point.dataset.source;
+        sourceLink.href = point.dataset.url;
+        window.requestAnimationFrame(() => panel.classList.remove('is-changing'));
+      });
+    }));
+  });
+
+
   // Share a sector with the native share sheet or copy its link as a fallback.
   document.querySelectorAll('.share-sector').forEach((button) => button.addEventListener('click', async () => {
     const title = `${button.dataset.shareTitle || (isEnglish ? 'Saudi Industries' : 'الصناعة السعودية')} | ${isEnglish ? 'Senaa' : 'صناعة'}`;
