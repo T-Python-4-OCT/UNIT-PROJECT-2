@@ -22,10 +22,12 @@
   const updateActiveLink = () => {
     scheduled = false;
     const siteNav = document.querySelector(".nt-navbar");
-    const activationLine = (siteNav?.getBoundingClientRect().height || 0) + 12;
+    const navOffset = (siteNav?.getBoundingClientRect().height || 0) + 12;
 
     let activeSection = sections[0];
     for (const section of sections) {
+      const scrollMargin = parseFloat(getComputedStyle(section).scrollMarginTop) || 0;
+      const activationLine = Math.max(navOffset, scrollMargin + 16);
       if (section.getBoundingClientRect().top <= activationLine) {
         activeSection = section;
       } else {

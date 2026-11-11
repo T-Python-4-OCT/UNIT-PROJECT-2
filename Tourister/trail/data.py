@@ -36,7 +36,7 @@ CITIES = [
         "gallery": [],
         "landmarks": [
             {"name": "البلدة القديمة", "category": "heritage", "description": "تعرف على طابع البلدة ومبانيها التقليدية في جولة هادئة، مع احترام خصوصية السكان.", "photo": {"url": "https://www.visitsaudi.com/content/dam/wvs/north-trail/thadiq-old-town-al-uqda-alley.jpg", "alt": "ممر في البلدة القديمة بثادق"}},
-            {"name": "المشهد الطبيعي", "category": "nature", "description": "تُظهر المنطقة تضاريس نجد المفتوحة، وتبدو ألوانها مختلفة باختلاف وقت الزيارة والطقس.", "photo": {"url": "https://www.visitsaudi.com/content/dam/wvs/north-trail/thadiq-wadi-ubaythiran-rock-canyon.jpg", "alt": "تكوينات وادي عبيثران الصخرية في ثادق"}},
+            {"name": "مشهد طبيعي", "category": "nature", "description": "تُظهر المنطقة تضاريس نجد المفتوحة، وتبدو ألوانها مختلفة باختلاف وقت الزيارة والطقس.", "photo": {"url": "https://www.visitsaudi.com/content/dam/wvs/north-trail/thadiq-wadi-ubaythiran-rock-canyon.jpg", "alt": "تكوينات وادي عبيثران الصخرية في ثادق"}},
         ],
         "timeline": [
             {"period": "المحمل وشمال نجد", "text": "تقع ثادق في إقليم المحمل شمال غربي الرياض، ضمن شبكة بلدات وقرى نجديّة ارتبطت طرقها بالتنقل والتجارة بين وسط نجد وشمالها."},
@@ -44,7 +44,7 @@ CITIES = [
             {"period": "البلدة والعمارة", "text": "تُقرأ ذاكرة ثادق في نسيجها العمراني التقليدي وفي صلاتها بالقرى المجاورة؛ تساعد الجولة الهادئة على ملاحظة مواد البناء المحلية وتخطيط البيوت والأحياء."},
         ],
         "events": [
-            {"title": "جولة تراثية", "description": "اكتشف معالم البلدة القديمة سيرًا على الأقدام، وتحقق مسبقًا من إمكانية دخول المواقع.", "photo": {"url": "https://www.visitsaudi.com/content/dam/wvs/north-trail/thadiq-al-majid-heritage-museum.jpg", "alt": "متحف الماجد التراثي في ثادق"}},
+            {"title": "جولة تراثية", "description": "اكتشف معالم البلدة القديمة سيرًا على الأقدام، وتحقق مسبقًا من إمكانية دخول المواقع.", "photo": {"url": "/static/img/cards/thadiq-heritage-tour.jpg", "alt": "معالم تراثية في ثادق"}},
             {"title": "توقف للتصوير", "description": "اختر وقتًا مناسبًا للضوء، ولا تقترب من الحواف أو المواقع غير المهيأة.", "photo": {"url": "https://www.visitsaudi.com/content/dam/wvs/north-trail/thadiq-palm-farms-road-aerial.jpg", "alt": "طريق يمر بمزارع النخيل في ثادق"}},
         ],
     },
@@ -260,8 +260,8 @@ CITIES = [
         "gallery": [],
         "landmarks": [
             {"name": "قلعة اعيرف", "category": "heritage", "description": "قلعة تاريخية على مرتفع مطل على المدينة، وتوفر إطلالة على حائل عند فتحها للزيارة.", "photo": {"url": "https://www.visitsaudi.com/content/dam/wvs/destinations/hail/aarif-castle.jpg", "alt": "قلعة اعيرف في حائل"}},
-            {"name": "سوق برزان", "category": "heritage", "description": "سوق معروف في حائل؛ تختلف المحال وأوقات نشاطها، لذا خطط لزيارتك مسبقًا.", "photo": {"url": "https://www.visitsaudi.com/content/dam/wvs/north-trail/barzan-traditional-market.png", "alt": "سوق برزان التقليدي في حائل"}},
-            {"name": "جبال أجا وسلمى", "category": "nature", "description": "معلم طبيعي بارز في منطقة حائل؛ استكشف المواقع المسموح بها ولا تسلك طرقًا غير ممهدة.", "photo": {"url": "https://www.visitsaudi.com/content/dam/wvs/destinations/hail/aja-mountain.jpg", "alt": "جبال أجا في منطقة حائل"}},
+            {"name": "المنطقة المركزية", "category": "heritage", "description": "منطقة سياحية معروفة في حائل؛ وجهة مميزة للزوار ولكن المواقف محدودة، لذا خطط لزيارتك مسبقًا.", "photo": {"url": "/static/img/cards/hail-barzan-market.jpg", "alt": "مشهد من المنطقة المركزية في حائل"}},
+            {"name": "جبال أجا وسلمى", "category": "nature", "description": "معلم طبيعي بارز في منطقة حائل؛ استكشف المواقع المسموح بها ولا تسلك طرقًا غير ممهدة.", "photo": {"url": "/static/img/cards/hail-aja-salma.jpg", "alt": "جبال أجا وسلمى في منطقة حائل"}},
         ],
         "timeline": [
             {"period": "ملتقى طرق شمال الجزيرة", "text": "منحت حائل موقعها بين جبلي أجا وسلمى وعلى طرق الحركة شمال الجزيرة أهمية في التواصل التجاري والتنقل بين مناطق متعددة."},
@@ -270,7 +270,7 @@ CITIES = [
         ],
         "events": [
             {"title": "جولة في القلعة", "description": "تحقق من ساعات فتح قلعة اعيرف قبل الصعود، واتبع إرشادات السلامة في الموقع.", "photo": {"url": "/static/img/cards/hail-castle-tour.jpg", "alt": "قلعة اعيرف في حائل"}},
-            {"title": "التعرف على المطبخ المحلي", "description": "جرّب الأطباق المحلية من المطاعم والأسواق، واسأل عن المكونات عند الحاجة.", "photo": {"url": "/static/img/cards/hail-local-cuisine.jpg", "alt": "طبق شعبي من المطبخ المحلي في منطقة حائل"}},
+            {"title": "نفود الخطة", "description": "تتميز منطقة الخطة بالتنوع الجغرافي حيث تجمع الرمال والجبال والواحات الزراعية.", "photo": {"url": "/static/img/cards/hail-local-cuisine.jpg", "alt": "نفود الخطة في منطقة حائل"}},
         ],
     },
     {
