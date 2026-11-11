@@ -8,39 +8,56 @@
 <!-- =================================
      HERO SECTION
 ================================= -->
+<section class="home-hero">
+    <!-- Background Video -->
+    <video class="home-hero-video"
+           autoplay
+           muted
+           loop
+           playsinline
+           preload="auto">
 
-<section class="saudi-hero">
-
-    <!-- Video Background -->
-    <video class="saudi-hero-video" autoplay muted loop playsinline>
         <source src="{% static 'main/videos/erthvido.mp4' %}" type="video/mp4">
+
     </video>
 
-    <!-- Dark Overlay -->
-    <div class="saudi-hero-overlay"></div>
+    <!-- Video Overlay -->
+    <div class="home-hero-overlay"></div>
 
-    <!-- Text Above Video -->
-    <div class="container saudi-hero-content">
+    <!-- Hero Content -->
+    <div class="container home-hero-content">
 
-        <span class="saudi-badge fade-item">
-            SAUDI SPACE AGENCY · BEYOND TODAY
-        </span>
+        <div class="home-hero-text">
 
-        <h1 class="fade-item">
-            THE NEXT
-            <span>FRONTIER.</span>
-        </h1>
+            <span class="home-hero-label">
+                SAUDI SPACE AGENCY · BEYOND TODAY
+            </span>
 
-        <p class="fade-item">
-            Exploring new horizons, advancing space technology,
-            and preparing Saudi capabilities for the future of exploration.
-        </p>
+            <h1>
+                EXPLORE THE
+                <span>UNIVERSE.</span>
+            </h1>
 
-        <a href="{% url 'future' %}" class="saudi-btn fade-item">
-            EXPLORE THE FUTURE
-            <span>↗</span>
-        </a>
+            <p>
+                Discover Saudi Arabia's journey into space,
+                advancing space technology, scientific research,
+                and exploration beyond Earth.
+            </p>
 
+            <a href="{% url 'missions' %}" class="home-hero-button">
+                EXPLORE OUR MISSIONS
+                <span>↗</span>
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Hero Footer -->
+    <div class="home-hero-footer">
+        <span>SAUDI SPACE</span>
+        <span>SCROLL TO EXPLORE ↓</span>
+        <span>EXPLORING THE UNKNOWN</span>
     </div>
 
 </section>
@@ -111,7 +128,7 @@
             <div class="saudi-highlight-image">
 
                 <img
-                    src="{% static 'main/images/space-earth.jpg' %}"
+                    src="{% static 'main/images/earth.jpg' %}"
                     alt="Earth viewed from space"
                     loading="lazy"
                 >
@@ -235,7 +252,7 @@
 
                 <div class="saudi-card-image">
                     <img
-                        src="{% static 'main/images/astronauts.jpg' %}"
+                        src="{% static 'main/images/ali-alqarni.jpg' %}"
                         alt="Astronaut in space"
                         loading="lazy"
                     >

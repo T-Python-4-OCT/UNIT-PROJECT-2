@@ -1,30 +1,27 @@
 document.addEventListener("DOMContentLoaded", () => {
 
-    const hero = document.querySelector(".saudi-hero");
-    const video = document.querySelector(".saudi-hero-video");
+    const video = document.querySelector(".home-hero-video");
 
-    // Fade in hero text
-    if (hero) {
-        requestAnimationFrame(() => {
-            hero.classList.add("hero-loaded");
-        });
-    }
+    if (!video) return;
 
-    // Play background video
-    if (video) {
+    video.muted = true;
 
-        video.muted = true;
+    const playBackground = () => {
+        if (!document.hidden) {
+            video.play().catch(() => {});
+        }
+    };
 
-        video.play().catch(() => {});
+    playBackground();
 
-        document.addEventListener("visibilitychange", () => {
-            if (document.hidden) {
-                video.pause();
-            } else {
-                video.play().catch(() => {});
-            }
-        });
+    document.addEventListener("visibilitychange", () => {
 
-    }
+        if (document.hidden) {
+            video.pause();
+        } else {
+            playBackground();
+        }
+
+    });
 
 });
