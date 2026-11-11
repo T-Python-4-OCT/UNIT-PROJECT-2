@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+{% block title %}{% if request.LANGUAGE_CODE == 'en' %}About | Senaa{% else %}عن المشروع | صناعة{% endif %}{% endblock %}
+{% block content %}
+{% if request.LANGUAGE_CODE == 'en' %}
+<section class="page-hero about-hero">
+    <div class="page-hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span>About this project</div>
+        <h1>Sharing the story<br>of <em>our industry.</em></h1>
+        <p>Explore Saudi industrial progress—from landmark projects to sectors opening new possibilities.</p>
+    </div>
+    <div class="about-seal"><span aria-hidden="true">✳</span><i>MADE IN SAUDI</i></div>
+</section>
+<section class="detail-body about-body">
+    <div class="detail-main">
+        <div class="eyebrow"><span class="eyebrow-line"></span>Industrial projects</div>
+        <h2>Projects in motion<br><em>Industries evolving.</em></h2>
+        <p class="detail-description">This site highlights selected industrial projects and national initiatives across
+            Saudi Arabia, showing how energy, mining, pharmaceuticals and other sectors are developing. Official sources
+            help visitors follow reported progress and emerging directions.</p>
+    </div>
+    <aside class="fact-card"><span class="fact-icon">✳</span><span class="fact-label">How to explore</span>
+        <p>Choose a sector, learn what it includes, then discover related locations and achievements.</p><span
+            class="fact-bottom">Arabic and English · Responsive design</span>
+    </aside>
+</section>
+<section class="about-values">
+    <article><span>01</span>
+        <h3>Industry</h3>
+        <p>Diverse sectors contribute to the national economy.</p>
+    </article>
+    <article><span>02</span>
+        <h3>Innovation</h3>
+        <p>Ideas and technologies open new paths for growth.</p>
+    </article>
+    <article><span>03</span>
+        <h3>Achievement</h3>
+        <p>Awards and initiatives recognize industrial excellence.</p>
+    </article>
+</section>
+<section class="about-explore">
+    <div class="about-explore-heading">
+        <div class="eyebrow"><span class="eyebrow-line"></span>Choose your destination</div>
+        <h2>Where will you <em>begin?</em></h2>
+    </div>
+    <div class="about-explore-grid"><a href="{% url 'industry_list' %}"><span>01 · SECTORS</span><strong>Explore the
+                industries</strong><b>↗</b></a><a href="{% url 'industrial_map' %}"><span>02 · MAP</span><strong>Find
+                industrial locations</strong><b>↗</b></a><a href="{% url 'awards' %}"><span>03 ·
+                ACHIEVEMENTS</span><strong>Read stories of excellence</strong><b>↗</b></a></div>
+</section>
+<div class="about-bottom"><a class="button button-dark" href="{% url 'industry_list' %}">Start exploring
+        <span>←</span></a></div>
+{% else %}
+<section class="page-hero about-hero">
+    <div class="page-hero-copy">
+        <div class="eyebrow"><span class="eyebrow-line"></span>عن المشروع</div>
+        <h1>نروي قصة<br><em>صناعتنا.</em></h1>
+        <p>استكشف تطور الصناعة السعودية، من المشاريع الوطنية إلى القطاعات التي تفتح آفاقًا جديدة.</p>
+    </div>
+    <div class="about-seal"><span aria-hidden="true">✳</span><i>صُنِع في السعودية</i></div>
+</section>
+<section class="detail-body about-body">
+    <div class="detail-main">
+        <div class="eyebrow"><span class="eyebrow-line"></span>المشاريع والتطور</div>
+        <h2>مشاريع تتقدم<br><em>وصناعة تتطور.</em></h2>
+        <p class="detail-description">يعرض الموقع نماذج من المشاريع والمبادرات الصناعية في المملكة، ويسلط الضوء على تطور
+            قطاعات الطاقة والتعدين والصناعات الدوائية وغيرها. كما يربط المعلومات بمصادر رسمية تساعد على متابعة الإنجازات
+            والتوجهات الجديدة.</p>
+    </div>
+    <aside class="fact-card"><span class="fact-icon">✳</span><span class="fact-label">طريقة التصفح</span>
+        <p>اختر القطاع الذي يلفت اهتمامك، ثم اقرأ لمحة عن مجالاته وأمثلة من منتجاته.</p><span class="fact-bottom">واجهة
+            عربية · تصميم متجاوب</span>
+    </aside>
+</section>
+<section class="about-values">
+    <article><span>01</span>
+        <h3>صناعة</h3>
+        <p>قطاعات متنوعة تسهم في الاقتصاد الوطني.</p>
+    </article>
+    <article><span>02</span>
+        <h3>ابتكار</h3>
+        <p>أفكار وتقنيات تفتح مسارات جديدة للنمو.</p>
+    </article>
+    <article><span>03</span>
+        <h3>إنجاز</h3>
+        <p>جوائز ومبادرات تحتفي بالتميز الصناعي.</p>
+    </article>
+</section>
+<section class="about-explore">
+    <div class="about-explore-heading">
+        <div class="eyebrow"><span class="eyebrow-line"></span>اختر وجهتك</div>
+        <h2>من أين <em>تبدأ؟</em></h2>
+    </div>
+    <div class="about-explore-grid"><a href="{% url 'industry_list' %}"><span>01 · القطاعات</span><strong>تعرّف على
+                الصناعات</strong><b>↗</b></a><a href="{% url 'industrial_map' %}"><span>02 · الخريطة</span><strong>اكتشف
+                مواقعها</strong><b>↗</b></a><a href="{% url 'awards' %}"><span>03 · الإنجازات</span><strong>اقرأ قصص
+                التميز</strong><b>↗</b></a></div>
+</section>
+<div class="about-bottom"><a class="button button-dark" href="{% url 'industry_list' %}">ابدأ الاستكشاف
+        <span>←</span></a></div>
+{% endif %}
+{% endblock %}

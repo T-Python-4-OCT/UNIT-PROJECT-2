@@ -1,0 +1,77 @@
+{% extends 'base.html' %}
+{% load static l10n %}
+{% block title %}{% if request.LANGUAGE_CODE == 'en' %}{{ project.city }} project profile | Senaa{% else %}تفاصيل {{ project.city }} | صناعة{% endif %}{% endblock %}
+{% block extra_head %}<link rel="stylesheet" href="{% static 'css/project-detail.css' %}?v=1">{% endblock %}
+{% block content %}
+<div class="project-page">
+  {% if request.LANGUAGE_CODE == 'en' %}
+  <section class="project-hero">
+    <div class="project-hero-copy">
+      <a class="project-back" href="{% url 'industrial_map' %}#{{ project.id }}">← Back to the industrial map</a>
+      <div class="eyebrow"><span class="eyebrow-line"></span>Project and location profile</div>
+      <h1>{{ project.city }}<br><em>industry in focus.</em></h1>
+      <p>{{ project.description }}</p>
+      <div class="project-hero-actions">
+        <a class="project-primary-action" href="{{ project.url }}" target="_blank" rel="noopener noreferrer">Read the official source <span>↗</span></a>
+        <a class="project-secondary-action" href="https://www.openstreetmap.org/?mlat={{ project.lat }}&mlon={{ project.lon }}#map=9/{{ project.lat }}/{{ project.lon }}" target="_blank" rel="noopener noreferrer">Open location <span>↗</span></a>
+      </div>
+    </div>
+    <aside class="project-hero-aside"><span class="project-aside-index">SA · {{ project.region_code }}</span><span class="project-aside-mark">⌖</span><span class="project-aside-caption">Saudi Arabia<br>{{ project.region }}</span></aside>
+  </section>
+  <section class="project-content">
+    <div class="project-section-heading"><span>01 / At a glance</span><h2>One location.<br><em>Many connections.</em></h2></div>
+    <div class="project-facts">
+      <article class="project-fact"><span>LOCATION</span><h3>{{ project.city }}</h3><p>{{ project.region }}</p></article>
+      <article class="project-fact"><span>COORDINATES</span><h3 dir="ltr">{{ project.lat|unlocalize }}, {{ project.lon|unlocalize }}</h3><p>Approximate map point</p></article>
+      <article class="project-fact"><span>SECTORS</span><h3>{{ project.sectors|length }} activities</h3><p>Listed for this location</p></article>
+    </div>
+    {% if timeline %}
+    <section class="project-timeline" aria-labelledby="project-timeline-title">
+      <div class="project-timeline-heading"><div><span class="project-kicker">04 / {% if request.LANGUAGE_CODE == 'en' %}Verified milestones{% else %}مراحل موثقة{% endif %}</span><h2 id="project-timeline-title">{% if request.LANGUAGE_CODE == 'en' %}How the project<br><em>advanced.</em>{% else %}كيف تقدم<br><em>المشروع.</em>{% endif %}</h2></div><p>{% if request.LANGUAGE_CODE == 'en' %}Published milestones with direct links to their sources.{% else %}محطات منشورة مع روابط مباشرة إلى مصادرها.{% endif %}</p></div>
+      <ol class="project-timeline-list">{% for milestone in timeline %}<li class="project-timeline-item"><span class="project-timeline-year">{{ milestone.year }}</span><div class="project-timeline-copy"><h3>{{ milestone.title }}</h3><p>{{ milestone.description }}</p><a href="{{ milestone.url }}" target="_blank" rel="noopener noreferrer">{{ milestone.source }} <b>↗</b></a></div></li>{% endfor %}</ol>
+      <p class="project-timeline-note">{% if request.LANGUAGE_CODE == 'en' %}This is a record of published milestones, not a live progress tracker.{% else %}يعرض هذا الخط مراحل منشورة في مصادرها، ولا يمثل متابعة مباشرة لحالة المشروع.{% endif %}</p>
+    </section>
+    {% endif %}
+    <div class="project-lower-grid">
+      <article class="project-sector-panel"><span class="project-kicker">02 / Connected activities</span><h2>Industry around<br><em>this location.</em></h2><div class="project-sector-list">{% for sector in project.sectors %}<span><i>✳</i>{{ sector }}</span>{% endfor %}</div></article>
+      <aside class="project-source-panel"><span class="project-kicker">03 / Read further</span><h2>Follow the<br><em>source.</em></h2><p>This profile summarizes selected information about a mapped location. Use the cited source for project details and updates.</p><a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.source }} <b>↗</b></a></aside>
+    </div>
+    <p class="project-disclaimer">This page is an informational profile, not a live project tracker. Project status and milestones are shown only when confirmed by the linked source.</p>
+  </section>
+  {% else %}
+  <section class="project-hero">
+    <div class="project-hero-copy">
+      <a class="project-back" href="{% url 'industrial_map' %}#{{ project.id }}">← العودة إلى الخريطة الصناعية</a>
+      <div class="eyebrow"><span class="eyebrow-line"></span>ملف الموقع والمشروع</div>
+      <h1>{{ project.city }}<br><em>صناعة في الواجهة.</em></h1>
+      <p>{{ project.description }}</p>
+      <div class="project-hero-actions">
+        <a class="project-primary-action" href="{{ project.url }}" target="_blank" rel="noopener noreferrer">اقرأ المصدر الرسمي <span>↗</span></a>
+        <a class="project-secondary-action" href="https://www.openstreetmap.org/?mlat={{ project.lat }}&mlon={{ project.lon }}#map=9/{{ project.lat }}/{{ project.lon }}" target="_blank" rel="noopener noreferrer">افتح الموقع <span>↗</span></a>
+      </div>
+    </div>
+    <aside class="project-hero-aside"><span class="project-aside-index">السعودية · {{ project.region_code }}</span><span class="project-aside-mark">⌖</span><span class="project-aside-caption">المملكة العربية السعودية<br>{{ project.region }}</span></aside>
+  </section>
+  <section class="project-content">
+    <div class="project-section-heading"><span>01 / لمحة سريعة</span><h2>موقع واحد،<br><em>وصلات متعددة.</em></h2></div>
+    <div class="project-facts">
+      <article class="project-fact"><span>الموقع</span><h3>{{ project.city }}</h3><p>{{ project.region }}</p></article>
+      <article class="project-fact"><span>الإحداثيات</span><h3 dir="ltr">{{ project.lat|unlocalize }}, {{ project.lon|unlocalize }}</h3><p>نقطة تقريبية على الخريطة</p></article>
+      <article class="project-fact"><span>القطاعات</span><h3>{{ project.sectors|length }} أنشطة</h3><p>أنشطة مرتبطة بالموقع</p></article>
+    </div>
+    {% if timeline %}
+    <section class="project-timeline" aria-labelledby="project-timeline-title">
+      <div class="project-timeline-heading"><div><span class="project-kicker">04 / {% if request.LANGUAGE_CODE == 'en' %}Verified milestones{% else %}مراحل موثقة{% endif %}</span><h2 id="project-timeline-title">{% if request.LANGUAGE_CODE == 'en' %}How the project<br><em>advanced.</em>{% else %}كيف تقدم<br><em>المشروع.</em>{% endif %}</h2></div><p>{% if request.LANGUAGE_CODE == 'en' %}Published milestones with direct links to their sources.{% else %}محطات منشورة مع روابط مباشرة إلى مصادرها.{% endif %}</p></div>
+      <ol class="project-timeline-list">{% for milestone in timeline %}<li class="project-timeline-item"><span class="project-timeline-year">{{ milestone.year }}</span><div class="project-timeline-copy"><h3>{{ milestone.title }}</h3><p>{{ milestone.description }}</p><a href="{{ milestone.url }}" target="_blank" rel="noopener noreferrer">{{ milestone.source }} <b>↗</b></a></div></li>{% endfor %}</ol>
+      <p class="project-timeline-note">{% if request.LANGUAGE_CODE == 'en' %}This is a record of published milestones, not a live progress tracker.{% else %}يعرض هذا الخط مراحل منشورة في مصادرها، ولا يمثل متابعة مباشرة لحالة المشروع.{% endif %}</p>
+    </section>
+    {% endif %}
+    <div class="project-lower-grid">
+      <article class="project-sector-panel"><span class="project-kicker">02 / الأنشطة المرتبطة</span><h2>الصناعة حول<br><em>هذا الموقع.</em></h2><div class="project-sector-list">{% for sector in project.sectors %}<span><i>✳</i>{{ sector }}</span>{% endfor %}</div></article>
+      <aside class="project-source-panel"><span class="project-kicker">03 / اقرأ أكثر</span><h2>التفاصيل من<br><em>مصدرها.</em></h2><p>يعرض هذا الملف معلومات مختارة عن موقع على الخريطة. راجع المصدر المرفق لمعرفة تفاصيل المشروع وتحديثاته.</p><a href="{{ project.url }}" target="_blank" rel="noopener noreferrer">{{ project.source }} <b>↗</b></a></aside>
+    </div>
+    <p class="project-disclaimer">هذا الملف تعريفي وليس متتبعًا مباشرًا للمشروع. لا تُعرض حالة المشروع أو مراحله إلا عند تأكيدها في المصدر المرتبط.</p>
+  </section>
+  {% endif %}
+</div>
+{% endblock %}
