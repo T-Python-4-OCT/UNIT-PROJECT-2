@@ -138,6 +138,21 @@
   </section>
   {% endif %}
 
+  {% if city.historical_sources %}
+  <section id="sources" class="pb-5">
+    <h2 class="nt-title">مصادر ومراجع</h2>
+    <p class="nt-section-lead">مراجع للمعلومات التاريخية والسياق الجغرافي والمعالم المذكورة في هذه الصفحة.</p>
+    <ul class="nt-sources">
+      {% for source in city.historical_sources %}
+        <li>
+          <a href="{{ source.url }}" target="_blank" rel="noopener">{{ source.label }}</a>
+          <span>{{ source.scope }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
   {% if city.events %}
   <section id="events" class="pb-5">
     <h2 class="nt-title">تجارب مقترحة</h2>

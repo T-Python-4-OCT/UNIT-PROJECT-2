@@ -1,12 +1,14 @@
 from django.http import Http404
-from .data import CITIES_BY_SLUG, FAQS, TIPS, ordered_cities
-from django.shortcuts import render, redirect
+from django.shortcuts import redirect, render
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.decorators.http import require_POST
+from .data import CITIES_BY_SLUG, FAQS, TIPS, ordered_cities
 from .legal_data import PRIVACY_PAGE, TERMS_PAGE
+
 
 @require_POST
 def toggle_theme(request):
+    """Toggle the theme cookie and redirect to a safe requested URL."""
     new = "light" if request.COOKIES.get("theme") == "dark" else "dark"
     next_url = request.POST.get("next", "/")
     if not url_has_allowed_host_and_scheme(next_url, allowed_hosts={request.get_host()}):
@@ -15,7 +17,9 @@ def toggle_theme(request):
     response.set_cookie("theme", new, max_age=60 * 60 * 24 * 365, samesite="Lax")
     return response
 
+
 def home(request):
+    """Render the homepage with the visitor tips and frequently asked questions."""
     return render(request, "trail/home.html", {
         "tips": TIPS,
         "faqs": FAQS,
@@ -23,6 +27,7 @@ def home(request):
 
 
 def city_detail(request, slug):
+    """Render a city's details and its neighboring route destinations."""
     city = CITIES_BY_SLUG.get(slug)
     if city is None:
         raise Http404("المدينة غير موجودة")
@@ -41,8 +46,10 @@ def city_detail(request, slug):
 
 
 def terms(request):
+    """Render the terms and conditions page."""
     return render(request, "trail/legal_page.html", TERMS_PAGE)
 
 
 def privacy(request):
+    """Render the privacy policy page."""
     return render(request, "trail/legal_page.html", PRIVACY_PAGE)

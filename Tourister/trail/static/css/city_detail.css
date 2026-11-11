@@ -42,6 +42,16 @@
 .nt-city-hero--thadiq .nt-city-hero-image { object-position: 50% 58%; }
 .nt-city-hero--al-qassab .nt-city-hero-image { object-position: 50% 25%; }
 .nt-city-hero--shaqra .nt-city-hero-image { object-position: 50% 25%; }
+.nt-city-hero--hail .nt-city-hero-image {
+  object-position: 50% 82%;
+  filter: brightness(1.16) saturate(1.08);
+}
+
+.nt-city-hero--hail::before {
+  background:
+    linear-gradient(90deg, rgba(var(--nt-overlay), 0.04), rgba(var(--nt-overlay), 0.62)),
+    linear-gradient(0deg, rgba(var(--nt-overlay), 0.22), transparent 70%);
+}
 
 .nt-city-hero .nt-hero-text,
 .nt-city-hero .nt-sadu {
@@ -68,6 +78,34 @@
   color: var(--nt-accent);
   text-decoration: underline;
   text-underline-offset: 0.15em;
+}
+
+.nt-sources {
+  display: grid;
+  gap: 0.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nt-sources li {
+  display: grid;
+  gap: 0.2rem;
+  padding: 0.9rem 1rem;
+  background: var(--nt-surface);
+  border: 1px solid var(--nt-border);
+  border-radius: 14px;
+}
+
+.nt-sources a {
+  color: var(--nt-accent);
+  font-weight: 700;
+  text-underline-offset: 0.15em;
+}
+
+.nt-sources span {
+  color: var(--nt-muted);
+  font-size: 0.9rem;
 }
 
 .nt-access-box {

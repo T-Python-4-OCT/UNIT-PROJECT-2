@@ -6,7 +6,6 @@
 {% static 'img/hero.jpg' as hero_image %}
 {% static 'img/poster.jpg' as poster_image %}
 {% static 'img/route-map.jpg' as route_map_image %}
-{% static 'img/transportation.jpg' as transportation_image %}
 <div class="container">
   <section id="top" class="nt-hero" style="background-image: url('{{ hero_image }}');">
     <div class="nt-hero-content">
@@ -64,7 +63,7 @@
   </section>
 
   <section id="route" class="pb-5">
-    <h2 class="nt-title">الخريطة وطرق الوصول</h2>
+    <h2 class="nt-title">الخريطة والنقل</h2>
     <p class="nt-section-lead">تعرّف على ترتيب المحطات، وافتح أي وجهة للحصول على اتجاهات القيادة وخيارات النقل العام إن توفرت. الخريطة والإنفوجرافيك للتخطيط الأولي؛ تحقق من حالة الطرق ومواعيد الخدمات قبل الانطلاق.</p>
     <div class="nt-route-wrap">
       <svg class="nt-route-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
@@ -85,20 +84,6 @@
           </li>
         {% endfor %}
       </ol>
-    </div>
-    <div class="nt-guide-grid">
-      <figure class="nt-guide-card">
-        <a class="nt-guide-image-link" href="{{ route_map_image }}" target="_blank" rel="noopener" aria-label="فتح خريطة مسار الشمال بحجمها الكامل">
-          <img src="{{ route_map_image }}" alt="خريطة توضيحية لمحطات مسار الشمال من الرياض إلى حائل، ومنها المجمعة والزلفي وبريدة وعنيزة والبكيرية" loading="lazy">
-        </a>
-        <figcaption><strong>خريطة المسار</strong><span>ترتيب تقريبي للمحطات من الرياض إلى شمال حائل. اضغط على الخريطة لعرضها بالحجم الكامل.</span></figcaption>
-      </figure>
-      <figure class="nt-guide-card">
-        <a class="nt-guide-image-link" href="{{ transportation_image }}" target="_blank" rel="noopener" aria-label="فتح إنفوجرافيك طرق الوصول بالحجم الكامل">
-          <img src="{{ transportation_image }}" alt="إنفوجرافيك يوضح مراحل الوصول إلى محطات مسار الشمال بالسيارة والقطار" loading="lazy">
-        </a>
-        <figcaption><strong>مراحل الوصول</strong><span>يعرض الإنفوجرافيك مراحل الطريق وخيارات النقل. تحقق من توفر الرحلات والمحطات ومواعيدها قبل السفر.</span></figcaption>
-      </figure>
     </div>
   </section>
 

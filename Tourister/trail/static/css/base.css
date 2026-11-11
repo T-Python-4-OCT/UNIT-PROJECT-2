@@ -35,10 +35,6 @@
 }
 
 /* Base */
-html {
-  scroll-behavior: smooth;
-}
-
 body {
   font-family: "Tajawal", sans-serif;
   color: var(--nt-text);
