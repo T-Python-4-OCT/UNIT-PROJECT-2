@@ -241,3 +241,22 @@ class FaviconTests(TestCase):
         response = self.client.get("/favicon.ico")
         self.assertEqual(response.status_code, 301)
         self.assertTrue(response["Location"].endswith("portal/img/favicon.svg"))
+
+
+class CompareSliderTests(TestCase):
+    def test_home_shows_slider_in_both_languages(self):
+        for language in ("en", "ar"):
+            with self.subTest(language=language):
+                session = self.client.session
+                session["language"] = language
+                session.save()
+                response = self.client.get(reverse("portal:home"))
+                self.assertContains(response, 'type="range"')
+                self.assertContains(response, load_json("home.json", language)["compare"]["before_alt"])
+
+    def test_slider_images_exist(self):
+        from django.contrib.staticfiles import finders
+
+        for name in ("before-office.webp", "after-app.webp"):
+            with self.subTest(image=name):
+                self.assertIsNotNone(finders.find(f"portal/img/{name}"))

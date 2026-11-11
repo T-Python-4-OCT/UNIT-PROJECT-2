@@ -14,6 +14,16 @@
       { "value": "2nd", "label": "Worldwide in the World Bank GovTech Maturity Index", "as_of": "2025", "slug": "future-vision" }
     ]
   },
+  "compare": {
+    "eyebrow": "Then and now",
+    "heading": "From the waiting hall to the phone",
+    "text": "Drag the line to compare. Procedures that once meant a queue at a government office now take a few taps on Absher.",
+    "before_label": "Before",
+    "after_label": "Now",
+    "before_alt": "Black-and-white photo of people waiting on rows of metal benches in a service hall",
+    "after_alt": "Hands holding a smartphone above a desk with a laptop and a cup of tea",
+    "slider_label": "Compare before and now"
+  },
   "journey": {
     "heading": "The Journey",
     "intro": "Seven pages follow the story from the national vision to the technology shaping what comes next.",

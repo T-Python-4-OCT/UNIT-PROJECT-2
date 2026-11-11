@@ -187,3 +187,19 @@ document.addEventListener("DOMContentLoaded", function () {
     update();
   });
 });
+
+
+/* ===== Before/after slider: the range value becomes the --pos CSS variable ===== */
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("[data-compare]").forEach(function (compare) {
+    const range = compare.querySelector(".compare-range");
+
+    if (!range) {
+      return;
+    }
+
+    range.addEventListener("input", function () {
+      compare.style.setProperty("--pos", range.value + "%");
+    });
+  });
+});

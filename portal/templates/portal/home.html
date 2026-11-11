@@ -53,6 +53,40 @@
     </div>
   </section>
 
+  <section class="compare-section py-5">
+    <div class="container">
+      <p class="section-eyebrow">{{ home.compare.eyebrow }}</p>
+      <h2 class="section-heading">{{ home.compare.heading }}</h2>
+      <p class="compare-intro">{{ home.compare.text }}</p>
+
+      {# The "before" photo sits on top and is clipped to --pos; the range input moves it #}
+      <div class="compare" data-compare style="--pos: 50%;">
+        <img class="compare-img" src="{% static 'portal/img/after-app.webp' %}"
+             alt="{{ home.compare.after_alt }}" width="1200" height="800" loading="lazy" decoding="async">
+        <div class="compare-before">
+          <img class="compare-img" src="{% static 'portal/img/before-office.webp' %}"
+               alt="{{ home.compare.before_alt }}" width="1200" height="800" loading="lazy" decoding="async">
+        </div>
+
+        <span class="compare-label compare-label--before" aria-hidden="true">{{ home.compare.before_label }}</span>
+        <span class="compare-label compare-label--after" aria-hidden="true">{{ home.compare.after_label }}</span>
+
+        <div class="compare-handle" aria-hidden="true">
+          <span class="compare-knob">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 7-5 5 5 5"/><path d="m15 7 5 5-5 5"/>
+            </svg>
+          </span>
+        </div>
+
+        {# A real range input: works with mouse, touch and keyboard arrows #}
+        <input class="compare-range" type="range" min="0" max="100" value="50"
+               aria-label="{{ home.compare.slider_label }}">
+      </div>
+    </div>
+  </section>
+
   <section class="journey cinematic-journey py-5" id="journey">
     <div class="container">
       <div class="journey-heading">
