@@ -64,7 +64,7 @@ def events_view(request: HttpRequest):
     return render(request, "main/events.html", context)
 
 
-# ---------- الوظائف والتدريب ----------
+# الوظائف والتدريب
 def careers_view(request: HttpRequest):
 
     lang = get_lang(request)
@@ -72,7 +72,7 @@ def careers_view(request: HttpRequest):
     return render(request, "main/careers.html", context)
 
 
-# ---------- تغيير اللغة ----------
+# تغيير اللغة
 def set_language_view(request: HttpRequest, lang_code):
 
     # نرجع لنفس الصفحة اللي كان فيها المستخدم

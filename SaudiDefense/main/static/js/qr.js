@@ -1,6 +1,4 @@
-// ============================================================
 // رمز QR للصفحة الحالية (مكتبة qrcode.js)
-// ============================================================
 
 const qrModal = document.getElementById("qrModal");
 const qrBox = document.getElementById("qrBox");

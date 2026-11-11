@@ -1,9 +1,4 @@
-/* ============================================================
-   صناعة العز - التصميم
-   ستايل رسمي نظيف مستوحى من ألوان SAMI و GAMI (أخضر + كحلي)
-   ============================================================ */
-
-/* ---------- الألوان: الوضع الفاتح (الافتراضي) ---------- */
+/* الألوان: الوضع الفاتح (الافتراضي) */
 :root,
 [data-bs-theme="light"] {
     --bg: #ffffff;
@@ -21,7 +16,7 @@
     --shadow-hover: 0 20px 45px rgba(15, 40, 35, 0.16);
 }
 
-/* ---------- الألوان: الوضع الداكن ---------- */
+/* الألوان: الوضع الداكن */
 [data-bs-theme="dark"] {
     --bg: #0d171b;
     --soft: #111f24;
@@ -38,7 +33,7 @@
     --shadow-hover: 0 20px 45px rgba(0, 0, 0, 0.5);
 }
 
-/* ---------- أساسيات ---------- */
+/* أساسيات */
 html,
 body {
     overflow-x: clip;
@@ -103,7 +98,7 @@ a {
     margin-bottom: 40px;
 }
 
-/* ---------- الأزرار ---------- */
+/* الأزرار */
 .btn-main {
     display: inline-flex;
     align-items: center;
@@ -155,7 +150,7 @@ a {
     color: #fff;
 }
 
-/* ---------- القائمة العلوية ---------- */
+/* القائمة العلوية */
 .main-nav {
     background-color: var(--surface);
     border-bottom: 1px solid var(--line);
@@ -259,7 +254,7 @@ a {
     z-index: 2000;
 }
 
-/* ---------- الواجهة (فيديو خلفية) ---------- */
+/* الواجهة (فيديو خلفية) */
 .hero {
     position: relative;
     min-height: 82vh;
@@ -366,7 +361,7 @@ a {
     color: var(--primary);
 }
 
-/* ---------- البطاقات ---------- */
+/* البطاقات */
 .card-x {
     display: flex;
     flex-direction: column;
@@ -456,7 +451,7 @@ a.card-x:hover .card-img img {
     margin-bottom: 18px;
 }
 
-/* ---------- رأس الصفحات الداخلية ---------- */
+/* رأس الصفحات الداخلية */
 .page-hero {
     position: relative;
     padding: 110px 0 70px;
@@ -496,7 +491,7 @@ a.card-x:hover .card-img img {
     color: #fff;
 }
 
-/* ---------- معرض الصور ---------- */
+/* معرض الصور */
 .gallery {
     border-radius: 18px;
     overflow: hidden;
@@ -531,14 +526,14 @@ a.card-x:hover .card-img img {
     border-radius: 2px;
 }
 
-/* ---------- الفيديو ---------- */
+/* الفيديو */
 .video-box {
     border-radius: 18px;
     overflow: hidden;
     box-shadow: var(--shadow);
 }
 
-/* ---------- الخط الزمني ---------- */
+/* الخط الزمني */
 .timeline {
     list-style: none;
     padding: 0;
@@ -604,7 +599,7 @@ a.card-x:hover .card-img img {
     font-size: 1.7rem;
 }
 
-/* ---------- قائمة الأحداث ---------- */
+/* قائمة الأحداث */
 .event-row {
     display: flex;
     align-items: flex-start;
@@ -618,7 +613,7 @@ a.card-x:hover .card-img img {
     font-size: 1.2rem;
 }
 
-/* ---------- شريط التقدم (رؤية 2030) ---------- */
+/* شريط التقدم (رؤية 2030) */
 .meter {
     margin-bottom: 26px;
 }
@@ -652,7 +647,7 @@ a.card-x:hover .card-img img {
     background-color: var(--accent);
 }
 
-/* ---------- الفوتر ---------- */
+/* الفوتر */
 .main-footer {
     background-color: var(--navy);
     color: rgba(255, 255, 255, 0.7);
@@ -690,7 +685,7 @@ a.card-x:hover .card-img img {
     font-size: 0.9rem;
 }
 
-/* ---------- زر الرجوع للأعلى ---------- */
+/* زر الرجوع للأعلى */
 .back-to-top {
     position: fixed;
     left: 20px;
@@ -716,7 +711,7 @@ a.card-x:hover .card-img img {
     visibility: visible;
 }
 
-/* ---------- الجوال ---------- */
+/* الجوال */
 @media (max-width: 991px) {
     .main-nav .navbar-collapse {
         padding: 12px 0;
@@ -762,11 +757,9 @@ a.card-x:hover .card-img img {
     }
 }
 
-/* ============================================================
-   زر اللغة + اتجاه الإنجليزي
-   ============================================================ */
+/* زر اللغة + اتجاه الإنجليزي */
 
-/* ---------- زر اللغة ---------- */
+/* زر اللغة */
 .btn-lang {
     display: inline-flex;
     align-items: center;
@@ -785,7 +778,7 @@ a.card-x:hover .card-img img {
     color: var(--primary);
 }
 
-/* ---------- اتجاه الإنجليزي (من اليسار لليمين) ---------- */
+/* اتجاه الإنجليزي (من اليسار لليمين) */
 [dir="ltr"] .flip-ltr {
     display: inline-block;
     transform: scaleX(-1);
@@ -836,7 +829,7 @@ a.card-x:hover .card-img img {
     }
 }
 
-/* ---------- الأسئلة الشائعة ---------- */
+/* الأسئلة الشائعة */
 .faq {
     --bs-accordion-bg: var(--surface);
     --bs-accordion-color: var(--text);
@@ -886,7 +879,7 @@ a.card-x:hover .card-img img {
     --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%237fd3a8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
 }
 
-/* ---------- نافذة رمز QR ---------- */
+/* نافذة رمز QR */
 .qr-modal {
     background-color: var(--surface);
     color: var(--text);
@@ -931,7 +924,7 @@ a.card-x:hover .card-img img {
     text-align: start;
 }
 
-/* ---------- المعارض القادمة ---------- */
+/* المعارض القادمة */
 .upcoming-card {
     height: auto;
 }
@@ -1037,7 +1030,7 @@ a.card-x:hover .card-img img {
     font-size: 0.9rem;
 }
 
-/* ---------- نسخ المعرض السابقة ---------- */
+/* نسخ المعرض السابقة */
 .edition-card {
     height: auto;
     margin-bottom: 24px;
@@ -1094,9 +1087,7 @@ a.card-x:hover .card-img img {
     line-height: 1.6;
 }
 
-/* ============================================================
-   الهيدر: شفاف فوق الصورة، ويصير أبيض لما ننزل
-   ============================================================ */
+/* الهيدر: شفاف فوق الصورة، ويصير أبيض لما ننزل */
 .site-header {
     position: fixed;
     top: 0;
@@ -1115,7 +1106,7 @@ a.card-x:hover .card-img img {
     transition: padding 0.35s, border-color 0.35s;
 }
 
-/* ---------- الشعار ---------- */
+/* الشعار */
 .site-header .navbar-brand {
     color: #fff;
 }
@@ -1147,7 +1138,7 @@ a.card-x:hover .card-img img {
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
-/* ---------- الروابط ---------- */
+/* الروابط */
 .site-header .main-nav .nav-link {
     position: relative;
     padding: 10px 14px !important;
@@ -1196,7 +1187,7 @@ a.card-x:hover .card-img img {
     transform: none;
 }
 
-/* ---------- أزرار الأدوات (اللغة، QR، الوضع) ---------- */
+/* أزرار الأدوات (اللغة، QR، الوضع) */
 .nav-tools {
     display: flex;
     align-items: center;
@@ -1225,7 +1216,7 @@ a.card-x:hover .card-img img {
     color: #fff;
 }
 
-/* ---------- زر المعرض القادم ---------- */
+/* زر المعرض القادم */
 .nav-cta {
     display: inline-flex;
     align-items: center;
@@ -1250,7 +1241,7 @@ a.card-x:hover .card-img img {
     color: #fff;
 }
 
-/* ============ بعد النزول: الهيدر يصير بلون الصفحة ============ */
+/* بعد النزول: الهيدر يصير بلون الصفحة */
 .site-header.scrolled,
 .site-header:has(.navbar-collapse.show),
 .site-header:has(.navbar-collapse.collapsing) {
@@ -1308,7 +1299,7 @@ a.card-x:hover .card-img img {
     color: var(--text);
 }
 
-/* ============ مساحة فوق الصفحات عشان الهيدر ما يغطي العنوان ============ */
+/* مساحة فوق الصفحات عشان الهيدر ما يغطي العنوان */
 .hero .container {
     padding-top: 90px;
 }
@@ -1317,7 +1308,7 @@ a.card-x:hover .card-img img {
     padding-top: 160px;
 }
 
-/* ============ الجوال ============ */
+/* الجوال */
 @media (max-width: 991px) {
     .site-header .main-nav .nav-link::after {
         display: none;
@@ -1350,7 +1341,7 @@ a.card-x:hover .card-img img {
     transform: none;
 }
 
-/* ---------- تكبير الصور ---------- */
+/* تكبير الصور */
 img.zoomable {
     cursor: zoom-in;
 }
@@ -1406,7 +1397,7 @@ img.zoomable {
     background: rgba(255, 255, 255, 0.2);
 }
 
-/* ---------- حاسبة التوطين ---------- */
+/* حاسبة التوطين */
 .calc-card {
     height: auto;
     padding: 28px 30px;
@@ -1559,7 +1550,7 @@ img.zoomable {
     }
 }
 
-/* ---------- القائمة في الشاشات المتوسطة (ما تنزحم) ---------- */
+/* القائمة في الشاشات المتوسطة (ما تنزحم) */
 .site-header .main-nav .nav-link,
 .nav-cta,
 .tool-btn {
@@ -1591,9 +1582,7 @@ img.zoomable {
     }
 }
 
-/* ============================================================
-   الشريط الوطني الأخضر (فوق الفوتر في كل الصفحات)
-   ============================================================ */
+/* الشريط الوطني الأخضر (فوق الفوتر في كل الصفحات) */
 .flag-band {
     position: relative;
     padding: 34px 0;
@@ -1670,7 +1659,7 @@ img.zoomable {
     color: #33433f;
 }
 
-/* ---------- القائمة في الشاشات المتوسطة (ما تنزحم) ---------- */
+/* القائمة في الشاشات المتوسطة (ما تنزحم) */
 .site-header .main-nav .nav-link,
 .nav-cta,
 .tool-btn {
@@ -1703,7 +1692,7 @@ img.zoomable {
 }
 
 
-/* ---------- صفحة الوظائف ---------- */
+/* صفحة الوظائف */
 .career-who {
     font-weight: 600;
     color: var(--primary) !important;
@@ -1732,7 +1721,7 @@ img.zoomable {
     color: var(--primary);
 }
 
-/* ---------- أزرار الأدوات: مجموعة وحدة مرتبة ---------- */
+/* أزرار الأدوات: مجموعة وحدة مرتبة */
 .nav-tools {
     gap: 0;
     padding: 3px;
@@ -1808,7 +1797,7 @@ img.zoomable {
     box-shadow: none;
 }
 
-/* ---------- الشعار الجديد ---------- */
+/* الشعار الجديد */
 /* الشعار ياخذ لون النص (أبيض فوق الصورة، وغامق لما ننزل) */
 .brand-logo {
     width: 44px;

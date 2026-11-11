@@ -1,7 +1,5 @@
-// ============================================================
 // تكبير الصور (Lightbox)
 // تضغط على أي صورة في المعارض والبطاقات، فتفتح كبيرة بملء الشاشة
-// ============================================================
 
 const lightbox = document.getElementById("lightbox");
 const lightboxImg = document.getElementById("lightboxImg");
