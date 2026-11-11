@@ -127,45 +127,6 @@ CITY_EN = {
     },
 }
 
-STORY_EN = {
-    "ibrahim-ismail": {
-        "title": "Ibrahim and Ismail (peace be upon them) and the Building of the Kaaba",
-        "prophets": "Prophets Ibrahim and Ismail (peace be upon them)",
-        "place": "Makkah",
-        "summary": "The verses mention Ibrahim's prayer for Makkah and its people, and how he and Ismail raised the foundations of the House.",
-        "body": [
-            "The Qur'an tells us that Ibrahim and Ismail (peace be upon them) raised the foundations of the House while praying that Allah accept their work. The story highlights the values of monotheism, obedience, and humility in worship.",
-            "The Qur'an also records Ibrahim's prayer that Allah make this land secure and provide its people with fruits. These meanings are closely connected to the place of Makkah in the hearts of Muslims.",
-        ],
-        "verses": "Surah Al-Baqarah: 125–127; Surah Ibrahim: 35–37.",
-        "note": "This page presents what is stated in the Qur'an and does not add details that are not established in the source text.",
-    },
-    "salih-thamud": {
-        "title": "Prophet Salih and the People of Thamud",
-        "prophets": "Prophet Salih (peace be upon him)",
-        "place": "Hegra — northwestern Saudi Arabia",
-        "summary": "Allah sent Salih to the people of Thamud. He called them to worship Allah alone, and the she-camel was sent to them as a sign from Allah.",
-        "body": [
-            "The Qur'an states that Salih (peace be upon him) called the people of Thamud to worship Allah alone and abandon corruption. They asked for a sign, and the she-camel came to them as a clear sign. They were instructed not to harm it.",
-            "Those who hamstrung the she-camel faced the consequence they had been warned about. The story illustrates the outcome of denial and arrogance and emphasises human responsibility for one's choices.",
-        ],
-        "verses": "Surah Al-A'raf: 73–79; Surah Hud: 61–68; Surah Al-Hijr: 80–84.",
-        "note": "The Qur'an associates Thamud with Al-Hijr. The visible monumental architecture at Hegra today is primarily identified as Nabataean. It would therefore be inaccurate to state with certainty that the carved tombs at the site belong to Thamud.",
-    },
-    "musa-madyan": {
-        "title": "Prophet Musa in Madyan",
-        "prophets": "Prophet Musa (peace be upon him)",
-        "place": "Madyan — its exact archaeological location is not conclusively established",
-        "summary": "Surah Al-Qasas describes Musa's arrival in Madyan, his help to two women at the water, and his stay and work there.",
-        "body": [
-            "After leaving Egypt, Musa (peace be upon him) travelled to Madyan. At its watering place, he found people giving water to their flocks and saw two women holding back their sheep. He helped them by watering their flock.",
-            "The women's father later invited him and offered him work and marriage to one of his daughters. The story highlights generosity, modesty, keeping one's word, and the dignity of work.",
-        ],
-        "verses": "Surah Al-Qasas: 22–28.",
-        "note": "Some researchers and geographic traditions associate Madyan with parts of northwestern Arabia. However, the precise location of the events is not conclusively established, so this website does not identify a specific archaeological site as the confirmed location.",
-    },
-}
-
 HISTORY_MILESTONES_EN = [
     {"date": "1446 CE", "title": "The roots of Diriyah", "text": "Diriyah was founded by Mani' Al-Muraydi and later became the home of the Al Saud family and a pivotal centre in Saudi history.", "tag": "Early beginnings"},
     {"date": "1727 CE", "title": "The First Saudi State", "text": "Imam Muhammad bin Saud assumed leadership in Diriyah and established the First Saudi State, making it its capital.", "tag": "First State"},
@@ -206,3 +167,209 @@ HISTORY_SOURCES_EN = [
     {"title": "Timeline of the Unification of Saudi Arabia", "publisher": "Saudipedia"},
     {"title": "List of Kings of Saudi Arabia", "publisher": "Saudipedia"},
 ]
+
+# English translations for the detailed history chapters.
+HISTORY_CHAPTERS_EN = {
+    "first-saudi-state": {
+        "eyebrow": "CHAPTER 01 · THE FIRST SAUDI STATE",
+        "title": "The First Saudi State",
+        "period": "1727–1818 CE",
+        "tagline": "The journey of the Saudi state began in Diriyah.",
+        "summary": "The First Saudi State was founded in Diriyah in 1727 under Imam Muhammad bin Saud. Diriyah became its centre of government and administration, from which the state's influence extended across wide areas of the Arabian Peninsula.",
+        "image_alt": "The historic At-Turaif District in Diriyah",
+        "facts": [
+            {"value": "1727 CE", "label": "Year of foundation"},
+            {"value": "Diriyah", "label": "Capital of the state"},
+            {"value": "1818 CE", "label": "End of the era"},
+        ],
+        "sections": [
+            {"title": "Founded in Diriyah", "paragraphs": [
+                "In 1727, Imam Muhammad bin Saud assumed leadership in Diriyah, beginning a new era of political stability and organisation. Diriyah became the starting point and political centre of the First Saudi State.",
+                "The early years saw the consolidation of rule and cooperation between political leadership and religious and social leaders. The state's relationships and influence later expanded across different parts of the Arabian Peninsula.",
+            ]},
+            {"title": "Expansion and the growth of Diriyah", "paragraphs": [
+                "Leadership passed to successive imams from the Al Saud family. The state expanded during the eras of Imam Abdulaziz bin Muhammad and Imam Saud bin Abdulaziz. Diriyah became a centre for learning, trade, and administration, with thriving markets and architecture.",
+                "Today, At-Turaif is an important architectural witness to that period, with its mud-brick buildings, palaces, and historic facilities reflecting Najdi design.",
+            ]},
+            {"title": "The end of the state and its legacy", "paragraphs": [
+                "The state faced military campaigns that culminated in the arrival of the Ottoman-Egyptian forces in Diriyah in 1818. Following a siege, the First Saudi State came to an end.",
+                "Although that political era ended, its legacy remained an important part of the region's history and paved the way for the return of the Saudi state in a later period.",
+            ]},
+        ],
+        "timeline": [
+            {"date": "1727 CE", "title": "The First Saudi State is founded", "text": "Imam Muhammad bin Saud assumed leadership in Diriyah, beginning the First Saudi State."},
+            {"date": "Mid-18th century", "title": "Consolidation and expansion", "text": "Diriyah strengthened its position as the state's influence expanded across parts of the Arabian Peninsula."},
+            {"date": "1818 CE", "title": "The end of the First State", "text": "The state ended after the military campaign against Diriyah, while its legacy remained part of national memory."},
+        ],
+        "highlights": [
+            {"title": "Diriyah", "text": "The capital and centre of government of the First Saudi State."},
+            {"title": "At-Turaif", "text": "A World Heritage site preserving Najdi architecture and the history of the state."},
+            {"title": "Founding Day", "text": "The foundation is commemorated on 22 February each year."},
+        ],
+        "takeaway": "The First Saudi State is the historical foundation from which later stages of the Saudi state emerged.",
+        "source_title": "History of the First Saudi State",
+    },
+    "second-saudi-state": {
+        "eyebrow": "CHAPTER 02 · THE SECOND SAUDI STATE",
+        "title": "The Second Saudi State",
+        "period": "1824–1891 CE",
+        "tagline": "The state returned from Riyadh, and the journey continued.",
+        "summary": "After the end of the First Saudi State, Imam Turki bin Abdullah recaptured Riyadh in 1824 and established the Second Saudi State, restoring Riyadh as the capital of Saudi rule.",
+        "image_alt": "A view of Riyadh, the capital of the Second Saudi State",
+        "facts": [
+            {"value": "1824 CE", "label": "Second State founded"},
+            {"value": "Riyadh", "label": "Capital of the state"},
+            {"value": "1891 CE", "label": "End of the era"},
+        ],
+        "sections": [
+            {"title": "Rule returns to Riyadh", "paragraphs": [
+                "Imam Turki bin Abdullah led efforts to restore Saudi rule. In 1824, he recaptured Riyadh and established the Second Saudi State, making Riyadh its capital instead of Diriyah.",
+                "The state began reorganising government affairs and strengthening stability, drawing on the social and political ties that had developed during the First State.",
+            ]},
+            {"title": "The era of Imam Faisal bin Turki", "paragraphs": [
+                "The era of Imam Faisal bin Turki included periods of strength and expansion, as well as political and military challenges. Riyadh's position as an important political centre in central Arabia became further established.",
+                "The state experienced periods of stability and unrest, shaped by internal disputes and regional competition, but Saudi rule continued for several decades.",
+            ]},
+            {"title": "The end of the Second State", "paragraphs": [
+                "The Second Saudi State ended in 1891 following the Battle of Mulayda and the political changes that followed. A new period began before King Abdulaziz's recapture of Riyadh.",
+                "The Second State formed an important link between the First Saudi State and the establishment of the modern Kingdom of Saudi Arabia.",
+            ]},
+        ],
+        "timeline": [
+            {"date": "1824 CE", "title": "Riyadh is recaptured", "text": "Imam Turki bin Abdullah recaptured Riyadh and founded the Second Saudi State."},
+            {"date": "1834 CE", "title": "The state continues", "text": "The state continued under Imam Faisal bin Turki, through periods of challenge and change."},
+            {"date": "1891 CE", "title": "The end of the Second State", "text": "The state ended after the Battle of Mulayda and the political changes that followed."},
+        ],
+        "highlights": [
+            {"title": "Imam Turki bin Abdullah", "text": "Founder of the Second Saudi State and leader of Riyadh's recapture."},
+            {"title": "Riyadh", "text": "It became the state's capital and a major political centre."},
+            {"title": "Continuity", "text": "This era maintained the continuity of Saudi rule after the First State."},
+        ],
+        "takeaway": "The Second Saudi State demonstrated the continuity of Saudi rule and paved the way for the unification led by King Abdulaziz.",
+        "source_title": "The Second Saudi State",
+    },
+    "unification": {
+        "eyebrow": "CHAPTER 03 · THE UNIFICATION OF THE KINGDOM",
+        "title": "The Unification of Saudi Arabia",
+        "period": "1902–1932 CE",
+        "tagline": "A step from Riyadh, followed by the journey towards one nation.",
+        "summary": "The unification of Saudi Arabia began when King Abdulaziz bin Abdulrahman Al Saud recaptured Riyadh in 1902. The regions were brought together in successive stages until the Kingdom of Saudi Arabia was proclaimed on 23 September 1932.",
+        "image_alt": "King Abdulaziz bin Abdulrahman Al Saud, founder of the Kingdom",
+        "image_credit": "Saudi Press Agency",
+        "facts": [
+            {"value": "1902 CE", "label": "Riyadh recaptured"},
+            {"value": "30 years", "label": "Unification journey"},
+            {"value": "1932 CE", "label": "Kingdom proclaimed"},
+        ],
+        "sections": [
+            {"title": "The recapture of Riyadh", "paragraphs": [
+                "On 5 Shawwal 1319 AH, corresponding to 15 January 1902, King Abdulaziz and his men recaptured Riyadh. This event marked a turning point and the beginning of a new period in the history of the Arabian Peninsula.",
+                "King Abdulaziz made Riyadh his base and worked to unite the regions and establish a stable political entity under one leadership.",
+            ]},
+            {"title": "Bringing the regions together", "paragraphs": [
+                "The unification process continued over the following decades. Al-Ahsa joined the state in 1913, Hail in 1921, and major developments took place in the Hijaz during 1924 and 1925.",
+                "The process included political and military stages as well as local agreements, bringing wide and diverse regions together within one state.",
+            ]},
+            {"title": "The Kingdom of Saudi Arabia is proclaimed", "paragraphs": [
+                "On 23 September 1932, a royal decree announced the unification of the country under the name Kingdom of Saudi Arabia, with King Abdulaziz as its first king.",
+                "A new era then began, focused on building modern state institutions and developing public services, administration, and infrastructure across the regions.",
+            ]},
+        ],
+        "timeline": [
+            {"date": "1902 CE", "title": "Riyadh is recaptured", "text": "King Abdulaziz recaptured Riyadh, from which the unification journey began."},
+            {"date": "1913 CE", "title": "Al-Ahsa joins the state", "text": "Al-Ahsa became part of the Saudi state during the unification process."},
+            {"date": "1921 CE", "title": "Hail joins the state", "text": "The state's reach extended to Hail and other areas in the north of the Arabian Peninsula."},
+            {"date": "1924–1925 CE", "title": "The Hijaz joins the state", "text": "Makkah, Madinah, and Jeddah became part of the state during this period."},
+            {"date": "1932 CE", "title": "The Kingdom is proclaimed", "text": "The Kingdom of Saudi Arabia was proclaimed on 23 September 1932."},
+        ],
+        "highlights": [
+            {"title": "King Abdulaziz", "text": "He led the unification and laid the foundations of the modern state."},
+            {"title": "23 September", "text": "Saudi National Day commemorates the proclamation of the Kingdom."},
+            {"title": "Unity", "text": "The regions came together under one name and one flag."},
+        ],
+        "takeaway": "The unification efforts led to the establishment of the modern Kingdom of Saudi Arabia and a new era of development.",
+        "source_title": "Timeline of the Unification of Saudi Arabia",
+    },
+    "kings": {
+        "eyebrow": "CHAPTER 04 · THE KINGS OF SAUDI ARABIA",
+        "title": "The Kings of Saudi Arabia",
+        "period": "1932 CE – Present",
+        "tagline": "Seven kings and a continuous journey of building and development.",
+        "summary": "Since the proclamation of the Kingdom of Saudi Arabia, seven kings—all sons of the founder—have led the country. Across their reigns, the state continued to build institutions and develop education, healthcare, the economy, and public services.",
+        "image_alt": "A modern view of Riyadh's skyline",
+        "facts": [
+            {"value": "7", "label": "Kings of the Kingdom"},
+            {"value": "1932 CE", "label": "The Kingdom begins"},
+            {"value": "2015 CE", "label": "Beginning of the current reign"},
+        ],
+        "sections": [
+            {"title": "From foundation to state institutions", "paragraphs": [
+                "The Kingdom began under its founder, King Abdulaziz bin Abdulrahman Al Saud, who unified the country and established the foundations of state institutions and administration.",
+                "King Saud then assumed the throne, during which government institutions and public services expanded. King Faisal followed, with a reign associated with administrative and educational reform and a stronger international role for the Kingdom.",
+            ]},
+            {"title": "Development and expanded services", "paragraphs": [
+                "The reigns of King Khalid and King Fahd saw the expansion of development projects, infrastructure, and public services. King Fahd's reign is particularly associated with major expansions of the Two Holy Mosques and the introduction of key state laws.",
+                "During King Abdullah's reign, higher education and scholarship programmes expanded, and King Abdullah University of Science and Technology opened, alongside other development initiatives.",
+            ]},
+            {"title": "The current era and national transformation", "paragraphs": [
+                "King Salman bin Abdulaziz assumed the throne in 2015. His reign has seen the launch of Saudi Vision 2030, National Transformation Programmes, and wide-ranging projects in the economy, culture, tourism, and quality of life.",
+                "The Kingdom continues to develop its institutions and services while maintaining its national identity and regional and international standing.",
+            ]},
+        ],
+        "timeline": [
+            {"date": "1932–1953 CE", "title": "King Abdulaziz", "text": "Unification of the Kingdom and establishment of modern state institutions."},
+            {"date": "1953–1964 CE", "title": "King Saud", "text": "Expansion of state institutions and public services."},
+            {"date": "1964–1975 CE", "title": "King Faisal", "text": "Administrative and educational reform and a stronger international role."},
+            {"date": "1975–1982 CE", "title": "King Khalid", "text": "Expansion of development projects and infrastructure."},
+            {"date": "1982–2005 CE", "title": "King Fahd", "text": "Major expansions of the Two Holy Mosques and development of state institutions."},
+            {"date": "2005–2015 CE", "title": "King Abdullah", "text": "Expansion of higher education, scholarships, and development projects."},
+            {"date": "2015 CE – Present", "title": "King Salman", "text": "Saudi Vision 2030 and programmes for national transformation and development."},
+        ],
+        "highlights": [
+            {"title": "Education", "text": "Expansion of public and higher education and scholarship programmes."},
+            {"title": "Serving pilgrims", "text": "Continued expansions and services for visitors to the Two Holy Mosques."},
+            {"title": "Development", "text": "Infrastructure, the economy, and public services advanced across successive reigns."},
+        ],
+        "takeaway": "The journey of the seven kings reflects successive stages in building the state and developing its institutions and services.",
+        "source_title": "List of Kings of Saudi Arabia",
+    },
+    "vision-2030": {
+        "eyebrow": "CHAPTER 05 · THE PRESENT AND THE FUTURE",
+        "title": "Saudi Vision 2030",
+        "period": "2016–2030 CE",
+        "tagline": "A national ambition rooted in heritage and open to the future.",
+        "summary": "Launched in 2016, Saudi Vision 2030 is a national framework for transformation and development. It aims to diversify the economy, improve quality of life, develop services, and create new opportunities for citizens and residents.",
+        "image_alt": "Riyadh skyline and its modern urban landscape",
+        "facts": [
+            {"value": "2016 CE", "label": "Vision launched"},
+            {"value": "3", "label": "Main pillars"},
+            {"value": "2030 CE", "label": "Target horizon"},
+        ],
+        "sections": [
+            {"title": "Why was the Vision launched?", "paragraphs": [
+                "Saudi Vision 2030 was introduced to build a more diversified economy, make use of the Kingdom's location and capabilities, and strengthen sustainability and competitiveness.",
+                "The Vision also focuses on improving government performance, raising service efficiency, encouraging private-sector participation, and creating broader opportunities in employment and investment.",
+            ]},
+            {"title": "The three pillars", "paragraphs": [
+                "The Vision is built around three connected pillars: a vibrant society, a thriving economy, and an ambitious nation. Each pillar represents a group of goals and programmes that work together to support development.",
+                "These include supporting culture, heritage, tourism, sports, and quality of life; developing industries and investment; and strengthening institutional efficiency, transparency, and responsibility.",
+            ]},
+            {"title": "The Vision in everyday life", "paragraphs": [
+                "The Vision's programmes can be seen in transport and infrastructure projects, urban development, wider cultural and entertainment options, and support for entrepreneurship and small and medium-sized businesses.",
+                "It also seeks to improve quality of life, expand education, training, and employment opportunities, and achieve sustainable growth while preserving national identity and resources.",
+            ]},
+        ],
+        "timeline": [
+            {"date": "2016 CE", "title": "Saudi Vision 2030 is launched", "text": "A national framework for economic, social, and developmental transformation is announced."},
+            {"date": "2017 CE onward", "title": "Programmes and initiatives begin", "text": "Programmes and initiatives are introduced to develop economic sectors, services, and quality of life."},
+            {"date": "Through 2030 CE", "title": "Implementation and impact measurement", "text": "Targets and performance indicators continue to be reviewed as initiatives develop."},
+        ],
+        "highlights": [
+            {"title": "A vibrant society", "text": "Improving quality of life, culture, entertainment, health, and sport."},
+            {"title": "A thriving economy", "text": "Diversifying income, supporting investment, innovation, and opportunity."},
+            {"title": "An ambitious nation", "text": "Improving government efficiency, transparency, and responsibility."},
+        ],
+        "takeaway": "Saudi Vision 2030 represents a contemporary chapter in the Kingdom's history, connecting economic and social development with pride in national identity.",
+        "source_title": "Saudi Vision 2030",
+    },
+}

@@ -4,7 +4,7 @@ from django.http import Http404
 from django.shortcuts import render
 from django.utils.translation import get_language
 
-from .data import CITIES, STORIES
+from .data import CITIES
 from .history_data import (
     HISTORY_MILESTONES,
     SAUDI_KINGS,
@@ -12,14 +12,15 @@ from .history_data import (
     NATIONAL_DAYS,
     HISTORY_SOURCES,
 )
+from .history_chapters import HISTORY_CHAPTERS
 from .localization import (
     CITY_EN,
-    STORY_EN,
     HISTORY_MILESTONES_EN,
     SAUDI_KINGS_EN,
     HISTORY_GALLERY_EN,
     NATIONAL_DAYS_EN,
     HISTORY_SOURCES_EN,
+    HISTORY_CHAPTERS_EN,
 )
 
 
@@ -40,12 +41,12 @@ def get_cities():
     return cities
 
 
-def get_stories():
-    stories = deepcopy(STORIES)
+def get_history_chapters():
+    chapters = deepcopy(HISTORY_CHAPTERS)
     if is_english():
-        for story in stories:
-            story.update(STORY_EN.get(story["slug"], {}))
-    return stories
+        for chapter in chapters:
+            chapter.update(HISTORY_CHAPTERS_EN.get(chapter["slug"], {}))
+    return chapters
 
 
 def get_history_content():
@@ -76,34 +77,27 @@ def get_history_content():
 
 def home(request):
     cities = get_cities()
-    stories = get_stories()
     return render(request, "kingdom/home.html", {
         "cities": cities,
         "featured_cities": cities,
-        "stories": stories,
+        "history_chapters": get_history_chapters(),
     })
 
 
 def city_detail(request, slug):
-    city = next((item for item in get_cities() if item["slug"] == slug), None)
-    if city is None:
+    cities = get_cities()
+    city_index = next((index for index, item in enumerate(cities) if item["slug"] == slug), None)
+    if city_index is None:
         raise Http404("City not found" if is_english() else "المدينة غير موجودة")
-    return render(request, "kingdom/city_detail.html", {"city": city})
 
-
-def stories(request):
-    return render(request, "kingdom/stories.html", {"stories": get_stories()})
-
-
-def story_detail(request, slug):
-    story = next((item for item in get_stories() if item["slug"] == slug), None)
-    if story is None:
-        raise Http404("Story not found" if is_english() else "القصة غير موجودة")
-    return render(request, "kingdom/story_detail.html", {"story": story})
-
-
-def about(request):
-    return render(request, "kingdom/about.html")
+    city = cities[city_index]
+    # Rotate the list so each city page suggests the next three destinations.
+    rotated_cities = cities[city_index + 1:] + cities[:city_index]
+    related_cities = rotated_cities[:3]
+    return render(request, "kingdom/city_detail.html", {
+        "city": city,
+        "related_cities": related_cities,
+    })
 
 
 def history(request):
@@ -114,4 +108,16 @@ def history(request):
         "gallery": gallery,
         "national_days": national_days,
         "sources": sources,
+        "chapters": get_history_chapters(),
     })
+
+
+def history_detail(request, slug):
+    chapter = next((item for item in get_history_chapters() if item["slug"] == slug), None)
+    if chapter is None:
+        raise Http404("History chapter not found" if is_english() else "الصفحة التاريخية غير موجودة")
+    return render(request, "kingdom/history_detail.html", {"chapter": chapter})
+
+
+def about(request):
+    return render(request, "kingdom/about.html", {"history_chapters": get_history_chapters()})

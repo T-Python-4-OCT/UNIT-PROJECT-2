@@ -1,0 +1,468 @@
+/*
+   HIKAYAT WATAN — Heritage editorial visual refresh
+   Inspired by immersive Saudi travel storytelling, with an independent
+   historical palette of sandstone, date-palm brown, terracotta and antique brass.
+*/
+
+:root {
+    color-scheme: light;
+    --bg: #f3eee5;
+    --surface: #fbf8f1;
+    --surface-2: #eae0d1;
+    --surface-3: #ddcdb9;
+    --text: #34291f;
+    --muted: #786b5d;
+    --line: rgba(68, 48, 33, .15);
+    --green: #4b3428;
+    --green-2: #76513d;
+    --green-soft: #efe2d1;
+    --gold: #c19a65;
+    --gold-dark: #91663e;
+    --rust: #a75f45;
+    --shadow: 0 24px 70px rgba(58, 38, 24, .12);
+    --shadow-soft: 0 12px 34px rgba(58, 38, 24, .08);
+    --radius: 18px;
+}
+
+body[data-theme="dark"] {
+    color-scheme: dark;
+    --bg: #191613;
+    --surface: #231e19;
+    --surface-2: #2d261f;
+    --surface-3: #3a3027;
+    --text: #f3e9dc;
+    --muted: #c0ad98;
+    --line: rgba(239, 224, 205, .14);
+    --green: #b9825f;
+    --green-2: #d3a27d;
+    --green-soft: #3b3028;
+    --gold: #d2aa72;
+    --gold-dark: #d7b17d;
+    --rust: #ce8969;
+    --shadow: 0 24px 70px rgba(0, 0, 0, .34);
+    --shadow-soft: 0 12px 34px rgba(0, 0, 0, .24);
+}
+
+html { scroll-padding-top: 94px; }
+body {
+    background-color: var(--bg);
+    background-image: radial-gradient(rgba(145, 102, 62, .055) .7px, transparent .7px);
+    background-size: 9px 9px;
+    color: var(--text);
+    font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+body[data-theme="dark"] { background-image: radial-gradient(rgba(215, 177, 125, .045) .7px, transparent .7px); }
+
+h1, h2, h3, h4, .brand-copy { font-family: "Noto Naskh Arabic", "IBM Plex Sans Arabic", serif; }
+::selection { background: var(--rust); color: #fff8ee; }
+
+/* Header / navigation */
+.site-header {
+    background: color-mix(in srgb, var(--surface) 93%, transparent);
+    border-bottom: 1px solid var(--line);
+    box-shadow: 0 5px 24px rgba(48, 32, 21, .045);
+    backdrop-filter: blur(20px);
+}
+.navbar { min-height: 84px; padding: 12px 0; }
+.brand { gap: 13px; font-size: 1.15rem; letter-spacing: -.2px; }
+.brand-mark {
+    position: relative;
+    width: 48px; height: 48px;
+    border: 1px solid rgba(215, 177, 125, .55);
+    border-radius: 50%;
+    background: var(--green);
+    color: #f7e8d2;
+    box-shadow: 0 8px 20px rgba(55, 37, 26, .16);
+}
+.brand-mark::after { content: ""; position: absolute; inset: 5px; border: 1px solid rgba(247, 232, 210, .38); border-radius: 50%; }
+.brand-copy small { color: var(--gold-dark); font-size: .54rem; letter-spacing: 2.4px; }
+.navbar-nav { gap: 8px; }
+.nav-link { padding: 12px 15px !important; color: var(--muted); font-weight: 500; }
+.nav-link::after { right: 15px; bottom: 5px; height: 2px; background: var(--rust); }
+.nav-link:hover, .nav-link.active { color: var(--text); }
+.theme-toggle, .language-toggle {
+    min-height: 40px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: transparent;
+    color: var(--text);
+    transition: .25s ease;
+}
+.theme-toggle { padding: 8px 15px; }
+.theme-toggle:hover, .language-toggle:hover { border-color: var(--gold-dark); background: var(--surface-2); }
+.theme-icon { color: var(--rust); }
+.navbar-toggler { border-color: var(--line); border-radius: 10px; }
+.menu-lines i { background: var(--text); }
+
+/* Shared headings, labels and buttons */
+.section-pad { padding: clamp(70px, 8vw, 112px) 0; }
+.section-kicker, .eyebrow {
+    color: var(--rust);
+    font-size: .77rem;
+    font-weight: 700;
+    letter-spacing: .35px;
+}
+.section-kicker { margin-bottom: 16px; }
+.section-kicker::before { content: ""; display: inline-block; width: 25px; height: 1px; margin-left: 9px; vertical-align: middle; background: currentColor; }
+.section-heading { margin-bottom: 38px; }
+.section-heading h2, .intro-heading h2, .city-intro h2, .history-title h2,
+.events-heading h2, .video-section-heading h2, .about-grid h2, .tech-panel h2,
+.home-history-heading h2, .history-intro-grid h2, .history-teaser-copy h2,
+.history-chapter-overview-grid h2, .history-sources-inner h2 {
+    font-family: "Noto Naskh Arabic", "IBM Plex Sans Arabic", serif;
+    font-weight: 700;
+    letter-spacing: -.6px;
+}
+.section-heading h2 { font-size: clamp(2.1rem, 4vw, 3.25rem); line-height: 1.35; }
+.section-subtitle { max-width: 660px; line-height: 2; }
+.heading-note { color: var(--muted); }
+.heading-note i { background: var(--rust); }
+.text-accent { color: var(--rust); }
+.btn {
+    min-height: 48px;
+    padding: 12px 24px;
+    border-radius: 999px;
+    font-size: .88rem;
+    letter-spacing: .1px;
+    transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+.btn-gold {
+    border-color: var(--gold);
+    background: var(--gold);
+    color: #2f241c;
+    box-shadow: 0 9px 22px rgba(145, 102, 62, .19);
+}
+.btn-gold:hover { border-color: #d1ad7b; background: #d1ad7b; color: #2f241c; box-shadow: 0 13px 28px rgba(145, 102, 62, .25); }
+.btn-outline-light { border-radius: 999px; }
+.text-link, .card-link { color: var(--rust); }
+
+/* Immersive home hero */
+.hero {
+    min-height: min(790px, calc(100vh - 84px));
+    background: #34251e;
+    isolation: isolate;
+}
+.hero-background { opacity: .9; object-position: center 46%; transform: scale(1.015); }
+.hero-overlay {
+    background:
+        linear-gradient(90deg, rgba(31, 22, 17, .91) 0%, rgba(39, 27, 20, .76) 42%, rgba(42, 29, 21, .20) 100%),
+        linear-gradient(0deg, rgba(28, 19, 14, .68), transparent 42%);
+}
+.hero::after { inset: 24px; border: 1px solid rgba(238, 218, 188, .28); }
+.hero-content { max-width: 1180px; padding-top: 100px; padding-bottom: 145px; }
+.hero .eyebrow { color: #e4c18e; }
+.hero h1 { max-width: 790px; font-family: "Noto Naskh Arabic", serif; font-size: clamp(3.6rem, 7.4vw, 7rem); line-height: 1.17; letter-spacing: -1px; }
+.hero h1 em, .page-hero h1 em { color: #dfb77e; }
+.hero-content p { max-width: 610px; font-size: 1.05rem; line-height: 2.15; }
+.hero-actions { gap: 14px; margin-top: 34px; }
+.hero-bottom { bottom: 29px; color: rgba(255, 244, 228, .76); }
+.scroll-cue { border-color: rgba(255, 244, 228, .55); }
+.hero-index { color: rgba(255, 244, 228, .62); }
+
+/* Home history feature */
+.home-history-section {
+    background: var(--surface);
+    background-image: linear-gradient(135deg, transparent 0 48%, rgba(167, 95, 69, .035) 48% 49%, transparent 49% 100%);
+}
+.home-history-section::before {
+    top: -210px; left: -155px; width: 470px; height: 470px;
+    border-color: rgba(167, 95, 69, .18);
+    box-shadow: 0 0 0 42px rgba(167, 95, 69, .035), 0 0 0 88px rgba(167, 95, 69, .025);
+}
+.home-history-heading { align-items: end; margin-bottom: 44px; }
+.home-history-heading h2 { font-size: clamp(2.6rem, 4.8vw, 4rem); line-height: 1.28; }
+.home-history-heading-copy p { line-height: 2.25; }
+.home-history-years { color: var(--rust); font-size: 1.25rem; }
+.home-history-years i { background: var(--rust); }
+.home-history-card { border: 1px solid var(--line); border-radius: 15px; background: var(--surface); box-shadow: var(--shadow-soft); }
+.home-history-card .history-chapter-card-image { height: 245px; }
+.history-chapter-card-image::after { background: linear-gradient(0deg, rgba(38, 25, 18, .63), transparent 68%); }
+.history-chapter-card-body { padding: 25px 25px 27px; }
+.history-chapter-card-body > small { color: var(--rust); }
+.history-chapter-card-body h3 { font-size: 1.32rem; }
+.history-chapter-card-body p { line-height: 2.05; }
+.home-history-card-arrow { background: rgba(47, 33, 25, .28); backdrop-filter: blur(6px); }
+.home-history-footnote { border-radius: 14px; background: var(--surface-2); }
+.home-history-footnote-mark { background: var(--rust); color: #fff3e5; }
+.home-history-footnote a { color: var(--rust); }
+
+/* Cities collection */
+.cities-section { position: relative; background: var(--surface-2); }
+.cities-section::before {
+    content: ""; position: absolute; top: 0; right: 0; left: 0; height: 5px;
+    background: linear-gradient(90deg, var(--rust), var(--gold), #78634d, var(--rust));
+}
+.city-search { border-radius: 999px; padding: 12px 18px; background: var(--surface); box-shadow: 0 5px 18px rgba(58, 38, 24, .04); }
+.city-card { border: 1px solid rgba(87, 61, 42, .13); border-radius: 16px; background: var(--surface); box-shadow: 0 9px 28px rgba(58, 38, 24, .06); }
+.city-card:hover { border-color: rgba(167, 95, 69, .5); box-shadow: var(--shadow); }
+.city-card-media { height: 285px; background: linear-gradient(135deg, #785943, #34251e); }
+.city-card-media::after { background: linear-gradient(0deg, rgba(34, 23, 17, .78), transparent 75%); }
+.city-card-media img { filter: saturate(.86); }
+.city-card-body { min-height: 190px; padding: 24px 26px 27px; }
+.card-region { color: var(--rust); }
+.city-card h3 { font-family: "Noto Naskh Arabic", serif; font-size: 1.65rem; }
+.city-card p { line-height: 1.9; }
+.city-card-arrow { border-color: rgba(255, 243, 229, .75); background: rgba(42, 28, 20, .2); backdrop-filter: blur(6px); }
+.card-link { font-size: .84rem; }
+
+/* Intro / stats / quote */
+.intro-section { background: var(--surface); }
+.intro-grid { gap: 78px; }
+.intro-heading h2 { font-size: clamp(2.7rem, 4.8vw, 4rem); line-height: 1.35; }
+.intro-copy p, .city-intro p, .about-grid p { line-height: 2.3; }
+.stats-strip { border-color: var(--line); }
+.stat-item { border-color: var(--line); }
+.stat-item strong { color: var(--rust); }
+.closing-quote { position: relative; overflow: hidden; background: var(--surface-2); }
+.closing-quote::before, .closing-quote::after { content: ""; position: absolute; width: 260px; height: 260px; border: 1px solid rgba(145, 102, 62, .2); border-radius: 50%; }
+.closing-quote::before { top: -170px; right: -90px; box-shadow: 0 0 0 25px rgba(145, 102, 62, .035), 0 0 0 55px rgba(145, 102, 62, .025); }
+.closing-quote::after { bottom: -190px; left: -100px; }
+.quote-box { position: relative; z-index: 1; }
+.quote-mark { color: var(--rust); }
+.quote-line { background: var(--rust); }
+
+/* City detail pages */
+.city-hero { min-height: 650px; background: #30231c; }
+.city-hero-image { filter: saturate(.83); }
+.city-hero-shade {
+    background:
+        linear-gradient(90deg, rgba(32, 22, 16, .91), rgba(43, 29, 20, .68) 54%, rgba(43, 29, 20, .18)),
+        linear-gradient(0deg, rgba(27, 18, 13, .72), transparent 60%);
+}
+.city-hero::before { border-color: rgba(225, 188, 137, .32); box-shadow: 0 0 0 42px rgba(225, 188, 137, .055), 0 0 0 88px rgba(225, 188, 137, .03); }
+.city-hero-content { max-width: 1180px; }
+.city-hero .back-link { color: rgba(255, 242, 225, .8); }
+.city-hero .eyebrow { color: #e5c18f; }
+.city-hero h1 { font-family: "Noto Naskh Arabic", serif; font-size: clamp(3.7rem, 7vw, 6.6rem); line-height: 1.15; }
+.city-hero p { max-width: 600px; color: rgba(255, 245, 232, .86); font-size: 1.08rem; }
+.city-hero-text-link:hover { color: #e5c18f; }
+.city-hero-stamp { color: rgba(255, 240, 219, .14); }
+.city-hero-bottom-line span { background: var(--rust); }
+.city-hero-bottom-line span:nth-child(2) { background: var(--gold); }
+.city-hero-bottom-line span:nth-child(3) { background: #6e5945; }
+.city-snapshot-strip { background: var(--surface); }
+.snapshot-symbol { background: var(--rust); color: #fff1df; }
+.city-snapshot-item strong { color: var(--rust); }
+.city-intro-note { border-radius: 16px; background: linear-gradient(145deg, #553b2c, #34261e); }
+.city-intro-note::after { border-color: rgba(228, 193, 143, .3); box-shadow: 0 0 0 25px rgba(228, 193, 143, .06); }
+.city-intro-note-mark { color: #e5c18f; }
+.attraction-card, .info-card { border-radius: 15px; background: var(--surface); box-shadow: 0 8px 25px rgba(58, 38, 24, .045); }
+.attraction-card::before { border-color: rgba(167, 95, 69, .23); }
+.attraction-card .info-number { color: var(--rust); }
+.attraction-card .attraction-decoration { color: var(--gold-dark); }
+.attraction-card-line { background: var(--rust); }
+.city-moment-panel { border-radius: 17px; background: var(--surface-2); }
+.city-moment-image { background: var(--green); }
+.city-moment-copy h2 em { color: var(--rust); }
+.city-gallery { overflow: hidden; border: 1px solid var(--line); border-radius: 17px; box-shadow: var(--shadow-soft); }
+.gallery-caption { background: linear-gradient(0deg, rgba(32, 22, 16, .9), transparent); }
+.gallery-caption a { color: #e5c18f; }
+.history-layout { border: 1px solid var(--line); border-radius: 18px; background: var(--surface-2); }
+.timeline { border-color: var(--rust); }
+.timeline-dot { background: var(--rust); box-shadow: 0 0 0 1px var(--rust); }
+.city-history-decoration { color: rgba(167, 95, 69, .24); }
+.events-panel { border-radius: 16px; background: var(--surface); }
+.event-tags span { border-radius: 999px; background: var(--surface-2); }
+.event-tags span i { color: var(--rust); }
+.video-section { border-radius: 18px; background: linear-gradient(125deg, #493327, #2e211a); box-shadow: var(--shadow); }
+.video-section-heading .section-kicker { color: #e5c18f; }
+.video-section-heading h2 { color: #fff5e8; }
+.video-section-heading p { color: rgba(255, 245, 232, .77); }
+.video-section-caption { color: rgba(255, 245, 232, .58); }
+.video-frame { border: 1px solid rgba(237, 213, 181, .24); border-radius: 13px; }
+.video-source-link { color: #e5c18f; }
+.related-cities-section { background: var(--surface); }
+.related-city-card { border-radius: 16px; background: #38271d; }
+.related-city-overlay { background: linear-gradient(0deg, rgba(31, 20, 14, .91), rgba(31, 20, 14, .04) 76%); }
+.related-city-content small { color: #e5c18f; }
+
+/* Secondary page heroes */
+.page-hero {
+    padding: 112px 0 118px;
+    background: linear-gradient(115deg, #4b3428, #694632 62%, #9a704e);
+}
+.page-hero::after { border-color: rgba(237, 213, 181, .22); box-shadow: 0 0 0 45px rgba(237, 213, 181, .035), 0 0 0 90px rgba(237, 213, 181, .025); }
+.page-hero .eyebrow { color: #e5c18f; }
+.page-hero h1 { font-family: "Noto Naskh Arabic", serif; font-size: clamp(3rem, 6.4vw, 5.6rem); }
+.page-hero p { color: rgba(255, 245, 232, .82); }
+.page-hero-meta { color: rgba(255, 245, 232, .68); }
+.page-hero-meta i { background: #e5c18f; }
+.history-hero {
+    background-image:
+        linear-gradient(90deg, rgba(34, 23, 16, .93), rgba(48, 31, 20, .77) 52%, rgba(48, 31, 20, .3)),
+        url("https://commons.wikimedia.org/wiki/Special:FilePath/At-Turaif_District.jpg?width=1800");
+    background-size: cover;
+    background-position: center 48%;
+}
+
+/* Kingdom history page */
+.history-intro { background: var(--surface); }
+.history-intro-grid h2 { font-size: clamp(2.5rem, 4.6vw, 3.8rem); }
+.history-facts-row { border-radius: 15px; background: var(--surface-2); }
+.history-fact strong { color: var(--rust); }
+.kingdom-timeline::before { background: linear-gradient(var(--rust), var(--line)); }
+.kingdom-timeline-marker { background: var(--rust); box-shadow: 0 0 0 1px var(--rust); }
+.kingdom-timeline-card { border-radius: 14px; background: var(--surface); }
+.kingdom-timeline-card:hover { border-color: rgba(167, 95, 69, .42); }
+.timeline-tag { background: var(--green-soft); color: var(--green-2); }
+.history-note { border-right-color: var(--rust); border-radius: 10px; }
+.history-photo-card { border-radius: 15px; background: var(--surface); }
+.history-photo-link::after { background: linear-gradient(transparent, rgba(34, 23, 16, .42)); }
+.history-photo-open { background: rgba(42, 28, 20, .3); backdrop-filter: blur(5px); }
+.history-photo-caption small a { color: var(--rust); }
+.king-card { border-radius: 15px; background: var(--surface); }
+.king-card:hover { border-color: rgba(167, 95, 69, .42); }
+.king-card-founder { background: linear-gradient(145deg, #684633, #3b2a20); }
+.king-card-founder .king-number, .king-card-founder .king-period { color: #e5c18f; }
+.king-period, .king-number { color: var(--rust); }
+.national-day-card { border-radius: 15px; background: var(--surface-2); }
+.national-day-symbol { background: var(--rust); color: #fff1df; }
+.national-day-date { color: var(--rust); }
+.history-sources-section { background: var(--surface-2); }
+.history-source-links a { border-radius: 12px; }
+.history-source-links span { color: var(--rust); }
+.history-source-links strong { color: var(--text); }
+.history-source-links a:hover { border-color: var(--rust); }
+.history-teaser-image { border-radius: 17px; background: var(--green); }
+.history-teaser-image::after { background: linear-gradient(transparent, rgba(32, 22, 16, .78)); }
+
+/* History chapter details */
+.history-chapters-section { background: var(--bg); }
+.history-chapter-card { border-radius: 16px; background: var(--surface); box-shadow: 0 8px 28px rgba(58, 38, 24, .055); }
+.history-chapter-card:hover { border-color: rgba(167, 95, 69, .48); }
+.history-chapter-card-body > small { color: var(--rust); }
+.history-chapter-hero { background: #30231c; }
+.history-chapter-hero-overlay,
+.history-chapter-hero.chapter-first-saudi-state .history-chapter-hero-overlay,
+.history-chapter-hero.chapter-second-saudi-state .history-chapter-hero-overlay,
+.history-chapter-hero.chapter-unification .history-chapter-hero-overlay,
+.history-chapter-hero.chapter-kings .history-chapter-hero-overlay,
+.history-chapter-hero.chapter-vision-2030 .history-chapter-hero-overlay {
+    background: linear-gradient(90deg, rgba(32, 22, 16, .93), rgba(45, 29, 19, .72) 54%, rgba(45, 29, 19, .22)), linear-gradient(0deg, rgba(27, 18, 13, .6), transparent 56%);
+}
+.history-chapter-hero .eyebrow { color: #e5c18f; }
+.history-chapter-hero h1 { font-family: "Noto Naskh Arabic", serif; }
+.history-chapter-hero-number { color: rgba(255, 238, 215, .18); }
+.history-chapter-hero-credit a { color: #e5c18f; }
+.history-chapter-overview { background: var(--surface); }
+.history-chapter-facts { border-radius: 15px; background: var(--surface-2); }
+.history-chapter-facts strong, .history-chapter-article-number { color: var(--rust); }
+.history-chapter-article { border-color: var(--line); }
+.chapter-timeline-list::before { background: var(--line); }
+.chapter-timeline-date { color: var(--rust); }
+.chapter-timeline-marker { background: var(--rust); box-shadow: 0 0 0 1px var(--rust); }
+.chapter-timeline-content { border-radius: 13px; background: var(--surface-2); }
+.history-highlight-card { border-radius: 14px; background: var(--surface); }
+.history-highlight-card > span { background: var(--rust); color: #fff1df; }
+.history-chapter-takeaway { border-right-color: var(--rust); border-radius: 12px; background: var(--surface-2); }
+.history-chapter-takeaway span, .history-chapter-source > span { color: var(--rust); }
+.history-chapter-source a { color: var(--rust); }
+.city-next-section { background: var(--surface-2); }
+
+/* About page */
+.requirement-card { border-radius: 13px; background: var(--surface); }
+.requirement-card > span { background: var(--green-soft); color: var(--green-2); }
+.tech-panel { border: 1px solid var(--line); border-radius: 16px; background: var(--surface-2); }
+.tech-tags span { border-radius: 999px; }
+.tech-panel code { color: var(--rust); }
+
+/* Footer */
+.site-footer { background: #2c211a; color: #f7ecdd; }
+.footer-brand { color: #dfb77e; }
+.footer-brand:hover, .footer-links a:hover { color: #f0d3a5; }
+.footer-brand-block p, .footer-links a { color: rgba(247, 236, 221, .68); }
+.footer-project { border-color: rgba(247, 236, 221, .16); }
+.footer-project strong, .footer-bottom b { color: #dfb77e; }
+.footer-bottom { border-color: rgba(247, 236, 221, .16); color: rgba(247, 236, 221, .5); }
+
+/* Dark mode details */
+body[data-theme="dark"] .site-header { background: rgba(35, 30, 25, .94); }
+body[data-theme="dark"] .brand-mark { color: #fff0df; }
+body[data-theme="dark"] .city-card,
+body[data-theme="dark"] .history-chapter-card,
+body[data-theme="dark"] .kingdom-timeline-card,
+body[data-theme="dark"] .history-photo-card,
+body[data-theme="dark"] .king-card,
+body[data-theme="dark"] .requirement-card,
+body[data-theme="dark"] .attraction-card,
+body[data-theme="dark"] .info-card { background: var(--surface); }
+body[data-theme="dark"] .city-intro-note { background: linear-gradient(145deg, #523a2c, #30231c); }
+body[data-theme="dark"] .video-section { background: linear-gradient(125deg, #3c2b21, #241b16); }
+body[data-theme="dark"] .king-card-founder { background: linear-gradient(145deg, #513827, #2b2019); }
+body[data-theme="dark"] .site-footer { background: #100e0c; }
+
+/* Responsive refinements */
+@media (max-width: 991px) {
+    .navbar { min-height: 74px; }
+    .navbar-nav { padding: 14px 0 8px; }
+    .nav-link { padding: 11px 5px !important; }
+    .theme-toggle { margin: 9px 14px 0; }
+    .home-history-heading { align-items: flex-start; flex-direction: column; gap: 25px; }
+    .home-history-heading-side { flex-direction: row; align-items: center; flex-wrap: wrap; }
+    .city-hero { min-height: 560px; }
+    .city-intro-main { grid-template-columns: 1fr; gap: 25px; }
+    .city-intro-note { min-height: 180px; }
+    .city-moment-panel { grid-template-columns: 1fr; }
+    .city-moment-image { min-height: 320px; }
+    .history-chapter-overview-grid { grid-template-columns: 1fr; gap: 25px; }
+}
+
+@media (max-width: 767px) {
+    .section-pad { padding: 68px 0; }
+    .hero { min-height: 650px; }
+    .hero::after { inset: 10px; }
+    .hero-content { padding-top: 82px; padding-bottom: 115px; }
+    .hero h1 { font-size: clamp(3rem, 13vw, 4.5rem); }
+    .hero-content p { font-size: .93rem; }
+    .hero-bottom { bottom: 18px; font-size: .65rem; }
+    .home-history-grid { display: grid; grid-template-columns: 1fr; gap: 17px; }
+    .home-history-card:nth-child(n) { grid-column: auto; }
+    .home-history-card .history-chapter-card-image { height: 215px; }
+    .home-history-footnote { align-items: flex-start; flex-wrap: wrap; padding: 17px; }
+    .home-history-footnote p { flex-basis: calc(100% - 55px); }
+    .home-history-footnote a { margin-right: 53px; }
+    .city-card-media { height: 235px; }
+    .city-card-body { min-height: 175px; }
+    .city-hero { min-height: 485px; }
+    .city-hero-content { padding-top: 65px; padding-bottom: 85px; }
+    .city-hero h1 { font-size: clamp(3.2rem, 13vw, 4.7rem); }
+    .city-snapshot-grid { grid-template-columns: repeat(3, 1fr); padding-top: 12px; padding-bottom: 12px; }
+    .city-snapshot-lead { grid-column: 1 / -1; padding: 12px 0 18px; }
+    .city-snapshot-item { padding: 12px 14px; }
+    .city-snapshot-item:first-of-type { border-right: 0; }
+    .city-moment-image { min-height: 245px; }
+    .city-moment-copy { padding: 30px 24px; }
+    .gallery-caption { padding: 55px 20px 28px; }
+    .history-layout { padding: 28px 22px; }
+    .events-panel { padding: 25px; }
+    .video-section { padding: 25px; }
+    .page-hero { padding: 78px 0 82px; }
+    .page-hero h1 { font-size: clamp(2.7rem, 12vw, 4.2rem); }
+    .history-facts-row { grid-template-columns: 1fr 1fr; }
+    .history-fact { padding: 18px; }
+    .history-gallery-grid { grid-template-columns: 1fr; }
+    .history-photo-featured { grid-column: auto; }
+    .history-photo-featured .history-photo-link, .history-photo-link { height: 230px; }
+    .kingdom-timeline { margin-top: 32px; }
+    .kingdom-timeline::before { right: 7px; }
+    .kingdom-timeline-item { display: block; padding-right: 30px; }
+    .kingdom-timeline-date { padding-top: 0; margin-bottom: 8px; text-align: right; }
+    .kingdom-timeline-marker { top: 5px; right: 1px; }
+    .history-chapter-facts { grid-template-columns: 1fr; }
+    .history-chapter-facts article { border-left: 0; border-bottom: 1px solid var(--line); }
+    .history-chapter-facts article:last-child { border-bottom: 0; }
+    .chapter-timeline-list::before { right: 8px; }
+    .chapter-timeline-item { display: block; padding-right: 30px; }
+    .chapter-timeline-date { padding-top: 0; margin-bottom: 8px; text-align: right; }
+    .chapter-timeline-marker { top: 5px; right: 2px; }
+    .history-chapter-article { grid-template-columns: 42px 1fr; gap: 12px; }
+    .history-sources-inner { gap: 25px; }
+    .history-source-links { grid-template-columns: 1fr; }
+    .footer-main { grid-template-columns: 1fr; gap: 27px; }
+    .footer-project { border-right: 0; border-top: 1px solid rgba(247, 236, 221, .16); padding: 22px 0 0; }
+    .footer-bottom { align-items: flex-start; flex-direction: column; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { scroll-behavior: auto !important; transition-duration: .01ms !important; animation-duration: .01ms !important; }
+}

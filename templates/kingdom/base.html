@@ -4,13 +4,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#173d35">
+    <meta name="theme-color" content="#4b3428">
     <meta name="description" content="{% block meta_description %}{{ 'حكاية وطن؛ رحلة لاكتشاف مدن المملكة العربية السعودية وتاريخها وتراثها ومعالمها.'|tr }}{% endblock %}">
     <title>{% block title %}{{ 'حكاية وطن | المملكة العربية السعودية'|tr }}{% endblock %}</title>
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&family=Inter:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
 
     {% if request.LANGUAGE_CODE == 'en' %}
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -18,6 +18,7 @@
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
     {% endif %}
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/heritage-redesign.css' %}">
     {% block extra_head %}{% endblock %}
 </head>
 <body data-theme="light">
@@ -58,10 +59,7 @@
                             <a class="nav-link" href="{% url 'kingdom:home' %}#cities">{{ 'المدن'|tr }}</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'history' %}active{% endif %}" href="{% url 'kingdom:history' %}">{{ 'تاريخ المملكة'|tr }}</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link {% if request.resolver_match.url_name == 'stories' or request.resolver_match.url_name == 'story_detail' %}active{% endif %}" href="{% url 'kingdom:stories' %}">{{ 'قصص من القرآن'|tr }}</a>
+                            <a class="nav-link {% if request.resolver_match.url_name == 'history' or request.resolver_match.url_name == 'history_detail' %}active{% endif %}" href="{% url 'kingdom:history' %}">{{ 'تاريخ المملكة'|tr }}</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}" href="{% url 'kingdom:about' %}">{{ 'عن المشروع'|tr }}</a>
@@ -105,7 +103,6 @@
                     <a href="{% url 'kingdom:home' %}">{{ 'الرئيسية'|tr }}</a>
                     <a href="{% url 'kingdom:home' %}#cities">{{ 'استكشف المدن'|tr }}</a>
                     <a href="{% url 'kingdom:history' %}">{{ 'تاريخ المملكة'|tr }}</a>
-                    <a href="{% url 'kingdom:stories' %}">{{ 'قصص من القرآن'|tr }}</a>
                     <a href="{% url 'kingdom:about' %}">{{ 'عن المشروع'|tr }}</a>
                 </div>
 

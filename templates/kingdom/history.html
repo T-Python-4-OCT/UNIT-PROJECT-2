@@ -33,6 +33,37 @@
     </div>
 </section>
 
+<section class="history-chapters-section section-pad">
+    <div class="container">
+        <div class="section-heading section-heading-large">
+            <div>
+                <span class="section-kicker">{{ 'تصفّح تاريخ المملكة'|tr }}</span>
+                <h2>{{ 'فصول من حكاية وطن'|tr }}</h2>
+                <p class="section-subtitle">{{ 'اختر فصلًا لقراءة تفاصيله ومحطاته وأبرز الأحداث التي شكلت تاريخ المملكة.'|tr }}</p>
+            </div>
+            <span class="heading-note">{{ chapters|length }} {{ 'صفحات تاريخية'|tr }} <i></i></span>
+        </div>
+        <div class="row g-4">
+            {% for chapter in chapters %}
+            <div class="col-md-6 col-xl-4">
+                <a class="history-chapter-card" href="{% url 'kingdom:history_detail' chapter.slug %}">
+                    <div class="history-chapter-card-image">
+                        <img src="{{ chapter.image }}" alt="{{ chapter.image_alt }}" loading="lazy">
+                        <span>{{ chapter.number }}</span>
+                    </div>
+                    <div class="history-chapter-card-body">
+                        <small>{{ chapter.period }}</small>
+                        <h3>{{ chapter.title }}</h3>
+                        <p>{{ chapter.summary }}</p>
+                        <span class="card-link">{{ 'اقرأ الفصل'|tr }} <b aria-hidden="true">←</b></span>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
 <section class="history-timeline-section section-pad">
     <div class="container">
         <div class="section-heading section-heading-large">
@@ -41,7 +72,7 @@
                 <h2>{{ 'رحلة عبر التاريخ'|tr }}</h2>
                 <p class="section-subtitle">{{ 'أبرز الأحداث التي شكّلت مراحل قيام الدولة السعودية وتوحيد المملكة.'|tr }}</p>
             </div>
-            <span class="heading-note">{{ 'من 1446م إلى اليوم'|tr }} <i></i></span>
+            <span class="heading-note">{{ 'من جذور الدرعية إلى اليوم'|tr }} <i></i></span>
         </div>
         <div class="kingdom-timeline">
             {% for item in milestones %}

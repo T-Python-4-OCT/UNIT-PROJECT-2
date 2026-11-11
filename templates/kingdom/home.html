@@ -1,45 +1,108 @@
 {% extends "kingdom/base.html" %}
 {% load static translations %}
 {% block title %}{{ 'حكاية وطن | اكتشف المملكة العربية السعودية'|tr }}{% endblock %}
-{% block meta_description %}{{ 'اكتشف ست مدن سعودية ومعالمها وتاريخها وثقافتها في رحلة تفاعلية عبر المملكة العربية السعودية.'|tr }}{% endblock %}
+{% block meta_description %}{{ 'اكتشف تاريخ المملكة العربية السعودية أولًا، ثم تجوّل بين ست مدن سعودية ومعالمها وثقافتها.'|tr }}{% endblock %}
 {% block content %}
 <section class="hero hero-home">
-    <img class="hero-background" src="{{ cities.0.gallery.0.url }}" alt="{{ 'أفق مدينة الرياض'|tr }}" fetchpriority="high">
-    <div class="hero-overlay"></div>
-    <div class="container hero-content">
-        <span class="eyebrow"><span class="eyebrow-line"></span> {{ 'المملكة العربية السعودية'|tr }}</span>
-        <h1>{{ 'أرضٌ تحكي،'|tr }}<br><em>{{ 'وتاريخٌ لا يُنسى'|tr }}</em></h1>
-        <p>{{ 'من قمم عسير الخضراء إلى سواحل البحر الأحمر، ومن آثار العلا إلى رحاب مكة والمدينة؛ اكتشف حكايات المكان والإنسان.'|tr }}</p>
-        <div class="hero-actions">
-            <a class="btn btn-gold" href="#cities">{{ 'ابدأ رحلتك'|tr }} <span aria-hidden="true">←</span></a>
-            <a class="btn btn-outline-light" href="{% url 'kingdom:stories' %}">{{ 'قصص من القرآن الكريم'|tr }}</a>
-        </div>
-    </div>
-    <div class="hero-bottom container">
-        <span>{{ 'تراث عريق · طبيعة متنوعة · مستقبل متجدد'|tr }}</span>
-        <a href="#intro" aria-label="{{ 'انتقل إلى مقدمة الموقع'|tr }}" class="scroll-cue"><span></span></a>
-    </div>
-    <span class="hero-index" aria-hidden="true">01 / 06</span>
-</section>
 
-<section class="intro-section section-pad" id="intro">
+    <!-- فيديو السعودية في خلفية الصفحة الرئيسية -->
+    <video
+        class="hero-background hero-video"
+        autoplay
+        muted
+        loop
+        playsinline
+        preload="auto"
+        poster="{{ cities.0.gallery.0.url }}"
+        aria-hidden="true">
+        <source
+            src="{% static 'videos/saudi-journey.mp4' %}"
+            type="video/mp4">
+    </video>
+
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+        <span class="eyebrow">
+            <span class="eyebrow-line"></span>
+            {{ 'المملكة العربية السعودية'|tr }}
+        </span>
+
+        <h1>
+            {{ 'أرضٌ تحكي،'|tr }}
+            <br>
+            <em>{{ 'وتاريخٌ لا يُنسى'|tr }}</em>
+        </h1>
+
+        <p>
+            {{ 'من قمم عسير الخضراء إلى سواحل البحر الأحمر، ومن آثار العلا إلى رحاب مكة والمدينة؛ اكتشف حكايات المكان والإنسان.'|tr }}
+        </p>
+
+        <div class="hero-actions">
+            <a class="btn btn-gold" href="#homeHistory">
+                {{ 'ابدأ من تاريخ المملكة'|tr }}
+                <span aria-hidden="true">←</span>
+            </a>
+
+            <a class="btn btn-outline-light" href="#cities">
+                {{ 'استكشف المدن'|tr }}
+            </a>
+        </div>
+    </div>
+
+    <div class="hero-bottom container">
+        <span>
+            {{ 'تاريخ عريق · مدن نابضة · مستقبل متجدد'|tr }}
+        </span>
+
+        <a
+            href="#homeHistory"
+            aria-label="{{ 'انتقل إلى تاريخ المملكة'|tr }}"
+            class="scroll-cue">
+            <span></span>
+        </a>
+    </div>
+
+    <span class="hero-index" aria-hidden="true">01 / 06</span>
+
+</section>
+{# يبدأ محتوى الصفحة بتاريخ المملكة قبل عرض بطاقات المدن #}
+<section class="home-history-section section-pad" id="homeHistory">
     <div class="container">
-        <div class="intro-grid">
-            <div class="intro-heading">
-                <span class="section-kicker">{{ 'أكثر من مجرد وجهة'|tr }}</span>
-                <h2>{{ 'هنا تتلاقى'|tr }}<br><span class="text-accent">{{ 'الحضارات'|tr }}</span> {{ 'والقصص'|tr }}</h2>
+        <div class="home-history-heading">
+            <div class="home-history-heading-copy">
+                <span class="section-kicker">{{ 'جذور راسخة ومستقبل طموح'|tr }}</span>
+                <h2>{{ 'حكاية المملكة'|tr }}<br><span class="text-accent">{{ 'من التأسيس إلى الرؤية'|tr }}</span></h2>
+                <p>{{ 'قبل أن نكتشف مدن الوطن، نبدأ من حكايته؛ ثلاث مراحل للدولة السعودية، ثم التوحيد، ومسيرة قيادة وبناء تتواصل حتى رؤية السعودية 2030.'|tr }}</p>
             </div>
-            <div class="intro-copy">
-                <p>{{ 'المملكة العربية السعودية موطن لتنوع جغرافي وثقافي واسع؛ فيها الواحات والجبال والصحارى والسواحل، ومدن تحمل طبقات من التاريخ. يأخذك مشروع «حكاية وطن» في جولة للتعرف على أبرز المدن والمعالم ومحطات التاريخ، مع نافذة معرفية لقصص وردت في القرآن الكريم.'|tr }}</p>
-                <a class="text-link" href="{% url 'kingdom:about' %}">{{ 'تعرف على المشروع'|tr }} <span aria-hidden="true">←</span></a>
-                <a class="text-link history-home-link" href="{% url 'kingdom:history' %}">{{ 'اكتشف تاريخ المملكة'|tr }} <span aria-hidden="true">←</span></a>
+            <div class="home-history-heading-side">
+                <span class="home-history-years">1727 <i></i> 2030</span>
+                <a class="btn btn-gold" href="{% url 'kingdom:history' %}">{{ 'اكتشف تاريخ المملكة كاملًا'|tr }} <span aria-hidden="true">←</span></a>
             </div>
         </div>
-        <div class="stats-strip">
-            <div class="stat-item"><strong>06</strong><span>{{ 'مدن سعودية'|tr }}</span></div>
-            <div class="stat-item"><strong>{{ stories|length|stringformat:"02d" }}</strong><span>{{ 'قصص قرآنية'|tr }}</span></div>
-            <div class="stat-item"><strong>01</strong><span>{{ 'وطن يجمعنا'|tr }}</span></div>
-            <div class="stat-note">{{ 'كل مدينة فصلٌ مختلف من حكاية واحدة.'|tr }}</div>
+
+        <div class="home-history-grid">
+            {% for chapter in history_chapters %}
+            <a class="history-chapter-card home-history-card" href="{% url 'kingdom:history_detail' chapter.slug %}">
+                <div class="history-chapter-card-image">
+                    <img src="{{ chapter.image }}" alt="{{ chapter.image_alt }}" loading="lazy">
+                    <span>{{ chapter.number }}</span>
+                    <b class="home-history-card-arrow" aria-hidden="true">↗</b>
+                </div>
+                <div class="history-chapter-card-body">
+                    <small>{{ chapter.period }}</small>
+                    <h3>{{ chapter.title }}</h3>
+                    <p>{{ chapter.summary }}</p>
+                    <span class="card-link">{{ 'اقرأ الحكاية'|tr }} <b aria-hidden="true">←</b></span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+
+        <div class="home-history-footnote">
+            <div class="home-history-footnote-mark" aria-hidden="true">✦</div>
+            <p>{{ 'تاريخٌ نفخر به، وهويةٌ نعتز بها، ومستقبلٌ نصنعه معًا.'|tr }}</p>
+            <a href="{% url 'kingdom:history' %}">{{ 'تصفّح الخط الزمني'|tr }} <span aria-hidden="true">←</span></a>
         </div>
     </div>
 </section>
@@ -48,9 +111,9 @@
     <div class="container">
         <div class="section-heading section-heading-large">
             <div>
-                <span class="section-kicker">{{ 'وجهات تستحق الاكتشاف'|tr }}</span>
-                <h2>{{ 'مدن من قلب المملكة'|tr }}</h2>
-                <p class="section-subtitle">{{ 'اختر مدينة وابدأ بالتعرّف على معالمها وتاريخها وأبرز تجاربها.'|tr }}</p>
+                <span class="section-kicker">{{ 'بعد أن تعرفنا على تاريخ الوطن'|tr }}</span>
+                <h2>{{ 'ننتقل إلى مدن المملكة'|tr }}</h2>
+                <p class="section-subtitle">{{ 'لكل مدينة طابعها وحكايتها ومعالمها؛ اختر وجهتك واكتشف تفاصيلها.'|tr }}</p>
             </div>
             <span class="heading-note">{{ '06 وجهات مختارة'|tr }} <i></i></span>
         </div>
@@ -87,32 +150,23 @@
     </div>
 </section>
 
-<section class="history-teaser section-pad">
-    <div class="container history-teaser-grid">
-        <div class="history-teaser-copy">
-            <span class="section-kicker">{{ 'من الدرعية بدأت الحكاية'|tr }}</span>
-            <h2>{{ 'ثلاثة قرون من'|tr }}<br><span class="text-accent">{{ 'العزّ والبناء'|tr }}</span></h2>
-            <p>{{ 'من الدولة السعودية الأولى إلى توحيد المملكة، ثم مسيرة البناء والتنمية؛ تعرّف على المحطات التي صنعت تاريخ وطننا.'|tr }}</p>
-            <a class="btn btn-gold" href="{% url 'kingdom:history' %}">{{ 'رحلة في تاريخ المملكة'|tr }} <span aria-hidden="true">←</span></a>
+<section class="intro-section section-pad" id="intro">
+    <div class="container">
+        <div class="intro-grid">
+            <div class="intro-heading">
+                <span class="section-kicker">{{ 'أكثر من مجرد وجهة'|tr }}</span>
+                <h2>{{ 'هنا تتلاقى'|tr }}<br><span class="text-accent">{{ 'الحضارات'|tr }}</span> {{ 'والتاريخ'|tr }}</h2>
+            </div>
+            <div class="intro-copy">
+                <p>{{ 'المملكة العربية السعودية موطن لتنوع جغرافي وثقافي واسع؛ فيها الواحات والجبال والصحارى والسواحل، ومدن تحمل طبقات من التاريخ. يأخذك مشروع «حكاية وطن» في جولة للتعرف على أبرز المدن والمعالم ومحطات تاريخ المملكة ومراحل تأسيسها وتطورها.'|tr }}</p>
+                <a class="text-link" href="{% url 'kingdom:about' %}">{{ 'تعرف على المشروع'|tr }} <span aria-hidden="true">←</span></a>
+            </div>
         </div>
-        <a class="history-teaser-image" href="{% url 'kingdom:history' %}" aria-label="{{ 'اكتشف تاريخ المملكة العربية السعودية'|tr }}">
-            <img src="https://commons.wikimedia.org/wiki/Special:FilePath/At-Turaif_District.jpg?width=1400" alt="{{ 'حي الطريف التاريخي في الدرعية'|tr }}" loading="lazy">
-            <span>{{ 'الدرعية · مهد الدولة السعودية'|tr }}</span>
-        </a>
-    </div>
-</section>
-
-<section class="story-banner">
-    <div class="container story-banner-inner">
-        <div class="story-banner-copy">
-            <span class="section-kicker">{{ 'آياتٌ وعِبر'|tr }}</span>
-            <h2>{{ 'قصص تحمل في طياتها'|tr }}<br>{{ 'معاني الإيمان والصبر'|tr }}</h2>
-            <p>{{ 'اقرأ مختارات موجزة من القصص القرآني، مع الإشارة إلى الآيات والتنبيه إلى ما هو ثابت وما هو محل اختلاف تاريخي.'|tr }}</p>
-            <a class="btn btn-gold" href="{% url 'kingdom:stories' %}">{{ 'اكتشف القصص'|tr }} <span aria-hidden="true">←</span></a>
-        </div>
-        <div class="story-banner-art" aria-hidden="true">
-            <span class="art-ring art-ring-one"></span><span class="art-ring art-ring-two"></span>
-            <span class="art-star">✦</span><span class="art-arabic">{{ 'حكايات'|tr }}<br>{{ 'وعِبر'|tr }}</span>
+        <div class="stats-strip">
+            <div class="stat-item"><strong>06</strong><span>{{ 'مدن سعودية'|tr }}</span></div>
+            <div class="stat-item"><strong>{{ history_chapters|length|stringformat:"02d" }}</strong><span>{{ 'فصول تاريخية'|tr }}</span></div>
+            <div class="stat-item"><strong>01</strong><span>{{ 'وطن يجمعنا'|tr }}</span></div>
+            <div class="stat-note">{{ 'كل مدينة فصلٌ مختلف من حكاية واحدة.'|tr }}</div>
         </div>
     </div>
 </section>
