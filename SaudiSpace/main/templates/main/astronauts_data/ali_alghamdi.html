@@ -1,0 +1,229 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Ali Alghamdi | Saudi Space{% endblock %}
+
+{% block content %}
+
+<section class="rayyanah-hero"
+    style="background-image: linear-gradient(90deg, rgba(5,12,24,.96), rgba(5,12,24,.65) 55%, rgba(5,12,24,.15)), url('{% static 'main/images/ali-alghamdi.jpg' %}');">
+
+    <div class="rayyanah-hero-overlay"></div>
+
+    <div class="container rayyanah-hero-content">
+
+        <a href="{% url 'astronauts' %}" class="rayyanah-back">
+            ← BACK TO ASTRONAUTS
+        </a>
+
+        <span class="rayyanah-label">SAUDI SPACE PIONEER · 03</span>
+
+        <h1>ALI<br><span>ALGHAMDI.</span></h1>
+
+        <p>
+            A Saudi astronaut and experienced aviation
+            specialist selected as a backup crew member
+            for the Ax-2 mission.
+        </p>
+
+        <div class="rayyanah-hero-meta">
+            <span>AVIATION SPECIALIST</span>
+            <span>AX-2 BACKUP CREW</span>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-about container">
+
+    <div class="rayyanah-section-label">01 — HIS STORY</div>
+
+    <div class="rayyanah-about-grid">
+
+        <div class="rayyanah-about-heading">
+            <span class="rayyanah-label">A PASSION FOR FLIGHT</span>
+            <h2>PREPARING<br>FOR <span>SPACE.</span></h2>
+        </div>
+
+        <div class="rayyanah-biography">
+
+            <p>
+                Ali Alghamdi is a Saudi astronaut and pilot
+                whose passion for aviation inspired him to
+                pursue the field of human spaceflight.
+                He joined the Saudi National Astronaut Program
+                in 2022.
+            </p>
+
+            <p>
+                Alghamdi has more than 11 years of experience
+                in jet aviation. During his aviation career,
+                he participated in numerous airshows and
+                gained extensive experience in flying and
+                leading aircraft operations.
+            </p>
+
+            <p>
+                He completed the astronaut training program,
+                qualifying him to participate in future
+                human spaceflight missions. He was also
+                selected as a backup crew member for
+                Axiom Mission 2.
+            </p>
+
+            <p>
+                Growing up in Baljurashi, Saudi Arabia,
+                Alghamdi developed a strong passion for
+                flying. He hopes to encourage more young
+                Saudis to explore science, aviation, and
+                the possibilities of space exploration.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-achievement">
+
+    <div class="container rayyanah-achievement-grid">
+
+        <div class="rayyanah-achievement-content">
+
+            <span class="rayyanah-label">02 — ASTRONAUT TRAINING</span>
+
+            <h2>READY FOR<br><span>THE FUTURE.</span></h2>
+
+            <p>
+                As a member of the Ax-2 backup crew,
+                Ali Alghamdi completed astronaut training
+                and prepared for the requirements of human
+                spaceflight. His training qualifies him
+                for future space missions.
+            </p>
+
+            <a href="{% url 'missions' %}" class="saudi-btn">
+                EXPLORE THE AX-2 MISSION <span>↗</span>
+            </a>
+
+        </div>
+
+        <div class="rayyanah-achievement-facts">
+
+            <div class="rayyanah-fact">
+                <strong>2022</strong>
+                <span>JOINED THE SAUDI NATIONAL ASTRONAUT PROGRAM</span>
+            </div>
+
+            <div class="rayyanah-fact">
+                <strong>11+</strong>
+                <span>YEARS OF JET AVIATION EXPERIENCE</span>
+            </div>
+
+            <div class="rayyanah-fact">
+                <strong>AX-2</strong>
+                <span>BACKUP CREW MEMBER</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-education container">
+
+    <div class="rayyanah-section-label">03 — ACADEMIC BACKGROUND</div>
+
+    <h2>EDUCATION & <span>EXPERTISE.</span></h2>
+
+    <div class="rayyanah-education-grid">
+
+        <article class="rayyanah-education-card">
+            <span>BACHELOR'S DEGREE</span>
+            <h3>Aeronautical Sciences</h3>
+            <p>
+                King Faisal Air Academy
+                <br>
+                Riyadh, Saudi Arabia
+            </p>
+            <small>Academic qualification</small>
+        </article>
+
+        <article class="rayyanah-education-card">
+            <span>PROFESSIONAL EXPERIENCE</span>
+            <h3>Captain Pilot</h3>
+            <p>
+                Jet aviation
+                <br>
+                Royal Saudi Air Force
+            </p>
+            <small>More than 11 years of experience</small>
+        </article>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-fast-facts">
+
+    <div class="container">
+
+        <div class="rayyanah-section-label">04 — QUICK PROFILE</div>
+
+        <h2>FAST <span>FACTS.</span></h2>
+
+        <div class="rayyanah-facts-list">
+
+            <div class="rayyanah-fact-row">
+                <span>01</span>
+                <p>Saudi astronaut and pilot.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>02</span>
+                <p>Member of the Ax-2 backup crew.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>03</span>
+                <p>Completed astronaut training programs.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>04</span>
+                <p>More than 11 years of experience in jet aviation.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>05</span>
+                <p>Holds a bachelor's degree in aeronautical sciences from King Faisal Air Academy.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>06</span>
+                <p>Born and raised in Baljurashi, Saudi Arabia.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-bottom container">
+
+    <span class="rayyanah-label">SAUDI SPACE PROGRAM</span>
+
+    <h2>HIS JOURNEY.<br><span>OUR INSPIRATION.</span></h2>
+
+    <a href="{% url 'astronauts' %}" class="saudi-btn">
+        MEET OTHER ASTRONAUTS <span>↗</span>
+    </a>
+
+</section>
+
+{% endblock %}

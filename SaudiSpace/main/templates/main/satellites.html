@@ -1,0 +1,349 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Satellites | Saudi Space{% endblock %}
+
+{% block content %}
+
+<main class="satellites-page">
+
+    <!-- HERO SECTION -->
+    <section class="sat-hero">
+
+        <div class="sat-hero-content">
+
+            <span class="sat-eyebrow">
+                SAUDI SPACE PROGRAM
+            </span>
+
+            <h1>
+                BEYOND<br>
+                <span>THE EARTH.</span>
+            </h1>
+
+            <p>
+                Discover Saudi Arabia's journey in satellite technology,
+                from the first satellites to advanced space missions.
+            </p>
+
+            <a href="#sat-collection" class="sat-button">
+                EXPLORE SATELLITES
+                <span>↘</span>
+            </a>
+
+        </div>
+
+        <div class="sat-hero-image">
+            <img src="{% static 'main/images/satellites-hero.jpg' %}"
+                 alt="Satellite orbiting Earth">
+        </div>
+
+        <div class="sat-hero-overlay"></div>
+
+        <div class="sat-hero-number">
+            <span>SPACE TECHNOLOGY</span>
+            <strong>01 / 04</strong>
+        </div>
+
+    </section>
+
+
+    <!-- INTRO SECTION -->
+    <section class="sat-intro">
+
+        <div class="sat-section-label">
+            01 — INTRODUCTION
+        </div>
+
+        <div class="sat-intro-content">
+
+            <h2>
+                CONNECTING<br>
+                <span>SAUDI ARABIA</span><br>
+                TO SPACE.
+            </h2>
+
+            <div class="sat-intro-text">
+
+                <p>
+                    Saudi Arabia has made significant progress in satellite
+                    technology through the development and launch of satellites
+                    designed for communication, Earth observation, and scientific research.
+                </p>
+
+                <p>
+                    These achievements reflect the Kingdom's commitment to
+                    developing advanced technologies and building national
+                    expertise in the space industry.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SATELLITES COLLECTION -->
+    <section class="sat-collection" id="sat-collection">
+
+        <div class="sat-collection-heading">
+
+            <div>
+                <div class="sat-section-label">
+                    02 — SATELLITE COLLECTION
+                </div>
+
+                <h2>
+                    OUR SPACE<br>
+                    <span>ACHIEVEMENTS.</span>
+                </h2>
+            </div>
+
+            <p>
+                Explore some of the satellites that represent
+                important milestones in Saudi Arabia's space journey.
+            </p>
+
+        </div>
+
+
+        <div class="sat-grid">
+
+            {% for satellite in satellites %}
+
+            <a href="{% url 'satellite_detail' satellite.id %}"
+               class="sat-card-link">
+
+                <article class="sat-card">
+
+                    <div class="sat-card-image">
+
+                        <img src="{% static satellite.image %}"
+                             alt="{{ satellite.name }}">
+
+                        <span class="sat-card-year">
+                            {{ satellite.year }}
+                        </span>
+
+                    </div>
+
+                    <div class="sat-card-info">
+
+                        <span class="sat-card-category">
+                            {{ satellite.category }}
+                        </span>
+
+                        <h3>
+                            {{ satellite.name }}
+                        </h3>
+
+                        <p>
+                            {{ satellite.short_description }}
+                        </p>
+
+                        <div class="sat-card-meta">
+
+                            <span>LAUNCH YEAR</span>
+
+                            <strong>
+                                {{ satellite.year }}
+                            </strong>
+
+                        </div>
+
+                        <div class="sat-card-action">
+
+                            EXPLORE SATELLITE
+
+                            <span>↗</span>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </a>
+
+            {% empty %}
+
+            <div class="sat-empty">
+                <h3>No satellites available</h3>
+                <p>Please check the satellite data file.</p>
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <!-- TIMELINE SECTION -->
+    <section class="sat-timeline">
+
+        <div class="sat-section-label">
+            03 — OUR JOURNEY
+        </div>
+
+        <h2>
+            A JOURNEY<br>
+            <span>THROUGH TIME.</span>
+        </h2>
+
+        <div class="sat-timeline-list">
+
+            <div class="sat-timeline-item">
+
+                <div class="sat-timeline-year">
+                    2000
+                </div>
+
+                <div class="sat-timeline-content">
+
+                    <span>THE BEGINNING</span>
+
+                    <h3>SaudiSat 1A / 1B</h3>
+
+                    <p>
+                        Saudi Arabia launched its first satellites,
+                        marking the beginning of its journey in space technology.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="sat-timeline-item">
+
+                <div class="sat-timeline-year">
+                    2018
+                </div>
+
+                <div class="sat-timeline-content">
+
+                    <span>EARTH OBSERVATION</span>
+
+                    <h3>SaudiSat 5A / 5B</h3>
+
+                    <p>
+                        Two satellites were launched to support Earth
+                        observation and imaging capabilities.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="sat-timeline-item">
+
+                <div class="sat-timeline-year">
+                    2019
+                </div>
+
+                <div class="sat-timeline-content">
+
+                    <span>COMMUNICATION</span>
+
+                    <h3>SaudiGeoSat 1</h3>
+
+                    <p>
+                        The Kingdom launched its first dedicated
+                        communications satellite.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="sat-timeline-item">
+
+                <div class="sat-timeline-year">
+                    2021
+                </div>
+
+                <div class="sat-timeline-content">
+
+                    <span>ADVANCED TECHNOLOGY</span>
+
+                    <h3>Shaheen Sat</h3>
+
+                    <p>
+                        A satellite designed for Earth imaging
+                        and maritime vessel tracking.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="sat-timeline-item">
+
+                <div class="sat-timeline-year">
+                    2023
+                </div>
+
+                <div class="sat-timeline-content">
+
+                    <span>SCIENTIFIC RESEARCH</span>
+
+                    <h3>6U CubeSat</h3>
+
+                    <p>
+                        A small satellite supporting environmental
+                        research and data collection.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FUTURE SECTION -->
+    <section class="sat-future">
+
+        <div class="sat-future-content">
+
+            <span class="sat-eyebrow">
+                THE FUTURE OF SPACE
+            </span>
+
+            <h2>
+                THE JOURNEY<br>
+                <span>CONTINUES.</span>
+            </h2>
+
+            <p>
+                Saudi Arabia continues to invest in space science,
+
+            </p>
+
+            <a href="{% url 'future' %}" class="sat-button">
+                DISCOVER THE FUTURE
+                <span>↗</span>
+            </a>
+
+        </div>
+
+        <div class="sat-future-image">
+
+            <img src="{% static 'main/images/saudi-from-space.jpg' %}"
+                 alt="Earth from space">
+
+        </div>
+
+    </section>
+
+</main>
+<script src="{% static 'main/js/satellites.js' %}" defer></script>
+{% endblock %}

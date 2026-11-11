@@ -1,0 +1,423 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ planet.name }} | Saudi Space{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'main/css/astronomy.css' %}">
+
+<div class="planet-cinematic">
+
+    <!-- HERO -->
+    <section class="pc-hero">
+
+        <div class="pc-stars"></div>
+
+        <div class="pc-hero-content">
+
+            <a href="{% url 'astronomy' %}" class="pc-back">
+                ← BACK TO ASTRONOMY
+            </a>
+
+            <span class="pc-eyebrow">
+                SOLAR SYSTEM / PLANET 0{{ planet.order }}
+            </span>
+
+            <h1>{{ planet.name }}</h1>
+
+            <p class="pc-type">{{ planet.type }}</p>
+
+            <p class="pc-intro">
+                {{ planet.temperature.description }}
+            </p>
+
+            <a href="#planet-overview" class="pc-explore">
+                EXPLORE PLANET
+                <span>↓</span>
+            </a>
+
+            <div class="pc-hero-stats">
+
+                <div>
+                    <span>TEMPERATURE</span>
+                    <strong>{{ planet.temperature.average_celsius }}°C</strong>
+                </div>
+
+                <div>
+                    <span>DISTANCE FROM SUN</span>
+                    <strong>{{ planet.orbit.distance_from_sun_million_km }}M KM</strong>
+                </div>
+
+                <div>
+                    <span>MOONS</span>
+                    <strong>{{ planet.moons.count }}</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="pc-planet-visual">
+
+            <div class="pc-planet-orbit"></div>
+
+            <div class="pc-planet-glow"></div>
+
+            <img
+                src="{% static planet.image %}"
+                alt="{{ planet.name }}"
+            >
+
+        </div>
+
+        <div class="pc-hero-number">
+            0{{ planet.order }}
+        </div>
+
+    </section>
+
+
+    <!-- OVERVIEW -->
+    <section class="pc-section pc-overview" id="planet-overview">
+
+        <div class="pc-section-header">
+            <span>01 / OVERVIEW</span>
+            <h2>Discover {{ planet.name }}</h2>
+            <p>
+                A closer look at the physical characteristics
+                of this fascinating world.
+            </p>
+        </div>
+
+        <div class="pc-stat-grid">
+
+            <div class="pc-stat">
+                <span>DIAMETER</span>
+                <strong>
+                    {{ planet.physical_properties.diameter_km|floatformat:0 }}
+                </strong>
+                <small>KILOMETERS</small>
+            </div>
+
+            <div class="pc-stat">
+                <span>MASS</span>
+                <strong>{{ planet.physical_properties.mass_kg }}</strong>
+                <small>KILOGRAMS</small>
+            </div>
+
+            <div class="pc-stat">
+                <span>GRAVITY</span>
+                <strong>{{ planet.physical_properties.gravity_m_s2 }}</strong>
+                <small>M/S²</small>
+            </div>
+
+            <div class="pc-stat">
+                <span>DENSITY</span>
+                <strong>{{ planet.physical_properties.density_kg_m3 }}</strong>
+                <small>KG/M³</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SURFACE -->
+    <section class="pc-surface">
+
+        <div class="pc-surface-image"
+             style="background-image: linear-gradient(90deg, rgba(5,10,18,.95), rgba(5,10,18,.15)), url('{% static planet.image %}');">
+        </div>
+
+        <div class="pc-surface-content">
+
+            <span>02 / PLANET ENVIRONMENT</span>
+
+            <h2>A World<br>Beyond Earth.</h2>
+
+            <div class="pc-surface-info">
+
+                <div>
+                    <span>AVERAGE TEMPERATURE</span>
+                    <strong>{{ planet.temperature.average_celsius }}°C</strong>
+                </div>
+
+                <div>
+                    <span>SURFACE</span>
+                    <p>{{ planet.surface }}</p>
+                </div>
+
+                <div>
+                    <span>WATER</span>
+                    <p>{{ planet.water }}</p>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ATMOSPHERE -->
+    <section class="pc-section">
+
+        <div class="pc-section-header">
+            <span>03 / ATMOSPHERE</span>
+            <h2>Inside the Atmosphere</h2>
+            <p>
+                Discover the gases and atmospheric conditions
+                surrounding {{ planet.name }}.
+            </p>
+        </div>
+
+        <div class="pc-atmosphere">
+
+            <div class="pc-atmosphere-main">
+                <span>ATMOSPHERE TYPE</span>
+                <h3>{{ planet.atmosphere.type }}</h3>
+
+                <div class="pc-pressure">
+                    <span>SURFACE PRESSURE</span>
+                    <strong>{{ planet.atmosphere.surface_pressure_bars }} bars</strong>
+                </div>
+            </div>
+
+            <div class="pc-gases">
+
+                <span>MAIN ATMOSPHERIC GASES</span>
+
+                {% for gas in planet.atmosphere.main_gases %}
+
+                    <div class="pc-gas">
+                        <span>{{ gas }}</span>
+                        <span>✦</span>
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ORBIT -->
+    <section class="pc-orbit-section">
+
+        <div class="pc-section-header">
+            <span>04 / ORBIT & ROTATION</span>
+            <h2>Moving Through Space</h2>
+            <p>
+                Explore how {{ planet.name }} travels through
+                its orbit around the Sun.
+            </p>
+        </div>
+
+        <div class="pc-orbit-visual">
+
+            <div class="pc-sun">
+                <span>SUN</span>
+            </div>
+
+            <div class="pc-orbit-path">
+                <div class="pc-orbit-planet"></div>
+            </div>
+
+        </div>
+
+        <div class="pc-orbit-stats">
+
+            <div>
+                <span>ORBITAL PERIOD</span>
+                <strong>{{ planet.orbit.orbital_period_days }}</strong>
+                <small>DAYS</small>
+            </div>
+
+            <div>
+                <span>DAY LENGTH</span>
+                <strong>{{ planet.orbit.day_length_hours }}</strong>
+                <small>HOURS</small>
+            </div>
+
+            <div>
+                <span>ORBITAL SPEED</span>
+                <strong>{{ planet.orbit.orbital_speed_km_s }}</strong>
+                <small>KM/S</small>
+            </div>
+
+            <div>
+                <span>ESCAPE VELOCITY</span>
+                <strong>{{ planet.physical_properties.escape_velocity_km_s }}</strong>
+                <small>KM/S</small>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- HABITABILITY -->
+    <section class="pc-section pc-habitability">
+
+        <div class="pc-section-header">
+            <span>05 / HABITABILITY</span>
+            <h2>Could Life Exist Here?</h2>
+            <p>
+                Scientists investigate different conditions
+                to understand the possibility of life beyond Earth.
+            </p>
+        </div>
+
+        <div class="pc-life-grid">
+
+            <div class="pc-life-item">
+                <span>KNOWN LIFE</span>
+                <strong>
+                    {% if planet.habitability.known_life %}
+                        YES
+                    {% else %}
+                        NOT FOUND
+                    {% endif %}
+                </strong>
+            </div>
+
+            <div class="pc-life-item">
+                <span>HUMAN HABITABILITY</span>
+                <strong>{{ planet.habitability.human_habitability }}</strong>
+            </div>
+
+            <div class="pc-life-item">
+                <span>LIQUID WATER</span>
+                <strong>{{ planet.habitability.liquid_water }}</strong>
+            </div>
+
+        </div>
+
+        <div class="pc-life-assessment">
+            {{ planet.habitability.assessment }}
+        </div>
+
+    </section>
+
+
+    <!-- MOONS -->
+    <section class="pc-section pc-moons">
+
+        <div class="pc-section-header">
+            <span>06 / NATURAL SATELLITES</span>
+            <h2>Moons & Rings</h2>
+        </div>
+
+        <div class="pc-moon-number">
+            <strong>{{ planet.moons.count }}</strong>
+            <span>KNOWN MOONS</span>
+        </div>
+
+        {% if planet.moons.names %}
+
+            <div class="pc-moon-list">
+
+                {% for moon in planet.moons.names %}
+                    <div class="pc-moon">
+                        <span>✦</span>
+                        {{ moon }}
+                    </div>
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+        <div class="pc-moon-extra">
+
+            <div>
+                <span>RINGS</span>
+                <strong>{{ planet.rings }}</strong>
+            </div>
+
+            <div>
+                <span>MAGNETIC FIELD</span>
+                <strong>{{ planet.magnetic_field }}</strong>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FACTS -->
+    <section class="pc-section pc-facts">
+
+        <div class="pc-section-header">
+            <span>07 / DID YOU KNOW?</span>
+            <h2>Fascinating Facts</h2>
+        </div>
+
+        <div class="pc-facts-list">
+
+            {% for fact in planet.interesting_facts %}
+
+                <div class="pc-fact">
+                    <span>✦</span>
+                    <p>{{ fact }}</p>
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <!-- MISSIONS -->
+    <section class="pc-section pc-missions">
+
+        <div class="pc-section-header">
+            <span>08 / SPACE EXPLORATION</span>
+            <h2>Exploring {{ planet.name }}</h2>
+        </div>
+
+        <div class="pc-first-mission">
+            <span>FIRST SPACECRAFT VISIT</span>
+            <strong>
+                {{ planet.exploration.first_spacecraft_visit }}
+            </strong>
+        </div>
+
+        <div class="pc-mission-list">
+
+            {% for mission in planet.exploration.missions %}
+
+                <div class="pc-mission">
+                    <span>↗</span>
+                    <p>{{ mission }}</p>
+                </div>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+    <section class="pc-final">
+
+        <span>THE UNIVERSE IS WAITING</span>
+
+        <h2>Keep Looking<br>Beyond.</h2>
+
+        <a href="{% url 'astronomy' %}">
+            EXPLORE THE SOLAR SYSTEM →
+        </a>
+
+    </section>
+
+</div>
+
+<script src="{% static 'main/js/planet-detail.js' %}"></script>
+
+{% endblock %}

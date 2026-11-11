@@ -1,0 +1,385 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Future | Saudi Space{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'main/css/style.css' %}">
+
+<main class="future-page">
+
+    <!-- HERO -->
+    <section class="future-hero">
+
+        <video class="future-hero-video" autoplay muted loop playsinline poster="{% static 'main/images/future-hero.jpg' %}">
+            <source src="{% static 'main/videos/future-space.mp4' %}" type="video/mp4">
+        </video>
+
+        <div class="future-hero-overlay"></div>
+        <div class="future-stars"></div>
+
+        <div class="future-hero-content">
+            <span class="future-eyebrow">SAUDI SPACE AGENCY · BEYOND TODAY</span>
+
+            <h1>
+                THE NEXT<br>
+                <span>FRONTIER.</span>
+            </h1>
+
+            <p>
+                Exploring new horizons, advancing space technology,
+                and preparing Saudi capabilities for the future of exploration.
+            </p>
+
+            <a href="#future-programs" class="future-primary-btn">
+                EXPLORE THE FUTURE
+                <span>↗</span>
+            </a>
+        </div>
+
+        <div class="future-scroll">
+            <span></span>
+            SCROLL TO EXPLORE
+        </div>
+
+        <div class="future-hero-index">
+            <span>01</span> / 05
+        </div>
+
+    </section>
+
+
+    <!-- VISION -->
+    <section class="future-vision future-section">
+
+        <div class="future-container future-vision-grid">
+
+            <div class="future-vision-image future-reveal">
+                <img src="{% static 'main/images/future-earth.jpg' %}" alt="Earth viewed from space">
+                <div class="future-image-label">
+                    <span>OUR PERSPECTIVE</span>
+                    <strong>BEYOND EARTH</strong>
+                </div>
+            </div>
+
+            <div class="future-vision-content future-reveal">
+                <span class="future-section-label">01 / OUR VISION</span>
+
+                <h2>
+                    A VISION<br>
+                    WITHOUT <span>LIMITS.</span>
+                </h2>
+
+                <p class="future-vision-quote">
+                    "Be the engine of growth for Saudi Arabia and the World
+                    through innovation and space exploration."
+                </p>
+
+                <p class="future-description">
+                    The Saudi Space Agency works to advance the Kingdom's
+                    space sector through innovation, exploration,
+                    international collaboration, and the development
+                    of national capabilities.
+                </p>
+
+                <a href="https://ssa.gov.sa/en/informativeContentPage?path=%2Fabout-ssa%2F"
+                   target="_blank" rel="noopener noreferrer"
+                   class="future-text-link">
+                    DISCOVER OUR VISION <span>↗</span>
+                </a>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ANNOUNCED PROGRAMS -->
+    <section class="future-programs future-section" id="future-programs">
+
+        <div class="future-container">
+
+            <div class="future-heading future-reveal">
+                <div>
+                    <span class="future-section-label">02 / ANNOUNCED PROGRAM DIRECTIONS</span>
+                    <h2>THE JOURNEY <span>AHEAD.</span></h2>
+                </div>
+
+                <p>
+                    Officially stated programs and exploration objectives
+                    of the Saudi Space Agency.
+                </p>
+            </div>
+
+
+            <div class="future-program-grid">
+
+                <!-- HUMAN SPACEFLIGHT -->
+                <article class="future-program-card future-reveal">
+
+                    <div class="future-card-image">
+                        <img src="{% static 'main/images/future-astronaut.jpg' %}"
+                             alt="Astronaut in space">
+
+                        <span class="future-card-number">01</span>
+                        <span class="future-card-tag">ANNOUNCED PROGRAM</span>
+                    </div>
+
+                    <div class="future-card-content">
+                        <span class="future-card-category">HUMAN EXPLORATION</span>
+
+                        <h3>Human Spaceflight Program</h3>
+
+                        <p>
+                            Preparing Saudi astronauts for future short-duration
+                            and long-duration space missions, conducting scientific
+                            research, and contributing to international space exploration.
+                        </p>
+
+                        <div class="future-card-footer">
+                            <span>SHORT & LONG-STAY MISSIONS</span>
+                            <span>01</span>
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <!-- MOON -->
+                <article class="future-program-card future-reveal">
+
+                    <div class="future-card-image">
+                        <img src="{% static 'main/images/future-moon.jpg' %}"
+                             alt="The Moon">
+
+                        <span class="future-card-number">02</span>
+                        <span class="future-card-tag">EXPLORATION OBJECTIVE</span>
+                    </div>
+
+                    <div class="future-card-content">
+                        <span class="future-card-category">LUNAR EXPLORATION</span>
+
+                        <h3>Future Moon Exploration</h3>
+
+                        <p>
+                            Developing scientific research and advanced technologies
+                            that support the capabilities required for future
+                            exploration missions to the Moon.
+                        </p>
+
+                        <div class="future-card-footer">
+                            <span>RESEARCH & TECHNOLOGY DEVELOPMENT</span>
+                            <span>02</span>
+                        </div>
+                    </div>
+
+                </article>
+
+
+                <!-- MARS -->
+                <article class="future-program-card future-reveal">
+
+                    <div class="future-card-image">
+                        <img src="{% static 'main/images/future-mars.jpg' %}"
+                             alt="Planet Mars">
+
+                        <span class="future-card-number">03</span>
+                        <span class="future-card-tag">EXPLORATION OBJECTIVE</span>
+                    </div>
+
+                    <div class="future-card-content">
+                        <span class="future-card-category">DEEP SPACE EXPLORATION</span>
+
+                        <h3>Future Mars Exploration</h3>
+
+                        <p>
+                            Advancing scientific knowledge, biotechnology,
+                            human health research, and space technologies
+                            that may support future Mars exploration.
+                        </p>
+
+                        <div class="future-card-footer">
+                            <span>LONG-TERM EXPLORATION OBJECTIVE</span>
+                            <span>03</span>
+                        </div>
+                    </div>
+
+                </article>
+
+            </div>
+
+            <p class="future-disclaimer">
+                Moon and Mars are stated future exploration objectives.
+                The Agency's cited program page does not specify launch dates
+                or confirmed Saudi missions to either destination.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- TECHNOLOGY -->
+    <section class="future-technology future-section">
+
+        <div class="future-tech-background"></div>
+
+        <div class="future-container future-tech-grid">
+
+            <div class="future-tech-content future-reveal">
+                <span class="future-section-label">03 / BUILDING THE FUTURE</span>
+
+                <h2>
+                    TECHNOLOGY<br>
+                    THAT TAKES US <span>FURTHER.</span>
+                </h2>
+
+                <p>
+                    The Agency's Space Exploration and Science Sector
+                    develops advanced space technologies and scientific
+                    payloads, and plans scientific unmanned missions.
+                </p>
+
+                <a href="https://ssa.gov.sa/en/contentTemplate?path=%2Forganizationalstructure%2F"
+                   target="_blank" rel="noopener noreferrer"
+                   class="future-text-link">
+                    EXPLORE THE AGENCY'S SECTORS <span>↗</span>
+                </a>
+            </div>
+
+            <div class="future-tech-visual future-reveal">
+                <div class="future-tech-orbit orbit-one"></div>
+                <div class="future-tech-orbit orbit-two"></div>
+                <div class="future-tech-planet">
+                    <img src="{% static 'main/images/earth.png' %}" alt="Earth">
+                </div>
+                <div class="future-tech-dot"></div>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SAUDI MILESTONE -->
+    <section class="future-milestone future-section">
+
+        <div class="future-container">
+
+            <div class="future-heading future-reveal">
+                <div>
+                    <span class="future-section-label">04 / A SAUDI SPACE MILESTONE</span>
+                    <h2>OUR JOURNEY <span>IN ORBIT.</span></h2>
+                </div>
+
+                <p>
+                    A completed milestone demonstrating the Kingdom's
+                    participation in international space exploration.
+                </p>
+            </div>
+
+
+            <div class="future-milestone-card future-reveal">
+
+                <div class="future-milestone-image">
+                    <img src="{% static 'main/images/future-shms.jpg' %}"
+                         alt="Saudi SHMS satellite and Artemis II mission">
+                </div>
+
+                <div class="future-milestone-content">
+
+                    <span class="future-card-category">COMPLETED MILESTONE · 2026</span>
+
+                    <h3>SHMS Satellite<br> & Artemis II</h3>
+
+                    <p>
+                        The Saudi Space Agency announced the successful launch
+                        and initial communication with the Saudi satellite SHMS,
+                        deployed aboard NASA's Artemis II mission on April 4, 2026.
+                    </p>
+
+                    <div class="future-milestone-facts">
+                        <div>
+                            <strong>SHMS</strong>
+                            <span>SAUDI SATELLITE</span>
+                        </div>
+
+                        <div>
+                            <strong>2026</strong>
+                            <span>LAUNCH YEAR</span>
+                        </div>
+
+                        <div>
+                            <strong>ARTEMIS II</strong>
+                            <span>MISSION</span>
+                        </div>
+                    </div>
+
+                    <a href="https://www.spa.gov.sa/en/N2552642"
+                       target="_blank" rel="noopener noreferrer"
+                       class="future-text-link">
+                        READ OFFICIAL ANNOUNCEMENT <span>↗</span>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+    <section class="future-ending">
+
+        <div class="future-ending-image"></div>
+        <div class="future-ending-overlay"></div>
+
+        <div class="future-ending-content future-reveal">
+            <span class="future-section-label">THE JOURNEY CONTINUES</span>
+
+            <h2>
+                THE FUTURE<br>
+                IS <span>BEYOND.</span>
+            </h2>
+
+            <p>
+                Every discovery brings us closer to new horizons.
+                The journey of Saudi space exploration continues.
+            </p>
+
+            <a href="{% url 'astronomy' %}" class="future-primary-btn">
+                EXPLORE THE UNIVERSE <span>↗</span>
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- SOURCES -->
+    <section class="future-sources">
+        <div class="future-container">
+            <span>OFFICIAL SOURCES</span>
+
+            <a href="https://ssa.gov.sa/en/informativeContentPage?path=%2Fabout-ssa%2F"
+               target="_blank" rel="noopener noreferrer">Agency Vision</a>
+
+            <a href="https://ssa.gov.sa/en/humanSpaceProgram/"
+               target="_blank" rel="noopener noreferrer">Human Spaceflight Program</a>
+
+            <a href="https://ssa.gov.sa/en/contentTemplate?path=%2Forganizationalstructure%2F"
+               target="_blank" rel="noopener noreferrer">Space Exploration & Science Sector</a>
+
+            <a href="https://www.spa.gov.sa/en/N2552642"
+               target="_blank" rel="noopener noreferrer">SHMS / Artemis II Announcement</a>
+        </div>
+    </section>
+
+</main>
+
+<script src="{% static 'main/js/future.js' %}"></script>
+
+{% endblock %}

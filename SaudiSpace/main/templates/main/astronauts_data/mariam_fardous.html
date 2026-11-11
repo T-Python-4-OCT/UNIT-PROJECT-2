@@ -1,0 +1,255 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Mariam Fardous | Saudi Space{% endblock %}
+
+{% block content %}
+
+<section class="rayyanah-hero"
+    style="background-image: linear-gradient(90deg, rgba(5,12,24,.96), rgba(5,12,24,.65) 55%, rgba(5,12,24,.15)), url('{% static 'main/images/mariam-fardous.jpg' %}');">
+
+    <div class="rayyanah-hero-overlay"></div>
+
+    <div class="container rayyanah-hero-content">
+
+        <a href="{% url 'astronauts' %}" class="rayyanah-back">
+            ← BACK TO ASTRONAUTS
+        </a>
+
+        <span class="rayyanah-label">SAUDI SPACE PIONEER · 04</span>
+
+        <h1>MARIAM<br><span>FARDOUS.</span></h1>
+
+        <p>
+            A Saudi physician and scientist whose passion
+            for medicine, research, and exploration led her
+            to the Saudi National Astronaut Program.
+        </p>
+
+        <div class="rayyanah-hero-meta">
+            <span>PHYSICIAN & RESEARCHER</span>
+            <span>AX-2 BACKUP CREW</span>
+        </div>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-about container">
+
+    <div class="rayyanah-section-label">01 — HER STORY</div>
+
+    <div class="rayyanah-about-grid">
+
+        <div class="rayyanah-about-heading">
+            <span class="rayyanah-label">SCIENCE MEETS EXPLORATION</span>
+            <h2>A LIFE OF<br><span>DISCOVERY.</span></h2>
+        </div>
+
+        <div class="rayyanah-biography">
+
+            <p>
+                Mariam Fardous is a Saudi physician,
+                scientist, and astronaut who joined the
+                Saudi National Astronaut Program in 2022.
+                Her interests in science, exploration,
+                and adventure inspired her to pursue
+                human spaceflight.
+            </p>
+
+            <p>
+                She has more than 13 years of experience
+                in the medical field. Throughout her career,
+                she worked in public health, data analysis,
+                and epidemiology, using reporting tools
+                and performance indicators to support
+                management and strategic planning.
+            </p>
+
+            <p>
+                Fardous completed astronaut training and
+                became qualified to participate in future
+                space missions. She was selected as a
+                backup mission specialist for Axiom
+                Mission 2.
+            </p>
+
+            <p>
+                Raised in Jeddah, Saudi Arabia, she hopes
+                to inspire future generations to pursue
+                their ambitions, explore new possibilities,
+                and contribute to improving quality of life
+                for humanity.
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-achievement">
+
+    <div class="container rayyanah-achievement-grid">
+
+        <div class="rayyanah-achievement-content">
+
+            <span class="rayyanah-label">02 — HER MISSION</span>
+
+            <h2>SCIENCE<br><span>WITHOUT LIMITS.</span></h2>
+
+            <p>
+                As a backup mission specialist for Ax-2,
+                Mariam Fardous completed astronaut training
+                and prepared for the demands of human
+                spaceflight. Her background in medicine
+                and public health reflects the important
+                role of scientific expertise in space exploration.
+            </p>
+
+            <a href="{% url 'missions' %}" class="saudi-btn">
+                EXPLORE THE AX-2 MISSION <span>↗</span>
+            </a>
+
+        </div>
+
+        <div class="rayyanah-achievement-facts">
+
+            <div class="rayyanah-fact">
+                <strong>2022</strong>
+                <span>JOINED THE SAUDI NATIONAL ASTRONAUT PROGRAM</span>
+            </div>
+
+            <div class="rayyanah-fact">
+                <strong>13+</strong>
+                <span>YEARS OF MEDICAL EXPERIENCE</span>
+            </div>
+
+            <div class="rayyanah-fact">
+                <strong>AX-2</strong>
+                <span>BACKUP MISSION SPECIALIST</span>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-education container">
+
+    <div class="rayyanah-section-label">03 — ACADEMIC BACKGROUND</div>
+
+    <h2>EDUCATION & <span>EXPERTISE.</span></h2>
+
+    <div class="rayyanah-education-grid">
+
+        <article class="rayyanah-education-card">
+            <span>MASTER'S DEGREE</span>
+            <h3>Epidemiology & Biostatistics</h3>
+            <p>
+                King Saud bin Abdulaziz University
+                for Health Sciences
+                <br>
+                Riyadh, Saudi Arabia
+            </p>
+            <small>Public health sciences</small>
+        </article>
+
+        <article class="rayyanah-education-card">
+            <span>BACHELOR'S DEGREE</span>
+            <h3>Medicine & Surgery</h3>
+            <p>
+                King Abdulaziz University
+                <br>
+                Jeddah, Saudi Arabia
+            </p>
+            <small>Medical education</small>
+        </article>
+
+        <article class="rayyanah-education-card">
+            <span>PROFESSIONAL DIPLOMA</span>
+            <h3>Business Administration</h3>
+            <p>
+                Missouri State University
+                <br>
+                United States
+            </p>
+            <small>Business administration</small>
+        </article>
+
+        <article class="rayyanah-education-card">
+            <span>PROFESSIONAL EXPERIENCE</span>
+            <h3>Medicine & Public Health</h3>
+            <p>
+                Medical practice
+                <br>
+                Data analysis and epidemiology
+            </p>
+            <small>More than 13 years of experience</small>
+        </article>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-fast-facts">
+
+    <div class="container">
+
+        <div class="rayyanah-section-label">04 — QUICK PROFILE</div>
+
+        <h2>FAST <span>FACTS.</span></h2>
+
+        <div class="rayyanah-facts-list">
+
+            <div class="rayyanah-fact-row">
+                <span>01</span>
+                <p>Saudi physician, scientist, and astronaut.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>02</span>
+                <p>Member of the Ax-2 backup crew.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>03</span>
+                <p>More than 13 years of experience in medicine.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>04</span>
+                <p>Holds a master's degree in Epidemiology and Biostatistics.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>05</span>
+                <p>Holds a bachelor's degree in Medicine and Surgery.</p>
+            </div>
+
+            <div class="rayyanah-fact-row">
+                <span>06</span>
+                <p>Has experience in public health, data analysis, and epidemiology.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="rayyanah-bottom container">
+
+    <span class="rayyanah-label">SAUDI SPACE PROGRAM</span>
+
+    <h2>HER JOURNEY.<br><span>OUR INSPIRATION.</span></h2>
+
+    <a href="{% url 'astronauts' %}" class="saudi-btn">
+        MEET OTHER ASTRONAUTS <span>↗</span>
+    </a>
+
+</section>
+
+{% endblock %}

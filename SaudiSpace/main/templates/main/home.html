@@ -1,0 +1,458 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Saudi Space | Home{% endblock %}
+
+{% block content %}
+
+<!-- =================================
+     HERO SECTION
+================================= -->
+<section class="home-hero">
+    <!-- Background Video -->
+    <video class="home-hero-video"
+           autoplay
+           muted
+           loop
+           playsinline
+           preload="auto">
+
+        <source src="{% static 'main/videos/erthvido.mp4' %}" type="video/mp4">
+
+    </video>
+
+    <!-- Video Overlay -->
+    <div class="home-hero-overlay"></div>
+
+    <!-- Hero Content -->
+    <div class="container home-hero-content">
+
+        <div class="home-hero-text">
+
+            <span class="home-hero-label">
+                SAUDI SPACE AGENCY · BEYOND TODAY
+            </span>
+
+            <h1>
+                EXPLORE THE
+                <span>UNIVERSE.</span>
+            </h1>
+
+            <p>
+                Discover Saudi Arabia's journey into space,
+                advancing space technology, scientific research,
+                and exploration beyond Earth.
+            </p>
+
+            <a href="{% url 'missions' %}" class="home-hero-button">
+                EXPLORE OUR MISSIONS
+                <span>↗</span>
+            </a>
+
+        </div>
+
+    </div>
+
+    <!-- Hero Footer -->
+    <div class="home-hero-footer">
+        <span>SAUDI SPACE</span>
+        <span>SCROLL TO EXPLORE ↓</span>
+        <span>EXPLORING THE UNKNOWN</span>
+    </div>
+
+</section>
+
+
+<!-- =================================
+     INTRO SECTION
+================================= -->
+
+<section class="saudi-intro">
+
+    <div class="container">
+
+        <div class="saudi-section-label">
+            <span>01</span>
+            <span>OUR JOURNEY</span>
+        </div>
+
+        <div class="saudi-intro-grid">
+
+            <div class="saudi-intro-heading">
+
+                <h2>
+                    A NEW ERA OF
+                    <span>SPACE EXPLORATION.</span>
+                </h2>
+
+            </div>
+
+            <div class="saudi-intro-text">
+
+                <p>
+                    Saudi Arabia is taking bold steps toward
+                    becoming a leading contributor to space
+                    science, technology, and exploration.
+                </p>
+
+                <p>
+                    From satellite development to human spaceflight
+                    and scientific research, the Kingdom continues
+                    to expand its presence beyond Earth.
+                </p>
+
+                <a href="{% url 'astronauts' %}" class="saudi-inline-link">
+                    DISCOVER OUR JOURNEY
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     HIGHLIGHT SECTION
+================================= -->
+
+<section class="saudi-highlight">
+
+    <div class="container">
+
+        <div class="saudi-highlight-grid">
+
+            <div class="saudi-highlight-image">
+
+                <img
+                    src="{% static 'main/images/earth.jpg' %}"
+                    alt="Earth viewed from space"
+                    loading="lazy"
+                >
+
+                <div class="saudi-image-caption">
+                    THE VIEW FROM ABOVE
+                </div>
+
+            </div>
+
+            <div class="saudi-highlight-content">
+
+                <div class="saudi-section-label">
+                    <span>02</span>
+                    <span>BEYOND BOUNDARIES</span>
+                </div>
+
+                <span class="saudi-small-label">
+                    HUMAN SPACEFLIGHT
+                </span>
+
+                <h2>
+                    REACHING NEW
+                    <span>HORIZONS.</span>
+                </h2>
+
+                <p>
+                    Saudi Arabia's Human Spaceflight Program
+                    represents an important milestone in the
+                    Kingdom's scientific and technological journey.
+                </p>
+
+                <p>
+                    Through scientific experiments, international
+                    cooperation, and astronaut participation,
+                    Saudi Arabia is contributing to the future
+                    of space exploration.
+                </p>
+
+                <a href="{% url 'astronauts' %}" class="saudi-inline-link">
+                    MEET OUR ASTRONAUTS
+                    <span>→</span>
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- =================================
+     EXPLORE SECTION
+================================= -->
+
+<section class="saudi-explore">
+
+    <div class="container">
+
+        <div class="saudi-section-label">
+            <span>03</span>
+            <span>EXPLORE SAUDI SPACE</span>
+        </div>
+
+        <div class="saudi-explore-heading">
+
+            <div>
+
+                <h2>
+                    DISCOVER OUR
+                    <span>UNIVERSE.</span>
+                </h2>
+
+                <p>
+                    Explore the missions, people, technology,
+                    and science shaping our future in space.
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <div class="saudi-explore-grid">
+
+            <!-- Missions Card -->
+            <a href="{% url 'missions' %}" class="saudi-explore-card">
+
+                <div class="saudi-card-image">
+                    <img
+                        src="{% static 'main/images/missions.jpg' %}"
+                        alt="Space mission"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="saudi-card-content">
+
+                    <span>01 / MISSIONS</span>
+
+                    <h3>SPACE MISSIONS</h3>
+
+                    <p>
+                        Discover the missions taking Saudi Arabia
+                        beyond Earth's boundaries.
+                    </p>
+
+                    <div class="saudi-card-link">
+                        EXPLORE <span>↗</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- Astronauts Card -->
+            <a href="{% url 'astronauts' %}" class="saudi-explore-card">
+
+                <div class="saudi-card-image">
+                    <img
+                        src="{% static 'main/images/ali-alqarni.jpg' %}"
+                        alt="Astronaut in space"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="saudi-card-content">
+
+                    <span>02 / PEOPLE</span>
+
+                    <h3>ASTRONAUTS</h3>
+
+                    <p>
+                        Meet the people representing Saudi Arabia
+                        in human space exploration.
+                    </p>
+
+                    <div class="saudi-card-link">
+                        EXPLORE <span>↗</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- Satellites Card -->
+            <a href="{% url 'satellites' %}" class="saudi-explore-card">
+
+                <div class="saudi-card-image">
+                    <img
+                        src="{% static 'main/images/satellites-hero.jpg' %}"
+                        alt="Satellite orbiting Earth"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="saudi-card-content">
+
+                    <span>03 / TECHNOLOGY</span>
+
+                    <h3>SATELLITES</h3>
+
+                    <p>
+                        Explore Saudi satellites and their
+                        contributions to space technology.
+                    </p>
+
+                    <div class="saudi-card-link">
+                        EXPLORE <span>↗</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- Astronomy Card -->
+            <a href="{% url 'astronomy' %}" class="saudi-explore-card">
+
+                <div class="saudi-card-image">
+                    <img
+                        src="{% static 'main/images/astronomy-hero.jpg' %}"
+                        alt="Deep space and stars"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="saudi-card-content">
+
+                    <span>04 / UNIVERSE</span>
+
+                    <h3>ASTRONOMY</h3>
+
+                    <p>
+                        Discover planets, galaxies, stars,
+                        and the mysteries of the universe.
+                    </p>
+
+                    <div class="saudi-card-link">
+                        EXPLORE <span>↗</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- Research Card -->
+            <a href="{% url 'research' %}" class="saudi-explore-card">
+
+                <div class="saudi-card-image">
+                    <img
+                        src="{% static 'main/images/research-hero.jpg' %}"
+                        alt="Scientific space research"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="saudi-card-content">
+
+                    <span>05 / SCIENCE</span>
+
+                    <h3>RESEARCH</h3>
+
+                    <p>
+                        Learn about scientific experiments
+                        and research conducted in space.
+                    </p>
+
+                    <div class="saudi-card-link">
+                        EXPLORE <span>↗</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+
+            <!-- Future Card -->
+            <a href="{% url 'future' %}" class="saudi-explore-card">
+
+                <div class="saudi-card-image">
+                    <img
+                        src="{% static 'main/images/future-hero.jpg' %}"
+                        alt="Future space exploration"
+                        loading="lazy"
+                    >
+                </div>
+
+                <div class="saudi-card-content">
+
+                    <span>06 / TOMORROW</span>
+
+                    <h3>THE FUTURE</h3>
+
+                    <p>
+                        Discover the ambitions and future
+                        direction of Saudi space exploration.
+                    </p>
+
+                    <div class="saudi-card-link">
+                        EXPLORE <span>↗</span>
+                    </div>
+
+                </div>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<section class="saudi-vision">
+
+    <div class="saudi-vision-image">
+
+        <img
+            src="{% static 'main/images/saudi-astronomy.jpg' %}"
+            alt="Space exploration and the universe"
+            loading="lazy"
+        >
+
+    </div>
+
+    <div class="saudi-vision-overlay"></div>
+
+    <div class="container saudi-vision-content">
+
+        <div class="saudi-section-label">
+            <span>04</span>
+            <span>OUR VISION</span>
+        </div>
+
+        <h2>
+            THE FUTURE
+            <br>
+            IS <span>BEYOND.</span>
+        </h2>
+
+        <p>
+            Inspired by curiosity, driven by innovation,
+            and guided by ambition, Saudi Arabia continues
+            its journey toward new horizons.
+        </p>
+
+        <a href="{% url 'future' %}" class="saudi-btn">
+            EXPLORE THE FUTURE
+            <span>↗</span>
+        </a>
+
+    </div>
+
+</section>
+
+
+
+<script src="{% static 'main/js/home.js' %}" defer></script>
+
+{% endblock %}

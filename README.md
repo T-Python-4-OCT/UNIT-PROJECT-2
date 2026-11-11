@@ -1,76 +1,72 @@
-# UNIT-PROJECT-2
+# SaudiSpace 🚀
 
-## Using Django create a project about our beloved kingdom of your choosing. Examples :
-- Tourism in Saudi Arabia.
-- Culture & Heritage in Saudi Arabia.
-- Manufacturing & Industries in Saudi Arabia.
-- Agriculture in Saudi Arabia.
-- Science in Saudi Arabia.
-- History of Saudi Arabia.
-- etc.....
+## About the Project
 
+**SaudiSpace** is a web-based platform developed using Django to showcase Saudi Arabia's journey in space exploration, science, and technology.
 
-# Minumum Requirements
-- Use Django.
-- Use templates & templates inheritance.
-- Use dynamic urls where applicable.
-- Use static files where applicable.
-- homepage + at least 6 pages.
-- Coherent, uniform design .
-- Implement dark and light mode.
-- Must be Responsive. 
-- You can use a CSS library to style your website (such as Bootstrap or equivalent)
-- You can use a cdn or a cloud storage to host large files such as large videos (example: Goolge Firebase Cloud Storage: https://firebase.google.com/docs/storage)
+The project provides an interactive and informative experience where users can explore planets, satellites, astronauts, space missions, and future space technologies through a modern, cinematic interface.
 
+The website combines educational content with modern web design, featuring immersive backgrounds, smooth animations, responsive layouts, and Dark and Light modes.
 
+## Key Features
 
-# Example : TOURISM-PROJECT
+- **Home Page:** An immersive introduction to Saudi Arabia's space journey.
+- **Space Missions:** Explore space missions and their objectives.
+- **Planets:** Discover the eight planets of our Solar System and their scientific details.
+- **Satellites:** Learn about satellites, their launch dates, and purposes.
+- **Astronauts:** Discover astronauts and their contributions to space exploration.
+- **Future of Space:** Explore future technologies and space exploration opportunities.
+- **Dark & Light Mode:** Switch between two visual themes.
+- **Responsive Design:** Optimized for different screen sizes.
+- **Interactive UI:** Smooth animations and engaging visual elements.
 
-## Using Django create a website for Tourism in Saudi Arabia . The project name is : Tourister
+## Technologies Used
 
-### Your website has the following pages :
+- Python
+- Django
+- HTML5
+- CSS3
+- JavaScript
+- JSON
+- Bootstrap
+- External APIs and CDNs
 
-#### "" : home page , with the following content:
-- Title of the page , with a catchy phrase about tourism in Saudi Arabia
-- A single wide image covering the page.
-- A paragraph about the tourism in Saudi Arabia in General.
-- A list of cities pages with links to them (the pages are listed down below).
+## Project Goal
 
+The main goal of SaudiSpace is to provide an engaging educational platform that introduces users to space exploration while highlighting Saudi Arabia's growing role in the global space sector.
 
-#### "city/Riyadh/"
-- Title of city with a catchy phrase
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+## Installation and Setup
 
-#### "city/Abha/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+1. Clone the repository:
 
-#### "city/Mekkah/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+   ```bash
+   git clone YOUR_REPOSITORY_URL
+   ```
 
-#### "city/AlUla/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+2. Navigate to the project directory:
+
+   ```bash
+   cd SaudiSpace
+   ```
+
+3. Apply database migrations:
+
+   ```bash
+   py manage.py migrate
+   ```
+
+4. Start the development server:
+
+   ```bash
+   py manage.py runserver
+   ```
+
+5. Open your browser and visit:
+
+   ```text
+   http://127.0.0.1:8000/
+   ```
+
+---
+
+**SaudiSpace — Exploring Beyond Earth.** 🌌

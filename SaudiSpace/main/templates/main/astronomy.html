@@ -1,0 +1,429 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Astronomy | Saudi Space{% endblock %}
+
+{% block content %}
+
+<link rel="stylesheet" href="{% static 'main/css/astronomy.css' %}">
+
+<main class="astronomy-page">
+
+    <!-- HERO -->
+    <section class="astro-hero">
+        <div class="astro-stars"></div>
+
+        <div class="astro-hero-image">
+            <img src="{% static 'main/images/astronomy-hero.jpg' %}"
+                 alt="Earth in deep space">
+        </div>
+
+        <div class="astro-hero-content reveal">
+            <span class="astro-eyebrow">DISCOVER THE UNIVERSE</span>
+
+            <h1>
+                EXPLORE<br>
+                <span>THE UNKNOWN.</span>
+            </h1>
+
+            <p>
+                Explore the wonders of our universe, from the planets
+                in our solar system to the mysteries of deep space.
+            </p>
+
+            <a href="#solar-system" class="astro-button">
+                START EXPLORING <span>↓</span>
+            </a>
+        </div>
+
+        <div class="astro-hero-bottom">
+            <span>ASTRONOMY / SPACE SCIENCE</span>
+            <span>01 — DISCOVER</span>
+        </div>
+
+        <div class="astro-scroll">SCROLL TO EXPLORE ↓</div>
+    </section>
+
+
+    <!-- INTRODUCTION -->
+    <section class="astro-intro astro-section">
+
+        <div class="astro-section-label reveal">
+            01 — INTRODUCTION
+        </div>
+
+        <div class="astro-intro-grid">
+
+            <div class="reveal">
+                <h2>
+                    A UNIVERSE<br>
+                    FULL OF <span>WONDERS.</span>
+                </h2>
+            </div>
+
+            <div class="astro-intro-text reveal">
+                <p>
+                    Astronomy is the scientific study of celestial objects
+                    and phenomena beyond Earth. It helps us understand
+                    planets, stars, galaxies, and the vast universe.
+                </p>
+
+                <p>
+                    From our closest planetary neighbors to distant
+                    galaxies, every discovery reveals more about
+                    the universe we live in.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="astro-intro-image reveal">
+            <img src="{% static 'main/images/astronomy-galaxy.jpg' %}"
+                 alt="A distant galaxy">
+
+            <div class="astro-image-caption">
+                <span>THE BEAUTY OF DEEP SPACE</span>
+                <span>01 / UNIVERSE</span>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- SOLAR SYSTEM -->
+    <section class="astro-solar" id="solar-system">
+
+        <div class="astro-section astro-section-heading">
+
+            <div class="astro-section-label reveal">
+                02 — OUR SOLAR SYSTEM
+            </div>
+
+            <div class="astro-heading-row reveal">
+                <h2>
+                    OUR SOLAR<br>
+                    <span>SYSTEM.</span>
+                </h2>
+
+                <p>
+                    Eight planets orbit our Sun, each with its own
+                    unique characteristics and place in our solar system.
+                    Explore each planet to discover more.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="astro-solar-image reveal">
+            <img src="{% static 'main/images/solar-system.jpg' %}"
+                 alt="The eight planets of the solar system">
+
+            <span class="astro-image-label">THE EIGHT PLANETS</span>
+        </div>
+
+        <!-- DYNAMIC PLANETS FROM JSON -->
+        <div class="astro-planets">
+
+            {% for planet in planets %}
+
+            <a href="{% url 'planet_detail' planet.id %}"
+               class="astro-planet reveal">
+
+                <div class="astro-planet-image">
+                    <img src="{% static planet.image %}"
+                         alt="{{ planet.name }}">
+                    <span class="astro-planet-explore">EXPLORE ↗</span>
+                </div>
+
+                <div class="astro-planet-info">
+                    <span class="astro-planet-number">
+                        0{{ planet.order }}
+                    </span>
+
+                    <h3>{{ planet.name }}</h3>
+
+                    <p>{{ planet.type }}</p>
+
+                    <div class="astro-planet-temperature">
+                        <span>AVERAGE TEMPERATURE</span>
+                        <strong>
+                            {{ planet.temperature.average_celsius }}°C
+                        </strong>
+                    </div>
+                </div>
+
+            </a>
+
+            {% empty %}
+
+            <p class="astro-empty">
+                No planets are currently available.
+            </p>
+
+            {% endfor %}
+
+        </div>
+
+    </section>
+
+
+    <!-- THE SUN -->
+    <section class="astro-feature astro-sun">
+
+        <div class="astro-feature-image">
+            <img src="{% static 'main/images/sun.jpg' %}"
+                 alt="The Sun">
+        </div>
+
+        <div class="astro-feature-content reveal">
+
+            <span class="astro-eyebrow">03 — SOLAR SCIENCE</span>
+
+            <h2>
+                THE POWER<br>
+                OF <span>THE SUN.</span>
+            </h2>
+
+            <p>
+                The Sun is the star at the center of our solar system.
+                Its energy supports life on Earth, while its activity
+                can produce solar flares and influence space weather.
+            </p>
+
+            <a href="https://ssa.gov.sa/"
+               target="_blank"
+               rel="noopener"
+               class="astro-text-link">
+                EXPLORE SPACE SCIENCE ↗
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- COSMIC PHENOMENA -->
+    <section class="astro-phenomena astro-section">
+
+        <div class="astro-section-label reveal">
+            04 — COSMIC PHENOMENA
+        </div>
+
+        <div class="astro-heading-row reveal">
+
+            <h2>
+                BEYOND<br>
+                <span>OUR WORLD.</span>
+            </h2>
+
+            <p>
+                Discover fascinating phenomena and objects
+                that make our universe extraordinary.
+            </p>
+
+        </div>
+
+        <div class="astro-phenomena-grid">
+
+            <article class="astro-phenomenon astro-large reveal">
+                <img src="{% static 'main/images/nebula.jpg' %}"
+                     alt="Colorful nebula">
+
+                <div class="astro-card-overlay">
+                    <span>01 — STELLAR FORMATION</span>
+                    <h3>Nebulae</h3>
+                    <p>
+                        Vast clouds of gas and dust in space.
+                    </p>
+                </div>
+            </article>
+
+            <article class="astro-phenomenon reveal">
+                <img src="{% static 'main/images/black-hole.jpg' %}"
+                     alt="Black hole">
+
+                <div class="astro-card-overlay">
+                    <span>02 — GRAVITY</span>
+                    <h3>Black Holes</h3>
+                    <p>
+                        Regions where gravity is so strong that
+                        nothing can escape.
+                    </p>
+                </div>
+            </article>
+
+            <article class="astro-phenomenon reveal">
+                <img src="{% static 'main/images/meteor.jpg' %}"
+                     alt="Meteor shower">
+
+                <div class="astro-card-overlay">
+                    <span>03 — SPACE OBJECTS</span>
+                    <h3>Meteors</h3>
+                    <p>
+                        Bright streaks of light produced when
+                        meteoroids enter Earth's atmosphere.
+                    </p>
+                </div>
+            </article>
+
+            <article class="astro-phenomenon reveal">
+                <img src="{% static 'main/images/galaxy.jpg' %}"
+                     alt="Spiral galaxy">
+
+                <div class="astro-card-overlay">
+                    <span>04 — DEEP SPACE</span>
+                    <h3>Galaxies</h3>
+                    <p>
+                        Enormous systems of stars, gas, dust,
+                        and dark matter.
+                    </p>
+                </div>
+            </article>
+
+            <article class="astro-phenomenon reveal">
+                <img src="{% static 'main/images/moon.jpg' %}"
+                     alt="The Moon">
+
+                <div class="astro-card-overlay">
+                    <span>05 — NATURAL SATELLITES</span>
+                    <h3>The Moon</h3>
+                    <p>
+                        Explore lunar phases and our natural satellite.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- EARTH AND ATMOSPHERE -->
+    <section class="astro-earth">
+
+        <div class="astro-earth-image">
+            <img src="{% static 'main/images/earth-atmosphere.jpg' %}"
+                 alt="Earth atmosphere from space">
+        </div>
+
+        <div class="astro-earth-content reveal">
+
+            <span class="astro-eyebrow">05 — PLANET EARTH</span>
+
+            <h2>
+                OUR HOME<br>
+                IN <span>SPACE.</span>
+            </h2>
+
+            <p>
+                Earth's atmosphere is a protective layer of gases
+                surrounding our planet. It plays an important role
+                in supporting life and shaping our environment.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- SPACE DEBRIS -->
+    <section class="astro-debris astro-section">
+
+        <div class="astro-debris-content reveal">
+
+            <span class="astro-section-label">
+                06 — SPACE CHALLENGES
+            </span>
+
+            <h2>
+                THE HIDDEN<br>
+                <span>THREAT IN ORBIT.</span>
+            </h2>
+
+            <p>
+                Space debris consists of human-made objects in orbit
+                that no longer serve a useful purpose. It can create
+                risks for active satellites and spacecraft.
+            </p>
+
+            <a href="https://ssa.gov.sa/"
+               target="_blank"
+               rel="noopener"
+               class="astro-text-link">
+                LEARN ABOUT SPACE SCIENCE ↗
+            </a>
+
+        </div>
+
+        <div class="astro-debris-image reveal">
+            <img src="{% static 'main/images/space-debris.jpg' %}"
+                 alt="Space debris around Earth">
+        </div>
+
+    </section>
+
+
+    <!-- SAUDI ASTRONOMY -->
+    <section class="astro-saudi">
+
+        <div class="astro-saudi-image">
+            <img src="{% static 'main/images/saudi-astronomy.jpg' %}"
+                 alt="Milky Way over a Saudi desert">
+        </div>
+
+        <div class="astro-saudi-content reveal">
+
+            <span class="astro-eyebrow">07 — SAUDI ASTRONOMY</span>
+
+            <h2>
+                CAPTURING<br>
+                <span>THE UNIVERSE.</span>
+            </h2>
+
+            <p>
+                Discover Saudi astrophotography and explore the beauty
+                of the night sky through astronomy and space photography.
+            </p>
+
+            <a href="https://ssa.gov.sa/"
+               target="_blank"
+               rel="noopener"
+               class="astro-button">
+                DISCOVER MORE <span>↗</span>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+    <section class="astro-source astro-section reveal">
+
+        <span class="astro-eyebrow">KEEP EXPLORING</span>
+
+        <h2>
+            YOUR JOURNEY<br>
+            <span>DOESN'T END HERE.</span>
+        </h2>
+
+        <p>
+            Continue exploring space science and discover
+            more about the universe around us.
+        </p>
+
+        <a href="https://ssa.gov.sa/"
+           target="_blank"
+           rel="noopener"
+           class="astro-button">
+            VISIT SAUDI SPACE AGENCY <span>↗</span>
+        </a>
+
+    </section>
+
+</main>
+
+<script src="{% static 'main/js/astronomy.js' %}"></script>
+
+{% endblock %}
