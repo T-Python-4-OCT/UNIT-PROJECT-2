@@ -124,7 +124,17 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
   position: relative;
   overflow: hidden;
   color: #fff;
-  background: var(--hero-gradient);
+  background:
+  linear-gradient(
+    90deg,
+    rgba(3, 25, 19, 0.88) 0%,
+    rgba(3, 25, 19, 0.62) 30%,
+    rgba(3, 25, 19, 0.12) 100%
+  ),
+  url("../img/hero-riyadh.webp") center 45% / cover no-repeat;
+  min-height: 560px;
+  display: flex;
+  align-items: center;
 }
 
 .hero::after {
@@ -159,7 +169,11 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
 .hero-description {
   max-width: 60ch;
   margin: 1.25rem 0 2rem;
-  color: rgba(255, 255, 255, 0.85);
+  color: #ffffff;
+  font-size: 1.15rem;
+  font-weight: 500;
+  line-height: 1.9;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
 }
 
 .hero .btn-primary {
@@ -277,7 +291,23 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
 .section-heading { margin-bottom: 1rem; }
 
 /* ===== Info cards ===== */
-.info-card { border-top: 3px solid var(--c-accent); }
+.info-card {
+  overflow: hidden;
+  border-top: 3px solid var(--c-accent);
+}
+
+.info-card-image {
+  display: block;
+  width: 100%;
+  height: 220px;
+  object-fit: cover;
+  border-bottom: 1px solid var(--c-border);
+  transition: transform 0.4s ease;
+}
+
+.info-card:hover .info-card-image {
+  transform: scale(1.035);
+}
 
 .card-meta {
   display: flex;
@@ -400,4 +430,9 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
 
 .source-list li:target {
   background: color-mix(in srgb, var(--c-accent) 22%, transparent);
+}
+.timeline-image {
+  max-width: 100%;
+  border-radius: 10px;
+  margin: 1rem 0;
 }

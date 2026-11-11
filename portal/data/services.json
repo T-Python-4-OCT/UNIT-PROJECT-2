@@ -10,6 +10,7 @@
         "items": [
           {
             "title": "Absher Individuals",
+            "image": "portal/img/absher-platform.webp",
             "text": "Services for citizens and residents."
           },
           {
@@ -84,6 +85,7 @@
         "items": [
           {
             "title": "Ministry of Interior: Absher",
+            "image": "portal/img/digital-identity.webp",
             "text": "Issues unified digital IDs through Absher. A digital ID opens the Ministry's own services and can also be used to connect to government or private platforms.",
             "source": "spa_digital_ids"
           },
@@ -120,6 +122,7 @@
         "items": [
           {
             "title": "Public Security",
+            "image": "portal/img/digital-services.webp",
             "date": "July 2025",
             "text": "New services on Absher Individuals include transferring vehicle ownership to businesses and added features for air rifle permits, such as ownership transfer and license renewal.",
             "source": "saudigazette_absher_2025"

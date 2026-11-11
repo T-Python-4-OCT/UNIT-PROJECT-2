@@ -1,7 +1,20 @@
+
+{% load static %}
+
 <div class="row row-cols-1 row-cols-md-2 g-4">
   {% for item in section.items %}
     <div class="col">
       <article class="card h-100 info-card">
+        {% if item.image %}
+          <img
+            src="{% static item.image %}"
+            class="info-card-image"
+            alt="{{ item.image_alt|default:item.title }}"
+            loading="lazy"
+            decoding="async"
+          >
+        {% endif %}
+
         <div class="card-body">
           {% if item.date or item.status %}
             <p class="card-meta">
