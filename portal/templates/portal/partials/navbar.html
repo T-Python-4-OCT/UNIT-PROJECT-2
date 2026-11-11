@@ -4,16 +4,19 @@
       {{ site.site_name }}
     </a>
 
-    <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+    {# Three lines of different lengths; CSS turns them into an X when aria-expanded="true" #}
+    <button class="navbar-toggler menu-toggle" type="button" data-bs-toggle="collapse"
             data-bs-target="#mainNav" aria-controls="mainNav"
             aria-expanded="false" aria-label="{{ ui.toggle_navigation }}">
-      <span class="navbar-toggler-icon"></span>
+      <span class="menu-toggle-line" aria-hidden="true"></span>
+      <span class="menu-toggle-line" aria-hidden="true"></span>
+      <span class="menu-toggle-line" aria-hidden="true"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav ms-auto">
         {% for nav_page in site.pages %}
-          <li class="nav-item">
+          <li class="nav-item" style="--i: {{ forloop.counter }};">
             <a class="nav-link{% if nav_page.slug == current_slug %} active{% endif %}"
                href="{% url 'portal:page' nav_page.slug %}"
                {% if nav_page.slug == current_slug %}aria-current="page"{% endif %}>

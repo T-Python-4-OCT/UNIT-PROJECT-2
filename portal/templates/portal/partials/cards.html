@@ -1,7 +1,8 @@
 
 {% load static %}
 
-<div class="row row-cols-1 row-cols-md-2 g-4">
+{# Three cards go in one row of three, so the third one is not left alone #}
+<div class="row row-cols-1 row-cols-md-2{% if section.items|length == 3 %} row-cols-lg-3{% endif %} g-4">
   {% for item in section.items %}
     <div class="col">
       <article class="card h-100 info-card">
