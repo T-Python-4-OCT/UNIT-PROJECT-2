@@ -49,25 +49,19 @@ The main goal of SaudiSpace is to provide an engaging educational platform that 
    cd SaudiSpace
    ```
 
-3. Install the required dependencies:
-
-   ```bash
-   pip install -r requirements.txt
-   ```
-
-4. Apply database migrations:
+3. Apply database migrations:
 
    ```bash
    py manage.py migrate
    ```
 
-5. Start the development server:
+4. Start the development server:
 
    ```bash
    py manage.py runserver
    ```
 
-6. Open your browser and visit:
+5. Open your browser and visit:
 
    ```text
    http://127.0.0.1:8000/
