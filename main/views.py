@@ -1,9 +1,11 @@
 from django.http import Http404, HttpRequest
 from django.shortcuts import redirect, render
+from django.urls import reverse
 from django.utils.http import url_has_allowed_host_and_scheme
 
 from .history_data import LEGENDS, MOMENTS, TOURNAMENTS, summary
 from .journey_data import BID_NUMBERS, MILESTONES, ROADMAP
+from .about_data import PROJECT, TECH
 from .data import CITIES, COUNTDOWN_TARGET, EXPLORE, STADIUMS, STATS, get_city, get_stadium, stadiums_in
 
 
@@ -78,7 +80,17 @@ def journey_view(request: HttpRequest):
 
 
 def about_view(request: HttpRequest):
-    return render(request, "main/coming_soon.html", {"title": "عن الموقع"})
+    sections = [
+        {"title": "المدن المستضيفة", "count": len(CITIES), "url": reverse("main:home") + "#cities", "icon": "bi-geo-alt"},
+        {"title": "الملاعب", "count": len(STADIUMS), "url": reverse("main:stadiums"), "icon": "bi-building"},
+        {"title": "مشاركات الأخضر", "count": len(TOURNAMENTS), "url": reverse("main:history"), "icon": "bi-star"},
+        {"title": "محطات الاستضافة", "count": len(MILESTONES), "url": reverse("main:journey"), "icon": "bi-signpost-split"},
+    ]
+    return render(request, "main/about.html", {
+        "project": PROJECT,
+        "tech": TECH,
+        "sections": sections,
+    })
 
 
 def toggle_theme_view(request: HttpRequest):
