@@ -504,10 +504,16 @@
     {
         "slug": "king-salman-park",
         "name": "King Salman Park",
+        "arabic_name": "حديقة الملك سلمان",
         "category": "Quality of Life",
         "location": "Riyadh",
         "tagline": "A green heart for the capital.",
-        "image": "",
+        "image": "images/king-salman-park/illustration.svg",
+        "hero": "images/king-salman-park/hero.jpg",
+        "launch": {
+            "image": "images/king-salman-park/launch.jpg",
+            "caption": "King Salman and the Crown Prince at the launch of four landmark Riyadh projects, including King Salman Park, in 2019."
+        },
         "headline": "Nature in the Heart of Riyadh",
         "overview": "Built on the site of the former Riyadh Air Base, King Salman Park is planned as one of the largest urban parks in the world. It will bring green spaces, cultural venues and sports facilities to the heart of Riyadh, including the Royal Arts Complex.",
         "badge": "One of the world's largest urban parks",
@@ -524,6 +530,80 @@
             {
                 "value": "7.2km",
                 "label": "Urban loop path"
+            }
+        ],
+        "compare": [
+            {
+                "name": "King Salman Park",
+                "city": "Riyadh",
+                "area": 16.6,
+                "highlight": true
+            },
+            {
+                "name": "Central Park",
+                "city": "New York",
+                "area": 3.41
+            },
+            {
+                "name": "Hyde Park",
+                "city": "London",
+                "area": 1.42
+            }
+        ],
+        "map": [
+            {
+                "title": "Royal Arts Complex",
+                "text": "A museum, national theatre and arts institute.",
+                "icon": "museum",
+                "x": 28,
+                "y": 30,
+                "scene": "arts"
+            },
+            {
+                "title": "Visitor Pavilion",
+                "text": "An environmental and cultural centre.",
+                "icon": "visibility",
+                "x": 66,
+                "y": 24,
+                "scene": "pavilion"
+            },
+            {
+                "title": "Green Spaces",
+                "text": "Over 11 km² of planted parkland.",
+                "icon": "forest",
+                "x": 50,
+                "y": 56,
+                "scene": "green"
+            },
+            {
+                "title": "Urban Loop",
+                "text": "A 7.2 km path circling the park.",
+                "icon": "directions_walk",
+                "x": 82,
+                "y": 68,
+                "scene": "loop"
+            },
+            {
+                "title": "Abu Bakr Al-Siddiq Tunnel",
+                "text": "Opened to traffic in 2024.",
+                "icon": "swap_calls",
+                "x": 20,
+                "y": 76,
+                "scene": "tunnel"
+            }
+        ],
+        "timeline": [
+            {
+                "year": "2019",
+                "text": "The park is announced"
+            },
+            {
+                "year": "2021",
+                "text": "Construction begins on the former Riyadh Air Base"
+            },
+            {
+                "year": "2024",
+                "text": "Abu Bakr Al-Siddiq Tunnel opens"
             }
         ],
         "highlights": [
@@ -552,10 +632,11 @@
     {
         "slug": "roshn",
         "name": "ROSHN",
+        "arabic_name": "روشن",
         "category": "Housing",
         "location": "Nationwide",
         "tagline": "Communities designed for living.",
-        "image": "",
+        "image": "images/roshn/illustration.svg",
         "headline": "Homes for a New Generation",
         "overview": "ROSHN is a real estate developer owned by the Public Investment Fund. It builds integrated communities across the Kingdom, with homes, schools, mosques, parks and retail, and aims to house more than 2.2 million people by 2030.",
         "badge": "Owned by the Public Investment Fund",
@@ -572,6 +653,68 @@
             {
                 "value": "20M m²",
                 "label": "SEDRA alone"
+            }
+        ],
+        "residents": 2200000,
+        "communities": [
+            {
+                "name": "SEDRA",
+                "city": "Riyadh",
+                "text": "ROSHN's flagship community, covering about 20 million m² in north Riyadh.",
+                "icon": "home",
+                "x": 56,
+                "y": 46
+            },
+            {
+                "name": "WAREFA",
+                "city": "Riyadh",
+                "text": "A community in eastern Riyadh with homes, parks and everyday services.",
+                "icon": "holiday_village",
+                "x": 60,
+                "y": 50
+            },
+            {
+                "name": "ALAROUS",
+                "city": "Jeddah",
+                "text": "A seaside community in north Jeddah on the Red Sea coast.",
+                "icon": "waves",
+                "x": 20,
+                "y": 58
+            },
+            {
+                "name": "ALFULWA",
+                "city": "Eastern Province",
+                "text": "A community bringing ROSHN's model to the Eastern Province.",
+                "icon": "location_city",
+                "x": 78,
+                "y": 38
+            }
+        ],
+        "amenities": [
+            {
+                "icon": "home",
+                "title": "Homes",
+                "text": "Villas, townhouses and apartments for families."
+            },
+            {
+                "icon": "school",
+                "title": "Schools",
+                "text": "Education within walking distance."
+            },
+            {
+                "icon": "mosque",
+                "title": "Mosques",
+                "text": "At the heart of every neighbourhood."
+            },
+            {
+                "icon": "park",
+                "title": "Parks",
+                "text": "Green spaces and walking paths."
+            },
+            {
+                "icon": "storefront",
+                "title": "Shops",
+                "text": "Retail and daily services close to home."
             }
         ],
         "highlights": [

@@ -22,9 +22,10 @@
     <header class="header">
         <div class="container navbar">
 
-            <a href="{% url 'projects:home' %}" class="logo">
-                <span class="logo-icon material-symbols-outlined">landscape</span>
-                <span class="logo-text">Ruya</span>
+            <a href="{% url 'projects:home' %}" class="logo" aria-label="Ruya home">
+                <span class="logo-ar" lang="ar">رؤية</span>
+                <span class="logo-line" aria-hidden="true"></span>
+                <span class="logo-en">Ruya<small>Vision 2030</small></span>
             </a>
 
             <nav class="nav-links">
@@ -76,13 +77,34 @@
 
     <!-- ================= FOOTER ================= -->
     <footer class="footer">
+
+        <div class="footer-vision">
+            <div class="najdi-edge top" aria-hidden="true"></div>
+            <div class="container footer-vision-inner">
+                <div class="fv-text">
+                    <span class="fv-ar" lang="ar" dir="rtl">رؤية المملكة ٢٠٣٠</span>
+                    <h3>Saudi Vision 2030</h3>
+                    <p>A vibrant society, a thriving economy and an ambitious nation.</p>
+                </div>
+
+                <div class="fv-year" aria-label="2030">
+                    <span>2</span><span>0</span><span>3</span><span>0</span>
+                </div>
+
+                <a href="https://www.vision2030.gov.sa" class="btn btn-light" target="_blank" rel="noopener">
+                    Visit Vision 2030 <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+                </a>
+            </div>
+        </div>
+
         <div class="container">
             <div class="footer-main">
 
                 <div class="footer-brand">
-                    <a href="{% url 'projects:home' %}" class="logo">
-                        <span class="logo-icon material-symbols-outlined">landscape</span>
-                        <span class="logo-text">Ruya</span>
+                    <a href="{% url 'projects:home' %}" class="logo" aria-label="Ruya home">
+                        <span class="logo-ar" lang="ar">رؤية</span>
+                        <span class="logo-line" aria-hidden="true"></span>
+                        <span class="logo-en">Ruya<small>Vision 2030</small></span>
                     </a>
                     <p>Discover the giga-projects shaping<br>Saudi Arabia's Vision 2030.</p>
                 </div>
@@ -94,23 +116,16 @@
                     <a href="{% url 'projects:about' %}">About</a>
                 </div>
 
-                <div class="footer-column">
+                <div class="footer-column footer-projects">
                     <h4>Projects</h4>
-                    <a href="{% url 'projects:project_detail' 'diriyah' %}">Diriyah</a>
-                    <a href="{% url 'projects:project_detail' 'qiddiya' %}">Qiddiya</a>
-                    <a href="{% url 'projects:project_detail' 'red-sea' %}">The Red Sea</a>
-                </div>
-
-                <div class="footer-column">
-                    <h4>&nbsp;</h4>
-                    <a href="{% url 'projects:project_detail' 'alula' %}">AlUla</a>
-                    <a href="{% url 'projects:project_detail' 'king-salman-park' %}">King Salman Park</a>
-                    <a href="{% url 'projects:project_detail' 'roshn' %}">ROSHN</a>
-                </div>
-
-                <div class="footer-column">
-                    <h4>Official</h4>
-                    <a href="https://www.vision2030.gov.sa" target="_blank" rel="noopener">Vision 2030</a>
+                    <div>
+                        <a href="{% url 'projects:project_detail' 'diriyah' %}">Diriyah</a>
+                        <a href="{% url 'projects:project_detail' 'qiddiya' %}">Qiddiya</a>
+                        <a href="{% url 'projects:project_detail' 'red-sea' %}">The Red Sea</a>
+                        <a href="{% url 'projects:project_detail' 'alula' %}">AlUla</a>
+                        <a href="{% url 'projects:project_detail' 'king-salman-park' %}">King Salman Park</a>
+                        <a href="{% url 'projects:project_detail' 'roshn' %}">ROSHN</a>
+                    </div>
                 </div>
             </div>
 

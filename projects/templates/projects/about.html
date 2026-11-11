@@ -19,16 +19,15 @@
     <div>
         <span class="eyebrow">Saudi Vision 2030</span>
         <h2>A Plan for the Kingdom's Future</h2>
-        {% for paragraph in vision.intro %}
-            <p class="lead">{{ paragraph }}</p>
-        {% endfor %}
+        <p class="lead">Saudi Vision 2030 is the Kingdom's long-term plan to diversify its economy, develop public services and open the country to the world. It was launched on 25 April 2016 by HRH Crown Prince Mohammed bin Salman.</p>
+        <p class="lead">The Vision is built on three pillars and 96 strategic objectives, delivered through Vision Realization Programs and large-scale giga-projects like the ones featured on this site.</p>
     </div>
 
     <figure class="ab-photo">
         <img src="{% static 'images/site/riyadh-kingdom-centre.jpg' %}" alt="Kingdom Centre in Riyadh">
         <figcaption>
             <span class="material-symbols-outlined" aria-hidden="true">event</span>
-            <span>Launched<strong>{{ vision.launch }}</strong></span>
+            <span>Launched<strong>25 April 2016</strong></span>
         </figcaption>
     </figure>
 </section>
@@ -43,18 +42,38 @@
     </div>
 
     <div class="ab-pillars">
-        {% for pillar in vision.pillars %}
-            <article class="ab-pillar">
-                <span class="ab-pillar-num">0{{ forloop.counter }}</span>
-                <span class="material-symbols-outlined" aria-hidden="true">{{ pillar.icon }}</span>
-                <h3>{{ pillar.title }}</h3>
-                <p>{{ pillar.text }}</p>
-                <div class="ab-goal">
-                    <small>Example goal</small>
-                    {{ pillar.goal }}
-                </div>
-            </article>
-        {% endfor %}
+        <article class="ab-pillar">
+            <span class="ab-pillar-num">01</span>
+            <span class="material-symbols-outlined" aria-hidden="true">diversity_3</span>
+            <h3>A Vibrant Society</h3>
+            <p>A society proud of its identity, with a better quality of life, healthcare and culture.</p>
+            <div class="ab-goal">
+                <small>Example goal</small>
+                Raise average life expectancy to 80 years
+            </div>
+        </article>
+
+        <article class="ab-pillar">
+            <span class="ab-pillar-num">02</span>
+            <span class="material-symbols-outlined" aria-hidden="true">trending_up</span>
+            <h3>A Thriving Economy</h3>
+            <p>A diverse, competitive economy that supports investment, entrepreneurs and new jobs.</p>
+            <div class="ab-goal">
+                <small>Example goal</small>
+                Grow the private sector's share of GDP from 40% to 65%
+            </div>
+        </article>
+
+        <article class="ab-pillar">
+            <span class="ab-pillar-num">03</span>
+            <span class="material-symbols-outlined" aria-hidden="true">flag</span>
+            <h3>An Ambitious Nation</h3>
+            <p>An effective, transparent government and citizens who take responsibility.</p>
+            <div class="ab-goal">
+                <small>Example goal</small>
+                Raise non-oil government revenue to SAR 1 trillion a year
+            </div>
+        </article>
     </div>
 </section>
 
@@ -68,12 +87,22 @@
             </div>
         </div>
         <div class="ab-numbers">
-            {% for item in vision.progress %}
-                <div>
-                    <strong>{{ item.value }}</strong>
-                    <span>{{ item.label }}</span>
-                </div>
-            {% endfor %}
+            <div>
+                <strong>100M+</strong>
+                <span>Tourists in 2024, beating the original 2030 target</span>
+            </div>
+            <div>
+                <strong>7%</strong>
+                <span>Unemployment target reached in 2024</span>
+            </div>
+            <div>
+                <strong>47%</strong>
+                <span>Private sector share of GDP in 2024</span>
+            </div>
+            <div>
+                <strong>85%</strong>
+                <span>Of 1,500+ initiatives completed or on track</span>
+            </div>
         </div>
     </div>
 </section>
@@ -88,12 +117,26 @@
     </div>
 
     <ol class="ab-road">
-        {% for step in vision.milestones %}
-            <li>
-                <strong>{{ step.year }}</strong>
-                <span>{{ step.text }}</span>
-            </li>
-        {% endfor %}
+        <li>
+            <strong>2016</strong>
+            <span>Vision 2030 is launched</span>
+        </li>
+        <li>
+            <strong>2019</strong>
+            <span>Tourist visas open the Kingdom to the world</span>
+        </li>
+        <li>
+            <strong>2023</strong>
+            <span>Riyadh wins the bid to host Expo 2030</span>
+        </li>
+        <li>
+            <strong>2024</strong>
+            <span>Saudi Arabia confirmed as FIFA World Cup 2034 host</span>
+        </li>
+        <li>
+            <strong>2030</strong>
+            <span>The Vision's target year</span>
+        </li>
     </ol>
 </section>
 
@@ -107,27 +150,31 @@
     </div>
 
     <div class="ab-leaders">
-        {% for leader in vision.leaders %}
-            <article class="ab-leader">
-                <div class="ab-portrait">
-                    {% if leader.image %}
-                        <img src="{% static leader.image %}" alt="{{ leader.name }}">
-                    {% else %}
-                        <div class="img-empty">
-                            <span class="material-symbols-outlined" aria-hidden="true">photo_camera</span>
-                            Photo coming soon
-                        </div>
-                    {% endif %}
-                </div>
-                <div class="ab-leader-text">
-                    <span class="ab-leader-title">{{ leader.title }}</span>
-                    <h3>{{ leader.name }}</h3>
-                    <p class="ab-leader-ar" lang="ar" dir="rtl">{{ leader.arabic_name }}</p>
-                    <span class="ab-since">{{ leader.since }}</span>
-                    <p>{{ leader.text }}</p>
-                </div>
-            </article>
-        {% endfor %}
+        <article class="ab-leader">
+            <div class="ab-portrait">
+                <img src="{% static 'images/site/king-salman.jpg' %}" alt="King Salman bin Abdulaziz Al Saud">
+            </div>
+            <div class="ab-leader-text">
+                <span class="ab-leader-title">Custodian of the Two Holy Mosques</span>
+                <h3>King Salman bin Abdulaziz Al Saud</h3>
+                <p class="ab-leader-ar" lang="ar" dir="rtl">الملك سلمان بن عبدالعزيز آل سعود</p>
+                <span class="ab-since">King since 2015</span>
+                <p>Vision 2030 was approved by the Council of Ministers under his leadership in April 2016.</p>
+            </div>
+        </article>
+
+        <article class="ab-leader">
+            <div class="ab-portrait">
+                <img src="{% static 'images/site/crown-prince-about.jpg' %}" alt="Mohammed bin Salman Al Saud">
+            </div>
+            <div class="ab-leader-text">
+                <span class="ab-leader-title">Crown Prince and Prime Minister</span>
+                <h3>Mohammed bin Salman Al Saud</h3>
+                <p class="ab-leader-ar" lang="ar" dir="rtl">الأمير محمد بن سلمان بن عبدالعزيز آل سعود</p>
+                <span class="ab-since">Crown Prince since 2017</span>
+                <p>He launched Vision 2030 and chairs the Council of Economic and Development Affairs, which oversees it.</p>
+            </div>
+        </article>
     </div>
 </section>
 
