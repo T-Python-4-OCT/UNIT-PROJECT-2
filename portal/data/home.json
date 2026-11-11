@@ -27,6 +27,10 @@
       { "slug": "future-vision", "teaser": "The 2030 roadmap, global rankings, and announced next steps." }
     ]
   },
+  "feedback_cta": {
+    "heading": "Have a note about this project?",
+    "text": "Spotted a figure that needs an update, or have an idea? Send it in less than a minute."
+  },
   "about": {
     "heading": "About This Project",
     "text": "MOI Digital Evolution is an educational project. Every figure on the site carries its source and date, and announced plans are clearly separated from services that are already operating."

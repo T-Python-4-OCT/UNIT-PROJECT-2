@@ -1,13 +1,19 @@
 import json
+import time
 from pathlib import Path
 
 from django.http import Http404, HttpResponseRedirect
-from django.shortcuts import render
+from django.shortcuts import redirect, render
 from django.urls import reverse
 from django.utils.http import url_has_allowed_host_and_scheme
-from django.views.decorators.http import require_POST
+from django.views.decorators.http import require_http_methods, require_POST
+
+from .forms import FeedbackForm
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
+
+# One feedback message per session per minute.
+FEEDBACK_COOLDOWN_SECONDS = 60
 
 UI_TEXT = {
     "en": {
@@ -23,6 +29,7 @@ UI_TEXT = {
         "back_home": "Back to the homepage",
         "toggle_navigation": "Toggle navigation",
         "source": "Source",
+        "feedback": "Share your feedback",
     },
     "ar": {
         "dark_mode": "الوضع الداكن",
@@ -37,6 +44,7 @@ UI_TEXT = {
         "back_home": "العودة إلى الصفحة الرئيسية",
         "toggle_navigation": "فتح أو إغلاق القائمة",
         "source": "المصدر",
+        "feedback": "شاركنا رأيك",
     },
 }
 
@@ -159,6 +167,44 @@ def content_page(request, slug):
     return render(request, "portal/page.html", context)
 
 
+def sent_feedback_recently(request):
+    "True if this session sent feedback less than a minute ago."
+    last_sent = request.session.get("feedback_last_sent")
+    return last_sent is not None and time.time() - last_sent < FEEDBACK_COOLDOWN_SECONDS
+
+
+@require_http_methods(["GET", "POST"])
+def feedback(request):
+    language = get_language(request)
+    text = load_json("feedback.json", language)
+
+    if request.method == "POST":
+        form = FeedbackForm(request.POST, text=text)
+
+        if form.is_valid():
+            if sent_feedback_recently(request):
+                form.add_error(None, text["errors"]["too_fast"])
+            else:
+                form.save(language=language)
+                request.session["feedback_last_sent"] = time.time()
+                request.session["feedback_success"] = True
+                # Post/Redirect/Get: refreshing the page will not resend the form.
+                return redirect("portal:feedback")
+    else:
+        form = FeedbackForm(text=text)
+
+    context = {
+        **get_common_context(request),
+        "site": load_json("site.json", language),
+        "text": text,
+        "form": form,
+        "success": request.session.pop("feedback_success", False),
+        "current_slug": "feedback",
+    }
+
+    return render(request, "portal/feedback.html", context)
+
+
 @require_POST
 def set_language(request):
     "Save the selected language and return to the previous page."
@@ -186,4 +232,4 @@ def page_not_found(request, exception):
         "site": load_json("site.json", language),
     }
 
-    return render(request, "portal/404.html", context, status=404)
+    return render(request, "portal/404.html", context, status=404)

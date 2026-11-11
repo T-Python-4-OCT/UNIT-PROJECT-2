@@ -92,4 +92,16 @@
       <p>{{ home.about.text }}</p>
     </div>
   </section>
+
+  <section class="feedback-cta py-5">
+    <div class="container">
+      <div class="feedback-cta-box">
+        <div>
+          <h2 class="h3 mb-2">{{ home.feedback_cta.heading }}</h2>
+          <p class="mb-0">{{ home.feedback_cta.text }}</p>
+        </div>
+        <a class="btn btn-primary btn-lg" href="{% url 'portal:feedback' %}">{{ ui.feedback }}</a>
+      </div>
+    </div>
+  </section>
 {% endblock %}

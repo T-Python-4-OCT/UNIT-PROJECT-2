@@ -7,6 +7,9 @@
           <a href="{% url 'portal:page' nav_page.slug %}">{{ nav_page.title }}</a>
         </li>
       {% endfor %}
+      <li class="list-inline-item">
+        <a class="footer-feedback-link" href="{% url 'portal:feedback' %}">{{ ui.feedback }}</a>
+      </li>
     </ul>
     <p class="small mb-0">{{ site.disclaimer }}</p>
   </div>

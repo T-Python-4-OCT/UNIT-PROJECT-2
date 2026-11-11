@@ -165,3 +165,25 @@ document.addEventListener("DOMContentLoaded", function () {
     observer.observe(element);
   });
 });
+
+
+/* ===== Character counter for textareas with data-char-counter ===== */
+document.addEventListener("DOMContentLoaded", function () {
+  document.querySelectorAll("[data-char-counter]").forEach(function (field) {
+    const counter = document.getElementById(field.dataset.charCounter);
+    const max = Number(field.getAttribute("maxlength"));
+
+    if (!counter || !max) {
+      return;
+    }
+
+    function update() {
+      const length = field.value.trim().length;
+      counter.textContent = length + " / " + max;
+      counter.classList.toggle("is-over", length > max);
+    }
+
+    field.addEventListener("input", update);
+    update();
+  });
+});
