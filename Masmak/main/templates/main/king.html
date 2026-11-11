@@ -1,0 +1,77 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+{% with hero_img="main/img/art/masmak-hero.svg" %}{% include "main/partials/_page_hero.html" %}{% endwith %}
+
+<section class="section">
+  <div class="container king-hero">
+    <div class="reveal">
+      {% with m=portrait %}{% include "main/partials/_media.html" %}{% endwith %}
+    </div>
+    <div class="reveal">
+      <p class="kicker">المؤسس</p>
+      <h2 class="king-name">{{ data.short }}</h2>
+      <p class="king-life">{{ data.name }}<br>{{ data.lifespan }}</p>
+      <p class="lead">{{ data.lead }}</p>
+      <div class="facts">
+        {% for f in facts %}
+        <div class="fact">
+          <div class="fact__label">{{ f.label }}</div>
+          <div class="fact__value">{{ f.value }}</div>
+          <div class="fact__sub">{{ f.sub }}</div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">ثلاث مراحل</p>
+      <h2>المنفى، والعودة، والتوحيد</h2>
+    </div>
+    <div class="grid grid--3">
+      {% for s in sections %}
+      <article class="card reveal">
+        <span class="journey__num">0{{ forloop.counter }}</span>
+        <h3>{{ s.title }}</h3>
+        {% for para in s.paragraphs %}<p class="muted">{{ para }}</p>{% endfor %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container--narrow">
+    <div class="section-head reveal">
+      <p class="kicker">محطات حياته</p>
+      <h2>من 1293هـ إلى 1373هـ</h2>
+    </div>
+    <div class="vline">
+      {% for e in life %}
+      <div class="vline__item reveal {% if e.year == '1319هـ' or e.year == '1351هـ' %}is-key{% endif %}">
+        <div class="vline__year">{{ e.year }}</div>
+        <div class="vline__body">
+          <h3>{{ e.title }}</h3>
+          <p>{{ e.text }}</p>
+        </div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section--tight">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div><h2>لم يكن وحده</h2><p>تعرّف على الرجال الذين رافقوه من الكويت إلى الرياض.</p></div>
+      <a class="btn btn--gold" href="{% url 'main:participants' %}">رجال المسيرة <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    {% include "main/partials/_sources.html" %}
+  </div>
+</section>
+{% endblock %}
