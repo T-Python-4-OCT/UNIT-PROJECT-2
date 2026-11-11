@@ -1,3 +1,7 @@
+/* ==============================
+   HOME PAGE VARIABLES
+============================== */
+
 .home-page {
     --home-blue: #00A3E0;
     --home-dark-blue: #0033A0;
@@ -111,6 +115,9 @@ body.dark .home-page .image-placeholder {
 }
 
 
+/* ==============================
+   HERO SECTION
+============================== */
 
 .home-page .home-hero {
     min-height: 620px;
@@ -269,6 +276,10 @@ body.dark .home-page .hero-label {
 
 
 
+/* ==============================
+   INTRODUCTION SECTION
+============================== */
+
 .home-page .home-intro {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -309,6 +320,10 @@ body.dark .home-page .hero-label {
 }
 
 
+
+/* ==============================
+   HISTORICAL JOURNEY SECTION
+============================== */
 
 .home-page .home-journey {
     background: var(--home-bg);
@@ -425,6 +440,10 @@ body.dark .home-page .timeline-period {
 
 
 
+/* ==============================
+   OIL TRANSFORMATION SECTION
+============================== */
+
 .home-page .home-transformation {
     background: var(--home-card);
 
@@ -451,6 +470,10 @@ body.dark .home-page .timeline-period {
 }
 
 
+
+/* ==============================
+   CLOSING SECTION
+============================== */
 
 .home-page .home-ending {
     text-align: center;
@@ -487,6 +510,10 @@ body.dark .home-page .timeline-period {
 }
 
 
+
+/* ==============================
+   RESPONSIVE DESIGN
+============================== */
 
 @media (max-width: 900px) {
 

@@ -1,6 +1,8 @@
 {% load static %}
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
+
+<!-- Document Head -->
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -17,9 +19,11 @@
   {% block extra_css %}{% endblock %}
 </head>
 
+<!-- Main Layout -->
 <body class="{% if "mode" in request.COOKIES and request.COOKIES.mode == "dark" %}dark{% endif %} {% block body_class %}{% endblock %}" style="--stage: {% block stage %}0{% endblock %}">
   <a class="oj-skip" href="#main">تخطَّ إلى المحتوى</a>
 
+  <!-- Header and Navigation -->
   <header class="oj-header sticky-top">
     <nav class="navbar navbar-expand-lg oj-nav" aria-label="التنقل الرئيسي">
       <div class="container">
@@ -65,9 +69,11 @@
       </div>
     </nav>
 
+    <!-- Journey Progress Indicator -->
     <div class="oj-rail" aria-hidden="true"><span class="oj-rail__dot"></span></div>
   </header>
 
+  <!-- Main Content -->
   <main id="main">
     {% block content %}{% endblock %}
   </main>
@@ -75,6 +81,7 @@
   {% block pager %}{% endblock %}
   {% block sources %}{% endblock %}
 
+  <!-- Footer Section -->
   <footer class="oj-footer">
     <div class="container">
       <div class="row g-4">
@@ -102,6 +109,7 @@
       <p class="oj-footer__note">© {% now "Y" %} OilJourney. جميع الحقوق محفوظة.</p>    </div>
   </footer>
 
+  <!-- Bootstrap JavaScript -->
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
 </body>

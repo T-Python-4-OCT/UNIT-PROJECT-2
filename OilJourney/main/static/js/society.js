@@ -22,7 +22,7 @@ function initSocietyPage() {
 
                 },
                 {
-                    threshold: 0.01,
+                    threshold: 0.15,
                     rootMargin: "0px 0px 0px 0px"
                 }
             );

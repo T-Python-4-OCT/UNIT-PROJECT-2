@@ -1,0 +1,967 @@
+/* ========================================
+   VISION 2030 PAGE
+======================================== */
+
+.vision-page {
+    --vp-green: #00843D;
+    --vp-light-green: #84BD00;
+    --vp-blue: #00A3E0;
+    --vp-dark-blue: #0033A0;
+    --vp-text: #172B3A;
+    --vp-muted: #647586;
+    --vp-bg: #F5F8F7;
+    --vp-white: #FFFFFF;
+
+    background: var(--vp-bg);
+    color: var(--vp-text);
+    overflow-x: clip;
+}
+
+.vision-page * {
+    box-sizing: border-box;
+}
+
+.vision-page img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.vision-page a {
+    text-decoration: none;
+}
+
+.vision-page section {
+    position: relative;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.vp-hero {
+    min-height: 690px;
+    display: flex;
+    align-items: center;
+    padding: 110px 9%;
+    color: #FFFFFF;
+    background:
+        url("../images/vision-hero.jpg") center / cover no-repeat;
+    position: relative;
+    isolation: isolate;
+}
+
+.vp-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background:
+        linear-gradient(
+            90deg,
+            rgba(3, 24, 30, 0.90),
+            rgba(3, 35, 29, 0.62),
+            rgba(3, 35, 29, 0.18)
+        );
+}
+
+.vp-hero-content {
+    position: relative;
+    z-index: 2;
+    width: min(650px, 75%);
+}
+
+.vp-eyebrow,
+.vp-section-label {
+    display: inline-block;
+    color: var(--vp-light-green);
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    margin-bottom: 22px;
+}
+
+.vp-hero h1 {
+    font-family: "Cairo", sans-serif;
+    font-size: clamp(48px, 7vw, 86px);
+    line-height: 1.25;
+    font-weight: 900;
+    margin: 0 0 24px;
+}
+
+.vp-hero h1 span {
+    display: block;
+    color: var(--vp-light-green);
+}
+
+.vp-hero-content p {
+    max-width: 570px;
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 19px;
+    line-height: 2;
+    margin-bottom: 35px;
+}
+
+.vp-hero-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 13px 23px;
+    border: 1px solid rgba(255, 255, 255, 0.65);
+    border-radius: 3px;
+    color: #FFFFFF;
+    font-weight: 700;
+    transition: 0.3s ease;
+}
+
+.vp-hero-link:hover {
+    background: var(--vp-light-green);
+    border-color: var(--vp-light-green);
+    color: #102719;
+    transform: translateY(-4px);
+}
+
+.vp-hero-link span {
+    font-size: 22px;
+}
+
+.vp-hero-mark {
+    position: absolute;
+    left: 8%;
+    right: auto;
+    bottom: 16%;
+
+    width: 190px;
+    height: 127px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+
+    z-index: 2;
+}
+
+.vp-hero-mark img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+
+.vp-hero-mark span {
+    font-size: 45px;
+    font-weight: 900;
+    color: var(--vp-light-green);
+}
+
+.vp-hero-mark small {
+    font-size: 13px;
+    color: #FFFFFF;
+}
+
+.vp-hero-bottom {
+    position: absolute;
+    bottom: 35px;
+    left: 9%;
+    right: 9%;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    color: rgba(255, 255, 255, 0.75);
+    font-size: 12px;
+}
+
+.vp-hero-line {
+    width: 75px;
+    height: 1px;
+    background: var(--vp-light-green);
+}
+
+
+/* ========================================
+   INTRO
+======================================== */
+
+.vp-intro {
+    padding: 115px 9%;
+    background: var(--vp-white);
+}
+
+.vp-intro-heading {
+    max-width: 800px;
+    margin-bottom: 65px;
+}
+
+.vp-intro-heading h2,
+.vp-section-heading h2,
+.vp-energy-header h2 {
+    font-family: "Cairo", sans-serif;
+    font-size: clamp(32px, 4.5vw, 52px);
+    line-height: 1.55;
+    font-weight: 900;
+    margin: 0;
+}
+
+.vp-intro-heading h2 span,
+.vp-section-heading h2 span,
+.vp-energy-header h2 span {
+    color: var(--vp-green);
+}
+
+.vp-intro-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 75px;
+    align-items: center;
+}
+
+.vp-intro-image {
+    height: 510px;
+    position: relative;
+}
+
+.vp-intro-image::before {
+    content: "";
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    border: 3px solid var(--vp-light-green);
+    top: -18px;
+    right: -18px;
+    z-index: 0;
+}
+
+.vp-intro-image img {
+    position: relative;
+    z-index: 1;
+}
+
+.vp-image-caption {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    z-index: 2;
+    background: rgba(0, 51, 160, 0.88);
+    color: #FFFFFF;
+    padding: 10px 18px;
+    font-size: 13px;
+}
+
+.vp-intro-text p {
+    color: var(--vp-muted);
+    font-size: 16px;
+    line-height: 2.15;
+    margin: 0 0 20px;
+}
+
+.vp-intro-year {
+    display: flex;
+    align-items: center;
+    gap: 22px;
+    margin-top: 35px;
+    padding-top: 25px;
+    border-top: 1px solid #DDE6E1;
+}
+
+.vp-intro-year strong {
+    font-size: 48px;
+    color: var(--vp-green);
+    font-weight: 900;
+    line-height: 1;
+}
+
+.vp-intro-year span {
+    color: var(--vp-text);
+    font-weight: 700;
+}
+
+
+/* ========================================
+   VISION PILLARS
+======================================== */
+
+.vp-pillars {
+    padding: 115px 9%;
+    background: #EDF3EF;
+}
+
+.vp-section-heading {
+    max-width: 720px;
+    margin: 0 auto 65px;
+    text-align: center;
+}
+
+.vp-section-heading p {
+    color: var(--vp-muted);
+    font-size: 16px;
+    line-height: 2;
+    margin-top: 18px;
+}
+
+.vp-pillars-layout {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+    align-items: stretch;
+}
+
+.vp-pillar {
+    position: relative;
+    background: #FFFFFF;
+    min-width: 0;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.vp-pillar:hover {
+    transform: translateY(-9px);
+    box-shadow: 0 20px 45px rgba(20, 50, 35, 0.12);
+}
+
+.vp-pillar-number {
+    position: absolute;
+    top: 18px;
+    right: 18px;
+    z-index: 2;
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    background: var(--vp-green);
+    color: #FFFFFF;
+    font-weight: 900;
+    border-radius: 50%;
+}
+
+.vp-pillar-image {
+    height: 255px;
+    overflow: hidden;
+}
+
+.vp-pillar-image img {
+    transition: transform 0.6s ease;
+}
+
+.vp-pillar:hover .vp-pillar-image img {
+    transform: scale(1.06);
+}
+
+.vp-pillar-content {
+    padding: 28px 25px 35px;
+    border-bottom: 4px solid var(--vp-green);
+}
+
+.vp-pillar-economy .vp-pillar-content {
+    border-color: var(--vp-blue);
+}
+
+.vp-pillar-nation .vp-pillar-content {
+    border-color: var(--vp-dark-blue);
+}
+
+.vp-pillar-content > span {
+    font-size: 12px;
+    color: var(--vp-muted);
+    font-weight: 700;
+}
+
+.vp-pillar-content h3 {
+    font-family: "Cairo", sans-serif;
+    font-size: 27px;
+    font-weight: 900;
+    margin: 10px 0;
+}
+
+.vp-pillar-content p {
+    color: var(--vp-muted);
+    font-size: 14px;
+    line-height: 2;
+    margin: 0;
+}
+
+
+/* ========================================
+   ECONOMIC DIVERSIFICATION
+======================================== */
+
+.vp-diversification {
+    min-height: 650px;
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    background: #FFFFFF;
+}
+
+.vp-diversification-content {
+    padding: 110px 12% 100px 8%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vp-diversification-content h2,
+.vp-innovation-content h2 {
+    font-family: "Cairo", sans-serif;
+    font-size: clamp(35px, 4.5vw, 53px);
+    line-height: 1.5;
+    font-weight: 900;
+    margin: 0 0 25px;
+}
+
+.vp-diversification-content h2 span,
+.vp-innovation-content h2 span {
+    display: block;
+    color: var(--vp-green);
+}
+
+.vp-diversification-content p,
+.vp-innovation-content p {
+    color: var(--vp-muted);
+    font-size: 15px;
+    line-height: 2.15;
+    margin: 0 0 18px;
+}
+
+.vp-diversification-image {
+    min-height: 650px;
+    position: relative;
+}
+
+.vp-diversification-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(0, 51, 160, 0.08),
+        transparent 65%
+    );
+    pointer-events: none;
+}
+
+.vp-image-stamp {
+    position: absolute;
+    bottom: 35px;
+    right: 35px;
+    z-index: 2;
+    padding: 20px 28px;
+    background: rgba(0, 51, 160, 0.88);
+    color: #FFFFFF;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.vp-image-stamp strong {
+    font-size: 27px;
+}
+
+.vp-image-stamp span {
+    font-size: 13px;
+}
+
+
+/* ========================================
+   ENERGY TRANSFORMATION
+======================================== */
+
+.vp-energy {
+    padding: 115px 9%;
+    background: #0B2924;
+    color: #FFFFFF;
+}
+
+.vp-energy-header {
+    max-width: 800px;
+    margin-bottom: 60px;
+}
+
+.vp-energy-header h2 {
+    color: #FFFFFF;
+}
+
+.vp-energy-header h2 span {
+    color: var(--vp-light-green);
+}
+
+.vp-energy-header p {
+    max-width: 720px;
+    color: rgba(255, 255, 255, 0.72);
+    font-size: 16px;
+    line-height: 2.1;
+    margin-top: 20px;
+}
+
+.vp-energy-layout {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 65px;
+    align-items: center;
+}
+
+.vp-energy-image {
+    height: 480px;
+    position: relative;
+}
+
+.vp-energy-image::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(132, 189, 0, 0.5);
+    transform: translate(15px, 15px);
+    pointer-events: none;
+}
+
+.vp-energy-details {
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+}
+
+.vp-energy-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 22px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.vp-energy-icon {
+    flex: 0 0 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    border: 1px solid var(--vp-light-green);
+    color: var(--vp-light-green);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.vp-energy-item h3 {
+    font-family: "Cairo", sans-serif;
+    color: #FFFFFF;
+    font-size: 21px;
+    margin: 0 0 8px;
+}
+
+.vp-energy-item p {
+    color: rgba(255, 255, 255, 0.68);
+    font-size: 14px;
+    line-height: 2;
+    margin: 0;
+}
+
+
+/* ========================================
+   INNOVATION AND HUMAN CAPITAL
+======================================== */
+
+.vp-innovation {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: stretch;
+    background: #FFFFFF;
+}
+
+.vp-innovation-image {
+    min-height: 650px;
+}
+
+.vp-innovation-content {
+    padding: 100px 11%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.vp-innovation-content h2 {
+    margin-bottom: 25px;
+}
+
+
+/* ========================================
+   FUTURE
+======================================== */
+
+.vp-future {
+    min-height: 600px;
+    padding: 120px 9%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #FFFFFF;
+    background:
+        url("../images/vision-future.jpg") center / cover no-repeat;
+    isolation: isolate;
+}
+
+.vp-future-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    background: linear-gradient(
+        115deg,
+        rgba(0, 51, 160, 0.76),
+        rgba(0, 80, 48, 0.76)
+    );
+}
+
+.vp-future-content {
+    max-width: 850px;
+}
+
+.vp-future-content .vp-section-label {
+    color: #C6F36A;
+}
+
+.vp-future-content h2 {
+    font-family: "Cairo", sans-serif;
+    font-size: clamp(38px, 5.5vw, 65px);
+    line-height: 1.5;
+    font-weight: 900;
+    margin: 0 0 25px;
+}
+
+.vp-future-content h2 span {
+    display: block;
+    color: #C6F36A;
+}
+
+.vp-future-content p {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 17px;
+    line-height: 2.2;
+    margin: 0 auto;
+}
+
+.vp-future-mark {
+    margin-top: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+}
+
+.vp-future-mark span {
+    font-size: 14px;
+}
+
+.vp-future-mark strong {
+    color: #C6F36A;
+    font-size: 42px;
+    font-weight: 900;
+}
+
+
+/* ========================================
+   PAGE NAVIGATION
+======================================== */
+
+.vp-page-end {
+    padding: 35px 9%;
+    background: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.vp-back-link,
+.vp-home-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--vp-text);
+    font-size: 14px;
+    font-weight: 700;
+    transition: color 0.25s ease;
+}
+
+.vp-back-link:hover,
+.vp-home-link:hover {
+    color: var(--vp-green);
+}
+
+.vp-back-link span,
+.vp-home-link span {
+    font-size: 22px;
+    color: var(--vp-green);
+}
+
+
+/* ========================================
+   REVEAL ANIMATION
+======================================== */
+
+.vp-reveal {
+    opacity: 1;
+    transform: none;
+}
+
+.vp-reveal.vp-reveal-pending {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity 0.75s ease,
+        transform 0.75s ease;
+}
+
+.vp-reveal.vp-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ========================================
+   DARK MODE
+======================================== */
+
+body.dark.vision-page {
+    --vp-text: #E8F0F2;
+    --vp-muted: #A8B8C0;
+    --vp-bg: #071923;
+    --vp-white: #0D2530;
+
+    background: var(--vp-bg);
+    color: var(--vp-text);
+}
+
+body.dark.vision-page .vp-intro,
+body.dark.vision-page .vp-diversification,
+body.dark.vision-page .vp-innovation,
+body.dark.vision-page .vp-page-end {
+    background: #0D2530;
+}
+
+body.dark.vision-page .vp-pillars {
+    background: #102B32;
+}
+
+body.dark.vision-page .vp-pillar {
+    background: #17343B;
+}
+
+body.dark.vision-page .vp-pillar-content h3,
+body.dark.vision-page .vp-intro-year span {
+    color: #E8F0F2;
+}
+
+body.dark.vision-page .vp-intro-year {
+    border-color: rgba(255, 255, 255, 0.15);
+}
+
+body.dark.vision-page .vp-back-link,
+body.dark.vision-page .vp-home-link {
+    color: #E8F0F2;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1000px) {
+    .vp-hero {
+        min-height: 620px;
+    }
+
+    .vp-hero-mark {
+        width: 110px;
+        height: 74px;
+        left: 5%;
+        right: auto;
+        bottom: 75px;
+    }
+
+    .vp-hero-mark span {
+        font-size: 35px;
+    }
+
+    .vp-intro-layout {
+        gap: 45px;
+    }
+
+    .vp-pillars-layout {
+        gap: 16px;
+    }
+
+    .vp-pillar-image {
+        height: 210px;
+    }
+
+    .vp-pillar-content {
+        padding: 24px 18px 30px;
+    }
+
+    .vp-diversification-content {
+        padding: 80px 9%;
+    }
+
+    .vp-energy-layout {
+        gap: 40px;
+    }
+
+    .vp-innovation-content {
+        padding: 80px 9%;
+    }
+}
+
+
+@media (max-width: 700px) {
+    .vp-hero {
+        min-height: 650px;
+        padding: 100px 7%;
+        align-items: flex-start;
+    }
+
+    .vp-hero-content {
+        width: 100%;
+        padding-top: 55px;
+    }
+
+    .vp-hero-content p {
+        font-size: 16px;
+    }
+
+    .vp-hero-mark {
+        width: 105px;
+        height: 105px;
+        left: 5%;
+        right: auto;
+        bottom: 75px;
+    }
+
+    .vp-hero-mark span {
+        font-size: 27px;
+    }
+
+    .vp-hero-mark small {
+        font-size: 10px;
+    }
+
+    .vp-hero-bottom {
+        left: 7%;
+        right: 7%;
+        bottom: 25px;
+        font-size: 10px;
+    }
+
+    .vp-intro,
+    .vp-pillars,
+    .vp-energy {
+        padding: 75px 7%;
+    }
+
+    .vp-intro-heading {
+        margin-bottom: 45px;
+    }
+
+    .vp-intro-layout,
+    .vp-energy-layout {
+        grid-template-columns: 1fr;
+        gap: 40px;
+    }
+
+    .vp-intro-image {
+        height: 340px;
+        margin: 0 10px 10px 0;
+    }
+
+    .vp-intro-image::before {
+        top: -10px;
+        right: -10px;
+    }
+
+    .vp-intro-text p {
+        font-size: 15px;
+    }
+
+    .vp-section-heading {
+        margin-bottom: 40px;
+    }
+
+    .vp-pillars-layout {
+        grid-template-columns: 1fr;
+        gap: 25px;
+    }
+
+    .vp-pillar-image {
+        height: 250px;
+    }
+
+    .vp-pillar-content {
+        padding: 25px;
+    }
+
+    .vp-diversification {
+        grid-template-columns: 1fr;
+    }
+
+    .vp-diversification-content {
+        padding: 75px 7%;
+    }
+
+    .vp-diversification-image {
+        min-height: 370px;
+        height: 370px;
+    }
+
+    .vp-energy-image {
+        height: 320px;
+    }
+
+    .vp-energy-details {
+        gap: 25px;
+    }
+
+    .vp-energy-item {
+        gap: 15px;
+    }
+
+    .vp-innovation {
+        grid-template-columns: 1fr;
+    }
+
+    .vp-innovation-image {
+        min-height: 350px;
+        height: 350px;
+        order: 1;
+    }
+
+    .vp-innovation-content {
+        padding: 75px 7%;
+        order: 2;
+    }
+
+    .vp-future {
+        min-height: 570px;
+        padding: 85px 7%;
+    }
+
+    .vp-future-content p {
+        font-size: 15px;
+    }
+
+    .vp-page-end {
+        padding: 28px 7%;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+    .vp-reveal.vp-reveal-pending {
+        opacity: 1;
+        transform: none;
+        transition: none;
+    }
+
+    .vp-pillar,
+    .vp-pillar-image img,
+    .vp-hero-link {
+        transition: none;
+    }
+}

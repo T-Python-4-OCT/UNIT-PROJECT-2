@@ -6,7 +6,7 @@ if ("IntersectionObserver" in window) {
             target.classList.add("ow-visible");
             obs.unobserve(target);
         });
-    }, { threshold: 0.01 });
+    }, { threshold: 0.15 });
 
     document.querySelectorAll(".ow-reveal").forEach((element) => {
         element.classList.add("ow-reveal-pending");

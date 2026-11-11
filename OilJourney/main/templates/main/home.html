@@ -12,6 +12,7 @@
 
 <main class="home-page">
 
+    <!-- Hero Section -->
     <section class="home-hero">
 
         <div class="hero-content">
@@ -54,12 +55,12 @@
 
     </section>
 
-
+    <!-- Introduction Section -->
     <section class="home-intro oj-reveal" id="introduction">
 
         <div class="intro-image">
             <div class="image-placeholder">
-                <img src="{% static 'images/img2.jpg' %}">
+                <img src="{% static 'images/home-oil-journey.jpg' %}">
             </div>
         </div>
 
@@ -105,7 +106,7 @@
 
     </section>
 
-
+    <!-- Historical Journey Section -->
     <section class="home-journey" id="journey">
 
         <div class="section-heading oj-reveal">
@@ -182,7 +183,7 @@
                     </p>
 
 
-                    <a href="#" class="text-link">اكتشف المرحلة ←</a>
+                    <a href="{% url 'main:aramco' %}" class="text-link">اكتشف المرحلة ←</a>
                 </div>
             </article>
 
@@ -192,19 +193,19 @@
 
                 <div class="timeline-card">
                     <span class="timeline-number">04</span>
-                    <span class="timeline-period">التطور والسيطرة</span>
+                    <span class="timeline-period">التطور الملكية الوطنية</span>
 
-                    <h3>السيطرة</h3>
+                    <h3>الملكية الوطنية</h3>
 
                     <p>
                         تطور الصناعة النفطية في المملكة، وانتقالها إلى
                         مراحل متقدمة من الإنتاج والتصدير، بالتزامن مع
-                        تعزيز السيطرة الوطنية على الموارد النفطية،
+                        تعزيز الملكية الوطنية على الموارد النفطية،
                         وصولاً إلى امتلاك المملكة كامل حصتها في أرامكو
                         وإدارة ثرواتها النفطية.
                     </p>
 
-                    <a href="#" class="text-link">اكتشف المرحلة ←</a>
+                    <a href="{% url 'main:ownership' %}" class="text-link">اكتشف المرحلة ←</a>
                 </div>
             </article>
 
@@ -225,7 +226,7 @@
                     </p>
 
 
-                    <a href="#" class="text-link">اكتشف المرحلة ←</a>
+                    <a href="{% url 'main:society' %}" class="text-link">اكتشف المرحلة ←</a>
                 </div>
             </article>
             <article class="timeline-item oj-reveal">
@@ -244,7 +245,7 @@
                         وتقليل الاعتماد على النفط.
                     </p>
 
-                    <a href="#" class="text-link">اكتشف المرحلة ←</a>
+                    <a href="{% url 'main:vision' %}" class="text-link">اكتشف المرحلة ←</a>
                 </div>
             </article>
 
@@ -253,7 +254,7 @@
 
     </section>
 
-
+    <!-- Oil Transformation Section -->
     <section class="home-transformation oj-reveal">
 
         <div class="transformation-content">
@@ -291,13 +292,13 @@
 
         <div class="transformation-image">
             <div class="image-placeholder">
-                <img src="{% static 'images/img2.jpg' %}">
+                <img src="{% static 'images/home-oil-journey.jpg' %}">
             </div>
         </div>
 
     </section>
 
-
+    <!-- Closing Section -->
     <section class="home-ending oj-reveal">
 
         <span class="section-label">رحلة مستمرة</span>
