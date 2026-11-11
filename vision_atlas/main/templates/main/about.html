@@ -1,0 +1,279 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{% if request.COOKIES.lang == 'ar' %}عن الرؤية | Vision Atlas{% else %}About Vision 2030 | Vision Atlas{% endif %}{% endblock %}
+{% block body_class %}has-hero{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero" style="height: 70svh;">
+    <img class="hero-media" src="{% static 'main/images/home-4.png' %}" alt="Saudi Vision 2030">
+    <div class="hero-overlay"></div>
+    <div class="container hero-content" style="padding-bottom: 4rem;">
+        {% if request.COOKIES.lang == 'ar' %}
+            <p class="eyebrow">عن الرؤية</p>
+            <h1 class="hero-title">رؤية السعودية 2030</h1>
+            <p class="hero-tagline">خارطة الطريق التي تعيد تشكيل اقتصاد المملكة ومجتمعها ومستقبلها.</p>
+        {% else %}
+            <p class="eyebrow">About</p>
+            <h1 class="hero-title">Saudi Vision 2030</h1>
+            <p class="hero-tagline">The roadmap transforming the Kingdom's economy, society and future.</p>
+        {% endif %}
+    </div>
+</section>
+
+<!-- OVERVIEW -->
+<section class="section container">
+    <div class="row g-5">
+        {% if request.COOKIES.lang == 'ar' %}
+            <div class="col-lg-5 reveal">
+                <p class="section-label">01 — نظرة عامة</p>
+                <h2 class="section-title">ما هي رؤية 2030؟</h2>
+            </div>
+            <div class="col-lg-7 reveal">
+                <p class="lead-text">أعلن ولي العهد الأمير محمد بن سلمان عن رؤية السعودية 2030 في أبريل 2016، كخطة طويلة المدى لبناء سعودية أقوى وأكثر تنوعاً.</p>
+                <p class="story-text">تقوم الرؤية على ثلاث نقاط قوة للمملكة: مكانتها في قلب العالمين العربي والإسلامي، وقوتها الاستثمارية الرائدة، وموقعها الذي يربط آسيا وأوروبا وأفريقيا. وتُنفَّذ عبر برامج وطنية تغطي الإسكان والصحة والسياحة والثقافة والصناعة وغيرها.</p>
+            </div>
+        {% else %}
+            <div class="col-lg-5 reveal">
+                <p class="section-label">01 — Overview</p>
+                <h2 class="section-title">What Is Vision 2030?</h2>
+            </div>
+            <div class="col-lg-7 reveal">
+                <p class="lead-text">Saudi Vision 2030 was announced in April 2016 by Crown Prince Mohammed bin Salman as a long-term plan to build a stronger and more diverse Saudi Arabia.</p>
+                <p class="story-text">It builds on the Kingdom's three strengths: its position at the heart of the Arab and Islamic worlds, its power as a global investment leader, and its location as a hub connecting Asia, Europe and Africa. The vision is delivered through national programs that cover housing, health, tourism, culture, industry and more.</p>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- PILLARS -->
+<section class="section container">
+    {% if request.COOKIES.lang == 'ar' %}
+        <p class="section-label">02 — المحاور</p>
+        <h2 class="section-title mb-5">المحاور الثلاثة</h2>
+    {% else %}
+        <p class="section-label">02 — The Pillars</p>
+        <h2 class="section-title mb-5">Three Pillars</h2>
+    {% endif %}
+    <div class="row g-4">
+        <div class="col-lg-4 reveal">
+            <div class="tech-card">
+                <i class="bi bi-people"></i>
+                {% if request.COOKIES.lang == 'ar' %}
+                    <h3>مجتمع حيوي</h3>
+                    <p>مجتمع يعتز بقيمه الإسلامية وهويته الوطنية، مع جودة حياة أفضل عبر الثقافة والرياضة والترفيه وأنماط الحياة الصحية.</p>
+                {% else %}
+                    <h3>A Vibrant Society</h3>
+                    <p>A society proud of its Islamic values and national identity, with better quality of life through culture, sports, entertainment and healthy living.</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-lg-4 reveal">
+            <div class="tech-card">
+                <i class="bi bi-graph-up-arrow"></i>
+                {% if request.COOKIES.lang == 'ar' %}
+                    <h3>اقتصاد مزدهر</h3>
+                    <p>اقتصاد أقل اعتماداً على النفط، بقطاع خاص ومنشآت صغيرة وسياحة وصناعة تنمو، توفر وظائف جديدة للشباب السعودي.</p>
+                {% else %}
+                    <h3>A Thriving Economy</h3>
+                    <p>An economy less dependent on oil, with growing private sector, small businesses, tourism and industry, creating new jobs for young Saudis.</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="col-lg-4 reveal">
+            <div class="tech-card">
+                <i class="bi bi-flag"></i>
+                {% if request.COOKIES.lang == 'ar' %}
+                    <h3>وطن طموح</h3>
+                    <p>حكومة فاعلة وشفافة، ومواطنون مسؤولون يساهمون في وطنهم بالعمل والتطوع.</p>
+                {% else %}
+                    <h3>An Ambitious Nation</h3>
+                    <p>An effective and transparent government, and responsible citizens who contribute to the nation through work and volunteering.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- TARGETS -->
+<section class="section container">
+    {% if request.COOKIES.lang == 'ar' %}
+        <p class="section-label">03 — المستهدفات</p>
+        <h2 class="section-title mb-5">أهداف 2030</h2>
+    {% else %}
+        <p class="section-label">03 — Key Targets</p>
+        <h2 class="section-title mb-5">Goals for 2030</h2>
+    {% endif %}
+    <div class="row g-4">
+        <div class="col-6 col-lg-4 reveal">
+            <div class="tech-card">
+                <span class="stat-value target-num">65%</span>
+                <p>{% if request.COOKIES.lang == 'ar' %}مساهمة القطاع الخاص في الناتج المحلي{% else %}Private sector share of GDP{% endif %}</p>
+            </div>
+        </div>
+        <div class="col-6 col-lg-4 reveal">
+            <div class="tech-card">
+                <span class="stat-value target-num">35%</span>
+                <p>{% if request.COOKIES.lang == 'ar' %}مساهمة المنشآت الصغيرة والمتوسطة في الناتج المحلي{% else %}Small and medium businesses share of GDP{% endif %}</p>
+            </div>
+        </div>
+        <div class="col-6 col-lg-4 reveal">
+            <div class="tech-card">
+                <span class="stat-value target-num">50%</span>
+                <p>{% if request.COOKIES.lang == 'ar' %}نسبة الصادرات غير النفطية من الناتج غير النفطي{% else %}Non-oil exports share of non-oil GDP{% endif %}</p>
+            </div>
+        </div>
+        <div class="col-6 col-lg-4 reveal">
+            <div class="tech-card">
+                <span class="stat-value target-num">7%</span>
+                <p>{% if request.COOKIES.lang == 'ar' %}معدل البطالة المستهدف{% else %}Target unemployment rate{% endif %}</p>
+            </div>
+        </div>
+        <div class="col-6 col-lg-4 reveal">
+            <div class="tech-card">
+                <span class="stat-value target-num">30%</span>
+                <p>{% if request.COOKIES.lang == 'ar' %}مشاركة المرأة في سوق العمل{% else %}Women's participation in the workforce{% endif %}</p>
+            </div>
+        </div>
+        <div class="col-6 col-lg-4 reveal">
+            <div class="tech-card">
+                <span class="stat-value target-num">3</span>
+                <p>{% if request.COOKIES.lang == 'ar' %}مدن سعودية ضمن أفضل 100 مدينة في العالم{% else %}Saudi cities among the world's top 100{% endif %}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section class="section container">
+    {% if request.COOKIES.lang == 'ar' %}
+        <p class="section-label">04 — الإنجازات</p>
+        <h2 class="section-title mb-2">أين وصلنا اليوم</h2>
+        <p class="story-text mb-5">بحسب التقرير السنوي لرؤية 2030 لعام 2025.</p>
+    {% else %}
+        <p class="section-label">04 — Achievements</p>
+        <h2 class="section-title mb-2">Where We Are Today</h2>
+        <p class="story-text mb-5">According to the Vision 2030 Annual Report 2025.</p>
+    {% endif %}
+    <div class="row g-4">
+        <div class="col-6 col-lg-4 reveal">
+            <div class="tech-card">
+                <span class="stat-value target-num">35%</span>
+                <p>{% if request.COOKIES.lang == 'ar' %}مشاركة المرأة في سوق العمل{% else %}Women's participation in the workforce{% endif %}</p>
+                <span class="achieve-badge done"><i class="bi bi-check-circle"></i> {% if request.COOKIES.lang == 'ar' %}تجاوز مستهدف 30%{% else %}Beat the 30% target{% endif %}</span>
+            </div>
+        </div>
+        <div class="col-6 col-lg-4 reveal">
+            <div class="tech-card">
+                <span class="stat-value target-num">7.2%</span>
+                <p>{% if request.COOKIES.lang == 'ar' %}بطالة السعوديين، الأدنى تاريخياً{% else %}Saudi unemployment, a record low{% endif %}</p>
+                <span class="achieve-badge done"><i class="bi bi-check-circle"></i> {% if request.COOKIES.lang == 'ar' %}قريب من مستهدف 7%{% else %}Close to the 7% target{% endif %}</span>
+            </div>
+        </div>
+        <div class="col-6 col-lg-4 reveal">
+            <div class="tech-card">
+                <span class="stat-value target-num">66.24%</span>
+                <p>{% if request.COOKIES.lang == 'ar' %}نسبة تملّك المساكن{% else %}Home ownership rate{% endif %}</p>
+                <span class="achieve-badge"><i class="bi bi-flag"></i> {% if request.COOKIES.lang == 'ar' %}المستهدف 70%{% else %}2030 target: 70%{% endif %}</span>
+            </div>
+        </div>
+        <div class="col-6 col-lg-4 reveal">
+            <div class="tech-card">
+                <span class="stat-value target-num">55%</span>
+                <p>{% if request.COOKIES.lang == 'ar' %}حصة الأنشطة غير النفطية من الناتج المحلي{% else %}Non-oil activities share of GDP{% endif %}</p>
+                <span class="achieve-badge done"><i class="bi bi-graph-up-arrow"></i> {% if request.COOKIES.lang == 'ar' %}أكثر من النصف{% else %}More than half{% endif %}</span>
+            </div>
+        </div>
+        <div class="col-6 col-lg-4 reveal">
+            <div class="tech-card">
+                <span class="stat-value target-num">100M+</span>
+                <p>{% if request.COOKIES.lang == 'ar' %}سائح في عام 2024{% else %}Tourists in 2024{% endif %}</p>
+                <span class="achieve-badge done"><i class="bi bi-check-circle"></i> {% if request.COOKIES.lang == 'ar' %}تجاوز المستهدف{% else %}Target exceeded{% endif %}</span>
+            </div>
+        </div>
+        <div class="col-6 col-lg-4 reveal">
+            <div class="tech-card">
+                <span class="stat-value target-num">93%</span>
+                <p>{% if request.COOKIES.lang == 'ar' %}من مؤشرات الأداء حققت مستهدفاتها في 2025{% else %}of KPIs met or beat their 2025 targets{% endif %}</p>
+                <span class="achieve-badge done"><i class="bi bi-check-circle"></i> {% if request.COOKIES.lang == 'ar' %}في المرحلة الأخيرة{% else %}Final phase{% endif %}</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- COUNTDOWN -->
+<section class="section container text-center">
+    {% if request.COOKIES.lang == 'ar' %}
+        <p class="section-label">05 — العد التنازلي</p>
+        <h2 class="section-title mb-5">الوقت المتبقي على 2030</h2>
+    {% else %}
+        <p class="section-label">05 — Countdown</p>
+        <h2 class="section-title mb-5">Time Left Until 2030</h2>
+    {% endif %}
+    <div class="countdown reveal" data-target="2030-01-01T00:00:00+03:00">
+        <div class="countdown-box">
+            <span class="countdown-num" data-unit="days">{{ countdown.days }}</span>
+            <span class="countdown-label">{% if request.COOKIES.lang == 'ar' %}يوم{% else %}Days{% endif %}</span>
+        </div>
+        <div class="countdown-box">
+            <span class="countdown-num" data-unit="hours">{{ countdown.hours }}</span>
+            <span class="countdown-label">{% if request.COOKIES.lang == 'ar' %}ساعة{% else %}Hours{% endif %}</span>
+        </div>
+        <div class="countdown-box">
+            <span class="countdown-num" data-unit="minutes">{{ countdown.minutes }}</span>
+            <span class="countdown-label">{% if request.COOKIES.lang == 'ar' %}دقيقة{% else %}Minutes{% endif %}</span>
+        </div>
+        <div class="countdown-box">
+            <span class="countdown-num" data-unit="seconds">{{ countdown.seconds }}</span>
+            <span class="countdown-label">{% if request.COOKIES.lang == 'ar' %}ثانية{% else %}Seconds{% endif %}</span>
+        </div>
+    </div>
+</section>
+
+<!-- MILESTONES -->
+<section class="section container">
+    {% if request.COOKIES.lang == 'ar' %}
+        <p class="section-label">06 — المحطات</p>
+        <h2 class="section-title mb-4">الرحلة حتى الآن</h2>
+        <ol class="timeline">
+            <li class="timeline-item reveal"><span class="timeline-year">2016</span><p>الإعلان عن رؤية السعودية 2030.</p></li>
+            <li class="timeline-item reveal"><span class="timeline-year">2017</span><p>الإعلان عن نيوم والبحر الأحمر والقدية.</p></li>
+            <li class="timeline-item reveal"><span class="timeline-year">2018</span><p>عودة السينما وبدء قيادة المرأة للسيارة.</p></li>
+            <li class="timeline-item reveal"><span class="timeline-year">2019</span><p>فتح المملكة للسياح من العالم بالتأشيرة الإلكترونية.</p></li>
+            <li class="timeline-item reveal"><span class="timeline-year">2023</span><p>الرياض تفوز باستضافة إكسبو 2030.</p></li>
+            <li class="timeline-item reveal"><span class="timeline-year">2024</span><p>فيفا يعلن استضافة المملكة لكأس العالم 2034.</p></li>
+        </ol>
+    {% else %}
+        <p class="section-label">06 — Milestones</p>
+        <h2 class="section-title mb-4">The Journey So Far</h2>
+        <ol class="timeline">
+            <li class="timeline-item reveal"><span class="timeline-year">2016</span><p>Saudi Vision 2030 is announced.</p></li>
+            <li class="timeline-item reveal"><span class="timeline-year">2017</span><p>NEOM, The Red Sea and Qiddiya are announced.</p></li>
+            <li class="timeline-item reveal"><span class="timeline-year">2018</span><p>Cinemas reopen and women begin driving.</p></li>
+            <li class="timeline-item reveal"><span class="timeline-year">2019</span><p>Saudi Arabia opens to international tourists with the e-visa.</p></li>
+            <li class="timeline-item reveal"><span class="timeline-year">2023</span><p>Riyadh wins the bid to host Expo 2030.</p></li>
+            <li class="timeline-item reveal"><span class="timeline-year">2024</span><p>FIFA confirms Saudi Arabia as host of the 2034 World Cup.</p></li>
+        </ol>
+    {% endif %}
+</section>
+
+<!-- CLOSING -->
+<a href="{% url 'main:home' %}#projects" class="next-project">
+    <img src="{% static 'main/images/home-3.png' %}" alt="Explore the projects">
+    <div class="next-overlay"></div>
+    <div class="container next-content">
+        {% if request.COOKIES.lang == 'ar' %}
+            <span class="eyebrow">الرؤية على أرض الواقع</span>
+            <h2 class="next-title">استكشف المشاريع <i class="bi bi-arrow-right"></i></h2>
+            <p>اكتشف المشاريع العملاقة الست التي تحوّل رؤية 2030 إلى واقع.</p>
+        {% else %}
+            <span class="eyebrow">See the Vision in Action</span>
+            <h2 class="next-title">Explore Projects <i class="bi bi-arrow-right"></i></h2>
+            <p>Discover the six giga-projects bringing Vision 2030 to life.</p>
+        {% endif %}
+    </div>
+</a>
+
+{% endblock %}

@@ -1,0 +1,383 @@
+{
+    "neom": {
+        "name": "NEOM",
+        "tagline": "A land of the future, built from scratch.",
+        "about": "NEOM is a giga-project in Tabuk Province, northwest Saudi Arabia, on the Red Sea and the Gulf of Aqaba. It brings together new cities, ports, tourism destinations and nature reserves under one vision.",
+        "images": [
+            "main/images/neom/the-line-3.jpg",
+            "main/images/neom/oxagon-2.jpg",
+            "main/images/neom/trojena-2.png",
+            "main/images/neom/islands-2.jpg",
+            "main/images/neom/nature-4.jpg",
+            "main/images/neom/history-1.jpg"
+        ],
+        "video": "https://res.cloudinary.com/jpva3wbq/video/upload/q_auto,w_1280,ac_none,du_30/v1794406101/neom-video-2.mp4",
+        "coords": [27.95, 35.30],
+        "stats": [
+            {"label": "Area", "value": "26,500 km²"},
+            {"label": "Announced", "value": "2017"},
+            {"label": "Region", "value": "Tabuk"}
+        ],
+        "attractions": [
+            {"name": "The Line", "desc": "A linear city with no cars or streets.", "image": "main/images/neom/the-line-1.jpg"},
+            {"name": "Oxagon", "desc": "A floating industrial port city.", "image": "main/images/neom/oxagon-1.jpeg"},
+            {"name": "Trojena", "desc": "A mountain destination with outdoor skiing.", "image": "main/images/neom/trojena-1.png"},
+            {"name": "Magna", "desc": "A coastal region along the Gulf of Aqaba.", "image": "main/images/neom/magna-1.png"},
+            {"name": "NEOM Islands", "desc": "Luxury islands in the Red Sea, starting with Sindalah.", "image": "main/images/neom/islands-1.png"},
+            {"name": "Nature in NEOM", "desc": "Protected reserves, deserts and coral reefs.", "image": "main/images/neom/nature-2.jpg"}
+        ],
+        "timeline": [
+            {"year": "2017", "event": "NEOM announced at the Future Investment Initiative."},
+            {"year": "2021", "event": "The Line and Oxagon unveiled."},
+            {"year": "2022", "event": "Trojena unveiled."},
+            {"year": "2024", "event": "Sindalah island unveiled."}
+        ],
+        "events": [
+            "Future Investment Initiative launch (2017)",
+            "Sindalah island opening (2024)"
+        ],
+        "socials": [
+            {"name": "Website", "icon": "globe2", "url": "https://www.neom.com"},
+            {"name": "X", "icon": "twitter-x", "url": "https://x.com/NEOM"},
+            {"name": "Instagram", "icon": "instagram", "url": "https://www.instagram.com/neom"},
+            {"name": "YouTube", "icon": "youtube", "url": "https://www.youtube.com/@NEOM"}
+        ],
+        "ar": {
+            "name": "نيوم",
+            "tagline": "أرض المستقبل، تُبنى من الصفر.",
+            "about": "نيوم مشروع عملاق في منطقة تبوك شمال غرب المملكة، على ساحل البحر الأحمر وخليج العقبة. يجمع مدناً جديدة وموانئ ووجهات سياحية ومحميات طبيعية تحت رؤية واحدة.",
+            "stats": [
+                {"label": "المساحة", "value": "26,500 كم²"},
+                {"label": "الإعلان", "value": "2017"},
+                {"label": "المنطقة", "value": "تبوك"}
+            ],
+            "attractions": [
+                {"name": "ذا لاين", "desc": "مدينة خطية بلا سيارات ولا شوارع."},
+                {"name": "أوكساجون", "desc": "مدينة صناعية وميناء عائم."},
+                {"name": "تروجينا", "desc": "وجهة جبلية للتزلج في الهواء الطلق."},
+                {"name": "مقنا", "desc": "منطقة ساحلية على خليج العقبة."},
+                {"name": "جزر نيوم", "desc": "جزر فاخرة في البحر الأحمر، أولها سندالة."},
+                {"name": "الطبيعة في نيوم", "desc": "محميات وصحارٍ وشعاب مرجانية."}
+            ],
+            "timeline": [
+                {"event": "الإعلان عن نيوم في مبادرة مستقبل الاستثمار."},
+                {"event": "الكشف عن ذا لاين وأوكساجون."},
+                {"event": "الكشف عن تروجينا."},
+                {"event": "الكشف عن جزيرة سندالة."}
+            ],
+            "events": [
+                "إطلاق نيوم في مبادرة مستقبل الاستثمار (2017)",
+                "افتتاح جزيرة سندالة (2024)"
+            ]
+        }
+    },
+
+    "red-sea": {
+        "name": "The Red Sea",
+        "tagline": "Luxury tourism that protects nature.",
+        "about": "A regenerative tourism destination on Saudi Arabia's west coast, spread across islands, desert, volcanoes and coral reefs, developed by Red Sea Global.",
+        "images": [
+            "main/images/red-sea/red-sea-1.jpg",
+            "main/images/red-sea/red-sea-2.jpg",
+            "main/images/red-sea/red-sea-3.png",
+            "main/images/red-sea/red-sea-5.png"
+        ],
+        "video": "https://res.cloudinary.com/jpva3wbq/video/upload/q_auto,w_1280,ac_none,du_30/v1794406131/red-sea-video-4.mp4",
+        "coords": [25.60, 36.95],
+        "stats": [
+            {"label": "Area", "value": "28,000 km²"},
+            {"label": "Islands", "value": "90+"},
+            {"label": "Announced", "value": "2017"}
+        ],
+        "attractions": [
+            {"name": "Shura Island", "desc": "The main resort hub shaped like a dolphin.", "image": "main/images/red-sea/red-sea-1.jpg"},
+            {"name": "Coral Reefs", "desc": "One of the world's richest reef systems.", "image": "main/images/red-sea/red-sea-5.png"},
+            {"name": "Ummahat Islands", "desc": "Private island resorts over turquoise lagoons.", "image": "main/images/red-sea/red-sea-2.jpg"},
+            {"name": "Mangroves", "desc": "Coastal forests protected and replanted.", "image": "main/images/red-sea/red-sea-3.png"}
+        ],
+        "timeline": [
+            {"year": "2017", "event": "The Red Sea project announced."},
+            {"year": "2023", "event": "First resorts and Red Sea International Airport opened."}
+        ],
+        "events": [
+            "Opening of the first resorts (2023)"
+        ],
+        "socials": [
+            {"name": "Website", "icon": "globe2", "url": "https://www.redseaglobal.com"},
+            {"name": "X", "icon": "twitter-x", "url": "https://x.com/RedSeaGlobal"},
+            {"name": "Instagram", "icon": "instagram", "url": "https://www.instagram.com/redseaglobal"}
+        ],
+        "ar": {
+            "name": "البحر الأحمر",
+            "tagline": "سياحة فاخرة تحمي الطبيعة.",
+            "about": "وجهة سياحية متجددة على الساحل الغربي للمملكة، تمتد بين الجزر والصحراء والبراكين والشعاب المرجانية، وتطورها شركة البحر الأحمر الدولية.",
+            "stats": [
+                {"label": "المساحة", "value": "28,000 كم²"},
+                {"label": "الجزر", "value": "90+"},
+                {"label": "الإعلان", "value": "2017"}
+            ],
+            "attractions": [
+                {"name": "جزيرة شُورى", "desc": "مركز المنتجعات الرئيسي على شكل دلفين."},
+                {"name": "الشعاب المرجانية", "desc": "من أغنى أنظمة الشعاب في العالم."},
+                {"name": "جزر أمهات", "desc": "منتجعات خاصة فوق بحيرات فيروزية."},
+                {"name": "أشجار المانجروف", "desc": "غابات ساحلية محمية ويُعاد زراعتها."}
+            ],
+            "timeline": [
+                {"event": "الإعلان عن مشروع البحر الأحمر."},
+                {"event": "افتتاح أول المنتجعات ومطار البحر الأحمر الدولي."}
+            ],
+            "events": [
+                "افتتاح أول المنتجعات (2023)"
+            ]
+        }
+    },
+
+    "qiddiya": {
+        "name": "Qiddiya",
+        "tagline": "The capital of entertainment, sports and culture.",
+        "about": "Qiddiya is a giga-project near Riyadh dedicated to entertainment, sports and culture, with theme parks, a motorsport track and a major stadium.",
+        "images": [
+            "main/images/qiddiya/qiddiya-1.png",
+            "main/images/qiddiya/qiddiya-2.png",
+            "main/images/qiddiya/qiddiya-3.png",
+            "main/images/qiddiya/qiddiya-4.jpg"
+        ],
+        "video": "https://res.cloudinary.com/jpva3wbq/video/upload/q_auto,w_1280,ac_none,du_30/v1794406115/qiddiya-video-5.mp4",
+        "coords": [24.58, 46.33],
+        "stats": [
+            {"label": "Area", "value": "360 km²"},
+            {"label": "Announced", "value": "2017"},
+            {"label": "Location", "value": "Riyadh"}
+        ],
+        "attractions": [
+            {"name": "Six Flags Qiddiya", "desc": "A theme park with record-breaking rides.", "image": "main/images/qiddiya/qiddiya-2.png"},
+            {"name": "Aquarabia", "desc": "A large water theme park.", "image": "main/images/qiddiya/qiddiya-3.png"},
+            {"name": "Speed Park", "desc": "A motorsport track built into the cliffs.", "image": "main/images/qiddiya/qiddiya-1.png"},
+            {"name": "Gaming & Esports District", "desc": "A hub for gaming and esports.", "image": "main/images/qiddiya/qiddiya-4.jpg"}
+        ],
+        "timeline": [
+            {"year": "2017", "event": "Qiddiya announced."},
+            {"year": "2018", "event": "Groundbreaking ceremony."}
+        ],
+        "events": [
+            "Groundbreaking ceremony (2018)"
+        ],
+        "socials": [
+            {"name": "Website", "icon": "globe2", "url": "https://qiddiya.com"}
+        ],
+        "ar": {
+            "name": "القدية",
+            "tagline": "عاصمة الترفيه والرياضة والثقافة.",
+            "about": "القدية مشروع عملاق قرب الرياض مخصص للترفيه والرياضة والثقافة، يضم مدن ألعاب وحلبة لرياضة المحركات واستاداً رئيسياً.",
+            "stats": [
+                {"label": "المساحة", "value": "360 كم²"},
+                {"label": "الإعلان", "value": "2017"},
+                {"label": "الموقع", "value": "الرياض"}
+            ],
+            "attractions": [
+                {"name": "سكس فلاقز القدية", "desc": "مدينة ألعاب بأرقام قياسية."},
+                {"name": "أكواريبيا", "desc": "حديقة ألعاب مائية ضخمة."},
+                {"name": "حلبة السرعة", "desc": "حلبة لرياضة المحركات بين المنحدرات."},
+                {"name": "حي الألعاب والرياضات الإلكترونية", "desc": "مركز للألعاب والرياضات الإلكترونية."}
+            ],
+            "timeline": [
+                {"event": "الإعلان عن القدية."},
+                {"event": "حفل وضع حجر الأساس."}
+            ],
+            "events": [
+                "حفل وضع حجر الأساس (2018)"
+            ]
+        }
+    },
+
+    "diriyah": {
+        "name": "Diriyah",
+        "tagline": "Where the Kingdom began.",
+        "about": "Diriyah, on the edge of Riyadh, was the first capital of the Saudi state. Its At-Turaif district is a UNESCO World Heritage Site, and the area is being developed into a cultural and lifestyle destination.",
+        "images": [
+            "main/images/diriyah/diriyah-3.png",
+            "main/images/diriyah/diriyah-4.png",
+            "main/images/diriyah/diriyah-5.png",
+            "main/images/diriyah/diriyah-2.png"
+        ],
+        "video": "https://res.cloudinary.com/jpva3wbq/video/upload/q_auto,w_1280,ac_none,du_30/v1794406084/diriyah-video-1.mp4",
+        "coords": [24.73, 46.57],
+        "stats": [
+            {"label": "First Saudi State", "value": "1727"},
+            {"label": "UNESCO Site", "value": "2010"},
+            {"label": "Location", "value": "Riyadh"}
+        ],
+        "attractions": [
+            {"name": "At-Turaif", "desc": "Historic mud-brick district and UNESCO site.", "image": "main/images/diriyah/diriyah-3.png"},
+            {"name": "Bujairi Terrace", "desc": "Dining destination overlooking At-Turaif.", "image": "main/images/diriyah/diriyah-5.png"},
+            {"name": "Wadi Hanifah", "desc": "A green valley running through Diriyah.", "image": "main/images/diriyah/diriyah-4.png"},
+            {"name": "Saudi Heritage", "desc": "Traditional arts like the Ardah dance.", "image": "main/images/diriyah/diriyah-2.png"}
+        ],
+        "timeline": [
+            {"year": "1727", "event": "Diriyah becomes the capital of the first Saudi state."},
+            {"year": "2010", "event": "At-Turaif listed as a UNESCO World Heritage Site."},
+            {"year": "2017", "event": "Diriyah Gate Development Authority established."},
+            {"year": "2022", "event": "Bujairi Terrace opened."}
+        ],
+        "events": [
+            "Diriyah E-Prix (Formula E)",
+            "Diriyah Season",
+            "Diriyah Contemporary Art Biennale"
+        ],
+        "socials": [
+            {"name": "Website", "icon": "globe2", "url": "https://www.diriyah.sa"},
+            {"name": "X", "icon": "twitter-x", "url": "https://x.com/DiriyahCo"},
+            {"name": "Instagram", "icon": "instagram", "url": "https://www.instagram.com/diriyahco"}
+        ],
+        "ar": {
+            "name": "الدرعية",
+            "tagline": "حيث بدأت المملكة.",
+            "about": "الدرعية على أطراف الرياض كانت أول عاصمة للدولة السعودية. حي الطريف فيها مسجل في قائمة التراث العالمي لليونسكو، وتُطوَّر المنطقة اليوم كوجهة ثقافية وسياحية.",
+            "stats": [
+                {"label": "الدولة السعودية الأولى", "value": "1727"},
+                {"label": "تراث اليونسكو", "value": "2010"},
+                {"label": "الموقع", "value": "الرياض"}
+            ],
+            "attractions": [
+                {"name": "حي الطريف", "desc": "حي طيني تاريخي وموقع تراث عالمي."},
+                {"name": "مطل البجيري", "desc": "وجهة مطاعم تطل على الطريف."},
+                {"name": "وادي حنيفة", "desc": "وادٍ أخضر يمر عبر الدرعية."},
+                {"name": "التراث السعودي", "desc": "فنون تقليدية مثل العرضة السعودية."}
+            ],
+            "timeline": [
+                {"event": "الدرعية عاصمة للدولة السعودية الأولى."},
+                {"event": "تسجيل حي الطريف في قائمة التراث العالمي لليونسكو."},
+                {"event": "تأسيس هيئة تطوير بوابة الدرعية."},
+                {"event": "افتتاح مطل البجيري."}
+            ],
+            "events": [
+                "سباق الدرعية للفورمولا إي",
+                "موسم الدرعية",
+                "بينالي الدرعية للفن المعاصر"
+            ]
+        }
+    },
+
+    "roshn": {
+        "name": "ROSHN",
+        "tagline": "Communities built for better living.",
+        "about": "ROSHN is a national real estate developer owned by the Public Investment Fund, building integrated residential communities across the Kingdom.",
+        "images": [
+            "main/images/roshn/roshn-2.png",
+            "main/images/roshn/roshn-3.jpg",
+            "main/images/roshn/roshn-4.png",
+            "main/images/roshn/roshn-5.jpg"
+        ],
+        "video": "https://res.cloudinary.com/jpva3wbq/video/upload/q_auto,w_1280,ac_none,du_30/v1794406143/roshn-video-1.mp4",
+        "coords": [24.86, 46.70],
+        "stats": [
+            {"label": "Founded", "value": "2020"},
+            {"label": "Owned by", "value": "PIF"}
+        ],
+        "attractions": [
+            {"name": "SEDRA", "desc": "A green community in north Riyadh.", "image": "main/images/roshn/roshn-2.png"},
+            {"name": "WAREFA", "desc": "A residential community in east Riyadh.", "image": "main/images/roshn/roshn-3.jpg"},
+            {"name": "ALAROUS", "desc": "A coastal community in Jeddah.", "image": "main/images/roshn/roshn-4.png"},
+            {"name": "MARAFY", "desc": "A waterfront community in north Jeddah.", "image": "main/images/roshn/roshn-5.jpg"}
+        ],
+        "timeline": [
+            {"year": "2020", "event": "ROSHN launched by the Public Investment Fund."},
+            {"year": "2023", "event": "ROSHN becomes title sponsor of the Saudi Pro League."}
+        ],
+        "events": [
+            "ROSHN Saudi League sponsorship (2023)"
+        ],
+        "socials": [
+            {"name": "Website", "icon": "globe2", "url": "https://www.roshn.sa"},
+            {"name": "X", "icon": "twitter-x", "url": "https://x.com/ROSHNksa"},
+            {"name": "Instagram", "icon": "instagram", "url": "https://www.instagram.com/roshnksa"}
+        ],
+        "ar": {
+            "name": "روشن",
+            "tagline": "مجتمعات تُبنى لحياة أفضل.",
+            "about": "روشن مطوّر عقاري وطني مملوك لصندوق الاستثمارات العامة، يبني مجتمعات سكنية متكاملة في مختلف مناطق المملكة.",
+            "stats": [
+                {"label": "التأسيس", "value": "2020"},
+                {"label": "المالك", "value": "صندوق الاستثمارات"}
+            ],
+            "attractions": [
+                {"name": "سدرة", "desc": "مجتمع أخضر شمال الرياض."},
+                {"name": "وريفة", "desc": "مجتمع سكني شرق الرياض."},
+                {"name": "العروس", "desc": "مجتمع ساحلي في جدة."},
+                {"name": "مرافي", "desc": "مجتمع على الواجهة البحرية شمال جدة."}
+            ],
+            "timeline": [
+                {"event": "إطلاق روشن من صندوق الاستثمارات العامة."},
+                {"event": "روشن الراعي الرسمي لدوري المحترفين السعودي."}
+            ],
+            "events": [
+                "رعاية دوري روشن السعودي (2023)"
+            ]
+        }
+    },
+
+    "alula": {
+        "name": "AlUla",
+        "tagline": "The world's largest living museum.",
+        "about": "AlUla in northwest Saudi Arabia is home to thousands of years of history, from the Nabataean tombs of Hegra to dramatic desert landscapes, now developed as a global cultural destination.",
+        "images": [
+            "main/images/alula/alula-3.png",
+            "main/images/alula/alula-4.png",
+            "main/images/alula/alula-5.png",
+            "main/images/alula/alula-2.png"
+        ],
+        "video": "https://res.cloudinary.com/jpva3wbq/video/upload/q_auto,w_1280,ac_none,du_30/v1794406066/alula-video-1.mp4",
+        "coords": [26.61, 37.92],
+        "stats": [
+            {"label": "Hegra UNESCO", "value": "2008"},
+            {"label": "RCU Founded", "value": "2017"},
+            {"label": "Region", "value": "Madinah"}
+        ],
+        "attractions": [
+            {"name": "Hegra", "desc": "Nabataean tombs carved into sandstone.", "image": "main/images/alula/alula-3.png"},
+            {"name": "Desert Canyons", "desc": "Dramatic rock formations and valleys.", "image": "main/images/alula/alula-4.png"},
+            {"name": "AlUla Oasis", "desc": "Palm groves along the ancient valley.", "image": "main/images/alula/alula-5.png"},
+            {"name": "Sharaan Nature Reserve", "desc": "Home to the Arabian leopard program.", "image": "main/images/alula/alula-6.png"}
+        ],
+        "timeline": [
+            {"year": "2008", "event": "Hegra becomes Saudi Arabia's first UNESCO site."},
+            {"year": "2017", "event": "Royal Commission for AlUla established."},
+            {"year": "2021", "event": "AlUla hosts the GCC summit."}
+        ],
+        "events": [
+            "Winter at Tantora",
+            "AlUla Moments",
+            "Desert X AlUla"
+        ],
+        "socials": [
+            {"name": "Website", "icon": "globe2", "url": "https://www.experiencealula.com"},
+            {"name": "Instagram", "icon": "instagram", "url": "https://www.instagram.com/alulatourism"}
+        ],
+        "ar": {
+            "name": "العُلا",
+            "tagline": "أكبر متحف حي في العالم.",
+            "about": "تضم العُلا في شمال غرب المملكة آلاف السنين من التاريخ، من مقابر الأنباط في الحِجر إلى المناظر الصحراوية المذهلة، وتُطوَّر اليوم كوجهة ثقافية عالمية.",
+            "stats": [
+                {"label": "الحِجر في اليونسكو", "value": "2008"},
+                {"label": "تأسيس الهيئة الملكية", "value": "2017"},
+                {"label": "المنطقة", "value": "المدينة المنورة"}
+            ],
+            "attractions": [
+                {"name": "الحِجر", "desc": "مقابر نبطية منحوتة في الصخر."},
+                {"name": "الأودية الصحراوية", "desc": "تكوينات صخرية وأودية مذهلة."},
+                {"name": "واحة العُلا", "desc": "بساتين نخيل على طول الوادي القديم."},
+                {"name": "محمية شرعان", "desc": "موطن برنامج إعادة النمر العربي."}
+            ],
+            "timeline": [
+                {"event": "الحِجر أول موقع سعودي في قائمة اليونسكو."},
+                {"event": "تأسيس الهيئة الملكية لمحافظة العُلا."},
+                {"event": "العُلا تستضيف القمة الخليجية."}
+            ],
+            "events": [
+                "شتاء طنطورة",
+                "لحظات العُلا",
+                "ديزرت إكس العُلا"
+            ]
+        }
+    }
+}

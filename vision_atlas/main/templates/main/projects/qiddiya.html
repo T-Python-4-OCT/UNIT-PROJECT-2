@@ -1,0 +1,71 @@
+{% extends 'main/project_base.html' %}
+{% load static %}
+
+{% block about %}
+<section class="section container">
+    {% if request.COOKIES.lang == 'ar' %}
+        <p class="section-label">01 — القصة</p>
+        <h2 class="section-title mb-4">عن القدية</h2>
+    {% else %}
+        <p class="section-label">01 — The Story</p>
+        <h2 class="section-title mb-4">About Qiddiya</h2>
+    {% endif %}
+    <p class="lead-text mb-5">{{ project.about }}</p>
+
+    <div class="scrolly">
+        <div class="scrolly-media">
+            <img class="scrolly-img active" data-step="0" src="{% static 'main/images/qiddiya/qiddiya-1.png' %}" alt="Qiddiya city at night">
+            <img class="scrolly-img" data-step="1" src="{% static 'main/images/qiddiya/qiddiya-2.png' %}" alt="Qiddiya theme park">
+            <img class="scrolly-img" data-step="2" src="{% static 'main/images/qiddiya/qiddiya-3.png' %}" alt="Aquarabia water park">
+            <img class="scrolly-img" data-step="3" src="{% static 'main/images/qiddiya/qiddiya-4.jpg' %}" alt="Gaming and esports district">
+        </div>
+
+        <div class="scrolly-steps">
+            <article class="scrolly-step" data-step="0">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 01</span>
+                    <h3 class="story-title">عاصمة الترفيه</h3>
+                    <p class="story-text">أُعلن عن القدية عام 2017 كمدينة جديدة مخصصة للترفيه والرياضة والثقافة. تُبنى على حافة جبال طويق خارج الرياض، وتطورها شركة القدية للاستثمار المملوكة لصندوق الاستثمارات العامة.</p>
+                {% else %}
+                    <span class="chapter">Chapter 01</span>
+                    <h3 class="story-title">The Capital of Entertainment</h3>
+                    <p class="story-text">Qiddiya was announced in 2017 as a new city dedicated to entertainment, sports and culture. Built on the edge of the Tuwaiq cliffs, just outside Riyadh, it is developed by Qiddiya Investment Company, owned by the Public Investment Fund.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="1">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 02</span>
+                    <h3 class="story-title">ألعاب تكسر الأرقام القياسية</h3>
+                    <p class="story-text">في قلبها مدينة سكس فلاقز القدية، بألعاب مصممة لتحطيم الأرقام القياسية العالمية في السرعة والارتفاع، منها قطار أفعواني ينطلق بالركاب من حافة الجبل.</p>
+                {% else %}
+                    <span class="chapter">Chapter 02</span>
+                    <h3 class="story-title">Rides That Break Records</h3>
+                    <p class="story-text">At its heart is Six Flags Qiddiya City, a theme park with rides designed to set world records for speed and height, including a roller coaster that launches riders off the edge of the cliff.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="2">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 03</span>
+                    <h3 class="story-title">حديقة مائية في قلب الصحراء</h3>
+                    <p class="story-text">تقدم أكواريبيا زحاليق ضخمة وأحواض أمواج وألعاباً عائلية في قلب الصحراء، ومتنفساً منعشاً للزوار طوال العام.</p>
+                {% else %}
+                    <span class="chapter">Chapter 03</span>
+                    <h3 class="story-title">A Water Park in the Desert</h3>
+                    <p class="story-text">Aquarabia brings huge slides, wave pools and family attractions to the heart of the desert, offering a cool escape for visitors all year round.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="3">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 04</span>
+                    <h3 class="story-title">رياضة وسرعة وألعاب إلكترونية</h3>
+                    <p class="story-text">تخطط القدية أيضاً لحلبة لرياضة المحركات بين المنحدرات، واستاد كبير يطل على الوادي، وحي مخصص للألعاب والرياضات الإلكترونية، لتكون وجهة لكل المشجعين.</p>
+                {% else %}
+                    <span class="chapter">Chapter 04</span>
+                    <h3 class="story-title">Sports, Speed and Gaming</h3>
+                    <p class="story-text">Qiddiya also plans a motorsport track built into the cliffs, a major stadium overlooking the valley, and a district dedicated to gaming and esports, making it a home for fans of every kind.</p>
+                {% endif %}
+            </article>
+        </div>
+    </div>
+</section>
+{% endblock %}

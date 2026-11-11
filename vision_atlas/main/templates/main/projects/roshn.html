@@ -1,0 +1,83 @@
+{% extends 'main/project_base.html' %}
+{% load static %}
+
+{% block about %}
+<section class="section container">
+    {% if request.COOKIES.lang == 'ar' %}
+        <p class="section-label">01 — القصة</p>
+        <h2 class="section-title mb-4">عن روشن</h2>
+    {% else %}
+        <p class="section-label">01 — The Story</p>
+        <h2 class="section-title mb-4">About ROSHN</h2>
+    {% endif %}
+    <p class="lead-text mb-5">{{ project.about }}</p>
+
+    <div class="scrolly">
+        <div class="scrolly-media">
+            <img class="scrolly-img active" data-step="0" src="{% static 'main/images/roshn/roshn-6.png' %}" alt="ROSHN vision">
+            <img class="scrolly-img" data-step="1" src="{% static 'main/images/roshn/roshn-2.png' %}" alt="SEDRA community">
+            <img class="scrolly-img" data-step="2" src="{% static 'main/images/roshn/roshn-3.jpg' %}" alt="ROSHN neighborhood">
+            <img class="scrolly-img" data-step="3" src="{% static 'main/images/roshn/roshn-5.jpg' %}" alt="MARAFY waterfront">
+            <img class="scrolly-img" data-step="4" src="{% static 'main/images/roshn/roshn-4.png' %}" alt="ROSHN city view">
+        </div>
+
+        <div class="scrolly-steps">
+            <article class="scrolly-step" data-step="0">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 01</span>
+                    <h3 class="story-title">بيوت لجيل جديد</h3>
+                    <p class="story-text">أطلق صندوق الاستثمارات العامة روشن عام 2020 كمطوّر عقاري وطني، ومهمتها تدعم أحد أهم مستهدفات رؤية 2030: مساعدة أكبر عدد من الأسر السعودية على تملّك منازلها.</p>
+                {% else %}
+                    <span class="chapter">Chapter 01</span>
+                    <h3 class="story-title">Homes for a New Generation</h3>
+                    <p class="story-text">ROSHN was launched in 2020 by the Public Investment Fund as a national real estate developer. Its mission supports a key Vision 2030 goal: helping more Saudi families own their homes.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="1">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 02</span>
+                    <h3 class="story-title">سدرة، المجتمع الأول</h3>
+                    <p class="story-text">سدرة شمال الرياض أول مجتمعات روشن، صُمّم حول المساحات الخضراء والمنازل العائلية، مع سهولة الوصول إلى المدارس والمساجد والمحلات.</p>
+                {% else %}
+                    <span class="chapter">Chapter 02</span>
+                    <h3 class="story-title">SEDRA, the First Community</h3>
+                    <p class="story-text">SEDRA in north Riyadh was ROSHN's first community, built around green spaces, family homes and easy access to schools, mosques and shops.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="2">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 03</span>
+                    <h3 class="story-title">مصممة للحياة اليومية</h3>
+                    <p class="story-text">كل أحياء روشن مخططة لتكون صديقة للمشي، فيها حدائق ومساحات رياضية وخدمات يومية قريبة من البيت، لتقضي الأسر وقتاً أقل في السيارات ووقتاً أكثر معاً.</p>
+                {% else %}
+                    <span class="chapter">Chapter 03</span>
+                    <h3 class="story-title">Designed for Everyday Life</h3>
+                    <p class="story-text">Every ROSHN neighborhood is planned to be walkable, with parks, sports areas and daily services close to home, so families spend less time in cars and more time together.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="3">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 04</span>
+                    <h3 class="story-title">الحياة على الواجهة البحرية</h3>
+                    <p class="story-text">في جدة تبني روشن مجتمعات ساحلية مثل العروس ومرافي، حيث تمتد المنازل على الواجهات البحرية والقنوات التي تُدخل البحر إلى قلب الحي.</p>
+                {% else %}
+                    <span class="chapter">Chapter 04</span>
+                    <h3 class="story-title">Living by the Water</h3>
+                    <p class="story-text">In Jeddah, ROSHN is building coastal communities like ALAROUS and MARAFY, where homes sit along waterfronts and canals that bring the sea into the neighborhood.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="4">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 05</span>
+                    <h3 class="story-title">أبعد من العقار</h3>
+                    <p class="story-text">اسم روشن اليوم جزء من الرياضة السعودية أيضاً؛ فمنذ 2023 أصبحت الراعي الرسمي لدوري المحترفين السعودي، المعروف اليوم بدوري روشن السعودي.</p>
+                {% else %}
+                    <span class="chapter">Chapter 05</span>
+                    <h3 class="story-title">Beyond Real Estate</h3>
+                    <p class="story-text">ROSHN's name is now part of Saudi sports too. Since 2023 it has been the title sponsor of the Saudi Pro League, known today as the ROSHN Saudi League.</p>
+                {% endif %}
+            </article>
+        </div>
+    </div>
+</section>
+{% endblock %}

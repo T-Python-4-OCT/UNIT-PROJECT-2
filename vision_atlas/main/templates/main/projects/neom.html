@@ -1,0 +1,83 @@
+{% extends 'main/project_base.html' %}
+{% load static %}
+
+{% block about %}
+<section class="section container">
+    {% if request.COOKIES.lang == 'ar' %}
+        <p class="section-label">01 — القصة</p>
+        <h2 class="section-title mb-4">عن نيوم</h2>
+    {% else %}
+        <p class="section-label">01 — The Story</p>
+        <h2 class="section-title mb-4">About NEOM</h2>
+    {% endif %}
+    <p class="lead-text mb-5">{{ project.about }}</p>
+
+    <div class="scrolly">
+        <div class="scrolly-media">
+            <img class="scrolly-img active" data-step="0" src="{% static 'main/images/neom/the-line-2.jpg' %}" alt="NEOM vision">
+            <img class="scrolly-img" data-step="1" src="{% static 'main/images/neom/nature-5.jpg' %}" alt="NEOM coastline">
+            <img class="scrolly-img" data-step="2" src="{% static 'main/images/neom/history-2.jpg' %}" alt="Ancient inscriptions">
+            <img class="scrolly-img" data-step="3" src="{% static 'main/images/neom/nature-3.jpg' %}" alt="NEOM nature reserve">
+            <img class="scrolly-img" data-step="4" src="{% static 'main/images/neom/oxagon-3.jpg' %}" alt="Oxagon port city">
+        </div>
+
+        <div class="scrolly-steps">
+            <article class="scrolly-step" data-step="0">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 01</span>
+                    <h3 class="story-title">رؤية وُلدت في 2017</h3>
+                    <p class="story-text">أعلن ولي العهد الأمير محمد بن سلمان عن نيوم في مبادرة مستقبل الاستثمار بالرياض عام 2017، بدعم من صندوق الاستثمارات العامة. يجمع الاسم بين الكلمة اليونانية "نيو" أي الجديد، وحرف "م" من كلمة "مستقبل".</p>
+                {% else %}
+                    <span class="chapter">Chapter 01</span>
+                    <h3 class="story-title">A Vision Born in 2017</h3>
+                    <p class="story-text">NEOM was announced by Crown Prince Mohammed bin Salman at the Future Investment Initiative in Riyadh in 2017, backed by the Public Investment Fund. The name combines the Greek word "neo", meaning new, with "M" from the Arabic word "Mustaqbal", meaning future.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="1">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 02</span>
+                    <h3 class="story-title">حيث يلتقي البحر والجبل والصحراء</h3>
+                    <p class="story-text">تقع نيوم في أقصى شمال غرب المملكة، حيث يلتقي البحر الأحمر بخليج العقبة. في منطقة واحدة تجد سواحل مرجانية وصحارٍ ذهبية وقمم جبال يكسوها الثلج في الشتاء.</p>
+                {% else %}
+                    <span class="chapter">Chapter 02</span>
+                    <h3 class="story-title">Where Sea, Mountains and Desert Meet</h3>
+                    <p class="story-text">NEOM sits in the far northwest of the Kingdom, where the Red Sea meets the Gulf of Aqaba. Within one region you find coral coastlines, golden deserts and mountain peaks that see snow in winter.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="2">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 03</span>
+                    <h3 class="story-title">آلاف السنين من التاريخ</h3>
+                    <p class="story-text">قبل نيوم بزمن طويل، كانت هذه الأرض ملتقى لطرق تجارية قديمة تربط الجزيرة العربية ببلاد الشام ومصر، وعُثر فيها على آلاف النقوش الصخرية.</p>
+                {% else %}
+                    <span class="chapter">Chapter 03</span>
+                    <h3 class="story-title">Thousands of Years of History</h3>
+                    <p class="story-text">Long before NEOM, this land was a crossroads for ancient trade routes linking Arabia with the Levant and Egypt. Thousands of rock inscriptions have been found across the area.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="3">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 04</span>
+                    <h3 class="story-title">مصمّمة حول الطبيعة</h3>
+                    <p class="story-text">تخطط نيوم للحفاظ على الجزء الأكبر من أراضيها كطبيعة محمية، بإعادة الحياة الفطرية، وزراعة النباتات المحلية، وحماية الشعاب المرجانية على سواحلها.</p>
+                {% else %}
+                    <span class="chapter">Chapter 04</span>
+                    <h3 class="story-title">Designed Around Nature</h3>
+                    <p class="story-text">NEOM plans to keep the vast majority of its land as protected nature, bringing back wildlife, replanting native vegetation and protecting the coral reefs along its coast.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="4">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 05</span>
+                    <h3 class="story-title">اقتصاد جديد</h3>
+                    <p class="story-text">إلى جانب السياحة، صُممت نيوم لاستقطاب صناعات جديدة: الطاقة المتجددة والهيدروجين الأخضر والمياه والتصنيع المتقدم والتقنية. وتُخطط أوكساجون لتكون مركزاً للصناعة النظيفة والتجارة العالمية.</p>
+                {% else %}
+                    <span class="chapter">Chapter 05</span>
+                    <h3 class="story-title">A New Economy</h3>
+                    <p class="story-text">Beyond tourism, NEOM is built for new industries: renewable energy, green hydrogen, water, advanced manufacturing and technology. Oxagon, its port city, is planned as a hub for clean industry and global trade.</p>
+                {% endif %}
+            </article>
+        </div>
+    </div>
+</section>
+{% endblock %}

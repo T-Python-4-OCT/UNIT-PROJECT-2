@@ -1,0 +1,203 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{% if request.COOKIES.lang == 'ar' %}Vision Atlas | رؤية السعودية 2030{% else %}Vision Atlas | Saudi Vision 2030{% endif %}{% endblock %}
+{% block body_class %}has-hero{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.css">
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="hero">
+    <video class="hero-media" autoplay muted loop playsinline poster="{% static 'main/images/home-1.png' %}">
+        <source src="https://res.cloudinary.com/jpva3wbq/video/upload/q_auto,w_1280,ac_none,du_30/v1794406156/home-video-5.mp4" type="video/mp4">
+    </video>
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+        {% if request.COOKIES.lang == 'ar' %}
+            <p class="eyebrow">المملكة العربية السعودية</p>
+            <h1 class="hero-title">رؤية<br>2030</h1>
+            <p class="hero-tagline">استكشف المشاريع العملاقة التي تصنع مستقبل المملكة.</p>
+            <a href="#projects" class="btn btn-light btn-lg rounded-pill px-4 mt-3">
+                استكشف المشاريع <i class="bi bi-arrow-down ms-1"></i>
+            </a>
+        {% else %}
+            <p class="eyebrow">Kingdom of Saudi Arabia</p>
+            <h1 class="hero-title">Vision<br>2030</h1>
+            <p class="hero-tagline">Explore the giga-projects shaping the future of the Kingdom.</p>
+            <a href="#projects" class="btn btn-light btn-lg rounded-pill px-4 mt-3">
+                Explore Projects <i class="bi bi-arrow-down ms-1"></i>
+            </a>
+        {% endif %}
+    </div>
+
+    <div class="hero-stats">
+        <div class="container d-flex flex-wrap gap-4 gap-lg-5">
+            {% if request.COOKIES.lang == 'ar' %}
+                <div><span class="stat-value">6</span><span class="stat-label">مشاريع عملاقة</span></div>
+                <div><span class="stat-value">2016</span><span class="stat-label">إطلاق الرؤية</span></div>
+                <div><span class="stat-value">2030</span><span class="stat-label">العام المستهدف</span></div>
+            {% else %}
+                <div><span class="stat-value">6</span><span class="stat-label">Giga-Projects</span></div>
+                <div><span class="stat-value">2016</span><span class="stat-label">Vision Launched</span></div>
+                <div><span class="stat-value">2030</span><span class="stat-label">Target Year</span></div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- THE VISION -->
+<section class="section container">
+    <div class="row g-5 align-items-center">
+        <div class="col-lg-6 reveal">
+            {% if request.COOKIES.lang == 'ar' %}
+                <p class="section-label">01 — الرؤية</p>
+                <h2 class="section-title mb-4">وطن يبني مستقبله</h2>
+                <p class="lead-text">أطلق ولي العهد الأمير محمد بن سلمان رؤية السعودية 2030 عام 2016 كخارطة طريق لتحويل المملكة.</p>
+                <p class="story-text">هدفها تنويع الاقتصاد بعيداً عن النفط، وانفتاح المملكة على العالم، وتحسين جودة الحياة لكل مواطن. وفي قلب هذه الخطة المشاريع العملاقة: مدن ووجهات ومجتمعات كاملة تُبنى من الصفر لتُري العالم كيف يبدو مستقبل السعودية.</p>
+            {% else %}
+                <p class="section-label">01 — The Vision</p>
+                <h2 class="section-title mb-4">A Nation Building Its Future</h2>
+                <p class="lead-text">Saudi Vision 2030 was launched in 2016 by Crown Prince Mohammed bin Salman as a roadmap to transform the Kingdom.</p>
+                <p class="story-text">Its goal is to diversify the economy beyond oil, open the country to the world, and improve the quality of life for every citizen. At the center of this plan are giga-projects: entire cities, destinations and communities built from the ground up to show what the future of Saudi Arabia can look like.</p>
+            {% endif %}
+        </div>
+        <div class="col-lg-6 reveal">
+            <div class="feature-img">
+                <img src="{% static 'main/images/home-2.png' %}" alt="Saudi Vision 2030" loading="lazy">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- PROJECTS -->
+<section class="section container" id="projects">
+    <div class="d-flex flex-wrap justify-content-between align-items-end gap-3 mb-4">
+        <div>
+            {% if request.COOKIES.lang == 'ar' %}
+                <p class="section-label">02 — المشاريع العملاقة</p>
+                <h2 class="section-title mb-0">استكشف المشاريع</h2>
+            {% else %}
+                <p class="section-label">02 — Giga-Projects</p>
+                <h2 class="section-title mb-0">Explore the Projects</h2>
+            {% endif %}
+        </div>
+
+        <ul class="nav view-toggle" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active" data-bs-toggle="tab" data-bs-target="#map-view" type="button" role="tab">
+                    <i class="bi bi-map"></i> {% if request.COOKIES.lang == 'ar' %}الخريطة{% else %}Map{% endif %}
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link" data-bs-toggle="tab" data-bs-target="#grid-view" type="button" role="tab">
+                    <i class="bi bi-grid"></i> {% if request.COOKIES.lang == 'ar' %}البطاقات{% else %}Grid{% endif %}
+                </button>
+            </li>
+        </ul>
+    </div>
+
+    <div class="tab-content">
+        <div class="tab-pane fade show active" id="map-view" role="tabpanel">
+            <div id="vision-map"
+                 data-explore="{% if request.COOKIES.lang == 'ar' %}استكشف{% else %}Explore{% endif %}"></div>
+        </div>
+
+        <div class="tab-pane fade" id="grid-view" role="tabpanel">
+            <div class="row g-4">
+                {% for slug, project in projects.items %}
+                    <div class="col-md-6 col-lg-4">
+                        <a href="{% url 'main:project_detail' slug %}" class="project-card">
+                            <img src="{% static project.images.0 %}" alt="{{ project.name }}" loading="lazy">
+                            <div class="project-card-content">
+                                <span class="slide-num">{{ forloop.counter|stringformat:"02d" }}</span>
+                                <h3>{{ project.name }}</h3>
+                                <p>{{ project.tagline }}</p>
+                                <span class="project-card-link">{% if request.COOKIES.lang == 'ar' %}استكشف{% else %}Explore{% endif %} <i class="bi bi-arrow-right"></i></span>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    {{ map_data|json_script:"map-data" }}
+    <script src="https://unpkg.com/maplibre-gl@4.7.1/dist/maplibre-gl.js"></script>
+</section>
+
+<!-- PILLARS -->
+<section class="section container">
+    {% if request.COOKIES.lang == 'ar' %}
+        <p class="section-label">03 — المحاور</p>
+        <h2 class="section-title mb-5">محاور الرؤية الثلاثة</h2>
+    {% else %}
+        <p class="section-label">03 — The Pillars</p>
+        <h2 class="section-title mb-5">Three Pillars of the Vision</h2>
+    {% endif %}
+
+    <div class="pillars reveal">
+        <div class="pillar">
+            <img src="{% static 'main/images/home-3.png' %}" alt="A Vibrant Society" loading="lazy">
+            <div class="pillar-content">
+                <span class="slide-num">01</span>
+                {% if request.COOKIES.lang == 'ar' %}
+                    <h3>مجتمع حيوي</h3>
+                    <p>جذور راسخة في القيم الإسلامية والهوية الوطنية، وجودة حياة أفضل عبر الثقافة والرياضة والترفيه.</p>
+                {% else %}
+                    <h3>A Vibrant Society</h3>
+                    <p>Strong roots in Islamic values and national identity, with a better quality of life through culture, sports and entertainment.</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="pillar">
+            <img src="{% static 'main/images/home-4.png' %}" alt="A Thriving Economy" loading="lazy">
+            <div class="pillar-content">
+                <span class="slide-num">02</span>
+                {% if request.COOKIES.lang == 'ar' %}
+                    <h3>اقتصاد مزدهر</h3>
+                    <p>اقتصاد متنوع بعيداً عن النفط، وفرص جديدة للشباب السعودي، وبيئة جاذبة للاستثمار.</p>
+                {% else %}
+                    <h3>A Thriving Economy</h3>
+                    <p>A diverse economy beyond oil, new opportunities for young Saudis, and a welcoming environment for investment.</p>
+                {% endif %}
+            </div>
+        </div>
+        <div class="pillar">
+            <img src="{% static 'main/images/home-1.png' %}" alt="An Ambitious Nation" loading="lazy">
+            <div class="pillar-content">
+                <span class="slide-num">03</span>
+                {% if request.COOKIES.lang == 'ar' %}
+                    <h3>وطن طموح</h3>
+                    <p>حكومة فاعلة وشفافة، ومواطنون مسؤولون يساهمون في نجاح الوطن.</p>
+                {% else %}
+                    <h3>An Ambitious Nation</h3>
+                    <p>An effective, transparent government and citizens who take responsibility and contribute to the nation's success.</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CLOSING -->
+<a href="{% url 'main:project_detail' 'neom' %}" class="next-project">
+    <img src="{% static 'main/images/neom/the-line-3.jpg' %}" alt="Start with NEOM">
+    <div class="next-overlay"></div>
+    <div class="container next-content">
+        {% if request.COOKIES.lang == 'ar' %}
+            <span class="eyebrow">ابدأ الرحلة</span>
+            <h2 class="next-title">نيوم <i class="bi bi-arrow-right"></i></h2>
+            <p>ابدأ من أرض المستقبل واستكشف المشاريع العملاقة الست.</p>
+        {% else %}
+            <span class="eyebrow">Start the Journey</span>
+            <h2 class="next-title">NEOM <i class="bi bi-arrow-right"></i></h2>
+            <p>Begin with the land of the future and explore all six giga-projects.</p>
+        {% endif %}
+    </div>
+</a>
+
+{% endblock %}

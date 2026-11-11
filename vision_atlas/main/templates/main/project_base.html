@@ -1,0 +1,186 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ project.name }} | Vision Atlas{% endblock %}
+{% block body_class %}has-hero{% endblock %}
+
+{% block footer_social %}
+<h4 class="footer-title">{% if request.COOKIES.lang == 'ar' %}تابع{% else %}Follow{% endif %} {{ project.name }}</h4>
+<div class="footer-social">
+    {% for social in project.socials %}
+        {% if social.url %}
+            <a href="{{ social.url }}" target="_blank" rel="noopener" aria-label="{{ social.name }}"><i class="bi bi-{{ social.icon }}"></i></a>
+        {% endif %}
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block content %}
+
+{% block hero %}
+<section class="hero">
+    {% if project.video %}
+        <video class="hero-media" autoplay muted loop playsinline poster="{% static project.images.0 %}">
+            <source src="{{ project.video }}" type="video/mp4">
+        </video>
+    {% else %}
+        <img class="hero-media" src="{% static project.images.0 %}" alt="{{ project.name }}">
+    {% endif %}
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+        <p class="eyebrow">{% if request.COOKIES.lang == 'ar' %}رؤية 2030 · مشروع عملاق{% else %}Vision 2030 · Giga-Project{% endif %}</p>
+        <h1 class="hero-title">{{ project.name }}</h1>
+        <p class="hero-tagline">{{ project.tagline }}</p>
+    </div>
+
+    <div class="hero-stats">
+        <div class="container d-flex flex-wrap gap-4 gap-lg-5">
+            {% for stat in project.stats %}
+                <div>
+                    <span class="stat-value">{{ stat.value }}</span>
+                    <span class="stat-label">{{ stat.label }}</span>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block about %}
+<section class="section container">
+    <div class="row g-4 g-lg-5 align-items-center reveal">
+        <div class="col-lg-5">
+            <p class="section-label">{% if request.COOKIES.lang == 'ar' %}01 — نبذة{% else %}01 — About{% endif %}</p>
+            <h2 class="section-title">{% if request.COOKIES.lang == 'ar' %}نظرة عامة{% else %}Overview{% endif %}</h2>
+        </div>
+        <div class="col-lg-7">
+            <p class="lead-text">{{ project.about }}</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block attractions %}
+<section class="section">
+    <div class="container d-flex justify-content-between align-items-end mb-5">
+        <div>
+            <p class="section-label">{% if request.COOKIES.lang == 'ar' %}02 — أبرز المعالم{% else %}02 — Highlights{% endif %}</p>
+            <h2 class="section-title mb-0">{% if request.COOKIES.lang == 'ar' %}أبرز الوجهات{% else %}Top Attractions{% endif %}</h2>
+        </div>
+        <div class="d-none d-md-flex d-lg-none gap-2">
+            <button class="slider-btn" type="button" data-dir="-1" aria-label="Previous"><i class="bi bi-arrow-left"></i></button>
+            <button class="slider-btn" type="button" data-dir="1" aria-label="Next"><i class="bi bi-arrow-right"></i></button>
+        </div>
+    </div>
+
+    <div class="container d-none d-lg-block">
+        {% for place in project.attractions %}
+            <div class="row align-items-center g-5 feature reveal {% if forloop.counter|divisibleby:2 %}flex-row-reverse{% endif %}">
+                <div class="col-lg-7">
+                    <div class="feature-img">
+                        <img src="{% static place.image %}" alt="{{ place.name }}" loading="lazy">
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <span class="feature-num">{{ forloop.counter|stringformat:"02d" }}</span>
+                    <h3 class="feature-title">{{ place.name }}</h3>
+                    <p class="text-body-secondary fs-5">{{ place.desc }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+
+    <div class="slider d-lg-none">
+        {% for place in project.attractions %}
+            <article class="slide">
+                <img src="{% static place.image %}" alt="{{ place.name }}" loading="lazy">
+                <div class="slide-content">
+                    <span class="slide-num">{{ forloop.counter|stringformat:"02d" }}</span>
+                    <h3>{{ place.name }}</h3>
+                    <p>{{ place.desc }}</p>
+                </div>
+            </article>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
+{% block extra %}{% endblock %}
+
+{% block gallery %}
+<section class="section container">
+    <p class="section-label">{% if request.COOKIES.lang == 'ar' %}03 — معرض الصور{% else %}03 — Gallery{% endif %}</p>
+    <h2 class="section-title mb-4">{% if request.COOKIES.lang == 'ar' %}معرض الصور{% else %}Gallery{% endif %}</h2>
+    <div class="gallery-grid">
+        {% for img in project.images %}
+            <figure class="gallery-item reveal">
+                <img src="{% static img %}" alt="{{ project.name }}" loading="lazy">
+            </figure>
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
+
+{% block timeline %}
+<section class="section container">
+    <div class="row g-5">
+        <div class="col-lg-7">
+            <p class="section-label">{% if request.COOKIES.lang == 'ar' %}04 — المسيرة{% else %}04 — Timeline{% endif %}</p>
+            <h2 class="section-title mb-4">{% if request.COOKIES.lang == 'ar' %}محطات بارزة{% else %}Milestones{% endif %}</h2>
+            <ol class="timeline">
+                {% for item in project.timeline %}
+                    <li class="timeline-item reveal">
+                        <span class="timeline-year">{{ item.year }}</span>
+                        <p>{{ item.event }}</p>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+        <div class="col-lg-5">
+            <p class="section-label">{% if request.COOKIES.lang == 'ar' %}05 — الفعاليات{% else %}05 — Events{% endif %}</p>
+            <h2 class="section-title mb-4">{% if request.COOKIES.lang == 'ar' %}أبرز الفعاليات{% else %}Major Events{% endif %}</h2>
+            <ul class="event-list">
+                {% for event in project.events %}
+                    <li class="reveal">
+                        <i class="bi bi-calendar-event"></i>
+                        <span>{{ event }}</span>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
+</section>
+{% endblock %}
+
+{% block next %}
+{% if next_slug %}
+    <a href="{% url 'main:project_detail' next_slug %}" class="next-project">
+        <img src="{% static next_project.images.0 %}" alt="{{ next_project.name }}">
+        <div class="next-overlay"></div>
+        <div class="container next-content">
+            <span class="eyebrow">{% if request.COOKIES.lang == 'ar' %}المشروع التالي{% else %}Next Project{% endif %}</span>
+            <h2 class="next-title">{{ next_project.name }} <i class="bi bi-arrow-right"></i></h2>
+            <p>{{ next_project.tagline }}</p>
+        </div>
+    </a>
+{% else %}
+    <a href="{% url 'main:home' %}" class="next-project">
+        <img src="{% static 'main/images/home-1.png' %}" alt="Vision Atlas">
+        <div class="next-overlay"></div>
+        <div class="container next-content">
+            {% if request.COOKIES.lang == 'ar' %}
+                <span class="eyebrow">استكشفت كل المشاريع</span>
+                <h2 class="next-title">العودة للرئيسية <i class="bi bi-arrow-right"></i></h2>
+                <p>اكتشف الرحلة كاملة لرؤية السعودية 2030.</p>
+            {% else %}
+                <span class="eyebrow">You've explored them all</span>
+                <h2 class="next-title">Back to Home <i class="bi bi-arrow-right"></i></h2>
+                <p>Discover the full journey of Saudi Vision 2030.</p>
+            {% endif %}
+        </div>
+    </a>
+{% endif %}
+{% endblock %}
+
+{% endblock %}

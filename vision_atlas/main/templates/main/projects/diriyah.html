@@ -1,0 +1,71 @@
+{% extends 'main/project_base.html' %}
+{% load static %}
+
+{% block about %}
+<section class="section container">
+    {% if request.COOKIES.lang == 'ar' %}
+        <p class="section-label">01 — القصة</p>
+        <h2 class="section-title mb-4">عن الدرعية</h2>
+    {% else %}
+        <p class="section-label">01 — The Story</p>
+        <h2 class="section-title mb-4">About Diriyah</h2>
+    {% endif %}
+    <p class="lead-text mb-5">{{ project.about }}</p>
+
+    <div class="scrolly">
+        <div class="scrolly-media">
+            <img class="scrolly-img active" data-step="0" src="{% static 'main/images/diriyah/diriyah-3.png' %}" alt="Historic Diriyah">
+            <img class="scrolly-img" data-step="1" src="{% static 'main/images/diriyah/diriyah-4.png' %}" alt="At-Turaif district">
+            <img class="scrolly-img" data-step="2" src="{% static 'main/images/diriyah/diriyah-2.png' %}" alt="Ardah performance">
+            <img class="scrolly-img" data-step="3" src="{% static 'main/images/diriyah/diriyah-5.png' %}" alt="Diriyah at night">
+        </div>
+
+        <div class="scrolly-steps">
+            <article class="scrolly-step" data-step="0">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 01</span>
+                    <h3 class="story-title">حيث بدأت المملكة</h3>
+                    <p class="story-text">في عام 1727 أسس الإمام محمد بن سعود الدولة السعودية الأولى وجعل الدرعية عاصمتها. وتُحتفى بهذه اللحظة كل عام في يوم التأسيس، الثاني والعشرين من فبراير، بداية الحكاية السعودية.</p>
+                {% else %}
+                    <span class="chapter">Chapter 01</span>
+                    <h3 class="story-title">Where the Kingdom Began</h3>
+                    <p class="story-text">In 1727, Imam Muhammad bin Saud founded the first Saudi state with Diriyah as its capital. This moment is celebrated every year on Founding Day, the 22nd of February, as the beginning of the Saudi story.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="1">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 02</span>
+                    <h3 class="story-title">حي الطريف، تراث عالمي</h3>
+                    <p class="story-text">حي الطريف بقصوره الطينية وأزقته الضيقة من أجمل نماذج العمارة النجدية التقليدية، وسُجّل في قائمة التراث العالمي لليونسكو عام 2010.</p>
+                {% else %}
+                    <span class="chapter">Chapter 02</span>
+                    <h3 class="story-title">At-Turaif, a World Heritage Site</h3>
+                    <p class="story-text">The At-Turaif district, with its mud-brick palaces and narrow lanes, is one of the finest examples of traditional Najdi architecture. It was listed as a UNESCO World Heritage Site in 2010.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="2">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 03</span>
+                    <h3 class="story-title">تراث حي</h3>
+                    <p class="story-text">الدرعية أكثر من مبانٍ قديمة؛ فالعرضة السعودية والحِرف النجدية والشعر والكرم تُبقي روح المكان حية.</p>
+                {% else %}
+                    <span class="chapter">Chapter 03</span>
+                    <h3 class="story-title">Living Heritage</h3>
+                    <p class="story-text">Diriyah is more than old buildings. Traditions like the Ardah, the national sword dance, along with Najdi crafts, poetry and hospitality, keep the spirit of the place alive.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="3">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 04</span>
+                    <h3 class="story-title">فصل جديد</h3>
+                    <p class="story-text">منذ 2017 تُطوَّر الدرعية لتكون وجهة ثقافية وسياحية. افتُتح مطل البجيري عام 2022 بمطاعمه المطلة على الطريف، وتستضيف المنطقة فعاليات كبرى مثل سباق الدرعية للفورمولا إي.</p>
+                {% else %}
+                    <span class="chapter">Chapter 04</span>
+                    <h3 class="story-title">A New Chapter</h3>
+                    <p class="story-text">Since 2017, Diriyah has been developed into a cultural and lifestyle destination. Bujairi Terrace opened in 2022 with restaurants overlooking At-Turaif, and the area now hosts major events such as the Diriyah E-Prix.</p>
+                {% endif %}
+            </article>
+        </div>
+    </div>
+</section>
+{% endblock %}

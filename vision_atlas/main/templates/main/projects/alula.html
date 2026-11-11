@@ -1,0 +1,83 @@
+{% extends 'main/project_base.html' %}
+{% load static %}
+
+{% block about %}
+<section class="section container">
+    {% if request.COOKIES.lang == 'ar' %}
+        <p class="section-label">01 — القصة</p>
+        <h2 class="section-title mb-4">عن العُلا</h2>
+    {% else %}
+        <p class="section-label">01 — The Story</p>
+        <h2 class="section-title mb-4">About AlUla</h2>
+    {% endif %}
+    <p class="lead-text mb-5">{{ project.about }}</p>
+
+    <div class="scrolly">
+        <div class="scrolly-media">
+            <img class="scrolly-img active" data-step="0" src="{% static 'main/images/alula/alula-2.png' %}" alt="Caravan in AlUla">
+            <img class="scrolly-img" data-step="1" src="{% static 'main/images/alula/alula-3.png' %}" alt="Hegra tomb at night">
+            <img class="scrolly-img" data-step="2" src="{% static 'main/images/alula/alula-4.png' %}" alt="AlUla canyons">
+            <img class="scrolly-img" data-step="3" src="{% static 'main/images/alula/alula-5.png' %}" alt="AlUla oasis">
+            <img class="scrolly-img" data-step="4" src="{% static 'main/images/alula/alula-6.png' %}" alt="Arabian leopard conservation">
+        </div>
+
+        <div class="scrolly-steps">
+            <article class="scrolly-step" data-step="0">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 01</span>
+                    <h3 class="story-title">ملتقى الحضارات</h3>
+                    <p class="story-text">لآلاف السنين كانت العُلا على طريق البخور القديم، حيث حملت القوافل اللبان والتوابل عبر الجزيرة العربية، وتركت ممالك دادان ولحيان والأنباط آثارها هنا.</p>
+                {% else %}
+                    <span class="chapter">Chapter 01</span>
+                    <h3 class="story-title">A Crossroads of Civilizations</h3>
+                    <p class="story-text">For thousands of years, AlUla sat on the ancient Incense Route, where caravans carried frankincense and spices across Arabia. The Dadanite, Lihyanite and Nabataean kingdoms all left their mark here.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="1">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 02</span>
+                    <h3 class="story-title">الحِجر، منحوتة في الصخر</h3>
+                    <p class="story-text">تضم الحِجر أكثر من مئة مقبرة ضخمة نحتها الأنباط في الحجر الرملي، وفي عام 2008 أصبحت أول موقع سعودي يُسجّل في قائمة التراث العالمي لليونسكو.</p>
+                {% else %}
+                    <span class="chapter">Chapter 02</span>
+                    <h3 class="story-title">Hegra, Carved in Stone</h3>
+                    <p class="story-text">Hegra holds more than a hundred monumental tombs carved into sandstone by the Nabataeans. In 2008 it became Saudi Arabia's first UNESCO World Heritage Site.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="2">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 03</span>
+                    <h3 class="story-title">صحراء العجائب</h3>
+                    <p class="story-text">تكوينات صخرية عملاقة مثل جبل الفيل، وأودية عميقة وسهول واسعة تجعل العُلا معرضاً مفتوحاً، حتى المباني الحديثة مثل مرايا، قاعة الحفلات المكسوة بالمرايا، تعكس المكان من حولها.</p>
+                {% else %}
+                    <span class="chapter">Chapter 03</span>
+                    <h3 class="story-title">A Desert of Wonders</h3>
+                    <p class="story-text">Giant rock formations like Elephant Rock, deep canyons and wide valleys make AlUla feel like an open-air gallery. Even modern buildings like Maraya, the mirrored concert hall, reflect the landscape around them.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="3">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 04</span>
+                    <h3 class="story-title">الحياة في الواحة</h3>
+                    <p class="story-text">تمتد عبر الوادي واحة خضراء من النخيل والحمضيات، وبجانبها البلدة القديمة في العُلا، قرية من البيوت الطينية سكنتها العائلات لقرون.</p>
+                {% else %}
+                    <span class="chapter">Chapter 04</span>
+                    <h3 class="story-title">Life in the Oasis</h3>
+                    <p class="story-text">A green oasis of palm and citrus trees runs through the valley. Beside it stands AlUla Old Town, a village of mud-brick houses that was home to families for centuries.</p>
+                {% endif %}
+            </article>
+            <article class="scrolly-step" data-step="4">
+                {% if request.COOKIES.lang == 'ar' %}
+                    <span class="chapter">الفصل 05</span>
+                    <h3 class="story-title">حماية الطبيعة</h3>
+                    <p class="story-text">تعمل الهيئة الملكية لمحافظة العُلا، المؤسسة عام 2017، على حماية الحياة الفطرية في المنطقة عبر محميات مثل شرعان، ومنها برنامج لإعادة النمر العربي المهدد بالانقراض.</p>
+                {% else %}
+                    <span class="chapter">Chapter 05</span>
+                    <h3 class="story-title">Protecting Nature</h3>
+                    <p class="story-text">The Royal Commission for AlUla, founded in 2017, is protecting the region's wildlife through nature reserves like Sharaan, including a program to bring back the endangered Arabian leopard.</p>
+                {% endif %}
+            </article>
+        </div>
+    </div>
+</section>
+{% endblock %}

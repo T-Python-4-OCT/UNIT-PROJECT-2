@@ -1,0 +1,32 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}404 | Vision Atlas{% endblock %}
+{% block body_class %}has-hero{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <img class="hero-media" src="{% static 'main/images/neom/nature-3.jpg' %}" alt="Desert">
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content" style="padding-bottom: 6rem;">
+        {% if request.COOKIES.lang == 'ar' %}
+            <p class="eyebrow">الصفحة غير موجودة</p>
+            <h1 class="hero-title">404</h1>
+            <p class="hero-tagline">يبدو أن هذه الصفحة تاهت في الصحراء.</p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+                <a href="{% url 'main:home' %}" class="btn btn-light btn-lg rounded-pill px-4">العودة للرئيسية</a>
+                <a href="{% url 'main:home' %}#projects" class="btn btn-outline-light btn-lg rounded-pill px-4">استكشف المشاريع</a>
+            </div>
+        {% else %}
+            <p class="eyebrow">Page not found</p>
+            <h1 class="hero-title">404</h1>
+            <p class="hero-tagline">Looks like this page got lost in the desert.</p>
+            <div class="d-flex flex-wrap gap-3 mt-4">
+                <a href="{% url 'main:home' %}" class="btn btn-light btn-lg rounded-pill px-4">Back to Home</a>
+                <a href="{% url 'main:home' %}#projects" class="btn btn-outline-light btn-lg rounded-pill px-4">Explore Projects</a>
+            </div>
+        {% endif %}
+    </div>
+</section>
+{% endblock %}
