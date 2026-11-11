@@ -1,5 +1,6 @@
 {
   "title": "Smart Security",
+  "header_image": "portal/img/smart-security.webp",
   "subtitle": "Unified platforms, data, and AI behind a connected security system.",
   "intro": "The Ministry of Interior's Public Security sector runs on unified platforms that connect emergency reporting, field officers, and online services. Its director says artificial intelligence is being integrated into all aspects of Public Security. Some of what follows is already operating, and some is announced but not yet delivered, so each item is marked with its status.",
   "sections": [
@@ -9,7 +10,6 @@
       "items": [
         {
           "title": "Unified Security Operations Center (911)",
-          "image": "portal/img/smart-security.jpg",
           "text": "A unified emergency reporting system run through security operations centers. It is currently used in Makkah, Madinah, Riyadh, and the Eastern Province.",
           "source": "saudigazette_911_2025"
         },

@@ -23,32 +23,52 @@
         {% endfor %}
       </ul>
 
-      <div class="d-flex flex-wrap align-items-center gap-2 ms-xl-3 mt-2 mt-xl-0">
+      <div class="d-flex flex-wrap align-items-center gap-2 ms-xl-3 mt-2 mt-xl-0 nav-controls">
         <form method="post" action="{% url 'portal:set_language' %}">
           {% csrf_token %}
+
           {% if language == "en" %}
             <input type="hidden" name="language" value="ar">
-            <button class="btn btn-sm btn-outline-light" type="submit">
-              العربية
+            <button class="nav-control-btn language-btn" type="submit">
+              <svg class="language-icon" xmlns="http://www.w3.org/2000/svg"
+                   width="17" height="17" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="1.7"
+                   stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              <span>العربية</span>
             </button>
           {% else %}
             <input type="hidden" name="language" value="en">
-            <button class="btn btn-sm btn-outline-light" type="submit">
-              English
+            <button class="nav-control-btn language-btn" type="submit">
+              <svg class="language-icon" xmlns="http://www.w3.org/2000/svg"
+                   width="17" height="17" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="1.7"
+                   stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              <span>English</span>
             </button>
           {% endif %}
         </form>
 
         <button
-          class="btn btn-sm btn-outline-light"
+          class="nav-control-btn theme-icon-btn"
           type="button"
           id="themeToggle"
           data-dark-label="{{ ui.dark_mode }}"
           data-light-label="{{ ui.light_mode }}"
           data-dark-aria="{{ ui.dark_aria }}"
           data-light-aria="{{ ui.light_aria }}"
-          aria-label="{{ ui.dark_aria }}">
-          {{ ui.dark_mode }}
+          aria-label="{{ ui.dark_aria }}"
+          title="{{ ui.dark_mode }}">
+          <span class="theme-icon" aria-hidden="true">☾</span>
         </button>
       </div>
     </div>

@@ -1,6 +1,7 @@
 {
   "absher": {
     "title": "Absher Platform",
+    "header_image": "portal/img/absher-platform.webp",
     "subtitle": "The Ministry of Interior's gateway to digital services.",
     "intro": "Absher is the Ministry of Interior's e-services platform. It lets citizens, residents, businesses, and government entities complete procedures online that once required a visit to a government office.",
     "sections": [
@@ -10,7 +11,6 @@
         "items": [
           {
             "title": "Absher Individuals",
-            "image": "portal/img/absher-platform.webp",
             "text": "Services for citizens and residents."
           },
           {
@@ -64,6 +64,7 @@
   },
   "digital_identity": {
     "title": "Digital Identity",
+    "header_image": "portal/img/digital-identity.webp",
     "subtitle": "One verified identity across government and private services.",
     "intro": "A digital identity lets a person prove who they are online without visiting an office. In Saudi Arabia the Ministry of Interior issues unified digital IDs through Absher, and the same identity can be used to sign in to other platforms through the national unified access service, Nafath.",
     "sections": [
@@ -85,7 +86,6 @@
         "items": [
           {
             "title": "Ministry of Interior: Absher",
-            "image": "portal/img/digital-identity.webp",
             "text": "Issues unified digital IDs through Absher. A digital ID opens the Ministry's own services and can also be used to connect to government or private platforms.",
             "source": "spa_digital_ids"
           },
@@ -101,6 +101,7 @@
   },
   "digital_services": {
     "title": "Digital Services",
+    "header_image": "portal/img/digital-services.webp",
     "subtitle": "Procedures that moved from the counter to the screen.",
     "intro": "Absher brings together services from across the Ministry of Interior's sectors, and new services are added regularly. The examples below are recent additions announced by the Ministry.",
     "sections": [
@@ -122,7 +123,6 @@
         "items": [
           {
             "title": "Public Security",
-            "image": "portal/img/digital-services.webp",
             "date": "July 2025",
             "text": "New services on Absher Individuals include transferring vehicle ownership to businesses and added features for air rifle permits, such as ownership transfer and license renewal.",
             "source": "saudigazette_absher_2025"

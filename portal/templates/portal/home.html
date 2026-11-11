@@ -1,35 +1,60 @@
+
 {% extends "portal/base.html" %}
 
 {% block content %}
-  <section class="hero py-5">
-    <div class="container py-lg-5">
-      <p class="hero-eyebrow">{{ home.hero.eyebrow }}</p>
-      <h1 class="hero-title">{{ site.tagline }}</h1>
-      <p class="hero-description lead">{{ home.hero.description }}</p>
-      <div class="d-flex flex-wrap gap-2">
-        <a class="btn btn-primary btn-lg"
-           href="{% url 'portal:page' home.hero.primary_cta.slug %}">
-          {{ home.hero.primary_cta.label }}
-        </a>
-        <a class="btn btn-outline-primary btn-lg"
-           href="{% url 'portal:page' home.hero.secondary_cta.slug %}">
-          {{ home.hero.secondary_cta.label }}
-        </a>
+  <section class="hero cinematic-hero">
+    <div class="hero-atmosphere"></div>
+
+    <div class="container hero-container">
+      <div class="hero-content">
+        <p class="hero-eyebrow">{{ home.hero.eyebrow }}</p>
+
+        <h1 class="hero-title">{{ site.tagline }}</h1>
+
+        <p class="hero-description">
+          {{ home.hero.description }}
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg hero-primary-btn"
+             href="{% url 'portal:page' home.hero.primary_cta.slug %}">
+            {{ home.hero.primary_cta.label }}
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <a class="btn btn-outline-primary btn-lg hero-secondary-btn"
+             href="{% url 'portal:page' home.hero.secondary_cta.slug %}">
+            {{ home.hero.secondary_cta.label }}
+          </a>
+        </div>
       </div>
+
+
     </div>
   </section>
 
-  <section class="journey py-5">
+  <section class="journey cinematic-journey py-5" id="journey">
     <div class="container">
-      <h2>{{ home.journey.heading }}</h2>
-      <p class="text-body-secondary">{{ home.journey.intro }}</p>
-      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mt-1">
+      <div class="journey-heading">
+        <div>
+          <p class="section-eyebrow">{{ home.hero.eyebrow }}</p>
+          <h2>{{ home.journey.heading }}</h2>
+          <p class="text-body-secondary">{{ home.journey.intro }}</p>
+        </div>
+      </div>
+
+      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mt-2">
         {% for step in journey_steps %}
           <div class="col">
-            <a class="card h-100 journey-card text-decoration-none"
+            <a class="card h-100 journey-card cinematic-card text-decoration-none"
                href="{% url 'portal:page' step.slug %}">
               <div class="card-body">
-                <span class="journey-number">{{ forloop.counter|stringformat:"02d" }}</span>
+                <span class="journey-number">
+                  {{ forloop.counter|stringformat:"02d" }}
+                </span>
+
+                <span class="journey-card-arrow" aria-hidden="true">↗</span>
+
                 <h3 class="h5 card-title">{{ step.title }}</h3>
                 <p class="card-text">{{ step.teaser }}</p>
               </div>
@@ -40,8 +65,9 @@
     </div>
   </section>
 
-  <section class="about py-5">
+  <section class="about cinematic-about py-5">
     <div class="container">
+      <p class="section-eyebrow">{{ home.about.heading }}</p>
       <h2>{{ home.about.heading }}</h2>
       <p>{{ home.about.text }}</p>
     </div>

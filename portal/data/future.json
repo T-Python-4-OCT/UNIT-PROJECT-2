@@ -1,5 +1,6 @@
 {
   "title": "Future Vision",
+  "header_image": "portal/img/future-vision.webp",
   "subtitle": "Where the Kingdom's digital transformation is heading.",
   "intro": "Digital transformation in Saudi Arabia is guided by a national strategy that runs to 2030. This page looks at that roadmap, at how the Kingdom's international rankings have moved so far, and at what the Ministry of Interior's Public Security sector has announced for the next phase.",
   "sections": [
@@ -9,7 +10,6 @@
       "items": [
         {
           "title": "Digital Government Strategy 2023-2030",
-          "image": "portal/img/future-vision.jpg",
           "text": "The national strategy sets out the Kingdom's aspirations, objectives, initiatives, and roadmap for digital government, aligned with Vision 2030. Its stated goal is that by 2030 the government provides world-class services that meet the needs of citizens effectively and efficiently.",
           "source": "dga"
         },

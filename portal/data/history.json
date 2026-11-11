@@ -1,5 +1,6 @@
 {
   "title": "MOI Evolution",
+  "header_image": "portal/img/moi-history.webp",
   "subtitle": "From a Hijaz administrative body to a digital ministry serving the whole Kingdom.",
   "intro": "The Ministry of Interior grew through successive stages of organization, from an early administrative authority in the Hijaz to a ministry that supervises every region of the Kingdom. In recent years it has added a digital layer of e-services on top of this foundation.",
   "sections": [
@@ -11,7 +12,6 @@
         {
           "date": "1926",
           "hijri": "1344-1345 H",
-          "image": "portal/img/moi-history.webp",
           "title": "A General Authority for the Hijaz",
           "text": "A General Authority is formed to administer the Hijaz. Under the basic law of governance, internal affairs go to the Public Prosecution Department, covering public security, posts and telegraph, public health, municipalities, public works, commerce, agriculture, industry, and minerals.",
           "source": "moi"
