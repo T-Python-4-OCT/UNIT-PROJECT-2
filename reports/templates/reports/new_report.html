@@ -1,0 +1,60 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'reports/css/reports.css' %}">{% endblock %}
+{% block title %}أبلغ عن حالة{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero-tight night">
+  <div class="container">
+    <a class="back-link" href="{% url 'reports:list' %}"><i class="bi bi-arrow-right"></i> بلاغات المجتمع</a>
+    <h1>أبلغ عن حالة احتيال</h1>
+    <p>بلاغك يُراجع تلقائياً قبل النشر، عشان تبقى البلاغات جادة ومفيدة.</p>
+  </div>
+</section>
+
+<section class="container section-tight form-layout">
+  <form method="post" class="tool-panel tool-form" novalidate data-loading>
+    {% csrf_token %}
+
+    {% if errors %}
+      <div class="error-box" role="alert">
+        <strong>صحّح هذي الأشياء قبل الإرسال:</strong>
+        <ul>{% for error in errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      </div>
+    {% endif %}
+
+    <fieldset class="type-picker">
+      <legend class="field-label">نوع البلاغ</legend>
+      {% for key, info in types.items %}
+        <label class="type-option">
+          <input type="radio" name="type" value="{{ key }}" {% if form.type == key %}checked{% endif %}>
+          <span><i class="bi {{ info.icon }}"></i> {{ info.title }}</span>
+        </label>
+      {% endfor %}
+    </fieldset>
+
+    <label for="title" class="field-label">عنوان البلاغ</label>
+    <input id="title" name="title" type="text" maxlength="120" value="{{ form.title }}" placeholder="مثال: رسالة باسم البنك تطلب رمز التحقق">
+
+    <label for="contact" class="field-label">رقم أو بريد أو حساب المحتال</label>
+    <input id="contact" name="contact" type="text" maxlength="120" dir="ltr" value="{{ form.contact }}" placeholder="0551234567 / scam@mail.com / @account">
+
+    <label for="description" class="field-label">وش صار؟</label>
+    <textarea id="description" name="description" rows="4" maxlength="1500" placeholder="اكتب وش طلب منك المحتال، ومتى، وكيف تواصل معك…">{{ form.description }}</textarea>
+
+    <label for="message" class="field-label">نص رسالة الاحتيال <small>(اختياري)</small></label>
+    <textarea id="message" name="message" rows="3" maxlength="2000" placeholder="الصق نص الرسالة إذا عندك">{{ form.message }}</textarea>
+
+    <button class="btn-signal btn-wide" type="submit"><i class="bi bi-send"></i> انشر البلاغ</button>
+  </form>
+
+  <aside class="side-note">
+    <h2>قبل ما تبلّغ</h2>
+    <ul>
+      <li>لا تكتب بياناتك أنت (رقم بطاقتك، هويتك، رمز التحقق).</li>
+      <li>اكتب رقم المحتال كما وصلك بالضبط، حتى يلقاه غيرك بالبحث.</li>
+      <li>إذا خسرت مال، بلّغ بنكك وأبشر أولاً. هذا البلاغ للتوعية فقط.</li>
+    </ul>
+  </aside>
+</section>
+{% endblock %}

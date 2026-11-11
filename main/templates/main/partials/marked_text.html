@@ -1,0 +1,1 @@
+{# Message text with the risky parts highlighted. Needs: segments #}{% for part in segments %}{% if part.flag %}<mark class="flag flag-{{ part.flag }}" title="{{ part.title }}" style="--i: {{ forloop.counter }};">{{ part.text }}</mark>{% else %}{{ part.text }}{% endif %}{% endfor %}

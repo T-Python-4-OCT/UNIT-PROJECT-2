@@ -1,0 +1,30 @@
+{% load static %}
+<footer class="site-footer night">
+  <div class="footer-glow" aria-hidden="true"></div>
+  <div class="container footer-grid">
+    <div class="footer-about">
+      <a class="brand brand-light" href="{% url 'main:home' %}">
+        <img src="{% static 'main/images/logo.svg' %}" alt="" width="30" height="30"><span>احذر</span>
+      </a>
+      <p>بياناتك كنز، حافظ عليها. «احذر» يكشف رسائل الاحتيال قبل ما تضغط، ويحذّر غيرك تلقائياً.</p>
+    </div>
+    <nav class="footer-links" aria-label="روابط الموقع">
+      <h2>الموقع</h2>
+      <a href="{% url 'detector:home' %}">الكاشف الذكي</a>
+      <a href="{% url 'detector:history' %}">سجل الفحوصات</a>
+      <a href="{% url 'reports:list' %}">بلاغات المجتمع</a>
+      <a href="{% url 'main:guide' %}">دليل الحماية</a>
+    </nav>
+    <nav class="footer-links" aria-label="روابط المساعدة">
+      <h2>المساعدة</h2>
+      <a href="{% url 'main:faq' %}">الأسئلة الشائعة</a>
+      <a href="{% url 'main:feedback' %}">رأيك في احذر</a>
+      <a href="{% url 'reports:new' %}">أبلغ عن حالة</a>
+    </nav>
+    <div class="footer-emergency">
+      <h2>وقعت في احتيال؟</h2>
+      <p>تواصل مع بنكك فوراً من رقمه الرسمي لإيقاف البطاقة، ثم قدّم بلاغ عبر أبشر.</p>
+    </div>
+  </div>
+  <div class="footer-note-wrap"><p class="container footer-note">مشروع الوحدة الثانية، معسكر تطوير تطبيقات الويب باستخدام Python. «احذر» موقع توعوي وليس جهة رسمية.</p></div>
+</footer>

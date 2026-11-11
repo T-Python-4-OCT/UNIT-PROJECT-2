@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-label="بلاغ">
+  <circle cx="48" cy="48" r="44" fill="#e4f2ea"/>
+  <path d="M24 42h10l26-14v40L34 54H24a4 4 0 0 1-4-4v-4a4 4 0 0 1 4-4z" fill="#16875a"/>
+  <path d="M34 54l5 15a3 3 0 0 1-3 4h-3a3 3 0 0 1-3-2l-4-17" fill="#0e6b47"/>
+  <path d="M68 38c4 2 6 6 6 10s-2 8-6 10" fill="none" stroke="#c8a45c" stroke-width="4" stroke-linecap="round"/>
+  <path d="M74 31c6 4 9 10 9 17s-3 13-9 17" fill="none" stroke="#c8a45c" stroke-width="4" stroke-linecap="round" opacity=".6"/>
+</svg>

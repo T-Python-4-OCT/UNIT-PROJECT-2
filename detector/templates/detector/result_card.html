@@ -1,0 +1,93 @@
+{# The result of a text check. Needs: result, verdict #}
+<article class="result result-{{ verdict.css }}">
+  <header class="result-head">
+    {% include "detector/partials/gauge.html" with score=result.score css=verdict.css %}
+    <div class="result-title">
+      <span class="verdict-pill"><i class="bi {{ verdict.icon }}"></i> {{ verdict.title }}</span>
+      <h2>{{ verdict.headline }}</h2>
+      <p class="scam-type">{{ result.scam_type }}</p>
+    </div>
+  </header>
+
+  {% if result.community.times %}
+    <section class="community-alert">
+      <i class="bi bi-people-fill"></i>
+      <div>
+        <strong>المرسل مبلّغ عنه {{ result.community.times }} مرة في بلاغات المجتمع</strong>
+        <p>
+          {% for report in result.community.matches %}<a href="{% url 'reports:detail' report.id %}">{{ report.title }}</a>{% if not forloop.last %}، {% endif %}{% endfor %}
+        </p>
+      </div>
+    </section>
+  {% endif %}
+
+  <section class="xray">
+    <h3><i class="bi bi-search"></i> الرسالة تحت المجهر</h3>
+    <p class="bubble bubble-in bubble-big">{% include "main/partials/marked_text.html" with segments=result.segments %}</p>
+    {% include "main/partials/mark_legend.html" %}
+    {% if not result.flags and not result.ai_flags %}
+      <p class="muted">ما لقينا كلمات أو روابط من أنماط الاحتيال المعروفة.</p>
+    {% endif %}
+  </section>
+
+  {% if result.flags %}
+    <section class="flag-list">
+      <h3>العلامات اللي لقيناها ({{ result.flags|length }})</h3>
+      <ul>
+        {% for flag in result.flags %}
+          <li class="flag-item flag-{{ flag.key }}"><strong>{{ flag.title }}</strong><span>{{ flag.explain }}</span></li>
+        {% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  {% if result.ai_flags or result.reasons %}
+    <section class="reasons ai-quotes">
+      <h3><i class="bi bi-stars"></i> رأي الذكاء الاصطناعي</h3>
+      {% if result.ai_flags %}
+        <ul>
+          {% for flag in result.ai_flags %}<li><q>{{ flag.quote }}</q><span>{{ flag.why }}</span></li>{% endfor %}
+        </ul>
+      {% endif %}
+      {% if result.reasons %}
+        <ul style="margin-top: 1rem;">{% for reason in result.reasons %}<li>{{ reason }}</li>{% endfor %}</ul>
+      {% endif %}
+    </section>
+  {% endif %}
+
+  <section class="advice">
+    <h3><i class="bi bi-lightbulb"></i> وش تسوي الحين</h3>
+    {% if result.steps %}
+      <ol>{% for step in result.steps %}<li>{{ step }}</li>{% endfor %}</ol>
+    {% else %}
+      <p>{{ result.advice }}</p>
+    {% endif %}
+  </section>
+
+  {% if result.if_clicked %}
+    <details class="if-clicked">
+      <summary><i class="bi bi-life-preserver"></i> ضغطت الرابط أو شاركت بياناتك؟</summary>
+      <ol>{% for step in result.if_clicked %}<li>{{ step }}</li>{% endfor %}</ol>
+    </details>
+  {% endif %}
+
+  {% if result.published %}
+    <section class="published-note">
+      <i class="bi bi-megaphone-fill"></i>
+      <p>
+        {% if result.published.is_new %}نشرنا تحذير للمجتمع تلقائياً:{% else %}أضفنا بلاغك للبلاغ الموجود، وصار المرسل مبلّغ عنه {{ result.published.count }} مرة:{% endif %}
+        <a href="{% url 'reports:detail' result.published.id %}">{{ result.published.title }}</a>
+      </p>
+    </section>
+  {% endif %}
+
+  <footer class="result-actions">
+    {% if not from_history %}
+      <a class="btn-ghost" href="{% url 'detector:home' %}"><i class="bi bi-arrow-counterclockwise"></i> افحص رسالة ثانية</a>
+    {% endif %}
+    {% if result.verdict != "safe" and not result.published %}
+      <a class="btn-ghost" href="{% url 'reports:new' %}?message={{ result.text|urlencode }}"><i class="bi bi-megaphone"></i> بلّغ عن هذه الرسالة</a>
+    {% endif %}
+    <span class="source-note">{% if result.source == "ai" %}قواعد محلية + ذكاء اصطناعي{% else %}قواعد محلية فقط{% endif %}{% if result.id %}، محفوظ في السجل برقم {{ result.id }}{% endif %}</span>
+  </footer>
+</article>

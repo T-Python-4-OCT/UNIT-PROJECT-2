@@ -1,0 +1,42 @@
+{# The result of a PDF check. Needs: pdf_result, verdict #}
+<article class="result result-{{ verdict.css }}">
+  <header class="result-head">
+    {% include "detector/partials/gauge.html" with score=pdf_result.score css=verdict.css %}
+    <div class="result-title">
+      <span class="verdict-pill"><i class="bi bi-file-earmark-pdf"></i> {{ pdf_result.file_name }}</span>
+      <h2>
+        {% if pdf_result.verdict == "safe" %}المستند يبدو موثوق{% elif pdf_result.verdict == "suspicious" %}المستند يحتاج مراجعة دقيقة{% else %}مستند مشبوه أو غير موثوق{% endif %}
+      </h2>
+      <p class="scam-type">{{ pdf_result.answer }}</p>
+    </div>
+  </header>
+
+  <section class="reasons">
+    <h3>{% if pdf_result.source == "ai" %}<i class="bi bi-stars"></i> {% endif %}وش لقينا في المستند</h3>
+    <ul>{% for point in pdf_result.evidence %}<li>{{ point }}</li>{% endfor %}</ul>
+  </section>
+
+  {% if pdf_result.flags %}
+    <section class="flag-list">
+      <h3>علامات احتيال في النص ({{ pdf_result.flags|length }})</h3>
+      <ul class="flag-chips">
+        {% for flag in pdf_result.flags %}<li class="flag-item flag-{{ flag.key }}"><strong>{{ flag.title }}</strong></li>{% endfor %}
+      </ul>
+    </section>
+  {% endif %}
+
+  <section class="advice">
+    <h3><i class="bi bi-lightbulb"></i> التوصية</h3>
+    <p>{{ pdf_result.recommendation }}</p>
+  </section>
+
+  <details class="excerpt">
+    <summary>أول جزء من نص المستند</summary>
+    <p>{{ pdf_result.excerpt|linebreaksbr }}</p>
+  </details>
+
+  <footer class="result-actions">
+    <a class="btn-ghost" href="{% url 'detector:pdf' %}"><i class="bi bi-arrow-counterclockwise"></i> حلّل ملف ثاني</a>
+    <span class="source-note">{% if pdf_result.source == "ai" %}قواعد محلية + ذكاء اصطناعي{% else %}قواعد محلية فقط{% endif %}</span>
+  </footer>
+</article>

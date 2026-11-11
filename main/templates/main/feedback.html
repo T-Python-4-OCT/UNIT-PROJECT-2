@@ -1,0 +1,67 @@
+{% extends "main/base.html" %}
+{% block title %}رأيك في احذر{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero-tight night">
+  <div class="container">
+    <h1>رأيك في احذر</h1>
+    <p>
+      {% if feedback_count %}قيّمنا {{ feedback_count }} شخص، والمتوسط {{ average }} من 5.
+      {% else %}كن أول من يقيّم الموقع.{% endif %}
+    </p>
+  </div>
+</section>
+
+<section class="container section-tight form-layout">
+  <form method="post" class="tool-panel tool-form" novalidate>
+    {% csrf_token %}
+    {% if errors %}
+      <div class="error-box" role="alert">
+        <ul>{% for error in errors %}<li>{{ error }}</li>{% endfor %}</ul>
+      </div>
+    {% endif %}
+
+    <fieldset>
+      <legend class="field-label">تقييمك</legend>
+      <div class="stars">
+        {% for star in stars %}
+          <input type="radio" id="star{{ star }}" name="rating" value="{{ star }}" {% if form.rating == star|stringformat:"s" %}checked{% endif %}>
+          <label for="star{{ star }}" title="{{ star }} من 5"><i class="bi bi-star-fill"></i><span class="visually-hidden">{{ star }} نجوم</span></label>
+        {% endfor %}
+      </div>
+    </fieldset>
+
+    <fieldset class="type-picker">
+      <legend class="field-label">وش نحسّن؟</legend>
+      {% for tag in tags %}
+        <label class="type-option">
+          <input type="radio" name="tag" value="{{ tag }}" {% if form.tag == tag %}checked{% endif %}>
+          <span>{{ tag }}</span>
+        </label>
+      {% endfor %}
+    </fieldset>
+
+    <label for="text" class="field-label">قل لنا أكثر</label>
+    <textarea id="text" name="text" rows="4" maxlength="1000" placeholder="وش عجبك؟ ووش ما عجبك؟">{{ form.text }}</textarea>
+
+    <button class="btn-signal btn-wide" type="submit"><i class="bi bi-send"></i> أرسل رأيك</button>
+  </form>
+
+  <aside class="side-note">
+    <h2>آخر الآراء</h2>
+    {% if latest_feedback %}
+      <ul class="feedback-list">
+        {% for item in latest_feedback %}
+          <li>
+            <span class="mini-stars" aria-label="{{ item.rating }} من 5">{% for star in stars %}{% if star <= item.rating %}<i class="bi bi-star-fill"></i>{% else %}<i class="bi bi-star"></i>{% endif %}{% endfor %}</span>
+            <strong>{{ item.tag }}</strong>
+            <p>{{ item.text }}</p>
+          </li>
+        {% endfor %}
+      </ul>
+    {% else %}
+      <p class="muted">ما فيه آراء للحين.</p>
+    {% endif %}
+  </aside>
+</section>
+{% endblock %}

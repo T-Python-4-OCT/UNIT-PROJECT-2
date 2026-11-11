@@ -1,0 +1,90 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'detector/css/detector.css' %}">{% endblock %}
+{% block title %}الكاشف الذكي{% endblock %}
+{% block body_class %}page-detector{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero-tight night">
+  <div class="container">
+    <h1>الكاشف الذكي</h1>
+    <p>افحص رسالة نصية أو ملف PDF، واعرف إذا كان فيه احتيال، وإذا كان المرسل مبلّغ عنه قبل.</p>
+  </div>
+</section>
+
+<section class="container detector-layout">
+  <div class="tool-panel">
+    <nav class="mode-tabs" aria-label="نوع الفحص">
+      <a href="{% url 'detector:home' %}" {% if mode == "text" %}aria-current="page"{% endif %}><i class="bi bi-chat-square-text"></i> رسالة نصية</a>
+      <a href="{% url 'detector:pdf' %}" {% if mode == "pdf" %}aria-current="page"{% endif %}><i class="bi bi-file-earmark-pdf"></i> ملف PDF</a>
+    </nav>
+
+    {% if mode == "text" %}
+      <form method="post" action="{% url 'detector:home' %}#result" class="tool-form" data-loading>
+        {% csrf_token %}
+        <label for="text" class="field-label">نص الرسالة</label>
+        <div class="textarea-wrap">
+          <textarea id="text" name="text" rows="7" minlength="10" maxlength="2000" required data-counter="text-count"
+                    placeholder="مثال: عميلنا العزيز، سيتم إيقاف حسابك خلال 24 ساعة…">{{ text }}</textarea>
+          <button type="button" class="paste-btn" data-paste="text"><i class="bi bi-clipboard"></i> لصق</button>
+        </div>
+        <div class="field-meta">
+          <span><span id="text-count">{{ text|length }}</span> / 2000 حرف</span>
+          <span>الحد الأدنى 10 أحرف</span>
+        </div>
+        {% if error %}<p class="field-error" role="alert"><i class="bi bi-exclamation-circle"></i> {{ error }}</p>{% endif %}
+
+        <label class="check-line">
+          <input type="checkbox" name="publish" {% if publish_on %}checked{% endif %}>
+          <span><strong>حذّر المجتمع تلقائياً:</strong> إذا طلعت الرسالة احتيال أو مشبوهة، ننشر بلاغ باسم الحيلة ورقم أو رابط المرسل.</span>
+        </label>
+        <label class="check-line">
+          <input type="checkbox" name="save" {% if save_on %}checked{% endif %}> <span>احفظ النتيجة في سجل الفحوصات</span>
+        </label>
+        {# the detector page asks the server to remember these two choices in cookies #}
+        <input type="hidden" name="remember" value="on">
+        <p class="cookie-note"><i class="bi bi-cookie"></i> نتذكر اختيارك لهذين الخيارين في متصفحك (كوكيز).</p>
+        <button class="btn-signal btn-wide" type="submit"><i class="bi bi-shield-check"></i> افحص الرسالة</button>
+      </form>
+    {% else %}
+      <form method="post" action="{% url 'detector:pdf' %}#result" enctype="multipart/form-data" class="tool-form" data-loading>
+        {% csrf_token %}
+        <label class="drop-zone" for="pdf">
+          <img src="{% static 'detector/images/pdf.svg' %}" alt="">
+          <strong data-file-name>اختر ملف PDF</strong>
+          <small>عقد، فاتورة، عرض وظيفي، أو أي مستند تشك فيه. الحد الأقصى 5 ميجا.</small>
+          <input id="pdf" name="pdf" type="file" accept="application/pdf,.pdf" required>
+        </label>
+        <label for="question" class="field-label">وش تبي تعرف عن الملف؟</label>
+        <input id="question" name="question" type="text" minlength="5" maxlength="300" required value="{{ question }}"
+               placeholder="مثال: هل هذا عقد عمل حقيقي؟">
+        {% if pdf_error %}<p class="field-error" role="alert"><i class="bi bi-exclamation-circle"></i> {{ pdf_error }}</p>{% endif %}
+        <button class="btn-signal btn-wide" type="submit"><i class="bi bi-file-earmark-check"></i> حلّل المستند</button>
+      </form>
+    {% endif %}
+
+    <p class="engine-note">
+      {% if ai_ready %}
+        <i class="bi bi-stars"></i> الفحص يجمع بين القواعد المحلية والذكاء الاصطناعي.
+      {% else %}
+        <i class="bi bi-cpu"></i> الذكاء الاصطناعي غير مفعّل، الفحص يتم بالقواعد المحلية فقط. أضف OPENROUTER_API_KEY في ملف .env لتفعيله.
+      {% endif %}
+    </p>
+  </div>
+
+  <div class="result-area" id="result">
+    {% if result %}
+      {% include "detector/result_card.html" %}
+    {% elif pdf_result %}
+      {% include "detector/pdf_result.html" %}
+    {% else %}
+      <div class="result-empty">
+        <img class="empty-art" src="{% static 'detector/images/scan.svg' %}" alt="">
+        <h2>النتيجة تظهر هنا</h2>
+        <p>بنعطيك نسبة أمان من 100، ونلوّن الكلمات المشبوهة داخل الرسالة نفسها، ونقول لك إذا الرقم أو الرابط مبلّغ عنه في المجتمع.</p>
+        <a class="text-link" href="{% url 'detector:history' %}"><i class="bi bi-clock-history"></i> شوف سجل الفحوصات</a>
+      </div>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

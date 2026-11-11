@@ -1,0 +1,72 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block title %}دليل الحماية{% endblock %}
+
+{% block content %}
+<section class="page-hero night">
+  <div class="container">
+    <h1>دليل الحماية من الاحتيال</h1>
+    <p>خمس عادات تحميك، وأشهر أنواع الاحتيال، والعلامات اللي يبحث عنها الكاشف بالتفصيل.</p>
+  </div>
+</section>
+
+<section class="section-tight container">
+  <h2 class="block-title">خمس عادات تحميك</h2>
+  <div class="tips-grid">
+    {% for tip in tips %}
+      <article class="tip {% if forloop.first %}tip-lead night{% endif %}">
+        <i class="bi {{ tip.icon }}"></i>
+        <h3>{{ tip.title }}</h3>
+        <p>{{ tip.text }}</p>
+      </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-tight container">
+  <h2 class="block-title">أنواع الاحتيال الشائعة</h2>
+  <div class="type-cards">
+    {% for scam in scam_types %}
+      <a class="type-card" href="{% url 'main:scam_detail' scam.key %}">
+        <span class="art-tile night"><img src="{% static scam.image %}" alt="" width="240" height="180"></span>
+        <strong><i class="bi {{ scam.icon }}"></i> {{ scam.title }}</strong>
+        <span class="type-card-text">{{ scam.text }}</span>
+        <span class="type-card-more">اعرف أكثر <i class="bi bi-arrow-left"></i></span>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="section-tight container">
+  <h2 class="block-title">العلامات اللي يفحصها الكاشف</h2>
+  <p class="block-lead">كل علامة لها وزن. كل ما زادت العلامات في الرسالة، نزلت نسبة الأمان.</p>
+  <table class="rules-table">
+    <thead><tr><th scope="col">العلامة</th><th scope="col">ليش هي خطيرة</th><th scope="col">الخطورة</th></tr></thead>
+    <tbody>
+      {% for rule in rules %}
+        <tr>
+          <th scope="row"><mark class="flag flag-{{ rule.key }}">{{ rule.title }}</mark></th>
+          <td>{{ rule.explain }}</td>
+          <td><span class="weight" style="--w: {{ rule.weight }};"><span></span></span><small>{{ rule.weight }}</small></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+</section>
+
+<section class="section-tight container">
+  <h2 class="block-title">منصات رسمية للإبلاغ</h2>
+  <div class="channels-grid channels-plain">
+    {% for channel in channels %}
+      <a class="channel" href="{{ channel.url }}" target="_blank" rel="noopener">
+        <img src="{% static channel.image %}" alt="شعار {{ channel.name }}">
+        <div>
+          <h3>{{ channel.what }}</h3>
+          <p>{{ channel.how }}</p>
+          <span class="channel-name">{{ channel.name }} <i class="bi bi-box-arrow-up-left"></i></span>
+        </div>
+      </a>
+    {% endfor %}
+  </div>
+</section>
+{% endblock %}

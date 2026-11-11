@@ -1,0 +1,47 @@
+{% extends "main/base.html" %}
+{% load static %}
+{% block extra_css %}<link rel="stylesheet" href="{% static 'detector/css/detector.css' %}">{% endblock %}
+{% block title %}سجل الفحوصات{% endblock %}
+
+{% block content %}
+<section class="page-hero page-hero-tight night">
+  <div class="container">
+    <h1>سجل الفحوصات</h1>
+    <p>كل الرسائل اللي فحصتها وحفظتها، الأحدث أولاً.</p>
+  </div>
+</section>
+
+<section class="container section-tight">
+  <nav class="filter-chips" aria-label="تصفية حسب الحكم">
+    <a href="{% url 'detector:history' %}" {% if not selected %}aria-current="true"{% endif %}>الكل</a>
+    {% for item in filters %}
+      <a href="?verdict={{ item.key }}" class="chip-{{ item.css }}" {% if selected == item.key %}aria-current="true"{% endif %}>
+        {{ item.title }} <span class="chip-count">{{ item.count }}</span>
+      </a>
+    {% endfor %}
+  </nav>
+
+  {% if checks %}
+    <ul class="history-list">
+      {% for check in checks %}
+        <li>
+          <a class="history-row row-{{ check.verdict_info.css }}" href="{% url 'detector:detail' check.id %}">
+            <span class="row-score">{{ check.score }}</span>
+            <span class="row-main">
+              <strong>{{ check.verdict_info.title }}، {{ check.scam_type }}</strong>
+              <span class="row-text">{{ check.text|truncatechars:110 }}</span>
+            </span>
+            <time>{{ check.created_at }}</time>
+          </a>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <div class="empty-inline">
+      <span class="art-tile art-tile-sm night"><img src="{% static 'main/images/empty.svg' %}" alt=""></span>
+      <p>{% if selected %}ما فيه فحوصات بهذا الحكم.{% else %}السجل فاضي. افحص أول رسالة وبتظهر هنا.{% endif %}</p>
+      <a class="btn-signal" href="{% url 'detector:home' %}">افحص رسالة</a>
+    </div>
+  {% endif %}
+</section>
+{% endblock %}

@@ -1,0 +1,14 @@
+{# A message inside a phone screen, as if it just arrived. Needs: sender, segments #}
+<div class="sms-phone" role="img" aria-label="مثال لرسالة وصلت على الجوال من {{ sender }}">
+  <div class="sms-status" aria-hidden="true"><span>9:41</span><span><i class="bi bi-reception-4"></i> <i class="bi bi-battery-full"></i></span></div>
+  <div class="sms-head">
+    <i class="bi bi-chevron-right" aria-hidden="true"></i>
+    <span class="sms-avatar" aria-hidden="true"><i class="bi bi-person-fill"></i></span>
+    <div><strong dir="ltr">{{ sender }}</strong><small>رسالة نصية</small></div>
+  </div>
+  <div class="sms-body">
+    <span class="sms-time">اليوم 9:38 ص</span>
+    <p class="bubble bubble-in">{% include "main/partials/marked_text.html" %}</p>
+  </div>
+  <div class="sms-input" aria-hidden="true"><span>رسالة نصية</span><i class="bi bi-arrow-up-circle-fill"></i></div>
+</div>

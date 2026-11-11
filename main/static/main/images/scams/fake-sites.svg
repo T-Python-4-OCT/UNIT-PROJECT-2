@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <circle cx="120" cy="96" r="74" fill="#4fd1a0" fill-opacity=".07"/>
+  <rect x="24" y="26" width="192" height="134" rx="14" fill="#145038" stroke="#e6f3ec" stroke-width="3"/>
+  <path d="M24 52 H216" stroke="#e6f3ec" stroke-width="2" stroke-opacity=".35"/>
+  <circle cx="40" cy="39" r="3.5" fill="#ff6b6e"/><circle cx="52" cy="39" r="3.5" fill="#e2c27a"/><circle cx="64" cy="39" r="3.5" fill="#4fd1a0"/>
+  <rect x="78" y="31" width="126" height="16" rx="8" fill="#0b2a1f"/>
+  <path d="M88 39 v-2 a3 3 0 0 1 6 0 v2 M86.5 39 h9 v5 h-9 z" stroke="#8fb8a5" stroke-width="1.6"/>
+  <text x="100" y="43" font-family="ui-monospace, Menlo, monospace" font-size="9.5" fill="#cfe6da">mybank<tspan fill="#ff6b6e">-verify</tspan>.com</text>
+  <rect x="70" y="72" width="100" height="16" rx="5" fill="#0f3d2c" stroke="#8fb8a5" stroke-width="2"/>
+  <rect x="70" y="96" width="100" height="16" rx="5" fill="#0f3d2c" stroke="#8fb8a5" stroke-width="2"/>
+  <path d="M78 104 h4 M86 104 h4 M94 104 h4 M102 104 h4" stroke="#e6f3ec" stroke-width="3"/>
+  <rect x="70" y="122" width="100" height="18" rx="9" fill="#16875a"/>
+  <circle cx="158" cy="38" r="22" fill="#ff6b6e" fill-opacity=".08" stroke="#ff6b6e" stroke-width="3"/>
+  <path d="M174 54 L196 76" stroke="#ff6b6e" stroke-width="6"/>
+</svg>

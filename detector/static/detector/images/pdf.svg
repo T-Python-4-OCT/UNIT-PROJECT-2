@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" role="img" aria-label="ملف PDF">
+  <path d="M12 4h17l11 11v27a2 2 0 0 1-2 2H12a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z" fill="#ffffff" stroke="#16875a" stroke-width="2.5"/>
+  <path d="M29 4v11h11" fill="#e4f2ea" stroke="#16875a" stroke-width="2.5" stroke-linejoin="round"/>
+  <rect x="6" y="24" width="26" height="12" rx="3" fill="#e5383b"/>
+  <text x="19" y="33" font-family="Arial, sans-serif" font-size="8.5" font-weight="700" fill="#fff" text-anchor="middle">PDF</text>
+</svg>
