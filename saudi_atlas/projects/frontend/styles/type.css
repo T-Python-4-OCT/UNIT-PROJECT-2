@@ -1,0 +1,142 @@
+@font-face {
+  font-family: 'Instrument Serif Fallback';
+  src: local('Times New Roman');
+  size-adjust: 83%;
+}
+
+@font-face {
+  font-family: 'Instrument Serif Fallback';
+  font-style: italic;
+  src: local('Times New Roman Italic'), local('TimesNewRomanPS-ItalicMT');
+  size-adjust: 87%;
+}
+
+:is(
+  .hero-title,
+  .page-title,
+  .detail-title,
+  .section-heading,
+  .film-title,
+  .project-row h3,
+  .compare-name,
+  .explore-title,
+  .story-grid h3,
+  .result h3,
+  .chronology-label,
+  .hero-figures dd,
+  .detail-summary,
+  .rail-plate-number,
+  .timeline-year,
+  .next-plate-name
+) {
+  font-family: var(--font-display);
+  font-weight: 400;
+  font-synthesis: none;
+  letter-spacing: -0.015em;
+}
+
+:lang(ar)
+  :is(
+    .hero-title,
+    .page-title,
+    .detail-title,
+    .section-heading,
+    .film-title,
+    .project-row h3,
+    .compare-name,
+    .explore-title,
+    .story-grid h3,
+    .result h3,
+    .chronology-label,
+    .hero-figures dd,
+    .detail-summary,
+    .rail-plate-number,
+    .timeline-year,
+    .next-plate-name
+  ) {
+  font-family: var(--font-display-arabic);
+  letter-spacing: normal;
+}
+
+:is(.detail-tagline, .project-row-tagline, .result-tagline, .next-plate-tagline) {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-weight: 400;
+  font-synthesis: none;
+}
+
+:lang(ar) :is(.detail-tagline, .project-row-tagline, .result-tagline, .next-plate-tagline) {
+  font-family: var(--font-display-arabic);
+  font-style: normal;
+}
+
+.hero-title {
+  line-height: 0.92;
+}
+.detail-title {
+  line-height: 0.9;
+}
+.page-title {
+  line-height: 0.98;
+  max-inline-size: 14ch;
+}
+.section-heading {
+  line-height: 1.02;
+}
+.project-row h3 {
+  line-height: 0.95;
+}
+.film-title {
+  line-height: 1;
+}
+.story-grid h3 {
+  font-size: var(--step-3);
+  line-height: 1.1;
+}
+.detail-summary {
+  line-height: 1.32;
+  max-inline-size: 30ch;
+}
+.detail-tagline {
+  font-size: var(--step-4);
+  line-height: 1.05;
+  max-inline-size: 22ch;
+}
+.project-row-tagline {
+  font-size: var(--step-3);
+  line-height: 1.15;
+}
+.result-tagline {
+  font-size: var(--step-1);
+}
+
+@media (max-width: 40rem) {
+  .detail-tagline {
+    font-size: var(--step-3);
+  }
+  .hero-figures div:last-child {
+    grid-column: 1 / -1;
+  }
+}
+
+:lang(ar)
+  :is(
+    .hero-title,
+    .detail-title,
+    .page-title,
+    .section-heading,
+    .project-row h3,
+    .film-title,
+    .next-plate-name
+  ) {
+  line-height: 1.35;
+}
+:lang(ar) .next-plate-tagline {
+  line-height: 1.6;
+}
+:lang(ar) :is(.story-grid h3, .detail-tagline, .project-row-tagline) {
+  line-height: 1.5;
+}
+:lang(ar) .detail-summary {
+  line-height: 1.7;
+}

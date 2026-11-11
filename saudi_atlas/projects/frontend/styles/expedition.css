@@ -1,0 +1,363 @@
+.skip-tour {
+  inset-block-start: auto;
+}
+
+.after-tour {
+  padding-block: clamp(2rem, 1rem + 3vw, 4rem) var(--space-section);
+}
+.after-tour:focus {
+  outline: none;
+}
+.after-tour .hero-figures {
+  margin-block-start: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  [data-atlas-link] {
+    transition:
+      scale var(--dur-2) var(--ease-out),
+      box-shadow var(--dur-2) var(--ease-out),
+      border-color var(--dur-2),
+      opacity var(--dur-2),
+      background-color var(--dur-2),
+      color var(--dur-2);
+  }
+  [data-atlas-link][data-active] {
+    z-index: 2;
+    border-color: #fff5dd;
+    background: #f2cf88;
+    box-shadow:
+      0 0 0 3px rgb(21 58 49 / 0.55),
+      0 6px 18px rgb(9 28 25 / 0.5);
+    color: #153a31;
+  }
+
+  .atlas-controls:has([data-active]) [data-atlas-link]:not([data-active]) {
+    opacity: 0.74;
+  }
+  .atlas-ring {
+    transition:
+      left var(--dur-glide) var(--ease-out),
+      top var(--dur-glide) var(--ease-out),
+      opacity var(--dur-2);
+  }
+  .atlas-ring[data-visible]::after {
+    animation: locator-pulse var(--dur-pulse) var(--ease-out) infinite;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-height: 34rem) {
+  html.js .expedition {
+    --journey: narrow;
+    --header: 4rem;
+
+    --stage-h: clamp(100cqw / 2.6, 100svh - var(--header) - max(40svh, 18rem), 100cqw / 1.24);
+    --slot: calc(100svh - var(--header) - var(--stage-h));
+    --plate-gap: 1.5rem;
+    --plate-pad: clamp(1rem, 0.75rem + 1vw, 1.75rem);
+    container-type: inline-size;
+    display: flex;
+    flex-direction: column;
+  }
+
+  html.js .expedition-stage,
+  html.js .expedition .atlas-toolbar {
+    display: contents;
+  }
+
+  html.js .expedition .atlas-toolbar .section-head {
+    order: 1;
+    inline-size: min(var(--measure), 100% - 2 * var(--gutter));
+    margin: 0 auto var(--space-5);
+  }
+
+  html.js .expedition .atlas-stage {
+    --plane-w: max(100cqw, 100cqh * 1440 / 552);
+    --plane-h: max(100cqh, 100cqw * 552 / 1440);
+    --plane-x: calc((100cqw - var(--plane-w)) / 2);
+    --plane-y: calc((100cqh - var(--plane-h)) / 2);
+    --frame-shift: 0;
+    order: 2;
+    position: sticky;
+    inset-block-start: var(--header);
+    z-index: 2;
+    container-type: size;
+    block-size: var(--stage-h);
+    aspect-ratio: auto;
+    border-radius: 0;
+    box-shadow: 0 10px 24px -14px rgb(9 28 25 / 0.55);
+  }
+
+  html.js .expedition .atlas-poster {
+    object-position: var(--plane-x) var(--plane-y);
+  }
+
+  html.js .expedition :is(.atlas-shade-frame, .atlas-controls) {
+    top: var(--plane-y);
+    left: var(--plane-x);
+    translate: none;
+    inline-size: var(--plane-w);
+    block-size: var(--plane-h);
+    min-inline-size: 0;
+    aspect-ratio: auto;
+  }
+
+  html.js .expedition .atlas-toggle {
+    inset-inline: auto 0.625rem;
+    inset-block-start: 0.625rem;
+  }
+  html.js[dir='rtl'] .expedition .atlas-toggle {
+    inset-inline: 0.625rem auto;
+  }
+
+  html.js .expedition .atlas-caption {
+    order: 3;
+    inline-size: min(var(--measure), 100% - 2 * var(--gutter));
+    margin-inline: auto;
+    padding-block: var(--space-5) 0;
+  }
+
+  html.js .expedition .project-index {
+    order: 4;
+    padding-block-end: 0;
+  }
+
+  html.js .expedition .project-index > .section-head {
+    position: absolute;
+    inline-size: 1px;
+    block-size: 1px;
+    margin: 0;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+
+  html.js .expedition .project-list {
+    gap: var(--plate-gap);
+    padding-block: calc(var(--slot) * 0.4) calc(var(--slot) * 0.6);
+  }
+
+  html.js .expedition .project-row {
+    container: plate / size;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.625rem;
+    block-size: calc(var(--slot) - var(--plate-gap));
+    padding: var(--plate-pad);
+    overflow: clip;
+    border: 1px solid var(--rule);
+    border-radius: var(--radius-3);
+    background: var(--surface);
+    box-shadow: var(--shadow-1);
+    scroll-margin-block-end: calc(var(--plate-gap) / 2);
+  }
+
+  html.js .expedition .project-row-body {
+    display: contents;
+  }
+  html.js .expedition .project-row-meta {
+    order: 1;
+    gap: var(--space-1) var(--space-3);
+    font-size: 0.8125rem;
+  }
+  html.js .expedition .project-row h3 {
+    order: 2;
+    font-size: clamp(2rem, 1.5rem + 1.6vw, 3rem);
+  }
+  html.js .expedition .project-row h3 a {
+    scroll-margin-block-start: var(--stage-h);
+  }
+  html.js .expedition .project-row-tagline {
+    order: 3;
+    font-size: clamp(1.1875rem, 1rem + 0.6vw, 1.5rem);
+    line-height: 1.2;
+  }
+  html.js .expedition .project-row-summary {
+    order: 4;
+    font-size: 0.9375rem;
+    line-height: 1.5;
+  }
+  html.js .expedition .fact-strip {
+    order: 5;
+    gap: var(--space-3);
+    padding-block: var(--space-3);
+    font-size: 0.875rem;
+  }
+  html.js .expedition .fact-strip dd {
+    line-height: 1.35;
+  }
+  html.js .expedition .project-row-figure {
+    order: 6;
+    display: grid;
+    flex: 1 1 0;
+    min-block-size: 0;
+  }
+  html.js .expedition .project-row .text-link {
+    order: 7;
+    min-block-size: 2rem;
+  }
+  html.js .expedition .texture-swatch {
+    display: none;
+  }
+  html.js .expedition .project-row-media {
+    aspect-ratio: auto;
+    min-block-size: 0;
+    border-radius: var(--radius-2);
+  }
+  html.js:lang(ar) .expedition .project-row h3 {
+    line-height: 1.3;
+  }
+  html.js:lang(ar) .expedition .project-row-tagline {
+    line-height: 1.45;
+  }
+
+  @container plate (max-height: 38rem) {
+    html.js .expedition .fact-strip {
+      display: none;
+    }
+  }
+  @container plate (max-height: 30rem) {
+    html.js .expedition .project-row-summary {
+      display: none;
+    }
+  }
+  @container plate (max-height: 17rem) {
+    html.js .expedition .project-row-figure {
+      display: none;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-height: 34rem) and (min-width: 40rem) {
+  html.js .expedition .project-row {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(0, 1fr);
+    grid-template-rows: auto auto auto auto auto minmax(0, 1fr) auto;
+    gap: 0 clamp(1.25rem, 3vw, 2.5rem);
+  }
+  html.js .expedition .project-row-body > * {
+    grid-column: 1;
+    margin-block-end: 0.625rem;
+  }
+  html.js .expedition .project-row-meta {
+    grid-row: 1;
+  }
+  html.js .expedition .project-row h3 {
+    grid-row: 2;
+  }
+  html.js .expedition .project-row-tagline {
+    grid-row: 3;
+  }
+  html.js .expedition .project-row-summary {
+    grid-row: 4;
+  }
+  html.js .expedition .fact-strip {
+    grid-row: 5;
+  }
+  html.js .expedition .project-row .text-link {
+    grid-row: 7;
+    margin-block-end: 0;
+  }
+  html.js .expedition .project-row-figure {
+    grid-column: 2;
+    grid-row: 1 / -1;
+  }
+
+  @container plate (min-width: 36rem) and (min-height: 15rem) {
+    html.js .expedition .project-row-summary {
+      display: block;
+    }
+  }
+  @container plate (min-width: 36rem) and (min-height: 24rem) {
+    html.js .expedition .fact-strip {
+      display: grid;
+    }
+  }
+
+  @container plate (min-width: 36rem) {
+    html.js .expedition .project-row-figure {
+      display: grid;
+    }
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) and (min-height: 34rem) and (min-width: 64rem) and (min-aspect-ratio: 17 / 10),
+  (prefers-reduced-motion: no-preference) and (min-height: 34rem) and (min-width: 78rem) and (min-aspect-ratio: 3 / 2) {
+  html.js .expedition {
+    --journey: wide;
+    --stage-h: calc(100svh - var(--header));
+    --slot: var(--stage-h);
+    --plate-gap: 3rem;
+    --card-w: clamp(21rem, 30vw, 30rem);
+    --card-inset: clamp(1rem, 2.5vw, 3rem);
+    --card-end: calc(var(--card-inset) + var(--card-w));
+  }
+
+  html.js .expedition .atlas-stage {
+    --plane-x: clamp(
+      100cqw - var(--plane-w),
+      (var(--card-end) + 100cqw) / 2 - var(--plane-w) * 0.5222 + 1rem,
+      0px
+    );
+    --frame-shift: 0.16;
+    order: 1;
+    z-index: 0;
+    box-shadow: none;
+  }
+  html.js[dir='rtl'] .expedition .atlas-stage {
+    --plane-x: clamp(
+      100cqw - var(--plane-w),
+      (100cqw - var(--card-end)) / 2 - var(--plane-w) * 0.5222 + 1rem,
+      0px
+    );
+  }
+
+  html.js .expedition .atlas-toggle,
+  html.js[dir='rtl'] .expedition .atlas-toggle {
+    inset-inline: auto 1rem;
+    inset-block-start: 1rem;
+  }
+
+  html.js .expedition .atlas-toolbar .section-head,
+  html.js .expedition .atlas-caption,
+  html.js .expedition .project-index {
+    position: relative;
+    z-index: 1;
+    inline-size: var(--card-w);
+    margin-inline: var(--card-inset) 0;
+  }
+
+  html.js .expedition .atlas-toolbar .section-head {
+    order: 2;
+    margin-block: calc(var(--card-inset) - var(--stage-h)) 0;
+    padding: var(--plate-pad) var(--plate-pad) 0;
+    border: 1px solid var(--rule);
+    border-block-end: 0;
+    border-radius: var(--radius-3) var(--radius-3) 0 0;
+    background: var(--surface);
+  }
+
+  html.js .expedition .atlas-caption {
+    order: 3;
+    padding: var(--space-4) var(--plate-pad) var(--plate-pad);
+    border: 1px solid var(--rule);
+    border-block-start: 0;
+    border-radius: 0 0 var(--radius-3) var(--radius-3);
+    background: var(--surface);
+    box-shadow: var(--shadow-2);
+  }
+
+  html.js .expedition .project-list {
+    padding-block: calc(var(--slot) * 0.45) calc(var(--slot) * 0.5);
+  }
+
+  html.js .expedition .project-row {
+    display: flex;
+    box-shadow: var(--shadow-2);
+  }
+  html.js .expedition .project-row-body > * {
+    margin-block-end: 0;
+  }
+}

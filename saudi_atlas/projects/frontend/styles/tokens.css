@@ -1,0 +1,114 @@
+:root {
+  --limestone-50: #f7f3e9;
+  --limestone-100: #efe8d9;
+  --limestone-200: #ded5c3;
+  --limestone-300: #cbbfa7;
+  --charcoal-950: #0f1512;
+  --charcoal-900: #151d19;
+  --charcoal-800: #1c2722;
+  --charcoal-700: #293a31;
+  --palm-800: #123d32;
+  --palm-700: #285849;
+  --palm-300: #a9cfb9;
+  --brass-700: #765524;
+  --brass-500: #b4935a;
+  --brass-300: #d7b77c;
+  --moss-700: #48574e;
+  --moss-300: #b6c5b9;
+
+  --page: var(--limestone-50);
+  --surface: #fffcf5;
+  --surface-muted: var(--limestone-100);
+  --ink: var(--charcoal-900);
+  --muted: var(--moss-700);
+  --accent: var(--palm-800);
+  --accent-fill: var(--palm-800);
+  --accent-on: var(--limestone-50);
+  --eyebrow-ink: var(--brass-700);
+  --ornament: var(--brass-500);
+  --rule: var(--limestone-200);
+  --rule-strong: var(--limestone-300);
+  --focus: var(--palm-700);
+  --image-edge: rgb(0 0 0 / 0.08);
+  --map-sea: #123d32;
+  --mark: #f3dfa8;
+  --mark-rule: var(--brass-500);
+  --shadow-1: 0 1px 2px rgb(21 29 25 / 0.06), 0 4px 16px rgb(21 29 25 / 0.06);
+  --shadow-2: 0 2px 6px rgb(21 29 25 / 0.08), 0 16px 40px rgb(21 29 25 / 0.12);
+
+  --font-atlas: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-arabic: 'IBM Plex Sans Arabic', 'Segoe UI', Tahoma, sans-serif;
+  --font-display: 'Instrument Serif', 'Instrument Serif Fallback', 'Times New Roman', serif;
+  --font-display-arabic: 'Amiri', 'Times New Roman', serif;
+
+  --step--1: 0.875rem;
+  --step-0: clamp(1rem, 0.97rem + 0.12vw, 1.0625rem);
+  --step-1: clamp(1.125rem, 1.05rem + 0.35vw, 1.3125rem);
+  --step-2: clamp(1.3125rem, 1.15rem + 0.7vw, 1.75rem);
+  --step-3: clamp(1.75rem, 1.35rem + 1.8vw, 3rem);
+  --step-4: clamp(2.25rem, 1.5rem + 3.2vw, 4.5rem);
+  --step-5: clamp(2.75rem, 1.5rem + 5.4vw, 7rem);
+  --step-6: clamp(3.25rem, 1.5rem + 7vw, 9rem);
+
+  --space-1: 0.25rem;
+  --space-2: 0.5rem;
+  --space-3: 0.75rem;
+  --space-4: 1rem;
+  --space-5: 1.5rem;
+  --space-6: 2rem;
+  --space-7: 3rem;
+  --space-8: 4rem;
+  --space-section: clamp(3.5rem, 2rem + 6vw, 8rem);
+  --gutter: clamp(1rem, 4.2vw, 4rem);
+  --measure: 84rem;
+  --radius-1: 0.25rem;
+  --radius-2: 0.5rem;
+  --radius-3: 1rem;
+
+  --ease-out: cubic-bezier(0.2, 0, 0, 1);
+  --ease-in-out: cubic-bezier(0.45, 0, 0.55, 1);
+  --ease-scrub: linear;
+  --dur-1: 160ms;
+  --dur-2: 320ms;
+  --dur-3: 700ms;
+  --dur-intro: 640ms;
+  --dur-word: 560ms;
+  --stagger: 55ms;
+  --dur-morph: 560ms;
+  --dur-theme: 600ms;
+  --dur-glide: 800ms;
+  --dur-pulse: 2400ms;
+  --dur-drift: 3200ms;
+  --parapet: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 12'%3E%3Cpath d='M0 12V8h4l2-6 2 6h8l2-6 2 6h4v4z'/%3E%3C/svg%3E");
+  color-scheme: light;
+}
+
+:root[data-theme='dark'] {
+  --page: var(--charcoal-900);
+  --surface: var(--charcoal-800);
+  --surface-muted: var(--charcoal-700);
+  --ink: var(--limestone-50);
+  --muted: var(--moss-300);
+  --accent: var(--palm-300);
+  --accent-fill: var(--palm-300);
+  --accent-on: var(--charcoal-900);
+  --eyebrow-ink: var(--brass-300);
+  --ornament: var(--brass-300);
+  --rule: var(--charcoal-700);
+  --rule-strong: #3a4c42;
+  --focus: var(--brass-300);
+  --image-edge: rgb(255 255 255 / 0.08);
+  --mark: #5c4920;
+  --mark-rule: var(--brass-300);
+  --shadow-1: 0 1px 2px rgb(0 0 0 / 0.3), 0 4px 16px rgb(0 0 0 / 0.25);
+  --shadow-2: 0 2px 6px rgb(0 0 0 / 0.35), 0 16px 40px rgb(0 0 0 / 0.4);
+  color-scheme: dark;
+}
+
+.project-page,
+[style*='--accent-light'] {
+  --project: var(--accent-light);
+}
+[data-theme='dark'] :is(.project-page, [style*='--accent-light']) {
+  --project: var(--accent-dark);
+}

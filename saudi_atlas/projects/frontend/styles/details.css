@@ -1,0 +1,83 @@
+:root {
+  --survey-rule:
+    repeating-linear-gradient(to right, var(--rule-strong) 0 1px, transparent 1px 2.5rem) 0 100% / 100%
+      0.625rem no-repeat,
+    repeating-linear-gradient(to right, var(--rule-strong) 0 1px, transparent 1px 0.5rem) 0 100% / 100%
+      0.3125rem no-repeat,
+    linear-gradient(var(--rule-strong), var(--rule-strong)) 0 100% / 100% 1px no-repeat;
+}
+
+.page-intro::after,
+.hero-figures::before {
+  content: '';
+  display: block;
+  block-size: 0.625rem;
+  background: var(--survey-rule);
+}
+
+.page-intro::after {
+  margin-block-start: var(--space-4);
+}
+.hero-figures {
+  position: relative;
+  border-block-start: 0;
+  padding-block-start: calc(var(--space-5) + 0.625rem);
+}
+.hero-figures::before {
+  position: absolute;
+  inset: 0 0 auto;
+}
+[dir='rtl'] :is(.page-intro::after, .hero-figures::before) {
+  transform: scaleX(-1);
+}
+
+.plate-number {
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+.project-row-meta .plate-number {
+  color: var(--project);
+  font-weight: 600;
+}
+.detail-kicker .plate-number {
+  padding-inline-end: var(--space-3);
+  border-inline-end: 1px solid rgb(243 227 195 / 0.5);
+  margin-inline-end: var(--space-1);
+}
+
+.atlas-legend {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: var(--space-2) var(--space-5);
+  color: var(--muted);
+  font-size: 0.875rem;
+}
+.atlas-legend dt {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+.atlas-legend dd {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+.legend-mark {
+  flex: none;
+  inline-size: 0.75rem;
+  block-size: 0.75rem;
+  border-radius: 50%;
+}
+.legend-site {
+  background: var(--ornament);
+  box-shadow:
+    0 0 0 2px var(--page),
+    0 0 0 3px var(--ornament);
+}
+.legend-community {
+  border: 1.5px dashed var(--muted);
+}

@@ -12,9 +12,9 @@ export default defineConfig({
     cors: { origin: /^http:\/\/(localhost|127\.0\.0\.1):8000$/ },
   },
   build: {
-    outDir: 'static/build',
+    outDir: 'saudi_atlas/projects/static/build',
     emptyOutDir: true,
     manifest: true,
-    rolldownOptions: { input: 'frontend/main.js' },
+    rolldownOptions: { input: 'saudi_atlas/projects/frontend/main.js' },
   },
 });
