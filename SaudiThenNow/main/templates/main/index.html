@@ -1,0 +1,223 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}{{ t.nav_home }}{% endblock %}
+
+{% block content %}
+
+  <section class="hero parapet">
+    <div class="container hero-inner doors">
+      <div class="door door-then">
+        <div class="door-view">
+          <img src="{% static 'images/hero-then.jpg' %}" alt="{% if lang == 'ar' %}قصر المصمك{% else %}Masmak Fortress{% endif %}">
+          <span class="leaf leaf-left"></span>
+          <span class="leaf leaf-right"></span>
+        </div>
+        <span class="door-tag">{{ t.then }} <small>{% if lang == 'ar' %}قصر المصمك{% else %}Masmak Fortress{% endif %}</small></span>
+      </div>
+
+      <div class="hero-text">
+        <h1 class="fade-up">{% if lang == 'ar' %}من الرمال <span>إلى ناطحات السحاب</span>{% else %}From Sand <span>to Skyline</span>{% endif %}</h1>
+        <p class="fade-up delay-1">{% if lang == 'ar' %}قرن واحد، ومملكة جديدة بالكامل.{% else %}One century. A whole new Kingdom.{% endif %}</p>
+
+        <div class="time-machine fade-up delay-1" id="time-machine">
+          <strong class="time-year" id="time-year">{{ this_year }}</strong>
+          <input type="range" id="time-range" min="{{ first_year }}" max="{{ this_year }}" value="{{ this_year }}" aria-label="{% if lang == 'ar' %}اسحب لتسافر عبر الزمن{% else %}Drag to travel through time{% endif %}">
+          <div class="time-ends">
+            <span>{{ first_year }}</span>
+            <span>{% if lang == 'ar' %}اسحب لتسافر عبر الزمن{% else %}Drag to travel through time{% endif %}</span>
+            <span>{{ this_year }}</span>
+          </div>
+          <a href="{% url 'main:timeline' %}" class="time-event" id="time-event" aria-live="polite"></a>
+        </div>
+        {{ moments|json_script:"time-moments" }}
+
+        <div class="hero-buttons fade-up delay-2">
+          <a href="#topics" class="btn btn-primary">
+            {{ t.explore_topics }}
+            <span class="material-symbols-outlined">arrow_downward</span>
+          </a>
+          <a href="{% url 'main:timeline' %}" class="btn btn-outline">{% if lang == 'ar' %}ابدأ التنقل عبر الزمن{% else %}Travel through time{% endif %}</a>
+        </div>
+      </div>
+
+      <div class="door door-now">
+        <div class="door-view">
+          <img src="{% static 'images/hero-now.jpg' %}" alt="{% if lang == 'ar' %}برج المملكة{% else %}Kingdom Centre{% endif %}">
+          <span class="leaf leaf-left"></span>
+          <span class="leaf leaf-right"></span>
+        </div>
+        <span class="door-tag">{{ t.now }} <small>{% if lang == 'ar' %}برج المملكة{% else %}Kingdom Centre{% endif %}</small></span>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section intro">
+    {% if lang == 'ar' %}
+      <div class="intro-text">
+        <h2>بلد واحد، وعالمان مختلفان</h2>
+        <p>في عام 1932 وحّد الملك عبدالعزيز المملكة العربية السعودية. في ذلك الوقت كان أغلب الناس يعيشون في بيوت الطين، أو بدوًا في الصحراء، يتنقلون على الإبل ويعيشون من الزراعة والتجارة والغوص على اللؤلؤ.</p>
+        <p>ثم غيّر اكتشاف النفط عام 1938 كل شيء. ومنذ 2016 فتحت رؤية 2030 فصلًا جديدًا: مدن جديدة، وصناعات جديدة، وبلد منفتح على العالم.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="material-symbols-outlined">groups</span>
+          <p class="stat-label">السكان</p>
+          <p class="stat-then" data-label="{{ t.then }}">7.0 مليون <small>(<bdi>1974</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">32.2 مليون <small>(<bdi>2022</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">favorite</span>
+          <p class="stat-label">متوسط العمر</p>
+          <p class="stat-then" data-label="{{ t.then }}">45.6 سنة <small>(<bdi>1960</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">75.3 سنة <small>(<bdi>2020</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">train</span>
+          <p class="stat-label">القطار السريع</p>
+          <p class="stat-then" data-label="{{ t.then }}">0 كم <small>(<bdi>قبل 2018</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">453 كم <small>(<bdi>2018</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">flight_land</span>
+          <p class="stat-label">السياح سنويًا</p>
+          <p class="stat-then" data-label="{{ t.then }}">لا توجد تأشيرة سياحية <small>(<bdi>قبل 2019</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">116 مليون <small>(<bdi>2024</bdi>)</small></p>
+        </div>
+      </div>
+    {% else %}
+      <div class="intro-text">
+        <h2>One country, two different worlds</h2>
+        <p>In 1932, King Abdulaziz united the Kingdom of Saudi Arabia. Back then, most people lived in mud houses or as Bedouin in the desert, travelling by camel and living from farming, trade and pearl diving.</p>
+        <p>The discovery of oil in 1938 changed everything. And since 2016, Vision 2030 has opened a new chapter: new cities, new industries and a country open to the world.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="material-symbols-outlined">groups</span>
+          <p class="stat-label">Population</p>
+          <p class="stat-then" data-label="{{ t.then }}">7.0 million <small>(<bdi>1974</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">32.2 million <small>(<bdi>2022</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">favorite</span>
+          <p class="stat-label">Life expectancy</p>
+          <p class="stat-then" data-label="{{ t.then }}">45.6 years <small>(<bdi>1960</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">75.3 years <small>(<bdi>2020</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">train</span>
+          <p class="stat-label">High-speed rail</p>
+          <p class="stat-then" data-label="{{ t.then }}">0 km <small>(<bdi>before 2018</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">453 km <small>(<bdi>2018</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">flight_land</span>
+          <p class="stat-label">Tourists per year</p>
+          <p class="stat-then" data-label="{{ t.then }}">No tourist visa <small>(<bdi>before 2019</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">116 million <small>(<bdi>2024</bdi>)</small></p>
+        </div>
+      </div>
+    {% endif %}
+  </section>
+
+  <section class="stories" id="topics">
+    <div class="stories-pin">
+      <div class="container">
+        <div class="section-head">
+          {% if lang == 'ar' %}
+            <h2>سبع قصص عن التغيير</h2>
+            <p>مرّر على البطاقة لترى الماضي، واضغط لتقرأ القصة كاملة.</p>
+          {% else %}
+            <h2>Seven stories of change</h2>
+            <p>Hover over a card to see the past. Click to read the full story.</p>
+          {% endif %}
+        </div>
+      </div>
+
+      <div class="stories-track">
+        {% for topic in topics %}
+          <a href="{% url 'main:topic' topic.slug %}" class="story-card">
+            <img src="{% static 'images/topics/'|add:topic.slug|add:'-now.jpg' %}" alt="{{ topic.title }}">
+            <img src="{% static 'images/topics/'|add:topic.slug|add:'-then.jpg' %}" alt="" class="img-then">
+            <span class="story-tag story-then">{{ topic.then }}</span>
+            <span class="story-tag story-now">{{ topic.now }}</span>
+            <div class="story-title">
+              <span class="material-symbols-outlined">{{ topic.icon }}</span>
+              <h3>{{ topic.title }}</h3>
+            </div>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="container section">
+    <div class="section-head">
+      <h2>{% if lang == 'ar' %}محطات صنعت المملكة{% else %}Milestones that shaped the Kingdom{% endif %}</h2>
+    </div>
+
+    <div class="moments">
+      {% if lang == 'ar' %}
+        <div class="moment">
+          <strong>1727</strong>
+          <p>تأسيس الدولة السعودية الأولى في الدرعية.</p>
+        </div>
+        <div class="moment">
+          <strong>1902</strong>
+          <p>الملك عبدالعزيز يسترد الرياض.</p>
+        </div>
+        <div class="moment">
+          <strong>1932</strong>
+          <p>توحيد المملكة العربية السعودية.</p>
+        </div>
+        <div class="moment">
+          <strong>1938</strong>
+          <p>اكتشاف النفط في بئر الدمام رقم 7.</p>
+        </div>
+        <div class="moment now">
+          <strong>2016</strong>
+          <p>إطلاق رؤية 2030.</p>
+        </div>
+        <div class="moment now">
+          <strong>2034</strong>
+          <p>المملكة تستضيف كأس العالم لكرة القدم.</p>
+        </div>
+      {% else %}
+        <div class="moment">
+          <strong>1727</strong>
+          <p>The First Saudi State is founded in Diriyah.</p>
+        </div>
+        <div class="moment">
+          <strong>1902</strong>
+          <p>King Abdulaziz recaptures Riyadh.</p>
+        </div>
+        <div class="moment">
+          <strong>1932</strong>
+          <p>The Kingdom of Saudi Arabia is unified.</p>
+        </div>
+        <div class="moment">
+          <strong>1938</strong>
+          <p>Oil is discovered at Dammam Well No. 7.</p>
+        </div>
+        <div class="moment now">
+          <strong>2016</strong>
+          <p>Vision 2030 is launched.</p>
+        </div>
+        <div class="moment now">
+          <strong>2034</strong>
+          <p>The Kingdom hosts the FIFA World Cup.</p>
+        </div>
+      {% endif %}
+    </div>
+
+    <div class="center">
+      <a href="{% url 'main:timeline' %}" class="btn btn-outline">
+        {{ t.full_timeline }}
+        <span class="material-symbols-outlined flip-rtl">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+{% endblock %}

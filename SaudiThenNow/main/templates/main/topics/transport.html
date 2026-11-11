@@ -1,0 +1,187 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}{{ topic.title }}{% endblock %}
+
+{% block content %}
+
+  <section class="page-head parapet">
+    <div class="container">
+      <a href="{% url 'main:home' %}#topics" class="back-link">
+        <span class="material-symbols-outlined flip-rtl">arrow_back</span>
+        {{ t.all_topics }}
+      </a>
+      <p class="head-change">{{ topic.then }} {% if lang == 'ar' %}←{% else %}→{% endif %} {{ topic.now }}</p>
+      <h1>{{ topic.title }}</h1>
+      {% if lang == 'ar' %}
+        <p>من قوافل تستغرق شهورًا إلى قطارات تسير بسرعة 300 كم/س.</p>
+      {% else %}
+        <p>From caravans that took months to trains that run at 300 km/h.</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="container slider-section">
+    <div class="frame">
+      <div class="compare-slider" id="compare-slider">
+        <img src="{% static 'images/topics/transport-now.jpg' %}" alt="{{ topic.title }}">
+        <img src="{% static 'images/topics/transport-then.jpg' %}" alt="" class="compare-then">
+        <span class="compare-tag tag-then">{{ t.then }}</span>
+        <span class="compare-tag tag-now">{{ t.now }}</span>
+        <span class="compare-line"></span>
+        <span class="compare-handle">
+          <span class="material-symbols-outlined">compare_arrows</span>
+        </span>
+        <input type="range" min="0" max="100" value="50" aria-label="{{ t.compare_label }}">
+      </div>
+    </div>
+  </section>
+
+  <section class="container section intro">
+    {% if lang == 'ar' %}
+      <div class="intro-text">
+        <h2>من القوافل إلى 300 كم في الساعة</h2>
+        <p>لقرون طويلة، كان التنقل في الجزيرة العربية مشيًا أو على ظهور الإبل. وكانت قوافل الحجاج تعبر الصحراء في رحلات قد تستغرق أسابيع أو حتى شهورًا.</p>
+        <p>في عام 1908 وصلت سكة حديد الحجاز إلى المدينة المنورة، فاختصرت الرحلة من دمشق من 40 يومًا إلى 5 أيام فقط. لكن الخط تضرر كثيرًا في الحرب العالمية الأولى، وبحلول 1920 توقف جزؤه الجنوبي.</p>
+        <p>في عام 1945 أهدى الرئيس روزفلت الملك عبدالعزيز رحمه الله طائرة DC-3، وكانت بداية الخطوط السعودية. وبعد ست سنوات، في 1951، افتُتح أول خط حديدي في المملكة بين الدمام والرياض بطول 569 كم.</p>
+        <p>واليوم تسير قطارات الحرمين السريع بسرعة 300 كم في الساعة، وتربط مكة المكرمة بالمدينة المنورة في نحو ساعتين وربع. وامتدت شبكة السكك الحديدية إلى 5,330 كم، وأصبح في الرياض مترو بلا سائق.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="material-symbols-outlined">mosque</span>
+          <p class="stat-label">رحلات الحج</p>
+          <p class="stat-then" data-label="{{ t.then }}">أسابيع أو شهور <small>(<bdi>بالقوافل</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">ساعات <small>(<bdi>بالقطار أو الطائرة</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">train</span>
+          <p class="stat-label">من مكة إلى المدينة</p>
+          <p class="stat-then" data-label="{{ t.then }}">لا يوجد قطار <small>(<bdi>قبل 2018</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">ساعتان وربع <small>(<bdi>2018</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">route</span>
+          <p class="stat-label">شبكة السكك الحديدية</p>
+          <p class="stat-then" data-label="{{ t.then }}">569 كم <small>(<bdi>1951</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">5,330 كم <small>(<bdi>2023</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">flight</span>
+          <p class="stat-label">أسطول السعودية</p>
+          <p class="stat-then" data-label="{{ t.then }}">طائرة DC-3 واحدة <small>(<bdi>1945</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">144 طائرة <small>(<bdi>2024</bdi>)</small></p>
+        </div>
+      </div>
+    {% else %}
+      <div class="intro-text">
+        <h2>From caravans to 300 km/h</h2>
+        <p>For centuries, the only way across Arabia was on foot or by camel. Pilgrim caravans crossed the desert on journeys that could take weeks or even months.</p>
+        <p>In 1908 the Hejaz Railway reached Madinah, cutting the trip from Damascus from 40 days to just 5. But the line was badly damaged in the First World War, and by 1920 its southern section had fallen silent.</p>
+        <p>In 1945, President Roosevelt gave King Abdulaziz a Douglas DC-3, the plane that started Saudia. Six years later, in 1951, the Kingdom's first railway opened between Dammam and Riyadh: 569 km of track across the desert.</p>
+        <p>Today, trains on the Haramain High Speed Railway reach 300 km/h and link Makkah and Madinah in about 2 hours and 15 minutes. The national network has grown to 5,330 km, and Riyadh has a driverless metro.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="material-symbols-outlined">mosque</span>
+          <p class="stat-label">Pilgrim journeys</p>
+          <p class="stat-then" data-label="{{ t.then }}">Weeks or months <small>(<bdi>by caravan</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">Hours <small>(<bdi>by train or plane</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">train</span>
+          <p class="stat-label">Makkah to Madinah</p>
+          <p class="stat-then" data-label="{{ t.then }}">No railway <small>(<bdi>before 2018</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">2 h 15 min <small>(<bdi>2018</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">route</span>
+          <p class="stat-label">Railway network</p>
+          <p class="stat-then" data-label="{{ t.then }}">569 km <small>(<bdi>1951</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">5,330 km <small>(<bdi>2023</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">flight</span>
+          <p class="stat-label">Saudia fleet</p>
+          <p class="stat-then" data-label="{{ t.then }}">1 DC-3 <small>(<bdi>1945</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">144 planes <small>(<bdi>2024</bdi>)</small></p>
+        </div>
+      </div>
+    {% endif %}
+  </section>
+
+  <section class="container section">
+    <div class="section-head">
+      <h2>{{ t.key_moments }}</h2>
+    </div>
+
+    <div class="moments">
+      {% for moment in topic.timeline %}
+        <div class="moment {% if moment.year >= '2000' %}now{% endif %}">
+          <strong>{{ moment.year }}</strong>
+          <p>{{ moment.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="center">
+      <a href="{% url 'main:timeline' %}#transport" class="btn btn-outline">
+        {{ t.full_timeline }}
+        <span class="material-symbols-outlined flip-rtl">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="container watch-future">
+    <section class="container section">
+      <div class="section-head">
+        <h2>{{ t.watch_title }}</h2>
+      </div>
+
+      <div class="frame">
+        <div class="video">
+          <video src="{% static 'video/transport.mp4' %}" controls playsinline preload="metadata"></video>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="section-head">
+        <h2>{{ t.future_title }}</h2>
+        <p>{{ t.future_text }}</p>
+      </div>
+
+      <div class="future">
+        {% for item in topic.future %}
+          <div class="future-card">
+            <svg class="future-line" aria-hidden="true"><rect width="100%" height="100%" rx="4" pathLength="1000"></rect></svg>
+            <div class="future-top">
+              <strong>{{ item.year }}</strong>
+              <span class="material-symbols-outlined">{{ item.icon }}</span>
+            </div>
+            <p class="countdown" data-year="{{ item.year }}"{% if item.date %} data-date="{{ item.date }}"{% endif %}></p>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.text }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+
+  <section class="container section">
+    <div class="section-head">
+      <h2>{{ t.more_title }}</h2>
+    </div>
+
+    <div class="more-topics">
+      {% for other in others %}
+        <a href="{% url 'main:topic' other.slug %}" class="more-topic">
+          <span class="material-symbols-outlined">{{ other.icon }}</span>
+          {{ other.title }}
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+{% endblock %}

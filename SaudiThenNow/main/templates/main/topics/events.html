@@ -1,0 +1,185 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}{{ topic.title }}{% endblock %}
+
+{% block content %}
+
+  <section class="page-head parapet">
+    <div class="container">
+      <a href="{% url 'main:home' %}#topics" class="back-link">
+        <span class="material-symbols-outlined flip-rtl">arrow_back</span>
+        {{ t.all_topics }}
+      </a>
+      <p class="head-change">{{ topic.then }} {% if lang == 'ar' %}←{% else %}→{% endif %} {{ topic.now }}</p>
+      <h1>{{ topic.title }}</h1>
+      {% if lang == 'ar' %}
+        <p>من الملاعب الترابية و35 عامًا بلا سينما إلى استضافة إكسبو 2030 وكأس العالم 2034.</p>
+      {% else %}
+        <p>From dirt pitches and 35 years without cinemas to hosting Expo 2030 and the 2034 World Cup.</p>
+      {% endif %}
+    </div>
+  </section>
+
+  <section class="container slider-section">
+    <div class="frame">
+      <div class="compare-slider" id="compare-slider">
+        <img src="{% static 'images/topics/events-now.jpg' %}" alt="{{ topic.title }}">
+        <img src="{% static 'images/topics/events-then.jpg' %}" alt="" class="compare-then">
+        <span class="compare-tag tag-then">{{ t.then }}</span>
+        <span class="compare-tag tag-now">{{ t.now }}</span>
+        <span class="compare-line"></span>
+        <span class="compare-handle">
+          <span class="material-symbols-outlined">compare_arrows</span>
+        </span>
+        <input type="range" min="0" max="100" value="50" aria-label="{{ t.compare_label }}">
+      </div>
+    </div>
+  </section>
+
+  <section class="container section intro">
+    {% if lang == 'ar' %}
+      <div class="intro-text">
+        <h2>من الملاعب الترابية إلى منصات العالم</h2>
+        <p>لزمن طويل كانت المتعة في المملكة تعني كرة القدم على الملاعب الترابية، والطلعات إلى البر، والسهرات مع العائلة. وأُغلقت دور السينما في أوائل الثمانينيات وبقيت مغلقة 35 عامًا.</p>
+        <p>وكانت كرة القدم صاحبة أكبر الأفراح: فاز المنتخب بكأس آسيا عام 1984، وفي أول مشاركة له في كأس العالم عام 1994 تغلّب على بلجيكا بهدف سعيد العويران الشهير وتأهل إلى دور الستة عشر.</p>
+        <p>ثم غيّرت رؤية 2030 المشهد. تأسست الهيئة العامة للترفيه عام 2016، وفي 2018 دخلت المرأة الملاعب وعادت السينما. واليوم يجمع موسم الرياض وسباق الفورمولا 1 في جدة وكأس العالم للرياضات الإلكترونية العالمَ في المملكة.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="material-symbols-outlined">movie</span>
+          <p class="stat-label">شاشات السينما</p>
+          <p class="stat-then" data-label="{{ t.then }}">0 <small>(<bdi>قبل 2018</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">603 <small>(<bdi>2025</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">confirmation_number</span>
+          <p class="stat-label">تذاكر السينما المبيعة</p>
+          <p class="stat-then" data-label="{{ t.then }}">0 <small>(<bdi>قبل 2018</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">18.8 مليون <small>(<bdi>2025</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">celebration</span>
+          <p class="stat-label">زوار موسم الرياض</p>
+          <p class="stat-then" data-label="{{ t.then }}">لا يوجد موسم <small>(<bdi>قبل 2019</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">20 مليون <small>(<bdi>2024</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">sports_motorsports</span>
+          <p class="stat-label">الفورمولا 1</p>
+          <p class="stat-then" data-label="{{ t.then }}">لا سباقات <small>(<bdi>قبل 2021</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">حلبة 6.174 كم <small>(<bdi>جدة 2021</bdi>)</small></p>
+        </div>
+      </div>
+    {% else %}
+      <div class="intro-text">
+        <h2>From dirt pitches to world stages</h2>
+        <p>For a long time, fun in the Kingdom meant football on dirt pitches, trips into the desert and evenings with family. Cinemas closed in the early 1980s and stayed shut for 35 years.</p>
+        <p>Football carried the country's biggest moments. Saudi Arabia won the Asian Cup in 1984, and on its World Cup debut in 1994 it beat Belgium with Saeed Al-Owairan's famous goal to reach the round of 16.</p>
+        <p>Vision 2030 changed the picture. The General Entertainment Authority was founded in 2016. In 2018 women entered football stadiums and cinemas reopened. Today Riyadh Season, Formula 1 in Jeddah and the Esports World Cup bring the world to the Kingdom.</p>
+      </div>
+
+      <div class="stats">
+        <div class="stat">
+          <span class="material-symbols-outlined">movie</span>
+          <p class="stat-label">Cinema screens</p>
+          <p class="stat-then" data-label="{{ t.then }}">0 <small>(<bdi>before 2018</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">603 <small>(<bdi>2025</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">confirmation_number</span>
+          <p class="stat-label">Cinema tickets sold</p>
+          <p class="stat-then" data-label="{{ t.then }}">0 <small>(<bdi>before 2018</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">18.8 million <small>(<bdi>2025</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">celebration</span>
+          <p class="stat-label">Riyadh Season visitors</p>
+          <p class="stat-then" data-label="{{ t.then }}">No season <small>(<bdi>before 2019</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">20 million <small>(<bdi>2024</bdi>)</small></p>
+        </div>
+        <div class="stat">
+          <span class="material-symbols-outlined">sports_motorsports</span>
+          <p class="stat-label">Formula 1</p>
+          <p class="stat-then" data-label="{{ t.then }}">No races <small>(<bdi>before 2021</bdi>)</small></p>
+          <p class="stat-now" data-label="{{ t.now }}">6.174 km circuit <small>(<bdi>Jeddah 2021</bdi>)</small></p>
+        </div>
+      </div>
+    {% endif %}
+  </section>
+
+  <section class="container section">
+    <div class="section-head">
+      <h2>{{ t.key_moments }}</h2>
+    </div>
+
+    <div class="moments">
+      {% for moment in topic.timeline %}
+        <div class="moment {% if moment.year >= '2000' %}now{% endif %}">
+          <strong>{{ moment.year }}</strong>
+          <p>{{ moment.text }}</p>
+        </div>
+      {% endfor %}
+    </div>
+
+    <div class="center">
+      <a href="{% url 'main:timeline' %}#events" class="btn btn-outline">
+        {{ t.full_timeline }}
+        <span class="material-symbols-outlined flip-rtl">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+  <div class="container watch-future">
+    <section class="container section">
+      <div class="section-head">
+        <h2>{{ t.watch_title }}</h2>
+      </div>
+
+      <div class="frame">
+        <div class="video">
+          <video src="{% static 'video/events.mp4' %}" controls playsinline preload="metadata"></video>
+        </div>
+      </div>
+    </section>
+
+    <section class="container section">
+      <div class="section-head">
+        <h2>{{ t.future_title }}</h2>
+        <p>{{ t.future_text }}</p>
+      </div>
+
+      <div class="future">
+        {% for item in topic.future %}
+          <div class="future-card">
+            <svg class="future-line" aria-hidden="true"><rect width="100%" height="100%" rx="4" pathLength="1000"></rect></svg>
+            <div class="future-top">
+              <strong>{{ item.year }}</strong>
+              <span class="material-symbols-outlined">{{ item.icon }}</span>
+            </div>
+            <p class="countdown" data-year="{{ item.year }}"{% if item.date %} data-date="{{ item.date }}"{% endif %}></p>
+            <h3>{{ item.title }}</h3>
+            <p>{{ item.text }}</p>
+          </div>
+        {% endfor %}
+      </div>
+    </section>
+  </div>
+
+  <section class="container section">
+    <div class="section-head">
+      <h2>{{ t.more_title }}</h2>
+    </div>
+
+    <div class="more-topics">
+      {% for other in others %}
+        <a href="{% url 'main:topic' other.slug %}" class="more-topic">
+          <span class="material-symbols-outlined">{{ other.icon }}</span>
+          {{ other.title }}
+        </a>
+      {% endfor %}
+    </div>
+  </section>
+
+{% endblock %}

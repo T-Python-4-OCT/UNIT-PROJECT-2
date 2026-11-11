@@ -1,0 +1,810 @@
+[
+  {
+    "slug": "riyadh",
+    "title": "Riyadh & Urban Growth",
+    "icon": "location_city",
+    "then": "Mud houses",
+    "now": "Modern skylines",
+    "timeline": [
+      {
+        "year": "1902",
+        "text": "King Abdulaziz recaptures Riyadh and rebuilds its walls.",
+        "image": "images/timeline/1902-masmak.jpg"
+      },
+      {
+        "year": "1936",
+        "text": "Al Murabba Palace is built outside the old walls.",
+        "image": "images/timeline/1936-murabba-palace.jpg"
+      },
+      {
+        "year": "1950",
+        "text": "The old walls start to come down as the city grows.",
+        "image": "images/timeline/1950-riyadh-walls.jpg"
+      },
+      {
+        "year": "2002",
+        "text": "The 302-metre Kingdom Centre is completed.",
+        "image": "images/timeline/2002-kingdom-centre.jpg"
+      },
+      {
+        "year": "2023",
+        "text": "Riyadh wins the vote to host Expo 2030.",
+        "image": "images/timeline/2023-expo-vote.jpg"
+      },
+      {
+        "year": "2024",
+        "text": "The Riyadh Metro opens with 6 lines and 85 stations.",
+        "image": "images/timeline/2024-riyadh-metro.jpg"
+      }
+    ],
+    "future": [
+      {
+        "year": "2027",
+        "icon": "park",
+        "title": "King Salman Park",
+        "text": "The old Riyadh airbase is becoming one of the world's largest city parks: nearly 17 km² with about a million trees. It will open in phases, with most of it due by 2027.",
+        "image": "images/timeline/2027-king-salman-park.jpg"
+      },
+      {
+        "year": "2030",
+        "icon": "public",
+        "title": "Expo 2030 Riyadh",
+        "text": "From 1 October 2030 to 31 March 2031, Riyadh hosts the world's fair under the theme \"The Era of Change\", expecting 40 million visits.",
+        "image": "images/timeline/2030-expo.jpg"
+      },
+      {
+        "year": "2034",
+        "icon": "stadium",
+        "title": "FIFA World Cup 2034",
+        "text": "The new King Salman International Stadium in north Riyadh, with about 92,000 seats, will host the opening match and the final.",
+        "image": "images/timeline/2034-world-cup.jpg"
+      }
+    ],
+    "ar": {
+      "title": "الرياض والنمو العمراني",
+      "then": "بيوت الطين",
+      "now": "أبراج حديثة",
+      "timeline": [
+        {
+          "year": "1902",
+          "text": "الملك عبدالعزيز يسترد الرياض ويعيد بناء أسوارها.",
+          "image": "images/timeline/1902-masmak.jpg"
+        },
+        {
+          "year": "1936",
+          "text": "بناء قصر المربع خارج الأسوار القديمة.",
+          "image": "images/timeline/1936-murabba-palace.jpg"
+        },
+        {
+          "year": "1950",
+          "text": "بدء إزالة الأسوار القديمة مع توسّع المدينة.",
+          "image": "images/timeline/1950-riyadh-walls.jpg"
+        },
+        {
+          "year": "2002",
+          "text": "اكتمال برج المملكة بارتفاع 302 متر.",
+          "image": "images/timeline/2002-kingdom-centre.jpg"
+        },
+        {
+          "year": "2023",
+          "text": "الرياض تفوز بتصويت استضافة إكسبو 2030.",
+          "image": "images/timeline/2023-expo-vote.jpg"
+        },
+        {
+          "year": "2024",
+          "text": "افتتاح مترو الرياض بستة مسارات و85 محطة.",
+          "image": "images/timeline/2024-riyadh-metro.jpg"
+        }
+      ],
+      "future": [
+        {
+          "year": "2027",
+          "icon": "park",
+          "title": "حديقة الملك سلمان",
+          "text": "قاعدة الرياض الجوية القديمة تتحول إلى واحدة من أكبر الحدائق داخل المدن في العالم: قرابة 17 كم² ونحو مليون شجرة. تُفتتح على مراحل، ويكتمل معظمها بحلول 2027.",
+          "image": "images/timeline/2027-king-salman-park.jpg"
+        },
+        {
+          "year": "2030",
+          "icon": "public",
+          "title": "إكسبو 2030 الرياض",
+          "text": "من 1 أكتوبر 2030 إلى 31 مارس 2031 تستضيف الرياض المعرض العالمي تحت شعار «حقبة التغيير: معًا نستشرف المستقبل»، وتتوقع 40 مليون زيارة.",
+          "image": "images/timeline/2030-expo.jpg"
+        },
+        {
+          "year": "2034",
+          "icon": "stadium",
+          "title": "كأس العالم 2034",
+          "text": "ملعب الملك سلمان الدولي الجديد شمال الرياض، بسعة تقارب 92 ألف مقعد، سيستضيف مباراة الافتتاح والنهائي.",
+          "image": "images/timeline/2034-world-cup.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "transport",
+    "title": "Transport",
+    "icon": "train",
+    "then": "Camel caravans",
+    "now": "High-speed rail",
+    "timeline": [
+      {
+        "year": "1908",
+        "text": "The Hejaz Railway reaches Madinah, cutting the trip from Damascus from 40 days to 5.",
+        "image": "images/timeline/1908-hejaz-railway.jpg"
+      },
+      {
+        "year": "1920",
+        "text": "War damage leaves the southern Hejaz line silent.",
+        "image": "images/timeline/1920-hejaz-railway-ruins.jpg"
+      },
+      {
+        "year": "1945",
+        "text": "Roosevelt gives King Abdulaziz a DC-3, and Saudia is founded.",
+        "image": "images/timeline/1945-dc3.jpg"
+      },
+      {
+        "year": "1951",
+        "text": "The first railway opens between Dammam and Riyadh: 569 km.",
+        "image": "images/timeline/1951-dammam-riyadh-railway.jpg"
+      },
+      {
+        "year": "2018",
+        "text": "The Haramain High Speed Railway links Makkah and Madinah in about 2 hours.",
+        "image": "images/timeline/2018-haramain-train.jpg"
+      },
+      {
+        "year": "2024",
+        "text": "The Riyadh Metro opens with 6 lines and 85 stations.",
+        "image": "images/timeline/2024-riyadh-metro.jpg"
+      }
+    ],
+    "future": [
+      {
+        "year": "2030",
+        "icon": "flight_takeoff",
+        "title": "King Salman International Airport",
+        "text": "Riyadh's new airport will cover 57 km² with six runways, built to handle 100 million passengers a year by 2030 and 185 million by 2050.",
+        "image": "images/timeline/2030-king-salman-airport.jpg"
+      },
+      {
+        "year": "2032",
+        "icon": "train",
+        "title": "Riyadh–Doha high-speed rail",
+        "text": "Approved in 2026, a 785 km electric line running at over 300 km/h will link the two capitals in about two hours. It is due within six years.",
+        "image": "images/timeline/2032-riyadh-doha-train.jpg"
+      },
+      {
+        "year": "2034",
+        "icon": "route",
+        "title": "The Landbridge",
+        "text": "A new railway across the Kingdom will connect Riyadh to Jeddah on the Red Sea. It will open in phases and is targeted before 2034.",
+        "image": "images/timeline/2034-landbridge.jpg"
+      }
+    ],
+    "ar": {
+      "title": "النقل",
+      "then": "قوافل الإبل",
+      "now": "القطار السريع",
+      "timeline": [
+        {
+          "year": "1908",
+          "text": "سكة حديد الحجاز تصل المدينة المنورة، وتختصر الرحلة من دمشق من 40 يومًا إلى 5.",
+          "image": "images/timeline/1908-hejaz-railway.jpg"
+        },
+        {
+          "year": "1920",
+          "text": "توقف الجزء الجنوبي من سكة حديد الحجاز بعد أضرار الحرب.",
+          "image": "images/timeline/1920-hejaz-railway-ruins.jpg"
+        },
+        {
+          "year": "1945",
+          "text": "روزفلت يهدي الملك عبدالعزيز طائرة DC-3، وتأسيس الخطوط السعودية.",
+          "image": "images/timeline/1945-dc3.jpg"
+        },
+        {
+          "year": "1951",
+          "text": "افتتاح أول خط حديدي بين الدمام والرياض بطول 569 كم.",
+          "image": "images/timeline/1951-dammam-riyadh-railway.jpg"
+        },
+        {
+          "year": "2018",
+          "text": "افتتاح قطار الحرمين السريع: من مكة إلى المدينة في نحو ساعتين.",
+          "image": "images/timeline/2018-haramain-train.jpg"
+        },
+        {
+          "year": "2024",
+          "text": "افتتاح مترو الرياض بستة مسارات و85 محطة.",
+          "image": "images/timeline/2024-riyadh-metro.jpg"
+        }
+      ],
+      "future": [
+        {
+          "year": "2030",
+          "icon": "flight_takeoff",
+          "title": "مطار الملك سلمان الدولي",
+          "text": "مطار الرياض الجديد على مساحة 57 كم² وبستة مدارج، ومصمم لاستقبال 100 مليون مسافر سنويًا بحلول 2030، و185 مليونًا بحلول 2050.",
+          "image": "images/timeline/2030-king-salman-airport.jpg"
+        },
+        {
+          "year": "2032",
+          "icon": "train",
+          "title": "القطار السريع بين الرياض والدوحة",
+          "text": "أُقرّ عام 2026: خط كهربائي بطول 785 كم وبسرعة تتجاوز 300 كم في الساعة، يربط العاصمتين في نحو ساعتين، ومن المتوقع اكتماله خلال ست سنوات.",
+          "image": "images/timeline/2032-riyadh-doha-train.jpg"
+        },
+        {
+          "year": "2034",
+          "icon": "route",
+          "title": "الجسر البري",
+          "text": "سكة حديد جديدة تعبر المملكة لتربط الرياض بجدة على البحر الأحمر، تُنفّذ على مراحل ومستهدف اكتمالها قبل 2034.",
+          "image": "images/timeline/2034-landbridge.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "economy",
+    "title": "Economy & Energy",
+    "icon": "oil_barrel",
+    "then": "Pearls & trade",
+    "now": "Oil & Vision 2030",
+    "timeline": [
+      {
+        "year": "1933",
+        "text": "The Kingdom signs its first oil concession agreement.",
+        "image": "images/timeline/1933-oil-concession.jpg"
+      },
+      {
+        "year": "1938",
+        "text": "Oil flows from Dammam Well No. 7.",
+        "image": "images/timeline/1938-dammam-well-7.jpg"
+      },
+      {
+        "year": "1939",
+        "text": "King Abdulaziz opens the valve to fill the first oil tanker at Ras Tanura.",
+        "image": "images/timeline/1939-ras-tanura.jpg"
+      },
+      {
+        "year": "1971",
+        "text": "The Public Investment Fund is founded.",
+        "image": "images/timeline/1971-pif.jpg"
+      },
+      {
+        "year": "2016",
+        "text": "Vision 2030 is launched to build an economy beyond oil.",
+        "image": "images/timeline/2016-vision-2030.jpg"
+      },
+      {
+        "year": "2019",
+        "text": "Aramco's share sale becomes the largest IPO in history.",
+        "image": "images/timeline/2019-aramco-ipo.jpg"
+      }
+    ],
+    "future": [
+      {
+        "year": "2030",
+        "icon": "solar_power",
+        "title": "Half from renewables",
+        "text": "The Ministry of Energy aims for renewables to make up half of the energy mix by 2030.",
+        "image": "images/timeline/2030-renewables.jpg"
+      },
+      {
+        "year": "2030",
+        "icon": "military_tech",
+        "title": "50% military industry at home",
+        "text": "The General Authority for Military Industries aims to localize more than 50% of military spending by 2030.",
+        "image": "images/timeline/2030-local-industry.jpg"
+      },
+      {
+        "year": "2030",
+        "icon": "account_balance",
+        "title": "SAR 7.5 trillion fund",
+        "text": "The Public Investment Fund aims to manage SAR 7.5 trillion in assets by the end of 2030.",
+        "image": "images/timeline/2030-pif-tower.jpg"
+      }
+    ],
+    "ar": {
+      "title": "الاقتصاد والطاقة",
+      "then": "اللؤلؤ والتجارة",
+      "now": "النفط ورؤية 2030",
+      "timeline": [
+        {
+          "year": "1933",
+          "text": "المملكة توقّع أول اتفاقية امتياز للتنقيب عن النفط.",
+          "image": "images/timeline/1933-oil-concession.jpg"
+        },
+        {
+          "year": "1938",
+          "text": "النفط يتدفق من بئر الدمام رقم 7.",
+          "image": "images/timeline/1938-dammam-well-7.jpg"
+        },
+        {
+          "year": "1939",
+          "text": "الملك عبدالعزيز يفتح الصمام لتعبئة أول ناقلة نفط في رأس تنورة.",
+          "image": "images/timeline/1939-ras-tanura.jpg"
+        },
+        {
+          "year": "1971",
+          "text": "تأسيس صندوق الاستثمارات العامة.",
+          "image": "images/timeline/1971-pif.jpg"
+        },
+        {
+          "year": "2016",
+          "text": "إطلاق رؤية 2030 لبناء اقتصاد ما بعد النفط.",
+          "image": "images/timeline/2016-vision-2030.jpg"
+        },
+        {
+          "year": "2019",
+          "text": "طرح أرامكو يصبح أكبر طرح عام أولي في التاريخ.",
+          "image": "images/timeline/2019-aramco-ipo.jpg"
+        }
+      ],
+      "future": [
+        {
+          "year": "2030",
+          "icon": "solar_power",
+          "title": "نصف الطاقة من المصادر المتجددة",
+          "text": "تهدف وزارة الطاقة إلى أن تشكّل المصادر المتجددة نصف مزيج الطاقة بحلول 2030.",
+          "image": "images/timeline/2030-renewables.jpg"
+        },
+        {
+          "year": "2030",
+          "icon": "military_tech",
+          "title": "توطين أكثر من 50%",
+          "text": "تهدف الهيئة العامة للصناعات العسكرية إلى توطين أكثر من 50% من الإنفاق العسكري بحلول 2030.",
+          "image": "images/timeline/2030-local-industry.jpg"
+        },
+        {
+          "year": "2030",
+          "icon": "account_balance",
+          "title": "صندوق بـ7.5 تريليون ريال",
+          "text": "يهدف صندوق الاستثمارات العامة إلى إدارة أصول بقيمة 7.5 تريليون ريال بنهاية 2030.",
+          "image": "images/timeline/2030-pif-tower.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "education",
+    "title": "Education",
+    "icon": "school",
+    "then": "Kuttab lessons",
+    "now": "Modern universities",
+    "timeline": [
+      {
+        "year": "1905",
+        "text": "Mohammed Ali Zainal opens Al-Falah School in Jeddah.",
+        "image": "images/timeline/1905-alfalah-school.jpg"
+      },
+      {
+        "year": "1926",
+        "text": "The Directorate of Knowledge is founded.",
+        "image": "images/timeline/1926-old-school.jpg"
+      },
+      {
+        "year": "1953",
+        "text": "The Ministry of Knowledge is created, with King Fahd as its first minister.",
+        "image": "images/timeline/1953-ministry-of-education.jpg"
+      },
+      {
+        "year": "1957",
+        "text": "King Saud University opens as the first university.",
+        "image": "images/timeline/1957-king-saud-university.jpg"
+      },
+      {
+        "year": "2005",
+        "text": "A national scholarship program starts sending students abroad.",
+        "image": "images/timeline/2005-scholarship.jpg"
+      }
+    ],
+    "future": [
+      {
+        "year": "2030",
+        "icon": "flight_takeoff",
+        "title": "70,000 scholarships",
+        "text": "The Human Capability Development Program aims to send 70,000 citizens to the world's top 200 universities and training institutions by 2030.",
+        "image": "images/timeline/2030-scholars.jpg"
+      },
+      {
+        "year": "2030",
+        "icon": "workspace_premium",
+        "title": "Five universities in the top 200",
+        "text": "Vision 2030 aims for at least five Saudi universities among the top 200 in international rankings.",
+        "image": "images/timeline/2030-universities.jpg"
+      }
+    ],
+    "ar": {
+      "title": "التعليم",
+      "then": "دروس الكتاتيب",
+      "now": "جامعات حديثة",
+      "timeline": [
+        {
+          "year": "1905",
+          "text": "محمد علي زينل يفتتح مدرسة الفلاح في جدة.",
+          "image": "images/timeline/1905-alfalah-school.jpg"
+        },
+        {
+          "year": "1926",
+          "text": "تأسيس مديرية المعارف.",
+          "image": "images/timeline/1926-old-school.jpg"
+        },
+        {
+          "year": "1953",
+          "text": "إنشاء وزارة المعارف، والملك فهد أول وزير لها.",
+          "image": "images/timeline/1953-ministry-of-education.jpg"
+        },
+        {
+          "year": "1957",
+          "text": "افتتاح جامعة الملك سعود، أول جامعة في المملكة.",
+          "image": "images/timeline/1957-king-saud-university.jpg"
+        },
+        {
+          "year": "2005",
+          "text": "انطلاق برنامج وطني لابتعاث الطلاب إلى الخارج.",
+          "image": "images/timeline/2005-scholarship.jpg"
+        }
+      ],
+      "future": [
+        {
+          "year": "2030",
+          "icon": "flight_takeoff",
+          "title": "70 ألف مبتعث",
+          "text": "يهدف برنامج تنمية القدرات البشرية إلى ابتعاث 70 ألف مواطن إلى أفضل 200 جامعة ومؤسسة تدريب في العالم بحلول 2030.",
+          "image": "images/timeline/2030-scholars.jpg"
+        },
+        {
+          "year": "2030",
+          "icon": "workspace_premium",
+          "title": "خمس جامعات ضمن أفضل 200",
+          "text": "تهدف رؤية 2030 إلى وجود خمس جامعات سعودية على الأقل ضمن أفضل 200 جامعة في التصنيفات الدولية.",
+          "image": "images/timeline/2030-universities.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "tourism",
+    "title": "Tourism",
+    "icon": "travel_explore",
+    "then": "Pilgrims only",
+    "now": "Open to the world",
+    "timeline": [
+      {
+        "year": "2008",
+        "text": "Hegra becomes the first Saudi UNESCO World Heritage Site.",
+        "image": "images/timeline/2008-hegra.jpg"
+      },
+      {
+        "year": "2010",
+        "text": "At-Turaif District in Diriyah joins the list.",
+        "image": "images/timeline/2010-at-turaif.jpg"
+      },
+      {
+        "year": "2014",
+        "text": "Historic Jeddah joins the list.",
+        "image": "images/timeline/2014-historic-jeddah.jpg"
+      },
+      {
+        "year": "2019",
+        "text": "Online tourist visas launch for 49 countries.",
+        "image": "images/timeline/2019-tourist-visa.jpg"
+      },
+      {
+        "year": "2023",
+        "text": "The first Red Sea resorts welcome guests.",
+        "image": "images/timeline/2023-red-sea.jpg"
+      },
+      {
+        "year": "2024",
+        "text": "116 million tourists, and Al-Faw becomes the eighth UNESCO site.",
+        "image": "images/timeline/2024-al-faw.jpg"
+      }
+    ],
+    "future": [
+      {
+        "year": "2030",
+        "icon": "groups",
+        "title": "150 million tourists",
+        "text": "The target is 150 million tourists a year: 70 million from abroad and 80 million at home.",
+        "image": "images/timeline/2030-tourists.jpg"
+      },
+      {
+        "year": "2030",
+        "icon": "hotel",
+        "title": "Red Sea: 50 hotels",
+        "text": "The Red Sea destination plans 50 hotels with 8,000 rooms by 2030.",
+        "image": "images/timeline/2030-red-sea-hotels.jpg"
+      }
+    ],
+    "ar": {
+      "title": "السياحة",
+      "then": "للحجاج فقط",
+      "now": "مفتوحة للعالم",
+      "timeline": [
+        {
+          "year": "2008",
+          "text": "الحِجر أول موقع سعودي في قائمة التراث العالمي لليونسكو.",
+          "image": "images/timeline/2008-hegra.jpg"
+        },
+        {
+          "year": "2010",
+          "text": "حي الطريف في الدرعية ينضم إلى القائمة.",
+          "image": "images/timeline/2010-at-turaif.jpg"
+        },
+        {
+          "year": "2014",
+          "text": "جدة التاريخية تنضم إلى القائمة.",
+          "image": "images/timeline/2014-historic-jeddah.jpg"
+        },
+        {
+          "year": "2019",
+          "text": "إطلاق التأشيرة السياحية الإلكترونية لـ49 دولة.",
+          "image": "images/timeline/2019-tourist-visa.jpg"
+        },
+        {
+          "year": "2023",
+          "text": "أولى منتجعات البحر الأحمر تستقبل ضيوفها.",
+          "image": "images/timeline/2023-red-sea.jpg"
+        },
+        {
+          "year": "2024",
+          "text": "116 مليون سائح، والفاو يصبح الموقع الثامن في اليونسكو.",
+          "image": "images/timeline/2024-al-faw.jpg"
+        }
+      ],
+      "future": [
+        {
+          "year": "2030",
+          "icon": "groups",
+          "title": "150 مليون سائح",
+          "text": "الهدف 150 مليون سائح سنويًا: 70 مليونًا من الخارج و80 مليونًا من الداخل.",
+          "image": "images/timeline/2030-tourists.jpg"
+        },
+        {
+          "year": "2030",
+          "icon": "hotel",
+          "title": "البحر الأحمر: 50 فندقًا",
+          "text": "تخطط وجهة البحر الأحمر لـ50 فندقًا بـ8,000 غرفة بحلول 2030.",
+          "image": "images/timeline/2030-red-sea-hotels.jpg"
+        }
+      ]
+    }
+  },
+  {
+    "slug": "events",
+    "title": "Sports, Entertainment & Global Events",
+    "icon": "stadium",
+    "then": "Dirt pitches",
+    "now": "Expo 2030 & World Cup 2034",
+    "ar": {
+      "title": "الرياضة والترفيه والفعاليات العالمية",
+      "then": "ملاعب ترابية",
+      "now": "إكسبو 2030 وكأس العالم 2034",
+      "timeline": [
+        {
+          "year": "1984",
+          "text": "المنتخب يحقق أول كأس آسيا بفوزه على الصين 2–0 في سنغافورة.",
+          "image": "images/timeline/1984-asian-cup.jpg"
+        },
+        {
+          "year": "1994",
+          "text": "أول مشاركة في كأس العالم: فوز على بلجيكا 1–0 وتأهل إلى دور الستة عشر.",
+          "image": "images/timeline/1994-world-cup.jpg"
+        },
+        {
+          "year": "2016",
+          "text": "تأسيس الهيئة العامة للترفيه في 7 مايو.",
+          "image": "images/timeline/2016-entertainment-authority.jpg"
+        },
+        {
+          "year": "2021",
+          "text": "أول سباق فورمولا 1 في المملكة على حلبة كورنيش جدة.",
+          "image": "images/timeline/2021-formula-1.jpg"
+        },
+        {
+          "year": "2024",
+          "text": "فيفا يعلن رسميًا استضافة المملكة كأس العالم 2034.",
+          "image": "images/timeline/2024-world-cup-host.jpg"
+        }
+      ],
+      "future": [
+        {
+          "year": "2027",
+          "date": "2027-01-07T00:00:00+03:00",
+          "icon": "sports_soccer",
+          "title": "كأس آسيا 2027",
+          "text": "24 منتخبًا و8 ملاعب في الرياض وجدة والخبر، والنهائي في الرياض يوم 5 فبراير 2027.",
+          "image": "images/timeline/2027-asian-cup.jpg"
+        },
+        {
+          "year": "2030",
+          "icon": "public",
+          "title": "إكسبو 2030 الرياض",
+          "text": "ستة أشهر من 1 أكتوبر 2030 إلى 31 مارس 2031، ويُتوقع نحو 40 مليون زيارة.",
+          "image": "images/timeline/2030-expo.jpg"
+        },
+        {
+          "year": "2034",
+          "icon": "emoji_events",
+          "title": "كأس العالم 2034",
+          "text": "أول نسخة بـ48 منتخبًا تقام في دولة واحدة، على 15 ملعبًا في الرياض وجدة والخبر وأبها ونيوم.",
+          "image": "images/timeline/2034-world-cup.jpg"
+        }
+      ]
+    },
+    "timeline": [
+      {
+        "year": "1984",
+        "text": "Saudi Arabia wins its first Asian Cup, beating China 2–0 in Singapore.",
+        "image": "images/timeline/1984-asian-cup.jpg"
+      },
+      {
+        "year": "1994",
+        "text": "First World Cup: a 1–0 win over Belgium and a place in the round of 16.",
+        "image": "images/timeline/1994-world-cup.jpg"
+      },
+      {
+        "year": "2016",
+        "text": "The General Entertainment Authority is founded on 7 May.",
+        "image": "images/timeline/2016-entertainment-authority.jpg"
+      },
+      {
+        "year": "2021",
+        "text": "The first Formula 1 race in the Kingdom runs on the Jeddah Corniche Circuit.",
+        "image": "images/timeline/2021-formula-1.jpg"
+      },
+      {
+        "year": "2024",
+        "text": "FIFA confirms Saudi Arabia as host of the 2034 World Cup.",
+        "image": "images/timeline/2024-world-cup-host.jpg"
+      }
+    ],
+    "future": [
+      {
+        "year": "2027",
+        "date": "2027-01-07T00:00:00+03:00",
+        "icon": "sports_soccer",
+        "title": "AFC Asian Cup 2027",
+        "text": "24 teams and 8 stadiums in Riyadh, Jeddah and Al Khobar. The final is in Riyadh on 5 February 2027.",
+        "image": "images/timeline/2027-asian-cup.jpg"
+      },
+      {
+        "year": "2030",
+        "icon": "public",
+        "title": "Expo 2030 Riyadh",
+        "text": "Six months, from 1 October 2030 to 31 March 2031, with about 40 million visits expected.",
+        "image": "images/timeline/2030-expo.jpg"
+      },
+      {
+        "year": "2034",
+        "icon": "emoji_events",
+        "title": "FIFA World Cup 2034",
+        "text": "The first 48-team World Cup held in one country, played in 15 stadiums across Riyadh, Jeddah, Al Khobar, Abha and NEOM.",
+        "image": "images/timeline/2034-world-cup.jpg"
+      }
+    ]
+  },
+  {
+    "slug": "digital",
+    "title": "Digital Government",
+    "icon": "smartphone",
+    "then": "Paper & queues",
+    "now": "Services on your phone",
+    "timeline": [
+      {
+        "year": "2005",
+        "text": "The Yesser program starts moving government services online.",
+        "image": "images/timeline/2005-yesser.jpg"
+      },
+      {
+        "year": "2010",
+        "text": "The Ministry of Interior launches the Absher platform.",
+        "image": "images/timeline/2010-absher.jpg"
+      },
+      {
+        "year": "2020",
+        "text": "Tawakkalna launches on 3 May to help fight COVID-19.",
+        "image": "images/timeline/2020-tawakkalna.jpg"
+      },
+      {
+        "year": "2021",
+        "text": "The Digital Government Authority is founded, and the digital ID arrives in Absher.",
+        "image": "images/timeline/2021-digital-government.jpg"
+      },
+      {
+        "year": "2024",
+        "text": "The UN ranks the Kingdom 6th in e-government and 4th in online services.",
+        "image": "images/timeline/2024-un-ranking.jpg"
+      },
+      {
+        "year": "2025",
+        "text": "The World Bank ranks the Kingdom 2nd of 197 countries in digital government.",
+        "image": "images/timeline/2025-world-bank.jpg"
+      }
+    ],
+    "future": [
+      {
+        "year": "2030",
+        "icon": "workspace_premium",
+        "title": "Top 3 in the world",
+        "text": "The Digital Government Strategy aims to place the Kingdom among the top 3 countries in digital government maturity by 2030, adding more than 26,000 jobs.",
+        "image": "images/timeline/2030-digital-services.jpg"
+      },
+      {
+        "year": "2030",
+        "icon": "smart_toy",
+        "title": "Top 15 in AI",
+        "text": "The National Strategy for Data and AI aims to make the Kingdom one of the world's top 15 countries in AI and to attract SAR 75 billion of investment.",
+        "image": "images/timeline/2030-ai.jpg"
+      },
+      {
+        "year": "2030",
+        "icon": "school",
+        "title": "20,000 AI specialists",
+        "text": "The same strategy aims to build 20,000 data and AI specialists and to train 40% of the workforce in basic data and AI skills.",
+        "image": "images/timeline/2030-tech-talent.jpg"
+      }
+    ],
+    "ar": {
+      "title": "الحكومة الرقمية",
+      "then": "ورق وطوابير",
+      "now": "الخدمات في جوالك",
+      "timeline": [
+        {
+          "year": "2005",
+          "text": "انطلاق برنامج «يسّر» لنقل الخدمات الحكومية إلى الإنترنت.",
+          "image": "images/timeline/2005-yesser.jpg"
+        },
+        {
+          "year": "2010",
+          "text": "وزارة الداخلية تطلق منصة «أبشر».",
+          "image": "images/timeline/2010-absher.jpg"
+        },
+        {
+          "year": "2020",
+          "text": "إطلاق تطبيق «توكلنا» في 3 مايو للمساعدة في مواجهة كورونا.",
+          "image": "images/timeline/2020-tawakkalna.jpg"
+        },
+        {
+          "year": "2021",
+          "text": "تأسيس هيئة الحكومة الرقمية، ووصول الهوية الرقمية إلى «أبشر».",
+          "image": "images/timeline/2021-digital-government.jpg"
+        },
+        {
+          "year": "2024",
+          "text": "الأمم المتحدة تضع المملكة في المركز 6 عالميًا في الحكومة الإلكترونية، والرابع في الخدمات الرقمية.",
+          "image": "images/timeline/2024-un-ranking.jpg"
+        },
+        {
+          "year": "2025",
+          "text": "البنك الدولي يضع المملكة في المركز الثاني من بين 197 دولة في الحكومة الرقمية.",
+          "image": "images/timeline/2025-world-bank.jpg"
+        }
+      ],
+      "future": [
+        {
+          "year": "2030",
+          "icon": "workspace_premium",
+          "title": "ضمن أفضل 3 دول",
+          "text": "تهدف استراتيجية الحكومة الرقمية إلى وضع المملكة ضمن أفضل 3 دول في العالم في نضج الحكومة الرقمية بحلول 2030، مع أكثر من 26 ألف وظيفة جديدة.",
+          "image": "images/timeline/2030-digital-services.jpg"
+        },
+        {
+          "year": "2030",
+          "icon": "smart_toy",
+          "title": "ضمن أفضل 15 دولة في الذكاء الاصطناعي",
+          "text": "تهدف الاستراتيجية الوطنية للبيانات والذكاء الاصطناعي إلى جعل المملكة ضمن أفضل 15 دولة في الذكاء الاصطناعي، واستقطاب استثمارات بقيمة 75 مليار ريال.",
+          "image": "images/timeline/2030-ai.jpg"
+        },
+        {
+          "year": "2030",
+          "icon": "school",
+          "title": "20 ألف متخصص في الذكاء الاصطناعي",
+          "text": "وتهدف الاستراتيجية نفسها إلى تأهيل 20 ألف متخصص في البيانات والذكاء الاصطناعي، وتدريب 40% من القوى العاملة على أساسياتهما.",
+          "image": "images/timeline/2030-tech-talent.jpg"
+        }
+      ]
+    }
+  }
+]
