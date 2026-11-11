@@ -1,9 +1,6 @@
 # Saudi Military Industries
 
 A website that introduces Saudi Arabia's military industries: their sectors, leading entities, history, events and career opportunities, built with Django.
-
-Built as Unit Project 2 for a Python bootcamp, with dark mode, a responsive layout and interactive tools such as a Vision 2030 localization calculator.
-
 > **Made in Saudi Arabia… to protect Saudi Arabia**
 
 ---
