@@ -9,7 +9,8 @@ from detector.analyzer import build_segments, local_scan
 from detector.rules import RULES
 from reports import store
 from reports.report_types import REPORT_TYPES
-from main.content import CHANNELS, FAQ, SCORE_RANGES, FEEDBACK_TAGS, SCAM_TYPES, STORIES, TIPS, VIDEO_TRANSCRIPT
+from main.content import (CHANNELS, FAQ, SCORE_RANGES, FEEDBACK_TAGS, REPORT_SMS_NUMBER, SCAM_TYPES, STORIES, TIPS,
+                          VIDEO_TRANSCRIPT)
 
 
 HERO_SAMPLE = "عميلنا العزيز، سيتم إيقاف حسابك خلال 24 ساعة. حدّث بياناتك عبر alrajhi-update.com وأرسل رمز التحقق."
@@ -33,7 +34,7 @@ def home(request: HttpRequest) -> HttpResponse:
     context = {
         "hero": with_highlights(HERO_SAMPLE),
         "samples": samples,
-        "stories": STORIES,
+        "stories": STORIES[:4],
         "transcript": VIDEO_TRANSCRIPT,
         "auto_count": len([report for report in reports if report["auto"]]),
         "channels": CHANNELS,
@@ -57,8 +58,40 @@ def scam_detail(request: HttpRequest, scam_key: str) -> HttpResponse:
     if scam is None:
         raise Http404("Scam type not found")
     others = [item for item in SCAM_TYPES if item["key"] != scam_key]
-    context = {"scam": scam, "others": others, **with_highlights(scam["sample"])}
+
+    # Every sample message is scanned by the real detector, so the page shows real highlights and scores
+    samples = []
+    for text in [scam["sample"]] + scam["more_samples"]:
+        samples.append({"text": text, **with_highlights(text)})
+
+    # All the signs found in the samples, without repeating, the most risky first
+    flags = {}
+    for sample in samples:
+        for rule in sample["flags"]:
+            flags.setdefault(rule["key"], rule)
+
+    context = {
+        "scam": scam,
+        "samples": samples,
+        "flags": sorted(flags.values(), key=lambda rule: rule["weight"], reverse=True),
+        "main_rule": next(rule for rule in RULES if rule["key"] == scam["main_rule"]),
+        "story": next((story for story in STORIES if story["scam"] == scam_key), None),
+        "related_reports": related_reports(scam["main_rule"]),
+        "report_number": REPORT_SMS_NUMBER,
+        "others": others,
+    }
     return render(request, "main/scam_detail.html", context)
+
+
+def related_reports(rule_key: str, limit: int = 3) -> list[dict]:
+    """Community reports that have the same fraud sign, found with the detector rules (newest first)."""
+    related = []
+    for report in json_store.newest_first(store.load_reports()):
+        found = local_scan(report["title"] + " " + report["message"])["rules"]
+        if rule_key in [rule["key"] for rule in found]:
+            report["type_info"] = REPORT_TYPES[report["type"]]
+            related.append(report)
+    return related[:limit]
 
 
 def faq(request: HttpRequest) -> HttpResponse:

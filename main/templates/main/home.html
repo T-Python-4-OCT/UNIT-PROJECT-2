@@ -94,18 +94,7 @@
         <span class="story-note"><i class="bi bi-info-circle"></i> قصص توضيحية مبنية على أساليب احتيال منتشرة، والأسماء غير حقيقية</span>
       </header>
       <div class="story-grid">
-        {% for story in stories %}
-          <article class="story story-{{ story.tone }}">
-            <div class="story-top">
-              <span class="story-avatar"><i class="bi {{ story.icon }}"></i></span>
-              <div><strong>{{ story.name }}</strong><small>{{ story.age }} سنة، {{ story.city }}</small></div>
-            </div>
-            <h3>{{ story.title }}</h3>
-            <p class="story-text">{{ story.story }}</p>
-            <div class="story-loss"><span>الخسارة</span><strong>{{ story.loss }}</strong></div>
-            <p class="story-lesson"><span><i class="bi bi-exclamation-triangle"></i> {{ story.flag }}</span>{{ story.lesson }}</p>
-          </article>
-        {% endfor %}
+        {% for story in stories %}{% include "main/partials/story_card.html" %}{% endfor %}
       </div>
     </div>
   </div>
