@@ -240,7 +240,7 @@ body.dark.ownership-page {
     display: inline-flex;
     align-items: center;
     gap: 18px;
-    padding: 15px 25px;
+    padding: 10px 25px;
     border-radius: 6px;
     background: var(--ow-green);
     color: #10252c;

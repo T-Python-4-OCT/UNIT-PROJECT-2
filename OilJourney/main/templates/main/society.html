@@ -1,0 +1,469 @@
+
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}أثر النفط على المجتمع{% endblock %}
+
+{% block stage_position %}5{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/society.css' %}">
+{% endblock %}
+
+{% block body_class %}society-page{% endblock %}
+
+{% block content %}
+
+<main class="sc-main">
+
+    <!-- HERO -->
+    <section class="sc-hero">
+        <div class="sc-hero-overlay"></div>
+
+        <div class="sc-hero-content sc-reveal">
+            <span class="sc-eyebrow">تحولات صنعت المستقبل</span>
+
+            <h1>
+                أثر النفط
+                <span>على المجتمع السعودي</span>
+            </h1>
+
+            <p>
+                لم يكن اكتشاف النفط مجرد تحول اقتصادي،
+                بل كان بداية مرحلة جديدة غيّرت ملامح الحياة
+                في المملكة، وفتحت آفاقًا واسعة للتنمية والتطور.
+            </p>
+
+            <a href="#sc-transformation" class="sc-hero-link">
+                اكتشف أثر التحول
+                <span>←</span>
+            </a>
+        </div>
+
+        <div class="sc-hero-caption">
+            <span>من بدايات التحول إلى ملامح الحياة الحديثة</span>
+        </div>
+    </section>
+
+
+    <!-- INTRODUCTION -->
+    <section class="sc-intro" id="sc-transformation">
+
+        <div class="sc-intro-number sc-reveal">
+            <span>01</span>
+            <div></div>
+            <small>مرحلة جديدة</small>
+        </div>
+
+        <div class="sc-intro-content sc-reveal">
+            <span class="sc-section-label">بداية التغيير</span>
+
+            <h2>
+                من موارد طبيعية
+                <span>إلى نهضة شاملة</span>
+            </h2>
+
+            <p>
+                قبل اكتشاف النفط، اعتمدت الحياة الاقتصادية في المملكة
+                على أنشطة تقليدية مثل الزراعة والتجارة والرعي وصيد
+                اللؤلؤ، وكانت الخدمات والبنية الأساسية محدودة في
+                كثير من المناطق.
+            </p>
+
+            <p>
+                ومع بدء إنتاج النفط وتوسع عوائده، توفرت للمملكة
+                إمكانات أكبر للاستثمار في بناء المؤسسات وتطوير
+                الخدمات العامة، مما أسهم في إحداث تحولات واسعة
+                في حياة السكان.
+            </p>
+        </div>
+
+        <div class="sc-intro-image sc-reveal">
+            <img src="{% static 'images/society-transformation.jpg' %}"
+                 alt="التحول العمراني والحضاري في المملكة"
+                 loading="lazy">
+            <span>ملامح التحول في المملكة العربية السعودية</span>
+        </div>
+
+    </section>
+
+
+    <!-- IMPACT OVERVIEW -->
+    <section class="sc-overview">
+
+        <div class="sc-overview-heading sc-reveal">
+            <div>
+                <span class="sc-section-label">أوجه التنمية</span>
+                <h2>تغيير امتد إلى مختلف جوانب الحياة</h2>
+            </div>
+
+            <p>
+                انعكست عوائد النفط على قطاعات متعددة،
+                وأسهمت في بناء أسس التنمية الحديثة
+                في مختلف مناطق المملكة.
+            </p>
+        </div>
+
+        <div class="sc-impact-grid">
+
+            <article class="sc-impact-card sc-impact-feature sc-reveal">
+                <img src="{% static 'images/society-cities.jpg' %}"
+                     alt="التوسع العمراني في المدن السعودية"
+                     loading="lazy">
+
+                <div class="sc-impact-card-content">
+                    <span>01 / العمران</span>
+                    <h3>مدن تنمو وتتطور</h3>
+                    <p>
+                        شهدت المدن السعودية توسعًا عمرانيًا كبيرًا،
+                        مع تطور الأحياء السكنية والمرافق العامة
+                        وظهور مراكز حضرية حديثة.
+                    </p>
+                </div>
+            </article>
+
+
+            <article class="sc-impact-card sc-reveal">
+                <img src="{% static 'images/society-education.jpg' %}"
+                     alt="التعليم والمدارس في المملكة"
+                     loading="lazy">
+
+                <div class="sc-impact-card-content">
+                    <span>02 / التعليم</span>
+                    <h3>فرص للمعرفة</h3>
+                    <p>
+                        توسعت المدارس والجامعات والمؤسسات التعليمية،
+                        وأصبحت فرص التعلم والتأهيل متاحة
+                        لشرائح أوسع من المجتمع.
+                    </p>
+                </div>
+            </article>
+
+
+            <article class="sc-impact-card sc-reveal">
+                <img src="{% static 'images/society-health.jpg' %}"
+                     alt="تطور الخدمات الصحية في المملكة"
+                     loading="lazy">
+
+                <div class="sc-impact-card-content">
+                    <span>03 / الصحة</span>
+                    <h3>رعاية صحية أفضل</h3>
+                    <p>
+                        تطورت المستشفيات والمراكز الصحية،
+                        واتسعت الخدمات الطبية وبرامج الرعاية
+                        الصحية في مختلف المناطق.
+                    </p>
+                </div>
+            </article>
+
+
+            <article class="sc-impact-card sc-reveal">
+                <img src="{% static 'images/society-roads.jpg' %}"
+                     alt="الطرق وشبكات النقل في المملكة"
+                     loading="lazy">
+
+                <div class="sc-impact-card-content">
+                    <span>04 / البنية الأساسية</span>
+                    <h3>طرق تربط المناطق</h3>
+                    <p>
+                        امتدت شبكات الطرق والنقل والخدمات،
+                        مما سهّل التنقل وربط المدن والمناطق
+                        ودعم حركة التجارة والتنمية.
+                    </p>
+                </div>
+            </article>
+
+
+            <article class="sc-impact-card sc-reveal">
+                <img src="{% static 'images/society-economy.jpg' %}"
+                     alt="التطور الاقتصادي والصناعي في المملكة"
+                     loading="lazy">
+
+                <div class="sc-impact-card-content">
+                    <span>05 / الاقتصاد</span>
+                    <h3>اقتصاد أكثر تنوعًا</h3>
+                    <p>
+                        ساعدت العوائد النفطية على تمويل المشروعات
+                        وتطوير قطاعات اقتصادية وصناعية،
+                        وتهيئة بيئة أوسع للاستثمار.
+                    </p>
+                </div>
+            </article>
+
+        </div>
+    </section>
+
+
+    <!-- EDUCATION FEATURE -->
+    <section class="sc-feature sc-education">
+
+        <div class="sc-feature-image sc-reveal">
+            <img src="{% static 'images/society-university.jpg' %}"
+                 alt="الجامعات والتعليم العالي في السعودية"
+                 loading="lazy">
+            <span class="sc-image-index">02 — التعليم</span>
+        </div>
+
+        <div class="sc-feature-content sc-reveal">
+            <span class="sc-section-label">الاستثمار في الإنسان</span>
+
+            <h2>
+                بناء الإنسان
+                <span>أساس التنمية</span>
+            </h2>
+
+            <p>
+                كان للتوسع في التعليم دور محوري في التحول الاجتماعي
+                والاقتصادي الذي شهدته المملكة بعد اكتشاف النفط.
+                فقد أتاحت العوائد النفطية فرصًا أكبر للاستثمار في
+                التعليم، والتوسع في إنشاء المدارس في مختلف مناطق
+                المملكة، إلى جانب تأسيس الجامعات وتطوير المناهج
+                والبرامج التعليمية.
+            </p>
+
+            <p>
+                ولم يقتصر التطور على زيادة أعداد المؤسسات التعليمية،
+                بل امتد ليشمل تحسين جودة التعليم، وتوفير فرص الابتعاث
+                إلى الخارج، وتأهيل الكفاءات الوطنية في التخصصات
+                العلمية والتقنية والإدارية، بما يتناسب مع احتياجات
+                سوق العمل ومتطلبات التنمية.
+            </p>
+
+            <p>
+                وأسهم هذا الاهتمام في إعداد أجيال أكثر قدرة على
+                المشاركة في بناء الاقتصاد، وإدارة المؤسسات،
+                وتطوير القطاعات المختلفة. وأصبح التعليم أحد أهم
+                الركائز التي ساعدت المملكة على الانتقال من اقتصاد
+                يعتمد بصورة كبيرة على الموارد الطبيعية إلى اقتصاد
+                أكثر تنوعًا قائم على المعرفة والمهارات البشرية.
+            </p>
+
+            <div class="sc-feature-note">
+                <span class="sc-note-line"></span>
+                <strong>المعرفة ركيزة أساسية لمستقبل المجتمع.</strong>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- HEALTH FEATURE -->
+    <section class="sc-health-section">
+
+        <div class="sc-health-heading sc-reveal">
+            <span class="sc-section-label">جودة الحياة</span>
+            <h2>رعاية صحية وخدمات أقرب إلى الناس</h2>
+            <p>
+                تطور القطاع الصحي تدريجيًا مع التوسع في بناء
+                المستشفيات والمراكز الطبية وتوفير الكوادر
+                والتجهيزات والخدمات العلاجية.
+            </p>
+        </div>
+
+        <div class="sc-health-layout">
+
+            <div class="sc-health-image sc-reveal">
+                <img src="{% static 'images/society-hospital.jpg' %}"
+                     alt="مستشفى حديث في المملكة العربية السعودية"
+                     loading="lazy">
+            </div>
+
+            <div class="sc-health-points">
+
+                <div class="sc-health-point sc-reveal">
+                    <span>01</span>
+                    <div>
+                        <h3>توسيع المرافق الصحية</h3>
+                        <p>
+                            إنشاء المستشفيات والمراكز الصحية
+                            لتقديم الخدمات في المدن والمناطق.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="sc-health-point sc-reveal">
+                    <span>02</span>
+                    <div>
+                        <h3>تطوير الخدمات الطبية</h3>
+                        <p>
+                            تحسين التجهيزات الطبية وتوسيع
+                            التخصصات والخدمات العلاجية.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="sc-health-point sc-reveal">
+                    <span>03</span>
+                    <div>
+                        <h3>تعزيز الوقاية والرعاية</h3>
+                        <p>
+                            زيادة الاهتمام بالصحة العامة
+                            وبرامج الوقاية والتوعية الصحية.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- INFRASTRUCTURE -->
+    <section class="sc-infrastructure">
+
+        <div class="sc-infra-content sc-reveal">
+            <span class="sc-section-label">أسس الحياة الحديثة</span>
+
+            <h2>
+                بنية أساسية
+                <span>تدعم المستقبل</span>
+            </h2>
+
+            <p>
+                لم يقتصر أثر النفط على زيادة الموارد المالية،
+                بل ساعد على تنفيذ مشروعات واسعة في الطرق
+                والموانئ والمطارات والكهرباء والمياه والاتصالات.
+            </p>
+
+            <p>
+                وقد أسهمت هذه المشروعات في تسهيل حركة الأفراد
+                والبضائع، وتعزيز الترابط بين مناطق المملكة،
+                وتهيئة الظروف لنمو الأنشطة الاقتصادية.
+            </p>
+        </div>
+
+        <div class="sc-infra-image sc-reveal">
+            <img src="{% static 'images/society-infrastructure.jpg' %}"
+                 alt="مشروعات البنية الأساسية والتطور في المملكة"
+                 loading="lazy">
+        </div>
+
+    </section>
+
+
+    <!-- SOCIAL CHANGE -->
+    <section class="sc-social">
+
+        <div class="sc-social-header sc-reveal">
+            <span class="sc-section-label">تحول في نمط الحياة</span>
+            <h2>مجتمع يتغير مع الزمن</h2>
+            <p>
+                انعكست التنمية الاقتصادية على تفاصيل الحياة اليومية،
+                من فرص العمل والسكن إلى التعليم والتنقل والخدمات.
+            </p>
+        </div>
+
+        <div class="sc-social-content">
+
+            <div class="sc-social-image sc-reveal">
+                <img src="{% static 'images/society-modern-life.jpg' %}"
+                     alt="الحياة الحديثة في المجتمع السعودي"
+                     loading="lazy">
+            </div>
+
+            <div class="sc-social-text sc-reveal">
+
+                <div class="sc-social-item">
+                    <span>01</span>
+                    <div>
+                        <h3>فرص عمل جديدة</h3>
+                        <p>
+                            توسعت مجالات العمل في القطاعات الحكومية
+                            والصناعية والخدمية، وظهرت تخصصات
+                            ومهن جديدة.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="sc-social-item">
+                    <span>02</span>
+                    <div>
+                        <h3>تطور السكن والخدمات</h3>
+                        <p>
+                            تحسنت المرافق السكنية والخدمات الأساسية،
+                            وتوسعت الأحياء والمجتمعات الحضرية.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="sc-social-item">
+                    <span>03</span>
+                    <div>
+                        <h3>اتساع المشاركة المجتمعية</h3>
+                        <p>
+                            ساعد التعليم والتأهيل وتنوع فرص العمل
+                            على زيادة مشاركة أفراد المجتمع
+                            في مسيرة التنمية.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- SUMMARY -->
+    <section class="sc-summary">
+
+        <div class="sc-summary-inner sc-reveal">
+            <span class="sc-section-label">حصيلة التحول</span>
+
+            <h2>النفط كان نقطة انطلاق لمرحلة جديدة</h2>
+
+            <p>
+                أسهمت الثروة النفطية في تمويل مسيرة تنموية
+                امتدت آثارها إلى الاقتصاد والتعليم والصحة
+                والبنية الأساسية. ومع تراكم الخبرات الوطنية
+                وتطور المؤسسات، أصبحت المملكة أكثر قدرة
+                على الانتقال إلى مراحل جديدة من التنمية.
+            </p>
+
+            <div class="sc-summary-line"></div>
+
+            <span class="sc-summary-caption">
+                من بناء الأسس إلى صناعة المستقبل
+            </span>
+        </div>
+
+    </section>
+
+
+    <!-- NEXT PAGE -->
+    <section class="sc-next">
+
+        <div class="sc-next-content sc-reveal">
+            <span class="sc-section-label">المرحلة التالية</span>
+
+            <h2>
+                من إرث النفط
+                <span>إلى آفاق رؤية 2030</span>
+            </h2>
+
+            <p>
+                بعد عقود من التنمية القائمة على موارد النفط،
+                تتجه المملكة نحو مستقبل أكثر تنوعًا واستدامة،
+                مستندة إلى خبراتها وإمكاناتها الوطنية.
+            </p>
+
+            <a href="{% url 'main:vision' %}" class="sc-next-btn">
+                اكتشف التحول ورؤية 2030
+                <span>←</span>
+            </a>
+        </div>
+
+        <div class="sc-next-image">
+            <img src="{% static 'images/society-ending.jpg' %}"
+                 alt="التطور الحضاري والمستقبل في المملكة"
+                 loading="lazy">
+        </div>
+
+    </section>
+
+</main>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/society.js' %}" defer></script>
+{% endblock %}
