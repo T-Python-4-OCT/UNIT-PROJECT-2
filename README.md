@@ -2,36 +2,47 @@
 
 ## About the Project
 
-**Hikayat Watan** is an interactive educational website dedicated to exploring the history, heritage, culture, and cities of Saudi Arabia.
+**Hikayat Watan** is an interactive educational website dedicated to exploring the history, heritage, culture, and destinations of Saudi Arabia.
 
-The website takes visitors on a journey through Saudi history, from the establishment of the first Saudi state to the modern Kingdom and its ongoing development.
+The website takes visitors on a journey through Saudi history, from ancient civilizations and the early Islamic era to the establishment and unification of the Kingdom and its modern development.
 
-It combines historical information, real photographs, visual galleries, and city-specific videos to provide an engaging experience.
+It combines historical information, real photographs, visual galleries, interactive timelines, and YouTube videos to provide an engaging digital experience.
+
+The project also highlights the diversity of Saudi destinations, including major cities and regions such as Riyadh, Makkah, Madinah, Jeddah, AlUla, Abha, and the Eastern Province, with a special focus on Al Ahsa.
+
+---
 
 ## Website Pages
 
 The website includes the following pages:
 
-- **Home:** Introduces Saudi Arabia and highlights the main sections of the website.
+- **Home:** Introduces Saudi Arabia and highlights the main sections and destinations.
 - **History:** Explores the major historical periods of Saudi Arabia.
-- **Historical Period Details:** Provides information about each historical period.
-- **Cities:** Displays the featured Saudi cities.
-- **City Details:** Provides information, photographs, galleries, and videos for each city.
+- **Historical Period Details:** Provides detailed information about each historical period.
+- **Cities & Destinations:** Displays the featured Saudi cities and regions.
+- **City Details:** Provides information, photographs, galleries, attractions, and videos for each destination.
 - **About:** Introduces the purpose and goals of Hikayat Watan.
+
+---
 
 ## Main Features
 
 - Interactive homepage with visual content.
 - Historical timeline covering major periods of Saudi history.
-- Dedicated pages for Saudi cities.
-- Real photographs and image galleries.
-- Individual YouTube videos for each city, embedded directly into the website.
+- Dedicated pages for Saudi cities and regions.
+- Eastern Province destination featuring Al Ahsa and its historical landmarks.
+- Real photographs and historical image collections.
+- Individual YouTube videos embedded directly into destination pages.
 - Historical and cultural information.
-- Previous and next city navigation.
+- Tourist attractions and important landmarks.
+- Previous and next destination navigation.
 - Arabic and English language support.
 - Dark Mode and Light Mode.
-- Responsive design for desktop, tablet, and mobile devices.
+- Cookie-based theme and language preferences.
 - Interactive navigation menus.
+- Responsive design for desktop, tablet, and mobile devices.
+
+---
 
 ## Technologies Used
 
@@ -43,7 +54,9 @@ The website includes the following pages:
 - Bootstrap 5
 - JSON
 - Google Translate
-- YouTube Embed
+- YouTube Embedded Player
+
+---
 
 ## Project Structure
 
@@ -51,28 +64,41 @@ The website includes the following pages:
 UNIT-PROJECT-2/
 │
 ├── hikayat_watan/
+│   ├── __init__.py
+│   ├── asgi.py
 │   ├── settings.py
 │   ├── urls.py
-│   ├── asgi.py
 │   └── wsgi.py
 │
 ├── watan/
 │   ├── data/
 │   │   └── content.json
+│   │
 │   ├── templates/
 │   │   └── watan/
+│   │
 │   ├── static/
+│   │   └── watan/
+│   │       ├── css/
+│   │       ├── images/
+│   │       ├── js/
+│   │       └── video/
+│   │
 │   ├── templatetags/
-│   ├── views.py
-│   ├── urls.py
+│   ├── __init__.py
 │   ├── apps.py
-│   └── context_processors.py
+│   ├── context_processors.py
+│   ├── data_loader.py
+│   ├── urls.py
+│   └── views.py
 │
 ├── manage.py
 ├── requirements.txt
 ├── PROJECT_REQUIREMENTS.md
 └── README.md
 ```
+
+---
 
 ## Content Management
 
@@ -82,18 +108,60 @@ Website content is stored in:
 watan/data/content.json
 ```
 
-The JSON file contains the information displayed throughout the website, including cities, historical periods, and other content.
+The JSON file contains the information displayed throughout the website, including:
 
-City information, images, and YouTube video IDs are managed through the project's content data.
+- Saudi cities and destinations.
+- Historical periods.
+- Destination descriptions.
+- Tourist attractions.
+- Image gallery information.
+- YouTube video IDs.
+- Historical timelines and events.
 
-The website does not require a database to store its main content.
+The Eastern Province has been added as an additional destination, highlighting Al Ahsa and its historical and natural attractions.
+
+The destination includes information about:
+
+- Al Ahsa Oasis.
+- Qara Mountain.
+- Ibrahim Palace.
+- Qaisariya Market.
+- Jawatha Mosque.
+- Yellow Lake.
+- Ithra.
+- Al Khobar Corniche.
+
+Content is managed through JSON files without requiring a database.
+
+---
+
+## Images and Media
+
+Images and media files are stored locally within the project's static directory.
+
+The website uses real photographs to represent Saudi cities, historical landmarks, and cultural heritage.
+
+The historical homepage cards feature dedicated images for:
+
+- Pre-Islamic Civilizations.
+- The Early Islamic Era.
+- Historic Hejaz.
+- The First Saudi State.
+- The Second Saudi State.
+- The Founding and Unification of Saudi Arabia.
+
+Additional destination images are used throughout the website.
+
+YouTube videos are embedded directly into the website, allowing visitors to watch videos without leaving the destination pages.
+
+---
 
 ## Theme Preferences
 
 The website supports two display modes:
 
-- Dark Mode
-- Light Mode
+- Dark Mode.
+- Light Mode.
 
 The selected theme is saved in a browser cookie named:
 
@@ -101,14 +169,18 @@ The selected theme is saved in a browser cookie named:
 watan-theme
 ```
 
-The preference is saved for one year and restored when the visitor returns to the website.
+The preference is saved for one year and automatically restored when the visitor returns to the website.
+
+Theme preferences are managed through cookies without relying on Local Storage.
+
+---
 
 ## Language Support
 
 Hikayat Watan supports:
 
-- Arabic
-- English
+- Arabic.
+- English.
 
 Visitors can switch between languages using the language button in the navigation bar.
 
@@ -118,7 +190,9 @@ The selected language is saved in a browser cookie named:
 watan-language
 ```
 
-Google Translate is used to provide translation functionality and requires an internet connection.
+Google Translate provides the translation functionality and requires an internet connection.
+
+---
 
 ## Installation and Setup
 
@@ -142,6 +216,8 @@ Visit:
 http://127.0.0.1:8000/
 ```
 
+---
+
 ## Main Website URLs
 
 | Page | URL |
@@ -149,14 +225,19 @@ http://127.0.0.1:8000/
 | Home | `/` |
 | History | `/history/` |
 | Historical Period | `/history/<era_slug>/` |
-| Cities | `/cities/` |
-| City Details | `/city/<city_slug>/` |
+| Cities & Destinations | `/cities/` |
+| Destination Details | `/city/<city_slug>/` |
+| Eastern Province | `/city/eastern-province/` |
 | About | `/about/` |
+
+---
 
 ## Project Vision
 
 Hikayat Watan aims to preserve and present the story of Saudi Arabia through an engaging digital experience.
 
-It highlights the Kingdom's rich history, cultural heritage, remarkable cities, and continuous development.
+It highlights the Kingdom's rich history, cultural heritage, remarkable cities, diverse regions, and continuous development.
+
+The project brings together the past and present, allowing visitors to discover the stories, landmarks, and traditions that make Saudi Arabia unique.
 
 **A land with a story. A history worth remembering.** 🇸🇦
