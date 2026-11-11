@@ -1,6 +1,9 @@
 from django.shortcuts import render
 from django.http import Http404
 from .data import PLACES, PROJECTS
+from .search_service import get_search_context
+from django.views.decorators.http import require_POST
+from .theme_service import change_theme
 
 
 def home(request):
@@ -73,8 +76,12 @@ def gallery(request):
 
 
 def search(request):
-    return render(request, 'main/search.html')
+    return render(
+        request,
+        'main/search.html',
+        get_search_context(request.GET)
+    )
 
-
+@require_POST
 def toggle_theme(request):
-    return render(request, 'main/home.html')
+    return change_theme(request)

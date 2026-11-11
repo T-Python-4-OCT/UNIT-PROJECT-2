@@ -5,11 +5,7 @@
 
 <head>
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <meta
         name="description"
@@ -26,7 +22,7 @@
     {% block extra_head %}{% endblock %}
 </head>
 
-<body>
+<body data-theme="{% if request.COOKIES.diriyah_theme == 'light' %}light{% else %}dark{% endif %}">
 
     <a href="#main-content" class="diriyah-skip-link">
         الانتقال إلى المحتوى
@@ -105,6 +101,92 @@
 
             </nav>
 
+            <div class="header-actions">
+
+                <a
+                    href="{% url 'main:search' %}"
+                    class="header-icon-button {% if request.resolver_match.url_name == 'search' %}active{% endif %}"
+                    aria-label="البحث في الدرعية"
+                    title="البحث"
+                >
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m20 20-4-4"></path>
+                    </svg>
+
+                </a>
+
+                <form
+                    method="post"
+                    action="{% url 'main:toggle_theme' %}"
+                    class="theme-toggle-form"
+                >
+
+                    {% csrf_token %}
+
+                    <input
+                        type="hidden"
+                        name="next"
+                        value="{{ request.get_full_path }}"
+                    >
+
+                    <button
+                        type="submit"
+                        class="header-icon-button"
+                        title="تغيير المظهر"
+                        aria-label="{% if request.COOKIES.diriyah_theme == 'light' %}تفعيل الوضع الداكن{% else %}تفعيل الوضع الفاتح{% endif %}"
+                    >
+
+                        {% if request.COOKIES.diriyah_theme == 'light' %}
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <path d="M20.7 13A9 9 0 0 1 11 3.3 9 9 0 1 0 20.7 13Z"></path>
+                            </svg>
+
+                        {% else %}
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <circle cx="12" cy="12" r="4"></circle>
+
+                                <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+                            </svg>
+
+                        {% endif %}
+
+                    </button>
+
+                </form>
+
+            </div>
+
             <details class="mobile-menu">
 
                 <summary aria-label="فتح قائمة التنقل">
@@ -121,26 +203,9 @@
                         stroke-linejoin="round"
                         aria-hidden="true"
                     >
-                        <line
-                            x1="4"
-                            y1="6"
-                            x2="20"
-                            y2="6"
-                        ></line>
-
-                        <line
-                            x1="4"
-                            y1="12"
-                            x2="20"
-                            y2="12"
-                        ></line>
-
-                        <line
-                            x1="4"
-                            y1="18"
-                            x2="20"
-                            y2="18"
-                        ></line>
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
                     </svg>
 
                 </summary>
@@ -176,6 +241,10 @@
 
                     <a href="{% url 'main:gallery' %}">
                         معرض الصور
+                    </a>
+
+                    <a href="{% url 'main:search' %}">
+                        البحث
                     </a>
 
                 </nav>
@@ -246,7 +315,7 @@
                                 viewBox="0 0 24 24"
                                 aria-hidden="true"
                             >
-                                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zm5.25-3.35a1.1 1.1 0 1 1-1.1 1.1 1.1 1.1 0 0 1 1.1-1.1z"></path>
+                                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zm5.25-3.35a1.1 1.1 0 1 1-1.1 1.1 1.1 0 0 1 1.1-1.1z"></path>
                             </svg>
 
                         </a>
