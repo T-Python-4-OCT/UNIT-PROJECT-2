@@ -1,0 +1,223 @@
+{
+  "site_name": "التحول الرقمي لوزارة الداخلية",
+  "tagline": "من الخدمات التقليدية إلى مستقبل رقمي مترابط.",
+  "disclaimer": "مشروع تعليمي مستقل، غير تابع لوزارة الداخلية السعودية ولا يحظى باعتمادها أو تأييدها.",
+  "nav_groups": [
+    {"id": "story", "title": "القصة"},
+    {"id": "platforms", "title": "المنصات"},
+    {"id": "sectors", "title": "القطاعات"}
+  ],
+  "pages": [
+    {"slug": "vision-2030", "title": "رؤية السعودية 2030", "data_file": "vision.json", "group": "story"},
+    {"slug": "moi-evolution", "title": "تطور وزارة الداخلية", "data_file": "history.json", "group": "story"},
+    {"slug": "absher", "title": "منصة أبشر", "data_file": "services.json", "section": "absher", "group": "platforms"},
+    {"slug": "digital-identity", "title": "الهوية الرقمية", "data_file": "services.json", "section": "digital_identity", "group": "platforms"},
+    {"slug": "digital-services", "title": "الخدمات الرقمية", "data_file": "services.json", "section": "digital_services", "group": "platforms"},
+    {"slug": "tawakkalna", "title": "تطبيق توكلنا", "data_file": "tawakkalna.json", "group": "platforms"},
+    {"slug": "smart-traffic", "title": "المرور الذكي", "data_file": "traffic.json", "group": "sectors"},
+    {"slug": "digital-passports", "title": "الجوازات الرقمية", "data_file": "passports.json", "group": "sectors"},
+    {"slug": "civil-defense", "title": "الدفاع المدني", "data_file": "civil_defense.json", "group": "sectors"},
+    {"slug": "smart-security", "title": "الأمن الذكي", "data_file": "technologies.json", "group": "sectors"},
+    {"slug": "future-vision", "title": "رؤية المستقبل", "data_file": "future.json", "group": "story"}
+  ],
+  "references": [
+    {
+      "id": "vision2030",
+      "name": "رؤية السعودية 2030 — الموقع الرسمي",
+      "url": "https://www.vision2030.gov.sa/",
+      "note": "المصدر الرسمي للركائز الثلاث وبرامج تحقيق رؤية 2030 الأحد عشر."
+    },
+    {
+      "id": "moi",
+      "name": "وزارة الداخلية — الموقع الرسمي",
+      "url": "https://www.moi.gov.sa/",
+      "note": "المصدر الرسمي للتطور التاريخي للوزارة والتواريخ الهجرية."
+    },
+    {
+      "id": "absher",
+      "name": "منصة أبشر",
+      "url": "https://www.absher.sa/",
+      "note": "المنصة الرسمية للخدمات الإلكترونية التابعة لوزارة الداخلية."
+    },
+    {
+      "id": "saudipedia",
+      "name": "سعوديبيديا — وزارة الإعلام",
+      "url": "https://saudipedia.com/en/absher-platform",
+      "note": "موسوعة حكومية تتناول خلفية منصة أبشر وتاريخ إطلاق رؤية 2030."
+    },
+    {
+      "id": "dga",
+      "name": "هيئة الحكومة الرقمية",
+      "url": "https://dga.gov.sa/en",
+      "note": "مصدر استراتيجية الحكومة الرقمية 2023–2030."
+    },
+    {
+      "id": "mcit_egdi",
+      "name": "وزارة الاتصالات وتقنية المعلومات — مؤشر تنمية الحكومة الإلكترونية للأمم المتحدة 2024",
+      "url": "https://www.mcit.gov.sa/en/news/saudi-arabia-jumps-25-places-4th-position-globally-1st-regionally-digital-services-index-un",
+      "note": "بيان صحفي منشور بتاريخ 20 سبتمبر 2024."
+    },
+    {
+      "id": "arabnews_absher",
+      "name": "عرب نيوز — كيف أسهم تطبيق أبشر في تسهيل الإجراءات الحكومية",
+      "url": "https://www.arabnews.pk/node/1453341",
+      "note": "مصدر إطلاق خدمة أبشر أعمال في أبريل 2018."
+    },
+    {
+      "id": "spa_digital_ids",
+      "name": "وكالة الأنباء السعودية (عبر الرياض ديلي) — منصة أبشر تصدر أكثر من 28 مليون هوية رقمية",
+      "url": "https://alriyadhdaily.com/article/2157dfaef10d4d7f893fc381959d3908",
+      "note": "تقرير عن إعلان وزارة الداخلية، ويشير تاريخ 25 ديسمبر 2024 إلى ما أورده موقع IDTechWire."
+    },
+    {
+      "id": "arabnews_absher_2020",
+      "name": "عرب نيوز — استخدام 18 مليون شخص لخدمات أبشر في السعودية خلال العام السابق",
+      "url": "https://arab.news/83fw2",
+      "note": "نُشر في 9 ديسمبر 2020 ويتناول بيانات عام 2019."
+    },
+    {
+      "id": "arabnews_absher_2022",
+      "name": "عرب نيوز — استخدام 23 مليون شخص لخدمات أبشر الإلكترونية خلال العام السابق",
+      "url": "https://www.arabnews.com/node/2010281",
+      "note": "نُشر في 23 يناير 2022 ويتناول بيانات عام 2021."
+    },
+    {
+      "id": "saudigazette_absher_2025",
+      "name": "سعودي جازيت — وزارة الداخلية تطلق خدمات رقمية جديدة عبر منصة أبشر",
+      "url": "https://saudigazette.com.sa/article/653643",
+      "note": "نُشر في 23 يوليو 2025."
+    },
+    {
+      "id": "ajel_civil_2026",
+      "name": "عاجل — وزارة الداخلية السعودية تطلق خدمات رقمية جديدة عبر منصة أبشر",
+      "url": "https://english.ajel.sa/news/swq38wbko",
+      "note": "خدمات الأحوال المدنية، نُشر في 30 يوليو 2026."
+    },
+    {
+      "id": "aawsat_digital",
+      "name": "الشرق الأوسط — تحول السعودية من الدولة الرقمية إلى السيادة في الذكاء الاصطناعي",
+      "url": "https://english.aawsat.com/node/5232804",
+      "note": "مصدر يوضح دور الهيئة السعودية للبيانات والذكاء الاصطناعي في تطوير نفاذ."
+    },
+    {
+      "id": "saudigazette_911_2025",
+      "name": "سعودي جازيت — البسامي يكشف خطة لتوسيع خدمة 911 لتشمل جميع مناطق المملكة",
+      "url": "https://cdn.saudigazette.com.sa/article/657527/SAUDI-ARABIA/Al-Bassami-unveils-plan-to-expand-security-reporting-service-911-to-all-Saudi-regions",
+      "note": "تصريح مدير الأمن العام خلال مؤتمر أبشر 2025، نُشر في 18 ديسمبر 2025."
+    },
+    {
+      "id": "asharq_security",
+      "name": "الشرق الأوسط — السعودية تعزز السلامة العامة بإجراءات أمنية ذكية",
+      "url": "https://english.aawsat.com/gulf/5289994-saudi-arabia-strengthens-public-safety-smart-security-measures",
+      "note": "مصدر نظام تصنيف الجرائم الموحد."
+    },
+    {
+      "id": "informedinfrastructure_911",
+      "name": "إنفورمد إنفراستركتشر — مركز العمليات الأمنية الموحد 911 في مكة المكرمة",
+      "url": "https://informedinfrastructure.com/?p=35049",
+      "note": "مقال متخصص في التقنية والبنية التحتية، ومصدر ثانوي لبداية تطبيق 911 في مكة عام 2015."
+    },
+    {
+      "id": "un_egovkb",
+      "name": "الأمم المتحدة — قاعدة بيانات الحكومة الإلكترونية: المملكة العربية السعودية",
+      "url": "https://publicadministration.un.org/egovkb/en-us/Data/Country-Information/id/149-Saudi-Arabia",
+      "note": "بيانات الأمم المتحدة الرسمية لمؤشري تنمية الحكومة الإلكترونية والمشاركة الإلكترونية حسب إصدارات المسح."
+    },
+    {
+      "id": "arabnews_gtmi",
+      "name": "عرب نيوز — السعودية تحتل المركز الثاني عالميًا في الحكومة الرقمية وفق مؤشر البنك الدولي 2025",
+      "url": "https://www.arabnews.pk/node/2626749",
+      "note": "نُشر في 19 ديسمبر 2025، كما نشرته صحيفة سعودي جازيت في 18 ديسمبر 2025."
+    },
+    {
+      "id": "arabnews_kpmg",
+      "name": "عرب نيوز — جهود الحكومة الرقمية السعودية وطموح الوصول إلى قائمة العشرة الأوائل: KPMG",
+      "url": "https://www.arabnews.pk/node/2613094",
+      "note": "نُشر في 26 أغسطس 2025، ويُعد مصدرًا لهدف دمج أكثر من 800 منصة."
+    },
+    {
+      "id": "saudigazette_absher_nov2025",
+      "name": "سعودي جازيت — أبشر يسجل أكثر من 38 مليون عملية في نوفمبر",
+      "url": "https://cdn.saudigazette.com.sa/article/657425",
+      "note": "نُشر في 15 ديسمبر 2025، ويعرض عمليات كل قطاع في نوفمبر 2025."
+    },
+    {
+      "id": "arabnews_traffic_2025",
+      "name": "عرب نيوز — تقرير السلامة المرورية في السعودية لعام 2025",
+      "url": "https://www.arabnews.pk/node/2648294/saudi-arabia",
+      "note": "نُشر في 23 يونيو 2026، والأرقام من التقرير السنوي للجنة الوزارية للسلامة المرورية لعام 2025."
+    },
+    {
+      "id": "who_road_safety",
+      "name": "منظمة الصحة العالمية — السعودية: تغيير مسار حوادث الطرق",
+      "url": "https://www.who.int/about/accountability/results/who-results-report-2020-mtr/country-story/2020/turning-the-tide-against-road-traffic-accidents",
+      "note": "مصدر معدل 2016 (28.8 لكل 100 ألف) ومستهدف 2030."
+    },
+    {
+      "id": "saudigazette_jawazat_2025",
+      "name": "سعودي جازيت — خدمات الجوازات الرقمية ومشاريعها القادمة",
+      "url": "https://cdn.saudigazette.com.sa/article/656337",
+      "note": "نُشر في 6 نوفمبر 2025."
+    },
+    {
+      "id": "arabianbusiness_egates",
+      "name": "أرابيان بزنس — السعودية تسرّع إجراءات المطارات بـ152 بوابة إلكترونية",
+      "url": "https://www.arabianbusiness.com/gcc/saudi-arabia/saudi-arabia-speeds-up-airport-times-with-152-automated-e-gates",
+      "note": "نُشر في 11 مارس 2025."
+    },
+    {
+      "id": "saudigazette_early_warning_2022",
+      "name": "سعودي جازيت — وزير الداخلية يدشن المنصة الوطنية للإنذار المبكر في حالات الطوارئ",
+      "url": "https://saudigazette.com.sa/article/622780",
+      "note": "نُشر في 9 يوليو 2022."
+    },
+    {
+      "id": "saudigazette_sirens_2025",
+      "name": "سعودي جازيت — الدفاع المدني يعزز الجاهزية بالصفارات وتنبيهات الجوال",
+      "url": "https://cdn.saudigazette.com.sa/article/656234",
+      "note": "نُشر في 3 نوفمبر 2025."
+    },
+    {
+      "id": "ajel_early_warning",
+      "name": "عاجل — الدفاع المدني يرسل رسائل الإنذار مباشرة إلى الجوالات",
+      "url": "https://english.ajel.sa/news/civil-defense-to-issue-warning-messages-directly-to-mobile-phones-with-alert-tone",
+      "note": "إعلان المرحلة التجريبية الأولى بالتعاون مع هيئة الاتصالات."
+    },
+    {
+      "id": "okaz_early_warning",
+      "name": "عكاظ — إرشادات عند سماع المنصة الوطنية للإنذار المبكر",
+      "url": "https://www.okaz.com.sa/local/saudi-arabia/2239328",
+      "note": "ما يجب فعله عند وصول التنبيه."
+    },
+    {
+      "id": "saudipedia_tawakkalna",
+      "name": "سعوديبيديا — تطبيق توكلنا",
+      "url": "https://saudipedia.com/en/article/387/government-and-politics/digital-government/tawakkalna-application",
+      "note": "موسوعة حكومية: إطلاق سدايا للتطبيق مع وزارة الصحة في مايو 2020."
+    },
+    {
+      "id": "saudigazette_tawakkalna_2021",
+      "name": "سعودي جازيت — مستخدمو توكلنا وخدماته وشركاؤه",
+      "url": "https://www.saudigazette.com.sa/article/610607",
+      "note": "نُشر في 5 سبتمبر 2021."
+    },
+    {
+      "id": "arabnews_tawakkalna_2022",
+      "name": "عرب نيوز — السعودية تطلق تطبيق توكلنا خدمات",
+      "url": "https://www.arabnews.pk/node/2073921",
+      "note": "نُشر في 1 مايو 2022."
+    },
+    {
+      "id": "saudigazette_tawakkalna_2025",
+      "name": "سعودي جازيت — خدمات توكلنا ومستخدموه",
+      "url": "https://cdn.saudigazette.com.sa/article/656662",
+      "note": "نُشر في 19 نوفمبر 2025."
+    },
+    {
+      "id": "arabnews_tawakkalna_2026",
+      "name": "عرب نيوز — توكلنا يوسع خدماته الرقمية اليومية لأكثر من 36 مليون مستخدم",
+      "url": "https://www.arabnews.pk/saudi-arabia/tawakkalna-app-expands-daily-digital-services-for-more-than-36-million-users-3003000",
+      "note": "نُشر في 2 أكتوبر 2026."
+    }
+  ]
+}

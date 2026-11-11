@@ -1,0 +1,147 @@
+{
+  "title": "Smart Traffic",
+  "header_image": "portal/img/smart-traffic.webp",
+  "subtitle": "Traffic services on the screen, and cameras on the road.",
+  "intro": "The General Directorate of Traffic is one of the Ministry of Interior's sectors. Much of its work with drivers has moved to Absher, while automated monitoring now covers the most common violations on the road. This page sets those changes next to the road safety results published for 2016 to 2025.",
+  "sections": [
+    {
+      "type": "cards",
+      "heading": "What Changed",
+      "items": [
+        {
+          "title": "Traffic Services on Absher",
+          "text": "Renewing a licence, paying a fine, or transferring a vehicle no longer needs a visit: 3,432,289 traffic transactions were completed on Absher in November 2025 alone.",
+          "source": "saudigazette_absher_nov2025"
+        },
+        {
+          "title": "Automated Enforcement",
+          "text": "The Ministry of Interior has expanded automated monitoring to more than 4,100 systems that detect speeding, seatbelt, mobile phone, and red-light violations.",
+          "source": "arabnews_traffic_2025"
+        },
+        {
+          "title": "A National Target",
+          "text": "Road safety is part of Vision 2030, which aims to bring road deaths below 10 per 100,000 people by 2030.",
+          "source": "who_road_safety"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "heading": "In Pictures",
+      "items": [
+        {
+          "image": "portal/img/gallery/traffic-1.webp",
+          "caption": "Night traffic on a Saudi highway"
+        },
+        {
+          "image": "portal/img/gallery/traffic-2.webp",
+          "caption": "Evening traffic in central Riyadh"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "heading": "Road Safety: 2016 and 2025",
+      "items": [
+        {
+          "label": "Road deaths in 2016",
+          "value": "8,632",
+          "as_of": "2016",
+          "source": "arabnews_traffic_2025"
+        },
+        {
+          "label": "Road deaths in 2025, about half the 2016 figure",
+          "value": "4,438",
+          "as_of": "2025",
+          "source": "arabnews_traffic_2025"
+        },
+        {
+          "label": "Deaths per 100,000 people in 2016",
+          "value": "28.8",
+          "as_of": "2016",
+          "source": "who_road_safety"
+        },
+        {
+          "label": "Deaths per 100,000 people in 2025",
+          "value": "12.05",
+          "as_of": "2025",
+          "source": "arabnews_traffic_2025"
+        },
+        {
+          "label": "Injuries in 2025, down from 36,787 in 2016",
+          "value": "24,290",
+          "as_of": "2025",
+          "source": "arabnews_traffic_2025"
+        },
+        {
+          "label": "Automated monitoring systems",
+          "value": "4,100+",
+          "as_of": "2025",
+          "source": "arabnews_traffic_2025"
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "heading": "2016 Against 2025",
+      "note": "A green badge means the figure went down. Each bar is drawn to scale against the larger year.",
+      "from_label": "2016",
+      "to_label": "2025",
+      "items": [
+        {
+          "label": "Road deaths",
+          "from": 8632,
+          "to": 4438,
+          "from_display": "8,632",
+          "to_display": "4,438",
+          "source": "arabnews_traffic_2025"
+        },
+        {
+          "label": "Deaths per 100,000 people",
+          "from": 28.8,
+          "to": 12.05,
+          "from_display": "28.8",
+          "to_display": "12.05",
+          "source": "arabnews_traffic_2025"
+        },
+        {
+          "label": "Injuries",
+          "from": 36787,
+          "to": 24290,
+          "from_display": "36,787",
+          "to_display": "24,290",
+          "source": "arabnews_traffic_2025"
+        }
+      ]
+    },
+    {
+      "type": "timeline",
+      "heading": "The Road to 2030",
+      "items": [
+        {
+          "date": "2016",
+          "title": "The starting point",
+          "text": "When the National Transformation Program began, the road fatality rate was 28.8 per 100,000 people, higher than the average for low-income countries.",
+          "source": "who_road_safety"
+        },
+        {
+          "date": "2025",
+          "title": "Halfway there",
+          "text": "The Ministerial Committee for Traffic Safety's 2025 report puts the rate at 12.05 per 100,000, with deaths roughly halved since 2016.",
+          "source": "arabnews_traffic_2025"
+        },
+        {
+          "date": "2030",
+          "title": "The target",
+          "text": "Below 10 deaths per 100,000 people.",
+          "source": "who_road_safety"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "arabnews_traffic_2025",
+    "who_road_safety",
+    "saudigazette_absher_nov2025"
+  ]
+}

@@ -1,0 +1,57 @@
+{
+  "title": "Share Your Feedback",
+  "subtitle": "Help make this project more accurate and useful.",
+  "intro": "Tell us what you found useful, what is missing, or where a figure looks wrong. Every message is saved and reviewed.",
+  "header_image": "portal/img/hero-poster.webp",
+  "form_heading": "Send a message",
+  "labels": {
+    "name": "Full name",
+    "email": "Email",
+    "category": "Feedback type",
+    "rating": "How useful was the site?",
+    "message": "Message"
+  },
+  "placeholders": {
+    "name": "e.g. Sara Ahmed",
+    "email": "name@example.com",
+    "message": "Write at least 20 characters..."
+  },
+  "help": {
+    "name": "Letters only, 2 to 60 characters.",
+    "message": "20 to 1000 characters, up to 2 links."
+  },
+  "category_placeholder": "Choose a type",
+  "categories": {
+    "suggestion": "Suggestion",
+    "question": "Question",
+    "issue": "Report a content issue",
+    "praise": "Praise"
+  },
+  "rating_labels": [
+    "Not useful",
+    "Slightly useful",
+    "Useful",
+    "Very useful",
+    "Excellent"
+  ],
+  "submit": "Send feedback",
+  "success_title": "Thank you!",
+  "success_text": "Your feedback was received and saved.",
+  "privacy_note": "Your details are used only to review this feedback.",
+  "errors": {
+    "required": "This field is required.",
+    "summary": "Please fix the highlighted fields.",
+    "name_min": "Name must be at least 2 characters.",
+    "name_max": "Name must be 60 characters or fewer.",
+    "name_invalid": "Name can contain letters, spaces, hyphens, and apostrophes only.",
+    "email_invalid": "Enter a valid email address, like name@example.com.",
+    "category_invalid": "Choose one of the listed feedback types.",
+    "rating_invalid": "Choose a rating from 1 to 5.",
+    "message_min": "Message must be at least 20 characters.",
+    "message_max": "Message must be 1000 characters or fewer.",
+    "message_links": "Message can contain up to 2 links.",
+    "message_meaningless": "Message must contain words, not only numbers or symbols.",
+    "spam": "Your message could not be sent. Please try again.",
+    "too_fast": "You just sent a message. Please wait a minute before sending another."
+  }
+}

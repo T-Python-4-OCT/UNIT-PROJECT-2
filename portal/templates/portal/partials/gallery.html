@@ -1,0 +1,12 @@
+{% load static %}
+
+{# --cols = number of photos, so one or two photos are not stretched across the full width #}
+<div class="gallery-grid" style="--cols: {{ section.items|length }};">
+  {% for item in section.items %}
+    <figure class="gallery-item">
+      <img src="{% static item.image %}" alt="{{ item.caption }}"
+           width="720" height="540" loading="lazy" decoding="async">
+      <figcaption>{{ item.caption }}</figcaption>
+    </figure>
+  {% endfor %}
+</div>

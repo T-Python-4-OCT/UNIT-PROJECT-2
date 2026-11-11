@@ -1,0 +1,100 @@
+{% extends "portal/base.html" %}
+{% load static %}
+
+{% block title %}{{ text.title }} · {{ site.site_name }}{% endblock %}
+
+{% block content %}
+  <header class="page-header page-header--image py-5"
+          style="--header-image: url('{% static text.header_image %}');">
+    <div class="container">
+      <h1>{{ text.title }}</h1>
+      <p class="page-subtitle lead">{{ text.subtitle }}</p>
+      <p class="page-intro">{{ text.intro }}</p>
+    </div>
+  </header>
+
+  <section class="quiz-section py-5">
+    <div class="container quiz-container">
+
+      {% if review %}
+        {# ===== Result: score ring, message, then every answer reviewed ===== #}
+        <div class="quiz-result" role="status">
+          <div class="score-ring" style="--p: {{ score_percent }};">
+            <span class="score-number">{{ score }}<small>/{{ total }}</small></span>
+          </div>
+          <div>
+            <p class="quiz-result-label">{{ text.score }}</p>
+            <h2 class="quiz-result-message">{{ message }}</h2>
+            <p class="quiz-best mb-3">{{ text.best }}: {{ best }}/{{ total }}</p>
+            <a class="btn btn-primary" href="{% url 'portal:quiz' %}">{{ text.retry }}</a>
+          </div>
+        </div>
+
+        <ol class="quiz-review">
+          {% for item in review %}
+            <li class="quiz-review-item{% if item.is_correct %} is-correct{% else %} is-wrong{% endif %}">
+              <p class="quiz-review-verdict">
+                <span aria-hidden="true">{% if item.is_correct %}✓{% else %}✗{% endif %}</span>
+                {% if item.is_correct %}{{ text.correct }}{% else %}{{ text.wrong }}{% endif %}
+              </p>
+              <h3 class="quiz-question">{{ item.question }}</h3>
+              {% if not item.is_correct %}
+                <p class="quiz-chosen"><s>{{ item.chosen_option }}</s></p>
+              {% endif %}
+              <p class="quiz-answer"><strong>{{ text.correct_answer }}:</strong> {{ item.correct_option }}</p>
+              <p class="quiz-explanation">{{ item.explanation }}</p>
+              <a class="quiz-read-more" href="{% url 'portal:page' item.page %}">{{ text.read_more }} <span aria-hidden="true">→</span></a>
+            </li>
+          {% endfor %}
+        </ol>
+
+      {% else %}
+        {# ===== Questions ===== #}
+        {% if best is not None %}
+          <p class="quiz-best text-center">{{ text.best }}: {{ best }}/{{ total }}</p>
+        {% endif %}
+
+        {% if form.errors %}
+          <div class="alert alert-danger" role="alert">{{ text.errors.summary }}</div>
+        {% endif %}
+
+        {# novalidate: missing answers are reported by the server, in the site's language #}
+        <form method="post" action="{% url 'portal:quiz' %}" class="quiz-form" novalidate data-quiz>
+          {% csrf_token %}
+
+          {# Sticky progress: theme.js counts the answered questions #}
+          <div class="quiz-progress" aria-live="polite">
+            <span><span data-quiz-count>0</span>/{{ total }} {{ text.answered }}</span>
+            <span class="quiz-progress-track"><span class="quiz-progress-fill" data-quiz-fill></span></span>
+          </div>
+
+          {% for question, field in form.question_fields %}
+            <fieldset class="quiz-card{% if field.errors %} has-error{% endif %}"
+                      {% if field.errors %}aria-describedby="{{ question.id }}-error"{% endif %}>
+              <legend class="quiz-question">
+                <span class="quiz-number">{{ forloop.counter }}</span>
+                {{ question.question }}
+              </legend>
+
+              <div class="quiz-options">
+                {% for option in field %}
+                  <label class="quiz-option">
+                    <input type="radio" name="{{ field.html_name }}" value="{{ option.data.value }}"
+                           {% if option.data.selected %}checked{% endif %}>
+                    <span>{{ option.choice_label }}</span>
+                  </label>
+                {% endfor %}
+              </div>
+
+              {% if field.errors %}
+                <p id="{{ question.id }}-error" class="quiz-error">{{ field.errors.0 }}</p>
+              {% endif %}
+            </fieldset>
+          {% endfor %}
+
+          <button type="submit" class="btn btn-primary btn-lg quiz-submit">{{ text.submit }}</button>
+        </form>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

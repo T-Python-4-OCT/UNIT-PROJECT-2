@@ -1,0 +1,104 @@
+<nav class="navbar navbar-expand-xl site-navbar">
+  <div class="container">
+    <a class="navbar-brand" href="{% url 'portal:home' %}">
+      {% include "portal/partials/emblem.html" %}
+      <span>{{ site.site_name }}</span>
+    </a>
+
+    {# Three lines of different lengths; CSS turns them into an X when aria-expanded="true" #}
+    <button class="navbar-toggler menu-toggle" type="button" data-bs-toggle="collapse"
+            data-bs-target="#mainNav" aria-controls="mainNav"
+            aria-expanded="false" aria-label="{{ ui.toggle_navigation }}">
+      <span class="menu-toggle-line" aria-hidden="true"></span>
+      <span class="menu-toggle-line" aria-hidden="true"></span>
+      <span class="menu-toggle-line" aria-hidden="true"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto">
+        <li class="nav-item" style="--i: 1;">
+          <a class="nav-link{% if current_slug == '' %} active{% endif %}" href="{% url 'portal:home' %}"
+             {% if current_slug == '' %}aria-current="page"{% endif %}>{{ ui.home }}</a>
+        </li>
+
+        {# One dropdown per group in site.json "nav_groups"; the group holding the current page is highlighted #}
+        {% for group in nav_menu %}
+          <li class="nav-item dropdown" style="--i: {{ forloop.counter|add:1 }};">
+            <button class="nav-link dropdown-toggle{% if current_slug in group.slugs %} active{% endif %}"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ group.title }}
+            </button>
+            <ul class="dropdown-menu site-dropdown">
+              {% for nav_page in group.pages %}
+                <li>
+                  <a class="dropdown-item{% if nav_page.slug == current_slug %} active{% endif %}"
+                     href="{% url 'portal:page' nav_page.slug %}"
+                     {% if nav_page.slug == current_slug %}aria-current="page"{% endif %}>
+                    {{ nav_page.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endfor %}
+      </ul>
+
+      <div class="d-flex flex-wrap align-items-center gap-2 ms-xl-3 mt-2 mt-xl-0 nav-controls">
+        <a class="nav-control-btn nav-icon-btn{% if current_slug == 'search' %} is-active{% endif %}"
+           href="{% url 'portal:search' %}" aria-label="{{ ui.search }}" title="{{ ui.search }}">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+          </svg>
+        </a>
+
+        <form method="post" action="{% url 'portal:set_language' %}">
+          {% csrf_token %}
+
+          {% if language == "en" %}
+            <input type="hidden" name="language" value="ar">
+            <button class="nav-control-btn language-btn" type="submit">
+              <svg class="language-icon" xmlns="http://www.w3.org/2000/svg"
+                   width="17" height="17" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="1.7"
+                   stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              <span>العربية</span>
+            </button>
+          {% else %}
+            <input type="hidden" name="language" value="en">
+            <button class="nav-control-btn language-btn" type="submit">
+              <svg class="language-icon" xmlns="http://www.w3.org/2000/svg"
+                   width="17" height="17" viewBox="0 0 24 24"
+                   fill="none" stroke="currentColor" stroke-width="1.7"
+                   stroke-linecap="round" stroke-linejoin="round"
+                   aria-hidden="true">
+                <circle cx="12" cy="12" r="10"/>
+                <path d="M2 12h20"/>
+                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+              </svg>
+              <span>English</span>
+            </button>
+          {% endif %}
+        </form>
+
+        <button
+          class="nav-control-btn theme-icon-btn"
+          type="button"
+          id="themeToggle"
+          data-dark-label="{{ ui.dark_mode }}"
+          data-light-label="{{ ui.light_mode }}"
+          data-dark-aria="{{ ui.dark_aria }}"
+          data-light-aria="{{ ui.light_aria }}"
+          aria-label="{{ ui.dark_aria }}"
+          title="{{ ui.dark_mode }}">
+          <span class="theme-icon" aria-hidden="true">☾</span>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>

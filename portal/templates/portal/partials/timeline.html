@@ -1,0 +1,28 @@
+
+{% load static %}
+
+<ol class="timeline">
+  {% for item in section.items %}
+    <li class="timeline-item">
+      <div class="timeline-date">
+        {{ item.date }}
+        {% if item.hijri %}<span class="timeline-hijri">{{ item.hijri }}</span>{% endif %}
+      </div>
+      <div class="timeline-body">
+        <h3 class="h5">{{ item.title }}</h3>
+
+        {% if item.image %}
+          <img
+            src="{% static item.image %}"
+            class="info-card-image timeline-image"
+            alt="{{ item.image_alt|default:item.title }}"
+            loading="lazy"
+            decoding="async"
+          >
+        {% endif %}
+
+        <p>{{ item.text }}{% include "portal/partials/source_ref.html" %}</p>
+      </div>
+    </li>
+  {% endfor %}
+</ol>

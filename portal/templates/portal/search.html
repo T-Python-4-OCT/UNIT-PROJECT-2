@@ -1,0 +1,85 @@
+{% extends "portal/base.html" %}
+{% load static %}
+
+{% block title %}{{ text.title }} · {{ site.site_name }}{% endblock %}
+
+{% block content %}
+  <header class="page-header page-header--image py-5"
+          style="--header-image: url('{% static text.header_image %}');">
+    <div class="container">
+      <h1>{{ text.title }}</h1>
+      <p class="page-subtitle lead">{{ text.subtitle }}</p>
+      <p class="page-intro">{{ text.intro }}</p>
+    </div>
+  </header>
+
+  <section class="search-section py-5">
+    <div class="container">
+
+      {# GET, not POST: searching changes nothing, and the URL can be shared #}
+      <form class="search-box mx-auto" method="get" action="{% url 'portal:search' %}" role="search" novalidate>
+        <label class="visually-hidden" for="id_q">{{ text.label }}</label>
+        <div class="search-field{% if form.q.errors %} is-invalid{% endif %}">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+          </svg>
+          <input type="search" name="q" id="id_q" value="{{ query }}"
+                 placeholder="{{ text.placeholder }}" maxlength="80" autocomplete="off"
+                 {% if form.q.errors %}aria-invalid="true" aria-describedby="q-error"{% endif %}
+                 {% if not results and not form.q.errors %}autofocus{% endif %}>
+          <button class="btn btn-primary" type="submit">{{ text.button }}</button>
+        </div>
+
+        {% if form.q.errors %}
+          <p id="q-error" class="search-error" role="alert">{{ form.q.errors.0 }}</p>
+        {% endif %}
+
+        <p class="search-suggestions">
+          {{ text.suggestions_label }}
+          {% for word in text.suggestions %}
+            <a href="?q={{ word|urlencode }}">{{ word }}</a>
+          {% endfor %}
+        </p>
+      </form>
+
+      {% if results is not None %}
+        <div class="search-results mx-auto" aria-live="polite">
+          {% if results %}
+            <p class="search-summary">
+              {% if results|length == 1 %}{{ text.results_one }}{% else %}{{ results|length }} {{ text.results_many }}{% endif %}
+              <strong>“{{ query }}”</strong>
+            </p>
+
+            <ol class="list-unstyled">
+              {% for result in results %}
+                <li>
+                  <a class="search-result" href="{% url 'portal:page' result.slug %}">
+                    <h2 class="h5">{{ result.title }}</h2>
+                    <p class="mb-0">{{ result.snippet }}</p>
+                  </a>
+                </li>
+              {% endfor %}
+            </ol>
+          {% else %}
+            <div class="search-empty">
+              <p class="search-summary">{{ text.no_results }} <strong>“{{ query }}”</strong></p>
+              <p>{{ text.no_results_hint }}</p>
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+
+      {% if not results %}
+        <nav class="search-browse mx-auto" aria-label="{{ text.browse }}">
+          <h2 class="h6">{{ text.browse }}</h2>
+          <ul class="list-unstyled">
+            {% for page in site.pages %}
+              <li><a href="{% url 'portal:page' page.slug %}">{{ page.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
+      {% endif %}
+    </div>
+  </section>
+{% endblock %}

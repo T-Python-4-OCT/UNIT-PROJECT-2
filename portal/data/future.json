@@ -1,0 +1,107 @@
+{
+  "title": "Future Vision",
+  "header_image": "portal/img/future-vision.webp",
+  "subtitle": "Where the Kingdom's digital transformation is heading.",
+  "intro": "Digital transformation in Saudi Arabia is guided by a national strategy that runs to 2030. This page looks at that roadmap, at how the Kingdom's international rankings have moved so far, and at what the Ministry of Interior's Public Security sector has announced for the next phase.",
+  "sections": [
+    {
+      "type": "cards",
+      "heading": "The Road to 2030",
+      "items": [
+        {
+          "title": "Digital Government Strategy 2023-2030",
+          "text": "The national strategy sets out the Kingdom's aspirations, objectives, initiatives, and roadmap for digital government, aligned with Vision 2030. Its stated goal is that by 2030 the government provides world-class services that meet the needs of citizens effectively and efficiently.",
+          "source": "dga"
+        },
+        {
+          "title": "From 800 Platforms to One Ecosystem",
+          "text": "The strategy aims to consolidate more than 800 separate government platforms into one coherent ecosystem built around the user.",
+          "source": "arabnews_kpmg"
+        },
+        {
+          "title": "Participation and Inclusion",
+          "text": "E-participation and digital inclusion are named among the strategy's priorities, with the aim that services are inclusive by default.",
+          "source": "dga"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "heading": "In Pictures",
+      "items": [
+        { "image": "portal/img/gallery/future-1.webp", "caption": "Data and computing power behind the services of tomorrow" },
+        { "image": "portal/img/gallery/future-2.webp", "caption": "Riyadh at night with a digital overlay" },
+        { "image": "portal/img/gallery/future-3.webp", "caption": "The Line at NEOM, from its published design" }
+      ]
+    },
+    {
+      "type": "stats",
+      "heading": "Global Rankings Today",
+      "items": [
+        {
+          "label": "UN E-Government Development Index",
+          "value": "6th of 193",
+          "as_of": "2024",
+          "source": "un_egovkb"
+        },
+        {
+          "label": "UN Online Service Index",
+          "value": "4th",
+          "as_of": "2024",
+          "source": "mcit_egdi"
+        },
+        {
+          "label": "UN E-Participation Index",
+          "value": "7th of 193",
+          "as_of": "2024",
+          "source": "un_egovkb"
+        },
+        {
+          "label": "World Bank GovTech Maturity Index",
+          "value": "2nd of 197",
+          "as_of": "2025",
+          "source": "arabnews_gtmi"
+        },
+        {
+          "label": "World Bank GovTech Maturity Index overall score",
+          "value": "99.64%",
+          "as_of": "2025",
+          "source": "arabnews_gtmi"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "heading": "The Climb: UN E-Government Index",
+      "items": [
+        { "label": "Rank, 2016 edition", "value": "44th", "as_of": "2016", "source": "un_egovkb" },
+        { "label": "Rank, 2018 edition", "value": "52nd", "as_of": "2018", "source": "un_egovkb" },
+        { "label": "Rank, 2020 edition", "value": "43rd", "as_of": "2020", "source": "un_egovkb" },
+        { "label": "Rank, 2022 edition", "value": "31st", "as_of": "2022", "source": "un_egovkb" },
+        { "label": "Rank, 2024 edition", "value": "6th", "as_of": "2024", "source": "un_egovkb" }
+      ]
+    },
+    {
+      "type": "stats",
+      "heading": "The Climb: World Bank GovTech Index",
+      "items": [
+        { "label": "Rank, 2020 edition", "value": "49th", "as_of": "2020", "source": "arabnews_gtmi" },
+        { "label": "Rank, 2022 edition", "value": "3rd", "as_of": "2022", "source": "arabnews_gtmi" },
+        { "label": "Rank, 2025 edition", "value": "2nd", "as_of": "2025", "source": "arabnews_gtmi" }
+      ]
+    },
+    {
+      "type": "cards",
+      "heading": "What Public Security Has Announced",
+      "items": [
+        {
+          "title": "Announced Plans, Not Yet Delivered",
+          "date": "December 2025",
+          "text": "Public Security has announced plans to extend the 911 system to every region, build AI-based police stations in Jeddah and the Eastern Province, and develop a broader Maidan application. A drone management system for security operations is under development. The Smart Security page shows the status of each item.",
+          "source": "saudigazette_911_2025"
+        }
+      ]
+    }
+  ],
+  "sources": ["dga", "arabnews_kpmg", "mcit_egdi", "un_egovkb", "arabnews_gtmi", "saudigazette_911_2025"]
+}

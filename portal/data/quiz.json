@@ -1,0 +1,132 @@
+{
+  "title": "Test Your Knowledge",
+  "subtitle": "Eight questions from the site's pages, checked on the server.",
+  "header_image": "portal/img/vision-2030.webp",
+  "intro": "Eight questions, one from each part of the site. Answer them all, then check your score. Every answer links to the page where you can read more.",
+  "submit": "Check my answers",
+  "retry": "Try again",
+  "answered": "answered",
+  "score": "Your score",
+  "best": "Your best score",
+  "read_more": "Read more",
+  "correct": "Correct",
+  "wrong": "Not quite",
+  "correct_answer": "Correct answer",
+  "levels": [
+    "Keep exploring: the pages have all the answers.",
+    "Good start. A few pages are worth another look.",
+    "Very good. You know the story well.",
+    "Perfect score. You know the whole story."
+  ],
+  "errors": {
+    "required": "Please choose an answer for this question.",
+    "invalid_choice": "Please choose one of the listed answers.",
+    "summary": "Some questions are not answered yet."
+  },
+  "questions": [
+    {
+      "id": "q1",
+      "page": "vision-2030",
+      "question": "When was Saudi Vision 2030 launched?",
+      "options": [
+        "25 April 2016",
+        "1 January 2010",
+        "15 March 2018",
+        "23 September 2020"
+      ],
+      "answer": 0,
+      "explanation": "The Vision was announced on 25 April 2016."
+    },
+    {
+      "id": "q2",
+      "page": "moi-evolution",
+      "question": "In which year was Absher established?",
+      "options": [
+        "2005",
+        "2010",
+        "2016",
+        "2020"
+      ],
+      "answer": 1,
+      "explanation": "Absher was established in 2010, and its mobile app came in 2015-2016."
+    },
+    {
+      "id": "q3",
+      "page": "digital-identity",
+      "question": "About how many unified digital IDs have been issued through Absher?",
+      "options": [
+        "5 million",
+        "12 million",
+        "28 million+",
+        "50 million"
+      ],
+      "answer": 2,
+      "explanation": "More than 28 million unified digital IDs have been issued."
+    },
+    {
+      "id": "q4",
+      "page": "future-vision",
+      "question": "What was Saudi Arabia's rank in the UN E-Government Development Index (2024)?",
+      "options": [
+        "1st",
+        "6th",
+        "31st",
+        "44th"
+      ],
+      "answer": 1,
+      "explanation": "6th of 193 countries, up from 44th in 2016."
+    },
+    {
+      "id": "q5",
+      "page": "smart-traffic",
+      "question": "How many road deaths per 100,000 people were recorded in 2025?",
+      "options": [
+        "28.8",
+        "20.4",
+        "12.05",
+        "4.1"
+      ],
+      "answer": 2,
+      "explanation": "12.05 per 100,000, down from 28.8 in 2016."
+    },
+    {
+      "id": "q6",
+      "page": "digital-passports",
+      "question": "How many automated e-gates were installed at Riyadh, Jeddah, Dammam and Madinah airports?",
+      "options": [
+        "35",
+        "70",
+        "152",
+        "400"
+      ],
+      "answer": 2,
+      "explanation": "152 e-gates, built by SDAIA with Jawazat and Matarat."
+    },
+    {
+      "id": "q7",
+      "page": "civil-defense",
+      "question": "How does the National Early Warning Platform reach people?",
+      "options": [
+        "An app everyone must install",
+        "Cell broadcast to every phone in the area",
+        "Emails to registered users",
+        "Radio only"
+      ],
+      "answer": 1,
+      "explanation": "Cell broadcast reaches every phone on the network inside the affected area."
+    },
+    {
+      "id": "q8",
+      "page": "tawakkalna",
+      "question": "Who developed the Tawakkalna app?",
+      "options": [
+        "The Ministry of Interior",
+        "The Ministry of Health alone",
+        "SDAIA",
+        "A private bank"
+      ],
+      "answer": 2,
+      "explanation": "The Saudi Data and Artificial Intelligence Authority (SDAIA), with the Ministry of Health at launch."
+    }
+  ]
+}

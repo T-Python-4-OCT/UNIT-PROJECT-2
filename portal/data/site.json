@@ -1,0 +1,223 @@
+{
+  "site_name": "MOI Digital Evolution",
+  "tagline": "From Traditional Services to a Connected Digital Future.",
+  "disclaimer": "An independent educational project. Not affiliated with or endorsed by the Saudi Ministry of Interior.",
+  "nav_groups": [
+    {"id": "story", "title": "The Story"},
+    {"id": "platforms", "title": "Platforms"},
+    {"id": "sectors", "title": "Sectors"}
+  ],
+  "pages": [
+    {"slug": "vision-2030", "title": "Vision 2030", "data_file": "vision.json", "group": "story"},
+    {"slug": "moi-evolution", "title": "MOI Evolution", "data_file": "history.json", "group": "story"},
+    {"slug": "absher", "title": "Absher Platform", "data_file": "services.json", "section": "absher", "group": "platforms"},
+    {"slug": "digital-identity", "title": "Digital Identity", "data_file": "services.json", "section": "digital_identity", "group": "platforms"},
+    {"slug": "digital-services", "title": "Digital Services", "data_file": "services.json", "section": "digital_services", "group": "platforms"},
+    {"slug": "tawakkalna", "title": "Tawakkalna", "data_file": "tawakkalna.json", "group": "platforms"},
+    {"slug": "smart-traffic", "title": "Smart Traffic", "data_file": "traffic.json", "group": "sectors"},
+    {"slug": "digital-passports", "title": "Digital Passports", "data_file": "passports.json", "group": "sectors"},
+    {"slug": "civil-defense", "title": "Civil Defense", "data_file": "civil_defense.json", "group": "sectors"},
+    {"slug": "smart-security", "title": "Smart Security", "data_file": "technologies.json", "group": "sectors"},
+    {"slug": "future-vision", "title": "Future Vision", "data_file": "future.json", "group": "story"}
+  ],
+  "references": [
+    {
+      "id": "vision2030",
+      "name": "Saudi Vision 2030 — Official Website",
+      "url": "https://www.vision2030.gov.sa/",
+      "note": "Official source for the three pillars and the 11 Vision Realization Programs."
+    },
+    {
+      "id": "moi",
+      "name": "Ministry of Interior — Official Website",
+      "url": "https://www.moi.gov.sa/",
+      "note": "Official source for the ministry's historic development (Hijri dates)."
+    },
+    {
+      "id": "absher",
+      "name": "Absher Platform",
+      "url": "https://www.absher.sa/",
+      "note": "Official platform of the Ministry of Interior."
+    },
+    {
+      "id": "saudipedia",
+      "name": "Saudipedia — Ministry of Media",
+      "url": "https://saudipedia.com/en/absher-platform",
+      "note": "Government encyclopedia: Absher background and the Vision 2030 launch date."
+    },
+    {
+      "id": "dga",
+      "name": "Digital Government Authority",
+      "url": "https://dga.gov.sa/en",
+      "note": "Source for the Digital Government Strategy 2023-2030."
+    },
+    {
+      "id": "mcit_egdi",
+      "name": "MCIT — UN E-Government Development Index 2024",
+      "url": "https://www.mcit.gov.sa/en/news/saudi-arabia-jumps-25-places-4th-position-globally-1st-regionally-digital-services-index-un",
+      "note": "Press release dated 20 Sept 2024."
+    },
+    {
+      "id": "arabnews_absher",
+      "name": "Arab News — How 'Absher' app liberates Saudis from government bureaucracy",
+      "url": "https://www.arabnews.pk/node/1453341",
+      "note": "Source for the launch of Absher Business (April 2018)."
+    },
+    {
+      "id": "spa_digital_ids",
+      "name": "Saudi Press Agency (via Al Riyadh Daily) — Absher Platform Provides Rapid Digital Solutions, Helps Issue over 28 Million Digital IDs",
+      "url": "https://alriyadhdaily.com/article/2157dfaef10d4d7f893fc381959d3908",
+      "note": "Report on the Ministry of Interior's announcement. The 25 Dec 2024 date is as reported by IDTechWire."
+    },
+    {
+      "id": "arabnews_absher_2020",
+      "name": "Arab News — 18m used Saudi Arabia's Absher services last year",
+      "url": "https://arab.news/83fw2",
+      "note": "Published 9 Dec 2020; covers 2019."
+    },
+    {
+      "id": "arabnews_absher_2022",
+      "name": "Arab News — 23 million people used Saudi Arabia's electronic Absher services last year",
+      "url": "https://www.arabnews.com/node/2010281",
+      "note": "Published 23 Jan 2022; covers 2021."
+    },
+    {
+      "id": "saudigazette_absher_2025",
+      "name": "Saudi Gazette — Interior Ministry launches new digital services on Absher platform",
+      "url": "https://saudigazette.com.sa/article/653643",
+      "note": "Published 23 July 2025."
+    },
+    {
+      "id": "ajel_civil_2026",
+      "name": "Ajel News — Saudi Interior Ministry launches new digital services on Absher platform",
+      "url": "https://english.ajel.sa/news/swq38wbko",
+      "note": "Civil Affairs services; published 30 July 2026."
+    },
+    {
+      "id": "aawsat_digital",
+      "name": "Asharq Al-Awsat — King Salman Era Marks Saudi Shift from Digital State to AI Sovereignty",
+      "url": "https://english.aawsat.com/node/5232804",
+      "note": "Source for SDAIA's role in developing Nafath."
+    },
+    {
+      "id": "saudigazette_911_2025",
+      "name": "Saudi Gazette — Al-Bassami unveils plan to expand 911 to all Saudi regions",
+      "url": "https://cdn.saudigazette.com.sa/article/657527/SAUDI-ARABIA/Al-Bassami-unveils-plan-to-expand-security-reporting-service-911-to-all-Saudi-regions",
+      "note": "Public Security Director's address at the Absher Conference 2025; published 18 Dec 2025."
+    },
+    {
+      "id": "asharq_security",
+      "name": "Asharq Al-Awsat — Saudi Arabia Strengthens Public Safety with Smart Security Measures",
+      "url": "https://english.aawsat.com/gulf/5289994-saudi-arabia-strengthens-public-safety-smart-security-measures",
+      "note": "Source for the Unified Crime Classification System."
+    },
+    {
+      "id": "informedinfrastructure_911",
+      "name": "Informed Infrastructure — Unified Security Operations Center (911) in Makkah",
+      "url": "https://informedinfrastructure.com/?p=35049",
+      "note": "Technology-industry article; secondary source for the 2015 start of 911 in Makkah."
+    },
+    {
+      "id": "un_egovkb",
+      "name": "UN DESA — E-Government Knowledgebase: Saudi Arabia",
+      "url": "https://publicadministration.un.org/egovkb/en-us/Data/Country-Information/id/149-Saudi-Arabia",
+      "note": "Official UN data: EGDI and E-Participation ranks by survey edition."
+    },
+    {
+      "id": "arabnews_gtmi",
+      "name": "Arab News — Saudi Arabia ranks 2nd globally in digital government, World Bank 2025 index shows",
+      "url": "https://www.arabnews.pk/node/2626749",
+      "note": "Published 19 Dec 2025; also reported by Saudi Gazette on 18 Dec 2025."
+    },
+    {
+      "id": "arabnews_kpmg",
+      "name": "Arab News — Saudi Arabia's digital government push driving top-10 ranking ambition: KPMG",
+      "url": "https://www.arabnews.pk/node/2613094",
+      "note": "Published 26 Aug 2025; source for the goal of consolidating 800+ platforms."
+    },
+    {
+      "id": "saudigazette_absher_nov2025",
+      "name": "Saudi Gazette — Absher records over 38 million transactions in November",
+      "url": "https://cdn.saudigazette.com.sa/article/657425",
+      "note": "Published 15 Dec 2025; transactions by sector for November 2025."
+    },
+    {
+      "id": "arabnews_traffic_2025",
+      "name": "Arab News — Saudi Arabia's 2025 traffic safety report",
+      "url": "https://www.arabnews.pk/node/2648294/saudi-arabia",
+      "note": "Published 23 June 2026; figures from the Ministerial Committee for Traffic Safety's 2025 annual report."
+    },
+    {
+      "id": "who_road_safety",
+      "name": "World Health Organization — Saudi Arabia: Turning the tide against road traffic accidents",
+      "url": "https://www.who.int/about/accountability/results/who-results-report-2020-mtr/country-story/2020/turning-the-tide-against-road-traffic-accidents",
+      "note": "Source for the 2016 baseline (28.8 per 100,000) and the 2030 target."
+    },
+    {
+      "id": "saudigazette_jawazat_2025",
+      "name": "Saudi Gazette — Jawazat's digital services and upcoming projects",
+      "url": "https://cdn.saudigazette.com.sa/article/656337",
+      "note": "Published 6 Nov 2025."
+    },
+    {
+      "id": "arabianbusiness_egates",
+      "name": "Arabian Business — Saudi Arabia speeds up airport times with 152 automated e-gates",
+      "url": "https://www.arabianbusiness.com/gcc/saudi-arabia/saudi-arabia-speeds-up-airport-times-with-152-automated-e-gates",
+      "note": "Published 11 Mar 2025."
+    },
+    {
+      "id": "saudigazette_early_warning_2022",
+      "name": "Saudi Gazette — Interior minister launches national platform for early warning in emergencies",
+      "url": "https://saudigazette.com.sa/article/622780",
+      "note": "Published 9 July 2022."
+    },
+    {
+      "id": "saudigazette_sirens_2025",
+      "name": "Saudi Gazette — Civil Defense strengthens readiness with sirens and phone alerts",
+      "url": "https://cdn.saudigazette.com.sa/article/656234",
+      "note": "Published 3 Nov 2025."
+    },
+    {
+      "id": "ajel_early_warning",
+      "name": "Ajel — Civil Defense to issue warning messages directly to mobile phones",
+      "url": "https://english.ajel.sa/news/civil-defense-to-issue-warning-messages-directly-to-mobile-phones-with-alert-tone",
+      "note": "Announcement of the first trial phase, with the communications regulator."
+    },
+    {
+      "id": "okaz_early_warning",
+      "name": "Okaz — Guidelines when the National Early Warning Platform sounds",
+      "url": "https://www.okaz.com.sa/local/saudi-arabia/2239328",
+      "note": "What residents should do when they receive an alert."
+    },
+    {
+      "id": "saudipedia_tawakkalna",
+      "name": "Saudipedia — Tawakkalna Application",
+      "url": "https://saudipedia.com/en/article/387/government-and-politics/digital-government/tawakkalna-application",
+      "note": "Government encyclopedia: launch by SDAIA with the Ministry of Health in May 2020."
+    },
+    {
+      "id": "saudigazette_tawakkalna_2021",
+      "name": "Saudi Gazette — Tawakkalna users, services, and partners",
+      "url": "https://www.saudigazette.com.sa/article/610607",
+      "note": "Published 5 Sept 2021."
+    },
+    {
+      "id": "arabnews_tawakkalna_2022",
+      "name": "Arab News — Saudi Arabia launches Tawakkalna Services app",
+      "url": "https://www.arabnews.pk/node/2073921",
+      "note": "Published 1 May 2022."
+    },
+    {
+      "id": "saudigazette_tawakkalna_2025",
+      "name": "Saudi Gazette — Tawakkalna services and users",
+      "url": "https://cdn.saudigazette.com.sa/article/656662",
+      "note": "Published 19 Nov 2025."
+    },
+    {
+      "id": "arabnews_tawakkalna_2026",
+      "name": "Arab News — Tawakkalna app expands daily digital services for more than 36 million users",
+      "url": "https://www.arabnews.pk/saudi-arabia/tawakkalna-app-expands-daily-digital-services-for-more-than-36-million-users-3003000",
+      "note": "Published 2 Oct 2026."
+    }
+  ]
+}

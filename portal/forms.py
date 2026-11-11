@@ -1,0 +1,178 @@
+import re
+
+from django import forms
+
+from .models import Feedback
+
+# Arabic letters (U+0621-U+064A) and English letters, plus spaces, hyphens and apostrophes.
+NAME_PATTERN = re.compile(r"^[A-Za-zء-ي\s'\-]+$")
+LINK_PATTERN = re.compile(r"https?://|www\.", re.IGNORECASE)
+LETTER_PATTERN = re.compile(r"[A-Za-zء-ي]")
+
+MAX_LINKS = 2
+
+
+class FeedbackForm(forms.Form):
+    """
+    Server-side validation for the feedback page.
+
+    All error messages come from feedback.json, so the same form
+    shows its errors in Arabic or English depending on the language.
+    """
+
+    name = forms.CharField(min_length=2, max_length=60)
+    email = forms.EmailField(max_length=254)
+    category = forms.ChoiceField()
+    rating = forms.TypedChoiceField(coerce=int, widget=forms.RadioSelect)
+    message = forms.CharField(min_length=20, max_length=1000, widget=forms.Textarea)
+
+    # Honeypot: hidden from people with CSS, bots tend to fill every field.
+    website = forms.CharField(required=False)
+
+    def __init__(self, *args, text, **kwargs):
+        super().__init__(*args, **kwargs)
+        errors = text["errors"]
+
+        for field in self.fields.values():
+            field.error_messages["required"] = errors["required"]
+
+        self.fields["name"].error_messages.update(
+            min_length=errors["name_min"], max_length=errors["name_max"]
+        )
+        self.fields["email"].error_messages.update(
+            invalid=errors["email_invalid"], max_length=errors["email_invalid"]
+        )
+        self.fields["message"].error_messages.update(
+            min_length=errors["message_min"], max_length=errors["message_max"]
+        )
+
+        # Values come from the model, labels from the language file.
+        self.fields["category"].choices = [("", text["category_placeholder"])] + [
+            (value, text["categories"][value]) for value in Feedback.Category.values
+        ]
+        self.fields["category"].error_messages["invalid_choice"] = errors["category_invalid"]
+
+        self.fields["rating"].choices = [
+            (number, label) for number, label in enumerate(text["rating_labels"], start=1)
+        ]
+        self.fields["rating"].error_messages["invalid_choice"] = errors["rating_invalid"]
+
+        self.errors_text = errors
+
+    def clean_name(self):
+        "Collapse extra spaces, then allow letters, spaces, hyphens and apostrophes only."
+        name = " ".join(self.cleaned_data["name"].split())
+
+        if not NAME_PATTERN.match(name):
+            raise forms.ValidationError(self.errors_text["name_invalid"])
+
+        return name
+
+    def clean_email(self):
+        "Store emails in lowercase so the same address is always written the same way."
+        return self.cleaned_data["email"].lower()
+
+    def clean_message(self):
+        "Reject messages with no letters, or with more links than allowed (spam)."
+        message = self.cleaned_data["message"]
+
+        if not LETTER_PATTERN.search(message):
+            raise forms.ValidationError(self.errors_text["message_meaningless"])
+
+        if len(LINK_PATTERN.findall(message)) > MAX_LINKS:
+            raise forms.ValidationError(self.errors_text["message_links"])
+
+        return message
+
+    def clean(self):
+        "Runs after every field check: a filled honeypot means a bot sent the form."
+        cleaned_data = super().clean()
+
+        if cleaned_data.get("website"):
+            raise forms.ValidationError(self.errors_text["spam"])
+
+        return cleaned_data
+
+    def save(self, language):
+        "Create one Feedback row from the validated data."
+        data = self.cleaned_data
+        return Feedback.objects.create(
+            name=data["name"],
+            email=data["email"],
+            category=data["category"],
+            rating=data["rating"],
+            message=data["message"],
+            language=language,
+        )
+
+
+# Letters (Arabic or English) or digits: a query of only symbols is rejected.
+SEARCHABLE_PATTERN = re.compile(r"[A-Za-z0-9ء-ي٠-٩]")
+
+
+class SearchForm(forms.Form):
+    "Validates the ?q= search query. Error messages come from search.json."
+
+    q = forms.CharField(min_length=2, max_length=80)
+
+    def __init__(self, *args, text, **kwargs):
+        super().__init__(*args, **kwargs)
+        errors = text["errors"]
+        self.fields["q"].error_messages.update(
+            required=errors["required"],
+            min_length=errors["min_length"],
+            max_length=errors["max_length"],
+        )
+        self.errors_text = errors
+
+    def clean_q(self):
+        "Collapse extra spaces and require at least one letter or digit."
+        query = " ".join(self.cleaned_data["q"].split())
+
+        if not SEARCHABLE_PATTERN.search(query):
+            raise forms.ValidationError(self.errors_text["symbols_only"])
+
+        return query
+
+
+class QuizForm(forms.Form):
+    """
+    One radio-button question per entry in quiz.json.
+
+    1. Fields are built from the JSON, so adding a question needs no code.
+    2. Each field only accepts the index of one of its own options ("0" to "3").
+    3. review() compares the cleaned answers with the correct indexes.
+    """
+
+    def __init__(self, *args, quiz, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.questions = quiz["questions"]
+        errors = quiz["errors"]
+
+        for question in self.questions:
+            field = forms.ChoiceField(
+                label=question["question"],
+                choices=[(str(index), option) for index, option in enumerate(question["options"])],
+                widget=forms.RadioSelect,
+            )
+            field.error_messages.update(
+                required=errors["required"], invalid_choice=errors["invalid_choice"]
+            )
+            self.fields[question["id"]] = field
+
+    def question_fields(self):
+        "Pair each question with its bound field, in order, for the template."
+        return [(question, self[question["id"]]) for question in self.questions]
+
+    def review(self):
+        "Return each question with the visitor's answer and whether it was right."
+        return [
+            {
+                **question,
+                "chosen": int(self.cleaned_data[question["id"]]),
+                "is_correct": int(self.cleaned_data[question["id"]]) == question["answer"],
+                "correct_option": question["options"][question["answer"]],
+                "chosen_option": question["options"][int(self.cleaned_data[question["id"]])],
+            }
+            for question in self.questions
+        ]

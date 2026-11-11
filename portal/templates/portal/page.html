@@ -1,0 +1,40 @@
+{% extends "portal/base.html" %}
+{% load static %}
+
+{% block title %}{{ page.title }} · {{ site.site_name }}{% endblock %}
+
+{% block content %}
+  <header class="page-header py-5{% if page.header_image %} page-header--image{% endif %}"
+          {% if page.header_image %}style="--header-image: url('{% static page.header_image %}');"{% endif %}>
+    <div class="container">
+      <h1>{{ page.title }}</h1>
+      <p class="page-subtitle lead">{{ page.subtitle }}</p>
+      <p class="page-intro">{{ page.intro }}</p>
+    </div>
+  </header>
+
+  {% for section in page.sections %}
+    <section class="content-section py-4">
+      <div class="container">
+        <h2 class="section-heading">{{ section.heading }}</h2>
+        {% if section.note %}
+          <p class="section-note small text-body-secondary">{{ section.note }}</p>
+        {% endif %}
+
+        {% if section.type == "cards" %}
+          {% include "portal/partials/cards.html" %}
+        {% elif section.type == "stats" %}
+          {% include "portal/partials/stats.html" %}
+        {% elif section.type == "timeline" %}
+          {% include "portal/partials/timeline.html" %}
+        {% elif section.type == "gallery" %}
+          {% include "portal/partials/gallery.html" %}
+        {% elif section.type == "comparison" %}
+          {% include "portal/partials/comparison.html" %}
+        {% endif %}
+      </div>
+    </section>
+  {% endfor %}
+
+  {% include "portal/partials/sources.html" %}
+{% endblock %}

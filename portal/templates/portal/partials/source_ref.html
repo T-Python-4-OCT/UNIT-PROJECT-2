@@ -1,0 +1,4 @@
+{% if item.source_number %}
+  <a class="source-ref" href="#source-{{ item.source_number }}"
+     aria-label="{{ ui.source }} {{ item.source_number }}">[{{ item.source_number }}]</a>
+{% endif %}

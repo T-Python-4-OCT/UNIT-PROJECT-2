@@ -1,0 +1,106 @@
+{
+  "title": "Digital Passports",
+  "header_image": "portal/img/digital-passports.webp",
+  "subtitle": "From the passport counter to Absher and the airport e-gate.",
+  "intro": "The General Directorate of Passports (Jawazat) handles travel, residency, and border procedures. Most of its services now run on Absher, and at the major airports travellers can pass through automated e-gates. Some of the projects below are already operating and some are announced, so each one is marked with its status.",
+  "sections": [
+    {
+      "type": "cards",
+      "heading": "Operating Today",
+      "items": [
+        {
+          "title": "Services on Absher",
+          "status": "operating",
+          "text": "More than 100 Jawazat services are offered digitally through Absher, including the digital passport.",
+          "source": "saudigazette_jawazat_2025"
+        },
+        {
+          "title": "Airport E-Gates",
+          "status": "operating",
+          "text": "152 automated e-gates at the airports of Riyadh, Jeddah, Dammam, and Madinah, built by SDAIA with Jawazat and Matarat and linked to border control, biometrics, airlines, and visa systems.",
+          "source": "arabianbusiness_egates"
+        },
+        {
+          "title": "Smart Voice Agent",
+          "status": "operating",
+          "text": "An automated voice agent answers callers on 992 around the clock.",
+          "source": "saudigazette_jawazat_2025"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "heading": "In Pictures",
+      "items": [
+        {
+          "image": "portal/img/gallery/passports-1.webp",
+          "caption": "A departures hall at a Saudi airport"
+        },
+        {
+          "image": "portal/img/gallery/passports-2.webp",
+          "caption": "Travellers in a Saudi airport terminal"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "heading": "Jawazat in Numbers",
+      "items": [
+        {
+          "label": "Digital services on Absher",
+          "value": "100+",
+          "as_of": "2025-11",
+          "source": "saudigazette_jawazat_2025"
+        },
+        {
+          "label": "Beneficiaries in 2024",
+          "value": "24 million+",
+          "as_of": "2024",
+          "source": "saudigazette_jawazat_2025"
+        },
+        {
+          "label": "Automated e-gates at four airports",
+          "value": "152",
+          "as_of": "2025-03",
+          "source": "arabianbusiness_egates"
+        },
+        {
+          "label": "Passports transactions on Absher in November 2025",
+          "value": "1,960,089",
+          "as_of": "2025-11",
+          "source": "saudigazette_absher_nov2025"
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "heading": "Tested and Announced",
+      "items": [
+        {
+          "title": "Digital Twins",
+          "status": "tested",
+          "status_label": "Tested",
+          "text": "Digital twin technology, a live virtual model of a real site, was tested during the 2024 Hajj season.",
+          "source": "saudigazette_jawazat_2025"
+        },
+        {
+          "title": "Smart Track",
+          "status": "planned",
+          "text": "Smart cameras that can verify the identity of up to 35 travellers at once, without stopping at a counter.",
+          "source": "saudigazette_jawazat_2025"
+        },
+        {
+          "title": "Self-Deportation Platform",
+          "status": "planned",
+          "text": "An announced digital platform for completing self-deportation procedures online.",
+          "source": "saudigazette_jawazat_2025"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "saudigazette_jawazat_2025",
+    "arabianbusiness_egates",
+    "saudigazette_absher_nov2025"
+  ]
+}

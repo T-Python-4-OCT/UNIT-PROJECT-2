@@ -1,0 +1,36 @@
+{% extends "portal/base.html" %}
+
+{% block title %}{{ ui.page_not_found }} · {{ site.site_name }}{% endblock %}
+
+{% block content %}
+  <section class="not-found">
+    <div class="container">
+      <p class="not-found-code" aria-hidden="true">404</p>
+      <h1>{{ ui.page_not_found }}</h1>
+      <p class="lead">{{ ui.page_not_found_text }} {{ ui.not_found_hint }}</p>
+
+      {# Same search page as the navbar icon: GET /search/?q=... #}
+      <form class="search-box not-found-search" method="get" action="{% url 'portal:search' %}" role="search">
+        <label class="visually-hidden" for="not-found-q">{{ ui.search }}</label>
+        <div class="search-field">
+          <svg class="search-icon" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"
+               fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+          </svg>
+          <input type="search" name="q" id="not-found-q" maxlength="80" autocomplete="off">
+          <button class="btn btn-primary" type="submit">{{ ui.search }}</button>
+        </div>
+      </form>
+
+      <nav class="search-browse" aria-label="{{ ui.page_not_found }}">
+        <ul class="list-unstyled">
+          {% for page in site.pages %}
+            <li><a href="{% url 'portal:page' page.slug %}">{{ page.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <a class="btn btn-outline-primary not-found-home" href="{% url 'portal:home' %}">{{ ui.back_home }}</a>
+    </div>
+  </section>
+{% endblock %}

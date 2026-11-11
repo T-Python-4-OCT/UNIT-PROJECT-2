@@ -1,0 +1,155 @@
+
+{% extends "portal/base.html" %}
+{% load static %}
+
+{% block content %}
+  <section class="hero cinematic-hero">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto"
+           poster="{% static 'portal/img/hero-poster.webp' %}" aria-hidden="true">
+      <source src="{% static 'portal/video/hero-riyadh.mp4' %}" type="video/mp4">
+    </video>
+
+    <div class="container hero-container">
+      <div class="hero-content">
+        <p class="hero-eyebrow">{{ home.hero.eyebrow }}</p>
+
+        <h1 class="hero-title">{{ site.tagline }}</h1>
+
+        <p class="hero-description">
+          {{ home.hero.description }}
+        </p>
+
+        <div class="hero-actions">
+          <a class="btn btn-primary btn-lg hero-primary-btn"
+             href="{% url 'portal:page' home.hero.primary_cta.slug %}">
+            {{ home.hero.primary_cta.label }}
+            <span aria-hidden="true">↗</span>
+          </a>
+
+          <a class="btn btn-outline-primary btn-lg hero-secondary-btn"
+             href="{% url 'portal:page' home.hero.secondary_cta.slug %}">
+            {{ home.hero.secondary_cta.label }}
+          </a>
+        </div>
+      </div>
+
+
+    </div>
+  </section>
+
+  <section class="impact-band" aria-label="{{ home.impact.label }}">
+    <div class="container">
+      <div class="row row-cols-2 row-cols-lg-4 g-0">
+        {% for stat in home.impact.items %}
+          <div class="col">
+            <a class="impact-item" href="{% url 'portal:page' stat.slug %}">
+              <span class="stat-value impact-value">{{ stat.value }}</span>
+              <span class="impact-label">{{ stat.label }}</span>
+              <span class="impact-year">{{ stat.as_of }}</span>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="compare-section py-5">
+    <div class="container">
+      <h2 class="section-heading">{{ home.compare.heading }}</h2>
+      <p class="compare-intro">{{ home.compare.text }}</p>
+
+      {# The "before" photo sits on top and is clipped to --pos; the range input moves it #}
+      {# Starts at 35% so the phone in the "today" photo is visible in both reading directions #}
+      <div class="compare" data-compare style="--pos: 35%;">
+        <img class="compare-img" src="{% static 'portal/img/after-app.webp' %}"
+             alt="{{ home.compare.after_alt }}" width="1200" height="800" loading="lazy" decoding="async">
+        <div class="compare-before">
+          <img class="compare-img" src="{% static 'portal/img/before-office.webp' %}"
+               alt="{{ home.compare.before_alt }}" width="1200" height="800" loading="lazy" decoding="async">
+        </div>
+
+        <span class="compare-label compare-label--before" aria-hidden="true">{{ home.compare.before_label }}</span>
+        <span class="compare-label compare-label--after" aria-hidden="true">{{ home.compare.after_label }}</span>
+
+        <div class="compare-handle" aria-hidden="true">
+          <span class="compare-knob">
+            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none"
+                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 7-5 5 5 5"/><path d="m15 7 5 5-5 5"/>
+            </svg>
+          </span>
+        </div>
+
+        {# A real range input: works with mouse, touch and keyboard arrows #}
+        <input class="compare-range" type="range" min="0" max="100" value="35"
+               aria-label="{{ home.compare.slider_label }}">
+      </div>
+    </div>
+  </section>
+
+  <section class="journey cinematic-journey py-5" id="journey">
+    <div class="container">
+      <div class="journey-heading">
+        <div>
+          <p class="section-eyebrow">{{ home.hero.eyebrow }}</p>
+          <h2>{{ home.journey.heading }}</h2>
+          <p class="text-body-secondary">{{ home.journey.intro }}</p>
+        </div>
+      </div>
+
+      {# Bento grid: the first card is large, two others span two columns (sizes in main.css) #}
+      <div class="bento mt-4">
+        {% for step in journey_steps %}
+          <a class="bento-item spotlight{% if forloop.first %} bento-item--hero{% elif forloop.counter == 6 or forloop.counter == 11 %} bento-item--wide{% endif %}"
+             href="{% url 'portal:page' step.slug %}">
+            {% if step.image %}
+              <img class="bento-image" src="{% static step.image %}" alt="" width="640" height="400"
+                   loading="lazy" decoding="async">
+            {% endif %}
+            <span class="bento-top">
+              <span class="journey-number">{{ forloop.counter|stringformat:"02d" }}</span>
+              <span class="journey-card-arrow" aria-hidden="true">↗</span>
+            </span>
+            <span class="bento-text">
+              <h3 class="bento-title">{{ step.title }}</h3>
+              <span class="bento-teaser">{{ step.teaser }}</span>
+            </span>
+          </a>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="about cinematic-about py-5">
+    <div class="container">
+      <p class="section-eyebrow">{{ home.about.heading }}</p>
+      <h2>{{ home.about.heading }}</h2>
+      <p>{{ home.about.text }}</p>
+    </div>
+  </section>
+
+  {# Quiz invitation, same box style as the feedback one with a gold variant #}
+  <section class="feedback-cta pt-5">
+    <div class="container">
+      <div class="feedback-cta-box feedback-cta-box--quiz">
+        <div>
+          <h2 class="h3 mb-2">{{ ui.quiz }}</h2>
+          <p class="mb-0">{{ ui.quiz_cta }}</p>
+        </div>
+        <a class="btn btn-primary btn-lg" href="{% url 'portal:quiz' %}">{{ ui.quiz_button }}</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="feedback-cta py-5">
+    <div class="container">
+      <div class="feedback-cta-box">
+        <div>
+          <h2 class="h3 mb-2">{{ home.feedback_cta.heading }}</h2>
+          <p class="mb-0">{{ home.feedback_cta.text }}</p>
+        </div>
+        <a class="btn btn-primary btn-lg" href="{% url 'portal:feedback' %}">{{ ui.feedback }}</a>
+      </div>
+    </div>
+  </section>
+{% endblock %}

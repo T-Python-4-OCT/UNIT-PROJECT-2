@@ -1,0 +1,27 @@
+{
+  "title": "Search",
+  "subtitle": "Find any topic, figure, or service across the site.",
+  "intro": "Search covers every page in the current language. Arabic search ignores diacritics and different letter forms.",
+  "header_image": "portal/img/digital-services.webp",
+  "label": "Search the site",
+  "placeholder": "e.g. Absher, digital ID, 911",
+  "button": "Search",
+  "results_one": "1 result for",
+  "results_many": "results for",
+  "no_results": "No results for",
+  "no_results_hint": "Try a shorter or different word, or browse the pages below.",
+  "browse": "Browse all pages",
+  "suggestions_label": "Try:",
+  "suggestions": [
+    "Absher",
+    "Digital ID",
+    "911",
+    "2030"
+  ],
+  "errors": {
+    "required": "Type something to search for.",
+    "min_length": "Search needs at least 2 characters.",
+    "max_length": "Search can be 80 characters at most.",
+    "symbols_only": "Search needs letters or numbers, not only symbols."
+  }
+}

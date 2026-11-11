@@ -1,0 +1,134 @@
+{
+  "title": "Smart Security",
+  "header_image": "portal/img/smart-security.webp",
+  "subtitle": "Unified platforms, data, and AI behind a connected security system.",
+  "intro": "The Ministry of Interior's Public Security sector runs on unified platforms that connect emergency reporting, field officers, and online services. Its director says artificial intelligence is being integrated into all aspects of Public Security. Some of what follows is already operating, and some is announced but not yet delivered, so each item is marked with its status.",
+  "sections": [
+    {
+      "type": "cards",
+      "heading": "Core Platforms",
+      "items": [
+        {
+          "title": "Unified Security Operations Center (911)",
+          "text": "A unified emergency reporting system run through security operations centers. It is currently used in Makkah, Madinah, Riyadh, and the Eastern Province.",
+          "source": "saudigazette_911_2025"
+        },
+        {
+          "title": "Where 911 Began",
+          "date": "2015",
+          "text": "The Ministry began implementing 911 in the Makkah region in 2015, bringing more than 40 operation centers under one unified center.",
+          "source": "informedinfrastructure_911"
+        },
+        {
+          "title": "Maidan",
+          "text": "A unified security application for field officers across the Ministry's sectors. They use it to reach security databases and manage case procedures electronically. It is not a public-facing platform and currently offers 17 services.",
+          "source": "saudigazette_911_2025"
+        },
+        {
+          "title": "Unified Crime Classification System",
+          "text": "A shared classification system for crimes, listed among the Ministry's public safety initiatives alongside the 911 center.",
+          "source": "asharq_security"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "heading": "In Pictures",
+      "items": [
+        { "image": "portal/img/gallery/security-1.webp", "caption": "A monitoring and control room" },
+        { "image": "portal/img/gallery/security-2.webp", "caption": "Surveillance cameras watching a public space" }
+      ]
+    },
+    {
+      "type": "stats",
+      "heading": "Public Security in 2025",
+      "items": [
+        {
+          "label": "Transactions on Public Security platforms in 2025",
+          "value": "189 million",
+          "as_of": "2025-12-18",
+          "source": "saudigazette_911_2025"
+        },
+        {
+          "label": "Services across these platforms (911, Absher, Amn, Maidan, and portals)",
+          "value": "322+",
+          "as_of": "2025-12-18",
+          "source": "saudigazette_911_2025"
+        },
+        {
+          "label": "Services offered on Maidan",
+          "value": "17",
+          "as_of": "2025-12-18",
+          "source": "saudigazette_911_2025"
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "heading": "Smart Policing: Today and Next",
+      "items": [
+        {
+          "title": "Smart Mobile Police Station",
+          "status": "operating",
+          "text": "A mobile police station operating in Al-Sayahid, showing how the same technology can be used in any region of the Kingdom.",
+          "source": "saudigazette_911_2025"
+        },
+        {
+          "title": "Drone Management System",
+          "status": "in development",
+          "text": "Work is underway to build a system for managing drones in security operations.",
+          "source": "saudigazette_911_2025"
+        },
+        {
+          "title": "AI-Based Police Stations",
+          "status": "planned",
+          "text": "Following an advanced police station in Al-Salmaniyah, Riyadh, presented as a model, the next phase is police stations in Jeddah and the Eastern Province that rely on artificial intelligence and technology.",
+          "source": "saudigazette_911_2025"
+        },
+        {
+          "title": "911 in Every Region",
+          "status": "planned",
+          "text": "Public Security plans to extend the unified reporting system to all regions of the Kingdom in the future.",
+          "source": "saudigazette_911_2025"
+        },
+        {
+          "title": "Maidan Al-Shamel",
+          "status": "planned",
+          "text": "A strategic plan to develop Maidan into a broader application that lets all sectors use it and access data from the various Public Security platforms.",
+          "source": "saudigazette_911_2025"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "heading": "Public Security Strategy",
+      "items": [
+        {
+          "label": "Directives",
+          "value": "2",
+          "as_of": "2025-12-18",
+          "source": "saudigazette_911_2025"
+        },
+        {
+          "label": "Initiatives",
+          "value": "35",
+          "as_of": "2025-12-18",
+          "source": "saudigazette_911_2025"
+        },
+        {
+          "label": "Projects",
+          "value": "131",
+          "as_of": "2025-12-18",
+          "source": "saudigazette_911_2025"
+        },
+        {
+          "label": "Tracks (including cybersecurity, AI, digital transformation, infrastructure, and operations)",
+          "value": "10",
+          "as_of": "2025-12-18",
+          "source": "saudigazette_911_2025"
+        }
+      ]
+    }
+  ],
+  "sources": ["saudigazette_911_2025", "asharq_security", "informedinfrastructure_911"]
+}
