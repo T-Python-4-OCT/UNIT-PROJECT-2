@@ -1,4 +1,5 @@
 """Settings for the Saudi Design Django project."""
+# These settings control the Django project.
 from pathlib import Path
 
 # Root directory containing manage.py.
@@ -12,6 +13,7 @@ DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "[::1]"]
 
+# These apps provide Django features and the site.
 INSTALLED_APPS = [
     "django.contrib.admin",
     "django.contrib.auth",
@@ -22,6 +24,7 @@ INSTALLED_APPS = [
     "website",                     # Main website application.
 ]
 
+# Middleware handles each request before the view.
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
@@ -34,6 +37,7 @@ MIDDLEWARE = [
 
 ROOT_URLCONF = "config.urls"
 
+# This setup lets Django find and render page templates.
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
@@ -53,6 +57,7 @@ TEMPLATES = [
 WSGI_APPLICATION = "config.wsgi.application"
 ASGI_APPLICATION = "config.asgi.application"
 
+# The site data is stored in a local SQLite file.
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.sqlite3",
@@ -60,6 +65,7 @@ DATABASES = {
     }
 }
 
+# These checks help keep account passwords safe.
 AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.UserAttributeSimilarityValidator"},
     {"NAME": "django.contrib.auth.password_validation.MinimumLengthValidator"},
@@ -67,12 +73,14 @@ AUTH_PASSWORD_VALIDATORS = [
     {"NAME": "django.contrib.auth.password_validation.NumericPasswordValidator"},
 ]
 
+# The site uses Arabic and Riyadh time.
 LANGUAGE_CODE = "ar"
 TIME_ZONE = "Asia/Riyadh"
 USE_I18N = True
 USE_TZ = True
 
 # URL prefix used to serve static assets.
+# Static files include CSS, scripts, and images.
 STATIC_URL = "static/"
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"

@@ -1,7 +1,9 @@
+// This file handles the theme, menu, page links, and filters.
 
 (function () {
   "use strict";
 
+  // Use the page root to update the active theme.
   var root = document.documentElement;
 
   
@@ -9,6 +11,7 @@
   var themeLabel = document.getElementById("theme-label");
   var themeColor = document.querySelector('meta[name="theme-color"]');
 
+  // Update colors and labels for the selected theme.
   function applyTheme(theme) {
     root.setAttribute("data-theme", theme);
     var isDark = theme === "dark";
@@ -20,6 +23,7 @@
 
   applyTheme(root.getAttribute("data-theme") || "light");
 
+  // Save the theme choice when the button is clicked.
   if (themeBtn) {
     themeBtn.addEventListener("click", function () {
       var next = root.getAttribute("data-theme") === "dark" ? "light" : "dark";
@@ -32,6 +36,7 @@
   var menuBtn = document.getElementById("menu-toggle");
   var nav = document.getElementById("site-nav");
 
+  // Keep the mobile menu state and button label in sync.
   function setMenu(open) {
     document.body.classList.toggle("nav-open", open);
     if (menuBtn) {
@@ -40,6 +45,7 @@
     }
   }
 
+  // Open the menu on click and close it with Escape.
   if (menuBtn && nav) {
     menuBtn.addEventListener("click", function () {
       setMenu(!document.body.classList.contains("nav-open"));
@@ -50,6 +56,7 @@
   }
 
   
+  // Add a short fade when opening another site page.
   document.addEventListener("click", function (e) {
     var link = e.target.closest("a[href]");
     if (!link) return;
@@ -67,11 +74,13 @@
     document.body.classList.add("is-leaving");
     window.setTimeout(function () { window.location.href = url.href; }, 180);
   });
+  // Show the page again when the visitor returns.
   window.addEventListener("pageshow", function () {
     document.body.classList.remove("is-leaving");
   });
 
   
+  // Filter the event cards by the selected category.
   var chips = document.querySelectorAll(".chip[data-filter]");
   var cards = document.querySelectorAll("#gallery .card");
 

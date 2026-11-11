@@ -1,4 +1,6 @@
 {% load static %}
+<!-- This partial keeps image loading consistent. -->
+<!-- Shared image wrapper with loading options. -->
 <div class="media {{ class }}">
   <img src="{% static 'website/images/' %}{{ file }}" alt="{{ alt }}" loading="{{ loading|default:'lazy' }}" decoding="async"{% if fetchpriority %} fetchpriority="{{ fetchpriority }}"{% endif %}>
 </div>

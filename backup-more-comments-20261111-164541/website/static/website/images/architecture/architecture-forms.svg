@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
+  <title id="title">العمارة السعودية عبر الزمن</title><desc id="desc">رسم يجمع واجهة طينية بتفاصيل نجدية ومبنى معاصراً بخطوط هندسية.</desc>
+  <defs><linearGradient id="sky" x2="0" y2="1"><stop stop-color="#e8f1ee"/><stop offset="1" stop-color="#f8f0e2"/></linearGradient></defs>
+  <rect width="1200" height="800" fill="url(#sky)"/><circle cx="950" cy="150" r="74" fill="#d8a102" opacity=".34"/>
+  <path d="M0 622c180-48 332-40 510 0s400 54 690-12v190H0z" fill="#e4d4b7"/>
+  <g transform="translate(116 208)">
+    <path d="M0 412V166l64-48v-48l66 44 66-56 70 56 58-48 72 56v290z" fill="#b8865a" stroke="#8c5e3c" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M0 166h396M62 116h64M198 58v75M325 122h62" stroke="#f1d9b6" stroke-width="12"/>
+    <path d="M48 218h52v62H48zm112 0h52v62h-52zm112 0h52v62h-52zM156 318h84v94h-84z" fill="#61442f"/>
+    <path d="M20 412h356" stroke="#69462e" stroke-width="20"/>
+  </g>
+  <g transform="translate(650 114)">
+    <path d="M96 506V106q0-34 34-46l176-62q33-12 49 20l143 268q10 18 10 38v182z" fill="#16644a"/>
+    <path d="M130 474V144l190-66 135 250v146z" fill="#f3fcf9" opacity=".96"/>
+    <path d="m132 226 314-110M132 310l355-122M132 392l355-122M224 110v364M316 80v394M408 206v268" stroke="#1b8f84" stroke-width="10" opacity=".8"/>
+    <path d="M96 506h412" stroke="#09241e" stroke-width="20"/>
+  </g>
+  <g transform="translate(74 530)" fill="#16644a"><path d="M28 112V18h14v94z"/><path d="M35 28C-3 14-17-4-20-24 6-21 28-7 38 17 49-10 72-23 100-24 91 1 68 20 42 29 74 28 98 43 113 66 84 70 57 57 40 38 51 66 43 92 25 111 10 87 11 57 35 31z"/></g>
+</svg>

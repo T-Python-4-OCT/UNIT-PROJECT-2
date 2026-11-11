@@ -1,3 +1,4 @@
+# This file exposes the app for ASGI servers.
 import os
 
 from django.core.asgi import get_asgi_application

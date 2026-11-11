@@ -1,5 +1,6 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" role="img" aria-labelledby="title desc">
   <title id="title">وحدات القط العسيري</title><desc id="desc">تركيب هندسي ملون مستوحى من زخارف القط العسيري.</desc>
+  <!-- Background bands and geometric motifs. -->
   <rect width="1200" height="800" fill="#f6e6cf"/>
   <path d="M0 0h1200v88H0zm0 712h1200v88H0z" fill="#16644a"/>
   <g fill="#8e2f22"><path d="M0 112h1200v22H0zm0 554h1200v22H0z"/></g>

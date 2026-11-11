@@ -1,0 +1,24 @@
+{% extends "website/base.html" %}
+{% block title %}التصميم الجرافيكي والهوية البصرية{% endblock %}
+{% block content %}
+{% include "website/_page_head.html" with title="التصميم الجرافيكي والهوية البصرية" tagline="حرف وشكل ولون يصنعون علامة" lead="الشعار والخط واللون والصورة عناصر تبني رسالة بصرية واضحة." image="graphic/identity-system.svg" image_alt="لوحة توضيحية لعناصر الهوية البصرية" %}
+<!-- This page presents graphic design and visual identity. -->
+<section class="section section--tint"><div class="container"><div class="section-head"><h2>مجالات التصميم الجرافيكي</h2><p>كل عنصر بصري يؤدي وظيفة في توصيل الفكرة.</p></div><dl class="disciplines">
+  <div class="discipline"><dt>الشعارات</dt><dd>رمز بسيط يختصر فكرة العلامة.</dd></div>
+  <div class="discipline"><dt>الهويات البصرية</dt><dd>ألوان وخطوط وقواعد موحّدة للعلامة.</dd></div>
+  <div class="discipline"><dt>الملصقات</dt><dd>رسالة واضحة تُقرأ بسرعة.</dd></div>
+  <div class="discipline"><dt>المطبوعات</dt><dd>تنسيق متوازن للصفحات والنصوص والصور.</dd></div>
+  <div class="discipline"><dt>الخط والزخارف</dt><dd>حروف وأنماط تضيف شخصية للتصميم.</dd></div>
+</dl></div></section>
+<section class="section container"><div class="section-head"><h2>من الزخرفة إلى الشعار</h2><p>الأشكال البسيطة قابلة للتكرار والتكيّف مع مقاسات مختلفة.</p></div><div class="motifs">
+  <figure class="motif"><svg viewBox="0 0 120 120" role="img" aria-label="شريط معيّنات"><g fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"><path d="M60 8 106 60 60 112 14 60Z"/><path d="M60 32 84 60 60 88 36 60Z"/></g><circle cx="60" cy="60" r="7" fill="currentColor"/></svg><figcaption><strong>شريط معيّنات</strong><span>تكرار هندسي بإيقاع منتظم.</span></figcaption></figure>
+  <figure class="motif"><svg viewBox="0 0 120 120" role="img" aria-label="شرفات مثلثة"><g fill="currentColor"><path d="M12 96 28 56 44 96Z"/><path d="M44 96 60 56 76 96Z"/><path d="M76 96 92 56 108 96Z"/></g><rect x="8" y="100" width="104" height="6" fill="currentColor"/></svg><figcaption><strong>شرفات مثلثة</strong><span>إشارة بصرية إلى تفاصيل العمارة النجدية.</span></figcaption></figure>
+  <figure class="motif"><svg viewBox="0 0 120 120" role="img" aria-label="نجمة ثمانية"><g fill="none" stroke="currentColor" stroke-width="4" stroke-linejoin="round"><rect x="26" y="26" width="68" height="68"/><rect x="26" y="26" width="68" height="68" transform="rotate(45 60 60)"/></g><circle cx="60" cy="60" r="6" fill="currentColor"/></svg><figcaption><strong>نجمة ثمانية</strong><span>مربعان متداخلان يشكلان نمطًا هندسيًا.</span></figcaption></figure>
+  <figure class="motif"><svg viewBox="0 0 120 120" role="img" aria-label="مروحة نخلة"><g fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"><path d="M60 106V22M60 106 26 34M60 106 94 34M60 106 14 62M60 106 106 62"/></g></svg><figcaption><strong>مروحة النخلة</strong><span>خطوط تتفرع من نقطة واحدة مثل السعف.</span></figcaption></figure>
+</div></section>
+<section class="section section--tint"><div class="container"><div class="section-head"><h2>نماذج من الهوية البصرية</h2><p>شعار وهوية مناسبة وخط عربي.</p></div><div class="grid grid--3">
+  {% include "website/_card.html" with kind="هوية بصرية · 2020" place="قمة مجموعة العشرين في المملكة" title="شعار قمة العشرين والسدو" summary="نُقلت وحدات من النسيج التقليدي إلى لغة شعار معاصرة." detail="تكرار المعينات الهندسية يحافظ على وضوح الرمز عند تصغيره أو استخدامه بلون واحد. هذه طريقة عملية لاستلهام التراث دون نسخ القطعة كاملة." image="graphic/g20-logo.png" image_alt="شعار قمة العشرين 2020 المستوحى من السدو" %}
+  {% include "website/_card.html" with kind="هوية مناسبات" place="المنصات الرقمية" title="هويات المناسبات" summary="نظام واحد يجمع الألوان والخطوط والرسوم والقوالب." detail="تساعد القوالب الجاهزة الجهات على توحيد حضور المناسبة في المواقع والتطبيقات والمواد الإعلانية، مع الحفاظ على وضوح الواجهة." image="graphic/occasion-identities.svg" image_alt="رسم توضيحي لعناصر هوية مناسبة" %}
+  {% include "website/_card.html" with kind="خط وكتابة" place="العالم العربي" title="الخط العربي" summary="اختيار الخط يحدد شخصية الشعار والعنوان." detail="الثلث يوحي بالرسمية، والنسخ يناسب القراءة، والكوفي قريب من الهندسة. اجعل وضوح الحروف مناسبًا لحجم الاستخدام." image="identity/calligraphy.jpg" image_alt="لوحة بالخط العربي" %}
+</div></div></section>
+{% endblock %}

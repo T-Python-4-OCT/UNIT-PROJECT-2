@@ -1,4 +1,5 @@
 {% load static %}<!DOCTYPE html>
+<!-- This template holds the shared page layout. -->
 <html lang="ar" dir="rtl" data-theme="light">
 <head>
   <meta charset="utf-8">
@@ -27,6 +28,7 @@
 <body>
   <a class="skip-link" href="#main">انتقل إلى المحتوى</a>
 
+  <!-- Shared header and navigation. -->
   <header class="site-header">
     <div class="container site-header__inner">
       <a class="brand" href="{% url 'website:home' %}" aria-label="التصميم السعودي — الرئيسية">
@@ -64,10 +66,12 @@
     </div>
   </header>
 
+  <!-- Page content goes here. -->
   <main id="main">
     {% block content %}{% endblock %}
   </main>
 
+  <!-- Shared footer and useful links. -->
   <footer class="site-footer">
     <div class="band band--footer" aria-hidden="true"></div>
     <div class="container footer__grid">
@@ -87,11 +91,14 @@
           <li><a href="{% url 'website:contemporary' %}">المعاصر</a></li>
         </ul>
       </nav>
+      <!-- Official links for learning more about Saudi heritage -->
       <div class="footer__note">
-        <h2 class="footer__heading">ابدأ رحلتك</h2>
-        <p>تعرّف على السدو والقط العسيري والعمارة السعودية، ثم شاهد أثرها في التصميم المعاصر.</p>
-        <p><a href="{% url 'website:identity' %}">استكشف الهوية والتراث</a></p>
-        <p><a href="{% url 'website:digital_design' %}">اكتشف التصميم الرقمي</a></p>
+        <h2 class="footer__heading">روابط قد تهمك</h2>
+        <ul class="footer__links">
+          <li><a href="https://heritage.moc.gov.sa/" target="_blank" rel="noopener noreferrer">هيئة التراث</a></li>
+          <li><a href="https://heritage.moc.gov.sa/Cultural-Calendar" target="_blank" rel="noopener noreferrer">الفعاليات الثقافية</a></li>
+          <li><a href="https://ich.unesco.org/en/Decisions/15.COM/8.b.4" target="_blank" rel="noopener noreferrer">السدو في اليونسكو</a></li>
+        </ul>
       </div>
     </div>
   </footer>
@@ -100,3 +107,4 @@
   {% block extra_js %}{% endblock %}
 </body>
 </html>
+

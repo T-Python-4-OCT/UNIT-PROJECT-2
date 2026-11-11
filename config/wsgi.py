@@ -1,3 +1,4 @@
+# This file exposes the app for WSGI servers.
 import os
 
 from django.core.wsgi import get_wsgi_application
