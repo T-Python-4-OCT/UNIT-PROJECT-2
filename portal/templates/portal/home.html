@@ -37,6 +37,22 @@
     </div>
   </section>
 
+  <section class="impact-band" aria-label="{{ home.impact.label }}">
+    <div class="container">
+      <div class="row row-cols-2 row-cols-lg-4 g-0">
+        {% for stat in home.impact.items %}
+          <div class="col">
+            <a class="impact-item" href="{% url 'portal:page' stat.slug %}">
+              <span class="stat-value impact-value">{{ stat.value }}</span>
+              <span class="impact-label">{{ stat.label }}</span>
+              <span class="impact-year">{{ stat.as_of }}</span>
+            </a>
+          </div>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
   <section class="journey cinematic-journey py-5" id="journey">
     <div class="container">
       <div class="journey-heading">

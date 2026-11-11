@@ -5,6 +5,15 @@
     "primary_cta": { "label": "Start the Journey", "slug": "vision-2030" },
     "secondary_cta": { "label": "See the Future", "slug": "future-vision" }
   },
+  "impact": {
+    "label": "The transformation in numbers",
+    "items": [
+      { "value": "28M+", "label": "Unified digital IDs issued through Absher", "as_of": "2024", "slug": "digital-identity" },
+      { "value": "460+", "label": "Services across Absher's three channels", "as_of": "2024", "slug": "absher" },
+      { "value": "189M", "label": "Transactions on Public Security platforms", "as_of": "2025", "slug": "smart-security" },
+      { "value": "2nd", "label": "Worldwide in the World Bank GovTech Maturity Index", "as_of": "2025", "slug": "future-vision" }
+    ]
+  },
   "journey": {
     "heading": "The Journey",
     "intro": "Seven pages follow the story from the national vision to the technology shaping what comes next.",

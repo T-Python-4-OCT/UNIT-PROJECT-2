@@ -118,18 +118,18 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  // Animate only values like "280", "18.3 million", "460+".
+  // Animate only values like "280", "18.3 million", "460+", "+28 مليون".
   // Skip dates and rankings such as "25 April 2016" or "2nd of 197".
-  const pattern = /^(\d+(?:\.\d+)?)(\D*)$/;
+  const pattern = /^(\+?)(\d+(?:\.\d+)?)(\D*)$/;
 
-  function countUp(element, target, decimals, suffix) {
+  function countUp(element, target, decimals, prefix, suffix) {
     const duration = 1200;
     const start = performance.now();
 
     function frame(now) {
       const t = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - t, 3);
-      element.textContent = (target * eased).toFixed(decimals) + suffix;
+      element.textContent = prefix + (target * eased).toFixed(decimals) + suffix;
 
       if (t < 1) {
         requestAnimationFrame(frame);
@@ -153,8 +153,11 @@ document.addEventListener("DOMContentLoaded", function () {
         return;
       }
 
-      const decimals = (match[1].split(".")[1] || "").length;
-      countUp(element, parseFloat(match[1]), decimals, match[2]);
+      const prefix = match[1];
+      const number = match[2];
+      const suffix = match[3];
+      const decimals = (number.split(".")[1] || "").length;
+      countUp(element, parseFloat(number), decimals, prefix, suffix);
     });
   }, { threshold: 0.6 });
 

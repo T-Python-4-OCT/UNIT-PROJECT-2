@@ -59,24 +59,28 @@
       "items": [
         {
           "date": "2010",
+          "hijri": "1431-1432 H",
           "title": "Absher is established",
           "text": "The Ministry's online services platform, Absher, is established.",
           "source": "saudipedia"
         },
         {
           "date": "2015-2016",
+          "hijri": "1436-1438 H",
           "title": "Absher on mobile",
           "text": "The Absher app is released on the App Store in 2015 and on Google Play in 2016.",
           "source": "saudipedia"
         },
         {
           "date": "April 2018",
+          "hijri": "1439 H",
           "title": "Absher Business",
           "text": "The Ministry launches Absher Business to move its services for businesses to an interactive digital system.",
           "source": "arabnews_absher"
         },
         {
           "date": "2024",
+          "hijri": "1445-1446 H",
           "title": "28 million digital identities",
           "text": "More than 28 million unified digital IDs have been issued through Absher, which offers over 460 services across its Individuals, Business, and Government platforms.",
           "source": "saudipedia"
