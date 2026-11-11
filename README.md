@@ -229,11 +229,7 @@ Then open **http://127.0.0.1:8000** in your browser.
 
 ---
 
-## ⚠️ Disclaimer
 
-This is a **student project**, made for learning purposes only.
-It is not affiliated with or endorsed by Saudi Vision 2030, the Public Investment Fund, or any of the projects shown.
-All names, logos and images belong to their respective owners.
 
 ---
 
