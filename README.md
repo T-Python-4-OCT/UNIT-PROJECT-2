@@ -1,6 +1,6 @@
 # Saudi Military Industries
 
-A bilingual (Arabic and English) Django website that takes visitors on a tour of Saudi Arabia's military industries: the land, air and naval sectors, the entities leading them (SAMI and GAMI), the history of the industry, the World Defense Show, and career paths for young Saudis.
+A bilingual (Arabic and English) website that introduces Saudi Arabia's military industries: the land, air and naval sectors, the entities leading them (SAMI and GAMI), the history of the industry, the World Defense Show, and career paths for young Saudis, built with Django.
 
 Built as Unit Project 2 for a Python bootcamp, with dark mode, a responsive layout and interactive tools such as a Vision 2030 localization calculator.
 
