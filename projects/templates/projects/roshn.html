@@ -1,0 +1,142 @@
+{% extends 'projects/base.html' %}
+{% load static %}
+
+{% block title %}{{ project.name }}{% endblock %}
+
+{% block content %}
+<div class="project-page page-roshn">
+
+<!-- ================= HERO ================= -->
+<section class="rn-hero" style="--hero-img: url('{% static project.hero %}')">
+    <div class="container rn-hero-inner">
+        <a href="{% url 'projects:all_projects' %}" class="back-link">
+            <span class="material-symbols-outlined" aria-hidden="true">arrow_back</span> All Projects
+        </a>
+        <span class="rn-arabic" lang="ar" dir="rtl">{{ project.arabic_name }}</span>
+        <h1>{{ project.name }}</h1>
+        <p>{{ project.tagline }}</p>
+    </div>
+    <span class="rn-glow" aria-hidden="true"></span>
+</section>
+
+<!-- ================= RESIDENTS ================= -->
+<section class="container section rn-intro">
+    <div class="rn-counter-box">
+        <span class="visually-hidden">{{ project.stats.0.value }} {{ project.stats.0.label }}</span>
+        <strong class="rn-counter" style="--num: 22" aria-hidden="true"></strong>
+        <span class="rn-counter-label" aria-hidden="true">Residents in ROSHN communities by 2030</span>
+    </div>
+    <div>
+        <span class="eyebrow">{{ project.category }} · {{ project.location }}</span>
+        <h2>{{ project.headline }}</h2>
+        <p class="lead">{{ project.overview }}</p>
+        <a href="{{ project.website }}" class="link-arrow" target="_blank" rel="noopener">
+            Visit the official website <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+        </a>
+    </div>
+</section>
+
+<!-- ================= STREET SCENE ================= -->
+<section class="rn-band" aria-hidden="true">
+    <div class="rn-scene">
+        <span class="rn-sun"></span>
+        <span class="rn-cloud"></span>
+        <span class="rn-cloud c2"></span>
+        <div class="rn-houses">
+            <div class="house"><span class="roof"></span></div>
+            <span class="rn-tree"></span>
+            <div class="house tower"></div>
+            <div class="house wide"><span class="roof"></span></div>
+            <span class="rn-tree"></span>
+            <div class="house mosque"><span class="dome"></span><span class="minaret"></span></div>
+            <div class="house"><span class="roof"></span></div>
+            <span class="rn-tree"></span>
+            <div class="house tower short"></div>
+            <div class="house wide"><span class="roof"></span></div>
+        </div>
+        <div class="rn-street">
+            <span class="rn-walker"></span>
+            <span class="rn-walker back"></span>
+            <span class="rn-car"></span>
+        </div>
+    </div>
+</section>
+
+<!-- ================= COMMUNITIES ================= -->
+<section class="rn-communities">
+    <div class="container">
+        <div class="section-head">
+            <div>
+                <span class="eyebrow">Communities</span>
+                <h2>Find Your Neighbourhood</h2>
+            </div>
+        </div>
+
+        <div class="rn-explorer">
+            {% for item in project.communities %}
+                <input type="radio" name="community" id="community-{{ forloop.counter }}" class="ks-radio" {% if forloop.first %}checked{% endif %}>
+            {% endfor %}
+
+            <div class="rn-list">
+                {% for item in project.communities %}
+                    <label for="community-{{ forloop.counter }}" class="rn-option rn-option-{{ forloop.counter }}">
+                        <span class="material-symbols-outlined" aria-hidden="true">{{ item.icon }}</span>
+                        <span>
+                            <strong>{{ item.name }}</strong>
+                            <small>{{ item.city }}</small>
+                        </span>
+                    </label>
+                {% endfor %}
+            </div>
+
+            <div class="rn-panel">
+                <div class="rn-map" aria-hidden="true">
+                    <div class="rn-land"></div>
+                    <span class="rn-sea">Red Sea</span>
+                    <span class="rn-gulf">Arabian Gulf</span>
+                    {% for item in project.communities %}
+                        <span class="rn-dot rn-dot-{{ forloop.counter }}" style="--x: {{ item.x }}%; --y: {{ item.y }}%">
+                            <em>{{ item.name }}</em>
+                        </span>
+                    {% endfor %}
+                </div>
+
+                {% for item in project.communities %}
+                    <article class="rn-detail rn-detail-{{ forloop.counter }}">
+                        <span class="rn-detail-city">
+                            <span class="material-symbols-outlined" aria-hidden="true">location_on</span>{{ item.city }}
+                        </span>
+                        <h3>{{ item.name }}</h3>
+                        <p>{{ item.text }}</p>
+                    </article>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ================= AMENITIES ================= -->
+<section class="container section">
+    <div class="section-head center">
+        <div>
+            <span class="eyebrow">Everyday Life</span>
+            <h2>Everything Within Reach</h2>
+        </div>
+    </div>
+
+    <div class="rn-amenities">
+        {% for item in project.amenities %}
+            <div class="rn-amenity">
+                <span class="material-symbols-outlined" aria-hidden="true">{{ item.icon }}</span>
+                <h3>{{ item.title }}</h3>
+                <p>{{ item.text }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+    {% include 'projects/project_gallery.html' %}
+    {% include 'projects/more_projects.html' %}
+
+</div>
+{% endblock %}

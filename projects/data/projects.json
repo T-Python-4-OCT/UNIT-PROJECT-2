@@ -636,7 +636,7 @@
         "category": "Housing",
         "location": "Nationwide",
         "tagline": "Communities designed for living.",
-        "image": "images/roshn/illustration.svg",
+        "image": "images/roshn/card.jpg",
         "headline": "Homes for a New Generation",
         "overview": "ROSHN is a real estate developer owned by the Public Investment Fund. It builds integrated communities across the Kingdom, with homes, schools, mosques, parks and retail, and aims to house more than 2.2 million people by 2030.",
         "badge": "Owned by the Public Investment Fund",
@@ -737,6 +737,34 @@
                 "icon": "location_city",
                 "title": "ALFULWA",
                 "text": "A community in the Eastern Province."
+            }
+        ],
+        "hero": "images/roshn/hero.jpg",
+        "gallery": [
+            {
+                "image": "images/roshn/1.jpg",
+                "caption": "Najdi-inspired streets",
+                "text": "Shaded walkways between family homes"
+            },
+            {
+                "image": "images/roshn/2.jpg",
+                "caption": "The heart of the neighbourhood",
+                "text": "Parks, play areas and cafés"
+            },
+            {
+                "image": "images/roshn/card.jpg",
+                "caption": "A school next door",
+                "text": "Courts and gardens within walking distance"
+            },
+            {
+                "image": "images/roshn/3.jpg",
+                "caption": "Evening in SEDRA",
+                "text": "Car-free paths lit for night walks"
+            },
+            {
+                "image": "images/roshn/4.jpg",
+                "caption": "Modern apartments",
+                "text": "Balconies wrapped in greenery"
             }
         ]
     }
