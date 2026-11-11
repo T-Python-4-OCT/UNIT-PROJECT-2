@@ -1,0 +1,80 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="page-hero">
+  {% with hero=page.hero hero_img="main/img/art/masmak-courtyard.svg" %}{% include "main/partials/_hero_bg.html" %}{% endwith %}
+  <div class="container">
+    <nav class="crumbs" aria-label="مسار التصفح">
+      <a href="{% url 'main:home' %}">الرئيسية</a><span aria-hidden="true">‹</span>
+      <a href="{% url 'main:participants' %}">المشاركون</a><span aria-hidden="true">‹</span>
+      <span>{{ person.short }}</span>
+    </nav>
+    <p class="kicker">{{ person.role }}</p>
+    <h1>{{ person.name }}</h1>
+    <p class="lead">{{ person.summary }}</p>
+  </div>
+</section>
+<div class="najdi-band"></div>
+
+<section class="section">
+  <div class="container person-layout">
+    <aside>
+      {% if person.m %}
+        {% with m=person.m %}{% include "main/partials/_media.html" %}{% endwith %}
+      {% endif %}
+      <dl class="dl">
+        {% for f in person.facts %}
+        <div><dt>{{ f.label }}</dt><dd>{{ f.value }}</dd></div>
+        {% endfor %}
+        {% if person.years %}<div><dt>السنوات</dt><dd>{{ person.years }}</dd></div>{% endif %}
+      </dl>
+    </aside>
+
+    <article>
+      {% if person.group_info %}
+      <div class="group" style="margin-bottom:26px">
+        <span class="badge badge--gold">{{ person.group_info.title }} · {{ person.group_info.count }}</span>
+        <p style="margin:10px 0 6px">{{ person.group_info.text }}</p>
+        <span class="group__place"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>{{ person.group_info.place }}</span>
+      </div>
+      {% endif %}
+
+      <h2>سيرته ودوره</h2>
+      <div class="prose">
+        {% for para in person.bio %}<p>{{ para }}</p>{% endfor %}
+      </div>
+
+      {% if person.later %}
+      <h2 style="margin-top:30px">بعد الاسترداد</h2>
+      <ul class="later">
+        {% for l in person.later %}<li>{{ l }}</li>{% endfor %}
+      </ul>
+      {% endif %}
+
+      <div class="pager">
+        {% if prev_person %}<a href="{% url 'main:person' prev_person.slug %}"><small>السابق</small>{{ prev_person.short }}</a>{% endif %}
+        {% if next_person %}<a class="next" href="{% url 'main:person' next_person.slug %}"><small>التالي</small>{{ next_person.short }}</a>{% endif %}
+      </div>
+
+      {% include "main/partials/_sources.html" %}
+    </article>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head"><p class="kicker">رجال آخرون</p><h2>من رفاق المسيرة</h2></div>
+    <div class="grid grid--3">
+      {% for p in others %}
+      <a class="card card--link" href="{% url 'main:person' p.slug %}">
+        <span class="person-card__role">{{ p.role }}</span>
+        <h3 style="margin-top:4px">{{ p.name }}</h3>
+        <p class="muted small">{{ p.summary }}</p>
+      </a>
+      {% endfor %}
+    </div>
+    <p style="margin-top:22px"><a class="btn" href="{% url 'main:participants' %}"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>كل المشاركين</a></p>
+  </div>
+</section>
+{% endblock %}

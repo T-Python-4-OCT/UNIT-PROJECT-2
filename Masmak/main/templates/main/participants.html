@@ -1,0 +1,144 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+{% with hero_img="main/img/art/masmak-courtyard.svg" %}{% include "main/partials/_page_hero.html" %}{% endwith %}
+
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div class="reveal">
+        <p class="kicker">ثلاث مجموعات، مهمة واحدة</p>
+        <h2>من دخل، ومن انتظر، ومن حرس</h2>
+        <p class="lead">{{ intro.lead }}</p>
+      </div>
+      <a class="card card--link reveal" href="{% url 'main:king' %}" style="display:flex;gap:18px;align-items:center">
+        <span class="leader-photo">
+          {% if king_photo.mode == "local" %}<img src="{% static king_photo.path %}" alt="{{ king_photo.alt }}">
+          {% elif king_photo.mode == "remote" %}<img src="{{ king_photo.remote_url }}" alt="{{ king_photo.alt }}" referrerpolicy="no-referrer" data-fallback="{% static 'main/img/art/portrait-frame.svg' %}">
+          {% else %}<img src="{% static 'main/img/art/portrait-frame.svg' %}" alt="">{% endif %}
+        </span>
+        <span>
+          <span class="person-card__role">قائد المسيرة</span>
+          <span class="person-card__name" style="display:block">الملك عبدالعزيز بن عبدالرحمن آل سعود</span>
+          <span class="journey__go">سيرته <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+        </span>
+      </a>
+    </div>
+
+    <div class="groups" style="margin-top:36px">
+      {% for g in groups %}
+      <div class="group reveal">
+        <div class="group__count">{{ g.count }}</div>
+        <h3>{{ g.title }}</h3>
+        <p>{{ g.text }}</p>
+        <span class="group__place"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>{{ g.place }}</span>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="featured-title">
+  <div class="container">
+    <div class="roster-tools">
+      <div class="section-head reveal" style="margin:0">
+        <p class="kicker">معرض الشخصيات</p>
+        <h2 id="featured-title">أبرز الرجال وأدوارهم</h2>
+        <p class="muted" style="margin:0">اضغط على البطاقة لقراءة الملخص، أو افتح صفحة الشخصية كاملة.</p>
+      </div>
+      <div class="carousel__nav">
+        <button class="icon-btn" type="button" data-carousel-prev aria-label="السابق"><svg class="icon" aria-hidden="true"><use href="#i-arrow-back"/></svg></button>
+        <button class="icon-btn" type="button" data-carousel-next aria-label="التالي"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+    <div class="chips" style="margin:18px 0 6px" role="group" aria-label="تصفية حسب المجموعة">
+      <button class="chip is-active" type="button" data-group-filter="all">الكل</button>
+      {% for g in groups %}<button class="chip" type="button" data-group-filter="{{ g.id }}">{{ g.title }}</button>{% endfor %}
+    </div>
+    <div class="carousel">
+      <div class="carousel__track" data-carousel tabindex="0" aria-label="بطاقات المشاركين">
+        {% for p in featured %}
+        <button class="person-card" type="button" data-person="{{ p.slug }}" data-group="{{ p.group }}">
+          {% if p.m %}<div class="portrait portrait--photo"><img src="{% static p.m.path %}" alt="{{ p.m.alt }}" loading="lazy"></div>{% endif %}
+          <div class="person-card__body">
+            <span class="person-card__role">{{ p.role }}</span>
+            <span class="person-card__name">{{ p.name }}</span>
+            <span class="person-card__years">{% if p.years %}{{ p.years }} · {% endif %}{{ p.group_info.title }}</span>
+          </div>
+        </button>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" aria-labelledby="roster-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">قائمة الرواد</p>
+      <h2 id="roster-title"><span data-roster-count>{{ roster_count }}</span> اسماً</h2>
+      <p class="lead">{{ intro.honor }}</p>
+    </div>
+
+    <div class="roster-tools">
+      <label class="search">
+        <span class="sr-only">ابحث عن اسم</span>
+        <svg class="icon" aria-hidden="true"><use href="#i-search"/></svg>
+        <input type="search" placeholder="ابحث عن اسم أو بلدة…" data-roster-search autocomplete="off">
+      </label>
+      <span class="muted small"><span class="roster__star">★</span> له صفحة تعريفية</span>
+    </div>
+    <div class="chips" style="margin-bottom:18px" role="group" aria-label="تصفية حسب البلدة أو الأسرة">
+      <button class="chip is-active" type="button" data-origin="all">الكل</button>
+      {% for o in origins %}<button class="chip" type="button" data-origin="{{ o }}">{{ o }}</button>{% endfor %}
+    </div>
+
+    <div class="roster" data-roster>
+      {% for r in roster %}
+        {% if r.slug %}
+        <a class="roster__item" href="{% url 'main:person' r.slug %}" data-origin="{{ r.origin }}" data-name="{{ r.name }}">
+        {% else %}
+        <div class="roster__item" data-origin="{{ r.origin }}" data-name="{{ r.name }}">
+        {% endif %}
+          <span class="roster__mono" aria-hidden="true">{{ r.initial }}</span>
+          <span>
+            <span class="roster__name">{{ r.name }}{% if r.slug %} <span class="roster__star" aria-label="له صفحة">★</span>{% endif %}</span><br>
+            <span class="roster__origin">{{ r.origin }}</span>
+          </span>
+          <span class="roster__n">{{ r.n }}</span>
+        {% if r.slug %}</a>{% else %}</div>{% endif %}
+      {% endfor %}
+    </div>
+    <p class="roster-empty" data-roster-empty hidden>لا توجد أسماء مطابقة.</p>
+
+    {% include "main/partials/_sources.html" %}
+  </div>
+</section>
+
+<div class="modal" data-modal aria-hidden="true">
+  <div class="modal__dialog" role="dialog" aria-modal="true" aria-labelledby="modal-name">
+    <button class="icon-btn modal__close" type="button" data-modal-close aria-label="إغلاق"><svg class="icon" aria-hidden="true"><use href="#i-close"/></svg></button>
+    <div class="modal__head">
+      <div>
+        <span class="person-card__role" data-m-role></span>
+        <h2 id="modal-name" data-m-name></h2>
+        <span class="person-card__years" data-m-years></span>
+      </div>
+    </div>
+    <p class="badge badge--gold" data-m-group></p>
+    <p class="lead" data-m-summary style="margin-top:12px"></p>
+    <div class="modal__actions">
+      <a class="btn btn--gold" data-m-link href="#">الصفحة الكاملة <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <button class="btn" type="button" data-m-prev><svg class="icon" aria-hidden="true"><use href="#i-arrow-back"/></svg>السابق</button>
+      <button class="btn" type="button" data-m-next>التالي<svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+    </div>
+  </div>
+</div>
+{% endblock %}
+
+{% block scripts %}
+{{ people_json|json_script:"people-data" }}
+<script>window.MASMAK_PERSON_URL = "{% url 'main:person' 'SLUG' %}";</script>
+<script src="{% static 'main/js/participants.js' %}" defer></script>
+{% endblock %}
