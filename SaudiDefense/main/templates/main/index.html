@@ -1,0 +1,178 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ t.home }}{% endblock %}
+
+{% block content %}
+
+<!-- ========== الواجهة: فيديو خلفية (والصورة احتياطية لين يتحمّل) ========== -->
+<section class="hero" style="background-image: url('{% static 'images/photos/heet.webp' %}');">
+    <video class="hero-video" autoplay muted loop playsinline poster="{% static 'images/photos/heet.webp' %}" aria-hidden="true">
+        <source src="{% static 'videos/gami.mp4' %}" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <span class="hero-badge"><i class="bi bi-flag-fill"></i> {{ t.hero_badge }}</span>
+        <h1>{{ t.hero_title_1 }}<br><span>{{ t.hero_title_2 }}</span></h1>
+        <p class="lead">{{ t.hero_lead }}</p>
+        <div class="d-flex flex-wrap gap-3 mt-4">
+            <a href="#sectors" class="btn-main">{{ t.hero_cta }} <i class="bi bi-arrow-left flip-ltr"></i></a>
+            <a href="{% url 'main:vision_view' %}" class="btn-light-outline">{{ t.vision }}</a>
+        </div>
+    </div>
+</section>
+
+<!-- ========== بطاقة الأرقام ========== -->
+<div class="container">
+    <div class="stats-card row g-0">
+        <div class="col-6 col-md-3"><div class="stat"><span class="stat-number">+50%</span><span class="stat-label">{{ t.stat_target }}</span></div></div>
+        <div class="col-6 col-md-3"><div class="stat"><span class="stat-number">2030</span><span class="stat-label">{{ t.stat_year }}</span></div></div>
+        <div class="col-6 col-md-3"><div class="stat"><span class="stat-number">2017</span><span class="stat-label">{{ t.stat_founded }}</span></div></div>
+        <div class="col-6 col-md-3"><div class="stat"><span class="stat-number">3</span><span class="stat-label">{{ t.stat_sectors }}</span></div></div>
+    </div>
+</div>
+
+<!-- ========== نبذة ========== -->
+<section class="section">
+    <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+            <div class="col-lg-6">
+                <span class="section-label">{{ t.about_label }}</span>
+                <p class="quote mb-0">
+                    {{ t.about_quote_1 }} <span>{{ t.about_quote_place }}</span>{{ t.comma }}
+                    {{ t.about_quote_2 }} <span>{{ t.about_quote_end }}</span>.
+                </p>
+            </div>
+            <div class="col-lg-6">
+                <p class="fs-5 text-muted-2">{{ t.about_p1 }}</p>
+                <p class="fs-5 text-muted-2 mb-0">{{ t.about_p2 }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== القطاعات ========== -->
+<section id="sectors" class="section section-soft">
+    <div class="container">
+        <span class="section-label">{{ t.sectors }}</span>
+        <h2 class="section-title">{{ t.sectors_title }}</h2>
+        <p class="section-intro">{{ t.sectors_intro }}</p>
+
+        <div class="row g-4">
+            {% for key, sector in sectors.items %}
+            <div class="col-md-4">
+                <a href="{% url 'main:sector_view' key %}" class="card-x">
+                    <div class="card-img">
+                        <img src="{% static 'images/'|add:sector.images.0.0 %}" alt="{{ sector.name }}">
+                    </div>
+                    <div class="card-body-x">
+                        <h3>{{ sector.name }}</h3>
+                        <p>{{ sector.slogan }}</p>
+                        <span class="card-link">{{ t.read_more }} <i class="bi bi-arrow-left flip-ltr"></i></span>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ========== الجهات ========== -->
+<section class="section">
+    <div class="container">
+        <span class="section-label">{{ t.entities }}</span>
+        <h2 class="section-title">{{ t.entities_title }}</h2>
+        <p class="section-intro">{{ t.entities_intro }}</p>
+
+        <div class="row g-4">
+            {% for key, company in companies.items %}
+            <div class="col-md-6">
+                <a href="{% url 'main:company_view' key %}" class="card-x">
+                    <div class="card-body-x">
+                        <span class="company-logo" role="img" aria-label="{{ company.name }}" style="background-image: url('{% static 'images/'|add:company.logo %}'); {{ company.logo_style }}"></span>
+                        <h3>{{ company.name }}</h3>
+                        <p>{{ company.about|truncatewords:22 }}</p>
+                        <span class="card-link">{{ company.slogan }} <i class="bi bi-arrow-left flip-ltr"></i></span>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- ========== اكتشف أكثر ========== -->
+<section class="section section-soft">
+    <div class="container">
+        <span class="section-label">{{ t.footer_explore }}</span>
+        <h2 class="section-title">{{ t.explore_title }}</h2>
+        <p class="section-intro">{{ t.explore_intro }}</p>
+
+        <div class="row g-4">
+            <div class="col-md-4">
+                <a href="{% url 'main:vision_view' %}" class="card-x">
+                    <div class="card-body-x">
+                        <span class="icon-badge"><i class="bi bi-bullseye"></i></span>
+                        <h3>{{ t.vision }}</h3>
+                        <p>{{ t.vision_card }}</p>
+                        <span class="card-link">{{ t.read_more }} <i class="bi bi-arrow-left flip-ltr"></i></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'main:history_view' %}" class="card-x">
+                    <div class="card-body-x">
+                        <span class="icon-badge"><i class="bi bi-hourglass-split"></i></span>
+                        <h3>{{ t.history }}</h3>
+                        <p>{{ t.history_card }}</p>
+                        <span class="card-link">{{ t.read_more }} <i class="bi bi-arrow-left flip-ltr"></i></span>
+                    </div>
+                </a>
+            </div>
+            <div class="col-md-4">
+                <a href="{% url 'main:events_view' %}" class="card-x">
+                    <div class="card-body-x">
+                        <span class="icon-badge"><i class="bi bi-calendar-event"></i></span>
+                        <h3>{{ t.events }}</h3>
+                        <p>{{ t.events_card }}</p>
+                        <span class="card-link">{{ t.read_more }} <i class="bi bi-arrow-left flip-ltr"></i></span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ========== الأسئلة الشائعة (Accordion من Bootstrap) ========== -->
+<section class="section">
+    <div class="container">
+        <div class="row g-4 g-lg-5">
+            <div class="col-lg-4">
+                <span class="section-label">{{ t.faq_label }}</span>
+                <h2 class="section-title">{{ t.faq_title }}</h2>
+                <p class="text-muted-2 mb-0">{{ t.faq_intro }}</p>
+            </div>
+
+            <div class="col-lg-8">
+                <div class="accordion faq" id="faq">
+                    {% for question, answer in faq %}
+                    <div class="accordion-item">
+                        <h3 class="accordion-header">
+                            <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#faq-{{ forloop.counter }}"
+                                    aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="faq-{{ forloop.counter }}">
+                                {{ question }}
+                            </button>
+                        </h3>
+                        <div id="faq-{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" data-bs-parent="#faq">
+                            <div class="accordion-body">{{ answer }}</div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
