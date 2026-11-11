@@ -4,55 +4,59 @@
   var root = document.documentElement;
   var reduce = window.matchMedia && matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  /* ---- أدوات الكوكيز ---- */
-  function getCookie(name) {
-    var prefix = name + '=';
-    var parts = document.cookie ? document.cookie.split(';') : [];
-    for (var i = 0; i < parts.length; i++) {
-      var part = parts[i].trim();
-      if (part.indexOf(prefix) === 0) return decodeURIComponent(part.substring(prefix.length));
-    }
-    return null;
-  }
-  function setCookie(name, value, maxAge) {
-    document.cookie = name + '=' + encodeURIComponent(value) + '; path=/; max-age=' + maxAge + '; SameSite=Lax';
-  }
-  function deleteCookie(name) {
-    document.cookie = name + '=; path=/; max-age=0; SameSite=Lax';
-  }
-  function setGoogleTranslateCookie(language) {
-    var value = language === 'en' ? '/ar/en' : '/ar';
-    document.cookie = 'googtrans=' + value + '; path=/; max-age=' + (60 * 60 * 24 * 365) + '; SameSite=Lax';
-  }
-  function clearGoogleTranslateCookies() {
-    // Google Translate may create host-only and domain cookies. Clear both so Arabic is restored reliably.
-    var expires = '; expires=Thu, 01 Jan 1970 00:00:00 GMT; max-age=0; path=/; SameSite=Lax';
-    document.cookie = 'googtrans=' + expires;
-    var host = window.location.hostname;
-    var labels = host.split('.');
-    for (var i = 0; i < labels.length - 1; i++) {
-      var domain = labels.slice(i).join('.');
-      document.cookie = 'googtrans=' + expires + '; domain=' + domain;
-      document.cookie = 'googtrans=' + expires + '; domain=.' + domain;
-    }
+  /* ---- إرسال تفضيلات المستخدم إلى Django لحفظها في Cookies ---- */
+  function getCsrfToken() {
+    var field = document.querySelector('#preferenceCsrfForm input[name="csrfmiddlewaretoken"]');
+    return field ? field.value : '';
   }
 
-  /* ---- الوضع الداكن / الفاتح: يُحفظ في Cookie لمدة سنة ---- */
-  var toggle = document.getElementById('themeToggle');
-  if (toggle) {
-    toggle.addEventListener('click', function () {
-      var next = root.getAttribute('data-bs-theme') === 'dark' ? 'light' : 'dark';
-      root.setAttribute('data-bs-theme', next);
-      setCookie('watan-theme', next, 60 * 60 * 24 * 365);
-      toggle.setAttribute('aria-label', next === 'dark' ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن');
+  function savePreference(url, values) {
+    var body = new URLSearchParams(values);
+    return fetch(url, {
+      method: 'POST',
+      credentials: 'same-origin',
+      headers: {
+        'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8',
+        'X-CSRFToken': getCsrfToken(),
+        'X-Requested-With': 'XMLHttpRequest'
+      },
+      body: body.toString()
+    }).then(function (response) {
+      if (!response.ok) throw new Error('تعذر حفظ التفضيل');
+      return response.json();
+    }).then(function (data) {
+      if (!data.ok) throw new Error('قيمة التفضيل غير صحيحة');
+      return data;
     });
   }
 
-  /* ---- التبديل بين العربية والإنجليزية عبر Google Translate مع حفظ الاختيار في Cookie ---- */
+  /* ---- الوضع الداكن / الفاتح: Django يقرأ Cookie ويعرض الوضع ---- */
+  var toggle = document.getElementById('themeToggle');
+  if (toggle) {
+    toggle.addEventListener('click', function () {
+      var previous = root.getAttribute('data-bs-theme') === 'dark' ? 'dark' : 'light';
+      var next = previous === 'dark' ? 'light' : 'dark';
+      var endpoint = toggle.getAttribute('data-preference-url');
+
+      // تطبيق فوري، ثم حفظ الاختيار من خلال View في Django.
+      root.setAttribute('data-bs-theme', next);
+      toggle.disabled = true;
+
+      savePreference(endpoint, { theme: next }).then(function () {
+        toggle.setAttribute('aria-label', next === 'dark' ? 'تفعيل الوضع الفاتح' : 'تفعيل الوضع الداكن');
+      }).catch(function () {
+        root.setAttribute('data-bs-theme', previous);
+        window.alert('تعذر حفظ الوضع. حدّث الصفحة وحاول مرة أخرى.');
+      }).finally(function () {
+        toggle.disabled = false;
+      });
+    });
+  }
+
+  /* ---- اللغة: watan-language و googtrans Cookies تُدار من Django Views ---- */
   var languageButton = document.getElementById('languageToggle');
   var languageLabel = document.getElementById('languageToggleLabel');
-  var currentLanguage = getCookie('watan-language') || root.getAttribute('lang') || 'ar';
-  if (currentLanguage !== 'en') currentLanguage = 'ar';
+  var currentLanguage = root.getAttribute('lang') === 'en' ? 'en' : 'ar';
   var pendingLanguage = null;
 
   function updateLanguageUi(language) {
@@ -70,32 +74,19 @@
     var combo = document.querySelector('#google_translate_element select.goog-te-combo');
     if (!combo) {
       if (attemptsLeft > 0) {
-        window.setTimeout(function () { applyGoogleLanguage(language, attemptsLeft - 1); }, 180);
-      } else {
-        pendingLanguage = language;
-        if (languageButton && languageButton.dataset.userRequested === 'true') {
-          languageButton.dataset.userRequested = 'false';
-          pendingLanguage = null;
-          setCookie('watan-language', currentLanguage, 60 * 60 * 24 * 365);
-          window.alert('تعذّر تحميل خدمة الترجمة. تأكد من اتصال الإنترنت ثم حاول مرة أخرى.');
-        } else if (language === 'en') {
-          pendingLanguage = null;
-          updateLanguageUi('ar');
-          setCookie('watan-language', 'ar', 60 * 60 * 24 * 365);
-        }
+        window.setTimeout(function () {
+          applyGoogleLanguage(language, attemptsLeft - 1);
+        }, 180);
+      } else if (language === 'en') {
+        pendingLanguage = null;
+        window.alert('تم حفظ اللغة الإنجليزية، لكن خدمة Google Translate لم تُحمّل. تأكد من اتصال الإنترنت ثم أعد المحاولة.');
       }
       return;
     }
-    if (language === 'en') {
-      setGoogleTranslateCookie('en');
-      combo.value = 'en';
-    } else {
-      clearGoogleTranslateCookies();
-      combo.value = '';
-    }
+
+    combo.value = language === 'en' ? 'en' : '';
     combo.dispatchEvent(new Event('change', { bubbles: true }));
     pendingLanguage = null;
-    updateLanguageUi(language);
   }
 
   updateLanguageUi(currentLanguage);
@@ -103,30 +94,24 @@
     pendingLanguage = 'en';
     applyGoogleLanguage('en', 50);
   }
+
   window.addEventListener('watan-translate-ready', function () {
     if (pendingLanguage) applyGoogleLanguage(pendingLanguage, 50);
   });
+
   if (languageButton) {
     languageButton.addEventListener('click', function () {
       var next = currentLanguage === 'ar' ? 'en' : 'ar';
-      languageButton.dataset.userRequested = 'true';
-      setCookie('watan-language', next, 60 * 60 * 24 * 365);
+      var endpoint = languageButton.getAttribute('data-preference-url');
+      languageButton.disabled = true;
 
-      if (next === 'en') {
-        // Switch to English immediately and persist Google Translate's preference.
-        setGoogleTranslateCookie('en');
-        pendingLanguage = 'en';
-        applyGoogleLanguage('en', 50);
-      } else {
-        // Google Translate changes the live DOM. Clear its cookies, then reload the original Arabic HTML.
-        clearGoogleTranslateCookies();
-        pendingLanguage = null;
-        languageButton.dataset.userRequested = 'false';
-        updateLanguageUi('ar');
-        window.setTimeout(function () {
-          window.location.reload();
-        }, 100);
-      }
+      savePreference(endpoint, { language: next }).then(function () {
+        // إعادة تحميل الصفحة تجعل Django يقرأ Cookie الجديدة، ويعيد Google Translate بناء اللغة.
+        window.location.reload();
+      }).catch(function () {
+        languageButton.disabled = false;
+        window.alert('تعذر حفظ اللغة. تأكد من اتصال الإنترنت ثم حاول مرة أخرى.');
+      });
     });
   }
 

@@ -54,12 +54,12 @@
       </ul>
 
       <div class="nav-utility-controls" aria-label="إعدادات العرض">
-        <button class="theme-toggle" id="themeToggle" type="button" aria-label="تبديل الوضع الداكن / الفاتح" title="تبديل الوضع">
+        <button class="theme-toggle" id="themeToggle" type="button" data-preference-url="{% url 'watan:set_theme' %}" aria-label="تبديل الوضع الداكن / الفاتح" title="تبديل الوضع">
           <i class="bi bi-moon-stars-fill icon-to-dark"></i>
           <i class="bi bi-sun-fill icon-to-light"></i>
           <span class="theme-toggle-label d-lg-none"></span>
         </button>
-        <button class="language-toggle" id="languageToggle" type="button" aria-label="Switch language to English" title="التبديل بين العربية والإنجليزية">
+        <button class="language-toggle" id="languageToggle" type="button" data-preference-url="{% url 'watan:set_language' %}" aria-label="Switch language to English" title="التبديل بين العربية والإنجليزية">
           <i class="bi bi-translate" aria-hidden="true"></i>
           <span id="languageToggleLabel">EN</span>
         </button>

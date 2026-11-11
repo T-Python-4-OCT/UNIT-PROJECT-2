@@ -1,4 +1,5 @@
-from django.http import Http404
+from django.http import Http404, JsonResponse
+from django.views.decorators.http import require_POST
 from django.shortcuts import redirect, render
 
 from . import data_loader as dl
@@ -63,6 +64,73 @@ def city_detail(request, city_slug):
 
 def about(request):
     return render(request, "watan/about.html", {"about": dl.load_content()["about"]})
+
+
+# تفضيلات المستخدم: تُحفظ في Cookies فقط، دون قاعدة بيانات.
+PREFERENCE_COOKIE_MAX_AGE = 60 * 60 * 24 * 365
+
+
+@require_POST
+def set_theme(request):
+    """حفظ الوضع الداكن/الفاتح في Cookie يقرأها Django عند بناء الصفحة."""
+    theme = request.POST.get("theme", "")
+    if theme not in ("dark", "light"):
+        return JsonResponse({"ok": False, "error": "invalid_theme"}, status=400)
+
+    response = JsonResponse({"ok": True, "theme": theme})
+    response.set_cookie(
+        "watan-theme",
+        theme,
+        max_age=PREFERENCE_COOKIE_MAX_AGE,
+        path="/",
+        samesite="Lax",
+        secure=request.is_secure(),
+        httponly=True,
+    )
+    return response
+
+
+@require_POST
+def set_language(request):
+    """حفظ اللغة في Cookie، مع ضبط Cookie الخاصة بـ Google Translate."""
+    language = request.POST.get("language", "")
+    if language not in ("ar", "en"):
+        return JsonResponse({"ok": False, "error": "invalid_language"}, status=400)
+
+    response = JsonResponse({"ok": True, "language": language})
+    response.set_cookie(
+        "watan-language",
+        language,
+        max_age=PREFERENCE_COOKIE_MAX_AGE,
+        path="/",
+        samesite="Lax",
+        secure=request.is_secure(),
+        httponly=True,
+    )
+
+    if language == "en":
+        # Google Translate يقرأ هذه الكوكي لتطبيق الترجمة بعد إعادة تحميل الصفحة.
+        response.set_cookie(
+            "googtrans",
+            "/ar/en",
+            max_age=PREFERENCE_COOKIE_MAX_AGE,
+            path="/",
+            samesite="Lax",
+            secure=request.is_secure(),
+            httponly=False,
+        )
+    else:
+        # حذف نسخة الكوكي الأساسية وأي نسخة مرتبطة بنطاق الموقع.
+        response.delete_cookie("googtrans", path="/", samesite="Lax")
+        host = request.get_host().split(":", 1)[0].lower()
+        if host not in ("localhost", "127.0.0.1"):
+            labels = host.split(".")
+            for index in range(len(labels) - 1):
+                domain = ".".join(labels[index:])
+                response.delete_cookie("googtrans", path="/", domain=domain, samesite="Lax")
+                response.delete_cookie("googtrans", path="/", domain="." + domain, samesite="Lax")
+
+    return response
 
 
 def page_not_found(request, exception=None):

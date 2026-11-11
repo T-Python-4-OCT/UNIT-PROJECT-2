@@ -1,5 +1,5 @@
 {% load static %}<!DOCTYPE html>
-<html lang="{{ current_language|default:'ar' }}" dir="{{ current_direction|default:'rtl' }}" data-bs-theme="light">
+<html lang="{{ current_language|default:'ar' }}" dir="{{ current_direction|default:'rtl' }}" data-bs-theme="{{ current_theme|default:'light' }}">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -21,40 +21,23 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link rel="stylesheet" href="{% static 'watan/css/style.css' %}">
 
-  {# تطبيق الوضع (داكن/فاتح) قبل رسم الصفحة لتفادي الوميض #}
+  {# Google Translate callback. Theme and language preferences are read by Django from Cookies. #}
   <script>
-    (function () {
-      function readCookie(name) {
-        var prefix = name + '=';
-        var parts = document.cookie ? document.cookie.split(';') : [];
-        for (var i = 0; i < parts.length; i++) {
-          var part = parts[i].trim();
-          if (part.indexOf(prefix) === 0) return decodeURIComponent(part.substring(prefix.length));
-        }
-        return null;
-      }
-      var theme = readCookie('watan-theme');
-      if (theme !== 'dark' && theme !== 'light') {
-        theme = (window.matchMedia && matchMedia('(prefers-color-scheme: dark)').matches) ? 'dark' : 'light';
-      }
-      document.documentElement.setAttribute('data-bs-theme', theme);
-
-      // Google Translate callback: the visible language control remains our own button.
-      window.googleTranslateElementInit = function () {
-        if (!window.google || !google.translate || !document.getElementById('google_translate_element')) return;
-        new google.translate.TranslateElement({
-          pageLanguage: 'ar',
-          includedLanguages: 'en',
-          autoDisplay: false,
-          multilanguagePage: true
-        }, 'google_translate_element');
-        window.dispatchEvent(new Event('watan-translate-ready'));
-      };
-    })();
+    window.googleTranslateElementInit = function () {
+      if (!window.google || !google.translate || !document.getElementById('google_translate_element')) return;
+      new google.translate.TranslateElement({
+        pageLanguage: 'ar',
+        includedLanguages: 'en',
+        autoDisplay: false,
+        multilanguagePage: true
+      }, 'google_translate_element');
+      window.dispatchEvent(new Event('watan-translate-ready'));
+    };
   </script>
   {% block extra_head %}{% endblock %}
 </head>
 <body class="{% block body_class %}{% endblock %}">
+  <form id="preferenceCsrfForm" hidden>{% csrf_token %}</form>
   <a class="skip-link" href="#main">تخطَّ إلى المحتوى</a>
   <div class="scroll-progress" aria-hidden="true"><span></span></div>
   <div id="google_translate_element" class="google-translate-hidden" aria-hidden="true"></div>
@@ -72,7 +55,7 @@
   </button>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="{% static 'watan/js/main.js' %}?v=20261111-langfix"></script>
+  <script src="{% static 'watan/js/main.js' %}?v=20261111-cookie-preferences"></script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
   {% block extra_js %}{% endblock %}
 </body>
