@@ -1,14 +1,17 @@
 /* Theme variables: dark values apply when <html> has data-bs-theme="dark" */
 :root {
-  --nt-accent: #c8751c;
+  --nt-accent: #9b4d00;
+  --nt-accent-text: #ffffff;
   --nt-terracotta: #c94d34;
   --nt-teal: #188c7d;
   --nt-gold: #e5a51b;
   --nt-plum: #80346f;
   --nt-bg: #faf7f0;
   --nt-surface: #ffffff;
+  --nt-contrast: #ffffff;
+  --nt-cta-text: #2a1a0a;
   --nt-text: #2b1d13;
-  --nt-muted: #81776b;
+  --nt-muted: #706458;
   --nt-pill: #f3eadc;
   --nt-border: #e9dfd0;
   --nt-bar: rgba(250, 247, 240, 0.94);
@@ -19,19 +22,20 @@
 
 [data-bs-theme="dark"] {
   --nt-accent: #e8923a;
+  --nt-accent-text: #2b1d13;
   --nt-terracotta: #e2604a;
   --nt-teal: #2fb5a2;
   --nt-gold: #f0b93a;
   --nt-plum: #b455a3;
-  --nt-bg: #17120f;
-  --nt-surface: #211a15;
-  --nt-text: #f4ece2;
-  --nt-muted: #b3a79a;
-  --nt-pill: #33271f;
-  --nt-border: #42352b;
-  --nt-bar: rgba(29, 22, 17, 0.95);
-  --nt-footer: #211912;
-  --nt-strip: rgba(22, 16, 12, 0.76);
+  --nt-bg: #211811;
+  --nt-surface: #2b1e16;
+  --nt-text: #f5e9dd;
+  --nt-muted: #c8b29e;
+  --nt-pill: #3c2b20;
+  --nt-border: #59402e;
+  --nt-bar: rgba(42, 29, 20, 0.96);
+  --nt-footer: #2b1e16;
+  --nt-strip: rgba(31, 20, 13, 0.84);
 }
 
 /* Base */
@@ -46,6 +50,27 @@ body {
 
 section[id] {
   scroll-margin-top: 6rem;
+}
+
+.nt-skip-link {
+  position: fixed;
+  z-index: 2000;
+  inset-block-start: 0.75rem;
+  inset-inline-start: 0.75rem;
+  padding: 0.65rem 1rem;
+  transform: translateY(calc(-100% - 1rem));
+  border: 2px solid var(--nt-accent);
+  border-radius: 0.75rem;
+  background: var(--nt-surface);
+  color: var(--nt-text);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.nt-skip-link:focus {
+  transform: translateY(0);
+  outline: 3px solid var(--nt-accent);
+  outline-offset: 3px;
 }
 
 /* Entrance animation (used by hero and page files) */
@@ -87,7 +112,6 @@ section[id] {
   height: 0;
   border-inline: 9px solid transparent;
   border-bottom: 16px solid var(--nt-accent);
-  transform: rotate(0deg);
 }
 
 .nt-brand:hover {
@@ -162,7 +186,7 @@ section[id] {
 
 /* Make the mobile menu icon visible on the dark theme */
 [data-bs-theme="dark"] .nt-navbar .navbar-toggler-icon {
-  filter: invert(1);
+  filter: brightness(0) invert(1);
 }
 
 .nt-theme-btn {
@@ -181,7 +205,7 @@ section[id] {
 .nt-theme-btn:hover {
   background: var(--nt-accent);
   border-color: var(--nt-accent);
-  color: #ffffff;
+  color: var(--nt-accent-text);
   transform: rotate(20deg);
 }
 
@@ -212,7 +236,7 @@ section[id] {
 .nt-hero-text {
   position: relative;
   padding: 2rem 2rem 4.5rem;
-  color: #ffffff;
+  color: var(--nt-contrast);
   text-shadow: 0 2px 18px rgba(27, 17, 11, 0.32);
 }
 
@@ -253,14 +277,14 @@ section[id] {
   padding: 0.7rem 1.6rem;
   border-radius: 999px;
   background: var(--nt-gold);
-  color: #2a1a0a;
+  color: var(--nt-cta-text);
   font-weight: 800;
   text-decoration: none;
   transition: transform 0.2s, box-shadow 0.2s;
 }
 
 .nt-cta:hover {
-  color: #2a1a0a;
+  color: var(--nt-cta-text);
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(224, 162, 31, 0.45);
 }
@@ -352,14 +376,6 @@ section[id] {
 
 .nt-footer-title {
   letter-spacing: -0.02em;
-}
-
-.nt-footer-list a,
-.nt-footer-source {
-  transition: color 0.2s;
-}
-
-.nt-footer-title {
   font-weight: 800;
   margin-bottom: 1rem;
 }
@@ -383,35 +399,6 @@ section[id] {
   text-underline-offset: 0.25em;
 }
 
-.nt-legal-page {
-  max-width: 860px;
-  margin-inline: auto;
-  padding: clamp(1.5rem, 4vw, 3rem);
-  border: 1px solid var(--nt-border);
-  border-radius: 24px;
-  background: var(--nt-surface);
-}
-
-.nt-legal-page > .lead {
-  margin-bottom: 2rem;
-}
-
-.nt-legal-section + .nt-legal-section {
-  margin-top: 1.75rem;
-}
-
-.nt-legal-section h2 {
-  margin-bottom: 0.6rem;
-  font-size: 1.2rem;
-  font-weight: 800;
-}
-
-.nt-legal-section p {
-  margin-bottom: 0;
-  color: color-mix(in srgb, var(--nt-text) 82%, transparent);
-  line-height: 1.9;
-}
-
 .nt-footer-list {
   list-style: none;
   margin: 0;
@@ -426,6 +413,7 @@ section[id] {
 .nt-footer a {
   color: var(--nt-text);
   text-decoration: none;
+  transition: color 0.2s;
 }
 
 .nt-footer a:hover {
@@ -454,7 +442,7 @@ section[id] {
 
 .nt-social a:hover {
   transform: translateY(-4px) rotate(-6deg);
-  color: #ffffff;
+  color: var(--nt-contrast);
 }
 
 .nt-social a.nt-social-instagram:hover { background: #e1306c; border-color: #e1306c; }

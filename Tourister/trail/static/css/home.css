@@ -58,12 +58,12 @@
 .nt-hero .nt-cta {
   min-height: 46px;
   background: var(--nt-gold);
-  color: #2b1d13;
+  color: var(--nt-cta-text);
   box-shadow: 0 8px 24px rgba(13, 9, 6, 0.16);
 }
 
 .nt-hero .nt-cta:hover {
-  color: #2b1d13;
+  color: var(--nt-cta-text);
   box-shadow: 0 12px 28px rgba(13, 9, 6, 0.25);
 }
 
@@ -75,14 +75,14 @@
   padding: 0.65rem 1.2rem;
   border: 1px solid rgba(255, 255, 255, 0.64);
   border-radius: 999px;
-  color: #ffffff;
+  color: var(--nt-contrast);
   font-weight: 700;
   text-decoration: none;
   transition: background 0.2s, color 0.2s;
 }
 
 .nt-hero-secondary:hover {
-  background: #ffffff;
+  background: var(--nt-contrast);
   color: var(--nt-text);
 }
 
@@ -128,7 +128,7 @@
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: 12px;
   background: rgba(43, 29, 19, 0.82);
-  color: #ffffff;
+  color: var(--nt-contrast);
   font-size: 0.85rem;
   font-weight: 700;
   direction: rtl;
@@ -163,7 +163,7 @@
   animation: nt-ticker 45s linear infinite;
 }
 
-/* Pause when the mouse is over the strip or a link has focus */
+/* Pause the moving strip while a visitor hovers or navigates within it. */
 .nt-ticker:hover .nt-ticker-track,
 .nt-ticker:focus-within .nt-ticker-track {
   animation-play-state: paused;
@@ -199,7 +199,7 @@
   align-items: center;
   gap: 0.55rem;
   white-space: nowrap;
-  color: #ffffff;
+  color: var(--nt-contrast);
   font-weight: 800;
   text-decoration: none;
   transition: color 0.2s;
@@ -370,7 +370,7 @@
   height: 36px;
   border-radius: 50%;
   background: var(--c);
-  color: #ffffff;
+  color: var(--nt-contrast);
   font-weight: 800;
   border: 3px solid var(--nt-bg);
   box-shadow: 0 0 0 1.5px var(--c);
@@ -671,7 +671,7 @@
 .nt-faq-item[open] summary::after {
   content: "\2212";
   background: var(--nt-accent);
-  color: #ffffff;
+  color: var(--nt-contrast);
 }
 
 .nt-faq-item p {
@@ -854,4 +854,5 @@
   .nt-ticker-track {
     animation: none;
   }
+
 }

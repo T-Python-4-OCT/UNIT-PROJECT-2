@@ -1,4 +1,31 @@
 (() => {
+  const menu = document.getElementById("navMenu");
+  if (!menu) return;
+
+  const toggler = document.querySelector('[data-bs-target="#navMenu"]');
+  const mobileNav = window.matchMedia("(max-width: 991.98px)");
+
+  menu.addEventListener("click", (event) => {
+    const link = event.target.closest("a");
+    if (
+      !link ||
+      link.classList.contains("dropdown-toggle") ||
+      !mobileNav.matches
+    ) {
+      return;
+    }
+
+    const collapse = window.bootstrap?.Collapse;
+    if (collapse) {
+      collapse.getOrCreateInstance(menu, { toggle: false }).hide();
+    } else {
+      menu.classList.remove("show");
+      toggler?.setAttribute("aria-expanded", "false");
+    }
+  });
+})();
+
+(() => {
   const nav = document.querySelector(".nt-primary-nav");
   if (!nav) return;
 

@@ -1,3 +1,6 @@
+import re
+from unittest.mock import patch
+
 from django.test import TestCase
 from django.urls import reverse
 
@@ -19,9 +22,56 @@ class PublicPageTests(TestCase):
 
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, "trail/home.html")
+        self.assertContains(response, 'class="nt-skip-link" href="#main-content"')
+        self.assertNotContains(response, "nt-ticker-toggle")
         for city in CITIES:
             with self.subTest(city=city["slug"]):
                 self.assertContains(response, city["name"])
+
+    @patch("trail.context_processors.ordered_cities")
+    def test_ticker_restarts_colors_and_shapes_for_second_group(self, ordered_cities):
+        ordered_cities.return_value = CITIES[:5]
+
+        response = self.client.get(reverse("home"))
+        groups = re.findall(
+            rb'<ul class="nt-ticker-group"[^>]*>(.*?)</ul>',
+            response.content,
+            re.DOTALL,
+        )
+
+        self.assertEqual(len(groups), 2)
+        patterns = (
+            rb'<li class="nt-stop (nt-c\d)"',
+            rb'<span class="nt-shape (nt-sh-\w+)"',
+        )
+        for pattern in patterns:
+            with self.subTest(pattern=pattern):
+                self.assertEqual(
+                    re.findall(pattern, groups[0]),
+                    re.findall(pattern, groups[1]),
+                )
+
+    def test_footer_social_links_have_their_brand_classes(self):
+        response = self.client.get(reverse("home"))
+
+        for brand in ("instagram", "youtube", "whatsapp", "x"):
+            with self.subTest(brand=brand):
+                self.assertContains(response, f'class="nt-social-{brand}"')
+
+    @patch(
+        "trail.context_processors.SOCIAL_LINKS",
+        [{"name": "Unavailable", "icon": "bi-link", "css_class": "unavailable"}],
+    )
+    def test_footer_omits_social_links_without_a_url(self):
+        response = self.client.get(reverse("home"))
+        social_section = re.search(
+            rb'<div class="nt-social">(.*?)</div>',
+            response.content,
+            re.DOTALL,
+        )
+
+        self.assertIsNotNone(social_section)
+        self.assertNotIn(b"<a ", social_section.group(1))
 
     def test_every_city_page_renders_its_history_sources(self):
         for city in CITIES:
@@ -32,7 +82,15 @@ class PublicPageTests(TestCase):
 
                 self.assertEqual(response.status_code, 200)
                 self.assertTemplateUsed(response, "trail/city_detail.html")
+                if city["gallery"]:
+                    self.assertNotContains(response, 'data-bs-ride="carousel"')
+                    self.assertContains(response, 'aria-roledescription="carousel"')
                 self.assertContains(response, 'id="sources"')
+                if city["events"]:
+                    self.assertLess(
+                        response.content.index(b'id="events"'),
+                        response.content.index(b'id="sources"'),
+                    )
                 for source in city["historical_sources"]:
                     self.assertContains(response, source["label"])
 

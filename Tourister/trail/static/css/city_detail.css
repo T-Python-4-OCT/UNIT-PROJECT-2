@@ -1,4 +1,4 @@
-/* Gallery */
+/* City detail */
 .nt-city-hero::before {
   z-index: 1;
 }
@@ -325,7 +325,7 @@
 
 .nt-pager a:hover {
   background: var(--nt-accent);
-  color: #ffffff;
+  color: var(--nt-contrast);
 }
 
 /* Responsive */

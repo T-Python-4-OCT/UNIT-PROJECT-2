@@ -71,7 +71,7 @@
   {% if city.gallery %}
   <section id="gallery" class="pb-5">
     <h2 class="nt-title">معرض الصور</h2>
-    <div id="cityCarousel" class="carousel slide nt-carousel" data-bs-ride="carousel">
+    <div id="cityCarousel" class="carousel slide nt-carousel" role="region" aria-roledescription="carousel" aria-label="معرض صور {{ city.name }}">
       <div class="carousel-indicators">
         {% for img in city.gallery %}
           <button type="button" data-bs-target="#cityCarousel" data-bs-slide-to="{{ forloop.counter0 }}"
@@ -113,6 +113,7 @@
               {% elif place.category == "nature" %}<i class="bi bi-tree"></i> مواقع طبيعية
               {% elif place.category == "camping" %}<i class="bi bi-triangle"></i> التخييم
               {% elif place.category == "culture" %}<i class="bi bi-shop"></i> أسواق وثقافة محلية
+              {% else %}<i class="bi bi-geo-alt"></i> معالم متنوعة
               {% endif %}
             </span>
             <h3>{{ place.name }}</h3>
@@ -138,21 +139,6 @@
   </section>
   {% endif %}
 
-  {% if city.historical_sources %}
-  <section id="sources" class="pb-5">
-    <h2 class="nt-title">مصادر ومراجع</h2>
-    <p class="nt-section-lead">مراجع للمعلومات التاريخية والسياق الجغرافي والمعالم المذكورة في هذه الصفحة.</p>
-    <ul class="nt-sources">
-      {% for source in city.historical_sources %}
-        <li>
-          <a href="{{ source.url }}" target="_blank" rel="noopener">{{ source.label }}</a>
-          <span>{{ source.scope }}</span>
-        </li>
-      {% endfor %}
-    </ul>
-  </section>
-  {% endif %}
-
   {% if city.events %}
   <section id="events" class="pb-5">
     <h2 class="nt-title">تجارب مقترحة</h2>
@@ -170,6 +156,21 @@
         </div>
       {% endfor %}
     </div>
+  </section>
+  {% endif %}
+
+  {% if city.historical_sources %}
+  <section id="sources" class="pb-5">
+    <h2 class="nt-title">مصادر ومراجع</h2>
+    <p class="nt-section-lead">مراجع للمعلومات التاريخية والسياق الجغرافي والمعالم المذكورة في هذه الصفحة.</p>
+    <ul class="nt-sources">
+      {% for source in city.historical_sources %}
+        <li>
+          <a href="{{ source.url }}" target="_blank" rel="noopener">{{ source.label }}</a>
+          <span>{{ source.scope }}</span>
+        </li>
+      {% endfor %}
+    </ul>
   </section>
   {% endif %}
 

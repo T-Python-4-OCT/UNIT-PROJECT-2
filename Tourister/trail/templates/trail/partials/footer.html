@@ -24,9 +24,11 @@
         <h6 class="nt-footer-title">تابع الهيئة السعودية للسياحة</h6>
         <div class="nt-social">
           {% for s in social_links %}
-            <a href="{{ s.url|default:'#' }}" target="_blank" rel="noopener noreferrer" aria-label="{{ s.name }}">
-              <i class="bi {{ s.icon }}"></i>
-            </a>
+            {% if s.url %}
+              <a class="nt-social-{{ s.css_class }}" href="{{ s.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ s.name }}">
+                <i class="bi {{ s.icon }}"></i>
+              </a>
+            {% endif %}
           {% endfor %}
         </div>
         <a class="nt-footer-source" href="https://www.visitsaudi.com/ar/campaigns/northern-trail" target="_blank" rel="noopener noreferrer">

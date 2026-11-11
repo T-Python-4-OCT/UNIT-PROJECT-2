@@ -1,5 +1,7 @@
 {% extends "trail/base.html" %}
+{% load static %}
 
+{% block extra_css %}<link href="{% static 'css/legal_page.css' %}" rel="stylesheet">{% endblock %}
 {% block title %}{{ page_title }} | مسار الشمال{% endblock %}
 
 {% block content %}

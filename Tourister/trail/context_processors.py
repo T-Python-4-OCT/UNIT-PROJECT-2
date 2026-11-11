@@ -1,10 +1,10 @@
 from .data import ordered_cities
 
 SOCIAL_LINKS = [
-    {"name": "Instagram", "icon": "bi-instagram", "url": "https://www.instagram.com/visitsaudi/"},
-    {"name": "YouTube", "icon": "bi-youtube", "url": "https://www.youtube.com/channel/UCmFRhhc6Gt8b4bSUmTzNIoA"},
-    {"name": "Whatsapp", "icon": "bi-whatsapp", "url": "https://api.whatsapp.com/send?phone=966114907617"},
-    {"name": "X", "icon": "bi-twitter-x", "url": "https://x.com/VisitSaudi"},
+    {"name": "Instagram", "icon": "bi-instagram", "css_class": "instagram", "url": "https://www.instagram.com/visitsaudi/"},
+    {"name": "YouTube", "icon": "bi-youtube", "css_class": "youtube", "url": "https://www.youtube.com/channel/UCmFRhhc6Gt8b4bSUmTzNIoA"},
+    {"name": "Whatsapp", "icon": "bi-whatsapp", "css_class": "whatsapp", "url": "https://api.whatsapp.com/send?phone=966114907617"},
+    {"name": "X", "icon": "bi-twitter-x", "css_class": "x", "url": "https://x.com/VisitSaudi"},
 ]
 
 
