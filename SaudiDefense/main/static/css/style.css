@@ -1809,13 +1809,14 @@ img.zoomable {
 }
 
 /* ---------- الشعار الجديد ---------- */
+/* الشعار ياخذ لون النص (أبيض فوق الصورة، وغامق لما ننزل) */
 .brand-logo {
-    width: 48px;
-    height: 48px;
-    filter: drop-shadow(0 4px 10px rgba(0, 0, 0, 0.25));
+    width: 44px;
+    height: 35px;
+    flex-shrink: 0;
 }
 
 .main-footer .brand-logo {
-    width: 42px;
-    height: 42px;
+    width: 38px;
+    height: 30px;
 }
