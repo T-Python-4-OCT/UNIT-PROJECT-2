@@ -234,3 +234,10 @@ class SearchTests(TestCase):
 
     def test_search_url_is_not_read_as_a_page_slug(self):
         self.assertEqual(self.client.get(self.url).resolver_match.url_name, "search")
+
+
+class FaviconTests(TestCase):
+    def test_favicon_ico_redirects_to_svg(self):
+        response = self.client.get("/favicon.ico")
+        self.assertEqual(response.status_code, 301)
+        self.assertTrue(response["Location"].endswith("portal/img/favicon.svg"))

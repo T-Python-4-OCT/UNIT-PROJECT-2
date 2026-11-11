@@ -128,17 +128,196 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
   position: sticky;
   top: 0;
   z-index: 1030;
-  background: #072a20;
-  border-bottom: 2px solid var(--c-accent);
+  background: rgba(7, 42, 32, 0.94);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border-bottom: 1px solid rgba(212, 177, 95, 0.45);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
+
+.site-navbar .container {
+  min-height: 76px;
+  transition: min-height 0.25s ease;
+}
+
+/* After the user scrolls: slimmer bar, stronger shadow (class set in theme.js) */
+.site-navbar.is-scrolled .container { min-height: 62px; }
+.site-navbar.is-scrolled { box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28); }
+
+/* Reading progress: gold line at the bottom of the navbar, width from --scroll-progress */
+.site-navbar::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #d4b15f, #f0d68f);
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left;
+}
+
+[dir="rtl"] .site-navbar::after { transform-origin: right; }
 
 .site-navbar .navbar-brand {
-  font-weight: 700;
+  font-size: 1.15rem;
+  font-weight: 800;
   letter-spacing: 0.02em;
+  transition: color 0.3s ease;
 }
 
+.site-navbar .navbar-toggler { border-color: rgba(212, 177, 95, 0.6); }
+.site-navbar .navbar-toggler:focus { box-shadow: 0 0 0 0.2rem rgba(212, 177, 95, 0.2); }
 .site-navbar .navbar-toggler-icon { filter: invert(1); }
-.site-navbar .nav-link.active { font-weight: 600; }
+
+/* --- Links --- */
+.site-navbar .nav-link {
+  position: relative;
+  margin-inline: 0.2rem;
+  padding: 0.7rem 0.65rem !important;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+  transition: color 0.3s ease;
+}
+
+/* Gold underline grows from the center on hover and on the current page */
+.site-navbar .nav-link::after {
+  content: "";
+  position: absolute;
+  inset-inline: 50%;
+  bottom: 3px;
+  height: 2px;
+  background: var(--c-accent);
+  transition: inset-inline 0.3s ease;
+}
+
+.site-navbar .nav-link:hover::after,
+.site-navbar .nav-link.active::after {
+  inset-inline: 0.65rem;
+}
+
+.site-navbar .nav-link.active { color: var(--c-accent); }
+
+/* --- Control buttons (search, language, theme) --- */
+.nav-controls form { margin: 0; }
+
+.nav-control-btn {
+  min-height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.45rem 0.85rem;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(212, 177, 95, 0.45);
+  border-radius: 50px;
+  font-size: 0.85rem;
+  transition: background 0.25s ease, border-color 0.25s ease;
+}
+
+.nav-control-btn:hover,
+.nav-icon-btn.is-active {
+  color: #fff;
+  background: rgba(212, 177, 95, 0.16);
+  border-color: #d4b15f;
+}
+
+.theme-icon-btn,
+.nav-icon-btn {
+  width: 42px;
+  height: 42px;
+  padding: 0;
+  font-size: 1.3rem;
+}
+
+.theme-icon { line-height: 1; }
+
+/* --- Laptop widths (1200-1399px): container is 1140px, so tighten everything to fit one line --- */
+@media (min-width: 1200px) and (max-width: 1399.98px) {
+  .site-navbar .navbar-brand { font-size: 1rem; }
+
+  .site-navbar .nav-link {
+    margin-inline: 0;
+    padding-inline: 0.45rem !important;
+    font-size: 0.85rem;
+  }
+
+  .site-navbar .nav-link:hover::after,
+  .site-navbar .nav-link.active::after {
+    inset-inline: 0.45rem;
+  }
+
+  .site-navbar .nav-controls { flex-wrap: nowrap !important; }
+
+  /* Language button shows only the globe here; the label stays for screen readers */
+  .language-btn {
+    width: 42px;
+    height: 42px;
+    padding: 0;
+  }
+
+  .language-btn span {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+  }
+}
+
+/* --- Mobile and tablet (below 1200px): dropdown menu that overlays the page --- */
+@media (max-width: 1199.98px) {
+  .site-navbar > .container { position: relative; }
+
+  .site-navbar .navbar-collapse {
+    position: absolute;
+    top: 100%;
+    inset-inline: 0;
+    z-index: 1031;
+    width: 100%;
+    padding: 1rem 1.25rem 1.25rem;
+    background: #072a20;
+    border: 1px solid rgba(212, 177, 95, 0.4);
+    border-top: 0;
+    border-radius: 0 0 14px 14px;
+    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
+    transition: opacity 0.22s ease !important;
+  }
+
+  /* Fade instead of Bootstrap's height animation, so the page does not jump */
+  .site-navbar .navbar-collapse.collapsing {
+    height: auto !important;
+    overflow: hidden;
+    opacity: 0;
+    transition: opacity 0.22s ease !important;
+  }
+
+  .site-navbar .navbar-collapse.show { opacity: 1; }
+
+  .site-navbar .navbar-nav { gap: 0.35rem; }
+
+  .site-navbar .nav-link { padding: 0.75rem 0 !important; }
+  .site-navbar .nav-link::after { display: none; }
+  .site-navbar .nav-link.active { color: #d4b15f; }
+
+  .site-navbar .navbar-collapse .d-flex {
+    margin-top: 1rem !important;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-navbar *,
+  .site-navbar *::before,
+  .site-navbar *::after {
+    transition: none !important;
+  }
+}
 
 /* ===== Hero ===== */
 .hero {
@@ -742,124 +921,6 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
 }
 
 
-/* ===== Cinematic Navbar ===== */
-.site-navbar {
-  background: rgba(7, 42, 32, 0.94);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  border-bottom: 1px solid rgba(212, 177, 95, 0.45);
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
-  transition: background 0.3s ease, box-shadow 0.3s ease;
-}
-
-.site-navbar .container {
-  min-height: 76px;
-  transition: min-height 0.25s ease;
-}
-
-/* After the user scrolls: slimmer bar, stronger shadow (class set in theme.js) */
-.site-navbar.is-scrolled .container {
-  min-height: 62px;
-}
-
-.site-navbar.is-scrolled {
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
-}
-
-/* Reading progress: gold line at the bottom of the navbar, width from --scroll-progress */
-.site-navbar::after {
-  content: "";
-  position: absolute;
-  inset-inline-start: 0;
-  bottom: -1px;
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, #d4b15f, #f0d68f);
-  transform: scaleX(var(--scroll-progress, 0));
-  transform-origin: left;
-}
-
-[dir="rtl"] .site-navbar::after {
-  transform-origin: right;
-}
-
-.site-navbar .navbar-brand {
-  font-size: 1.15rem;
-  font-weight: 800;
-  letter-spacing: 0.02em;
-  transition: color 0.3s ease;
-}
-
-.site-navbar .nav-link {
-  position: relative;
-  margin-inline: 0.2rem;
-  padding: 0.7rem 0.65rem !important;
-  font-size: 0.9rem;
-  font-weight: 500;
-  transition: color 0.3s ease;
-}
-
-.site-navbar .nav-link::after {
-  content: "";
-  position: absolute;
-  inset-inline: 50%;
-  bottom: 3px;
-  height: 2px;
-  background: var(--c-accent);
-  transition: inset-inline 0.3s ease;
-}
-
-.site-navbar .nav-link:hover::after,
-.site-navbar .nav-link.active::after {
-  inset-inline: 0.65rem;
-}
-
-.site-navbar .nav-link.active {
-  color: var(--c-accent);
-}
-
-.site-navbar .btn {
-  border-radius: 50px;
-  transition:
-    background 0.3s ease,
-    border-color 0.3s ease,
-    transform 0.3s ease;
-}
-
-.site-navbar .btn:hover {
-  transform: translateY(-2px);
-}
-
-.site-navbar .navbar-toggler {
-  border-color: rgba(212, 177, 95, 0.6);
-}
-
-.site-navbar .navbar-toggler:focus {
-  box-shadow: 0 0 0 0.2rem rgba(212, 177, 95, 0.2);
-}
-
-@media (max-width: 1199.98px) {
-  .site-navbar .navbar-collapse {
-    padding: 1rem 0 1.25rem;
-  }
-
-  .site-navbar .nav-link {
-    padding-inline: 0 !important;
-  }
-
-  .site-navbar .nav-link::after {
-    display: none;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .site-navbar *,
-  .site-navbar *::before,
-  .site-navbar *::after {
-    transition: none !important;
-  }
-}
-
 /* ===== Scroll Reveal Animation ===== */
 .reveal-item {
   opacity: 0;
@@ -890,150 +951,6 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
   }
 }
 
-/* ===== Navbar Layout Stability ===== */
-.site-navbar .nav-link {
-  font-weight: 600;
-  white-space: nowrap;
-}
-
-.site-navbar .nav-link.active {
-  font-weight: 600;
-}
-/* Laptop widths (1200–1399px): container is 1140px, tighten link spacing so nav fits */
-@media (min-width: 1200px) and (max-width: 1399.98px) {
-  .site-navbar .nav-link {
-    margin-inline: 0;
-    padding-inline: 0.45rem !important;
-    font-size: 0.85rem;
-  }
-
-  .site-navbar .nav-link:hover::after,
-  .site-navbar .nav-link.active::after {
-    inset-inline: 0.45rem;
-  }
-
-  /* Keep both buttons on one line; the language button shows only the globe here.
-     The label stays readable by screen readers (clipped, not removed). */
-  .site-navbar .nav-controls { flex-wrap: nowrap !important; }
-
-  .site-navbar .navbar-brand { font-size: 1rem; }
-
-  .language-btn {
-    width: 42px;
-    height: 42px;
-    padding: 0;
-  }
-
-  .language-btn span {
-    position: absolute;
-    width: 1px;
-    height: 1px;
-    overflow: hidden;
-    clip-path: inset(50%);
-    white-space: nowrap;
-  }
-}
-
-/* ===== Stable Mobile Navigation ===== */
-@media (max-width: 1199.98px) {
-  .site-navbar > .container {
-    position: relative;
-  }
-
-  .site-navbar .navbar-collapse {
-    position: absolute;
-    top: 100%;
-    inset-inline: 0;
-    z-index: 1031;
-    width: 100%;
-    padding: 1rem 1.25rem 1.25rem;
-    background: #072a20;
-    border: 1px solid rgba(212, 177, 95, 0.4);
-    border-top: 0;
-    border-radius: 0 0 14px 14px;
-    box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25);
-  }
-
-  .site-navbar .navbar-nav {
-    gap: 0.35rem;
-  }
-
-  .site-navbar .nav-link {
-    padding: 0.75rem 0 !important;
-  }
-
-  .site-navbar .nav-link.active {
-    color: #d4b15f;
-  }
-
-  .site-navbar .navbar-collapse .d-flex {
-    margin-top: 1rem !important;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.15);
-  }
-}
-
-/* ===== Navbar Control Buttons ===== */
-.nav-controls form {
-  margin: 0;
-}
-
-.nav-control-btn {
-  min-height: 40px;
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  padding: 0.45rem 0.85rem;
-  color: #fff;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(212, 177, 95, 0.45);
-  border-radius: 50px;
-  font-size: 0.85rem;
-  transition: background 0.25s ease, border-color 0.25s ease;
-}
-
-.nav-control-btn:hover {
-  color: #fff;
-  background: rgba(212, 177, 95, 0.16);
-  border-color: #d4b15f;
-}
-
-.theme-icon-btn,
-.nav-icon-btn {
-  width: 42px;
-  height: 42px;
-  padding: 0;
-  font-size: 1.3rem;
-}
-
-.theme-icon {
-  line-height: 1;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .nav-control-btn {
-    transition: none;
-  }
-}
-
-/* ===== Smooth Mobile Menu ===== */
-@media (max-width: 1199.98px) {
-  .site-navbar .navbar-collapse {
-    transition: opacity 0.22s ease !important;
-  }
-
-  .site-navbar .navbar-collapse.collapsing {
-    height: auto !important;
-    overflow: hidden;
-    opacity: 0;
-    transition: opacity 0.22s ease !important;
-  }
-
-  .site-navbar .navbar-collapse.show {
-    opacity: 1;
-  }
-}
 /* ===== Feedback page ===== */
 .feedback-card {
   max-width: 860px;
@@ -1186,11 +1103,6 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
 
 @media (prefers-reduced-motion: reduce) {
   .rating-star { transition: none; }
-}
-
-.nav-icon-btn.is-active {
-  border-color: #d4b15f;
-  background: rgba(212, 177, 95, 0.16);
 }
 
 /* ===== Search page ===== */
