@@ -3,6 +3,7 @@ from django.shortcuts import redirect, render
 from django.utils.http import url_has_allowed_host_and_scheme
 
 from .history_data import LEGENDS, MOMENTS, TOURNAMENTS, summary
+from .journey_data import BID_NUMBERS, MILESTONES, ROADMAP
 from .data import CITIES, COUNTDOWN_TARGET, EXPLORE, STADIUMS, STATS, get_city, get_stadium, stadiums_in
 
 
@@ -69,7 +70,11 @@ def history_view(request: HttpRequest):
 
 
 def journey_view(request: HttpRequest):
-    return render(request, "main/coming_soon.html", {"title": "رحلة الاستضافة"})
+    return render(request, "main/journey.html", {
+        "milestones": MILESTONES,
+        "roadmap": ROADMAP,
+        "bid_numbers": BID_NUMBERS,
+    })
 
 
 def about_view(request: HttpRequest):

@@ -1,0 +1,94 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}رحلة الاستضافة{% endblock %}
+{% block nav_journey %}active{% endblock %}
+
+{% block content %}
+
+<!-- ===== HEADER ===== -->
+<section class="page-hero">
+    <img src="{% static 'main/images/card-journey-flag.jpg' %}" alt="علم المملكة أمام المنتخب" class="page-hero-img">
+    <div class="container page-hero-content">
+        <nav class="crumbs" aria-label="مسار الصفحة">
+            <a href="{% url 'main:home' %}">الرئيسية</a>
+            <i class="bi bi-chevron-left"></i>
+            <span>رحلة الاستضافة</span>
+        </nav>
+        <h1>رحلة الاستضافة</h1>
+        <p class="page-hero-tagline">من فكرة إلى أعلى ملف تقييماً في تاريخ البطولة</p>
+    </div>
+</section>
+
+<!-- ===== BID NUMBERS ===== -->
+<section class="container">
+    <div class="record-bar record-bar-4 reveal">
+        {% for n in bid_numbers %}
+            <div><strong>{{ n.value }}</strong><span>{{ n.label }}</span></div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ===== SLOGAN ===== -->
+<section class="section container">
+    <div class="slogan reveal">
+        <span class="eyebrow">شعار الملف</span>
+        <h2>معاً ننمو</h2>
+        <p class="lead-text">Growing. Together. شعار ملف الاستضافة، ويعكس رؤية بطولة تنمو معها كرة القدم والمدن والناس.</p>
+    </div>
+</section>
+
+<!-- ===== TIMELINE ===== -->
+<section class="section container">
+    <div class="section-head reveal">
+        <div>
+            <span class="eyebrow">المحطات</span>
+            <h2 class="section-title">من الإعلان إلى الفوز</h2>
+        </div>
+    </div>
+    <ol class="journey">
+        {% for m in milestones %}
+            <li class="journey-item reveal {% if m.highlight %}is-highlight{% endif %}">
+                <span class="journey-dot"><i class="bi {{ m.icon }}"></i></span>
+                <div class="journey-card">
+                    <span class="journey-date">{{ m.date }}</span>
+                    <h3>{{ m.title }}</h3>
+                    <p>{{ m.text }}</p>
+                </div>
+            </li>
+        {% endfor %}
+    </ol>
+</section>
+
+<!-- ===== ROADMAP ===== -->
+<section class="section container">
+    <div class="section-head reveal">
+        <div>
+            <span class="eyebrow">الطريق إلى 2034</span>
+            <h2 class="section-title">ماذا بعد؟</h2>
+        </div>
+    </div>
+    <div class="roadmap">
+        {% for r in roadmap %}
+            <div class="roadmap-step reveal" style="transition-delay: {{ forloop.counter0 }}00ms">
+                <span class="roadmap-year">{{ r.year }}</span>
+                <h3>{{ r.title }}</h3>
+                <p>{{ r.text }}</p>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ===== CTA ===== -->
+<section class="container">
+    <div class="cta reveal">
+        <img src="{% static 'main/images/hero-jawhara-tifo.jpg' %}" alt="تيفو الجماهير في ملعب الجوهرة" loading="lazy">
+        <div class="cta-content">
+            <h2>تعرّف على المدن المستضيفة</h2>
+            <p>خمس مدن تستعد لاستقبال العالم.</p>
+            <a href="{% url 'main:home' %}#cities" class="btn-main btn-gold">المدن <i class="bi bi-arrow-left"></i></a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
