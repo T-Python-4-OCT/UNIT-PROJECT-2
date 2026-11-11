@@ -1,0 +1,98 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}عن الدرعية | الدرعية{% endblock %}
+
+{% block content %}
+
+<section class="about-hero">
+    <img src="{% static 'main/images/hero.jpg' %}"
+         alt="الدرعية التاريخية"
+         class="about-hero-image">
+
+    <div class="about-hero-overlay"></div>
+
+    <div class="about-hero-content">
+        <span>مهد الدولة السعودية الأولى</span>
+        <h1>عن الدرعية</h1>
+        <p>حيث يلتقي التاريخ العريق بروح الحاضر</p>
+    </div>
+</section>
+
+<section class="about-intro">
+    <div class="about-container">
+
+        <div class="about-image">
+            <img src="{% static 'main/images/at-turaif.webp' %}"
+                 alt="العمارة النجدية في حي الطريف"
+                 loading="lazy">
+        </div>
+
+        <div class="about-text">
+            <span class="about-label">الدرعية | أرض التاريخ</span>
+
+            <h2>أكثر من مجرد وجهة تاريخية</h2>
+
+            <p>
+                الدرعية هي مهد الدولة السعودية الأولى،
+                وواحدة من أبرز الوجهات التاريخية والثقافية
+                في المملكة العربية السعودية.
+            </p>
+
+            <p>
+                تتميز الدرعية بعمارتها النجدية الأصيلة
+                وقصورها الطينية وأزقتها التاريخية،
+                حيث تمتزج أصالة الماضي بروح الحاضر.
+            </p>
+
+            <p>
+                تحتضن الدرعية حي الطريف التاريخي،
+                المدرج ضمن قائمة التراث العالمي لليونسكو،
+                إلى جانب وجهات ثقافية وتراثية متنوعة.
+            </p>
+
+            <a href="{% url 'main:history' %}"
+               class="about-button">
+                اكتشف تاريخ الدرعية
+                <span aria-hidden="true">←</span>
+            </a>
+        </div>
+
+    </div>
+</section>
+
+<section class="about-values">
+    <div class="about-values-container">
+
+        <div class="section-heading">
+            <span class="section-decoration">◆ ◆ ◆</span>
+            <h2>إرث يحكي قصة وطن</h2>
+            <p>تاريخ وثقافة وعمارة تجسد هوية الدرعية.</p>
+        </div>
+
+        <div class="about-values-grid">
+
+            <div class="about-value-card">
+                <span>✦</span>
+                <h3>التاريخ</h3>
+                <p>مهد الدولة السعودية الأولى منذ عام 1727م.</p>
+            </div>
+
+            <div class="about-value-card">
+                <span>◆</span>
+                <h3>التراث</h3>
+                <p>إرث نجدي أصيل يعكس هوية المكان.</p>
+            </div>
+
+            <div class="about-value-card">
+                <span>◇</span>
+                <h3>الثقافة</h3>
+                <p>وجهة تحتفي بالفنون والثقافة السعودية.</p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

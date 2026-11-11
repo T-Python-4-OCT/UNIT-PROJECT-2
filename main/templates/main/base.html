@@ -1,0 +1,439 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="description"
+        content="اكتشف الدرعية وتاريخها العريق وأماكن الزيارة والفعاليات ومشاريعها الثقافية والسياحية."
+    >
+
+    <title>{% block title %}الدرعية{% endblock %}</title>
+
+    <link
+        rel="stylesheet"
+        href="{% static 'main/css/style.css' %}"
+    >
+
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body data-theme="{% if request.COOKIES.diriyah_theme == 'light' %}light{% else %}dark{% endif %}">
+
+    <a href="#main-content" class="diriyah-skip-link">
+        الانتقال إلى المحتوى
+    </a>
+
+    <header class="site-header">
+
+        <div class="header-container">
+
+            <a
+                href="{% url 'main:home' %}"
+                class="site-logo"
+                aria-label="الدرعية - الصفحة الرئيسية"
+            >
+                <img
+                    src="{% static 'main/images/diriyah-logo.png' %}"
+                    alt="شعار الدرعية"
+                >
+
+                <span>الدرعية</span>
+            </a>
+
+            <nav
+                class="desktop-nav"
+                aria-label="التنقل الرئيسي"
+            >
+
+                <a
+                    href="{% url 'main:home' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+                >
+                    الرئيسية
+                </a>
+
+                <a
+                    href="{% url 'main:about' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
+                >
+                    عن الدرعية
+                </a>
+
+                <a
+                    href="{% url 'main:places' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'places' or request.resolver_match.url_name == 'place_detail' %}active{% endif %}"
+                >
+                    أماكن الزيارة
+                </a>
+
+                <a
+                    href="{% url 'main:events' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'events' %}active{% endif %}"
+                >
+                    الفعاليات
+                </a>
+
+                <a
+                    href="{% url 'main:history' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'history' %}active{% endif %}"
+                >
+                    التاريخ
+                </a>
+
+                <a
+                    href="{% url 'main:projects' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'projects' or request.resolver_match.url_name == 'project_detail' %}active{% endif %}"
+                >
+                    المشاريع
+                </a>
+
+                <a
+                    href="{% url 'main:gallery' %}"
+                    class="nav-link {% if request.resolver_match.url_name == 'gallery' %}active{% endif %}"
+                >
+                    معرض الصور
+                </a>
+
+            </nav>
+
+            <div class="header-actions">
+
+                <a
+                    href="{% url 'main:search' %}"
+                    class="header-icon-button {% if request.resolver_match.url_name == 'search' %}active{% endif %}"
+                    aria-label="البحث في الدرعية"
+                    title="البحث"
+                >
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <circle cx="11" cy="11" r="7"></circle>
+                        <path d="m20 20-4-4"></path>
+                    </svg>
+
+                </a>
+
+                <form
+                    method="post"
+                    action="{% url 'main:toggle_theme' %}"
+                    class="theme-toggle-form"
+                >
+
+                    {% csrf_token %}
+
+                    <input
+                        type="hidden"
+                        name="next"
+                        value="{{ request.get_full_path }}"
+                    >
+
+                    <button
+                        type="submit"
+                        class="header-icon-button"
+                        title="تغيير المظهر"
+                        aria-label="{% if request.COOKIES.diriyah_theme == 'light' %}تفعيل الوضع الداكن{% else %}تفعيل الوضع الفاتح{% endif %}"
+                    >
+
+                        {% if request.COOKIES.diriyah_theme == 'light' %}
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <path d="M20.7 13A9 9 0 0 1 11 3.3 9 9 0 1 0 20.7 13Z"></path>
+                            </svg>
+
+                        {% else %}
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="currentColor"
+                                stroke-width="2"
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                aria-hidden="true"
+                            >
+                                <circle cx="12" cy="12" r="4"></circle>
+
+                                <path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"></path>
+                            </svg>
+
+                        {% endif %}
+
+                    </button>
+
+                </form>
+
+            </div>
+
+            <details class="mobile-menu">
+
+                <summary aria-label="فتح قائمة التنقل">
+
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="28"
+                        height="28"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        stroke-width="2"
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        aria-hidden="true"
+                    >
+                        <line x1="4" y1="6" x2="20" y2="6"></line>
+                        <line x1="4" y1="12" x2="20" y2="12"></line>
+                        <line x1="4" y1="18" x2="20" y2="18"></line>
+                    </svg>
+
+                </summary>
+
+                <nav
+                    class="mobile-nav"
+                    aria-label="قائمة الجوال"
+                >
+
+                    <a href="{% url 'main:home' %}">
+                        الرئيسية
+                    </a>
+
+                    <a href="{% url 'main:about' %}">
+                        عن الدرعية
+                    </a>
+
+                    <a href="{% url 'main:places' %}">
+                        أماكن الزيارة
+                    </a>
+
+                    <a href="{% url 'main:events' %}">
+                        الفعاليات
+                    </a>
+
+                    <a href="{% url 'main:history' %}">
+                        تاريخ الدرعية
+                    </a>
+
+                    <a href="{% url 'main:projects' %}">
+                        مشاريع الدرعية
+                    </a>
+
+                    <a href="{% url 'main:gallery' %}">
+                        معرض الصور
+                    </a>
+
+                    <a href="{% url 'main:search' %}">
+                        البحث
+                    </a>
+
+                </nav>
+
+            </details>
+
+        </div>
+
+    </header>
+
+    <main id="main-content">
+
+        {% block content %}
+        {% endblock %}
+
+    </main>
+
+    <footer class="diriyah-footer">
+
+        <div
+            class="diriyah-najdi-pattern"
+            aria-hidden="true"
+        ></div>
+
+        <div class="diriyah-footer-container">
+
+            <div class="diriyah-footer-grid">
+
+                <div class="diriyah-footer-about">
+
+                    <a
+                        href="{% url 'main:home' %}"
+                        class="diriyah-footer-brand"
+                    >
+
+                        <img
+                            src="{% static 'main/images/diriyah-logo.png' %}"
+                            alt="شعار الدرعية"
+                        >
+
+                        <span>الدرعية</span>
+
+                    </a>
+
+                    <p class="diriyah-footer-description">
+                        الدرعية.. مهد الدولة السعودية الأولى،
+                        ووجهة تجمع بين التاريخ العريق
+                        والعمارة النجدية الأصيلة
+                        والتجارب الثقافية المعاصرة.
+                    </p>
+
+                    <div
+                        class="diriyah-footer-socials"
+                        aria-label="حسابات التواصل الاجتماعي"
+                    >
+
+                        <a
+                            href="https://www.instagram.com/visitdiriyah/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-btn instagram"
+                            aria-label="إنستغرام الدرعية"
+                            title="Instagram"
+                        >
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm0 2a3 3 0 0 0-3 3v10a3 3 0 0 0 3 3h10a3 3 0 0 0 3-3V7a3 3 0 0 0-3-3H7zm5 3.5A4.5 4.5 0 1 1 7.5 12 4.5 4.5 0 0 1 12 7.5zm0 2A2.5 2.5 0 1 0 14.5 12 2.5 2.5 0 0 0 12 9.5zm5.25-3.35a1.1 1.1 0 1 1-1.1 1.1 1.1 0 0 1 1.1-1.1z"></path>
+                            </svg>
+
+                        </a>
+
+                        <a
+                            href="https://x.com/visitdiriyah"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-btn x-platform"
+                            aria-label="حساب الدرعية على إكس"
+                            title="X"
+                        >
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M18.9 2H22l-6.77 7.74L23.2 22h-6.26l-4.9-6.42L6.44 22H3.32l7.24-8.28L1 2h6.41l4.43 5.86L18.9 2zm-1.1 18h1.73L6.47 3.9H4.61L17.8 20z"></path>
+                            </svg>
+
+                        </a>
+
+                        <a
+                            href="https://www.youtube.com/@Visit_Diriyah"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-btn youtube"
+                            aria-label="قناة الدرعية على يوتيوب"
+                            title="YouTube"
+                        >
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.5 12 3.5 12 3.5s-7.5 0-9.4.6A3 3 0 0 0 .5 6.2 31.8 31.8 0 0 0 0 12a31.8 31.8 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.6 9.4.6 9.4.6s7.5 0 9.4-.6a3 3 0 0 0 2.1-2.1A31.8 31.8 0 0 0 24 12a31.8 31.8 0 0 0-.5-5.8zM9.6 15.8V8.2L16 12l-6.4 3.8z"></path>
+                            </svg>
+
+                        </a>
+
+                        <a
+                            href="https://www.linkedin.com/company/diriyah-company/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="social-btn linkedin"
+                            aria-label="شركة الدرعية على لينكدإن"
+                            title="LinkedIn"
+                        >
+
+                            <svg
+                                xmlns="http://www.w3.org/2000/svg"
+                                viewBox="0 0 24 24"
+                                aria-hidden="true"
+                            >
+                                <path d="M4.98 3.5A2.49 2.49 0 1 1 2.5 6a2.49 2.49 0 0 1 2.48-2.5zM3 8h4v13H3zm7 0h3.83v1.77h.05A4.2 4.2 0 0 1 17.66 7c4 0 4.74 2.63 4.74 6.05V21h-4v-7.05c0-1.68 0-3.84-2.34-3.84s-2.7 1.83-2.7 3.72V21h-4z"></path>
+                            </svg>
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="diriyah-footer-column">
+
+                    <h2>استكشف الدرعية</h2>
+
+                    <nav aria-label="روابط استكشاف الدرعية">
+
+                        <a href="{% url 'main:home' %}">
+                            الصفحة الرئيسية
+                        </a>
+
+                        <a href="{% url 'main:about' %}">
+                            عن الدرعية
+                        </a>
+
+                        <a href="{% url 'main:history' %}">
+                            تاريخ الدرعية
+                        </a>
+
+                        <a href="{% url 'main:gallery' %}">
+                            معرض الصور
+                        </a>
+
+                    </nav>
+
+                </div>
+
+                <div class="diriyah-footer-column">
+
+                    <h2>الوجهات والتجارب</h2>
+
+                    <nav aria-label="روابط الوجهات والتجارب">
+
+                        <a href="{% url 'main:places' %}">
+                            أماكن الزيارة
+                        </a>
+
+                        <a href="{% url 'main:events' %}">
+                            الفعاليات
+                        </a>
+
+                        <a href="{% url 'main:projects' %}">
+                            مشاريع الدرعية
+                        </a>
+
+                    </nav>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,225 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ project.title }} | مشاريع الدرعية{% endblock %}
+
+{% block content %}
+
+<section class="diriyah-project-detail-hero">
+
+    <img
+        src="{% static 'main/images/' %}{{ project.image }}"
+        alt="{{ project.title }}"
+        class="diriyah-project-detail-hero-image"
+    >
+
+    <div class="diriyah-project-detail-hero-overlay"></div>
+
+    <div class="diriyah-project-detail-hero-content">
+
+        <a
+            href="{% url 'main:projects' %}"
+            class="diriyah-project-back"
+        >
+            <span aria-hidden="true">→</span>
+            جميع المشاريع
+        </a>
+
+        <span class="diriyah-project-detail-category">
+            {{ project.category }}
+        </span>
+
+        <h1>{{ project.title }}</h1>
+
+        <p>{{ project.subtitle }}</p>
+
+    </div>
+
+</section>
+
+<section class="diriyah-project-detail-section">
+
+    <div class="diriyah-project-container">
+
+        <div class="diriyah-project-detail-layout">
+
+            <article class="diriyah-project-detail-description">
+
+                <span class="diriyah-project-kicker">
+                    اكتشف المشروع
+                </span>
+
+                <h2>نبذة عن {{ project.title }}</h2>
+
+                <p>{{ project.description }}</p>
+
+                <div class="diriyah-project-detail-picture">
+
+                    <img
+                        src="{% static 'main/images/' %}{{ project.image }}"
+                        alt="{{ project.title }}"
+                        loading="lazy"
+                    >
+
+                </div>
+
+            </article>
+
+            <aside class="diriyah-project-detail-sidebar">
+
+                <div class="diriyah-project-info-box">
+
+                    <span class="diriyah-project-decoration">◆ ◆ ◆</span>
+
+                    <h3>معلومات المشروع</h3>
+
+                    <div class="diriyah-project-info-item">
+                        <span>اسم المشروع</span>
+                        <strong>{{ project.title }}</strong>
+                    </div>
+
+                    <div class="diriyah-project-info-item">
+                        <span>المجال</span>
+                        <strong>{{ project.category }}</strong>
+                    </div>
+
+                    <div class="diriyah-project-info-item">
+                        <span>الموقع</span>
+                        <strong>الدرعية، المملكة العربية السعودية</strong>
+                    </div>
+
+                    <div class="diriyah-project-info-item">
+                        <span>الهوية المعمارية</span>
+                        <strong>مستوحاة من تراث الدرعية</strong>
+                    </div>
+
+                    <a
+                        href="{% url 'main:projects' %}"
+                        class="diriyah-project-info-button"
+                    >
+                        العودة إلى المشاريع
+                        <span aria-hidden="true">←</span>
+                    </a>
+
+                </div>
+
+            </aside>
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="diriyah-project-features-section">
+
+    <div class="diriyah-project-container">
+
+        <div class="diriyah-project-heading">
+
+            <span class="diriyah-project-decoration">◆ ◆ ◆</span>
+
+            <h2>ما الذي يميز المشروع؟</h2>
+
+            <p>
+                تعرف على أبرز العناصر والتجارب
+                التي يقدمها {{ project.title }}.
+            </p>
+
+        </div>
+
+        <div class="diriyah-project-features-grid">
+
+            {% for feature in project.features %}
+
+            <div class="diriyah-project-feature-card">
+
+                <span class="diriyah-project-feature-icon">
+                    ◆
+                </span>
+
+                <p>{{ feature }}</p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+<section class="diriyah-project-related-section">
+
+    <div class="diriyah-project-container">
+
+        <div class="diriyah-project-heading">
+
+            <span class="diriyah-project-decoration">◆ ◆ ◆</span>
+
+            <h2>مشاريع أخرى تستحق الاستكشاف</h2>
+
+            <p>واصل رحلتك في اكتشاف مستقبل الدرعية.</p>
+
+        </div>
+
+        <div class="diriyah-project-grid">
+
+            {% for related in related_projects %}
+
+            <a
+                href="{% url 'main:project_detail' related.slug %}"
+                class="diriyah-project-card"
+            >
+
+                <div class="diriyah-project-card-image">
+
+                    <img
+                        src="{% static 'main/images/' %}{{ related.image }}"
+                        alt="{{ related.title }}"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <div class="diriyah-project-card-content">
+
+                    <span class="diriyah-project-category">
+                        {{ related.category }}
+                    </span>
+
+                    <h3>{{ related.title }}</h3>
+
+                    <p>{{ related.summary }}</p>
+
+                    <span class="diriyah-project-card-link">
+                        اكتشف المشروع
+                        <span aria-hidden="true">←</span>
+                    </span>
+
+                </div>
+
+            </a>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="diriyah-project-more">
+
+            <a
+                href="{% url 'main:projects' %}"
+                class="diriyah-project-hero-button"
+            >
+                عرض جميع المشاريع
+                <span aria-hidden="true">←</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

@@ -1,76 +1,174 @@
-# UNIT-PROJECT-2
+<div align="center">
 
-## Using Django create a project about our beloved kingdom of your choosing. Examples :
-- Tourism in Saudi Arabia.
-- Culture & Heritage in Saudi Arabia.
-- Manufacturing & Industries in Saudi Arabia.
-- Agriculture in Saudi Arabia.
-- Science in Saudi Arabia.
-- History of Saudi Arabia.
-- etc.....
+<img src="main/static/main/images/diriyah-logo.png" alt="شعار الدرعية" width="240">
 
+# الدرعية | Diriyah
 
-# Minumum Requirements
-- Use Django.
-- Use templates & templates inheritance.
-- Use dynamic urls where applicable.
-- Use static files where applicable.
-- homepage + at least 6 pages.
-- Coherent, uniform design .
-- Implement dark and light mode.
-- Must be Responsive. 
-- You can use a CSS library to style your website (such as Bootstrap or equivalent)
-- You can use a cdn or a cloud storage to host large files such as large videos (example: Goolge Firebase Cloud Storage: https://firebase.google.com/docs/storage)
+**موقع تعريفي بالدرعية، مهد الدولة السعودية الأولى**
 
+![الواجهة الرئيسية](main/static/main/images/home-screenshot.jpg)
 
+</div>
 
-# Example : TOURISM-PROJECT
+<br>
 
-## Using Django create a website for Tourism in Saudi Arabia . The project name is : Tourister
+<br>
 
-### Your website has the following pages :
+---
 
-#### "" : home page , with the following content:
-- Title of the page , with a catchy phrase about tourism in Saudi Arabia
-- A single wide image covering the page.
-- A paragraph about the tourism in Saudi Arabia in General.
-- A list of cities pages with links to them (the pages are listed down below).
+## 📖 نبذة
 
+يعرض الموقع تاريخ الدرعية وأبرز أماكن الزيارة والفعاليات والمشاريع الكبرى ومعرض صور، مع بحث داخلي وفيديو تعريفي.
 
-#### "city/Riyadh/"
-- Title of city with a catchy phrase
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+<br>
 
-#### "city/Abha/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+<br>
 
-#### "city/Mekkah/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+---
 
-#### "city/AlUla/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+## 🗺️ الصفحات
+
+<div align="center">
+
+| الصفحة | المسار |
+|:---:|:---:|
+| الرئيسية | `/` |
+| عن الدرعية | `/about/` |
+| أماكن الزيارة | `/places/` |
+| تفاصيل مكان | `/places/<slug>/` |
+| الفعاليات | `/events/` |
+| التاريخ | `/history/` |
+| المشاريع | `/projects/` |
+| تفاصيل مشروع | `/projects/<slug>/` |
+| المعرض | `/gallery/` |
+| البحث | `/search/` |
+
+</div>
+
+<br>
+
+<br>
+
+### 📍 أماكن الزيارة
+
+<div dir="rtl">
+
+- الزلّال
+
+- باب سمحان
+
+- حي الطريف التاريخي
+
+- مطل البجيري
+
+- وادي حنيفة
+
+</div>
+
+<br>
+
+<br>
+
+### 🏗️ المشاريع
+
+<div dir="rtl">
+
+- ميدان الدرعية
+
+- وادي صفار
+
+- دار الأوبرا الملكية بالدرعية
+
+- حي القرين الثقافي
+
+- مركز الدرعية لفنون المستقبل
+
+</div>
+
+<br>
+
+<br>
+
+---
+
+## ✨ المميزات
+
+<div dir="rtl">
+
+- وضع داكن وفاتح مع حفظ اختيار المستخدم
+
+- بحث داخلي في الأماكن والمشاريع
+
+- خط زمني تفاعلي لتاريخ الدرعية من 1446م إلى 2023م
+
+- فيديو تعريفي ومعرض صور
+
+- تصميم متجاوب مع الجوال والتابلت وسطح المكتب
+
+- دعم كامل للغة العربية والاتجاه من اليمين لليسار
+
+</div>
+
+<br>
+
+<br>
+
+---
+
+## 🛠️ التقنيات
+
+<div align="center">
+
+| التقنية | الاستخدام |
+|:---:|:---:|
+| Python | لغة البرمجة |
+| Django | إطار بناء الموقع |
+| HTML | هيكل الصفحات |
+| CSS | التصميم والألوان |
+| JavaScript | حركة الخط الزمني |
+
+</div>
+
+<br>
+
+<br>
+
+---
+
+## 🚀 التشغيل
+
+**1. إنشاء البيئة الافتراضية**
+
+```bash
+python -m venv venv
+```
+
+**2. تفعيل البيئة**
+
+على ويندوز:
+
+```bash
+venv\Scripts\activate
+```
+
+على ماك / لينكس:
+
+```bash
+source venv/bin/activate
+```
+
+**3. تثبيت Django**
+
+```bash
+pip install django
+```
+
+**4. تشغيل الموقع**
+
+```bash
+python manage.py runserver
+```
+
+<br>
+
+ثم افتح الرابط: `http://127.0.0.1:8000/`

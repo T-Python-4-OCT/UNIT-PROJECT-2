@@ -1,0 +1,269 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}معرض الدرعية | الدرعية{% endblock %}
+
+{% block content %}
+
+<section class="gallery-hero">
+
+    <div class="gallery-hero-content">
+
+        <span class="gallery-hero-label">
+            جمال المكان وأصالة التاريخ
+        </span>
+
+        <h1>معرض الدرعية</h1>
+
+        <p>
+            استكشف الدرعية من خلال مجموعة من الصور
+            التي توثق معالمها التاريخية وطبيعتها
+            ووجهاتها الثقافية والتراثية.
+        </p>
+
+        <a href="#gallery-places" class="gallery-hero-button">
+            استكشف المعرض
+            <span aria-hidden="true">↓</span>
+        </a>
+
+    </div>
+
+</section>
+
+<section class="gallery-section" id="gallery-places">
+
+    <div class="gallery-container">
+
+        <div class="gallery-heading">
+            <span class="gallery-decoration">◆ ◆ ◆</span>
+            <h2>جمال الدرعية</h2>
+            <p>
+                صور من أبرز معالم الدرعية
+                ووجهاتها التاريخية والثقافية.
+            </p>
+        </div>
+
+        <div class="gallery-grid">
+
+            <div class="gallery-card gallery-card-featured">
+
+                <img
+                    src="{% static 'main/images/at-turaif.webp' %}"
+                    alt="حي الطريف التاريخي"
+                    loading="lazy"
+                >
+
+                <div class="gallery-card-overlay"></div>
+
+                <div class="gallery-card-content">
+                    <span>التراث والتاريخ</span>
+                    <h3>حي الطريف التاريخي</h3>
+                    <p>إرث نجدي عريق ومهد الدولة السعودية الأولى</p>
+                </div>
+
+            </div>
+
+            <div class="gallery-card">
+
+                <img
+                    src="{% static 'main/images/bujairi-terrace.webp' %}"
+                    alt="مطل البجيري"
+                    loading="lazy"
+                >
+
+                <div class="gallery-card-overlay"></div>
+
+                <div class="gallery-card-content">
+                    <span>المطاعم والإطلالات</span>
+                    <h3>مطل البجيري</h3>
+                    <p>تجربة تجمع التراث والضيافة</p>
+                </div>
+
+            </div>
+
+            <div class="gallery-card">
+
+                <img
+                    src="{% static 'main/images/bab-samhan.webp' %}"
+                    alt="باب سمحان"
+                    loading="lazy"
+                >
+
+                <div class="gallery-card-overlay"></div>
+
+                <div class="gallery-card-content">
+                    <span>الإقامة والتراث</span>
+                    <h3>باب سمحان</h3>
+                    <p>عمارة أصيلة وضيافة فاخرة</p>
+                </div>
+
+            </div>
+
+            <div class="gallery-card">
+
+                <img
+                    src="{% static 'main/images/zallal.webp' %}"
+                    alt="الزلال"
+                    loading="lazy"
+                >
+
+                <div class="gallery-card-overlay"></div>
+
+                <div class="gallery-card-content">
+                    <span>الضيافة والثقافة</span>
+                    <h3>الزلّال</h3>
+                    <p>تجربة معاصرة بروح نجدية</p>
+                </div>
+
+            </div>
+
+            <div class="gallery-card">
+
+                <img
+                    src="{% static 'main/images/wadi-hanifah.webp' %}"
+                    alt="وادي حنيفة"
+                    loading="lazy"
+                >
+
+                <div class="gallery-card-overlay"></div>
+
+                <div class="gallery-card-content">
+                    <span>الطبيعة والحدائق</span>
+                    <h3>وادي حنيفة</h3>
+                    <p>الطبيعة في قلب الدرعية</p>
+                </div>
+
+            </div>
+
+            <div class="gallery-card">
+
+                <img
+                    src="{% static 'main/images/event-salwa.webp' %}"
+                    alt="عرض مرئي على واجهة قصر سلوى"
+                    loading="lazy"
+                >
+
+                <div class="gallery-card-overlay"></div>
+
+                <div class="gallery-card-content">
+                    <span>الفعاليات الثقافية</span>
+                    <h3>قصر سلوى</h3>
+                    <p>تجربة بصرية تحكي تاريخ الدرعية</p>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="gallery-more">
+            <a href="{% url 'main:places' %}" class="gallery-more-button">
+                استكشف أماكن الزيارة
+                <span aria-hidden="true">←</span>
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+<section class="gallery-archive-section">
+
+    <div class="gallery-container">
+
+        <div class="gallery-heading">
+
+            <span class="gallery-decoration">◆ ◆ ◆</span>
+
+            <h2>الدرعية عبر الزمن</h2>
+
+            <p>
+                صور أرشيفية وتاريخية ومشاهد حديثة
+                تروي جوانب من رحلة الدرعية عبر الزمن.
+            </p>
+
+        </div>
+
+        <div class="gallery-archive-grid">
+
+            <div class="gallery-card gallery-archive-card">
+
+                <img
+                    src="{% static 'main/images/history-1446.webp' %}"
+                    alt="صورة أرشيفية لوادي حنيفة"
+                    loading="lazy"
+                >
+
+                <div class="gallery-card-overlay"></div>
+
+                <div class="gallery-card-content">
+                    <span>صور أرشيفية</span>
+                    <h3>وادي حنيفة قديمًا</h3>
+                </div>
+
+            </div>
+
+            <div class="gallery-card gallery-archive-card">
+
+                <img
+                    src="{% static 'main/images/history-2010.webp' %}"
+                    alt="العمارة التاريخية في حي الطريف"
+                    loading="lazy"
+                >
+
+                <div class="gallery-card-overlay"></div>
+
+                <div class="gallery-card-content">
+                    <span>التراث العالمي</span>
+                    <h3>الطريف التاريخي</h3>
+                </div>
+
+            </div>
+
+            <div class="gallery-card gallery-archive-card">
+
+                <img
+                    src="{% static 'main/images/history-2017.webp' %}"
+                    alt="العرضة السعودية"
+                    loading="lazy"
+                >
+
+                <div class="gallery-card-overlay"></div>
+
+                <div class="gallery-card-content">
+                    <span>التراث والثقافة</span>
+                    <h3>العرضة السعودية</h3>
+                </div>
+
+            </div>
+
+            <div class="gallery-card gallery-archive-card">
+
+                <img
+                    src="{% static 'main/images/history-2023.webp' %}"
+                    alt="مشروعات التطوير في الدرعية"
+                    loading="lazy"
+                >
+
+                <div class="gallery-card-overlay"></div>
+
+                <div class="gallery-card-content">
+                    <span>الحاضر والمستقبل</span>
+                    <h3>الدرعية الحديثة</h3>
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="gallery-more">
+            <a href="{% url 'main:history' %}" class="gallery-more-button">
+                اكتشف تاريخ الدرعية
+                <span aria-hidden="true">←</span>
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

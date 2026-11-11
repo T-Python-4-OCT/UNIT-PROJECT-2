@@ -1,0 +1,156 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}البحث | الدرعية{% endblock %}
+
+{% block content %}
+
+<section class="diriyah-search-hero">
+
+    <div class="diriyah-search-hero-content">
+
+        <span class="diriyah-search-kicker">
+            استكشف الدرعية
+        </span>
+
+        <h1>ابحث في الدرعية</h1>
+
+        <p>
+            ابحث عن أماكن الزيارة والمشاريع
+            واكتشف تفاصيل الوجهات التي تهمك.
+        </p>
+
+        <form
+            action="{% url 'main:search' %}"
+            method="get"
+            role="search"
+            class="diriyah-search-form"
+        >
+
+            <label
+                for="diriyah-search-input"
+                class="sr-only"
+            >
+                اسم المكان أو المشروع
+            </label>
+
+            <input
+                id="diriyah-search-input"
+                type="search"
+                name="q"
+                value="{{ query }}"
+                placeholder="مثال: الطريف، وادي صفار، ميدان الدرعية"
+                maxlength="100"
+                autocomplete="off"
+            >
+
+            <button type="submit">
+                بحث
+            </button>
+
+        </form>
+
+    </div>
+
+</section>
+
+{% if query %}
+
+<section
+    class="diriyah-search-section"
+    id="search-results"
+>
+
+    <div class="diriyah-search-container">
+
+        <div class="diriyah-search-results-heading">
+
+            <h2>
+                نتائج البحث عن «{{ query }}»
+            </h2>
+
+            <p>
+                عدد النتائج: {{ result_count }}
+            </p>
+
+        </div>
+
+        {% if results %}
+
+            <div class="diriyah-search-grid">
+
+                {% for result in results %}
+
+                    <a
+                        class="diriyah-search-card"
+                        href="{{ result.url }}"
+                    >
+
+                        <div class="diriyah-search-card-image">
+
+                            {% if result.image %}
+
+                                <img
+                                    src="{% static 'main/images/' %}{{ result.image }}"
+                                    alt="{{ result.title }}"
+                                    loading="lazy"
+                                >
+
+                            {% endif %}
+
+                        </div>
+
+                        <div class="diriyah-search-card-content">
+
+                            <span class="diriyah-search-card-category">
+                                {{ result.category }}
+                            </span>
+
+                            <h3>{{ result.title }}</h3>
+
+                            {% if result.subtitle %}
+                                <h4>{{ result.subtitle }}</h4>
+                            {% endif %}
+
+                            <p>
+                                {{ result.description|truncatechars:145 }}
+                            </p>
+
+                            <span class="diriyah-search-card-link">
+                                عرض التفاصيل
+                                <span aria-hidden="true">←</span>
+                            </span>
+
+                        </div>
+
+                    </a>
+
+                {% endfor %}
+
+            </div>
+
+        {% else %}
+
+            <div class="diriyah-search-empty">
+
+                <h3>لم نجد نتائج مطابقة</h3>
+
+                <p>
+                    جرّب البحث بكلمة أخرى.
+                </p>
+
+                <a href="{% url 'main:search' %}">
+                    بحث جديد
+                </a>
+
+            </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+{% endif %}
+
+{% endblock %}

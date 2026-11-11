@@ -1,0 +1,262 @@
+
+.salwa-location-section {
+    padding: 85px 24px 110px;
+}
+
+.salwa-location-container {
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.salwa-location-heading {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.salwa-pattern {
+    display: inline-block;
+    color: #c54d5d;
+    font-size: 16px;
+    letter-spacing: 7px;
+}
+
+.salwa-location-heading h2 {
+    margin: 16px 0 12px;
+    font-size: clamp(30px, 4vw, 46px);
+    font-weight: 900;
+}
+
+.salwa-location-heading p {
+    margin: 0;
+    font-size: 17px;
+    line-height: 1.9;
+    opacity: 0.8;
+}
+
+.salwa-location-grid {
+    display: grid;
+    grid-template-columns: minmax(0, 1.6fr) minmax(310px, 0.85fr);
+    gap: 22px;
+    align-items: stretch;
+}
+
+.salwa-location-map {
+    min-width: 0;
+    min-height: 460px;
+    overflow: hidden;
+    border: 1px solid #493137;
+    border-radius: 17px;
+    background: #e9e0d8;
+}
+
+.salwa-location-map iframe {
+    display: block;
+    width: 100%;
+    height: 100%;
+    min-height: 460px;
+    border: 0;
+}
+
+.salwa-location-card {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    gap: 17px;
+    min-width: 0;
+    padding: 35px 28px;
+    border: 1px solid #493137;
+    border-radius: 17px;
+    background: #221719;
+}
+
+.salwa-location-icon {
+    color: #c54d5d;
+    font-size: 36px;
+    line-height: 1;
+}
+
+.salwa-location-card h3 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 900;
+}
+
+.salwa-location-address {
+    margin: 0;
+    color: #d6c6c3;
+    font-size: 16px;
+    line-height: 1.9;
+}
+
+.salwa-location-info {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 16px;
+    border: 1px solid #493137;
+    border-radius: 10px;
+    background: rgba(143, 35, 52, 0.12);
+}
+
+.salwa-location-info > span {
+    color: #c54d5d;
+    font-size: 23px;
+    line-height: 1.5;
+}
+
+.salwa-location-info p {
+    margin: 0;
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+.salwa-location-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin-top: 8px;
+}
+
+.salwa-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 52px;
+    padding: 12px 20px;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-decoration: none;
+    transition:
+        background 0.25s ease,
+        border-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.salwa-action:hover {
+    transform: translateY(-2px);
+}
+
+.salwa-action:focus-visible {
+    outline: 2px solid #c54d5d;
+    outline-offset: 4px;
+}
+
+.salwa-action-primary {
+    color: #ffffff;
+    background: #8f2334;
+    border: 1px solid #8f2334;
+}
+
+.salwa-action-primary:hover {
+    color: #ffffff;
+    background: #b83c4e;
+    border-color: #b83c4e;
+}
+
+.salwa-action-outline {
+    color: #f8f2ed;
+    background: transparent;
+    border: 1px solid #b94e5b;
+}
+
+.salwa-action-outline:hover {
+    color: #ffffff;
+    background: rgba(143, 35, 52, 0.2);
+}
+
+.salwa-location-note {
+    margin: 18px 0 0;
+    font-size: 13px;
+    line-height: 1.9;
+    opacity: 0.7;
+}
+
+body[data-theme="light"] .salwa-location-card {
+    color: #27191d;
+    background: #ffffff;
+    border-color: #e4d1cc;
+}
+
+body[data-theme="light"] .salwa-location-address {
+    color: #594247;
+}
+
+body[data-theme="light"] .salwa-location-info {
+    background: #faf1ef;
+    border-color: #e4d1cc;
+}
+
+body[data-theme="light"] .salwa-action-outline {
+    color: #8f2334;
+}
+
+body[data-theme="light"] .salwa-action-outline:hover {
+    color: #8f2334;
+    background: #f4e8e5;
+}
+
+body[data-theme="light"] .salwa-action-primary,
+body[data-theme="light"] .salwa-action-primary:hover {
+    color: #ffffff;
+}
+
+body[data-theme="light"] .salwa-location-map {
+    border-color: #e4d1cc;
+}
+
+@media (max-width: 950px) {
+    .salwa-location-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .salwa-location-map,
+    .salwa-location-map iframe {
+        min-height: 390px;
+    }
+}
+
+@media (max-width: 600px) {
+    .salwa-location-section {
+        padding: 60px 16px 75px;
+    }
+
+    .salwa-location-heading {
+        margin-bottom: 30px;
+    }
+
+    .salwa-location-heading p {
+        font-size: 15px;
+    }
+
+    .salwa-location-map,
+    .salwa-location-map iframe {
+        min-height: 340px;
+    }
+
+    .salwa-location-card {
+        padding: 26px 20px;
+    }
+
+    .salwa-location-card h3 {
+        font-size: 26px;
+    }
+
+    .salwa-action {
+        font-size: 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .salwa-action {
+        transition: none;
+    }
+
+    .salwa-action:hover {
+        transform: none;
+    }
+}

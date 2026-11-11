@@ -1,0 +1,165 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ place.title }} | الدرعية{% endblock %}
+
+{% block extra_head %}
+<link rel="stylesheet" href="{% static 'main/css/place_detail_extra.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<section class="place-detail-hero">
+
+    <img
+        class="place-detail-image"
+        src="{% static 'main/images/' %}{{ place.image }}"
+        alt="{{ place.title }}"
+    >
+
+    <div class="place-detail-overlay"></div>
+
+    <div class="place-detail-heading">
+        <span>{{ place.tag }}</span>
+        <h1>{{ place.title }}</h1>
+        <p>{{ place.subtitle }}</p>
+    </div>
+
+</section>
+
+<section class="place-detail-section destination-page">
+
+    <div class="place-detail-container">
+
+        <a
+            class="back-to-places"
+            href="{% url 'main:places' %}"
+        >
+            ← العودة إلى أماكن الزيارة
+        </a>
+
+        <div class="destination-intro">
+
+            <span class="destination-pattern" aria-hidden="true">
+                ◆ ◆ ◆
+            </span>
+
+            <h2>اكتشف {{ place.title }}</h2>
+
+            <p>{{ place.description }}</p>
+
+        </div>
+
+        <div class="place-features">
+
+            {% for detail in place.details %}
+
+            <div class="place-feature">
+
+                <span class="feature-symbol" aria-hidden="true">
+                    ✦
+                </span>
+
+                <p>{{ detail }}</p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        <div class="destination-gallery-heading">
+
+            <span class="destination-pattern" aria-hidden="true">
+                ◆ ◆ ◆
+            </span>
+
+            <h2>الموقع وكيف تصل</h2>
+
+            <p>{{ place.location_description }}</p>
+
+        </div>
+
+        <div class="destination-map-layout">
+
+            <div class="destination-map-frame">
+
+                {% if place.map_embed_url %}
+
+                <iframe
+                    src="{{ place.map_embed_url }}"
+                    title="خريطة موقع {{ place.title }}"
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    allowfullscreen
+                ></iframe>
+
+                {% endif %}
+
+            </div>
+
+            <div class="destination-map-panel">
+
+                <span class="destination-map-icon" aria-hidden="true">
+                    ✦
+                </span>
+
+                <h3>{{ place.title }}</h3>
+
+                <p>{{ place.location_description }}</p>
+
+                {% if place.booking_url %}
+
+                <a
+                    href="{{ place.booking_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="destination-action destination-action-primary"
+                >
+                    {{ place.booking_label|default:"احجز الآن" }} ↗
+                </a>
+
+                {% endif %}
+
+                {% if place.map_url %}
+
+                <a
+                    href="{{ place.map_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="destination-action destination-action-outline"
+                >
+                    فتح في خرائط Google ↗
+                </a>
+
+                {% endif %}
+
+                {% if place.official_url %}
+
+                <a
+                    href="{{ place.official_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="destination-action destination-action-outline"
+                >
+                    زيارة الموقع الرسمي ↗
+                </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+        <p class="destination-location-note">
+            إذا لم تظهر الخريطة داخل الصفحة،
+            استخدم زر فتح في خرائط Google.
+            تحقق من المواعيد والأسعار وتوافر الحجز
+            عبر الجهة الرسمية قبل الزيارة.
+        </p>
+
+    </div>
+
+</section>
+
+{% endblock %}
