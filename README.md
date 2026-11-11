@@ -185,17 +185,10 @@ Then open **http://127.0.0.1:8000** in your browser.
 | `roshn/` | Official ROSHN media ([roshn.sa](https://www.roshn.sa)) |
 | `site/` | Riyadh photography and official photos of the Saudi leadership |
 
-**Photography credits:** some photos are by **Ahmad Alhamwan** and **Osama Mansour**. All rights belong to their owners.
 
----
 
-## ⚠️ Disclaimer
 
-This is a **student project**, made for learning purposes only.
-It is not affiliated with or endorsed by Saudi Vision 2030, the Public Investment Fund, or any of the projects shown.
-All names, logos and images belong to their respective owners.
 
----
 
 <div align="center">
 
