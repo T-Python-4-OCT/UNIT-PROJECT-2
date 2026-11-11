@@ -1,0 +1,25 @@
+{% load i18n static atlas %}
+<section class="project-video" aria-labelledby="video-title" data-film>
+  <div class="film-glow" aria-hidden="true"><img src="{% static project.video.poster %}" alt="" width="1280" height="720" loading="lazy" decoding="async"></div>
+  <div class="shell film-inner">
+    <header class="film-head">
+      <p class="eyebrow film-eyebrow">{% translate "The short film" %}</p>
+      <h2 class="film-title" id="video-title">{{ project.video.title }}</h2>
+    </header>
+    <figure class="film-figure">
+      <div class="project-video-player">
+        <video controls preload="none" playsinline poster="{% static project.video.poster %}" aria-label="{{ project.video.title }}" data-film-video>
+          <source src="{% video_url project.slug %}" type="video/mp4">
+          {% for track in project.video.captions %}
+          <track kind="captions" src="{% static track.src %}" srclang="{{ track.lang }}" label="{{ track.label }}">
+          {% endfor %}
+          <a href="{% video_url project.slug %}">{{ project.video.title }}</a>
+        </video>
+        <button type="button" class="film-play" data-film-play hidden>
+          <span class="film-play-icon" aria-hidden="true"><svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5.5v13a1 1 0 0 0 1.5.86l11-6.5a1 1 0 0 0 0-1.72l-11-6.5A1 1 0 0 0 8 5.5Z"/></svg></span>
+          <span class="film-play-label">{% translate "Play film" %}<span class="film-play-time">{{ project.video.minutes }}</span></span>
+        </button>
+      </div>
+    </figure>
+  </div>
+</section>

@@ -1,0 +1,469 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: Saudi Giga Atlas\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
+
+msgid "3D map"
+msgstr "خريطة ثلاثية الأبعاد"
+
+msgid "About PIF’s giga-projects"
+msgstr "عن المشاريع الكبرى لصندوق الاستثمارات العامة"
+
+msgid "All projects"
+msgstr "جميع المشاريع"
+
+msgid "An illustrated guide to seven Saudi developments, from Najdi heritage and new communities to mountain landscapes and the Red Sea coast."
+msgstr "دليل مصوّر لسبعة مشاريع سعودية، من تراث نجد والأحياء الجديدة إلى الجبال وساحل البحر الأحمر."
+
+msgid "Dark mode"
+msgstr "الوضع الداكن"
+
+msgid "Close photo"
+msgstr "إغلاق الصورة"
+
+msgid "Explore the projects"
+msgstr "تعرّف على المشاريع"
+
+msgid "Independent student project"
+msgstr "مشروع طلابي مستقل"
+
+msgid "Inside the project"
+msgstr "تفاصيل المشروع"
+
+msgid "Main navigation"
+msgstr "التنقل الرئيسي"
+
+msgid "Milestones"
+msgstr "محطات المشروع"
+
+msgid "Next project"
+msgstr "المشروع التالي"
+
+msgid "On film"
+msgstr "المشروع بالفيديو"
+
+msgid "Page not found"
+msgstr "الصفحة غير موجودة"
+
+msgid "Photo viewer"
+msgstr "عارض الصور"
+
+msgid "Photos and places"
+msgstr "صور وأماكن"
+
+msgid "Play video"
+msgstr "تشغيل الفيديو"
+
+msgid "Project highlights"
+msgstr "أبرز معالم المشروع"
+
+msgid "Project map"
+msgstr "خريطة المشروع"
+
+msgid "Projects"
+msgstr "المشاريع"
+
+msgid "Projects on the map"
+msgstr "المشاريع على الخريطة"
+
+msgid "Resized and converted to WebP. Cropped to fit some layouts."
+msgstr "عُدّل الحجم وحُوّلت الصورة إلى WebP. وقُصّت لتناسب بعض طرق العرض."
+
+msgid "From the plateau to the coast"
+msgstr "من الهضبة إلى الساحل"
+
+msgid "Seven projects across Saudi Arabia, from Najdi courtyards and the Tuwaiq cliffs to the islands of the Red Sea."
+msgstr "سبعة مشاريع في أنحاء السعودية، من ساحات نجد وجروف طويق إلى جزر البحر الأحمر."
+
+msgid "Explore the map"
+msgstr "استكشف الخريطة"
+
+msgid "Field map"
+msgstr "الخريطة الميدانية"
+
+msgid "The itinerary"
+msgstr "محطات الرحلة"
+
+msgid "The story"
+msgstr "حكاية المكان"
+
+msgid "In pictures"
+msgstr "بالصور"
+
+msgid "Open photo"
+msgstr "افتح الصورة"
+
+msgid "The short film"
+msgstr "الفيلم القصير"
+
+msgid "Poster photograph"
+msgstr "صورة معاينة الفيلم"
+
+msgid "%(duration)s sec"
+msgstr "%(duration)s ثانية"
+
+msgid "Return to the atlas"
+msgstr "العودة إلى الأطلس"
+
+msgid "Saudi Arabia’s giga-projects"
+msgstr "المشاريع السعودية الكبرى"
+
+msgid "Saudi Giga Atlas"
+msgstr "أطلس المشاريع السعودية"
+
+msgid "Skip to content"
+msgstr "انتقل إلى المحتوى"
+
+msgid "Skip the tour"
+msgstr "تخطَّ الجولة"
+
+msgid "The 3D map is unavailable. Explore using the project links."
+msgstr "الخريطة ثلاثية الأبعاد غير متاحة. يمكنك استكشاف المشاريع عبر الروابط."
+
+msgid "The Red Sea and AMAALA are separate destinations developed by Red Sea Global."
+msgstr "البحر الأحمر وأمالا وجهتان منفصلتان تطوّرهما شركة البحر الأحمر الدولية."
+
+msgid "This page could not be found. Return to the atlas to explore all seven projects."
+msgstr "تعذّر العثور على الصفحة. عُد إلى الأطلس لاستكشاف المشاريع السبعة."
+
+msgid "Watch at source"
+msgstr "شاهد على الموقع الأصلي"
+
+#, python-format
+msgid "%(current)s of %(total)s"
+msgstr "%(current)s من %(total)s"
+
+msgid "A bilingual guide to seven developments across Saudi Arabia, built from official sources."
+msgstr "دليل ثنائي اللغة لسبعة مشاريع في أنحاء السعودية، مبني على مصادر رسمية."
+
+msgid "At a glance"
+msgstr "نظرة سريعة"
+
+msgid "Browse the projects"
+msgstr "تصفح المشاريع"
+
+msgid "Captions are not yet available for this film."
+msgstr "الترجمة النصية غير متاحة لهذا الفيلم بعد."
+
+msgid "Close"
+msgstr "إغلاق"
+
+msgid "Compare"
+msgstr "مقارنة"
+
+msgid "Compare the projects"
+msgstr "قارن بين المشاريع"
+
+msgid "Each project in the same few lines, so differences in scale, purpose and progress are easy to see."
+msgstr "نظرة موجزة على كل مشروع لمقارنة حجمه ومجاله ومستوى تقدمه."
+
+msgid "Every milestone in one sequence"
+msgstr "كل المحطات في تسلسل واحد"
+
+msgid "Every sourced milestone from all seven projects in one sequence."
+msgstr "كل المحطات الموثقة للمشاريع السبعة في تسلسل واحد."
+
+msgid "Explore"
+msgstr "استكشف"
+
+msgid "Filter the timeline"
+msgstr "تصفية الخط الزمني"
+
+msgid "First milestone"
+msgstr "أول محطة"
+
+msgid "Focus"
+msgstr "المجال"
+
+msgid "From the UNESCO listing of Hegra in 2008 to this year’s openings."
+msgstr "من إدراج الحِجر في قائمة اليونسكو عام 2008 إلى افتتاحات هذا العام."
+
+msgid "History"
+msgstr "التاريخ"
+
+msgid "Map"
+msgstr "الخريطة"
+
+msgid "Map locations are approximate. The Red Sea and AMAALA are separate destinations developed by Red Sea Global."
+msgstr "المواقع على الخريطة تقريبية. البحر الأحمر وأمالا وجهتان منفصلتان تطورهما البحر الأحمر الدولية."
+
+msgid "Menu"
+msgstr "القائمة"
+
+msgid "Milestones by year"
+msgstr "المحطات حسب السنة"
+
+msgid "More projects"
+msgstr "مشاريع أخرى"
+
+msgid "More ways to explore"
+msgstr "طرق أخرى للاستكشاف"
+
+msgid "Music only, no narration."
+msgstr "موسيقى فقط، دون تعليق صوتي."
+
+msgid "Najdi courtyards, Nabataean tombs, new neighbourhoods, theme parks below the Tuwaiq cliffs and resorts on Red Sea islands, mapped and explained in one place."
+msgstr "أفنية نجدية ومقابر نبطية وأحياء جديدة ومتنزهات عند سفح جرف طويق ومنتجعات على جزر البحر الأحمر، على خريطة واحدة وبشرح واضح."
+
+msgid "Next photo"
+msgstr "الصورة التالية"
+
+msgid "Open the project"
+msgstr "استكشف المشروع"
+
+msgid "Openings, launches and listings from all seven projects, each taken from an official source."
+msgstr "افتتاحات وإطلاقات ومحطات إدراج للمشاريع السبعة، نقلًا عن مصادر رسمية."
+
+msgid "Previous photo"
+msgstr "الصورة السابقة"
+
+msgid "Previous project"
+msgstr "المشروع السابق"
+
+msgid "Project comparison"
+msgstr "مقارنة المشاريع"
+
+msgid "Region"
+msgstr "المنطقة"
+
+msgid "Region, focus, developer and current status for the seven projects, side by side."
+msgstr "المنطقة والمجال والمطوّر والحالة الحالية للمشاريع السبعة جنبًا إلى جنب."
+
+msgid "Region, focus, developer and status for each project."
+msgstr "المنطقة والمجال والمطوّر والحالة لكل مشروع."
+
+msgid "See this project on the full timeline"
+msgstr "شاهد المشروع على الخط الزمني الكامل"
+
+msgid "Settings"
+msgstr "الإعدادات"
+
+msgid "Seven projects across Saudi Arabia"
+msgstr "سبعة مشاريع في أنحاء السعودية"
+
+msgid "Status"
+msgstr "الحالة"
+
+msgid "The seven projects"
+msgstr "المشاريع السبعة"
+
+msgid "The seven side by side"
+msgstr "المشاريع السبعة جنبًا إلى جنب"
+
+msgid "Timeline"
+msgstr "الخط الزمني"
+
+msgid "Top attractions"
+msgstr "أبرز المعالم"
+
+msgid "Visit"
+msgstr "زيارة"
+
+msgid "Top things to do"
+msgstr "أبرز التجارب"
+
+msgid "Play film"
+msgstr "تشغيل الفيلم"
+
+msgid "Running time"
+msgstr "المدة"
+
+msgid "Sound"
+msgstr "الصوت"
+
+msgid "Narration"
+msgstr "تعليق صوتي"
+
+msgid "Captions"
+msgstr "الترجمة"
+
+msgid "Not needed"
+msgstr "لا حاجة إليها"
+
+msgid "Music only"
+msgstr "موسيقى فقط"
+
+msgid "Search"
+msgstr "بحث"
+
+msgid "Search the atlas"
+msgstr "ابحث في الأطلس"
+
+msgid "Find places, attractions and milestones across all seven projects."
+msgstr "ابحث عن الأماكن والمعالم والمحطات في المشاريع السبعة."
+
+msgid "Search term"
+msgstr "كلمة البحث"
+
+msgid "Results for"
+msgstr "نتائج البحث عن"
+
+msgid "No results found. Try a place name or a shorter word."
+msgstr "لا توجد نتائج. جرّب اسم مكان أو كلمة أقصر."
+
+msgid "Browse all projects"
+msgstr "تصفح جميع المشاريع"
+
+msgid "On this page"
+msgstr "في هذه الصفحة"
+
+msgid "The atlas in numbers"
+msgstr "الأطلس بالأرقام"
+
+msgid "Photographs"
+msgstr "الصور"
+
+msgid "Films"
+msgstr "الأفلام"
+
+msgid "Years covered"
+msgstr "السنوات المشمولة"
+
+msgid "Milestones by project"
+msgstr "المحطات حسب المشروع"
+
+msgid "On the map"
+msgstr "على الخريطة"
+
+msgid "Where it is"
+msgstr "موقع المشروع"
+
+#, python-format
+msgid "Open %(name)s in Google Maps"
+msgstr "افتح %(name)s في خرائط Google"
+
+msgid "Plate"
+msgstr "لوحة"
+
+msgid "Map legend"
+msgstr "مفتاح الخريطة"
+
+msgid "Project site"
+msgstr "موقع مشروع"
+
+msgid "ROSHN community, example"
+msgstr "مجتمع روشن، مثال"
+
+msgid "Next plate"
+msgstr "اللوحة التالية"
+
+msgid "Previous plate"
+msgstr "اللوحة السابقة"
+
+msgid "Previous photos"
+msgstr "الصور السابقة"
+
+msgid "Next photos"
+msgstr "الصور التالية"
+
+#, python-format
+msgid "Milestones by project, %(first)s–%(last)s"
+msgstr "المحطات حسب المشروع، %(first)s–%(last)s"
+
+#, python-format
+msgid "%(project)s, %(when)s: %(text)s"
+msgstr "%(project)s، %(when)s: %(text)s"
+
+msgid "Region, focus, status, milestones and key facts for each project."
+msgstr "المنطقة والمجال والحالة والمحطات وأبرز الحقائق لكل مشروع."
+
+msgid "Project"
+msgstr "المشروع"
+
+msgid "Latest milestone"
+msgstr "أحدث محطة"
+
+msgid "Key facts"
+msgstr "أبرز الحقائق"
+
+#, python-format
+msgid "%(counter)s project matches"
+msgid_plural "%(counter)s projects match"
+msgstr[0] "لا توجد مشاريع مطابقة"
+msgstr[1] "مشروع واحد مطابق"
+msgstr[2] "مشروعان مطابقان"
+msgstr[3] "%(counter)s مشاريع مطابقة"
+msgstr[4] "%(counter)s مشروعًا مطابقًا"
+msgstr[5] "%(counter)s مشروع مطابق"
+
+msgid "No results"
+msgstr "لا توجد نتائج"
+
+msgid "Off the map"
+msgstr "خارج الخريطة"
+
+#, python-format
+msgid "%(name)s: %(tagline)s"
+msgstr "%(name)s: %(tagline)s"
+
+#, python-format
+msgid "Open photo: %(caption)s"
+msgstr "افتح الصورة: %(caption)s"
+
+msgid "View"
+msgstr "عرض"
+
+msgid "Credits"
+msgstr "المصادر والحقوق"
+
+msgid "Sources and terms for the photographs, films, map data and typefaces in the atlas."
+msgstr "مصادر الصور والأفلام وبيانات الخرائط والخطوط في الأطلس وشروط استخدامها."
+
+msgid "About the atlas"
+msgstr "عن الأطلس"
+
+msgid "Where the photographs, films, map data and typefaces in this atlas come from, and the terms they are used under."
+msgstr "من أين جاءت الصور والأفلام وبيانات الخرائط والخطوط في هذا الأطلس، وبأي شروط تُستخدم."
+
+msgid "Photographs and films"
+msgstr "الصور والأفلام"
+
+msgid "Each project’s film is an excerpt from an official film, hosted with permission confirmed on 9 November 2026. Stills taken from a film are listed under it."
+msgstr "فيلم كل مشروع مقتطف من فيلم رسمي، ويُستضاف بإذنٍ تأكّد في 9 نوفمبر 2026. وتُذكر تحت كل فيلم اللقطات المأخوذة منه."
+
+msgid "Film"
+msgstr "الفيلم"
+
+msgid "Original film"
+msgstr "الفيلم الأصلي"
+
+msgid "Stills from the film"
+msgstr "لقطات من الفيلم"
+
+#, python-format
+msgid "Photograph: %(caption)s"
+msgstr "صورة: %(caption)s"
+
+#, python-format
+msgid "%(title)s by %(author)s, licensed under %(licence)s, from Wikimedia Commons. Resized and re-encoded for the web."
+msgstr "%(title)s، تصوير %(author)s، مرخّصة بموجب %(licence)s، من Wikimedia Commons. غُيّر حجمها وأُعيد ترميزها للويب."
+
+#, python-format
+msgid "%(title)s by %(author)s, from %(site)s. Resized and re-encoded for the web."
+msgstr "%(title)s، تصوير %(author)s، من %(site)s. غُيّر حجمها وأُعيد ترميزها للويب."
+
+msgid "Saudi Press Agency reuse terms"
+msgstr "شروط إعادة الاستخدام لدى وكالة الأنباء السعودية"
+
+#, python-format
+msgid "“%(title)s” by %(publisher)s"
+msgstr "«%(title)s» من %(publisher)s"
+
+msgid "Map data"
+msgstr "بيانات الخرائط"
+
+msgid "NOAA National Centers for Environmental Information. The heights behind the 3D relief and the flat map’s hillshade, accessed through the NOAA CoastWatch ERDDAP server. NOAA states that the data may be used and redistributed for free."
+msgstr "الجهة: NOAA National Centers for Environmental Information. ومنها الارتفاعات التي بُنيت عليها التضاريس ثلاثية الأبعاد وتظليل الخريطة المسطحة، وقد جُلبت عبر خادم NOAA CoastWatch ERDDAP. وتذكر NOAA أن البيانات يجوز استخدامها وإعادة توزيعها مجانًا."
+
+msgid "The country outline and regional context. Public domain."
+msgstr "حدود الدولة والسياق الإقليمي. ملكية عامة."
+
+msgid "Natural Earth terms of use"
+msgstr "شروط استخدام Natural Earth"
+
+msgid "Typefaces"
+msgstr "الخطوط"

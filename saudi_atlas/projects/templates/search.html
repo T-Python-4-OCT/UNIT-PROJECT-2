@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load i18n atlas %}
+
+{% block title %}{% translate "Search the atlas" %} | {% translate "Saudi Giga Atlas" %}{% endblock %}
+{% block description %}{% translate "Find places, attractions and milestones across all seven projects." %}{% endblock %}
+
+{% block content %}
+<header class="page-intro shell">
+  <p class="eyebrow">{% translate "Search" %}</p>
+  <h1 class="page-title">{% translate "Search the atlas" %}</h1>
+  <p class="page-summary">{% translate "Find places, attractions and milestones across all seven projects." %}</p>
+</header>
+<form class="search-form shell" role="search" action="{% url 'search' %}" method="get" data-live-search>
+  <label class="visually-hidden" for="search-term">{% translate "Search term" %}</label>
+  <input type="search" id="search-term" name="q" value="{{ query }}" maxlength="80" autocomplete="off" enterkeyhint="search">
+  <button class="button button-primary" type="submit">{% translate "Search" %}</button>
+</form>
+<p class="visually-hidden" role="status" data-search-status></p>
+<section class="search-results shell" aria-labelledby="results-title" data-search-results>
+  {% include 'includes/search_results.html' %}
+</section>
+{% endblock %}

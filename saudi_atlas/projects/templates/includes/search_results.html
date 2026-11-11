@@ -1,0 +1,34 @@
+{% load i18n atlas %}{% if results %}
+<h2 class="small-heading" id="results-title">{% translate "Results for" %} <q>{{ query }}</q></h2>
+<p class="result-count" data-search-outcome>{% blocktranslate count counter=results|length trimmed %}{{ counter }} project matches{% plural %}{{ counter }} projects match{% endblocktranslate %}</p>
+<ol class="result-list">
+  {% for result in results %}
+  <li class="result" style="{{ result.project|accent_style }}">
+    <div class="result-head">
+      <h3><a href="{{ result.project.url }}">{{ result.project.name|marked:terms }}</a></h3>
+      <p class="result-meta">{{ result.project.category|marked:terms }} · {{ result.project.region|marked:terms }}</p>
+      <p class="result-tagline">{{ result.project.tagline|marked:terms }}</p>
+    </div>
+    {% if result.matches %}
+    <ul class="result-matches">
+      {% for match in result.matches %}
+      <li>
+        <a href="{{ result.project.url }}#{% if match.kind == 'story' %}story{% elif match.kind == 'milestones' %}milestones{% elif match.kind == 'highlights' %}highlights{% elif match.kind == 'gallery' %}gallery{% else %}glance{% endif %}-title">
+          <span class="result-kind">{% if match.kind == 'story' %}{{ match.title|marked:terms }}{% elif match.kind == 'milestones' %}{% translate "Milestones" %} · {{ match.title|marked:terms }}{% elif match.kind == 'highlights' %}{% translate "Top attractions" %}{% elif match.kind == 'gallery' %}{% translate "Photos and places" %}{% else %}{% translate "At a glance" %}{% endif %}</span>
+          <span class="result-text">{{ match.text|marked:terms }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+    {% else %}
+    <p class="result-summary">{{ result.project.summary|marked:terms }}</p>
+    {% endif %}
+  </li>
+  {% endfor %}
+</ol>
+{% else %}
+<h2 class="small-heading" id="results-title" data-search-outcome{% if query %} data-announce="{% translate 'No results' %}"{% endif %}>{% if query %}{% translate "No results found. Try a place name or a shorter word." %}{% else %}{% translate "Browse all projects" %}{% endif %}</h2>
+<ul class="not-found-projects">
+  {% for item in nav_projects %}<li style="{{ item|accent_style }}"><a href="{{ item.url }}"><span class="menu-dot" aria-hidden="true"></span>{{ item.name }}</a></li>{% endfor %}
+</ul>
+{% endif %}

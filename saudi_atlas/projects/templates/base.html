@@ -7,7 +7,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>{% block title %}{% translate "Saudi Giga Atlas" %}{% endblock %}</title>
-  <meta name="description" content="{% block description %}{% translate 'An illustrated guide to six Saudi developments, from Najdi heritage and new communities to mountain landscapes and the Red Sea coast.' %}{% endblock %}">
+  <meta name="description" content="{% block description %}{% translate 'An illustrated guide to seven Saudi developments, from Najdi heritage and new communities to mountain landscapes and the Red Sea coast.' %}{% endblock %}">
   <link rel="canonical" href="{{ canonical_url }}">
   <link rel="alternate" hreflang="en" href="{{ absolute_paths.en }}">
   <link rel="alternate" hreflang="ar" href="{{ absolute_paths.ar }}">
@@ -20,7 +20,7 @@
   <meta property="og:site_name" content="{% translate 'Saudi Giga Atlas' %}">
   <meta property="og:type" content="{% block og_type %}website{% endblock %}">
   <meta property="og:title" content="{% block og_title %}{% translate 'Saudi Giga Atlas' %}{% endblock %}">
-  <meta property="og:description" content="{% block og_description %}{% translate 'An illustrated guide to six Saudi developments, from Najdi heritage and new communities to mountain landscapes and the Red Sea coast.' %}{% endblock %}">
+  <meta property="og:description" content="{% block og_description %}{% translate 'An illustrated guide to seven Saudi developments, from Najdi heritage and new communities to mountain landscapes and the Red Sea coast.' %}{% endblock %}">
   <meta property="og:url" content="{{ canonical_url }}">
   <meta property="og:image" content="{% block og_image %}{{ request.scheme }}://{{ request.get_host }}{% static 'atlas/media/red-sea-shebara-arc-1600.webp' %}{% endblock %}">
   <meta property="og:locale" content="{% if current_language == 'ar' %}ar_SA{% else %}en_US{% endif %}">
@@ -43,7 +43,7 @@
               <summary>{% translate "Projects" %}{% include 'includes/chevron.html' %}</summary>
               <ul class="projects-menu-list">
                 {% for item in nav_projects %}
-                <li><a href="{{ item.url }}" style="{{ item|accent_style }}"{% if active == item.slug %} aria-current="page"{% endif %}><span class="menu-dot" aria-hidden="true"></span><span class="menu-name">{{ item.name }}</span><span class="menu-region">{{ item.region }}</span></a></li>
+                <li><a href="{{ item.url }}" style="{{ item|accent_style }}"{% if active == item.slug %} aria-current="page"{% endif %}>{% if item.logo %}<span class="menu-logo" data-logo="{{ item.slug }}" aria-hidden="true"><img src="{% static item.logo %}" alt="" width="20" height="20" decoding="async"></span>{% else %}<span class="menu-dot" aria-hidden="true"></span>{% endif %}<span class="menu-name">{{ item.name }}</span><span class="menu-region">{{ item.region }}</span></a></li>
                 {% endfor %}
               </ul>
             </details>
@@ -51,6 +51,7 @@
           <li><a href="{% url 'home' %}#map">{% translate "Map" %}</a></li>
           <li><a href="{% url 'timeline' %}"{% if active == 'timeline' %} aria-current="page"{% endif %}>{% translate "Timeline" %}</a></li>
           <li><a href="{% url 'compare' %}"{% if active == 'compare' %} aria-current="page"{% endif %}>{% translate "Compare" %}</a></li>
+          <li><a href="{% url 'search' %}"{% if active == 'search' %} aria-current="page"{% endif %}>{% translate "Search" %}</a></li>
           <li class="nav-language">{% include 'includes/language_link.html' %}</li>
         </ul>
       </nav>
@@ -71,7 +72,7 @@
     <div class="shell footer-grid">
       <div class="footer-about">
         <a class="brand" href="{% url 'home' %}">{% include 'includes/brand_mark.html' %}<span>{% translate "Saudi Giga Atlas" %}</span></a>
-        <p>{% translate "A bilingual guide to six developments across Saudi Arabia, built from official sources." %}</p>
+        <p>{% translate "A bilingual guide to seven developments across Saudi Arabia, built from official sources." %}</p>
         <p class="footer-note">{% translate "Map locations are approximate. The Red Sea and AMAALA are separate destinations developed by Red Sea Global." %}</p>
       </div>
       <nav class="footer-links" aria-label="{% translate 'Projects' %}">
@@ -86,6 +87,8 @@
           <li><a href="{% url 'home' %}#map">{% translate "Project map" %}</a></li>
           <li><a href="{% url 'timeline' %}">{% translate "Timeline" %}</a></li>
           <li><a href="{% url 'compare' %}">{% translate "Compare the projects" %}</a></li>
+          <li><a href="{% url 'search' %}">{% translate "Search the atlas" %}</a></li>
+          <li><a href="{% url 'credits' %}"{% if active == 'credits' %} aria-current="page"{% endif %}>{% translate "Credits" %}</a></li>
         </ul>
       </nav>
       <div class="footer-settings">
