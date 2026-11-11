@@ -38,7 +38,7 @@
     </ul>
   {% else %}
     <div class="empty-inline">
-      <i class="bi bi-clock-history"></i>
+      <span class="art-tile art-tile-sm night"><img src="{% static 'main/images/empty.svg' %}" alt=""></span>
       <p>{% if selected %}ما فيه فحوصات بهذا الحكم.{% else %}السجل فاضي. افحص أول رسالة وبتظهر هنا.{% endif %}</p>
       <a class="btn-signal" href="{% url 'detector:home' %}">افحص رسالة</a>
     </div>

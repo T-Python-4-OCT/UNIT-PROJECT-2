@@ -727,6 +727,7 @@ fieldset { margin: 0; padding: 0; border: 0; }
 
 .empty-page { display: flex; flex-direction: column; align-items: center; padding-block: 6rem; text-align: center; }
 .empty-page > i { font-size: 3rem; color: var(--violet); }
+.empty-page .art-tile { margin-bottom: 1.25rem; }
 .empty-page p { color: var(--muted); max-width: 52ch; }
 
 /* ---------- Guide ---------- */
@@ -742,12 +743,16 @@ fieldset { margin: 0; padding: 0; border: 0; }
 .tip-lead p { color: var(--on-dark); font-size: 1.08rem; }
 .tip-lead > i { color: var(--gold); font-size: 2.2rem; }
 
-.types-list { display: grid; grid-template-columns: 1fr 1fr; gap: 0 2.5rem; margin: 0; }
-.type-entry { padding: 1.1rem 0; border-bottom: 1px solid var(--line); }
-.type-entry dt { font-weight: 700; font-size: 1.05rem; }
-.type-entry dt i { color: var(--violet); }
-.type-entry dd { margin: .25rem 0 0; color: var(--muted); }
-.type-entry q { display: block; margin-top: .5rem; padding: .55rem .9rem; border-radius: 16px; border-start-start-radius: 4px; background: var(--paper); border: 1px solid var(--line); color: var(--text); font-size: .92rem; quotes: none; }
+/* Scam type cards, each with its illustration */
+.type-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; }
+.type-card { display: flex; flex-direction: column; gap: .35rem; padding: .7rem .7rem 1.1rem; border-radius: var(--radius-xl); background: var(--paper); border: 1px solid var(--line); color: var(--text); text-decoration: none; transition: border-color .15s ease, box-shadow .15s ease, transform .15s ease; }
+.type-card:hover { color: var(--text); border-color: var(--violet); box-shadow: var(--shadow-soft); transform: translateY(-2px); }
+.type-card .art-tile { margin-bottom: .5rem; }
+.type-card strong, .type-card-text, .type-card-more { padding-inline: .5rem; }
+.type-card strong { font-size: 1.05rem; }
+.type-card strong i { color: var(--violet); }
+.type-card-text { color: var(--muted); font-size: .92rem; }
+.type-card-more { margin-top: auto; padding-top: .4rem; color: var(--violet-deep); font-weight: 700; font-size: .9rem; }
 
 .rules-table { width: 100%; border-collapse: separate; border-spacing: 0; overflow: hidden; border-radius: var(--radius-lg); background: var(--paper); border: 1px solid var(--line); }
 .rules-table th, .rules-table td { padding: .9rem 1.2rem; text-align: right; vertical-align: middle; border-bottom: 1px solid var(--line); }
@@ -837,7 +842,7 @@ fieldset { margin: 0; padding: 0; border: 0; }
 @media (max-width: 680px) {
   body { font-size: 1rem; }
   .section { padding-block: 4rem; }
-  .chat-wall, .types-list, .channels-grid, .channels-plain, .tips-grid, .footer-grid, .story-grid { grid-template-columns: 1fr; }
+  .chat-wall, .type-cards, .channels-grid, .channels-plain, .tips-grid, .footer-grid, .story-grid { grid-template-columns: 1fr; }
   .specimen-end { transform: none; }
   .steps { margin-inline-start: 1.4rem; }   /* room for the step numbers on small screens */
   .hero-verdict { inset-inline-end: -6px; }
@@ -887,8 +892,6 @@ fieldset { margin: 0; padding: 0; border: 0; }
 @media (max-width: 680px) { .score-ranges { grid-template-columns: 1fr; } }
 
 /* Scam type page (/guide/<scam_key>/) */
-.type-entry dt a { color: inherit; text-decoration: none; }
-.type-entry dt a:hover { color: var(--violet-deep); text-decoration: underline; }
 .scam-file { padding: 2rem; border-radius: var(--radius-xl); background: var(--paper); border: 1px solid var(--line); box-shadow: var(--shadow-soft); }
 .scam-file h2 { font-size: 1.15rem; margin-top: 1.5rem; }
 .scam-file h2:first-child { margin-top: 0; }
@@ -912,7 +915,7 @@ fieldset { margin: 0; padding: 0; border: 0; }
 .scam-end { padding-bottom: 4.5rem; }
 .sub-title { margin: 2.25rem 0 1rem; }
 
-.sample-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.1rem; }
+.sample-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.1rem; }
 .sample-card { display: flex; flex-direction: column; gap: .75rem; }
 .sample-card .bubble { flex: 1; box-shadow: var(--shadow-soft); }
 .sample-meta { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: .5rem; }
@@ -949,9 +952,39 @@ fieldset { margin: 0; padding: 0; border: 0; }
 .scam-cta p { margin: .25rem 0 0; color: var(--on-dark); }
 .others-title { margin-top: 2.5rem; font-size: 1.4rem; }
 
+/* Illustrations (static SVG files): always on a deep-green tile, so they look the same in light and dark mode */
+.art-tile { display: block; border-radius: var(--radius-lg); padding: .5rem; }
+.art-tile img { display: block; width: 100%; height: auto; }
+.art-tile-sm { width: 150px; }
+.art-tile-md { width: 220px; }
+.hero-split { display: grid; grid-template-columns: 1fr 300px; gap: 2.5rem; align-items: center; }
+.hero-art { display: block; width: 100%; height: auto; }
+
+/* The sample message inside a phone screen (main/partials/phone_message.html) */
+.phone-demo { display: grid; grid-template-columns: 1fr auto; gap: 2.5rem; align-items: center; }
+.phone-meta { margin-top: 1rem; }
+.sms-phone { width: 300px; border-radius: 38px; padding: 10px; background: #0b1f17; box-shadow: var(--shadow); }
+.sms-phone > * { background: var(--paper); }
+.sms-status { display: flex; justify-content: space-between; padding: .6rem 1.2rem .2rem; border-radius: 30px 30px 0 0; font-size: .75rem; font-weight: 700; direction: ltr; }
+.sms-head { display: flex; align-items: center; gap: .6rem; padding: .5rem 1rem .7rem; border-bottom: 1px solid var(--line); }
+.sms-head > i { color: var(--violet-deep); }
+.sms-avatar { display: grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--line); color: var(--muted); }
+.sms-head strong { display: block; font-size: .9rem; }
+.sms-head small { color: var(--muted); font-size: .72rem; }
+.sms-body { display: flex; flex-direction: column; gap: .5rem; min-height: 230px; padding: 1rem .8rem; }
+.sms-time { align-self: center; font-size: .72rem; color: var(--muted); }
+.sms-body .bubble { max-width: 88%; font-size: .9rem; line-height: 2; background: var(--mist); }
+.sms-input { display: flex; justify-content: space-between; align-items: center; padding: .6rem .9rem; border-radius: 0 0 30px 30px; border-top: 1px solid var(--line); color: var(--muted); font-size: .85rem; }
+.sms-input i { color: var(--violet); font-size: 1.4rem; }
+
 @media (max-width: 991px) {
   .sample-grid { grid-template-columns: 1fr 1fr; }
   .scam-columns { grid-template-columns: 1fr; }
+  .type-cards { grid-template-columns: 1fr 1fr; }
+  .hero-split { grid-template-columns: 1fr; gap: 1.5rem; }
+  .hero-art { max-width: 260px; }
+  .phone-demo { grid-template-columns: 1fr; justify-items: center; }
+  .phone-demo .section-head { justify-self: stretch; margin-bottom: 0; }
 }
 @media (max-width: 680px) {
   .sample-grid { grid-template-columns: 1fr; }

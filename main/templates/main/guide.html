@@ -25,14 +25,16 @@
 
 <section class="section-tight container">
   <h2 class="block-title">أنواع الاحتيال الشائعة</h2>
-  <dl class="types-list">
+  <div class="type-cards">
     {% for scam in scam_types %}
-      <div class="type-entry">
-        <dt><a href="{% url 'main:scam_detail' scam.key %}"><i class="bi {{ scam.icon }}"></i> {{ scam.title }}</a></dt>
-        <dd>{{ scam.text }}<q>{{ scam.sample }}</q></dd>
-      </div>
+      <a class="type-card" href="{% url 'main:scam_detail' scam.key %}">
+        <span class="art-tile night"><img src="{% static scam.image %}" alt="" width="240" height="180"></span>
+        <strong><i class="bi {{ scam.icon }}"></i> {{ scam.title }}</strong>
+        <span class="type-card-text">{{ scam.text }}</span>
+        <span class="type-card-more">اعرف أكثر <i class="bi bi-arrow-left"></i></span>
+      </a>
     {% endfor %}
-  </dl>
+  </div>
 </section>
 
 <section class="section-tight container">

@@ -1,8 +1,9 @@
 {% extends "main/base.html" %}
+{% load static %}
 {% block title %}الصفحة غير موجودة{% endblock %}
 {% block content %}
 <section class="container empty-page">
-  <i class="bi bi-signpost-split"></i>
+  <span class="art-tile art-tile-md night"><img src="{% static 'main/images/not-found.svg' %}" alt="" width="240" height="180"></span>
   <h1>هذه الصفحة غير موجودة</h1>
   <p>ممكن الرابط قديم أو فيه خطأ. وإذا وصلك هذا الرابط في رسالة غريبة، فهذا سبب زيادة إنك تنتبه.</p>
   <a class="btn-signal" href="{% url 'main:home' %}">ارجع للرئيسية</a>

@@ -13,7 +13,7 @@ __pycache__/
 db.sqlite3
 
 # Data saved while using the site (checks, reports, feedback)
-data/*.json
+# data/*.json
 
 # System / editor files
 .DS_Store

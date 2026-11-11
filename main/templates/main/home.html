@@ -139,7 +139,7 @@
       <a class="text-link" href="{% url 'reports:list' %}">كل البلاغات</a>
     {% else %}
       <div class="empty-inline">
-        <i class="bi bi-inbox"></i>
+        <span class="art-tile art-tile-sm night"><img src="{% static 'main/images/empty.svg' %}" alt=""></span>
         <p>ما فيه بلاغات منشورة للحين. افحص أي رسالة احتيال وبيتنشر تحذيرها هنا تلقائياً.</p>
       </div>
     {% endif %}

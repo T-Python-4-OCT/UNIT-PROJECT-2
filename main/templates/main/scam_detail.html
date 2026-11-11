@@ -1,17 +1,22 @@
 {% extends "main/base.html" %}
+{% load static %}
 {% block title %}{{ scam.title }}{% endblock %}
 
 {% block content %}
 <section class="page-hero night">
-  <div class="container">
-    <a class="back-link" href="{% url 'main:guide' %}"><i class="bi bi-arrow-right"></i> دليل الحماية</a>
-    <h1><i class="bi {{ scam.icon }}"></i> {{ scam.title }}</h1>
-    <p>{{ scam.intro }}</p>
-    <ul class="scam-facts">
-      <li><span>العلامة الأساسية</span><strong>{{ main_rule.title }}</strong></li>
-      <li><span>رسائل مثال</span><strong>{{ samples|length }}</strong></li>
-      <li><span>علامات يكشفها الكاشف</span><strong>{{ flags|length }}</strong></li>
-    </ul>
+  <div class="container hero-split">
+    <div>
+      <a class="back-link" href="{% url 'main:guide' %}"><i class="bi bi-arrow-right"></i> دليل الحماية</a>
+      <h1><i class="bi {{ scam.icon }}"></i> {{ scam.title }}</h1>
+      <p>{{ scam.intro }}</p>
+      <ul class="scam-facts">
+        <li><span>العلامة الأساسية</span><strong>{{ main_rule.title }}</strong></li>
+        <li><span>رسائل مثال</span><strong>{{ samples|length }}</strong></li>
+        <li><span>علامات يكشفها الكاشف</span><strong>{{ flags|length }}</strong></li>
+      </ul>
+    </div>
+    {# The illustration of this scam type (static file, its path is in content.py) #}
+    <img class="hero-art" src="{% static scam.image %}" alt="" width="240" height="180">
   </div>
 </section>
 
@@ -42,13 +47,26 @@
 </section>
 
 <section class="container scam-section" id="samples">
-  <header class="section-head">
-    <h2>شكل الرسائل</h2>
-    <p>رسائل من نفس النوع، والأجزاء الملوّنة هي اللي يمسكها الكاشف بنفس القواعد اللي يفحص فيها رسالتك.</p>
-    {% include "main/partials/mark_legend.html" %}
-  </header>
+  <div class="phone-demo">
+    <header class="section-head">
+      <h2>كذا توصلك على جوالك</h2>
+      <p>نفس الرسالة كأنها وصلتك فعلاً. الأجزاء الملوّنة هي اللي يمسكها الكاشف بنفس القواعد اللي يفحص فيها رسالتك.</p>
+      {% include "main/partials/mark_legend.html" %}
+      {% with sample=samples.0 %}
+        <div class="sample-meta phone-meta">
+          <span class="sample-score {% if sample.safety >= 75 %}range-safe{% elif sample.safety >= 40 %}range-suspicious{% else %}range-fraud{% endif %}">
+            نسبة الأمان <bdi dir="ltr">{{ sample.safety }}%</bdi>
+          </span>
+          <a class="text-link" href="{% url 'detector:home' %}?text={{ sample.text|urlencode }}"><i class="bi bi-search"></i> جرّبها في الكاشف</a>
+        </div>
+      {% endwith %}
+    </header>
+    {% include "main/partials/phone_message.html" with sender=scam.sender segments=samples.0.segments %}
+  </div>
+
+  <h3 class="sub-title">رسائل ثانية من نفس النوع</h3>
   <div class="sample-grid">
-    {% for sample in samples %}
+    {% for sample in samples|slice:"1:" %}
       <article class="sample-card">
         <p class="bubble bubble-in">{% include "main/partials/marked_text.html" with segments=sample.segments %}</p>
         <div class="sample-meta">
@@ -139,7 +157,7 @@
     </div>
   {% else %}
     <div class="empty-inline">
-      <i class="bi bi-inbox"></i>
+      <span class="art-tile art-tile-sm night"><img src="{% static 'main/images/empty.svg' %}" alt=""></span>
       <p>ما فيه بلاغات من هذا النوع للحين. جرّب رسالة مثال في الكاشف وبينتشر تحذيرها هنا.</p>
     </div>
   {% endif %}
