@@ -210,6 +210,8 @@
     const arrow = document.createElement('b');
     arrow.textContent = ' ↗';
     source.append(arrow);
+    const projectLink = document.querySelector('#map-project-link');
+    if (projectLink) projectLink.href = `/project/${marker.dataset.cityId}/`;
     mapDetail.classList.remove('is-changing');
     window.requestAnimationFrame(() => mapDetail.classList.add('is-changing'));
     if (updateAddress) history.replaceState(null, '', `#${cityId}`);

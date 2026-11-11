@@ -2,26 +2,98 @@
 {% block title %}{% if request.LANGUAGE_CODE == 'en' %}Industries | Senaa{% else %}القطاعات الصناعية | صناعة{% endif %}{% endblock %}
 {% block content %}
 {% if request.LANGUAGE_CODE == 'en' %}
-<section class="page-hero compact-hero"><video class="hero-background-video" onerror="this.hidden=true" muted loop playsinline data-background-video preload="none" aria-hidden="true" poster="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1400&q=80"><source data-src="https://videos.pexels.com/video-files/30715848/13141192_3840_2160_24fps.mp4" type="video/mp4"></video><div class="page-hero-copy"><div class="eyebrow"><span class="eyebrow-line"></span>Our national industries</div><h1>Every sector<br><em>has a story.</em></h1><p>Seven chapters in Saudi Arabia’s industrial journey — each with its own ambition and impact.</p></div><div class="page-hero-art"><span class="art-ring ring-a"></span><span class="art-ring ring-b"></span><span class="art-star">✳</span><span class="art-caption">Made in Saudi Arabia<br>for the world</span></div></section>
-<section class="section-block listing-section"><div class="listing-top"><span>Explore the sectors</span><span>01 — 07</span><button class="random-sector-button" id="random-sector" type="button">{% if request.LANGUAGE_CODE == 'en' %}Surprise me{% else %}فاجئني بقطاع{% endif %}<span aria-hidden="true">✳</span></button></div><div class="sector-tools"><label class="sector-search"><span aria-hidden="true">⌕</span><input id="sector-search" type="search" placeholder="Search a sector or keyword..." autocomplete="off" aria-label="Search sectors"><kbd>/</kbd></label><div class="sector-filters" role="group" aria-label="Filter sectors"><button class="filter-chip is-active" type="button" data-sector-filter="all" aria-pressed="true">All <span>07</span></button><button class="filter-chip" type="button" data-sector-filter="energy" aria-pressed="false">Energy</button><button class="filter-chip" type="button" data-sector-filter="materials" aria-pressed="false">Materials & mining</button><button class="filter-chip" type="button" data-sector-filter="essential" aria-pressed="false">Food & medicine</button><button class="filter-chip" type="button" data-sector-filter="future" aria-pressed="false">Future technologies</button></div><span class="sector-result-count" id="sector-result-count">7 sectors</span></div><div class="industry-grid listing-grid" id="sector-grid">{% for item in industries %}<a class="industry-card" href="{% url 'industry_detail' item.slug %}" style="--card-accent:{{ item.color }}"><div class="card-image-wrap"><img src="{{ item.image }}" alt="{{ item.name }}" loading="lazy"><span class="card-icon">{{ item.icon }}</span><span class="card-number">0{{ forloop.counter }}</span></div><div class="card-content"><div class="card-eyebrow">{{ item.eyebrow }}</div><h3>{{ item.name }}</h3><p>{{ item.summary }}</p><span class="card-link">Explore sector <b>↗</b></span></div></a>{% endfor %}</div><div class="sector-empty" id="sector-empty" hidden><span>⌕</span><h3>No results found</h3><p>Try another keyword or show all sectors.</p><button type="button" id="sector-reset">Show all sectors</button></div></section>
-{% else %}
-<section class="page-hero compact-hero"><video class="hero-background-video" onerror="this.hidden=true" muted loop playsinline data-background-video preload="none" aria-hidden="true" poster="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1400&q=80"><source data-src="https://videos.pexels.com/video-files/30715848/13141192_3840_2160_24fps.mp4" type="video/mp4"></video><div class="page-hero-copy"><div class="eyebrow"><span class="eyebrow-line"></span>صناعاتنا الوطنية</div><h1>لكل قطاع<br><em>حكاية.</em></h1><p>سبع محطات في رحلة الصناعة السعودية — لكل منها طموحها وأثرها.</p></div><div class="page-hero-art"><span class="art-ring ring-a"></span><span class="art-ring ring-b"></span><span class="art-star">✳</span><span class="art-caption">صُنِع في السعودية<br>للعالم</span></div></section>
-<section class="section-block listing-section"><div class="listing-top"><span>استكشف القطاعات</span><span>01 — 07</span><button class="random-sector-button" id="random-sector" type="button">{% if request.LANGUAGE_CODE == 'en' %}Surprise me{% else %}فاجئني بقطاع{% endif %}<span aria-hidden="true">✳</span></button></div>
-<div class="sector-tools">
-  <label class="sector-search"><span aria-hidden="true">⌕</span><input id="sector-search" type="search" placeholder="ابحث عن قطاع أو كلمة..." autocomplete="off" aria-label="ابحث في القطاعات"><kbd>/</kbd></label>
-  <div class="sector-filters" role="group" aria-label="تصفية القطاعات">
-    <button class="filter-chip is-active" type="button" data-sector-filter="all" aria-pressed="true">الكل <span>07</span></button>
-    <button class="filter-chip" type="button" data-sector-filter="energy" aria-pressed="false">الطاقة</button>
-    <button class="filter-chip" type="button" data-sector-filter="materials" aria-pressed="false">المواد والتعدين</button>
-    <button class="filter-chip" type="button" data-sector-filter="essential" aria-pressed="false">الغذاء والدواء</button>
-    <button class="filter-chip" type="button" data-sector-filter="future" aria-pressed="false">تقنيات المستقبل</button>
+<section class="page-hero compact-hero"><video class="hero-background-video" onerror="this.hidden=true" muted loop
+    playsinline data-background-video preload="none" aria-hidden="true"
+    poster="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1400&q=80">
+    <source data-src="https://videos.pexels.com/video-files/30715848/13141192_3840_2160_24fps.mp4" type="video/mp4">
+  </video>
+  <div class="page-hero-copy">
+    <div class="eyebrow"><span class="eyebrow-line"></span>Our national industries</div>
+    <h1>Every sector<br><em>has a story.</em></h1>
+    <p>Seven chapters in Saudi Arabia’s industrial journey — each with its own ambition and impact.</p>
   </div>
-  <span class="sector-result-count" id="sector-result-count" aria-live="polite">٧ قطاعات</span>
-</div>
-<div class="industry-grid listing-grid" id="sector-grid">
-{% for item in industries %}<a class="industry-card" href="{% url 'industry_detail' item.slug %}" style="--card-accent:{{ item.color }}"><div class="card-image-wrap"><img src="{{ item.image }}" alt="{{ item.name }}" loading="lazy"><span class="card-icon">{{ item.icon }}</span><span class="card-number">0{{ forloop.counter }}</span></div><div class="card-content"><div class="card-eyebrow">{{ item.eyebrow }}</div><h3>{{ item.name }}</h3><p>{{ item.summary }}</p><span class="card-link">اكتشف القطاع <b>↗</b></span></div></a>{% endfor %}
-</div>
-<div class="sector-empty" id="sector-empty" hidden><span>⌕</span><h3>ما لقينا نتائج</h3><p>جرّب كلمة ثانية أو اعرض جميع القطاعات.</p><button type="button" id="sector-reset">عرض جميع القطاعات</button></div>
+  <div class="page-hero-art"><span class="art-ring ring-a"></span><span class="art-ring ring-b"></span><span
+      class="art-star">✳</span><span class="art-caption">Made in Saudi Arabia<br>for the world</span></div>
+</section>
+<section class="section-block listing-section">
+  <div class="listing-top"><span>Explore the sectors</span><span>01 — 07</span><button class="random-sector-button"
+      id="random-sector" type="button">{% if request.LANGUAGE_CODE == 'en' %}Surprise me{% else %}فاجئني بقطاع{% endif %}<span aria-hidden="true">✳</span></button></div>
+  <div class="sector-tools"><label class="sector-search"><span aria-hidden="true">⌕</span><input id="sector-search"
+        type="search" placeholder="Search a sector or keyword..." autocomplete="off"
+        aria-label="Search sectors"><kbd>/</kbd></label>
+    <div class="sector-filters" role="group" aria-label="Filter sectors"><button class="filter-chip is-active"
+        type="button" data-sector-filter="all" aria-pressed="true">All <span>07</span></button><button
+        class="filter-chip" type="button" data-sector-filter="energy" aria-pressed="false">Energy</button><button
+        class="filter-chip" type="button" data-sector-filter="materials" aria-pressed="false">Materials &
+        mining</button><button class="filter-chip" type="button" data-sector-filter="essential"
+        aria-pressed="false">Food & medicine</button><button class="filter-chip" type="button"
+        data-sector-filter="future" aria-pressed="false">Future technologies</button></div><span
+      class="sector-result-count" id="sector-result-count">7 sectors</span>
+  </div>
+  <div class="industry-grid listing-grid" id="sector-grid">{% for item in industries %}<a class="industry-card"
+      href="{% url 'industry_detail' item.slug %}" style="--card-accent:{{ item.color }}">
+      <div class="card-image-wrap"><img src="{{ item.image }}" alt="{{ item.name }}" loading="lazy"><span
+          class="card-icon">{{ item.icon }}</span><span class="card-number">0{{ forloop.counter }}</span></div>
+      <div class="card-content">
+        <div class="card-eyebrow">{{ item.eyebrow }}</div>
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.summary }}</p><span class="card-link">Explore sector <b>↗</b></span>
+      </div>
+    </a>{% endfor %}</div>
+  <div class="sector-empty" id="sector-empty" hidden><span>⌕</span>
+    <h3>No results found</h3>
+    <p>Try another keyword or show all sectors.</p><button type="button" id="sector-reset">Show all sectors</button>
+  </div>
+</section>
+{% else %}
+<section class="page-hero compact-hero"><video class="hero-background-video" onerror="this.hidden=true" muted loop
+    playsinline data-background-video preload="none" aria-hidden="true"
+    poster="https://images.unsplash.com/photo-1516937941344-00b4e0337589?auto=format&fit=crop&w=1400&q=80">
+    <source data-src="https://videos.pexels.com/video-files/30715848/13141192_3840_2160_24fps.mp4" type="video/mp4">
+  </video>
+  <div class="page-hero-copy">
+    <div class="eyebrow"><span class="eyebrow-line"></span>صناعاتنا الوطنية</div>
+    <h1>لكل قطاع<br><em>حكاية.</em></h1>
+    <p>سبع محطات في رحلة الصناعة السعودية — لكل منها طموحها وأثرها.</p>
+  </div>
+  <div class="page-hero-art"><span class="art-ring ring-a"></span><span class="art-ring ring-b"></span><span
+      class="art-star">✳</span><span class="art-caption">صُنِع في السعودية<br>للعالم</span></div>
+</section>
+<section class="section-block listing-section">
+  <div class="listing-top"><span>استكشف القطاعات</span><span>01 — 07</span><button class="random-sector-button"
+      id="random-sector" type="button">{% if request.LANGUAGE_CODE == 'en' %}Surprise me{% else %}فاجئني بقطاع{% endif %}<span aria-hidden="true">✳</span></button></div>
+  <div class="sector-tools">
+    <label class="sector-search"><span aria-hidden="true">⌕</span><input id="sector-search" type="search"
+        placeholder="ابحث عن قطاع أو كلمة..." autocomplete="off" aria-label="ابحث في القطاعات"><kbd>/</kbd></label>
+    <div class="sector-filters" role="group" aria-label="تصفية القطاعات">
+      <button class="filter-chip is-active" type="button" data-sector-filter="all" aria-pressed="true">الكل
+        <span>07</span></button>
+      <button class="filter-chip" type="button" data-sector-filter="energy" aria-pressed="false">الطاقة</button>
+      <button class="filter-chip" type="button" data-sector-filter="materials" aria-pressed="false">المواد
+        والتعدين</button>
+      <button class="filter-chip" type="button" data-sector-filter="essential" aria-pressed="false">الغذاء
+        والدواء</button>
+      <button class="filter-chip" type="button" data-sector-filter="future" aria-pressed="false">تقنيات
+        المستقبل</button>
+    </div>
+    <span class="sector-result-count" id="sector-result-count" aria-live="polite">٧ قطاعات</span>
+  </div>
+  <div class="industry-grid listing-grid" id="sector-grid">
+    {% for item in industries %}<a class="industry-card" href="{% url 'industry_detail' item.slug %}"
+      style="--card-accent:{{ item.color }}">
+      <div class="card-image-wrap"><img src="{{ item.image }}" alt="{{ item.name }}" loading="lazy"><span
+          class="card-icon">{{ item.icon }}</span><span class="card-number">0{{ forloop.counter }}</span></div>
+      <div class="card-content">
+        <div class="card-eyebrow">{{ item.eyebrow }}</div>
+        <h3>{{ item.name }}</h3>
+        <p>{{ item.summary }}</p><span class="card-link">اكتشف القطاع <b>↗</b></span>
+      </div>
+    </a>{% endfor %}
+  </div>
+  <div class="sector-empty" id="sector-empty" hidden><span>⌕</span>
+    <h3>ما لقينا نتائج</h3>
+    <p>جرّب كلمة ثانية أو اعرض جميع القطاعات.</p><button type="button" id="sector-reset">عرض جميع القطاعات</button>
+  </div>
 </section>
 {% endif %}
 {% endblock %}

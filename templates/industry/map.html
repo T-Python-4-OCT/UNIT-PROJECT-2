@@ -1,56 +1,180 @@
 {% extends 'base.html' %}
 {% load static l10n %}
 {% block extra_head %}
-<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+  integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
+  integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin="" defer></script>
 {% endblock %}
 {% block title %}{% if request.LANGUAGE_CODE == 'en' %}Industrial Map | Senaa{% else %}الخريطة الصناعية | صناعة{% endif %}{% endblock %}
 {% block content %}
 {% if request.LANGUAGE_CODE == 'en' %}
-<section class="map-page-hero"><div class="eyebrow"><span class="eyebrow-line"></span>Region by region</div><h1>Industry has<br><em>an address on the map.</em></h1><p>Explore Saudi industrial cities and projects. Choose a location to learn about the sectors and initiatives connected to it.</p><div class="map-hero-stats"><div><strong>{{ cities|length }}</strong><span>Cities and locations</span></div><i></i><div><strong>7</strong><span>Industrial sectors</span></div><i></i><div><strong>2026</strong><span>Interactive map</span></div></div></section>
-<section class="industrial-map-section"><div class="map-section-heading"><div><span class="map-kicker">Explore the Kingdom</span><h2>From resources to <em>factories.</em></h2></div><span class="map-instruction"><span class="live-dot"></span>Select a marker for details</span></div><div class="map-layout"><div class="map-main-column"><div class="map-panel"><div class="map-panel-top"><span><b class="map-pin-mini">●</b> Industrial sites and national projects</span><span>Kingdom of Saudi Arabia <b>·</b> {{ cities|length }} locations</span></div><div class="map-surface" id="industrial-map" aria-label="Interactive map of Saudi industrial locations"><div id="industrial-map-canvas" class="map-canvas" role="application" aria-label="OpenStreetMap"></div></div><div class="map-legend"><span><i class="legend-dot legend-industrial"></i>Industrial cities and locations</span><span><i class="legend-region-line"></i>Administrative region borders (13)</span><span class="map-legend-note">Select a region to highlight it · <a href="https://github.com/yasseralsamman/saudi-national-address" target="_blank" rel="noopener noreferrer">Boundary source</a></span></div></div></div><aside class="map-detail-card" id="map-detail" aria-live="polite" aria-atomic="true"><div class="map-detail-top"><span class="detail-live-tag"><i></i>Mapped location</span><span class="detail-location-icon">⌖</span></div><span class="map-detail-region" id="map-region">{{ cities.0.region }}</span><h2 id="map-city">{{ cities.0.city }}</h2><p id="map-description">{{ cities.0.description }}</p><p class="map-coordinates"><span>Selected coordinates</span><b id="map-coordinates">{{ cities.0.lat|unlocalize }}, {{ cities.0.lon|unlocalize }}</b></p><div class="map-sector-label">Activities and sectors</div><div class="map-sector-tags" id="map-sectors">{% for sector in cities.0.sectors %}<span>{{ sector }}</span>{% endfor %}</div><div class="map-detail-source"><span>Learn more</span><a id="map-source" href="{{ cities.0.url }}" target="_blank" rel="noopener noreferrer">{{ cities.0.source }} <b>↗</b></a></div><div class="map-card-footer"><span>Senaa · Kingdom map</span><span>⌖ {{ cities|length }} locations</span></div></aside></div>
-<div class="map-region-index"><div class="city-index-heading"><h3>Administrative regions</h3><span>13 regions · Select to show boundaries</span></div><div class="map-region-grid">{% for region in regions %}<button class="map-region-button" type="button" data-region-code="{{ region.code }}" data-lat="{{ region.lat|unlocalize }}" data-lon="{{ region.lon|unlocalize }}" aria-pressed="false">{{ region.name }}</button>{% endfor %}</div></div>
-<div class="map-city-index"><div class="city-index-heading"><h3>Search industries and locations</h3><span>Search by city, region or industrial activity</span></div><div class="map-search-tools" role="search"><label class="map-search-field"><span class="sr-only">Search by city, region or industry</span><span aria-hidden="true">⌕</span><input id="map-location-search" type="search" placeholder="e.g. pharmaceuticals, solar energy, Jeddah" autocomplete="off"></label><label class="map-sector-filter"><span class="sr-only">Filter by industrial activity</span><select id="map-sector-filter"><option value="">All industrial activities</option>{% for sector in sector_options %}<option value="{{ sector }}">{{ sector }}</option>{% endfor %}</select></label></div><p class="map-filter-status" id="map-filter-status" role="status" aria-live="polite"></p><div class="city-index-grid">{% for item in cities %}<button type="button" class="city-index-item{% if forloop.first %} is-selected{% endif %}" data-city-id="{{ item.id }}" data-city="{{ item.city }}" data-region="{{ item.region }}" data-region-code="{{ item.region_code }}" data-description="{{ item.description }}" data-sectors="{{ item.sectors|join:'|' }}" data-source="{{ item.source }}" data-url="{{ item.url }}" data-lat="{{ item.lat|unlocalize }}" data-lon="{{ item.lon|unlocalize }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="map-detail"><span class="city-index-number">0{{ forloop.counter }}</span><span>{{ item.city }}<small>{{ item.region }}</small></span><b>↗</b></button>{% endfor %}</div></div></section>
-<section class="map-bottom-note"><span class="note-star">✳</span><p>This map shows <strong>selected examples of cities and industrial projects</strong>; it does not list every factory or industrial city. Links open official sources for further reading.</p><a href="{% url 'industry_list' %}">Explore sectors <b>↗</b></a></section>
-{% else %}
-<section class="map-page-hero"><div class="eyebrow"><span class="eyebrow-line"></span>منطقة بعد منطقة</div><h1>الصناعة لها<br><em>عنوان على الخريطة.</em></h1><p>اكتشف المدن والمواقع الصناعية في المملكة، واختر موقعًا لتتعرف على القطاعات والمشاريع المرتبطة به.</p><div class="map-hero-stats"><div><strong>{{ cities|length }}</strong><span>مدن ومواقع</span></div><i></i><div><strong>٧</strong><span>قطاعات صناعية</span></div><i></i><div><strong>٢٠٢٦</strong><span>خريطة تفاعلية</span></div></div></section>
-
+<section class="map-page-hero">
+  <div class="eyebrow"><span class="eyebrow-line"></span>Region by region</div>
+  <h1>Industry has<br><em>an address on the map.</em></h1>
+  <p>Explore Saudi industrial cities and projects. Choose a location to learn about the sectors and initiatives
+    connected to it.</p>
+  <div class="map-hero-stats">
+    <div><strong>{{ cities|length }}</strong><span>Cities and locations</span></div><i></i>
+    <div><strong>7</strong><span>Industrial sectors</span></div><i></i>
+    <div><strong>2026</strong><span>Interactive map</span></div>
+  </div>
+</section>
 <section class="industrial-map-section">
-  <div class="map-section-heading"><div><span class="map-kicker">استكشف المملكة</span><h2>من الموارد إلى <em>المصانع.</em></h2></div><span class="map-instruction"><span class="live-dot"></span>اضغط على أي نقطة للتفاصيل</span></div>
+  <div class="map-section-heading">
+    <div><span class="map-kicker">Explore the Kingdom</span>
+      <h2>From resources to <em>factories.</em></h2>
+    </div><span class="map-instruction"><span class="live-dot"></span>Select a marker for details</span>
+  </div>
   <div class="map-layout">
     <div class="map-main-column">
       <div class="map-panel">
-        <div class="map-panel-top"><span><b class="map-pin-mini">●</b> مواقع صناعية ومشاريع وطنية</span><span>المملكة العربية السعودية <b>·</b> {{ cities|length }} مواقع</span></div>
-        <div class="map-surface" id="industrial-map" aria-label="خريطة جغرافية تفاعلية للمواقع الصناعية السعودية">
-          <div id="industrial-map-canvas" class="map-canvas" role="application" aria-label="خريطة OpenStreetMap"></div>
+        <div class="map-panel-top"><span><b class="map-pin-mini">●</b> Industrial sites and national
+            projects</span><span>Kingdom of Saudi Arabia <b>·</b> {{ cities|length }} locations</span></div>
+        <div class="map-surface" id="industrial-map" aria-label="Interactive map of Saudi industrial locations">
+          <div id="industrial-map-canvas" class="map-canvas" role="application" aria-label="OpenStreetMap"></div>
         </div>
-        <div class="map-legend"><span><i class="legend-dot legend-industrial"></i>مدن ومواقع صناعية</span><span><i class="legend-region-line"></i>حدود المناطق الإدارية (١٣)</span><span class="map-legend-note">اضغط على منطقة لتمييزها · <a href="https://github.com/yasseralsamman/saudi-national-address" target="_blank" rel="noopener noreferrer">مصدر الحدود</a></span></div>
+        <div class="map-legend"><span><i class="legend-dot legend-industrial"></i>Industrial cities and
+            locations</span><span><i class="legend-region-line"></i>Administrative region borders (13)</span><span
+            class="map-legend-note">Select a region to highlight it · <a
+              href="https://github.com/yasseralsamman/saudi-national-address" target="_blank"
+              rel="noopener noreferrer">Boundary source</a></span></div>
       </div>
     </div>
     <aside class="map-detail-card" id="map-detail" aria-live="polite" aria-atomic="true">
-      <div class="map-detail-top"><span class="detail-live-tag"><i></i>موقع على الخريطة</span><span class="detail-location-icon">⌖</span></div>
+      <div class="map-detail-top"><span class="detail-live-tag"><i></i>Mapped location</span><span
+          class="detail-location-icon">⌖</span></div><span class="map-detail-region" id="map-region">{{ cities.0.region }}</span>
+      <h2 id="map-city">{{ cities.0.city }}</h2>
+      <p id="map-description">{{ cities.0.description }}</p>
+      <p class="map-coordinates"><span>Selected coordinates</span><b id="map-coordinates">{{ cities.0.lat|unlocalize }},
+          {{ cities.0.lon|unlocalize }}</b></p>
+      <div class="map-sector-label">Activities and sectors</div>
+      <div class="map-sector-tags" id="map-sectors">{% for sector in cities.0.sectors %}<span>{{ sector }}</span>{% endfor %}</div>
+      <div class="map-detail-source"><span>Learn more</span><a id="map-source" href="{{ cities.0.url }}" target="_blank"
+          rel="noopener noreferrer">{{ cities.0.source }} <b>↗</b></a></div>
+      <a class="map-project-link" id="map-project-link" href="{% url 'project_detail' project_id=cities.0.id %}">{% if request.LANGUAGE_CODE == 'en' %}View project details{% else %}تفاصيل الموقع والمشروع{% endif %} <b>↗</b></a>
+      <div class="map-card-footer"><span>Senaa · Kingdom map</span><span>⌖ {{ cities|length }} locations</span></div>
+    </aside>
+  </div>
+  <div class="map-region-index">
+    <div class="city-index-heading">
+      <h3>Administrative regions</h3><span>13 regions · Select to show boundaries</span>
+    </div>
+    <div class="map-region-grid">{% for region in regions %}<button class="map-region-button" type="button"
+        data-region-code="{{ region.code }}" data-lat="{{ region.lat|unlocalize }}"
+        data-lon="{{ region.lon|unlocalize }}" aria-pressed="false">{{ region.name }}</button>{% endfor %}</div>
+  </div>
+  <div class="map-city-index">
+    <div class="city-index-heading">
+      <h3>Search industries and locations</h3><span>Search by city, region or industrial activity</span>
+    </div>
+    <div class="map-search-tools" role="search"><label class="map-search-field"><span class="sr-only">Search by city,
+          region or industry</span><span aria-hidden="true">⌕</span><input id="map-location-search" type="search"
+          placeholder="e.g. pharmaceuticals, solar energy, Jeddah" autocomplete="off"></label><label
+        class="map-sector-filter"><span class="sr-only">Filter by industrial activity</span><select
+          id="map-sector-filter">
+          <option value="">All industrial activities</option>{% for sector in sector_options %}<option
+            value="{{ sector }}">{{ sector }}</option>{% endfor %}
+        </select></label></div>
+    <p class="map-filter-status" id="map-filter-status" role="status" aria-live="polite"></p>
+    <div class="city-index-grid">{% for item in cities %}<button type="button"
+        class="city-index-item{% if forloop.first %} is-selected{% endif %}" data-city-id="{{ item.id }}"
+        data-city="{{ item.city }}" data-region="{{ item.region }}" data-region-code="{{ item.region_code }}"
+        data-description="{{ item.description }}" data-sectors="{{ item.sectors|join:'|' }}"
+        data-source="{{ item.source }}" data-url="{{ item.url }}" data-lat="{{ item.lat|unlocalize }}"
+        data-lon="{{ item.lon|unlocalize }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+        aria-controls="map-detail"><span class="city-index-number">0{{ forloop.counter }}</span><span>{{ item.city }}<small>{{ item.region }}</small></span><b>↗</b></button>{% endfor %}</div>
+  </div>
+</section>
+<section class="map-bottom-note"><span class="note-star">✳</span>
+  <p>This map shows <strong>selected examples of cities and industrial projects</strong>; it does not list every factory
+    or industrial city. Links open official sources for further reading.</p><a href="{% url 'industry_list' %}">Explore
+    sectors <b>↗</b></a>
+</section>
+{% else %}
+<section class="map-page-hero">
+  <div class="eyebrow"><span class="eyebrow-line"></span>منطقة بعد منطقة</div>
+  <h1>الصناعة لها<br><em>عنوان على الخريطة.</em></h1>
+  <p>اكتشف المدن والمواقع الصناعية في المملكة، واختر موقعًا لتتعرف على القطاعات والمشاريع المرتبطة به.</p>
+  <div class="map-hero-stats">
+    <div><strong>{{ cities|length }}</strong><span>مدن ومواقع</span></div><i></i>
+    <div><strong>٧</strong><span>قطاعات صناعية</span></div><i></i>
+    <div><strong>٢٠٢٦</strong><span>خريطة تفاعلية</span></div>
+  </div>
+</section>
+
+<section class="industrial-map-section">
+  <div class="map-section-heading">
+    <div><span class="map-kicker">استكشف المملكة</span>
+      <h2>من الموارد إلى <em>المصانع.</em></h2>
+    </div><span class="map-instruction"><span class="live-dot"></span>اضغط على أي نقطة للتفاصيل</span>
+  </div>
+  <div class="map-layout">
+    <div class="map-main-column">
+      <div class="map-panel">
+        <div class="map-panel-top"><span><b class="map-pin-mini">●</b> مواقع صناعية ومشاريع وطنية</span><span>المملكة
+            العربية السعودية <b>·</b> {{ cities|length }} مواقع</span></div>
+        <div class="map-surface" id="industrial-map" aria-label="خريطة جغرافية تفاعلية للمواقع الصناعية السعودية">
+          <div id="industrial-map-canvas" class="map-canvas" role="application" aria-label="خريطة OpenStreetMap"></div>
+        </div>
+        <div class="map-legend"><span><i class="legend-dot legend-industrial"></i>مدن ومواقع صناعية</span><span><i
+              class="legend-region-line"></i>حدود المناطق الإدارية (١٣)</span><span class="map-legend-note">اضغط على
+            منطقة لتمييزها · <a href="https://github.com/yasseralsamman/saudi-national-address" target="_blank"
+              rel="noopener noreferrer">مصدر الحدود</a></span></div>
+      </div>
+    </div>
+    <aside class="map-detail-card" id="map-detail" aria-live="polite" aria-atomic="true">
+      <div class="map-detail-top"><span class="detail-live-tag"><i></i>موقع على الخريطة</span><span
+          class="detail-location-icon">⌖</span></div>
       <span class="map-detail-region" id="map-region">{{ cities.0.region }}</span>
       <h2 id="map-city">{{ cities.0.city }}</h2>
       <p id="map-description">{{ cities.0.description }}</p>
       <p class="map-coordinates"><span>إحداثيات الموقع المحدد</span><b id="map-coordinates">{{ cities.0.lat|unlocalize }}, {{ cities.0.lon|unlocalize }}</b></p>
-      <div class="map-sector-label">الأنشطة والقطاعات</div><div class="map-sector-tags" id="map-sectors">{% for sector in cities.0.sectors %}<span>{{ sector }}</span>{% endfor %}</div>
-      <div class="map-detail-source"><span>للمزيد</span><a id="map-source" href="{{ cities.0.url }}" target="_blank" rel="noopener noreferrer">{{ cities.0.source }} <b>↗</b></a></div>
+      <div class="map-sector-label">الأنشطة والقطاعات</div>
+      <div class="map-sector-tags" id="map-sectors">{% for sector in cities.0.sectors %}<span>{{ sector }}</span>{% endfor %}</div>
+      <div class="map-detail-source"><span>للمزيد</span><a id="map-source" href="{{ cities.0.url }}" target="_blank"
+          rel="noopener noreferrer">{{ cities.0.source }} <b>↗</b></a></div>
+      <a class="map-project-link" id="map-project-link" href="{% url 'project_detail' project_id=cities.0.id %}">{% if request.LANGUAGE_CODE == 'en' %}View project details{% else %}تفاصيل الموقع والمشروع{% endif %} <b>↗</b></a>
       <div class="map-card-footer"><span>صناعة · خريطة المملكة</span><span>⌖ {{ cities|length }} مواقع</span></div>
     </aside>
   </div>
-  <div class="map-region-index"><div class="city-index-heading"><h3>المناطق الإدارية</h3><span>١٣ منطقة — اضغط لإظهار حدودها</span></div><div class="map-region-grid">{% for region in regions %}<button class="map-region-button" type="button" data-region-code="{{ region.code }}" data-lat="{{ region.lat|unlocalize }}" data-lon="{{ region.lon|unlocalize }}" aria-pressed="false">{{ region.name }}</button>{% endfor %}</div></div>
+  <div class="map-region-index">
+    <div class="city-index-heading">
+      <h3>المناطق الإدارية</h3><span>١٣ منطقة — اضغط لإظهار حدودها</span>
+    </div>
+    <div class="map-region-grid">{% for region in regions %}<button class="map-region-button" type="button"
+        data-region-code="{{ region.code }}" data-lat="{{ region.lat|unlocalize }}"
+        data-lon="{{ region.lon|unlocalize }}" aria-pressed="false">{{ region.name }}</button>{% endfor %}</div>
+  </div>
   <div class="map-city-index">
-    <div class="city-index-heading"><h3>ابحث عن الصناعة وموقعها</h3><span>ابحث باسم المدينة أو المنطقة أو النشاط الصناعي</span></div>
+    <div class="city-index-heading">
+      <h3>ابحث عن الصناعة وموقعها</h3><span>ابحث باسم المدينة أو المنطقة أو النشاط الصناعي</span>
+    </div>
     <div class="map-search-tools" role="search">
-      <label class="map-search-field"><span class="sr-only">ابحث عن مدينة أو منطقة أو صناعة</span><span aria-hidden="true">⌕</span><input id="map-location-search" type="search" placeholder="مثال: الأدوية، الطاقة الشمسية، جدة" autocomplete="off"></label>
-      <label class="map-sector-filter"><span class="sr-only">تصفية حسب النشاط الصناعي</span><select id="map-sector-filter"><option value="">كل الأنشطة الصناعية</option>{% for sector in sector_options %}<option value="{{ sector }}">{{ sector }}</option>{% endfor %}</select></label>
+      <label class="map-search-field"><span class="sr-only">ابحث عن مدينة أو منطقة أو صناعة</span><span
+          aria-hidden="true">⌕</span><input id="map-location-search" type="search"
+          placeholder="مثال: الأدوية، الطاقة الشمسية، جدة" autocomplete="off"></label>
+      <label class="map-sector-filter"><span class="sr-only">تصفية حسب النشاط الصناعي</span><select
+          id="map-sector-filter">
+          <option value="">كل الأنشطة الصناعية</option>{% for sector in sector_options %}<option value="{{ sector }}">{{ sector }}</option>{% endfor %}
+        </select></label>
     </div>
     <p class="map-filter-status" id="map-filter-status" role="status" aria-live="polite"></p>
-    <div class="city-index-grid">{% for item in cities %}<button type="button" class="city-index-item{% if forloop.first %} is-selected{% endif %}" data-city-id="{{ item.id }}" data-city="{{ item.city }}" data-region="{{ item.region }}" data-region-code="{{ item.region_code }}" data-description="{{ item.description }}" data-sectors="{{ item.sectors|join:'|' }}" data-source="{{ item.source }}" data-url="{{ item.url }}" data-lat="{{ item.lat|unlocalize }}" data-lon="{{ item.lon|unlocalize }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="map-detail"><span class="city-index-number">0{{ forloop.counter }}</span><span>{{ item.city }}<small>{{ item.region }}</small></span><b>↗</b></button>{% endfor %}</div>
+    <div class="city-index-grid">{% for item in cities %}<button type="button"
+        class="city-index-item{% if forloop.first %} is-selected{% endif %}" data-city-id="{{ item.id }}"
+        data-city="{{ item.city }}" data-region="{{ item.region }}" data-region-code="{{ item.region_code }}"
+        data-description="{{ item.description }}" data-sectors="{{ item.sectors|join:'|' }}"
+        data-source="{{ item.source }}" data-url="{{ item.url }}" data-lat="{{ item.lat|unlocalize }}"
+        data-lon="{{ item.lon|unlocalize }}" aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+        aria-controls="map-detail"><span class="city-index-number">0{{ forloop.counter }}</span><span>{{ item.city }}<small>{{ item.region }}</small></span><b>↗</b></button>{% endfor %}</div>
   </div>
 </section>
 
-<section class="map-bottom-note"><span class="note-star">✳</span><p>هذه الخريطة تعرض <strong>نماذج من المدن والمشاريع الصناعية</strong> ولا تمثل حصرًا لجميع المصانع أو المدن. الروابط تفتح مصادر رسمية للتوسع في القراءة.</p><a href="{% url 'industry_list' %}">تصفح القطاعات <b>↗</b></a></section>
+<section class="map-bottom-note"><span class="note-star">✳</span>
+  <p>هذه الخريطة تعرض <strong>نماذج من المدن والمشاريع الصناعية</strong> ولا تمثل حصرًا لجميع المصانع أو المدن. الروابط
+    تفتح مصادر رسمية للتوسع في القراءة.</p><a href="{% url 'industry_list' %}">تصفح القطاعات <b>↗</b></a>
+</section>
 {% endif %}
 {% endblock %}
-{% block extra_js %}<script src="{% static 'js/map.js' %}?v=20261110-language1" defer></script>{% endblock %}
+{% block extra_js %}
+<script src="{% static 'js/map.js' %}?v=20261110-language1" defer></script>{% endblock %}

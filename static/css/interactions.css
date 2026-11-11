@@ -309,12 +309,118 @@
     flex-wrap: wrap;
   }
 
+  .sector-timeline-track {
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 8px;
+    overflow-x: auto;
+    padding: 4px 2px 10px;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .sector-timeline-track::before {
+    top: 50%;
+    right: 10px;
+    bottom: auto;
+    left: 10px;
+    width: auto;
+    height: 1px;
+  }
+
+  html[dir="ltr"] .sector-timeline-track::before {
+    right: 10px;
+    left: 10px;
+  }
+
+  .sector-timeline-point {
+    flex: 0 0 min(72vw, 250px);
+    scroll-snap-align: start;
+  }
+
   .main-nav a[aria-current="page"]:after {
     bottom: 2px;
     left: auto;
     width: 24px;
   }
 
+}
+
+@media(max-width:420px) {
+  .announcement {
+    padding: 0 10px;
+    text-align: center;
+    font-size: 8px;
+  }
+
+  .site-header {
+    padding: 0 4%;
+  }
+
+  .brand {
+    gap: 7px;
+  }
+
+  .brand-text {
+    font-size: 17px;
+  }
+
+  .header-actions {
+    gap: 6px;
+  }
+
+  .language-toggle,
+  .theme-toggle {
+    min-height: 36px;
+    padding: 5px 8px;
+  }
+
+  .menu-toggle {
+    width: 36px;
+    height: 36px;
+  }
+
+  .hero-stat-row div {
+    padding: 0 7px;
+  }
+
+  .hero-stat-row span {
+    font-size: 7px;
+  }
+
+  .map-hero-stats {
+    gap: 9px;
+  }
+
+  .map-hero-stats span {
+    font-size: 8px;
+  }
+
+  .milestone {
+    grid-template-columns: 45px 14px minmax(0, 1fr);
+    gap: 7px;
+  }
+
+  .footer-bottom {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+@media(max-width:360px) {
+  .brand-text small {
+    font-size: 6px;
+  }
+
+  .language-toggle {
+    font-size: 10px;
+  }
+
+  .hero h1,
+  .page-hero h1,
+  .map-page-hero h1 {
+    font-size: clamp(32px, 10vw, 38px);
+  }
 }
 
 @media(prefers-reduced-motion:reduce) {
