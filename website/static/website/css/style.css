@@ -118,7 +118,7 @@ a:hover { color: var(--accent); }
 .narrow { max-width: 760px; }
 .mt { margin-top: 2rem; }
 
-/* Keep keyboard navigation available. */
+/*Keep keyboard navigation available. */
 .skip-link {
   position: absolute; inset-inline-start: 1rem; top: -4rem; z-index: 100;
   background: var(--brand); color: var(--on-brand); padding: .6rem 1rem; border-radius: var(--radius);
