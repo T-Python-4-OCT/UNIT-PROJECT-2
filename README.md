@@ -1,6 +1,8 @@
 # Saudi Military Industries
 
-A bilingual Django website showcasing Saudi Arabia's military industries: its sectors, key entities, history and events, and the Vision 2030 goal of localizing over 50% of military spending.
+A bilingual (Arabic and English) Django website that takes visitors on a tour of Saudi Arabia's military industries: the land, air and naval sectors, the entities leading them (SAMI and GAMI), the history of the industry, the World Defense Show, and career paths for young Saudis.
+
+Built as Unit Project 2 for a Python bootcamp, with dark mode, a responsive layout and interactive tools such as a Vision 2030 localization calculator.
 
 > **Made in Saudi Arabia… to protect Saudi Arabia**
 
