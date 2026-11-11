@@ -1,0 +1,196 @@
+
+{% extends "esports/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans player.name %} | Saudi Arena{% endblock %}
+
+{% block content %}
+
+<!-- PLAYER HEADER -->
+<section class="page-header">
+    <div class="container">
+
+        <span class="section-label">
+            {% trans "PLAYER PROFILE" %}
+        </span>
+
+        <h1>{% trans player.name %}</h1>
+
+        <p>
+            {% trans player.real_name %} |
+            {% trans player.game %}
+        </p>
+
+    </div>
+</section>
+
+
+<!-- PLAYER PROFILE -->
+<section class="section">
+    <div class="container">
+
+        <a href="{% url 'players' %}" class="btn btn-secondary">
+            {% if LANGUAGE_CODE == 'ar' %}→{% else %}←{% endif %}
+            {% trans "Back to Players" %}
+        </a>
+
+        <div class="player-profile-grid">
+
+            <!-- PLAYER IMAGE -->
+            <div class="player-profile-image">
+
+                {% if player.image_url %}
+                <img
+                    src="{{ player.image_url }}"
+                    alt="{{ player.name }}"
+                >
+                {% else %}
+                <div class="player-image-placeholder">
+                    {{ player.name|first|upper }}
+                </div>
+                {% endif %}
+
+            </div>
+
+            <!-- PLAYER INFORMATION -->
+            <div class="player-profile-info">
+
+                <span class="section-label">
+                    {% trans "PLAYER SPOTLIGHT" %}
+                </span>
+
+                <h2>{% trans player.name %}</h2>
+
+                <div class="about-accent-line"></div>
+
+                <p>
+                    <strong>{% trans "Real Name:" %}</strong>
+                    {% trans player.real_name %}
+                </p>
+
+                <p>
+                    <strong>{% trans "Team:" %}</strong>
+                    {% trans player.team %}
+                </p>
+
+                <p>
+                    <strong>{% trans "Game:" %}</strong>
+                    {% trans player.game %}
+                </p>
+
+                <p>
+                    <strong>{% trans "Nationality:" %}</strong>
+                    {% trans player.nationality %}
+                </p>
+
+                <p>
+                    <strong>{% trans "Role:" %}</strong>
+                    {% trans player.role %}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PLAYER BIOGRAPHY -->
+<section class="section about-values-section">
+    <div class="container">
+
+        <div class="section-header">
+            <div>
+                <span class="section-label">
+                    {% trans "THE JOURNEY" %}
+                </span>
+
+                <h2>
+                    {% trans "About" %}
+                    {% trans player.name %}
+                </h2>
+            </div>
+        </div>
+
+        <p class="player-biography">
+            {% trans player.description %}
+        </p>
+
+    </div>
+</section>
+
+
+<!-- PLAYER INTRO VIDEO -->
+{% if player.intro_video %}
+<section class="section player-intro-section">
+    <div class="container">
+
+        <div class="section-header">
+
+            <span class="section-label">
+                {% trans "BEHIND THE PLAYER" %}
+            </span>
+
+            <h2>
+                {% trans "Meet" %}
+                <span class="gradient-text">
+                    {% trans player.name %}
+                </span>
+            </h2>
+
+            <p class="section-description">
+                {% trans "Discover the story behind the player." %}
+            </p>
+
+        </div>
+
+        <div class="player-intro-card">
+
+            <!-- VIDEO -->
+            <div class="player-intro-video">
+
+                <video
+                    controls
+                    playsinline
+                    preload="metadata"
+                    aria-label="{% trans 'Player introduction video' %}"
+                    {% if player.intro_poster %}
+                    poster="{{ player.intro_poster }}"
+                    {% endif %}
+                >
+                    <source
+                        src="{% static player.intro_video %}"
+                        type="video/mp4"
+                    >
+
+                    {% trans "Your browser does not support video playback." %}
+                </video>
+
+            </div>
+
+            <!-- VIDEO INFORMATION -->
+            <div class="player-intro-details">
+
+                <span class="section-label">
+                    {% trans "PLAYER INTRO" %}
+                </span>
+
+                <h3>
+                    {% trans "Introducing" %}
+                    {% trans player.name %}
+                </h3>
+
+                <p>
+                    {% trans "A quick introduction to one of Saudi Arabia's esports stars." %}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+{% endif %}
+
+{% endblock %}

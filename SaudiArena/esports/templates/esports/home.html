@@ -1,0 +1,260 @@
+
+{% extends 'esports/base.html' %}
+{% load static i18n %}
+
+{% block title %}{% trans "Home" %} | Saudi Arena{% endblock %}
+
+{% block content %}
+
+<!-- HOME HERO WITH VIDEO -->
+<section class="hero home-hero" id="home">
+
+    <!-- BACKGROUND VIDEO -->
+    <div class="home-video-background" aria-hidden="true">
+
+        <video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="metadata"
+        >
+            <source
+                src="{% static 'esports/videos/saudi-arena-hero.mp4.mp4' %}"
+                type="video/mp4"
+            >
+        </video>
+
+    </div>
+
+    <!-- DARK OVERLAY -->
+    <div class="home-video-overlay"></div>
+
+    <!-- HERO CONTENT -->
+    <div class="container">
+
+        <div class="hero-content">
+
+            <span class="section-tag">
+                {% trans "WELCOME TO SAUDI ARENA" %}
+            </span>
+
+            <h1 class="hero-title">
+                {% trans "THE FUTURE OF" %}
+                <span class="gradient-text">{% trans "ESPORTS" %}</span>
+                {% trans "STARTS HERE." %}
+            </h1>
+
+            <p class="hero-description">
+                {% blocktrans trimmed %}
+                Discover the world of competitive gaming
+                in Saudi Arabia. Your gateway to teams,
+                players, games, tournaments, and achievements.
+                {% endblocktrans %}
+            </p>
+
+            <div class="btn-group">
+
+                <a href="#gateway" class="btn btn-primary">
+                    {% trans "Explore Saudi Arena" %}
+                    <span aria-hidden="true">↓</span>
+                </a>
+
+                <a href="{% url 'about' %}" class="btn btn-outline">
+                    {% trans "About Us" %}
+                    <span aria-hidden="true">↗</span>
+                </a>
+
+            </div>
+
+            <div class="hero-bottom">
+
+                <span class="hero-line"></span>
+
+                <p>
+                    {% blocktrans trimmed %}
+                    ONE KINGDOM.
+                    ENDLESS POSSIBILITIES.
+                    {% endblocktrans %}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- SAUDI VISION 2030 -->
+<section class="sa-vision" id="vision-2030"
+         aria-labelledby="sa-vision-title">
+
+    <div class="container">
+
+        <div class="sa-vision-panel">
+
+            <!-- TEXT AND OFFICIAL LOGOS -->
+            <div class="sa-vision-content">
+
+                <div class="sa-vision-logos">
+
+                    <img
+                        src="{% static 'esports/images/saudi-emblem.png' %}"
+                        alt="{% trans 'Emblem of Saudi Arabia' %}"
+                        class="sa-vision-emblem"
+                        loading="lazy"
+                    >
+
+                    <span class="sa-vision-logo-divider"
+                          aria-hidden="true"></span>
+
+                    <img
+                        src="{% static 'esports/images/vision-2030.png' %}"
+                        alt="{% trans 'Saudi Vision 2030 logo' %}"
+                        class="sa-vision-logo"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <span class="sa-vision-eyebrow">
+                    {% trans "SAUDI VISION 2030" %}
+                </span>
+
+                <h2 id="sa-vision-title">
+                    {% trans "FROM THE KINGDOM TO THE WORLD" %}
+                </h2>
+
+                <p class="sa-vision-description">
+                    {% blocktrans trimmed %}
+                    Guided by Saudi Vision 2030, the Kingdom
+                    is strengthening its position in esports
+                    by empowering local talent, developing
+                    the gaming industry, and hosting
+                    world-class competitions.
+                    {% endblocktrans %}
+                </p>
+
+                <div class="sa-vision-signature"
+                     aria-hidden="true">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+
+            </div>
+
+            <!-- SAUDI ESPORTS VIDEO -->
+            <div class="sa-vision-media">
+
+                <div class="sa-vision-video-frame">
+
+                    <video
+                        autoplay
+                        muted
+                        loop
+                        playsinline
+                        preload="metadata"
+                        aria-label="{% trans 'Saudi esports highlights' %}"
+                    >
+                        <source
+                            src="{% static 'esports/videos/saudi-vision-2030.mp4.mp4' %}"
+                            type="video/mp4"
+                        >
+                    </video>
+
+                    <div class="sa-vision-video-shade"
+                         aria-hidden="true"></div>
+
+                    <span class="sa-vision-video-caption">
+                        <span class="sa-vision-live-dot"
+                              aria-hidden="true"></span>
+                        {% trans "SAUDI ESPORTS" %}
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- GATEWAY -->
+<section class="home-gateway" id="gateway">
+
+    <div class="container">
+
+        <div class="home-gateway-heading">
+
+            <span class="sa-about-overline">
+                {% trans "EXPLORE SAUDI ARENA" %}
+            </span>
+
+            <h2>{% trans "YOUR GATEWAY TO ESPORTS." %}</h2>
+
+            <p>
+                {% blocktrans trimmed %}
+                Everything you need to discover
+                Saudi esports, all in one place.
+                {% endblocktrans %}
+            </p>
+
+        </div>
+
+        <div class="home-gateway-links">
+
+            <!-- 01 ABOUT US -->
+            <a href="{% url 'about' %}">
+                <span>01</span>
+                <strong>{% trans "ABOUT US" %}</strong>
+                <span aria-hidden="true">↗</span>
+            </a>
+
+            <!-- 02 TOURNAMENTS -->
+            <a href="{% url 'tournaments' %}">
+                <span>02</span>
+                <strong>{% trans "TOURNAMENTS" %}</strong>
+                <span aria-hidden="true">↗</span>
+            </a>
+
+            <!-- 03 TEAMS -->
+            <a href="{% url 'teams' %}">
+                <span>03</span>
+                <strong>{% trans "TEAMS" %}</strong>
+                <span aria-hidden="true">↗</span>
+            </a>
+
+            <!-- 04 PLAYERS -->
+            <a href="{% url 'players' %}">
+                <span>04</span>
+                <strong>{% trans "PLAYERS" %}</strong>
+                <span aria-hidden="true">↗</span>
+            </a>
+
+            <!-- 05 GAMES -->
+            <a href="{% url 'games' %}">
+                <span>05</span>
+                <strong>{% trans "GAMES" %}</strong>
+                <span aria-hidden="true">↗</span>
+            </a>
+
+            <!-- 06 ACHIEVEMENTS -->
+            <a href="{% url 'achievements' %}">
+                <span>06</span>
+                <strong>{% trans "ACHIEVEMENTS" %}</strong>
+                <span aria-hidden="true">↗</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+{% endblock %}

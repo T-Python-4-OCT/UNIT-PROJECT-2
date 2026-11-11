@@ -1,0 +1,307 @@
+
+{% extends "esports/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Teams" %} | Saudi Arena{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="teams-pro-hero">
+
+    {% if teams_page.hero_image %}
+    <img
+        src="{{ teams_page.hero_image }}"
+        alt="{% trans 'Saudi esports competition arena' %}"
+        class="teams-pro-hero-image"
+    >
+    {% endif %}
+
+    <div class="teams-pro-overlay"></div>
+
+    <div class="container teams-pro-hero-content">
+
+        <span class="teams-pro-eyebrow">
+            🇸🇦 {% trans "THE SPIRIT OF COMPETITION" %}
+        </span>
+
+        <h1>
+            {% trans "LEGENDS ARE" %}<br>
+            <span>{% trans "BUILT TOGETHER." %}</span>
+        </h1>
+
+        <p>
+            {% blocktrans trimmed %}
+            Discover the organizations, competitors,
+            and teams shaping the future of Saudi esports.
+            {% endblocktrans %}
+        </p>
+
+        <a href="#explore-teams" class="btn btn-primary">
+            👑 {% trans "Explore Teams" %}
+        </a>
+
+    </div>
+
+    <div class="teams-pro-hero-bottom">
+        <span>SAUDI ARENA</span>
+        <span>{% trans "ESPORTS / TEAMS" %}</span>
+    </div>
+
+</section>
+
+
+<!-- INTRO SECTION -->
+<section class="teams-pro-intro">
+
+    <div class="container teams-pro-intro-grid">
+
+        <div>
+            <span class="section-label">
+                {% trans "THE COMPETITIVE SCENE" %}
+            </span>
+
+            <h2>
+                {% trans "ONE ARENA." %}<br>
+                <span>{% trans "ENDLESS AMBITION." %}</span>
+            </h2>
+        </div>
+
+        <p>
+            {% blocktrans trimmed %}
+            Behind every great esports moment is a team
+            driven by dedication, strategy, and teamwork.
+            Explore the organizations featured on Saudi Arena.
+            {% endblocktrans %}
+        </p>
+
+    </div>
+
+</section>
+
+
+<!-- TEAMS DIRECTORY -->
+<section class="section teams-pro-directory" id="explore-teams">
+
+    <div class="container">
+
+        <div class="teams-pro-heading">
+
+            <div>
+                <span class="section-label">
+                    👑 {% trans "THE ROSTER" %}
+                </span>
+
+                <h2>
+                    {% trans "EXPLORE" %}
+                    <span>{% trans "TEAMS" %}</span>
+                </h2>
+
+                <p class="teams-pro-subtitle">
+                    {% trans "Meet the organizations powering Saudi gaming." %}
+                </p>
+            </div>
+
+            <span class="teams-pro-count">
+                🏆 {{ total_teams }} {% trans "RESULTS" %}
+            </span>
+
+        </div>
+
+
+        <!-- TEAM FILTER -->
+        <form method="get" class="teams-pro-search">
+
+            <select
+                name="search"
+                class="teams-filter-select"
+                aria-label="{% trans 'Select a team' %}"
+            >
+
+                <option value="">
+                    {% trans "All Teams" %}
+                </option>
+
+                <option value="Team Falcons"
+                    {% if search_query == "Team Falcons" %}selected{% endif %}>
+                    {% trans "Team Falcons" %}
+                </option>
+
+                <option value="POWR"
+                    {% if search_query == "POWR" %}selected{% endif %}>
+                    {% trans "POWR" %}
+                </option>
+
+                <option value="Twisted Minds"
+                    {% if search_query == "Twisted Minds" %}selected{% endif %}>
+                    {% trans "Twisted Minds" %}
+                </option>
+
+                <option value="R8 Esports"
+                    {% if search_query == "R8 Esports" %}selected{% endif %}>
+                    {% trans "R8 Esports" %}
+                </option>
+
+                <option value="ROC Esports"
+                    {% if search_query == "ROC Esports" %}selected{% endif %}>
+                    {% trans "ROC Esports" %}
+                </option>
+
+                <option value="Team RA'AD"
+                    {% if search_query == "Team RA'AD" %}selected{% endif %}>
+                    {% trans "Team RA'AD" %}
+                </option>
+
+            </select>
+
+            <button type="submit" class="btn btn-primary">
+                🔎 {% trans "Filter Teams" %}
+            </button>
+
+            <a href="{% url 'teams' %}" class="btn btn-secondary">
+                {% trans "Reset" %}
+            </a>
+
+        </form>
+
+
+        <!-- TEAM CARDS -->
+        <div class="teams-pro-grid">
+
+            {% for team in teams %}
+
+            <article class="teams-pro-card">
+
+                <div class="teams-pro-card-visual">
+
+                    <!-- INDIVIDUAL TEAM COVER IMAGE -->
+                    {% if team.cover_url %}
+
+                    <img
+                        src="{{ team.cover_url }}"
+                        alt="{{ team.name }}"
+                        loading="lazy"
+                        class="teams-pro-card-background"
+                    >
+
+                    {% elif teams_page.card_image %}
+
+                    <img
+                        src="{{ teams_page.card_image }}"
+                        alt=""
+                        loading="lazy"
+                        class="teams-pro-card-background"
+                    >
+
+                    {% endif %}
+
+                    <!-- IMAGE OVERLAY -->
+                    <div class="teams-pro-card-shade"></div>
+
+                    <!-- ORGANIZATION BADGE -->
+                    <span class="teams-pro-card-tag">
+                        🇸🇦 {% trans "SAUDI ORGANIZATION" %}
+                    </span>
+
+                    <!-- TEAM NUMBER -->
+                    <span class="teams-pro-card-number">
+                        {{ forloop.counter|stringformat:"02d" }}
+                    </span>
+
+                    <!-- TEAM LOGO -->
+                    <div class="teams-pro-emblem">
+
+                        {% if team.logo_url %}
+
+                        <img
+                            src="{{ team.logo_url }}"
+                            alt="{{ team.name }}"
+                            loading="lazy"
+                        >
+
+                        {% else %}
+
+                        <span>
+                            {{ team.name|first|upper }}
+                        </span>
+
+                        {% endif %}
+
+                    </div>
+
+                </div>
+
+
+                <!-- TEAM INFORMATION -->
+                <div class="teams-pro-card-body">
+
+                    <span class="teams-pro-card-category">
+                        🎮 {% trans "SAUDI ESPORTS" %}
+                    </span>
+
+                    <h3>{% trans team.name %}</h3>
+
+                    <p>{% trans team.description %}</p>
+
+                    <div class="teams-pro-card-footer">
+                        <span>🇸🇦 SAUDI ARENA</span>
+                        <span class="teams-pro-card-symbol">✦</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+            {% empty %}
+
+            <div class="teams-pro-empty">
+
+                <h3>{% trans "No teams found" %}</h3>
+
+                <p>{% trans "Try another team name." %}</p>
+
+                <a href="{% url 'teams' %}" class="btn btn-primary">
+                    {% trans "Show All Teams" %}
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- FINAL CTA -->
+<section class="teams-pro-cta">
+
+    <div class="container teams-pro-cta-inner">
+
+        <span class="section-label">
+            🏆 {% trans "BE PART OF THE ACTION" %}
+        </span>
+
+        <h2>
+            {% trans "THE NEXT MATCH" %}<br>
+            {% trans "STARTS HERE." %}
+        </h2>
+
+        <p>
+            {% blocktrans trimmed %}
+            Explore esports tournaments and discover
+            the competition beyond the teams.
+            {% endblocktrans %}
+        </p>
+
+        <a href="{% url 'tournaments' %}" class="btn btn-primary">
+            🏆 {% trans "Discover Tournaments" %}
+        </a>
+
+    </div>
+
+</section>
+
+{% endblock %}

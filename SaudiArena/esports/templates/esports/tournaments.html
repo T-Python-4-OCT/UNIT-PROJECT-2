@@ -1,0 +1,254 @@
+
+{% extends "esports/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Tournaments" %} | Saudi Arena{% endblock %}
+
+{% block content %}
+
+<main class="th-page">
+
+    <!-- COMPACT HEADER -->
+    <section class="th-header">
+        <div class="container th-header-inner">
+
+            <div class="th-header-copy">
+                <span class="th-eyebrow">
+                    {% trans "SAUDI ARENA / COMPETITIONS" %}
+                </span>
+
+                <h1>
+                    {% trans "ESPORTS" %}
+                    <span>{% trans "TOURNAMENTS" %}</span>
+                </h1>
+
+                <p>
+                    {% blocktrans trimmed %}
+                    Explore the championships and competitions
+                    shaping the world of esports.
+                    {% endblocktrans %}
+                </p>
+            </div>
+
+            <div class="th-header-count">
+                <strong>{{ tournaments|length|stringformat:"02d" }}</strong>
+                <span>{% trans "TOURNAMENTS" %}</span>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- FILTERS -->
+    <section class="th-directory">
+        <div class="container">
+
+            <div class="th-toolbar">
+
+                <div class="th-toolbar-title">
+                    <span class="th-eyebrow">
+                        {% trans "DISCOVER EVENTS" %}
+                    </span>
+                    <h2>{% trans "Explore Competitions" %}</h2>
+                </div>
+
+                <form method="get" class="th-filters">
+
+                    <!-- GAME FILTER -->
+                    <select
+                        name="game"
+                        class="th-filter-select"
+                        aria-label="{% trans 'Filter tournaments by game' %}"
+                    >
+                        <option value="">
+                            {% trans "All Games" %}
+                        </option>
+
+                        {% for game in available_games %}
+                        <option
+                            value="{{ game }}"
+                            {% if selected_game == game %}selected{% endif %}
+                        >
+                            {% trans game %}
+                        </option>
+                        {% endfor %}
+
+                    </select>
+
+
+                    <!-- STATUS FILTER -->
+                    <select
+                        name="status"
+                        class="th-filter-select"
+                        aria-label="{% trans 'Filter tournaments by status' %}"
+                    >
+                        <option value="">
+                            {% trans "All Statuses" %}
+                        </option>
+
+                        <option value="Upcoming"
+                            {% if selected_status == "Upcoming" %}selected{% endif %}>
+                            {% trans "Upcoming" %}
+                        </option>
+
+                        <option value="Ongoing"
+                            {% if selected_status == "Ongoing" %}selected{% endif %}>
+                            {% trans "Ongoing" %}
+                        </option>
+
+                        <option value="Completed"
+                            {% if selected_status == "Completed" %}selected{% endif %}>
+                            {% trans "Completed" %}
+                        </option>
+                    </select>
+
+
+                    <button type="submit" class="th-search-btn">
+                        {% trans "Filter Tournaments" %}
+                    </button>
+
+                    <a href="{% url 'tournaments' %}" class="th-reset-btn">
+                        {% trans "Reset" %}
+                    </a>
+
+                </form>
+
+            </div>
+
+
+            <!-- TOURNAMENT GRID -->
+            <div class="th-grid">
+
+                {% for tournament in tournaments %}
+
+                <article class="th-card">
+
+                    <!-- IMAGE -->
+                    <div class="th-card-image">
+
+                        {% if tournament.image_url %}
+                        <img
+                            src="{{ tournament.image_url }}"
+                            alt="{{ tournament.name }}"
+                            loading="lazy"
+                        >
+                        {% else %}
+                        <div class="th-image-fallback">
+                            <span>🏆</span>
+                        </div>
+                        {% endif %}
+
+                        <span class="th-card-index">
+                            {{ forloop.counter|stringformat:"02d" }}
+                        </span>
+
+                        <span class="th-status
+                            {% if tournament.status == 'Upcoming' %}th-upcoming
+                            {% elif tournament.status == 'Ongoing' %}th-ongoing
+                            {% else %}th-completed{% endif %}">
+                            {% trans tournament.status %}
+                        </span>
+
+                    </div>
+
+
+                    <!-- CARD CONTENT -->
+                    <div class="th-card-content">
+
+                        <span class="th-card-label">
+                            {% trans "ESPORTS COMPETITION" %}
+                        </span>
+
+                        <h3>{% trans tournament.name %}</h3>
+
+                        <div class="th-card-meta">
+
+                            <span>
+                                <span aria-hidden="true">🎮</span>
+                                {% trans tournament.game.name %}
+                            </span>
+
+                            <span>
+                                <span aria-hidden="true">📍</span>
+                                {% trans tournament.location %}
+                            </span>
+
+                        </div>
+
+                        <!-- INTERACTIVE DETAILS -->
+                        <details class="th-card-details">
+
+                            <summary>
+                                <span>{% trans "View Details" %}</span>
+                                <span class="th-details-icon" aria-hidden="true">
+                                    +
+                                </span>
+                            </summary>
+
+                            <div class="th-details-content">
+                                <p>{% trans tournament.description %}</p>
+                            </div>
+
+                        </details>
+
+                    </div>
+
+                </article>
+
+                {% empty %}
+
+                <div class="th-empty">
+                    <span>🏆</span>
+
+                    <h3>{% trans "No Tournaments Found" %}</h3>
+
+                    <p>
+                        {% trans "Try another search or change the filters." %}
+                    </p>
+
+                    <a href="{% url 'tournaments' %}"
+                       class="th-search-btn">
+                        {% trans "Show All Tournaments" %}
+                    </a>
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- COMPACT FOOTER CTA -->
+    <section class="th-cta">
+        <div class="container th-cta-inner">
+
+            <div>
+                <span class="th-eyebrow">
+                    {% trans "BEYOND THE TOURNAMENTS" %}
+                </span>
+
+                <h2>
+                    {% trans "Discover Saudi Esports Achievements" %}
+                </h2>
+
+                <p>
+                    {% blocktrans trimmed %}
+                    Explore the victories and historic moments
+                    behind the competitions.
+                    {% endblocktrans %}
+                </p>
+            </div>
+
+            <a href="{% url 'achievements' %}" class="th-cta-link">
+                {% trans "View Achievements" %}
+                <span aria-hidden="true">↗</span>
+            </a>
+
+        </div>
+    </section>
+
+</main>
+
+{% endblock %}

@@ -1,0 +1,1020 @@
+
+msgid ""
+msgstr ""
+"Project-Id-Version: Saudi Arena\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-11 00:52+0300\n"
+"Language: ar\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 && n%100<=10 ? 3 : n%100>=11 && n%100<=99 ? 4 : 5;\n"
+
+# ==========================================
+# ABOUT PAGE
+# ==========================================
+
+msgid "About Us"
+msgstr "من نحن"
+
+msgid "Discover Our Story"
+msgstr "اكتشف قصتنا"
+
+msgid "Explore Tournaments"
+msgstr "استكشف البطولات"
+
+msgid "SAUDI ARENA / ABOUT US"
+msgstr "سعودي أرينا / من نحن"
+
+msgid "BUILT FOR THE GAME"
+msgstr "صُنع من أجل اللعبة"
+
+msgid "WHO WE ARE"
+msgstr "من نحن"
+
+msgid "MORE THAN"
+msgstr "أكثر من"
+
+msgid "A GAME."
+msgstr "مجرد لعبة."
+
+msgid "Saudi Arena is a digital platform dedicated to showcasing the growing world of Saudi esports."
+msgstr "سعودي أرينا منصة رقمية تسلط الضوء على عالم الرياضات الإلكترونية المتنامي في المملكة العربية السعودية."
+
+msgid "From competitive teams and talented players to major tournaments and historic achievements, we bring the esports scene together."
+msgstr "من الفرق التنافسية واللاعبين الموهوبين إلى البطولات الكبرى والإنجازات التاريخية، نجمع عالم الرياضات الإلكترونية في مكان واحد."
+
+msgid "SAUDI"
+msgstr "سعودي"
+
+msgid "ESPORTS FOCUS"
+msgstr "تركيز على الرياضات الإلكترونية"
+
+msgid "CONTENT CATEGORIES"
+msgstr "أقسام المحتوى"
+
+msgid "ONE"
+msgstr "مجتمع واحد"
+
+msgid "GAMING COMMUNITY"
+msgstr "للألعاب الإلكترونية"
+
+msgid "THE STORY BEHIND THE ARENA"
+msgstr "القصة وراء سعودي أرينا"
+
+msgid "MEET THE TEAMS"
+msgstr "تعرّف على الفرق"
+
+msgid "WHAT DRIVES US"
+msgstr "ما الذي يحفزنا"
+
+msgid "THE VALUES"
+msgstr "القيم"
+
+msgid "BEHIND THE ARENA."
+msgstr "التي تقف خلف سعودي أرينا."
+
+msgid "The principles that shape our passion for Saudi esports."
+msgstr "المبادئ التي تشكّل شغفنا بالرياضات الإلكترونية السعودية."
+
+msgid "YOUR ARENA AWAITS"
+msgstr "ساحتك بانتظارك"
+
+msgid "THE FUTURE OF"
+msgstr "مستقبل"
+
+msgid "SAUDI ESPORTS."
+msgstr "الرياضات الإلكترونية السعودية."
+
+msgid "Discover the people, teams, and competitions shaping the next generation of esports."
+msgstr "اكتشف الأشخاص والفرق والمنافسات التي ترسم ملامح الجيل القادم من الرياضات الإلكترونية."
+
+msgid "ENTER THE ARENA"
+msgstr "ادخل الساحة"
+
+# ==========================================
+# NAVIGATION
+# ==========================================
+
+msgid "Home"
+msgstr "الرئيسية"
+
+msgid "About"
+msgstr "من نحن"
+
+msgid "Tournaments"
+msgstr "البطولات"
+
+msgid "Teams"
+msgstr "الفرق"
+
+msgid "Players"
+msgstr "اللاعبون"
+
+msgid "Games"
+msgstr "الألعاب"
+
+msgid "Achievements"
+msgstr "الإنجازات"
+
+# ==========================================
+# FOOTER
+# ==========================================
+
+msgid "Your Gateway to Saudi Esports. Discover tournaments, teams, players, and the future of competitive gaming."
+msgstr "بوابتك إلى الرياضات الإلكترونية السعودية. اكتشف البطولات والفرق واللاعبين ومستقبل الألعاب التنافسية."
+
+msgid "Explore"
+msgstr "استكشف"
+
+msgid "Built with Django"
+msgstr "تم تطويره باستخدام Django"
+
+msgid "Made for Saudi Esports"
+msgstr "صُنع من أجل الرياضات الإلكترونية السعودية"
+
+msgid "© 2026 Saudi Arena. All Rights Reserved."
+msgstr "© 2026 سعودي أرينا. جميع الحقوق محفوظة."
+
+# ==========================================
+# HOME - HERO
+# ==========================================
+
+msgid "WELCOME TO SAUDI ARENA"
+msgstr "مرحبًا بك في سعودي أرينا"
+
+msgid "ESPORTS"
+msgstr "الرياضات الإلكترونية"
+
+msgid "STARTS HERE."
+msgstr "يبدأ من هنا."
+
+msgid "Discover the world of competitive gaming in Saudi Arabia. Your gateway to teams, players, games, tournaments, and achievements."
+msgstr "اكتشف عالم الألعاب التنافسية في المملكة العربية السعودية. بوابتك إلى الفرق واللاعبين والألعاب والبطولات والإنجازات."
+
+msgid "Explore Saudi Arena"
+msgstr "استكشف سعودي أرينا"
+
+msgid "ONE KINGDOM. ENDLESS POSSIBILITIES."
+msgstr "مملكة واحدة. إمكانيات بلا حدود."
+
+# ==========================================
+# HOME - GATEWAY
+# ==========================================
+
+msgid "EXPLORE SAUDI ARENA"
+msgstr "اكتشف سعودي أرينا"
+
+msgid "YOUR GATEWAY TO ESPORTS."
+msgstr "بوابتك إلى الرياضات الإلكترونية."
+
+msgid "Everything you need to discover Saudi esports, all in one place."
+msgstr "كل ما تحتاجه لاكتشاف الرياضات الإلكترونية السعودية في مكان واحد."
+
+msgid "TEAMS"
+msgstr "الفرق"
+
+msgid "PLAYERS"
+msgstr "اللاعبون"
+
+msgid "GAMES"
+msgstr "الألعاب"
+
+msgid "TOURNAMENTS"
+msgstr "البطولات"
+
+msgid "ACHIEVEMENTS"
+msgstr "الإنجازات"
+
+msgid "ABOUT US"
+msgstr "من نحن"
+
+# ==========================================
+# TOURNAMENTS PAGE
+# ==========================================
+
+msgid "SAUDI ARENA / COMPETITIONS"
+msgstr "سعودي أرينا / المنافسات"
+
+msgid "Explore the championships and competitions shaping the world of esports."
+msgstr "استكشف البطولات والمنافسات التي تشكّل عالم الرياضات الإلكترونية."
+
+msgid "DISCOVER EVENTS"
+msgstr "اكتشف الفعاليات"
+
+msgid "Explore Competitions"
+msgstr "استكشف المنافسات"
+
+msgid "Search tournaments or games..."
+msgstr "ابحث عن البطولات أو الألعاب..."
+
+msgid "Search tournaments"
+msgstr "البحث عن البطولات"
+
+msgid "Filter tournaments by status"
+msgstr "تصفية البطولات حسب الحالة"
+
+msgid "All Statuses"
+msgstr "جميع الحالات"
+
+msgid "Upcoming"
+msgstr "قادمة"
+
+msgid "Ongoing"
+msgstr "جارية"
+
+msgid "Completed"
+msgstr "منتهية"
+
+msgid "Search"
+msgstr "بحث"
+
+msgid "Reset"
+msgstr "إعادة تعيين"
+
+msgid "ESPORTS COMPETITION"
+msgstr "منافسة رياضات إلكترونية"
+
+msgid "View Details"
+msgstr "عرض التفاصيل"
+
+msgid "No Tournaments Found"
+msgstr "لم يتم العثور على بطولات"
+
+msgid "Try another search or change the filters."
+msgstr "جرّب البحث مجددًا أو غيّر خيارات التصفية."
+
+msgid "Show All Tournaments"
+msgstr "عرض جميع البطولات"
+
+msgid "BEYOND THE TOURNAMENTS"
+msgstr "ما وراء البطولات"
+
+msgid "Discover Saudi Esports Achievements"
+msgstr "اكتشف إنجازات الرياضات الإلكترونية السعودية"
+
+msgid "Explore the victories and historic moments behind the competitions."
+msgstr "استكشف الانتصارات واللحظات التاريخية وراء المنافسات."
+
+msgid "View Achievements"
+msgstr "عرض الإنجازات"
+
+# ==========================================
+# ABOUT - DYNAMIC CONTENT
+# ==========================================
+
+msgid "OUR STORY"
+msgstr "قصتنا"
+
+msgid "MORE THAN JUST GAMING"
+msgstr "أكثر من مجرد ألعاب"
+
+msgid "Saudi Arena is a digital platform designed to showcase the exciting world of Saudi esports. We bring tournaments, teams, players, games, and achievements together in one place, making competitive gaming easier to discover and explore."
+msgstr "سعودي أرينا منصة رقمية تهدف إلى تسليط الضوء على عالم الرياضات الإلكترونية السعودية المثير. نجمع البطولات والفرق واللاعبين والألعاب والإنجازات في مكان واحد، مما يجعل اكتشاف الألعاب التنافسية واستكشافها أسهل."
+
+msgid "OUR MISSION"
+msgstr "رسالتنا"
+
+msgid "To create an engaging destination where esports fans can explore Saudi gaming competitions, discover teams, and celebrate competitive talent."
+msgstr "إنشاء وجهة تفاعلية تتيح لعشاق الرياضات الإلكترونية استكشاف المنافسات السعودية، والتعرّف على الفرق، والاحتفاء بالمواهب المتميزة في الألعاب التنافسية."
+
+msgid "OUR VISION"
+msgstr "رؤيتنا"
+
+msgid "To inspire greater interest in esports and highlight the growing opportunities within Saudi Arabia's competitive gaming community."
+msgstr "تعزيز الاهتمام بالرياضات الإلكترونية وتسليط الضوء على الفرص المتنامية في مجتمع الألعاب التنافسية بالمملكة العربية السعودية."
+
+msgid "OUR PASSION"
+msgstr "شغفنا"
+
+msgid "We believe gaming connects people through competition, teamwork, creativity, and unforgettable moments."
+msgstr "نؤمن بأن الألعاب تجمع الناس من خلال المنافسة والعمل الجماعي والإبداع واللحظات التي لا تُنسى."
+
+msgid "BEYOND THE GAME"
+msgstr "ما وراء اللعبة"
+
+msgid "A digital destination celebrating the energy, talent, and ambition of Saudi esports."
+msgstr "وجهة رقمية تحتفي بالحماس والمواهب والطموح في عالم الرياضات الإلكترونية السعودية."
+
+# ==========================================
+# TOURNAMENT NAMES
+# ==========================================
+
+msgid "Esports World Cup"
+msgstr "كأس العالم للرياضات الإلكترونية"
+
+msgid "Saudi eLeague"
+msgstr "الدوري السعودي للرياضات الإلكترونية"
+
+msgid "RLCS World Championship"
+msgstr "بطولة العالم لروكيت ليق"
+
+msgid "FIFAe World Cup"
+msgstr "كأس العالم لكرة القدم الإلكترونية"
+
+msgid "Overwatch World Cup"
+msgstr "كأس العالم لأوفرواتش"
+
+msgid "PUBG Mobile Global Championship"
+msgstr "بطولة العالم لببجي موبايل"
+
+# ==========================================
+# GAME NAMES
+# ==========================================
+
+msgid "Multiple Games"
+msgstr "ألعاب متعددة"
+
+msgid "Rocket League"
+msgstr "روكيت ليق"
+
+msgid "PUBG Mobile"
+msgstr "ببجي موبايل"
+
+msgid "Overwatch"
+msgstr "أوفرواتش"
+
+msgid "Football Esports / Rocket League"
+msgstr "كرة القدم الإلكترونية / روكيت ليق"
+
+# ==========================================
+# LOCATIONS
+# ==========================================
+
+msgid "International"
+msgstr "دولي"
+
+msgid "Saudi Arabia"
+msgstr "المملكة العربية السعودية"
+
+msgid "Riyadh, Saudi Arabia"
+msgstr "الرياض، المملكة العربية السعودية"
+
+# ==========================================
+# TOURNAMENT DESCRIPTIONS
+# ==========================================
+
+msgid "A major international esports event hosted in Riyadh, featuring elite organizations competing across multiple games for prestigious titles."
+msgstr "حدث عالمي كبير للرياضات الإلكترونية يُقام في الرياض، ويجمع نخبة الفرق والمنظمات للتنافس في ألعاب متعددة على ألقاب مرموقة."
+
+msgid "Saudi Arabia's national esports league, bringing together competitive teams and players across different games to develop local talent."
+msgstr "الدوري الوطني للرياضات الإلكترونية في المملكة العربية السعودية، ويجمع الفرق واللاعبين المتنافسين في ألعاب مختلفة بهدف تطوير المواهب المحلية."
+
+msgid "The premier Rocket League world championship, where the best professional teams compete for the highest international title."
+msgstr "أبرز بطولة عالمية للعبة روكيت ليق، حيث تتنافس أفضل الفرق المحترفة للفوز بأعلى لقب دولي."
+
+msgid "An international esports competition bringing national teams together to compete in football-related esports titles, including Rocket League."
+msgstr "بطولة دولية للرياضات الإلكترونية تجمع المنتخبات الوطنية للتنافس في ألعاب كرة القدم الإلكترونية، بما فيها روكيت ليق."
+
+msgid "A global national-team competition in Overwatch, featuring international teams battling through qualifiers and championship matches."
+msgstr "بطولة عالمية للمنتخبات الوطنية في لعبة أوفرواتش، تتنافس فيها فرق من مختلف الدول عبر التصفيات ومباريات البطولة."
+
+msgid "A global PUBG Mobile tournament featuring top professional teams competing through multiple stages for the world championship title."
+msgstr "بطولة عالمية للعبة ببجي موبايل تضم نخبة الفرق المحترفة، التي تتنافس عبر مراحل متعددة للفوز بلقب بطولة العالم."
+
+# ==========================================
+# TEAMS PAGE
+# ==========================================
+
+msgid "Saudi esports competition arena"
+msgstr "ساحة المنافسات السعودية للرياضات الإلكترونية"
+
+msgid "THE SPIRIT OF COMPETITION"
+msgstr "روح المنافسة"
+
+msgid "LEGENDS ARE"
+msgstr "الأساطير"
+
+msgid "BUILT TOGETHER."
+msgstr "تُصنع معًا."
+
+msgid "Discover the organizations, competitors, and teams shaping the future of Saudi esports."
+msgstr "اكتشف الأندية واللاعبين والفرق التي تصنع مستقبل الرياضات الإلكترونية السعودية."
+
+msgid "Explore Teams"
+msgstr "استكشف الفرق"
+
+msgid "ESPORTS / TEAMS"
+msgstr "الرياضات الإلكترونية / الفرق"
+
+msgid "THE COMPETITIVE SCENE"
+msgstr "عالم المنافسات"
+
+msgid "ONE ARENA."
+msgstr "ساحة واحدة."
+
+msgid "ENDLESS AMBITION."
+msgstr "طموح بلا حدود."
+
+msgid "Behind every great esports moment is a team driven by dedication, strategy, and teamwork. Explore the organizations featured on Saudi Arena."
+msgstr "خلف كل لحظة عظيمة في الرياضات الإلكترونية فريق يقوده الإصرار والتخطيط والعمل الجماعي. استكشف الأندية والفرق الموجودة في سعودي أرينا."
+
+msgid "THE ROSTER"
+msgstr "قائمة الفرق"
+
+msgid "EXPLORE"
+msgstr "استكشف"
+
+msgid "RESULTS"
+msgstr "نتائج"
+
+msgid "Meet the organizations powering Saudi gaming."
+msgstr "تعرّف على الأندية التي تقود عالم الألعاب السعودية."
+
+msgid "Search for a team..."
+msgstr "ابحث عن فريق..."
+
+msgid "Search teams"
+msgstr "البحث عن الفرق"
+
+msgid "Search Teams"
+msgstr "ابحث عن الفرق"
+
+msgid "SAUDI ORGANIZATION"
+msgstr "نادي سعودي"
+
+msgid "SAUDI ESPORTS"
+msgstr "الرياضات الإلكترونية السعودية"
+
+msgid "No teams found"
+msgstr "لم يتم العثور على فرق"
+
+msgid "Try another team name."
+msgstr "جرّب البحث باسم فريق آخر."
+
+msgid "Show All Teams"
+msgstr "عرض جميع الفرق"
+
+msgid "BE PART OF THE ACTION"
+msgstr "كن جزءًا من المنافسة"
+
+msgid "THE NEXT MATCH"
+msgstr "المباراة القادمة"
+
+msgid "Explore esports tournaments and discover the competition beyond the teams."
+msgstr "استكشف بطولات الرياضات الإلكترونية واكتشف المنافسات التي تتجاوز حدود الفرق."
+
+msgid "Discover Tournaments"
+msgstr "اكتشف البطولات"
+
+# ==========================================
+# TEAMS - NAMES AND DESCRIPTIONS
+# ==========================================
+
+msgid "Team Falcons"
+msgstr "فريق فالكونز"
+
+msgid "A Saudi esports organization competing across multiple competitive gaming titles."
+msgstr "منظمة سعودية للرياضات الإلكترونية تتنافس في العديد من الألعاب الإلكترونية التنافسية."
+
+msgid "POWR"
+msgstr "باور"
+
+msgid "POWR is a Saudi gaming and entertainment organization known for its popular content creators, gaming personalities, and strong presence in the Saudi gaming community."
+msgstr "باور منظمة سعودية للألعاب والترفيه، تشتهر بصنّاع المحتوى المعروفين وشخصيات الألعاب، وتتمتع بحضور قوي في مجتمع الألعاب السعودي."
+
+msgid "Twisted Minds"
+msgstr "تويستد مايندز"
+
+msgid "Twisted Minds is a Saudi esports organization competing across multiple games and international tournaments, representing the Kingdom on the global stage."
+msgstr "تويستد مايندز منظمة سعودية للرياضات الإلكترونية تشارك في ألعاب متعددة وبطولات دولية، وتمثل المملكة على الساحة العالمية."
+
+msgid "R8 Esports"
+msgstr "آر 8 للرياضات الإلكترونية"
+
+msgid "R8 Esports is a Saudi competitive gaming organization with a presence in esports tournaments and the growing regional gaming scene."
+msgstr "آر 8 منظمة سعودية للألعاب التنافسية، تشارك في بطولات الرياضات الإلكترونية وتسهم في نمو مجتمع الألعاب على المستوى الإقليمي."
+
+msgid "ROC Esports"
+msgstr "روك للرياضات الإلكترونية"
+
+msgid "ROC Esports is a Saudi esports organization participating in competitive gaming and contributing to the development of the local esports community."
+msgstr "روك منظمة سعودية للرياضات الإلكترونية تشارك في منافسات الألعاب الإلكترونية وتسهم في تطوير مجتمع الرياضات الإلكترونية المحلي."
+
+msgid "Team RA'AD"
+msgstr "فريق رعد"
+
+msgid "Team RA'AD is a Saudi esports organization associated with competitive gaming and the Kingdom's expanding esports ecosystem."
+msgstr "فريق رعد منظمة سعودية للرياضات الإلكترونية تشارك في مجال الألعاب التنافسية وتُعد جزءًا من منظومة الرياضات الإلكترونية المتنامية في المملكة."
+
+# ==========================================
+# PLAYERS PAGE
+# ==========================================
+
+msgid "SAUDI ESPORTS TALENT"
+msgstr "مواهب الرياضات الإلكترونية السعودية"
+
+msgid "MEET THE PLAYERS"
+msgstr "تعرّف على اللاعبين"
+
+msgid "Discover Saudi esports stars, their stories and achievements."
+msgstr "اكتشف نجوم الرياضات الإلكترونية السعودية وقصصهم وإنجازاتهم."
+
+msgid "PLAYER DIRECTORY"
+msgstr "دليل اللاعبين"
+
+msgid "Featured Players"
+msgstr "اللاعبون المميزون"
+
+msgid "Click a player card to explore their career."
+msgstr "اضغط على بطاقة اللاعب لاستكشاف مسيرته الاحترافية."
+
+msgid "VIEW PLAYER PROFILE"
+msgstr "عرض الملف الشخصي للاعب"
+
+msgid "No Players Available"
+msgstr "لا يوجد لاعبون حاليًا"
+
+msgid "Player profiles will be added soon."
+msgstr "ستتم إضافة الملفات الشخصية للاعبين قريبًا."
+
+# ==========================================
+# PLAYER DETAIL PAGE
+# ==========================================
+
+msgid "PLAYER PROFILE"
+msgstr "الملف الشخصي للاعب"
+
+msgid "Back to Players"
+msgstr "العودة إلى اللاعبين"
+
+msgid "PLAYER SPOTLIGHT"
+msgstr "تسليط الضوء على اللاعب"
+
+msgid "Real Name:"
+msgstr "الاسم الحقيقي:"
+
+msgid "Team:"
+msgstr "الفريق:"
+
+msgid "Game:"
+msgstr "اللعبة:"
+
+msgid "Nationality:"
+msgstr "الجنسية:"
+
+msgid "Role:"
+msgstr "المركز:"
+
+msgid "THE JOURNEY"
+msgstr "المسيرة الاحترافية"
+
+msgid "BEHIND THE PLAYER"
+msgstr "ما وراء اللاعب"
+
+msgid "Meet"
+msgstr "تعرّف على"
+
+msgid "Discover the story behind the player."
+msgstr "اكتشف القصة وراء هذا اللاعب."
+
+msgid "PLAYER INTRO"
+msgstr "مقدمة عن اللاعب"
+
+msgid "Introducing"
+msgstr "نقدم لكم"
+
+msgid "A quick introduction to one of Saudi Arabia's esports stars."
+msgstr "مقدمة سريعة عن أحد نجوم الرياضات الإلكترونية في المملكة العربية السعودية."
+
+msgid "Player introduction video"
+msgstr "فيديو تعريفي باللاعب"
+
+msgid "Your browser does not support video playback."
+msgstr "متصفحك لا يدعم تشغيل الفيديو."
+
+# ==========================================
+# ALL PLAYERS - NAMES
+# ==========================================
+
+msgid "madv"
+msgstr "مادفي"
+
+msgid "Modhi Alkanhal"
+msgstr "موضي الكنهل"
+
+msgid "trk511"
+msgstr "ترك"
+
+msgid "Mohammed Khalid Alotaibi"
+msgstr "محمد خالد العتيبي"
+
+msgid "Rw9"
+msgstr "روص"
+
+msgid "Saleh Abdullah Bakhashwin"
+msgstr "صالح عبدالله باخشوين"
+
+msgid "Kiileerrz"
+msgstr "كيلرز"
+
+msgid "Yazeed Abdullah Bakhashwin"
+msgstr "يزيد عبدالله باخشوين"
+
+msgid "Msdossary"
+msgstr "مساعد الدوسري"
+
+msgid "Mosaad Aldossary"
+msgstr "مساعد الدوسري"
+
+msgid "Exnid"
+msgstr "إكسنيد"
+
+msgid "Saud Al-tai"
+msgstr "سعود الطائي"
+
+# ==========================================
+# PLAYERS - TEAMS
+# ==========================================
+
+msgid "Falcons Vega"
+msgstr "فالكونز فيغا"
+
+msgid "Falcons Academy Green"
+msgstr "أكاديمية فالكونز الخضراء"
+
+# ==========================================
+# PLAYERS - GAMES
+# ==========================================
+
+msgid "Valorant"
+msgstr "فالورانت"
+
+msgid "EA SPORTS FC / FIFA"
+msgstr "إي إيه سبورتس إف سي / فيفا"
+
+msgid "Call of Duty"
+msgstr "كول أوف ديوتي"
+
+# ==========================================
+# PLAYERS - ROLES
+# ==========================================
+
+msgid "In-Game Leader"
+msgstr "قائدة الفريق داخل اللعبة"
+
+msgid "Professional Player"
+msgstr "لاعب محترف"
+
+msgid "CEO, Co-Founder & Chairman"
+msgstr "الرئيس التنفيذي والشريك المؤسس ورئيس مجلس الإدارة"
+
+# ==========================================
+# PLAYER 1 - MADV
+# ==========================================
+
+msgid "Modhi Alkanhal is a professional Saudi Valorant player and in-game leader for Falcons Vega. She is one of the most recognized female esports competitors in Saudi Arabia."
+msgstr "موضي الكنهل لاعبة سعودية محترفة في لعبة فالورانت، وتشغل دور قائدة الفريق داخل اللعبة مع فالكونز فيغا. وتُعد واحدة من أبرز اللاعبات في مجال الرياضات الإلكترونية التنافسية في المملكة العربية السعودية."
+
+# ==========================================
+# PLAYER 2 - TRK511
+# ==========================================
+
+msgid "Mohammed Alotaibi is a Saudi Rocket League professional known for his mechanical skill and international tournament performances. He previously competed with Team Falcons."
+msgstr "محمد العتيبي لاعب سعودي محترف في روكيت ليق، ويشتهر بمهاراته الفنية العالية وأدائه المميز في البطولات الدولية. وقد سبق له تمثيل فريق فالكونز في المنافسات الاحترافية."
+
+# ==========================================
+# PLAYER 3 - RW9
+# ==========================================
+
+msgid "Saleh Bakhashwin is a Saudi Rocket League player known for his defensive abilities and competitive performances. He competes alongside his twin brother Kiileerrz."
+msgstr "صالح باخشوين لاعب سعودي محترف في روكيت ليق، ويشتهر بقدراته الدفاعية المميزة وأدائه القوي في المنافسات. ويلعب إلى جانب شقيقه التوأم كيلرز."
+
+# ==========================================
+# PLAYER 4 - KI ILEERRZ
+# ==========================================
+
+msgid "Yazeed Bakhashwin is a Saudi Rocket League professional and world champion. He plays for Team Falcons alongside his twin brother Rw9."
+msgstr "يزيد باخشوين لاعب سعودي محترف في روكيت ليق وبطل عالم. يلعب ضمن صفوف فريق فالكونز إلى جانب شقيقه التوأم روص."
+
+# ==========================================
+# PLAYER 5 - MSDOSSARY
+# ==========================================
+
+msgid "Mosaad Aldossary, known as Msdossary, is a Saudi FIFA eWorld Cup 2018 champion and the CEO, Co-Founder and Chairman of Team Falcons. He helped establish the Saudi esports organization as a major competitor on the international esports stage."
+msgstr "مساعد الدوسري، المعروف باسم Msdossary، هو لاعب سعودي تُوّج بلقب كأس العالم الإلكترونية لفيفا عام 2018، ويشغل منصب الرئيس التنفيذي والشريك المؤسس ورئيس مجلس إدارة فريق فالكونز. وأسهم في ترسيخ مكانة المنظمة السعودية بوصفها إحدى أبرز الجهات المنافسة على الساحة العالمية للرياضات الإلكترونية."
+
+# ==========================================
+# PLAYER 6 - EXNID
+# ==========================================
+
+msgid "Saud Al-tai, known as Exnid, is a Saudi professional Call of Duty player. He has competed in the Call of Duty League and represented Falcons teams in professional competition."
+msgstr "سعود الطائي، المعروف باسم إكسنيد، لاعب سعودي محترف في كول أوف ديوتي. شارك في دوري كول أوف ديوتي، ومثّل فرق فالكونز في المنافسات الاحترافية."
+
+# ==========================================
+# GAMES PAGE - STATIC CONTENT
+# ==========================================
+
+msgid "SAUDI ARENA GAME LIBRARY"
+msgstr "مكتبة ألعاب سعودي أرينا"
+
+msgid "THE WORLD OF"
+msgstr "عالم"
+
+msgid "Discover the competitive games that define esports in Saudi Arabia. From tactical shooters to football and high-speed battles."
+msgstr "اكتشف الألعاب التنافسية التي تميّز عالم الرياضات الإلكترونية في المملكة العربية السعودية، من ألعاب التصويب التكتيكية إلى كرة القدم والمعارك السريعة."
+
+msgid "Discover Games"
+msgstr "اكتشف الألعاب"
+
+msgid "GAME COLLECTION"
+msgstr "مجموعة الألعاب"
+
+msgid "Explore Our"
+msgstr "استكشف"
+
+msgid "Six competitive titles. Different worlds. One passion for esports."
+msgstr "ست ألعاب تنافسية. عوالم مختلفة. وشغف واحد بالرياضات الإلكترونية."
+
+msgid "SAUDI ARENA"
+msgstr "سعودي أرينا"
+
+msgid "Games Coming Soon"
+msgstr "ألعاب قادمة قريبًا"
+
+msgid "Our game library is being prepared."
+msgstr "نعمل حاليًا على تجهيز مكتبة الألعاب."
+
+msgid "JUST A GAME"
+msgstr "مجرد لعبة"
+
+msgid "Every game has its champions, legendary moments, and unforgettable competitions. Discover the passion behind Saudi esports."
+msgstr "لكل لعبة أبطالها ولحظاتها الأسطورية ومنافساتها التي لا تُنسى. اكتشف الشغف الذي يقف وراء الرياضات الإلكترونية السعودية."
+
+
+# ==========================================
+# GAMES - NAMES
+# ==========================================
+
+msgid "PUBG"
+msgstr "ببجي"
+
+msgid "EA SPORTS FC 27"
+msgstr "فيفا 27"
+
+
+# ==========================================
+# GAMES - GENRES
+# ==========================================
+
+msgid "Sports"
+msgstr "رياضة"
+
+msgid "Tactical Shooter"
+msgstr "تصويب تكتيكي"
+
+msgid "Battle Royale"
+msgstr "باتل رويال"
+
+msgid "First-Person Shooter"
+msgstr "تصويب من منظور الشخص الأول"
+
+msgid "Hero Shooter"
+msgstr "تصويب بالأبطال"
+
+msgid "Football Simulation"
+msgstr "محاكاة كرة القدم"
+
+
+# ==========================================
+# GAME 1 - ROCKET LEAGUE
+# ==========================================
+
+msgid "A competitive game that combines football with rocket-powered cars."
+msgstr "لعبة تنافسية تجمع بين كرة القدم والسيارات المزودة بمحركات صاروخية."
+
+
+# ==========================================
+# GAME 2 - VALORANT
+# ==========================================
+
+msgid "A team-based tactical shooter focused on strategy and teamwork."
+msgstr "لعبة تصويب تكتيكية تعتمد على الفرق وتركّز على التخطيط الاستراتيجي والعمل الجماعي."
+
+
+# ==========================================
+# GAME 3 - PUBG
+# ==========================================
+
+msgid "A competitive battle royale game where players fight to be the last team standing."
+msgstr "لعبة باتل رويال تنافسية يتقاتل فيها اللاعبون من أجل أن يكون فريقهم آخر فريق صامد."
+
+
+# ==========================================
+# GAME 4 - CALL OF DUTY
+# ==========================================
+
+msgid "A fast-paced competitive shooter featuring intense multiplayer battles, tactical teamwork, and high-level esports competition."
+msgstr "لعبة تصويب تنافسية سريعة الإيقاع، تتميز بمعارك جماعية حماسية وتعاون تكتيكي بين اللاعبين ومنافسات احترافية عالية المستوى."
+
+
+# ==========================================
+# GAME 5 - OVERWATCH
+# ==========================================
+
+msgid "A team-based competitive shooter where unique heroes, special abilities, and strategic coordination determine victory."
+msgstr "لعبة تصويب تنافسية جماعية، يعتمد الفوز فيها على الأبطال المميزين والقدرات الخاصة والتنسيق الاستراتيجي بين أعضاء الفريق."
+
+
+# ==========================================
+# GAME 6 - EA SPORTS FC 27
+# ==========================================
+
+msgid "A competitive football experience bringing world-class clubs, tactical gameplay, and professional esports tournaments together."
+msgstr "تجربة كرة قدم تنافسية تجمع بين الأندية العالمية وأسلوب اللعب التكتيكي وبطولات الرياضات الإلكترونية الاحترافية."
+
+# ==========================================
+# ACHIEVEMENTS PAGE - STATIC CONTENT
+# ==========================================
+
+msgid "Hall of Fame"
+msgstr "قاعة المشاهير"
+
+msgid "SAUDI ESPORTS HALL OF FAME"
+msgstr "قاعة مشاهير الرياضات الإلكترونية السعودية"
+
+msgid "THE LEGACY OF"
+msgstr "إرث"
+
+msgid "CHAMPIONS"
+msgstr "الأبطال"
+
+msgid "Every trophy tells a story. Discover the victories, legendary teams, and unforgettable moments shaping Saudi Arabia's esports legacy."
+msgstr "وراء كل كأس قصة. اكتشف الانتصارات والفرق الأسطورية واللحظات التي لا تُنسى، والتي صنعت إرث المملكة العربية السعودية في الرياضات الإلكترونية."
+
+msgid "Explore Achievements"
+msgstr "استكشف الإنجازات"
+
+msgid "THE NUMBERS"
+msgstr "الأرقام والإحصائيات"
+
+msgid "Saudi Esports"
+msgstr "الرياضات الإلكترونية السعودية"
+
+msgid "In Numbers"
+msgstr "بلغة الأرقام"
+
+msgid "A snapshot of the achievements featured on Saudi Arena."
+msgstr "نظرة سريعة على الإنجازات المعروضة في سعودي أرينا."
+
+msgid "Teams & Champions"
+msgstr "الفرق والأبطال"
+
+msgid "Competitive Games"
+msgstr "الألعاب التنافسية"
+
+msgid "Featured Years"
+msgstr "السنوات المميزة"
+
+msgid "HALL OF CHAMPIONS"
+msgstr "قاعة الأبطال"
+
+msgid "Legendary"
+msgstr "انتصارات"
+
+msgid "Victories"
+msgstr "أسطورية"
+
+msgid "Celebrating unforgettable achievements in Saudi competitive gaming."
+msgstr "نحتفي بالإنجازات التي لا تُنسى في عالم الألعاب التنافسية السعودية."
+
+msgid "RUNNER-UP"
+msgstr "الوصيف"
+
+msgid "CHAMPION"
+msgstr "البطل"
+
+msgid "Legendary Moments Coming Soon"
+msgstr "لحظات أسطورية قادمة قريبًا"
+
+msgid "Our hall of champions is being prepared."
+msgstr "نعمل حاليًا على تجهيز قاعة الأبطال."
+
+msgid "Road to"
+msgstr "الطريق إلى"
+
+msgid "Glory"
+msgstr "المجد"
+
+msgid "Explore the milestones that define Saudi esports history."
+msgstr "استكشف المحطات التاريخية التي صنعت تاريخ الرياضات الإلكترونية السعودية."
+
+msgid "Milestone"
+msgstr "محطة تاريخية"
+
+msgid "THE NEXT GENERATION"
+msgstr "الجيل القادم"
+
+msgid "MEET THE"
+msgstr "تعرّف على"
+
+msgid "Behind every victory is a player with dedication, talent, and a dream. Discover the stars of Saudi esports."
+msgstr "خلف كل انتصار لاعب يمتلك الإصرار والموهبة والحلم. اكتشف نجوم الرياضات الإلكترونية السعودية."
+
+msgid "Explore Players"
+msgstr "استكشف اللاعبين"
+
+
+# ==========================================
+# ACHIEVEMENTS - TITLES
+# ==========================================
+
+msgid "Esports World Cup Club Champion 2024"
+msgstr "بطل الأندية في كأس العالم للرياضات الإلكترونية 2024"
+
+msgid "Esports World Cup Club Champion 2025"
+msgstr "بطل الأندية في كأس العالم للرياضات الإلكترونية 2025"
+
+msgid "FIFAe World Cup 2024 Champions"
+msgstr "أبطال كأس العالم لكرة القدم الإلكترونية 2024"
+
+msgid "RLCS Raleigh Major 2025 Champions"
+msgstr "أبطال بطولة روكيت ليق الكبرى في رالي 2025"
+
+msgid "Overwatch World Cup 2023 Champions"
+msgstr "أبطال كأس العالم لأوفرواتش 2023"
+
+msgid "FIFAe World Cup 2025 Runner-Up"
+msgstr "وصيف كأس العالم لكرة القدم الإلكترونية 2025"
+
+
+# ==========================================
+# ACHIEVEMENTS - TEAMS AND GAMES
+# ==========================================
+
+msgid "Saudi Arabia National Team"
+msgstr "المنتخب السعودي"
+
+msgid "Multi-Game Esports"
+msgstr "رياضات إلكترونية متعددة الألعاب"
+
+msgid "Overwatch 2"
+msgstr "أوفرواتش 2"
+
+
+# ==========================================
+# ACHIEVEMENT 1 - EWC 2024
+# ==========================================
+
+msgid "Team Falcons made history by winning the inaugural Esports World Cup Club Championship in Riyadh, marking a major milestone for Saudi esports."
+msgstr "صنع فريق فالكونز التاريخ بفوزه بلقب بطولة الأندية في النسخة الأولى من كأس العالم للرياضات الإلكترونية في الرياض، محققًا إنجازًا بارزًا للرياضات الإلكترونية السعودية."
+
+
+# ==========================================
+# ACHIEVEMENT 2 - EWC 2025
+# ==========================================
+
+msgid "Team Falcons defended their Esports World Cup Club Championship title, securing back-to-back victories on the global stage."
+msgstr "نجح فريق فالكونز في الدفاع عن لقبه ببطولة الأندية في كأس العالم للرياضات الإلكترونية، محققًا اللقب للعام الثاني على التوالي على الساحة العالمية."
+
+
+# ==========================================
+# ACHIEVEMENT 3 - FIFAe 2024
+# ==========================================
+
+msgid "Saudi Arabia celebrated an international Rocket League world title at the FIFAe World Cup 2024."
+msgstr "احتفلت المملكة العربية السعودية بتحقيق لقب عالمي في لعبة روكيت ليق خلال كأس العالم لكرة القدم الإلكترونية 2024."
+
+
+# ==========================================
+# ACHIEVEMENT 4 - RLCS RALEIGH 2025
+# ==========================================
+
+msgid "Team Falcons captured the RLCS Raleigh Major 2025 trophy, adding another prestigious international Rocket League title to Saudi esports history."
+msgstr "تُوّج فريق فالكونز بلقب بطولة روكيت ليق الكبرى في رالي 2025، مضيفًا لقبًا دوليًا مرموقًا آخر إلى تاريخ الرياضات الإلكترونية السعودية."
+
+
+# ==========================================
+# ACHIEVEMENT 5 - OVERWATCH 2023
+# ==========================================
+
+msgid "Saudi Arabia made history by winning the Overwatch World Cup 2023 after defeating China in a thrilling grand final, securing a historic world title for Saudi esports."
+msgstr "صنعت المملكة العربية السعودية التاريخ بفوزها بكأس العالم لأوفرواتش 2023 بعد تغلبها على الصين في نهائي مثير، لتحقق لقبًا عالميًا تاريخيًا للرياضات الإلكترونية السعودية."
+
+
+# ==========================================
+# ACHIEVEMENT 6 - FIFAe 2025
+# ==========================================
+
+msgid "Saudi Arabia reached the FIFAe World Cup 2025 Rocket League grand final and finished as world runner-up, adding another major international achievement to the nation's esports history."
+msgstr "وصلت المملكة العربية السعودية إلى نهائي كأس العالم لكرة القدم الإلكترونية 2025 في لعبة روكيت ليق، وأنهت البطولة في مركز الوصيف عالميًا، مضيفة إنجازًا دوليًا جديدًا إلى تاريخ الرياضات الإلكترونية السعودية."
+
+
+msgid "Emblem of Saudi Arabia"
+msgstr "شعار المملكة العربية السعودية"
+
+msgid "Saudi Vision 2030 logo"
+msgstr "شعار رؤية السعودية 2030"
+
+msgid "SAUDI VISION 2030"
+msgstr "رؤية السعودية 2030"
+
+msgid "FROM THE KINGDOM TO THE WORLD"
+msgstr "من المملكة إلى العالمية"
+
+msgid "Guided by Saudi Vision 2030, the Kingdom is strengthening its position in esports by empowering local talent, developing the gaming industry, and hosting world-class competitions."
+msgstr "في ظل رؤية السعودية 2030، تعزز المملكة مكانتها في الرياضات الإلكترونية عبر تمكين المواهب الوطنية، وتطوير صناعة الألعاب، واستضافة المنافسات العالمية."
+
+msgid "Saudi esports highlights"
+msgstr "لقطات من الرياضات الإلكترونية السعودية"
+

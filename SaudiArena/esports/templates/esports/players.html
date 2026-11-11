@@ -1,0 +1,110 @@
+
+{% extends "esports/base.html" %}
+{% load i18n %}
+
+{% block title %}{% trans "Players" %} | Saudi Arena{% endblock %}
+
+{% block content %}
+
+<section class="page-header">
+    <div class="container">
+
+        <span class="section-label">
+            {% trans "SAUDI ESPORTS TALENT" %}
+        </span>
+
+        <h1>{% trans "MEET THE PLAYERS" %}</h1>
+
+        <p>
+            {% trans "Discover Saudi esports stars, their stories and achievements." %}
+        </p>
+
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+
+        <div class="section-header">
+            <div>
+
+                <span class="section-label">
+                    {% trans "PLAYER DIRECTORY" %}
+                </span>
+
+                <h2>{% trans "Featured Players" %}</h2>
+
+                <p>
+                    {% trans "Click a player card to explore their career." %}
+                </p>
+
+            </div>
+        </div>
+
+        <div class="teams-directory-grid">
+
+            {% for player in players %}
+
+            <a href="{% url 'player_detail' player.slug %}"
+               class="directory-team-card"
+               style="display:block; text-decoration:none; color:inherit;">
+
+                <div class="directory-team-logo">
+
+                    {% if player.image_url %}
+                    <img
+                        src="{{ player.image_url }}"
+                        alt="{{ player.name }}"
+                        loading="lazy"
+                    >
+                    {% else %}
+                    <span>{{ player.name|first|upper }}</span>
+                    {% endif %}
+
+                </div>
+
+                <div class="directory-team-content">
+
+                    <span class="directory-team-label">
+                        {% trans player.game %}
+                    </span>
+
+                    <h3>{% trans player.name %}</h3>
+
+                    <p>{% trans player.real_name %}</p>
+                    <p>{% trans player.team %}</p>
+
+                    <div class="directory-team-footer">
+
+                        <span>
+                            {% trans "VIEW PLAYER PROFILE" %}
+                        </span>
+
+                        <span class="directory-team-star">➜</span>
+
+                    </div>
+
+                </div>
+
+            </a>
+
+            {% empty %}
+
+            <div class="teams-empty-state">
+
+                <h3>{% trans "No Players Available" %}</h3>
+
+                <p>
+                    {% trans "Player profiles will be added soon." %}
+                </p>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

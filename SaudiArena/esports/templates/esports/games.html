@@ -1,0 +1,209 @@
+
+{% extends "esports/base.html" %}
+{% load static i18n %}
+
+{% block title %}{% trans "Games" %} | Saudi Arena{% endblock %}
+
+{% block content %}
+
+<!-- GAMES HERO -->
+<section class="games-hero">
+    <div class="container">
+        <div class="games-hero-content">
+            <span class="games-eyebrow">
+                🎮 {% trans "SAUDI ARENA GAME LIBRARY" %}
+            </span>
+
+            <h1>
+                {% trans "THE WORLD OF" %}
+                <span class="gradient-text">{% trans "ESPORTS" %}</span>
+            </h1>
+
+            <p>
+                {% blocktrans trimmed %}
+                Discover the competitive games that define
+                esports in Saudi Arabia. From tactical shooters
+                to football and high-speed battles.
+                {% endblocktrans %}
+            </p>
+
+            <a href="#games-library" class="btn btn-primary">
+                🎮 {% trans "Discover Games" %}
+            </a>
+        </div>
+    </div>
+</section>
+
+
+<!-- GAMES LIBRARY -->
+<section class="section games-library-section" id="games-library">
+    <div class="container">
+
+        <div class="games-section-heading">
+            <span class="section-label">
+                🕹️ {% trans "GAME COLLECTION" %}
+            </span>
+
+            <h2>
+                {% trans "Explore Our" %}
+                <span class="gradient-text">{% trans "Games" %}</span>
+            </h2>
+
+            <p>
+                {% blocktrans trimmed %}
+                Six competitive titles. Different worlds.
+                One passion for esports.
+                {% endblocktrans %}
+            </p>
+        </div>
+
+        <div class="games-cards-grid">
+
+            {% for game in games %}
+
+            <article class="games-card">
+
+                <!-- GAME VIDEO / IMAGE -->
+                <div class="games-card-image">
+
+                    {% if game.name == "Rocket League" %}
+
+                        <video autoplay muted loop playsinline preload="metadata"
+                               poster="{{ game.image_url }}">
+                            <source src="{% static 'esports/videos/rocket-league.mp4' %}"
+                                    type="video/mp4">
+                        </video>
+
+                    {% elif game.name == "Valorant" %}
+
+                        <video autoplay muted loop playsinline preload="metadata"
+                               poster="{{ game.image_url }}">
+                            <source src="{% static 'esports/videos/valorant.mp4.mp4' %}"
+                                    type="video/mp4">
+                        </video>
+
+                    {% elif game.name == "PUBG" %}
+
+                        <video autoplay muted loop playsinline preload="metadata"
+                               poster="{{ game.image_url }}">
+                            <source src="{% static 'esports/videos/pubg.mp4' %}"
+                                    type="video/mp4">
+                        </video>
+
+                    {% elif game.name == "Call of Duty" %}
+
+                        <video autoplay muted loop playsinline preload="metadata"
+                               poster="{{ game.image_url }}">
+                            <source src="{% static 'esports/videos/call-of-duty.mp4' %}"
+                                    type="video/mp4">
+                        </video>
+
+                    {% elif game.name == "Overwatch" %}
+
+                        <video autoplay muted loop playsinline preload="metadata"
+                               poster="{{ game.image_url }}">
+                            <source src="{% static 'esports/videos/overwatch.mp4' %}"
+                                    type="video/mp4">
+                        </video>
+
+                    {% elif game.name == "EA SPORTS FC 27" %}
+
+                        <video autoplay muted loop playsinline preload="metadata"
+                               poster="{{ game.image_url }}">
+                            <source src="{% static 'esports/videos/fc27.mp4' %}"
+                                    type="video/mp4">
+                        </video>
+
+                    {% elif game.image_url %}
+
+                        <img
+                            src="{{ game.image_url }}"
+                            alt="{{ game.name }}"
+                            loading="lazy"
+                        >
+
+                    {% else %}
+
+                        <div class="games-image-placeholder">
+                            🎮
+                        </div>
+
+                    {% endif %}
+
+                    <span class="games-image-badge">
+                        🎮 {% trans "ESPORTS" %}
+                    </span>
+
+                </div>
+
+                <!-- GAME CONTENT -->
+                <div class="games-card-content">
+
+                    {% if game.genre %}
+                        <span class="games-genre">
+                            🕹️ {% trans game.genre %}
+                        </span>
+                    {% endif %}
+
+                    <h3>{% trans game.name %}</h3>
+
+                    <p class="games-description">
+                        {% trans game.description %}
+                    </p>
+
+                    <div class="games-card-footer">
+                        <span>🇸🇦 {% trans "SAUDI ARENA" %}</span>
+                        <span>★</span>
+                    </div>
+
+                </div>
+
+            </article>
+
+            {% empty %}
+
+            <div class="games-empty">
+                <span>🎮</span>
+                <h3>{% trans "Games Coming Soon" %}</h3>
+                <p>
+                    {% trans "Our game library is being prepared." %}
+                </p>
+            </div>
+
+            {% endfor %}
+
+        </div>
+    </div>
+</section>
+
+
+<!-- FINAL SECTION -->
+<section class="section games-final-section">
+    <div class="container">
+
+        <div class="games-final-card">
+
+            <span class="games-final-icon">🏆</span>
+
+            <span class="section-label">
+                {% trans "BEYOND THE GAME" %}
+            </span>
+
+            <h2>
+                {% trans "MORE THAN" %}
+                <span class="gradient-text">{% trans "JUST A GAME" %}</span>
+            </h2>
+
+            <p>
+                {% blocktrans trimmed %}
+                Every game has its champions, legendary moments,
+                and unforgettable competitions.
+                Discover the passion behind Saudi esports.
+                {% endblocktrans %}
+            </p>
+
+        </div>
+    </div>
+</section>
+
+{% endblock %}

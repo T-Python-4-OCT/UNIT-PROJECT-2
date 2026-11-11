@@ -1,0 +1,381 @@
+
+{
+  "about": {
+    "eyebrow": "BEYOND THE GAME",
+    "title": "WELCOME TO SAUDI ARENA",
+    "subtitle": "A digital destination celebrating the energy, talent, and ambition of Saudi esports.",
+    "hero_image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1600&q=85",
+    "story_label": "OUR STORY",
+    "story_title": "MORE THAN JUST GAMING",
+    "story_text": "Saudi Arena is a digital platform designed to showcase the exciting world of Saudi esports. We bring tournaments, teams, players, games, and achievements together in one place, making competitive gaming easier to discover and explore.",
+    "story_image": "/static/esports/images/about-story.jpg",
+    "values": [
+      {
+        "number": "01",
+        "title": "OUR MISSION",
+        "description": "To create an engaging destination where esports fans can explore Saudi gaming competitions, discover teams, and celebrate competitive talent."
+      },
+      {
+        "number": "02",
+        "title": "OUR VISION",
+        "description": "To inspire greater interest in esports and highlight the growing opportunities within Saudi Arabia's competitive gaming community."
+      },
+      {
+        "number": "03",
+        "title": "OUR PASSION",
+        "description": "We believe gaming connects people through competition, teamwork, creativity, and unforgettable moments."
+      }
+    ]
+  },
+  "teams_page": {
+    "hero_image": "https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1600&q=85",
+    "card_image": "/static/esports/images/teams-card.jpg"
+  },
+  "featured_games": [
+    {
+      "name": "Rocket League",
+      "slug": "rocket-league",
+      "genre": "Sports",
+      "description": "A competitive game that combines football with rocket-powered cars.",
+      "image_url": "/static/esports/images/game-rocket-league.jpg",
+      "featured": true
+    },
+    {
+      "name": "Valorant",
+      "slug": "valorant",
+      "genre": "Tactical Shooter",
+      "description": "A team-based tactical shooter focused on strategy and teamwork.",
+      "image_url": "/static/esports/images/game-valorant.jpg",
+      "featured": true
+    },
+    {
+      "name": "PUBG",
+      "slug": "pubg",
+      "genre": "Battle Royale",
+      "description": "A competitive battle royale game where players fight to be the last team standing.",
+      "image_url": "/static/esports/images/game-pubg.jpg.",
+      "featured": true
+    },
+    {
+      "name": "Call of Duty",
+      "genre": "First-Person Shooter",
+      "description": "A fast-paced competitive shooter featuring intense multiplayer battles, tactical teamwork, and high-level esports competition.",
+      "image_url": "/static/esports/images/cod-mw4.jpg.png"
+    },
+    {
+      "name": "Overwatch",
+      "genre": "Hero Shooter",
+      "description": "A team-based competitive shooter where unique heroes, special abilities, and strategic coordination determine victory.",
+      "image_url": "/static/esports/images/overwatch-2026.jpg.png"
+    },
+    {
+      "name": "EA SPORTS FC 27",
+      "genre": "Football Simulation",
+      "description": "A competitive football experience bringing world-class clubs, tactical gameplay, and professional esports tournaments together.",
+      "image_url": "/static/esports/images/fc-27.jpg.png"
+    }
+  ],
+  "featured_tournaments": [
+    {
+      "name": "Esports World Cup",
+      "slug": "esports-world-cup",
+      "description": "A major international esports event hosted in Riyadh, featuring elite organizations competing across multiple games for prestigious titles.",
+      "location": "Riyadh, Saudi Arabia",
+      "status": "Completed",
+      "game": {
+        "name": "Multiple Games"
+      },
+      "image_url": "/static/esports/images/esports-world-cup-concept.jpg",
+      "featured": true
+    },
+    {
+      "name": "Saudi eLeague",
+      "slug": "saudi-eleague",
+      "description": "Saudi Arabia's national esports league, bringing together competitive teams and players across different games to develop local talent.",
+      "location": "Saudi Arabia",
+      "status": "Completed",
+      "game": {
+        "name": "Multiple Games"
+      },
+      "image_url": "/static/esports/images/saudi-eleague.jpg.png",
+      "featured": true
+    },
+    {
+      "name": "RLCS World Championship",
+      "slug": "rlcs-world-championship",
+      "description": "The premier Rocket League world championship, where the best professional teams compete for the highest international title.",
+      "location": "International",
+      "status": "Completed",
+      "game": {
+        "name": "Rocket League"
+      },
+      "image_url": "/static/esports/images/rlcs-worlds.jpg.png",
+      "featured": true
+    },
+    {
+      "name": "FIFAe World Cup",
+      "slug": "fifae-world-cup",
+      "description": "An international esports competition bringing national teams together to compete in football-related esports titles, including Rocket League.",
+      "location": "International",
+      "status": "Completed",
+      "game": {
+        "name": "Football Esports / Rocket League"
+      },
+      "image_url": "/static/esports/images/fifae-world-cup.jpg.png",
+      "featured": true
+    },
+    {
+      "name": "Overwatch World Cup",
+      "slug": "overwatch-world-cup",
+      "description": "A global national-team competition in Overwatch, featuring international teams battling through qualifiers and championship matches.",
+      "location": "International",
+      "status": "Completed",
+      "game": {
+        "name": "Overwatch"
+      },
+      "image_url": "/static/esports/images/overwatch-world-cup.jpg.png",
+      "featured": true
+    },
+    {
+      "name": "PUBG Mobile Global Championship",
+      "slug": "pubg-mobile-global-championship",
+      "description": "A global PUBG Mobile tournament featuring top professional teams competing through multiple stages for the world championship title.",
+      "location": "International",
+      "status": "Completed",
+      "game": {
+        "name": "PUBG Mobile"
+      },
+      "image_url": "/static/esports/images/pubg-global.jpg.png",
+      "featured": true
+    }
+  ],
+  "featured_teams": [
+    {
+      "name": "Team Falcons",
+      "slug": "team-falcons",
+      "description": "A Saudi esports organization competing across multiple competitive gaming titles.",
+      "logo_url": "/static/esports/images/team-falcons.png",
+      "featured": true,
+      "cover_url": "/static/esports/images/falcons-cover.jpg"
+    },
+    {
+      "name": "POWR",
+      "description": "POWR is a Saudi gaming and entertainment organization known for its popular content creators, gaming personalities, and strong presence in the Saudi gaming community.",
+      "logo_url": "/static/esports/images/poowr.png",
+      "cover_url": "/static/esports/images/powr-cover.jpg"
+    },
+    {
+      "name": "Twisted Minds",
+      "description": "Twisted Minds is a Saudi esports organization competing across multiple games and international tournaments, representing the Kingdom on the global stage.",
+      "logo_url": "/static/esports/images/twisted-minds.pn.jpg",
+      "cover_url": "/static/esports/images/twisted-minds-cover.jpg"
+    },
+    {
+      "name": "R8 Esports",
+      "description": "R8 Esports is a Saudi competitive gaming organization with a presence in esports tournaments and the growing regional gaming scene.",
+      "logo_url": "/static/esports/images/r8-esports.png",
+      "cover_url": "/static/esports/images/r8-cover.jpg"
+    },
+    {
+      "name": "ROC Esports",
+      "description": "ROC Esports is a Saudi esports organization participating in competitive gaming and contributing to the development of the local esports community.",
+      "logo_url": "/static/esports/images/roc-esports.png",
+      "cover_url": "/static/esports/images/roc-cover.jpg"
+    },
+    {
+      "name": "Team RA'AD",
+      "description": "Team RA'AD is a Saudi esports organization associated with competitive gaming and the Kingdom's expanding esports ecosystem.",
+      "logo_url": "/static/esports/images/team-raad.png",
+      "cover_url": "/static/esports/images/raad-cover.jpg"
+    }
+  ],
+  "featured_players": [
+    {
+      "name": "madv",
+      "slug": "madv",
+      "nickname": "madv",
+      "real_name": "Modhi Alkanhal",
+      "team": "Falcons Vega",
+      "game": "Valorant",
+      "nationality": "Saudi Arabia",
+      "role": "In-Game Leader",
+      "image_url": "/static/esports/images/madv.jp.jpg",
+      "description": "Modhi Alkanhal is a professional Saudi Valorant player and in-game leader for Falcons Vega. She is one of the most recognized female esports competitors in Saudi Arabia.",
+      "achievements": [
+        "Saudi Female Player of the Year: 2022, 2023, 2024 and 2025",
+        "Champion - Game Changers SEA Split 2 (2026)",
+        "Champion - Saudi Women's eLeague Major 1 (2026)",
+        "Champion - Game Changers SEA Split 1 (2026)"
+      ],
+      "intro_video": "esports/videos/madv-intro.mp4.mp4",
+      "intro_title": "Meet madv",
+      "highlight_title": "Valorant Championship Moment",
+      "highlight_description": "A memorable championship moment from madv's competitive Valorant career.",
+      "featured": true
+    },
+    {
+      "name": "trk511",
+      "slug": "trk511",
+      "nickname": "trk511",
+      "real_name": "Mohammed Khalid Alotaibi",
+      "team": "Twisted Minds",
+      "game": "Rocket League",
+      "nationality": "Saudi Arabia",
+      "role": "Professional Player",
+      "image_url": "/static/esports/images/trk511.png",
+      "description": "Mohammed Alotaibi is a Saudi Rocket League professional known for his mechanical skill and international tournament performances. He previously competed with Team Falcons.",
+      "achievements": [
+        "Champion - FIFAe World Cup 2024 with Saudi Arabia",
+        "Champion - RLCS Raleigh Major 2025 with Team Falcons",
+        "Runner-up - RLCS World Championship 2025",
+        "Saudi Esports Male Player of the Year 2022"
+      ],
+      "intro_video": "esports/videos/trk511-intro.mp4.mp4",
+      "intro_title": "Introducing trk511",
+      "highlight_title": "RLCS Raleigh Major 2025 Victory",
+      "highlight_description": "A championship celebration from trk511's Rocket League career.",
+      "featured": true
+    },
+    {
+      "name": "Rw9",
+      "slug": "rw9",
+      "nickname": "Rw9",
+      "real_name": "Saleh Abdullah Bakhashwin",
+      "team": "Team Falcons",
+      "game": "Rocket League",
+      "nationality": "Saudi Arabia",
+      "role": "Professional Player",
+      "image_url": "/static/esports/images/rw9.png",
+      "description": "Saleh Bakhashwin is a Saudi Rocket League player known for his defensive abilities and competitive performances. He competes alongside his twin brother Kiileerrz.",
+      "achievements": [
+        "Champion - RLCS World Championship 2026",
+        "Champion - Esports World Cup 2026",
+        "Champion - FIFAe World Cup 2024 with Saudi Arabia",
+        "Champion - RLCS Raleigh Major 2025",
+        "Esports World Cup 2026 MVP"
+      ],
+      "intro_video": "esports/videos/rw9-intro.mp4.mp4",
+      "intro_title": "Meet Rw9",
+      "highlight_title": "Rocket League Championship Victory",
+      "highlight_description": "Rw9 celebrates a major Rocket League championship.",
+      "featured": true
+    },
+    {
+      "name": "Kiileerrz",
+      "slug": "kiileerrz",
+      "nickname": "Kiileerrz",
+      "real_name": "Yazeed Abdullah Bakhashwin",
+      "team": "Team Falcons",
+      "game": "Rocket League",
+      "nationality": "Saudi Arabia",
+      "role": "Professional Player",
+      "image_url": "/static/esports/images/kiileerrz.jpg",
+      "description": "Yazeed Bakhashwin is a Saudi Rocket League professional and world champion. He plays for Team Falcons alongside his twin brother Rw9.",
+      "achievements": [
+        "Champion - RLCS World Championship 2026",
+        "RLCS World Championship MVP 2026",
+        "Champion - Esports World Cup 2026",
+        "Champion - FIFAe World Cup 2024 with Saudi Arabia",
+        "Champion - RLCS Raleigh Major 2025"
+      ],
+      "intro_video": "esports/videos/kiileerrz-intro.mp4.mp4",
+      "intro_title": "Meet Kiileerrz",
+      "highlight_title": "Rocket League World Championship Victory",
+      "highlight_description": "Kiileerrz celebrates a championship victory with his team.",
+      "featured": true
+    },
+    {
+      "name": "Msdossary",
+      "slug": "msdossary",
+      "nickname": "Msdossary",
+      "real_name": "Mosaad Aldossary",
+      "team": "Team Falcons",
+      "game": "EA SPORTS FC / FIFA",
+      "nationality": "Saudi Arabia",
+      "role": "CEO, Co-Founder & Chairman",
+      "image_url": "/static/esports/images/msdossary.jpg",
+      "description": "Mosaad Aldossary, known as Msdossary, is a Saudi FIFA eWorld Cup 2018 champion and the CEO, Co-Founder and Chairman of Team Falcons. He helped establish the Saudi esports organization as a major competitor on the international esports stage.",
+      "achievements": [
+        "Champion - FIFA eWorld Cup 2018",
+        "Champion - FUT Champions Cup Manchester 2018"
+      ],
+      "intro_video": "esports/videos/msdossary-intro.mp4",
+      "intro_title": "Meet Msdossary",
+      "highlight_title": "FIFA eWorld Cup 2018 Victory",
+      "highlight_description": "Msdossary celebrates his FIFA world championship victory in London.",
+      "featured": true
+    },
+    {
+      "name": "Exnid",
+      "slug": "exnid",
+      "nickname": "Exnid",
+      "real_name": "Saud Al-tai",
+      "team": "Falcons Academy Green",
+      "game": "Call of Duty",
+      "nationality": "Saudi Arabia",
+      "role": "Professional Player",
+      "image_url": "/static/esports/images/Endx.jpg",
+      "description": "Saud Al-tai, known as Exnid, is a Saudi professional Call of Duty player. He has competed in the Call of Duty League and represented Falcons teams in professional competition.",
+      "achievements": [
+        "Call of Duty League Competitor",
+        "Professional Player - Riyadh Falcons",
+        "Professional Player - Falcons Academy Green"
+      ],
+      "intro_video": "esports/videos/exnid-intro.mp4.mp4",
+      "intro_title": "Introducing Exnid",
+      "highlight_title": "Call of Duty Career Highlights",
+      "highlight_description": "Highlights from Exnid's professional Call of Duty career.",
+      "featured": true
+    }
+  ],
+  "featured_achievements": [
+    {
+      "title": "Esports World Cup Club Champion 2024",
+      "year": 2024,
+      "team": "Team Falcons",
+      "game": "Multi-Game Esports",
+      "description": "Team Falcons made history by winning the inaugural Esports World Cup Club Championship in Riyadh, marking a major milestone for Saudi esports.",
+      "image_url": "/static/esports/images/ewc-2024-falcons.jpg.png"
+    },
+    {
+      "title": "Esports World Cup Club Champion 2025",
+      "year": 2025,
+      "team": "Team Falcons",
+      "game": "Multi-Game Esports",
+      "description": "Team Falcons defended their Esports World Cup Club Championship title, securing back-to-back victories on the global stage.",
+      "image_url": "/static/esports/images/ewc-2025-falcons.jpg.png"
+    },
+    {
+      "title": "FIFAe World Cup 2024 Champions",
+      "year": 2024,
+      "team": "Saudi Arabia National Team",
+      "game": "Rocket League",
+      "description": "Saudi Arabia celebrated an international Rocket League world title at the FIFAe World Cup 2024.",
+      "image_url": "/static/esports/images/fifae-2024-saudi.jpg.png"
+    },
+    {
+      "title": "RLCS Raleigh Major 2025 Champions",
+      "year": 2025,
+      "team": "Team Falcons",
+      "game": "Rocket League",
+      "description": "Team Falcons captured the RLCS Raleigh Major 2025 trophy, adding another prestigious international Rocket League title to Saudi esports history.",
+      "image_url": "/static/esports/images/rlcs-raleigh-2025.jpg.png"
+    },
+    {
+      "title": "Overwatch World Cup 2023 Champions",
+      "year": 2023,
+      "team": "Saudi Arabia National Team",
+      "game": "Overwatch 2",
+      "description": "Saudi Arabia made history by winning the Overwatch World Cup 2023 after defeating China in a thrilling grand final, securing a historic world title for Saudi esports.",
+      "image_url": "/static/esports/images/saudi-overwatch-2023.jpg.png"
+    },
+    {
+      "title": "FIFAe World Cup 2025 Runner-Up",
+      "year": 2025,
+      "team": "Saudi Arabia National Team",
+      "game": "Rocket League",
+      "description": "Saudi Arabia reached the FIFAe World Cup 2025 Rocket League grand final and finished as world runner-up, adding another major international achievement to the nation's esports history.",
+      "image_url": "/static/esports/images/saudi-fifae-2025.jpg.png"
+    }
+  ]
+}

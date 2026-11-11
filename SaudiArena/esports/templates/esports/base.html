@@ -1,0 +1,236 @@
+
+{% load static i18n %}
+
+<!DOCTYPE html>
+{% get_current_language as CURRENT_LANGUAGE %}
+<html lang="{{ CURRENT_LANGUAGE }}"
+      dir="{% if CURRENT_LANGUAGE == 'ar' %}rtl{% else %}ltr{% endif %}"
+      data-theme="{% if request.COOKIES.saudiArenaTheme == 'light' %}light{% else %}dark{% endif %}">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Saudi Arena{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=Cairo:wght@400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'esports/css/style.css' %}">
+
+    <script src="{% static 'esports/js/theme.js' %}" defer></script>
+</head>
+
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="container navbar-content">
+
+            <!-- ANIMATED ESPORTS LOGO -->
+            <a href="{% url 'home' %}"
+               class="logo sa-brand-logo"
+               aria-label="Saudi Arena - Home">
+
+                <span class="sa-logo-frame" aria-hidden="true">
+                    <span class="sa-logo-video">
+                        <video autoplay muted loop playsinline preload="metadata">
+                            <source
+                                src="{% static 'esports/videos/saudi-arena-logo.mp4' %}"
+                                type="video/mp4">
+                        </video>
+                    </span>
+                </span>
+
+                <span class="sa-brand-name">
+                    SAUDI <strong>ARENA</strong>
+                </span>
+            </a>
+
+            <!-- NAVIGATION -->
+            <nav class="nav-links"
+                 id="navLinks"
+                 aria-label="Main navigation">
+
+                {% with current=request.resolver_match.url_name %}
+
+                <a href="{% url 'home' %}"
+                   class="{% if current == 'home' %}active{% endif %}"
+                   {% if current == 'home' %}aria-current="page"{% endif %}>
+                    {% trans "Home" %}
+                </a>
+
+                <a href="{% url 'about' %}"
+                   class="{% if current == 'about' %}active{% endif %}"
+                   {% if current == 'about' %}aria-current="page"{% endif %}>
+                    {% trans "About" %}
+                </a>
+
+                <a href="{% url 'tournaments' %}"
+                   class="{% if current == 'tournaments' %}active{% endif %}"
+                   {% if current == 'tournaments' %}aria-current="page"{% endif %}>
+                    {% trans "Tournaments" %}
+                </a>
+
+                <a href="{% url 'teams' %}"
+                   class="{% if current == 'teams' %}active{% endif %}"
+                   {% if current == 'teams' %}aria-current="page"{% endif %}>
+                    {% trans "Teams" %}
+                </a>
+
+                <a href="{% url 'players' %}"
+                   class="{% if current == 'players' %}active{% endif %}"
+                   {% if current == 'players' %}aria-current="page"{% endif %}>
+                    {% trans "Players" %}
+                </a>
+
+                <a href="{% url 'games' %}"
+                   class="{% if current == 'games' %}active{% endif %}"
+                   {% if current == 'games' %}aria-current="page"{% endif %}>
+                    {% trans "Games" %}
+                </a>
+
+                <a href="{% url 'achievements' %}"
+                   class="{% if current == 'achievements' %}active{% endif %}"
+                   {% if current == 'achievements' %}aria-current="page"{% endif %}>
+                    {% trans "Achievements" %}
+                </a>
+
+                {% endwith %}
+            </nav>
+
+            <!-- NAV ACTIONS -->
+            <div class="nav-actions">
+
+                <!-- LANGUAGE TOGGLE -->
+                <form method="post"
+                      action="{% url 'set_language' %}"
+                      class="language-form">
+
+                    {% csrf_token %}
+
+                    <input type="hidden"
+                           name="next"
+                           value="{{ request.get_full_path }}">
+
+                    <input type="hidden"
+                           name="language"
+                           value="{% if CURRENT_LANGUAGE == 'ar' %}en{% else %}ar{% endif %}">
+
+                    <button type="submit"
+                            class="language-toggle"
+                            aria-label="{% if CURRENT_LANGUAGE == 'ar' %}Switch to English{% else %}التبديل إلى العربية{% endif %}"
+                            title="{% if CURRENT_LANGUAGE == 'ar' %}Switch to English{% else %}التبديل إلى العربية{% endif %}">
+                        {% if CURRENT_LANGUAGE == 'ar' %}
+                            EN
+                        {% else %}
+                            AR
+                        {% endif %}
+                    </button>
+                </form>
+
+                <!-- THEME TOGGLE -->
+                <form method="post"
+                      action="{% url 'toggle_theme' %}"
+                      class="theme-form">
+
+                    {% csrf_token %}
+
+                    <input type="hidden"
+                           name="next"
+                           value="{{ request.get_full_path }}">
+
+                    <button type="submit"
+                            class="theme-toggle"
+                            aria-label="Toggle theme"
+                            title="Switch theme">
+
+                        <span class="theme-icon">
+                            {% if request.COOKIES.saudiArenaTheme == 'light' %}
+                                ☾
+                            {% else %}
+                                ☀
+                            {% endif %}
+                        </span>
+                    </button>
+                </form>
+
+                <!-- MOBILE MENU -->
+                <button type="button"
+                        class="menu-toggle"
+                        id="menuToggle"
+                        aria-label="Toggle navigation menu"
+                        aria-controls="navLinks"
+                        aria-expanded="false">
+                    ☰
+                </button>
+
+            </div>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="main-content">
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container footer-content">
+
+            <!-- BRAND -->
+            <div class="footer-brand">
+
+                <h2>SAUDI <span>ARENA</span></h2>
+
+                <p>
+                    {% blocktrans trimmed %}
+                    Your Gateway to Saudi Esports.
+                    Discover tournaments, teams, players,
+                    and the future of competitive gaming.
+                    {% endblocktrans %}
+                </p>
+            </div>
+
+            <!-- FOOTER LINKS -->
+            <div class="footer-links">
+
+                <h3>{% trans "Explore" %}</h3>
+
+                <a href="{% url 'home' %}">{% trans "Home" %}</a>
+                <a href="{% url 'about' %}">{% trans "About" %}</a>
+                <a href="{% url 'tournaments' %}">{% trans "Tournaments" %}</a>
+                <a href="{% url 'teams' %}">{% trans "Teams" %}</a>
+                <a href="{% url 'players' %}">{% trans "Players" %}</a>
+                <a href="{% url 'games' %}">{% trans "Games" %}</a>
+                <a href="{% url 'achievements' %}">{% trans "Achievements" %}</a>
+
+            </div>
+
+            <!-- FOOTER INFO -->
+            <div class="footer-info">
+
+                <h3>Saudi Arena</h3>
+
+                <p>{% trans "Built with Django" %}</p>
+
+                <p>{% trans "Made for Saudi Esports" %}</p>
+
+            </div>
+        </div>
+
+        <!-- COPYRIGHT -->
+        <div class="footer-bottom">
+            <p>
+                {% trans "© 2026 Saudi Arena. All Rights Reserved." %}
+            </p>
+        </div>
+
+    </footer>
+
+</body>
+</html>
