@@ -31,8 +31,8 @@ def aramco(request):
     return render(request, "main/aramco.html")
 
 
-def control(request):
-    return render(request, "main/control.html")
+def ownership(request):
+    return render(request, "main/ownership.html")
 
 
 def society(request):

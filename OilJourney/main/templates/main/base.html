@@ -56,7 +56,7 @@
             <li class="nav-item"><a class="nav-link{% if '/pre-oil/' in request.path %} active{% endif %}" href="{% url 'main:pre_oil' %}">قبل النفط</a></li>
             <li class="nav-item"><a class="nav-link{% if '/discovery/' in request.path %} active{% endif %}" href="{% url 'main:discovery' %}">الاكتشاف</a></li>
             <li class="nav-item"><a class="nav-link{% if '/aramco/' in request.path %} active{% endif %}" href="{% url 'main:aramco' %}">أرامكو والنمو</a></li>
-            <li class="nav-item"><a class="nav-link{% if '/control/' in request.path %} active{% endif %}" href="{% url 'main:control' %}">السيطرة</a></li>
+            <li class="nav-item"><a class="nav-link{% if '/ownership/' in request.path %} active{% endif %}" href="{% url 'main:ownership' %}">الملكية الوطنية</a></li>
             <li class="nav-item"><a class="nav-link{% if '/society/' in request.path %} active{% endif %}" href="{% url 'main:society' %}">أثر النفط</a></li>
             <li class="nav-item"><a class="nav-link{% if '/vision/' in request.path %} active{% endif %}" href="{% url 'main:vision' %}">التحول والرؤية</a></li>
           </ul>
@@ -93,7 +93,7 @@
         <div class="col-6 col-lg-4">
           <h2 class="oj-footer__title">&nbsp;</h2>
           <ul>
-            <li><a href="{% url 'main:control' %}">السيطرة والدور العالمي</a></li>
+            <li><a href="{% url 'main:ownership' %}">الملكية الوطنية والدور العالمي</a></li>
             <li><a href="{% url 'main:society' %}">أثر النفط على المجتمع</a></li>
             <li><a href="{% url 'main:vision' %}">التحول ورؤية 2030</a></li>
           </ul>
