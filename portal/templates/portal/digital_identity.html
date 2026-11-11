@@ -1,0 +1,165 @@
+
+{% extends 'portal/base.html' %}
+{% load static %}
+
+{% block title %}الهوية الرقمية | المستقبل الرقمي السعودي{% endblock %}
+
+{% block content %}
+<section class="topic-detail">
+    <div class="container">
+
+        <div class="detail-heading">
+            <span>الثقة الرقمية</span>
+            <h1>الهوية الرقمية</h1>
+            <p>
+                الهوية الرقمية وسيلة آمنة لإثبات هوية الأفراد والوصول
+                إلى الخدمات الإلكترونية بسهولة وموثوقية.
+            </p>
+        </div>
+
+        <div class="media-placeholder detail-hero">
+            <img src="{% static 'portal/images/digital-identity-hero.jpg' %}"
+                 alt="الهوية الرقمية في المملكة العربية السعودية">
+        </div>
+
+        <div class="detail-section">
+            <div class="section-heading">
+                <h2>مكونات الهوية الرقمية</h2>
+                <p>تقنيات ووسائل تساعد على التحقق من هوية المستخدمين</p>
+            </div>
+
+            <div class="detail-gallery">
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/digital-identity-1.jpg' %}"
+                         alt="التحقق من الهوية">
+                    <div class="gallery-info">
+                        <h3>التحقق من الهوية</h3>
+                        <p>التأكد من هوية المستخدم قبل السماح له بالوصول إلى الخدمات.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/digital-identity-2.jpg' %}"
+                         alt="الهوية الوطنية الرقمية">
+                    <div class="gallery-info">
+                        <h3>الهوية الوطنية الرقمية</h3>
+                        <p>الاستفادة من الوسائل الرقمية لإثبات الهوية والوصول إلى الخدمات.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/digital-identity-3.jpg' %}"
+                         alt="المصادقة الرقمية">
+                    <div class="gallery-info">
+                        <h3>المصادقة الرقمية</h3>
+                        <p>استخدام وسائل تحقق إضافية لتعزيز أمان الحسابات الرقمية.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <div class="section-heading">
+                <h2>الهوية الرقمية والخدمات الإلكترونية</h2>
+                <p>كيف تسهم الهوية الرقمية في تسهيل الوصول إلى الخدمات؟</p>
+            </div>
+
+            <div class="detail-video">
+                <video controls preload="metadata">
+                    <source src="{% static 'portal/videos/digital-identity-video.mp4' %}"
+                            type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <div class="section-heading">
+                <h2>أهمية الهوية الرقمية</h2>
+            </div>
+
+            <div class="detail-content">
+
+                <div class="detail-card">
+                    <h3>سهولة الوصول</h3>
+                    <p>
+                        تمكين المستخدم من الوصول إلى الخدمات الإلكترونية
+                        دون الحاجة إلى الإجراءات الورقية المتكررة.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>تعزيز الأمان</h3>
+                    <p>
+                        تقليل مخاطر انتحال الهوية من خلال وسائل التحقق
+                        والمصادقة الرقمية.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>حماية الخصوصية</h3>
+                    <p>
+                        المساهمة في حماية بيانات المستخدم وتنظيم الوصول
+                        إلى المعلومات والخدمات.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <div class="section-heading">
+                <h2>تطور الهوية الرقمية</h2>
+                <p>مراحل الانتقال من الإجراءات التقليدية إلى الخدمات الرقمية</p>
+            </div>
+
+            <div class="progress-timeline">
+
+                <div class="progress-step">
+                    <div class="progress-year">البداية</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>الإثبات التقليدي</h3>
+                        <p>الاعتماد على الوثائق والمستندات لإثبات هوية الأفراد.</p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">التطور</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>الخدمات الإلكترونية</h3>
+                        <p>الانتقال إلى الحسابات الرقمية للوصول إلى الخدمات الحكومية.</p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">المرحلة الحديثة</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>التحقق الرقمي</h3>
+                        <p>تطوير وسائل التحقق والمصادقة لتعزيز موثوقية الهوية.</p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">المستقبل</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>تجربة رقمية متكاملة</h3>
+                        <p>تطوير هويات رقمية تسهل الوصول الآمن إلى الخدمات المتنوعة.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <a href="{% url 'home' %}#topics" class="detail-back">
+            العودة إلى جميع المحاور ←
+        </a>
+
+    </div>
+</section>
+{% endblock %}

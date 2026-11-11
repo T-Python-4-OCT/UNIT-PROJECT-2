@@ -25,4 +25,19 @@ path(
     views.cybersecurity_development,
     name='cybersecurity_development'
 ),
+path('national-cybersecurity/', 
+     views.national_cybersecurity,
+    name='national_cybersecurity'),
+
+path('cyber-threats/', 
+     views.cyber_threats, 
+     name='cyber_threats'),
+
+path('future-innovation/', 
+     views.future_innovation, 
+     name='future_innovation'),
+
+path('digital-identity/', 
+     views.digital_identity, 
+     name='digital_identity'),
 ]

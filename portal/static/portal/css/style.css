@@ -79,19 +79,34 @@ a {
     opacity: 0.85;
 }
 
+
 .logo-mark {
-    width: 50px;
-    height: 50px;
+    width: 58px;
+    height: 58px;
     display: flex;
     align-items: center;
     justify-content: center;
     background: linear-gradient(145deg, #0b9658, #075c36);
-    color: var(--white);
-    border-radius: 10px;
-    font-size: 27px;
-    font-weight: bold;
-    box-shadow: 0 4px 12px rgba(8, 122, 69, 0.2);
+    border-radius: 14px;
+    box-shadow: 0 5px 16px rgba(8, 122, 69, 0.25);
+    transition: all 0.3s ease;
 }
+
+.logo-mark svg {
+    width: 42px;
+    height: 42px;
+    fill: none;
+    stroke: #ffffff;
+    stroke-width: 2;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.logo:hover .logo-mark {
+    box-shadow: 0 0 18px rgba(11, 189, 112, 0.4);
+    transform: translateY(-2px);
+}
+
 
 .logo-text {
     display: flex;
@@ -119,7 +134,8 @@ a {
     font-size: 14px;
     font-weight: bold;
     padding: 10px 0;
-    transition: color 0.3s ease;
+    transition: color 0.3s ease, transform 0.3s ease, text-shadow 0.3s ease;
+    transform: translateY(0);
 }
 
 .nav-links > a::after {
@@ -135,6 +151,8 @@ a {
 
 .nav-links > a:hover {
     color: var(--green);
+    transform: translateY(-2px);
+    text-shadow: 0 0 12px rgba(11, 150, 88, 0.2);
 }
 
 .nav-links > a:hover::after {
@@ -192,19 +210,47 @@ a {
     display: flex;
     align-items: center;
     position: relative;
-    background:
-        linear-gradient(
-            90deg,
-            rgba(3, 29, 18, 0.15),
-            rgba(3, 29, 18, 0.82)
-        ),
-        url("../images/hero.png") center center / cover no-repeat;
+    overflow: hidden;
 }
 
+/* فيديو الخلفية */
+.hero-video {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+}
+
+/* الطبقة الداكنة */
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        90deg,
+        rgba(3, 29, 18, 0.35),
+        rgba(3, 29, 18, 0.78)
+    );
+    z-index: 1;
+}
+
+/* محتوى الواجهة */
+.hero .container {
+    position: relative;
+    z-index: 2;
+}
+
+
 .hero-content {
-    max-width: 700px;
-    padding: 90px 0;
+    max-width: 900px;
+    margin: 0 auto;
+    position: relative;
+    top: -50px;  
+    padding: 65px 0;
     color: var(--white);
+    text-align: center;
     animation: fadeUp 1s ease both;
 }
 
@@ -217,13 +263,16 @@ a {
     font-size: 14px;
 }
 
+
 .hero h1 {
-    font-size: 46px;
-    line-height: 1.4;
-    margin-bottom: 24px;
+    font-size: 50px;
+    line-height: 1.5;
+    margin-bottom: 18px;
     color: var(--white);
-    font-weight: 700;
+    font-weight: 800;
+    text-shadow: 0 3px 18px rgba(0, 0, 0, 0.3);
 }
+
 
 .hero h1 span {
     display: block;
@@ -231,11 +280,13 @@ a {
 }
 
 .hero-content p {
-    max-width: 560px;
-    font-size: 17px;
-    line-height: 1.9;
-    color: #f0f5f1;
-    margin-bottom: 30px;
+    max-width: 600px;
+    margin-inline: auto;
+    font-size: 18px;
+    line-height: 2.1;
+    color: #ffffff;
+    margin: 0 auto 40px;
+    text-shadow: 0 2px 10px rgba(0, 0, 0, 0.6);
 }
 
 .hero-button {
@@ -245,7 +296,7 @@ a {
     gap: 18px;
     padding: 15px 30px;
     background: linear-gradient(135deg, #0b9658, #087a45);
-    color: var(--white);
+    color: #ffffff !important;
     border: 1px solid rgba(255, 255, 255, 0.15);
     border-radius: 6px;
     font-size: 15px;
@@ -255,9 +306,14 @@ a {
 }
 
 .hero-button:hover {
-    background: linear-gradient(135deg, #087a45, #075c36);
+    background: linear-gradient(135deg, #0bbd70, #087a45);
     transform: translateY(-4px);
-    box-shadow: 0 9px 22px rgba(0, 0, 0, 0.3);
+    box-shadow:
+        0 0 12px rgba(11, 189, 112, 0.5),
+        0 0 28px rgba(11, 189, 112, 0.3);
+}
+.hero-button span {
+    color: #ffffff;
 }
 
 /* ==============================
@@ -558,87 +614,99 @@ a {
     line-height: 1.9;
 }
 
-/* ==============================
-   تذييل الموقع
-============================== */
+/* الفوتر */
+
 
 .site-footer {
-    padding: 25px 0 12px;
-    background-color: #073d29;
+    padding: 30px 0 12px;
+    background: #073d2d;
     color: #ffffff;
 }
 
 .footer-content {
     display: grid;
-    grid-template-columns: 1.5fr 1fr 1fr;
-    gap: 30px;
-    padding-bottom: 18px;
+    grid-template-columns: 1.3fr 1fr 1fr;
+    gap: 35px;
+    padding-bottom: 20px;
+    align-items: start;
 }
 
 .footer-content h3 {
-    font-size: 15px;
-    margin-bottom: 10px;
-    color: #ffffff;
+    font-size: 16px;
+    margin-bottom: 12px;
 }
 
-.footer-content p {
-    color: #d0e4d7;
-    font-size: 12px;
-    line-height: 1.7;
-}
-
-.footer-brand p,
-.footer-info p {
-    max-width: 380px;
-}
-
-.footer-info p + p {
+.footer-content h3::after {
+    width: 30px;
+    height: 2px;
     margin-top: 8px;
 }
 
-.footer-sources {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 13px;
+.footer-content p {
+    font-size: 12px;
+    line-height: 1.8;
 }
 
-.footer-sources h3 {
-    font-size: 17px;
-    margin-bottom: 5px;
-    color: #ffffff;
+.footer-sources {
+    gap: 9px;
 }
 
 .footer-sources a {
-    color: #d0e4d7;
-    font-size: 13px;
-    text-decoration: none;
-    transition: color 0.2s ease;
-}
-
-.footer-sources a:hover {
-    color: #ffffff;
+    font-size: 12px;
 }
 
 .footer-bottom {
-    border-top: 1px solid rgba(255, 255, 255, 0.18);
-    padding-top: 10px;
-    text-align: center;
+    padding-top: 12px;
 }
 
 .footer-bottom p {
-    color: #d0e4d7;
     font-size: 11px;
 }
-a,
-a:visited {
-    color: #00a86b;
+
+.footer-sources a,
+.footer-sources a:visited {
+    display: block;
+    color: #c5d9d0;
+    text-decoration: none;
 }
 
-a:hover,
-a:focus {
-    color: #a8e6c5;
+.footer-sources a:hover {
+    color: #16c784;
 }
+
+.footer-bottom {
+    text-align: center;
+}
+
+
+/* Responsive */
+
+@media (max-width: 768px) {
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+        gap: 35px;
+    }
+
+    .footer-brand {
+        grid-column: 1 / -1;
+    }
+}
+
+@media (max-width: 500px) {
+    .site-footer {
+        padding: 45px 0 20px;
+    }
+
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .footer-brand {
+        grid-column: auto;
+    }
+}
+
 
 /* ==============================
    الوضع الداكن
@@ -1156,21 +1224,22 @@ a:focus {
 /* زر العودة */
 
 .detail-back {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    padding: 12px 22px;
-    color: var(--white);
-    background-color: var(--green);
-    border-radius: 6px;
-    font-size: 14px;
-    font-weight: bold;
-    transition: 0.3s ease;
+    display: inline-block;
+    background: linear-gradient(135deg, #087a45, #065c36);
+    color: #ffffff !important;
+    padding: 16px 30px;
+    border-radius: 10px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 12px rgba(8, 122, 69, 0.2);
 }
 
 .detail-back:hover {
-    background-color: var(--green-dark);
+    background: linear-gradient(135deg, #0bbd70, #087a45);
+    color: #ffffff !important;
     transform: translateY(-3px);
+    box-shadow: 0 0 18px rgba(11, 189, 112, 0.4);
 }
 
 
@@ -1257,4 +1326,31 @@ a:focus {
         min-height: auto;
     }
 
+    /* تحسين الشعار والقائمة على الجوال */
+    .logo {
+        gap: 10px;
+    }
+
+    .logo-mark {
+        width: 45px;
+        height: 45px;
+        font-size: 24px;
+    }
+
+    .logo-text {
+        font-size: 15px;
+    }
+
+    .logo-text small {
+        font-size: 11px;
+    }
+
+    .nav-links {
+        width: 100%;
+        gap: 18px;
+    }
+
+    .nav-links > a {
+        font-size: 13px;
+    }
 }

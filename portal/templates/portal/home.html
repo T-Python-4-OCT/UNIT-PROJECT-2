@@ -6,15 +6,19 @@
 
 {% block content %}
 
+
 <!-- الواجهة الرئيسية -->
 <section class="hero">
+
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+        <source src="{% static 'portal/videos/home-background.mp4' %}" type="video/mp4">
+    </video>
+
     <div class="container">
         <div class="hero-content">
 
-            <span class="hero-label">المملكة العربية السعودية</span>
-
             <h1>
-                نحو مستقبل رقمي
+                السعودية نحو مستقبل رقمي
                 <span>آمن ومبتكر</span>
             </h1>
 
@@ -186,7 +190,7 @@
                         الاستراتيجية الوطنية والجهود المبذولة
                         لتعزيز الأمن السيبراني في المملكة.
                     </p>
-                    <a href="#topics" class="topic-link">
+                    <a href="{% url 'national_cybersecurity' %}" class="topic-link">
                         اكتشف المحور <span>←</span>
                     </a>
                 </div>
@@ -203,7 +207,7 @@
                         أنواع الهجمات الإلكترونية وأساليب
                         اكتشافها والوقاية منها والاستجابة لها.
                     </p>
-                    <a href="#topics" class="topic-link">
+                    <a href="{% url 'cyber_threats' %}" class="topic-link">
                         اكتشف المحور <span>←</span>
                     </a>
                 </div>
@@ -220,7 +224,7 @@
                         التقنيات الناشئة والمدن الذكية
                         ودورها في تشكيل مستقبل القطاعات المختلفة.
                     </p>
-                    <a href="#topics" class="topic-link">
+                    <a href="{% url 'future_innovation' %}" class="topic-link">
                         اكتشف المحور <span>←</span>
                     </a>
                 </div>
@@ -237,7 +241,7 @@
                         حماية الهوية الرقمية والبيانات الشخصية،
                         وتعزيز الخصوصية والثقة في العالم الرقمي.
                     </p>
-                    <a href="#topics" class="topic-link">
+                    <a href="{% url 'digital_identity' %}" class="topic-link">
                         اكتشف المحور <span>←</span>
                     </a>
                 </div>

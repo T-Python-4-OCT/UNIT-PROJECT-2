@@ -1,0 +1,165 @@
+
+{% extends 'portal/base.html' %}
+{% load static %}
+
+{% block title %}التهديدات والدفاع السيبراني | المستقبل الرقمي السعودي{% endblock %}
+
+{% block content %}
+<section class="topic-detail">
+    <div class="container">
+
+        <div class="detail-heading">
+            <span>الحماية الرقمية</span>
+            <h1>التهديدات والدفاع السيبراني</h1>
+            <p>
+                التعرف على أبرز التهديدات السيبرانية وأساليب مواجهتها،
+                وتعزيز حماية الأنظمة والبيانات من المخاطر الرقمية.
+            </p>
+        </div>
+
+        <div class="media-placeholder detail-hero">
+            <img src="{% static 'portal/images/cyber-threats-hero.jpg' %}"
+                 alt="التهديدات والدفاع السيبراني">
+        </div>
+
+        <div class="detail-section">
+            <div class="section-heading">
+                <h2>أبرز التهديدات السيبرانية</h2>
+                <p>نماذج من المخاطر التي تواجه الأفراد والمؤسسات في العالم الرقمي</p>
+            </div>
+
+            <div class="detail-gallery">
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/cyber-threats-1.jpg' %}"
+                         alt="الهجمات الإلكترونية">
+                    <div class="gallery-info">
+                        <h3>الهجمات الإلكترونية</h3>
+                        <p>محاولات الوصول غير المصرح به إلى الأنظمة والشبكات.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/cyber-threats-2.jpg' %}"
+                         alt="التصيد الإلكتروني">
+                    <div class="gallery-info">
+                        <h3>التصيد الإلكتروني</h3>
+                        <p>رسائل وروابط احتيالية تهدف إلى سرقة المعلومات الشخصية.</p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/cyber-threats-3.jpg' %}"
+                         alt="حماية البيانات">
+                    <div class="gallery-info">
+                        <h3>حماية البيانات</h3>
+                        <p>أساليب وتقنيات تساعد على منع تسريب المعلومات أو فقدانها.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <div class="section-heading">
+                <h2>الدفاع السيبراني</h2>
+                <p>تقنيات وممارسات تساعد على اكتشاف التهديدات والحد من آثارها</p>
+            </div>
+
+            <div class="detail-video">
+                <video controls preload="metadata">
+                    <source src="{% static 'portal/videos/cyber-threats-video.mp4' %}"
+                            type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <div class="section-heading">
+                <h2>أساليب الحماية والدفاع</h2>
+            </div>
+
+            <div class="detail-content">
+
+                <div class="detail-card">
+                    <h3>الكشف المبكر</h3>
+                    <p>
+                        مراقبة الأنظمة والشبكات لاكتشاف الأنشطة غير المعتادة
+                        والتعامل معها قبل توسع أثرها.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>الاستجابة للحوادث</h3>
+                    <p>
+                        التعامل المنظم مع الحوادث السيبرانية واحتواء آثارها
+                        واستعادة الأنظمة والخدمات.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>رفع مستوى الوعي</h3>
+                    <p>
+                        تعزيز معرفة المستخدمين بالمخاطر الرقمية
+                        وطرق التعامل الآمن مع الرسائل والروابط.
+                    </p>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="detail-section">
+            <div class="section-heading">
+                <h2>رحلة تطور الدفاع السيبراني</h2>
+                <p>محطات بارزة في تطور أساليب الحماية الرقمية</p>
+            </div>
+
+            <div class="progress-timeline">
+
+                <div class="progress-step">
+                    <div class="progress-year">البداية</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>الحماية الأساسية</h3>
+                        <p>الاعتماد على برامج الحماية وكلمات المرور وتأمين الأجهزة.</p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">التطور</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>أنظمة المراقبة</h3>
+                        <p>تطوير أدوات مراقبة الشبكات واكتشاف الأنشطة المشبوهة.</p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">المرحلة الحديثة</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>الدفاع الاستباقي</h3>
+                        <p>استخدام التحليل المتقدم والذكاء الاصطناعي للتنبؤ بالتهديدات.</p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">المستقبل</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>حماية رقمية متكاملة</h3>
+                        <p>تطوير قدرات مستمرة لمواجهة التهديدات السيبرانية المتجددة.</p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <a href="{% url 'home' %}#topics" class="detail-back">
+            العودة إلى جميع المحاور ←
+        </a>
+
+    </div>
+</section>
+{% endblock %}

@@ -28,3 +28,15 @@ def digital_government(request):
 
 def cybersecurity_development(request):
     return render(request, 'portal/cybersecurity_development.html')
+
+def national_cybersecurity(request):
+    return render(request, 'portal/national_cybersecurity.html')
+
+def cyber_threats(request):
+    return render(request, 'portal/cyber_threats.html')
+
+def future_innovation(request):
+    return render(request, 'portal/future_innovation.html')
+
+def digital_identity(request):
+    return render(request, 'portal/digital_identity.html')
