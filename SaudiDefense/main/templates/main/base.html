@@ -25,7 +25,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@700;800;900&family=IBM+Plex+Sans+Arabic:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="{% static 'css/style.css' %}?v=26" rel="stylesheet">
+    <link href="{% static 'css/style.css' %}?v=41" rel="stylesheet">
 
     <!-- أيقونة الموقع اللي تظهر في تبويب المتصفح -->
     <link rel="icon" type="image/svg+xml" href="{% static 'images/logo.svg' %}">
@@ -148,18 +148,25 @@
 
     <footer class="main-footer">
         <div class="container">
-            <div class="row g-4">
-                <div class="col-lg-5">
-                    <a class="navbar-brand mb-3" href="{% url 'main:home_view' %}">
+            <div class="row g-4 g-lg-5">
+                <div class="col-lg-4">
+                    <a class="navbar-brand" href="{% url 'main:home_view' %}">
                         <svg class="brand-logo" viewBox="12 16 40 32" aria-hidden="true">
                             <path d="M14 46 L30 18 H38 L22 46 Z" fill="currentColor"/>
                             <path d="M26 46 L42 18 H50 L34 46 Z" fill="currentColor" opacity=".55"/>
                         </svg>
                         {{ t.brand }}
                     </a>
-                    <p class="mt-3 mb-0">{{ t.footer_about }}</p>
+                    <p class="footer-about">{{ t.footer_about }}</p>
                 </div>
-                <div class="col-6 col-lg-3">
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h3>{{ t.entities }}</h3>
+                    <ul>
+                        <li><a href="{% url 'main:company_view' 'sami' %}">SAMI</a></li>
+                        <li><a href="{% url 'main:company_view' 'gami' %}">GAMI</a></li>
+                    </ul>
+                </div>
+                <div class="col-6 col-md-3 col-lg-2">
                     <h3>{{ t.sectors }}</h3>
                     <ul>
                         <li><a href="{% url 'main:sector_view' 'land' %}">{% if lang == "ar" %}الأنظمة البرية{% else %}Land Systems{% endif %}</a></li>
@@ -167,7 +174,7 @@
                         <li><a href="{% url 'main:sector_view' 'naval' %}">{% if lang == "ar" %}الأنظمة البحرية{% else %}Naval Systems{% endif %}</a></li>
                     </ul>
                 </div>
-                <div class="col-6 col-lg-4">
+                <div class="col-6 col-md-3 col-lg-2">
                     <h3>{{ t.footer_explore }}</h3>
                     <ul>
                         <li><a href="{% url 'main:vision_view' %}">{{ t.vision }}</a></li>
@@ -176,11 +183,25 @@
                         <li><a href="{% url 'main:careers_view' %}">{{ t.careers }}</a></li>
                     </ul>
                 </div>
+                <div class="col-6 col-md-3 col-lg-2">
+                    <h3>{{ t.footer_official }}</h3>
+                    <ul>
+                        <li><a href="https://www.gami.gov.sa" target="_blank" rel="noopener">gami.gov.sa</a></li>
+                        <li><a href="https://www.sami.com.sa" target="_blank" rel="noopener">sami.com.sa</a></li>
+                        <li><a href="https://www.vision2030.gov.sa" target="_blank" rel="noopener">vision2030.gov.sa</a></li>
+                    </ul>
+                </div>
             </div>
-            <div class="footer-bottom d-flex flex-wrap justify-content-between gap-2">
-                <span>UNIT-PROJECT-2 · Morad</span>
-                <span>{{ t.made_in }}</span>
+            <div class="footer-seal">
+                <span class="seal-line"></span>
+                <svg class="seal-mark" viewBox="12 16 40 32" aria-hidden="true">
+                    <path d="M14 46 L30 18 H38 L22 46 Z" fill="currentColor"/>
+                    <path d="M26 46 L42 18 H50 L34 46 Z" fill="currentColor" opacity=".55"/>
+                </svg>
+                <span class="seal-line"></span>
             </div>
+            <p class="footer-motto">{{ t.hero_title_1 }} {{ t.hero_title_2 }}</p>
+            <div class="footer-bottom text-center">© {% now "Y" %} {{ t.brand }} · Morad</div>
         </div>
     </footer>
 

@@ -7,7 +7,6 @@ UI = {
         "brand": "صناعة العز",
         "comma": "،",
         "site_title": "الصناعات العسكرية السعودية",
-        "topbar_text": "منصة تعليمية عن توطين الصناعات العسكرية · رؤية المملكة 2030",
         "nav_cta": "معرض 2028",
         "switch_lang": "English",
         "lang_short": "EN",
@@ -38,7 +37,6 @@ UI = {
         "calc_gap": "المطلوب إضافته",
         "calc_imported": "ما زال مستورد",
         "calc_unit": "مليار ريال",
-        "calc_note": "حساب تقريبي لأغراض تعليمية، على أساس إن 20 بالمئة من الإنفاق محلي اليوم.",
         "prev": "السابق",
         "next": "التالي",
 
@@ -62,9 +60,9 @@ UI = {
         "careers_note": "الروابط تفتح المواقع الرسمية. مواعيد التقديم تتغير، فتأكد منها في كل موقع.",
 
         # الفوتر
-        "footer_about": "موقع تعليمي يعرّف بالصناعات العسكرية في المملكة العربية السعودية، ورحلتها نحو التوطين ضمن رؤية 2030.",
+        "footer_about": "رحلة المملكة من استيراد السلاح إلى تصنيعه بأيدٍ وطنية، ضمن مستهدفات رؤية 2030.",
+        "footer_official": "مواقع رسمية",
         "footer_explore": "اكتشف",
-        "made_in": "صُنع في السعودية",
 
         # الرئيسية
         "hero_badge": "رؤية المملكة 2030",
@@ -92,9 +90,6 @@ UI = {
         "vision_card": "مستهدفات التوطين ومسيرة الأرقام.",
         "history_card": "من مصانع الخرج إلى اليوم.",
         "events_card": "معرض الدفاع العالمي في الرياض.",
-        "faq_label": "أسئلة شائعة",
-        "faq_title": "عندك سؤال؟",
-        "faq_intro": "أجوبة مختصرة لأكثر الأسئلة عن الصناعات العسكرية السعودية.",
 
         # صفحة القطاع / الجهة
         "about_of": "عن",
@@ -141,7 +136,6 @@ UI = {
         # المعارض
         "events_page_title": "المعارض والفعاليات",
         "events_lead": "الرياض… ملتقى صناعة الدفاع في العالم",
-        "wds_label": "معرض الدفاع العالمي",
         "upcoming_label": "قريباً",
         "upcoming_title": "المعارض القادمة",
         "upcoming_intro": "سجّل حضورك أو شارك كعارض من الموقع الرسمي للمعرض.",
@@ -172,7 +166,6 @@ UI = {
         "brand": "Sinaat Al-Izz",
         "comma": ",",
         "site_title": "Saudi Military Industries",
-        "topbar_text": "An educational platform on military industry localization · Saudi Vision 2030",
         "nav_cta": "WDS 2028",
         "switch_lang": "العربية",
         "lang_short": "ع",
@@ -203,7 +196,6 @@ UI = {
         "calc_gap": "Still needed",
         "calc_imported": "Still imported",
         "calc_unit": "SAR billion",
-        "calc_note": "An approximate, educational calculation assuming 20% of spending is local today.",
         "prev": "Previous",
         "next": "Next",
 
@@ -227,9 +219,9 @@ UI = {
         "careers_note": "Links open the official websites. Application dates change, so check each site.",
 
         # Footer
-        "footer_about": "An educational site about the military industries of Saudi Arabia and their journey to localization under Vision 2030.",
+        "footer_about": "The Kingdom's journey from importing arms to building them with national hands, under Vision 2030.",
+        "footer_official": "Official sites",
         "footer_explore": "Explore",
-        "made_in": "Made in Saudi Arabia",
 
         # Home
         "hero_badge": "Saudi Vision 2030",
@@ -257,9 +249,6 @@ UI = {
         "vision_card": "Localization targets and progress.",
         "history_card": "From the Al-Kharj factories to today.",
         "events_card": "The World Defense Show in Riyadh.",
-        "faq_label": "FAQ",
-        "faq_title": "Got a question?",
-        "faq_intro": "Short answers to the most common questions about Saudi military industries.",
 
         # Sector / entity page
         "about_of": "About",
@@ -306,7 +295,6 @@ UI = {
         # Exhibitions
         "events_page_title": "Exhibitions & events",
         "events_lead": "Riyadh… where the world's defense industry meets",
-        "wds_label": "World Defense Show",
         "upcoming_label": "Coming soon",
         "upcoming_title": "Upcoming exhibitions",
         "upcoming_intro": "Register to visit or exhibit on the official show website.",

@@ -51,8 +51,32 @@
     </div>
 </section>
 
+<!-- الجهات -->
+<section class="section section-soft">
+    <div class="container">
+        <span class="section-label">{{ t.entities }}</span>
+        <h2 class="section-title">{{ t.entities_title }}</h2>
+        <p class="section-intro">{{ t.entities_intro }}</p>
+
+        <div class="row g-4">
+            {% for key, company in companies.items %}
+            <div class="col-md-6">
+                <a href="{% url 'main:company_view' key %}" class="card-x">
+                    <div class="card-body-x">
+                        <span class="company-logo" role="img" aria-label="{{ company.name }}" style="background-image: url('{% static 'images/'|add:company.logo %}'); {{ company.logo_style }}"></span>
+                        <h3>{{ company.name }}</h3>
+                        <p>{{ company.about|truncatewords:22 }}</p>
+                        <span class="card-link">{{ company.slogan }} <i class="bi bi-arrow-left flip-ltr"></i></span>
+                    </div>
+                </a>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
 <!-- القطاعات -->
-<section id="sectors" class="section section-soft">
+<section id="sectors" class="section">
     <div class="container">
         <span class="section-label">{{ t.sectors }}</span>
         <h2 class="section-title">{{ t.sectors_title }}</h2>
@@ -69,30 +93,6 @@
                         <h3>{{ sector.name }}</h3>
                         <p>{{ sector.slogan }}</p>
                         <span class="card-link">{{ t.read_more }} <i class="bi bi-arrow-left flip-ltr"></i></span>
-                    </div>
-                </a>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</section>
-
-<!-- الجهات -->
-<section class="section">
-    <div class="container">
-        <span class="section-label">{{ t.entities }}</span>
-        <h2 class="section-title">{{ t.entities_title }}</h2>
-        <p class="section-intro">{{ t.entities_intro }}</p>
-
-        <div class="row g-4">
-            {% for key, company in companies.items %}
-            <div class="col-md-6">
-                <a href="{% url 'main:company_view' key %}" class="card-x">
-                    <div class="card-body-x">
-                        <span class="company-logo" role="img" aria-label="{{ company.name }}" style="background-image: url('{% static 'images/'|add:company.logo %}'); {{ company.logo_style }}"></span>
-                        <h3>{{ company.name }}</h3>
-                        <p>{{ company.about|truncatewords:22 }}</p>
-                        <span class="card-link">{{ company.slogan }} <i class="bi bi-arrow-left flip-ltr"></i></span>
                     </div>
                 </a>
             </div>
@@ -143,36 +143,5 @@
     </div>
 </section>
 
-<!-- الأسئلة الشائعة (Accordion من Bootstrap) -->
-<section class="section">
-    <div class="container">
-        <div class="row g-4 g-lg-5">
-            <div class="col-lg-4">
-                <span class="section-label">{{ t.faq_label }}</span>
-                <h2 class="section-title">{{ t.faq_title }}</h2>
-                <p class="text-muted-2 mb-0">{{ t.faq_intro }}</p>
-            </div>
-
-            <div class="col-lg-8">
-                <div class="accordion faq" id="faq">
-                    {% for question, answer in faq %}
-                    <div class="accordion-item">
-                        <h3 class="accordion-header">
-                            <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button"
-                                    data-bs-toggle="collapse" data-bs-target="#faq-{{ forloop.counter }}"
-                                    aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="faq-{{ forloop.counter }}">
-                                {{ question }}
-                            </button>
-                        </h3>
-                        <div id="faq-{{ forloop.counter }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" data-bs-parent="#faq">
-                            <div class="accordion-body">{{ answer }}</div>
-                        </div>
-                    </div>
-                    {% endfor %}
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
 {% endblock %}
+

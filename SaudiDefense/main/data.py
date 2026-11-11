@@ -403,43 +403,6 @@ EVENTS = {
 }
 
 
-# الأسئلة الشائعة (السؤال، الجواب)
-FAQ = {
-    "ar": [
-        ("وش هي SAMI؟",
-         "الشركة السعودية للصناعات العسكرية، شركة وطنية مملوكة لصندوق الاستثمارات العامة، "
-         "تأسست عام 2017، وتصنّع وتطوّر أنظمة برية وجوية وبحرية وإلكترونيات دفاعية."),
-        ("وش الفرق بين SAMI و GAMI؟",
-         "GAMI جهة حكومية تنظّم القطاع وتصدر التراخيص وتتابع نسبة التوطين، "
-         "أما SAMI فهي شركة تصنّع المنتجات العسكرية فعلياً."),
-        ("وش معنى التوطين؟",
-         "يعني أن يُصرف الإنفاق العسكري داخل المملكة، على مصانع وشركات وكفاءات سعودية، "
-         "بدل شراء كل شي من الخارج. والمستهدف أكثر من 50% بحلول 2030."),
-        ("وش هو معرض الدفاع العالمي؟",
-         "معرض تنظّمه الهيئة العامة للصناعات العسكرية في الرياض كل سنتين، "
-         "وانطلقت أول نسخة منه عام 2022، ويجمع شركات الدفاع السعودية والعالمية."),
-        ("كيف أشتغل في هذا القطاع؟",
-         "عن طريق دراسة تخصصات مثل الهندسة والتقنية، والتقديم على برامج التدريب "
-         "والتوظيف في الشركات الوطنية مثل SAMI، ومتابعة الوظائف في مواقعها الرسمية."),
-    ],
-    "en": [
-        ("What is SAMI?",
-         "Saudi Arabian Military Industries is a national company owned by the Public Investment Fund. "
-         "Founded in 2017, it builds and develops land, air, naval and defense electronics systems."),
-        ("What is the difference between SAMI and GAMI?",
-         "GAMI is a government authority that regulates the sector, issues licenses and tracks localization. "
-         "SAMI is a company that actually builds military products."),
-        ("What does localization mean?",
-         "It means spending military budgets inside the Kingdom, on Saudi factories, companies and talent, "
-         "instead of buying everything abroad. The target is more than 50% by 2030."),
-        ("What is the World Defense Show?",
-         "An exhibition organized by GAMI in Riyadh every two years. Its first edition was in 2022, "
-         "and it brings together Saudi and global defense companies."),
-        ("How can I work in this sector?",
-         "By studying fields such as engineering and technology, applying to training and hiring "
-         "programs at national companies like SAMI, and following jobs on their official websites."),
-    ],
-}
 
 
 # المعارض القادمة (المصدر: الموقع الرسمي worlddefenseshow.com)

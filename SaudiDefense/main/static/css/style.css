@@ -79,11 +79,18 @@ a {
     margin-bottom: 6px;
 }
 
+/* خطّين مائلين مثل الشعار بدل الخط العادي */
 .section-label::before {
     content: "";
-    width: 28px;
-    height: 2px;
+    width: 20px;
+    height: 14px;
     background-color: var(--primary);
+    -webkit-mask: var(--slashes) no-repeat center / contain;
+    mask: var(--slashes) no-repeat center / contain;
+}
+
+:root {
+    --slashes: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='12 16 40 32'%3E%3Cpath d='M14 46 L30 18 H38 L22 46 Z'/%3E%3Cpath d='M26 46 L42 18 H50 L34 46 Z' opacity='.55'/%3E%3C/svg%3E");
 }
 
 .section-title {
@@ -174,17 +181,6 @@ a {
     color: var(--text);
 }
 
-.brand-mark {
-    display: grid;
-    place-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 10px;
-    background-color: var(--primary);
-    color: #fff;
-    font-size: 1.1rem;
-}
-
 .main-nav .nav-link {
     color: var(--muted);
     font-weight: 500;
@@ -217,23 +213,6 @@ a {
 
 .dropdown-item:hover {
     background-color: var(--primary-soft);
-    color: var(--primary);
-}
-
-.btn-theme {
-    display: grid;
-    place-items: center;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    border: 1px solid var(--line);
-    background: transparent;
-    color: var(--text);
-    margin-inline-start: 8px;
-}
-
-.btn-theme:hover {
-    border-color: var(--primary);
     color: var(--primary);
 }
 
@@ -454,10 +433,30 @@ a.card-x:hover .card-img img {
 /* رأس الصفحات الداخلية */
 .page-hero {
     position: relative;
+    overflow: hidden;
     padding: 110px 0 70px;
     background-size: cover;
     background-position: center;
     color: #fff;
+}
+
+/* الخطين المائلين من الشعار بحجم كبير في طرف رأس الصفحة */
+.page-hero::after {
+    content: "";
+    position: absolute;
+    left: -30px;
+    bottom: -40px;
+    width: 360px;
+    height: 290px;
+    background-color: var(--accent);
+    opacity: 0.14;
+    -webkit-mask: var(--slashes) no-repeat center / contain;
+    mask: var(--slashes) no-repeat center / contain;
+}
+
+[dir="ltr"] .page-hero::after {
+    left: auto;
+    right: -30px;
 }
 
 .page-hero::before {
@@ -649,29 +648,87 @@ a.card-x:hover .card-img img {
 
 /* الفوتر */
 .main-footer {
+    position: relative;
+    overflow: hidden;
     background-color: var(--navy);
-    color: rgba(255, 255, 255, 0.7);
-    padding: 60px 0 28px;
+    color: rgba(255, 255, 255, 0.65);
+    padding: 40px 0 16px;
+}
+
+.main-footer .container {
+    position: relative;
+    z-index: 1;
 }
 
 .main-footer .navbar-brand {
     color: #fff;
+    font-size: 1.35rem;
+}
+
+.footer-about {
+    max-width: 340px;
+    margin: 10px 0 0;
+    line-height: 1.9;
+}
+
+/* خط ذهبي رفيع فوق الفوتر */
+.main-footer {
+    border-top: 1px solid rgba(212, 175, 55, 0.35);
 }
 
 .main-footer h3 {
-    color: #fff;
-    font-size: 1rem;
-    font-weight: 800;
-    margin-bottom: 14px;
+    color: #d4af37;
+    font-size: 0.85rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    margin-bottom: 12px;
+}
+
+/* فاصل ذهبي: خط + الشعار + خط */
+.footer-seal {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-top: 24px;
+}
+
+.seal-line {
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to left, transparent, rgba(212, 175, 55, 0.45));
+}
+
+.seal-line:last-child {
+    background: linear-gradient(to right, transparent, rgba(212, 175, 55, 0.45));
+}
+
+.seal-mark {
+    width: 26px;
+    height: 21px;
+    color: #d4af37;
+}
+
+.footer-motto {
+    text-align: center;
+    font-family: "Cairo", sans-serif;
+    font-weight: 700;
+    font-size: 0.95rem;
+    color: rgba(255, 255, 255, 0.8);
+    margin: 8px 0 0;
 }
 
 .main-footer ul {
     list-style: none;
     padding: 0;
+    margin: 0;
 }
 
 .main-footer li {
-    margin-bottom: 8px;
+    margin-bottom: 6px;
+}
+
+.main-footer li a {
+    transition: color 0.2s;
 }
 
 .main-footer a:hover {
@@ -679,10 +736,11 @@ a.card-x:hover .card-img img {
 }
 
 .footer-bottom {
-    margin-top: 36px;
-    padding-top: 20px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.9rem;
+    margin-top: 18px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.08);
+    font-size: 0.85rem;
+    color: rgba(255, 255, 255, 0.5);
 }
 
 /* زر الرجوع للأعلى */
@@ -715,10 +773,6 @@ a.card-x:hover .card-img img {
 @media (max-width: 991px) {
     .main-nav .navbar-collapse {
         padding: 12px 0;
-    }
-
-    .btn-theme {
-        margin: 8px 0 0;
     }
 }
 
@@ -755,27 +809,6 @@ a.card-x:hover .card-img img {
     .hero-video {
         display: none;
     }
-}
-
-/* زر اللغة + اتجاه الإنجليزي */
-
-/* زر اللغة */
-.btn-lang {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    height: 40px;
-    padding: 0 14px;
-    border-radius: 20px;
-    border: 1px solid var(--line);
-    color: var(--text);
-    font-weight: 600;
-    font-size: 0.9rem;
-}
-
-.btn-lang:hover {
-    border-color: var(--primary);
-    color: var(--primary);
 }
 
 /* اتجاه الإنجليزي (من اليسار لليمين) */
@@ -827,56 +860,6 @@ a.card-x:hover .card-img img {
     [dir="ltr"] .back-to-top {
         right: 14px;
     }
-}
-
-/* الأسئلة الشائعة */
-.faq {
-    --bs-accordion-bg: var(--surface);
-    --bs-accordion-color: var(--text);
-    --bs-accordion-border-color: var(--line);
-    --bs-accordion-border-radius: 14px;
-    --bs-accordion-inner-border-radius: 14px;
-    --bs-accordion-btn-color: var(--text);
-    --bs-accordion-btn-bg: var(--surface);
-    --bs-accordion-active-color: var(--primary);
-    --bs-accordion-active-bg: var(--primary-soft);
-    --bs-accordion-btn-focus-box-shadow: 0 0 0 3px var(--primary-soft);
-}
-
-.faq .accordion-item {
-    margin-bottom: 12px;
-    border: 1px solid var(--line);
-    border-radius: 14px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-}
-
-.faq .accordion-item:not(:first-of-type) {
-    border-top: 1px solid var(--line);
-}
-
-.faq .accordion-button {
-    font-family: "Cairo", sans-serif;
-    font-weight: 700;
-    font-size: 1.05rem;
-    padding: 18px 22px;
-}
-
-.faq .accordion-body {
-    color: var(--muted);
-    padding: 4px 22px 20px;
-    line-height: 1.9;
-}
-
-/* سهم الفتح بلون الموقع (رمادي مقفول، أخضر مفتوح) */
-.faq {
-    --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%235d6d72' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-    --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%230f6b55' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-}
-
-[data-bs-theme="dark"] .faq {
-    --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%2398aaa7' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
-    --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='none' stroke='%237fd3a8' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpath d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
 }
 
 /* نافذة رمز QR */
@@ -1127,15 +1110,6 @@ a.card-x:hover .card-img img {
     font-size: 0.75rem;
     font-weight: 500;
     opacity: 0.75;
-}
-
-.site-header .brand-mark {
-    width: 46px;
-    height: 46px;
-    border-radius: 12px;
-    font-size: 1.3rem;
-    background: linear-gradient(135deg, #1a8c6f, #0a4f3f);
-    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.25);
 }
 
 /* الروابط */
@@ -1659,39 +1633,6 @@ img.zoomable {
     color: #33433f;
 }
 
-/* القائمة في الشاشات المتوسطة (ما تنزحم) */
-.site-header .main-nav .nav-link,
-.nav-cta,
-.tool-btn {
-    white-space: nowrap;
-}
-
-@media (min-width: 992px) and (max-width: 1299px) {
-    .site-header .main-nav .nav-link {
-        padding: 10px 9px !important;
-        font-size: 0.95rem;
-    }
-
-    .site-header .main-nav .nav-link::after {
-        left: 9px;
-        right: 9px;
-    }
-
-    .brand-sub,
-    .tool-lang span {
-        display: none;
-    }
-
-    .nav-tools {
-        margin-inline-start: 8px !important;
-    }
-
-    .nav-cta {
-        padding: 0 12px;
-    }
-}
-
-
 /* صفحة الوظائف */
 .career-who {
     font-weight: 600;
@@ -1797,7 +1738,6 @@ img.zoomable {
     box-shadow: none;
 }
 
-/* الشعار الجديد */
 /* الشعار ياخذ لون النص (أبيض فوق الصورة، وغامق لما ننزل) */
 .brand-logo {
     width: 44px;

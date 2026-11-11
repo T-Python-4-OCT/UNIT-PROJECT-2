@@ -4,7 +4,7 @@ from django.http import HttpRequest, Http404
 from .context_processors import get_lang
 from datetime import date
 
-from .data import SECTORS, COMPANIES, HISTORY, EVENTS, FAQ, UPCOMING_EVENTS, CAREERS, CAREER_MAJORS
+from .data import SECTORS, COMPANIES, HISTORY, EVENTS, UPCOMING_EVENTS, CAREERS, CAREER_MAJORS
 
 # Create your views here.
 # كل البيانات في data.py بلغتين، و get_lang(request) تعطينا "ar" أو "en"
@@ -13,7 +13,7 @@ from .data import SECTORS, COMPANIES, HISTORY, EVENTS, FAQ, UPCOMING_EVENTS, CAR
 def home_view(request: HttpRequest):
 
     lang = get_lang(request)
-    context = {"sectors": SECTORS[lang], "companies": COMPANIES[lang], "faq": FAQ[lang]}
+    context = {"sectors": SECTORS[lang], "companies": COMPANIES[lang]}
     return render(request, "main/index.html", context)
 
 
