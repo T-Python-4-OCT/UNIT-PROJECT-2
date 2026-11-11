@@ -145,42 +145,64 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
   position: relative;
   overflow: hidden;
   color: #fff;
-  background:
-  linear-gradient(
-    90deg,
-    rgba(3, 25, 19, 0.88) 0%,
-    rgba(3, 25, 19, 0.62) 30%,
-    rgba(3, 25, 19, 0.12) 100%
-  ),
-  url("../img/hero-riyadh.webp") center 45% / cover no-repeat;
+  /* Poster image: shown until the video loads, and when motion is reduced */
+  background: #031913 url("../img/hero-poster.webp") center / cover no-repeat;
   min-height: 560px;
   display: flex;
   align-items: center;
 }
 
+/* Background video fills the hero; layer order: video (0) -> overlays (1) -> text (2) */
+.hero-video {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Dark gradient on the text side so the heading stays readable over the video */
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(3, 25, 19, 0.88) 0%,
+    rgba(3, 25, 19, 0.62) 30%,
+    rgba(3, 25, 19, 0.12) 100%
+  );
+}
+
 /* Arabic: text sits on the right, so the dark side of the gradient goes right too */
-[dir="rtl"] .hero {
-  background:
-    linear-gradient(
-      270deg,
-      rgba(3, 25, 19, 0.88) 0%,
-      rgba(3, 25, 19, 0.62) 30%,
-      rgba(3, 25, 19, 0.12) 100%
-    ),
-    url("../img/hero-riyadh.webp") center 45% / cover no-repeat;
+[dir="rtl"] .hero::before {
+  background: linear-gradient(
+    270deg,
+    rgba(3, 25, 19, 0.88) 0%,
+    rgba(3, 25, 19, 0.62) 30%,
+    rgba(3, 25, 19, 0.12) 100%
+  );
 }
 
 .hero::after {
   content: "";
   position: absolute;
   inset: 0;
+  z-index: 1;
   pointer-events: none;
   background-image: radial-gradient(rgba(212, 177, 95, 0.22) 1px, transparent 1px);
   background-size: 28px 28px;
   mask-image: linear-gradient(to left, #000, transparent 70%);
 }
 
-.hero .container { position: relative; z-index: 1; }
+.hero .container { position: relative; z-index: 2; }
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-video { display: none; }
+}
 
 .hero-eyebrow {
   margin-bottom: 1rem;

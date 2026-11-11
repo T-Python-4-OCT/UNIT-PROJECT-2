@@ -1,9 +1,13 @@
 
 {% extends "portal/base.html" %}
+{% load static %}
 
 {% block content %}
   <section class="hero cinematic-hero">
-    <div class="hero-atmosphere"></div>
+    <video class="hero-video" autoplay muted loop playsinline preload="auto"
+           poster="{% static 'portal/img/hero-poster.webp' %}" aria-hidden="true">
+      <source src="{% static 'portal/video/hero-riyadh.mp4' %}" type="video/mp4">
+    </video>
 
     <div class="container hero-container">
       <div class="hero-content">
