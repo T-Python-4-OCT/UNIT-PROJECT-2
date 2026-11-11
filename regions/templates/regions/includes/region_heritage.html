@@ -1,0 +1,331 @@
+
+{% load static cloudinary_tags %}
+<section id="history" class="region-heritage scroll-mt-20 overflow-hidden bg-[#F5F0E6] px-6 py-24 text-[#173C30] dark:bg-[#17231D] dark:text-[#F5F0E6] md:py-32">
+
+   
+
+    <div class="mx-auto max-w-7xl">
+
+        <div class="mb-12 max-w-4xl">
+            <span class="section-eyebrow text-[var(--primary)] dark:text-[var(--accent)]">
+                تراث الأرض
+            </span>
+
+            <h2 class="editorial-heading mt-6 text-4xl font-bold leading-tight md:text-6xl">
+                لكل موسم أثر،
+                <span class="block text-[#66876A] dark:text-[#C6A46C]">
+                    ولكل أرض ذاكرة.
+                </span>
+            </h2>
+
+            <p class="mt-6 max-w-2xl text-lg leading-9 text-[#56685D] dark:text-[#C1D0C4]">
+                تعرّف على تاريخ {{ region.name }} الزراعي، ومواسمها،
+                وما يرتبط بخيراتها من أسواق وفعاليات.
+            </p>
+        </div>
+
+        <div
+            class="mb-8 grid grid-cols-3 gap-3"
+            role="tablist"
+            aria-label="استكشف تراث {{ region.name }}"
+        >
+            <button
+                id="heritage-tab-history"
+                type="button"
+                role="tab"
+                aria-selected="true"
+                aria-controls="heritage-panel-history"
+                data-heritage-tab="history"
+                class="heritage-tab rounded-2xl border border-[#173C30]/10 bg-white px-3 py-5 text-sm font-bold dark:border-white/10 dark:bg-[#26382E] md:text-lg"
+            >
+                الحكاية
+            </button>
+
+            <button
+                id="heritage-tab-seasons"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="heritage-panel-seasons"
+                data-heritage-tab="seasons"
+                class="heritage-tab rounded-2xl border border-[#173C30]/10 bg-white px-3 py-5 text-sm font-bold dark:border-white/10 dark:bg-[#26382E] md:text-lg"
+            >
+                المواسم
+            </button>
+
+            <button
+                id="heritage-tab-events"
+                type="button"
+                role="tab"
+                aria-selected="false"
+                aria-controls="heritage-panel-events"
+                data-heritage-tab="events"
+                class="heritage-tab rounded-2xl border border-[#173C30]/10 bg-white px-3 py-5 text-sm font-bold dark:border-white/10 dark:bg-[#26382E] md:text-lg"
+            >
+                الأسواق والفعاليات
+            </button>
+        </div>
+
+        <div class="overflow-hidden rounded-[2rem] border border-[#173C30]/10 bg-white shadow-xl dark:border-white/10 dark:bg-[#26382E]">
+
+            <div
+                id="heritage-panel-history"
+                class="heritage-panel"
+                role="tabpanel"
+                aria-labelledby="heritage-tab-history"
+                data-heritage-panel="history"
+            >
+                <div class="grid lg:grid-cols-2">
+
+                    <div class="flex flex-col justify-center p-7 md:p-12">
+                        <span class="text-sm font-bold text-[var(--primary)] dark:text-[var(--accent)]">
+                            01 / جذور المنطقة
+                        </span>
+
+                        <h3 class="mt-5 text-3xl font-bold leading-relaxed md:text-4xl">
+                            حكاية {{ region.name }} الزراعية
+                        </h3>
+
+                        <p class="mt-7 text-lg leading-10 text-[#56685D] dark:text-[#C1D0C4]">
+                            {{ region.history }}
+                        </p>
+
+                        <div class="mt-9 flex items-center gap-4 border-t border-[#173C30]/10 pt-6 dark:border-white/15">
+                            <span class="flex h-12 w-12 items-center justify-center rounded-full bg-[#E5EBD9] text-2xl dark:bg-[#354A3A]">
+                                🌱
+                            </span>
+
+                            <div>
+                                <span class="block text-sm text-[#66876A] dark:text-[#AFC7AD]">
+                                    من تراث المنطقة
+                                </span>
+
+                                <strong class="mt-1 block text-lg text-[var(--primary)] dark:text-[var(--accent)]">
+                                    {{ region.featured_crop }}
+                                </strong>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="relative min-h-[320px] overflow-hidden lg:min-h-[500px]">
+                        <img
+                            src="{{ region.hero_image|cloudinary_image }}"
+                            alt="الطبيعة الزراعية في {{ region.name }}"
+                            class="absolute inset-0 h-full w-full object-cover"
+                            loading="lazy"
+                        >
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#10291F]/80 via-transparent to-transparent"></div>
+
+                        <div class="absolute bottom-8 right-8 left-8 text-white">
+                            <span class="text-xs font-bold tracking-wider text-[#E5D2A7]">
+                                ARDNA / HERITAGE
+                            </span>
+
+                            <p class="mt-3 text-4xl font-black">
+                                {{ region.name }}
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+            <div
+                id="heritage-panel-seasons"
+                class="heritage-panel"
+                role="tabpanel"
+                aria-labelledby="heritage-tab-seasons"
+                data-heritage-panel="seasons"
+                hidden
+            >
+                <div class="grid lg:grid-cols-2">
+
+                    <div class="flex flex-col justify-center p-7 md:p-12">
+                        <span class="text-sm font-bold text-[var(--primary)] dark:text-[var(--accent)]">
+                            02 / مواسم الأرض
+                        </span>
+
+                        <h3 class="mt-5 text-3xl font-bold leading-relaxed md:text-4xl">
+                            لكل محصول وقته
+                        </h3>
+
+                        <p class="mt-7 text-lg leading-10 text-[#56685D] dark:text-[#C1D0C4]">
+                            {{ region.seasons }}
+                        </p>
+
+                        <div class="mt-10 rounded-2xl bg-[#F5F0E6] p-6 dark:bg-[#1C2C23]">
+                            <p class="text-sm font-bold text-[var(--primary)] dark:text-[var(--accent)]">
+                                دورة المحصول
+                            </p>
+
+                            <div class="mt-5 grid grid-cols-3 gap-2 text-center">
+                                <div class="rounded-xl bg-white p-3 dark:bg-[#304537]">
+                                    <span class="block text-3xl">🌱</span>
+                                    <span class="mt-2 block text-sm font-semibold">زراعة</span>
+                                </div>
+
+                                <div class="rounded-xl bg-white p-3 dark:bg-[#304537]">
+                                    <span class="block text-3xl">🌿</span>
+                                    <span class="mt-2 block text-sm font-semibold">نمو</span>
+                                </div>
+
+                                <div class="rounded-xl bg-white p-3 dark:bg-[#304537]">
+                                    <span class="block text-3xl">🌾</span>
+                                    <span class="mt-2 block text-sm font-semibold">إنتاج</span>
+                                </div>
+                            </div>
+
+                            <p class="mt-4 text-xs leading-6 text-[#66876A] dark:text-[#AFC7AD]">
+                                رسم توضيحي عام لدورة الإنتاج؛ تختلف التفاصيل والمواعيد حسب المحصول.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="heritage-visual flex min-h-[340px] items-center justify-center p-7 lg:min-h-[500px]">
+                        <svg viewBox="0 0 420 360" class="w-full max-w-[420px]" role="img" aria-label="رسم زخرفي لنمو النبات ودورة المواسم">
+                            <circle cx="210" cy="175" r="126" fill="none" stroke="#FFFFFF" stroke-opacity=".55" stroke-width="2" stroke-dasharray="9 12"/>
+
+                            <g class="heritage-orbit">
+                                <circle cx="210" cy="49" r="17" fill="#D9B26D"/>
+                                <circle cx="336" cy="175" r="17" fill="#7DAC82"/>
+                                <circle cx="210" cy="301" r="17" fill="#C68B62"/>
+                                <circle cx="84" cy="175" r="17" fill="#8FB2B5"/>
+                            </g>
+
+                            <path d="M210 280 V125" stroke="#386D44" stroke-width="12" stroke-linecap="round"/>
+
+                            <g class="heritage-leaf">
+                                <path d="M210 225 Q117 136 75 182 Q98 250 210 225Z" fill="#4F9B5A"/>
+                                <path d="M210 188 Q302 102 351 153 Q320 223 210 188Z" fill="#63AD6A"/>
+                                <path d="M210 148 Q172 70 128 88 Q139 141 210 166Z" fill="#438951"/>
+                            </g>
+
+                            <circle cx="210" cy="118" r="28" fill="#C6A46C"/>
+                            <circle cx="184" cy="139" r="22" fill="#DBB977"/>
+                            <circle cx="239" cy="140" r="22" fill="#E1C48C"/>
+
+                            <path d="M130 292 Q210 309 290 292" fill="none" stroke="#6B8B55" stroke-width="8" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+
+                </div>
+            </div>
+
+            <div
+                id="heritage-panel-events"
+                class="heritage-panel"
+                role="tabpanel"
+                aria-labelledby="heritage-tab-events"
+                data-heritage-panel="events"
+                hidden
+            >
+                <div class="grid lg:grid-cols-2">
+
+                    <div class="flex flex-col justify-center p-7 md:p-12">
+                        <span class="text-sm font-bold text-[var(--primary)] dark:text-[var(--accent)]">
+                            03 / من الأرض إلى المجتمع
+                        </span>
+
+                        {% if region.slug == 'al-ahsa' %}
+                            <h3 class="mt-5 text-3xl font-bold">موسم صرام الأحساء</h3>
+                            <p class="mt-6 text-lg leading-9 text-[#56685D] dark:text-[#C1D0C4]">
+                                يرتبط موسم صرام النخيل بجني التمور وتسويقها،
+                                وتلتقي فيه خبرة المزارعين بخيرات واحة الأحساء.
+                            </p>
+                            <a href="https://ncpd.gov.sa/index.php/ar/news/118" target="_blank" rel="noopener noreferrer" class="mt-7 inline-block font-bold text-[var(--primary)] underline underline-offset-4 dark:text-[var(--accent)]">
+                                تعرّف على مواسم التمور ↗
+                            </a>
+
+                        {% elif region.slug == 'taif' %}
+                            <h3 class="mt-5 text-3xl font-bold">الورد الطائفي ومواسمه</h3>
+                            <p class="mt-6 text-lg leading-9 text-[#56685D] dark:text-[#C1D0C4]">
+                                يشتهر الورد الطائفي بموسم قطفه وصناعة ماء الورد والعطور،
+                                وترتبط به أنشطة ومهرجانات تحتفي بالمزارعين والمنتجات المحلية.
+                            </p>
+                            <p class="mt-6 text-sm text-[#66876A] dark:text-[#AFC7AD]">
+                                تُعلن مواعيد المهرجانات من الجهات المنظمة لكل نسخة.
+                            </p>
+
+                        {% elif region.slug == 'al-qassim' %}
+                            <h3 class="mt-5 text-3xl font-bold">كرنفال بريدة للتمور</h3>
+                            <p class="mt-6 text-lg leading-9 text-[#56685D] dark:text-[#C1D0C4]">
+                                يجمع كرنفال بريدة المزارعين والتجار والزوار،
+                                ويبرز تنوع أصناف التمور ومنتجاتها، إلى جانب الأنشطة الثقافية والتراثية.
+                            </p>
+                            <a href="https://www.buraydahcarnival.com/ar" target="_blank" rel="noopener noreferrer" class="mt-7 inline-block font-bold text-[var(--primary)] underline underline-offset-4 dark:text-[var(--accent)]">
+                                موقع كرنفال بريدة ↗
+                            </a>
+
+                        {% elif region.slug == 'al-jouf' %}
+                            <h3 class="mt-5 text-3xl font-bold">مهرجان زيتون الجوف الدولي</h3>
+                            <p class="mt-6 text-lg leading-9 text-[#56685D] dark:text-[#C1D0C4]">
+                                يحتفي المهرجان بزيتون الجوف وزيته ومنتجاته،
+                                ويضم معارض وأنشطة تراثية ومشاركات للمزارعين والأسر المنتجة.
+                            </p>
+                            <a href="https://www.spa.gov.sa/N2487352" target="_blank" rel="noopener noreferrer" class="mt-7 inline-block font-bold text-[var(--primary)] underline underline-offset-4 dark:text-[var(--accent)]">
+                                اقرأ عن مهرجان الجوف ↗
+                            </a>
+
+                        {% elif region.slug == 'abha' %}
+                            <h3 class="mt-5 text-3xl font-bold">الزهور والمنتجات المحلية</h3>
+                            <p class="mt-6 text-lg leading-9 text-[#56685D] dark:text-[#C1D0C4]">
+                                تتميز أبها بأشجار الجاكرندا ومشاهدها الربيعية،
+                                بينما تتنوع المنتجات الزراعية في مرتفعات عسير
+                                بحسب المناخ والتضاريس.
+                            </p>
+                            <p class="mt-6 text-sm text-[#66876A] dark:text-[#AFC7AD]">
+                                يمكن متابعة إعلانات الأسواق والمعارض المحلية لمعرفة فعاليات كل موسم.
+                            </p>
+                        {% endif %}
+
+                        <div class="mt-9 rounded-2xl border-r-4 border-[var(--accent)] bg-[#F5F0E6] p-5 dark:bg-[#1C2C23]">
+                            <p class="text-sm leading-8 text-[#56685D] dark:text-[#C1D0C4]">
+                                هذه معلومات تعريفية عن المواسم والفعاليات،
+                                وليست جدولًا للمواعيد الحالية.
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="relative min-h-[320px] overflow-hidden lg:min-h-[500px]">
+                        <img
+                            src="{{ region.hero_image|cloudinary_image }}"
+                            alt="المنتجات الزراعية في {{ region.name }}"
+                            class="absolute inset-0 h-full w-full object-cover"
+                            loading="lazy"
+                        >
+
+                        <div class="absolute inset-0 bg-gradient-to-t from-[#10291F]/90 via-[#10291F]/20 to-transparent"></div>
+
+                        <div class="absolute bottom-8 right-8 left-8 text-white">
+                            <span class="text-xs font-bold text-[#E5D2A7]">
+                                AGRICULTURE & CULTURE
+                            </span>
+                            <p class="mt-3 text-3xl font-bold md:text-4xl">
+                                أرض تجمعنا
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-8 flex flex-wrap items-center justify-between gap-4">
+            <span class="text-sm text-[#66876A] dark:text-[#AFC7AD]">
+                اكتشف المزيد من حكاية {{ region.name }}
+            </span>
+
+            <button
+                type="button"
+                id="heritage-next"
+                class="rounded-full bg-[var(--primary)] px-7 py-3 font-bold text-white transition hover:brightness-110"
+            >
+                التالي: المواسم ←
+            </button>
+        </div>
+
+    </div>
+</section>
+
+<script src="{% static 'regions/js/components/region_heritage.js' %}"></script>

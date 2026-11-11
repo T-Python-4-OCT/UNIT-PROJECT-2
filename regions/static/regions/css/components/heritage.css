@@ -1,0 +1,65 @@
+
+        .region-heritage .heritage-tab {
+            transition: background .3s ease, color .3s ease, transform .3s ease;
+        }
+
+        .region-heritage .heritage-tab[aria-selected="true"] {
+            background: var(--primary);
+            color: #fff;
+            transform: translateY(-3px);
+        }
+
+        .region-heritage .heritage-panel[hidden] {
+            display: none;
+        }
+
+        .region-heritage .heritage-panel {
+            animation: heritageEnter .55s ease both;
+        }
+
+        .region-heritage .heritage-visual {
+            background: linear-gradient(135deg, #DBE6CD, #B4CAB0);
+        }
+
+        .dark .region-heritage .heritage-visual {
+            background: linear-gradient(135deg, #314A3B, #23392D);
+        }
+
+        .region-heritage .heritage-leaf {
+            transform-origin: center bottom;
+            animation: heritageSway 5s ease-in-out infinite alternate;
+        }
+
+        .region-heritage .heritage-orbit {
+            animation: heritageRotate 24s linear infinite;
+            transform-origin: center;
+        }
+
+        @keyframes heritageEnter {
+            from {
+                opacity: 0;
+                transform: translateY(24px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heritageSway {
+            from { transform: rotate(-4deg); }
+            to { transform: rotate(4deg); }
+        }
+
+        @keyframes heritageRotate {
+            to { transform: rotate(360deg); }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            .region-heritage *,
+            .region-heritage *::before,
+            .region-heritage *::after {
+                animation: none !important;
+                transition: none !important;
+            }
+        }

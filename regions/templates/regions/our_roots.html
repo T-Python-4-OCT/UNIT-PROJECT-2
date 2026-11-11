@@ -1,0 +1,263 @@
+
+{% extends 'regions/base.html' %}
+{% load static cloudinary_tags %}
+
+{% block content %}
+<link rel="stylesheet" href="{% static 'regions/css/pages/our_roots.css' %}">
+
+<main class="roots-page" dir="rtl" id="roots-top">
+    <section class="roots-hero" aria-labelledby="roots-hero-title">
+        <div class="roots-hero-image" style="background-image: url('{{ 'farm-sunset.png'|cloudinary_image }}')"></div>
+        <div class="roots-hero-shade"></div>
+        <div class="roots-container roots-hero-content">
+            <span class="roots-eyebrow roots-hero-eyebrow">أرضنا | حكاية من عنيكر</span>
+            <h1 id="roots-hero-title">مزرعتنا... <span>حكاية إنسان وأرض</span></h1>
+            <p>قبل أن تُثمر الأشجار، كانت هناك رؤية. رحلة بدأت بشغف الوالد محمد مصطفى الحسني، وتحولت على مدى خمسة وعشرين عامًا إلى أرض تنبض بالحياة.</p>
+            <a class="roots-button roots-button-white" href="#father-story">اكتشف الحكاية <span aria-hidden="true">↓</span></a>
+        </div>
+        <div class="roots-hero-foot">القنفذة · قرية عنيكر</div>
+    </section>
+
+    <section class="roots-section roots-father-section" id="father-story" aria-labelledby="father-title">
+        <div class="roots-container roots-father-layout">
+            <div class="roots-father-photo" data-roots-reveal>
+                <img src="{{ 'father-vision.png'|cloudinary_image }}" alt="الوالد محمد مصطفى الحسني يتأمل مزرعة المانجو" loading="lazy">
+                <span class="roots-photo-caption">نظرة الوالد إلى الأرض التي أحبها</span>
+            </div>
+            <div class="roots-father-copy" data-roots-reveal>
+                <span class="roots-eyebrow">البداية كانت حلمًا</span>
+                <h2 id="father-title">رؤية الوالد <span>محمد مصطفى الحسني</span></h2>
+                <div class="roots-father-role">معلم متقاعد · شغوف بالزراعة منذ القدم</div>
+                <p>لم يرَ الوالد في هذه الأرض مجرد مساحة قاحلة، بل رأى فيها مستقبلًا أخضر. ومن شغفه القديم بالزراعة، بدأ يزرع ويعتني ويصبر، حتى أصبحت الأرض جزءًا من حكاية العائلة.</p>
+                <p>على مدى خمسة وعشرين عامًا، تغيّر المشهد شيئًا فشيئًا؛ نمت الأشجار، وأثمر المانجو والليمون، وتفتحت الأزهار، ووجدت الطيور في الأغصان موطنًا لها.</p>
+                <blockquote class="roots-father-quote">«من أرضٍ صامتة... إلى حياةٍ تنمو كل يوم.»</blockquote>
+                <div class="roots-alqatt" aria-label="زخرفة مستوحاة من فن القط العسيري" role="img">
+                    <i></i><i></i><i></i><i></i>
+                    <i></i><i></i><i></i><i></i>
+                    <i></i><i></i><i></i><i></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="roots-section roots-journey-section" id="farm-journey" aria-labelledby="journey-title">
+        <div class="roots-container">
+            <div class="roots-section-heading" data-roots-reveal>
+                <span class="roots-eyebrow">25 عامًا من العناية والصبر</span>
+                <h2 id="journey-title">من أرض قاحلة إلى <span>أرض تنبض بالحياة</span></h2>
+                <p>اضغط على إحدى المراحل لتشاهد كيف تغيّر المشهد، خطوة بعد خطوة.</p>
+            </div>
+
+            <div class="roots-journey" data-roots-reveal>
+                <div class="roots-journey-view" id="roots-journey-view" aria-live="polite">
+                    <img
+                        class="roots-journey-photo is-current"
+                        id="roots-journey-current"
+                        src="{{ 'farm-before.png'|cloudinary_image }}"
+                        alt="الأرض قبل الزراعة: تربة جافة وشجيرات قليلة وتل رملي في الخلفية"
+                    >
+                    <img class="roots-journey-photo" id="roots-journey-next" alt="" aria-hidden="true">
+                    <span class="roots-journey-stamp" id="roots-journey-stamp">البداية</span>
+                    <span class="roots-journey-counter" id="roots-journey-counter">01 / 03</span>
+                </div>
+
+                <div class="roots-journey-panel">
+                    <span class="roots-eyebrow">رحلة الأرض</span>
+                    <h3 id="roots-journey-stage-title">حين كانت الأرض تنتظر</h3>
+                    <p id="roots-journey-stage-description">أرض شبه قاحلة، لا يكسوها إلا القليل من النباتات الطبيعية. هنا بدأت الرؤية الأولى.</p>
+
+                    <div class="roots-journey-options" role="group" aria-label="اختر مرحلة تطور المزرعة">
+                        <button type="button" class="roots-stage is-active" data-stage="0" aria-pressed="true">
+                            <span class="roots-stage-number">01</span>
+                            <span>
+                                <strong>البداية</strong>
+                                <small>أرض قاحلة</small>
+                            </span>
+                        </button>
+
+                        <button type="button" class="roots-stage" data-stage="1" aria-pressed="false">
+                            <span class="roots-stage-number">02</span>
+                            <span>
+                                <strong>التحوّل</strong>
+                                <small>البذور الأولى</small>
+                            </span>
+                        </button>
+
+                        <button type="button" class="roots-stage" data-stage="2" aria-pressed="false">
+                            <span class="roots-stage-number">03</span>
+                            <span>
+                                <strong>الحاضر</strong>
+                                <small>أرض تنبض بالحياة</small>
+                            </span>
+                        </button>
+                    </div>
+
+                    <div class="roots-journey-navigation">
+                        <button type="button" id="roots-journey-prev" aria-label="المرحلة السابقة">→</button>
+                        <button type="button" id="roots-journey-next-button" aria-label="المرحلة التالية">←</button>
+                    </div>
+
+                    <p class="roots-journey-note">الصور تصوّر المراحل فنيًا، وليست صورًا تاريخية موثّقة.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="roots-section roots-crops-section" id="farm-crops" aria-labelledby="crops-title">
+        <div class="roots-container">
+            <div class="roots-section-heading" data-roots-reveal>
+                <span class="roots-eyebrow">ثمار الأرض</span>
+                <h2 id="crops-title">من رعاية الوالد... <span>إلى ثمار المزرعة</span></h2>
+                <p>المانجو والليمون من ثمار الأرض التي تغيّرت بالعناية والزراعة.</p>
+            </div>
+
+            <div class="roots-crop-grid">
+                <article class="roots-crop-card" data-roots-reveal>
+                    <img src="{{ 'farm-mango.png'|cloudinary_image }}" alt="أشجار المانجو في المزرعة" loading="lazy">
+                    <div>
+                        <span>01 · من أشجارنا</span>
+                        <h3>المانجو</h3>
+                        <p>أغصان مورقة وثمار تُجسّد سنوات من الصبر والاهتمام.</p>
+                    </div>
+                </article>
+
+                <article class="roots-crop-card" data-roots-reveal>
+                    <img src="{{ 'farm-lemon.png'|cloudinary_image }}" alt="أوراق وأزهار الليمون في المزرعة" loading="lazy">
+                    <div>
+                        <span>02 · من أشجارنا</span>
+                        <h3>الليمون</h3>
+                        <p>أوراق خضراء، وأزهار صغيرة، وثمر يضيف للمزرعة نكهته الخاصة.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="roots-section roots-gallery-section" id="farm-gallery" aria-labelledby="gallery-title">
+        <div class="roots-container">
+            <div class="roots-section-heading" data-roots-reveal>
+                <span class="roots-eyebrow">لحظات حقيقية من مزرعتنا</span>
+                <h2 id="gallery-title">مشاهد من <span>المزرعة</span></h2>
+                <p>صور من مزرعتنا تحكي تفاصيلها من الزهور إلى الغروب.</p>
+            </div>
+
+            <div class="roots-photo-grid">
+                <button
+                    type="button"
+                    class="roots-gallery-item roots-gallery-wide"
+                    data-lightbox-src="{{ 'farm-sunset.png'|cloudinary_image }}"
+                    data-lightbox-alt="غروب الشمس بين أشجار المزرعة"
+                >
+                    <img src="{{ 'farm-sunset.png'|cloudinary_image }}" alt="غروب الشمس بين أشجار المزرعة" loading="lazy">
+                    <span>غروب المزرعة</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="roots-gallery-item"
+                    data-lightbox-src="{{ 'farm-flowers.png'|cloudinary_image }}"
+                    data-lightbox-alt="أزهار بنفسجية من المزرعة"
+                >
+                    <img src="{{ 'farm-flowers.png'|cloudinary_image }}" alt="أزهار بنفسجية من المزرعة" loading="lazy">
+                    <span>أزهارنا</span>
+                </button>
+
+                <button
+                    type="button"
+                    class="roots-gallery-item"
+                    data-lightbox-src="{{ 'farm-mango.png'|cloudinary_image }}"
+                    data-lightbox-alt="شجر المانجو في مزرعتنا"
+                >
+                    <img src="{{ 'farm-mango.png'|cloudinary_image }}" alt="شجر المانجو في مزرعتنا" loading="lazy">
+                    <span>أشجار المانجو</span>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <section class="roots-section roots-flowers-section" id="farm-flowers" aria-labelledby="flowers-title">
+        <div class="roots-container">
+            <div class="roots-section-heading" data-roots-reveal>
+                <span class="roots-eyebrow">وفي نهاية الرحلة... تزهر الحكاية</span>
+                <h2 id="flowers-title">حديقة <span>الألوان والورود</span></h2>
+                <p>معرض تفاعلي للأزهار والنباتات التي اخترناها لهذا القسم. انقر على أي صورة لتكبيرها.</p>
+            </div>
+
+            <div class="roots-flower-grid">
+                <button type="button" class="roots-flower-card" data-lightbox-src="{{ 'african-tulip.avif'|cloudinary_image }}" data-lightbox-alt="التوليب الأفريقي">
+                    <img src="{{ 'african-tulip.avif'|cloudinary_image }}" alt="التوليب الأفريقي" loading="lazy">
+                    <span>التوليب الأفريقي</span>
+                </button>
+
+                <button type="button" class="roots-flower-card" data-lightbox-src="{{ 'arabian-jasmine.avif'|cloudinary_image }}" data-lightbox-alt="الفل العربي">
+                    <img src="{{ 'arabian-jasmine.avif'|cloudinary_image }}" alt="الفل العربي" loading="lazy">
+                    <span>الفل العربي</span>
+                </button>
+
+                <button type="button" class="roots-flower-card" data-lightbox-src="{{ 'bougainvillea.avif'|cloudinary_image }}" data-lightbox-alt="الجهنمية">
+                    <img src="{{ 'bougainvillea.avif'|cloudinary_image }}" alt="الجهنمية" loading="lazy">
+                    <span>الجهنمية</span>
+                </button>
+
+                <button type="button" class="roots-flower-card" data-lightbox-src="{{ 'damask-rose.avif'|cloudinary_image }}" data-lightbox-alt="الورد الجوري">
+                    <img src="{{ 'damask-rose.avif'|cloudinary_image }}" alt="الورد الجوري" loading="lazy">
+                    <span>الورد الجوري</span>
+                </button>
+
+                <button type="button" class="roots-flower-card" data-lightbox-src="{{ 'day-blooming-cestrum.avif'|cloudinary_image }}" data-lightbox-alt="ملكة النهار">
+                    <img src="{{ 'day-blooming-cestrum.avif'|cloudinary_image }}" alt="ملكة النهار" loading="lazy">
+                    <span>ملكة النهار</span>
+                </button>
+
+                <button type="button" class="roots-flower-card" data-lightbox-src="{{ 'hibiscus.avif'|cloudinary_image }}" data-lightbox-alt="الكركديه">
+                    <img src="{{ 'hibiscus.avif'|cloudinary_image }}" alt="الكركديه" loading="lazy">
+                    <span>الكركديه</span>
+                </button>
+
+                <button type="button" class="roots-flower-card" data-lightbox-src="{{ 'jasmine.avif'|cloudinary_image }}" data-lightbox-alt="الياسمين">
+                    <img src="{{ 'jasmine.avif'|cloudinary_image }}" alt="الياسمين" loading="lazy">
+                    <span>الياسمين</span>
+                </button>
+
+                <button type="button" class="roots-flower-card" data-lightbox-src="{{ 'kaf-maryam.avif'|cloudinary_image }}" data-lightbox-alt="كف مريم">
+                    <img src="{{ 'kaf-maryam.avif'|cloudinary_image }}" alt="كف مريم" loading="lazy">
+                    <span>كف مريم</span>
+                </button>
+
+                <button type="button" class="roots-flower-card" data-lightbox-src="{{ 'lantana.avif'|cloudinary_image }}" data-lightbox-alt="اللانتانا">
+                    <img src="{{ 'lantana.avif'|cloudinary_image }}" alt="اللانتانا" loading="lazy">
+                    <span>اللانتانا</span>
+                </button>
+
+                <button type="button" class="roots-flower-card" data-lightbox-src="{{ 'morning-glory.avif'|cloudinary_image }}" data-lightbox-alt="ورد الصباح">
+                    <img src="{{ 'morning-glory.avif'|cloudinary_image }}" alt="ورد الصباح" loading="lazy">
+                    <span>ورد الصباح</span>
+                </button>
+
+                <button type="button" class="roots-flower-card" data-lightbox-src="{{ 'plumeria.avif'|cloudinary_image }}" data-lightbox-alt="البلوميريا">
+                    <img src="{{ 'plumeria.avif'|cloudinary_image }}" alt="البلوميريا" loading="lazy">
+                    <span>البلوميريا</span>
+                </button>
+            </div>
+
+            <p class="roots-flowers-note">صور الأزهار المرجعية للتعريف بالأنواع؛ أما صور المزرعة الحقيقية فمعروضة في القسم السابق.</p>
+        </div>
+    </section>
+
+    <footer class="roots-ending">
+        <div class="roots-container">
+            <span>من حلم الوالد إلى حياة الأرض</span>
+            <h2>ما زالت حكاية الأرض تنمو.</h2>
+            <a href="#roots-top">العودة إلى البداية ↑</a>
+        </div>
+    </footer>
+</main>
+
+<div class="roots-lightbox" id="roots-lightbox" role="dialog" aria-modal="true" aria-label="عرض الصورة" aria-hidden="true" hidden>
+    <button type="button" id="roots-lightbox-close" class="roots-lightbox-close" aria-label="إغلاق الصورة">×</button>
+    <img id="roots-lightbox-image" alt="">
+    <p id="roots-lightbox-caption"></p>
+</div>
+
+<script src="{% static 'regions/js/our_roots.js' %}" defer></script>
+{% endblock %}

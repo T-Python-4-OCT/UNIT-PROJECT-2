@@ -1,0 +1,71 @@
+
+{% if region.links %}
+<section id="region-links" class="relative z-10 px-6 py-20 md:py-28">
+    <div class="mx-auto max-w-7xl">
+        <div class="mb-12 text-center">
+            <p class="mb-4 text-sm font-bold tracking-widest text-[#66876A] dark:text-[#C6A46C]">
+                اكتشف المزيد
+            </p>
+
+            <h2 class="mb-5 text-3xl font-bold md:text-5xl">
+                حكاية تستحق الاستكشاف
+            </h2>
+
+            <p class="mx-auto max-w-2xl text-base leading-8 text-[#66876A] dark:text-[#B4C8B6]">
+                اكتشف المزيد عن {{ region.name }} من خلال مصادر موثوقة
+                تتناول تراثها الزراعي وطبيعتها وفعالياتها.
+            </p>
+        </div>
+
+        <div class="grid gap-6 md:grid-cols-2">
+            {% for link in region.links %}
+            <a
+                href="{{ link.url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="region-resource-card group relative flex min-h-64 flex-col justify-between overflow-hidden rounded-3xl border border-[#173C30]/10 bg-white/70 p-8 shadow-sm transition-colors dark:border-white/10 dark:bg-white/5"
+                aria-label="{{ link.title }} - يفتح في نافذة جديدة"
+            >
+                <div class="relative z-10">
+                    <span class="mb-6 inline-flex rounded-full border border-[#66876A]/20 bg-[#66876A]/10 px-4 py-2 text-xs font-bold text-[#356B4E] dark:border-[#C6A46C]/20 dark:bg-[#C6A46C]/10 dark:text-[#E8D3A9]">
+                        {{ link.category }}
+                    </span>
+
+                    <h3 class="mb-4 text-xl font-bold leading-relaxed md:text-2xl">
+                        {{ link.title }}
+                    </h3>
+
+                    <p class="max-w-md text-sm leading-8 text-[#66876A] dark:text-[#B4C8B6]">
+                        {{ link.description }}
+                    </p>
+                </div>
+
+                <div class="relative z-10 mt-8 flex items-center justify-between">
+                    <span class="text-sm font-bold">
+                        استكشف المصدر
+                    </span>
+
+                    <span class="region-resource-arrow flex h-11 w-11 items-center justify-center rounded-full border border-current/15">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="20"
+                            height="20"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="1.8"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            aria-hidden="true"
+                        >
+                            <path d="M7 17 17 7" />
+                            <path d="M8 7h9v9" />
+                        </svg>
+                    </span>
+                </div>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% endif %}

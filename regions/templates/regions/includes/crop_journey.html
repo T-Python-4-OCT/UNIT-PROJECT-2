@@ -1,0 +1,218 @@
+
+{% load static cloudinary_tags %}
+
+<section
+    id="journey"
+    class="crop-journey scroll-mt-20 overflow-hidden bg-[#F5F0E6] px-6 py-24 dark:bg-[#17231D] md:py-32"
+    data-region="{{ region.slug }}"
+>
+    <div class="mx-auto max-w-7xl">
+
+        <div class="mb-14 max-w-4xl">
+            <span class="section-eyebrow text-[var(--primary)] dark:text-[var(--accent)]">
+                من الأرض إلى الحياة
+            </span>
+
+            <h2 class="editorial-heading mt-6 text-4xl font-bold text-[#173C30] dark:text-[#F5F0E6] md:text-6xl">
+                {{ region.journey_title }}
+            </h2>
+
+            <p class="mt-6 max-w-2xl text-lg leading-9 text-[#56685D] dark:text-[#C1D0C4]">
+                اكتشف مراحل الرحلة الزراعية في {{ region.name }}،
+                وتنقل بينها لتتعرف على أسرار هذا المحصول.
+            </p>
+        </div>
+
+        <div class="grid items-stretch gap-8 lg:grid-cols-2">
+
+            <div class="journey-visual relative overflow-hidden rounded-[2rem] shadow-xl">
+
+                <div class="journey-visual-pattern" aria-hidden="true"></div>
+                <div class="journey-visual-glow" aria-hidden="true"></div>
+
+                <div class="journey-visual-top">
+                    <span class="journey-visual-brand">
+                        أرضنا <span>ARDNA</span>
+                    </span>
+
+                    <span class="journey-visual-region">
+                        {{ region.name }}
+                    </span>
+                </div>
+
+                <div class="journey-visual-content">
+                    <span class="journey-visual-eyebrow">
+                        رحلة من أرض المملكة
+                    </span>
+
+                    <p class="journey-visual-crop">
+                        {{ region.featured_crop }}
+                    </p>
+
+                    <div class="journey-visual-stages" aria-live="off">
+                        {% for step in region.journey %}
+                        <div
+                            class="journey-visual-stage {% if forloop.first %}is-active{% endif %}"
+                            data-journey-visual="{{ forloop.counter0 }}"
+                            {% if not forloop.first %}hidden{% endif %}
+                        >
+                            {% if step.image %}
+                            <img
+                                src="{{ step.image|cloudinary_image }}"
+                                alt="{{ step.title }} في {{ region.name }}"
+                                class="journey-stage-image"
+                                loading="lazy"
+                            />
+                            {% else %}
+                            <span class="journey-stage-number" aria-hidden="true">
+                                {{ forloop.counter|stringformat:"02d" }}
+                            </span>
+                            {% endif %}
+
+                            <div class="journey-stage-caption">
+                                <span class="journey-stage-caption-label">
+                                    المرحلة {{ forloop.counter }}
+                                </span>
+
+                                <h3 class="journey-stage-visual-title">
+                                    {{ step.title }}
+                                </h3>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+
+                <div class="journey-visual-bottom">
+                    <span>زراعة • نمو • عطاء</span>
+                    <span id="journey-visual-counter">
+                        01 / {{ region.journey|length|stringformat:"02d" }}
+                    </span>
+                </div>
+            </div>
+
+            <div class="journey-details flex flex-col rounded-[2rem] border border-[#173C30]/10 bg-white p-6 shadow-lg dark:border-white/10 dark:bg-[#26382E] md:p-10">
+
+                <div class="mb-8 flex items-center justify-between gap-4">
+                    <div>
+                        <span class="text-sm font-bold text-[var(--primary)] dark:text-[var(--accent)]">
+                            مراحل الرحلة
+                        </span>
+
+                        <p class="mt-2 text-sm text-[#66876A] dark:text-[#C1D0C4]">
+                            اختر المرحلة لاكتشاف تفاصيلها
+                        </p>
+                    </div>
+
+                    <span
+                        id="journey-counter"
+                        class="journey-counter text-sm font-bold text-[#66876A] dark:text-[#C1D0C4]"
+                        aria-live="off"
+                    >
+                        01 / {{ region.journey|length|stringformat:"02d" }}
+                    </span>
+                </div>
+
+                <div
+                    class="journey-stage-list space-y-3"
+                    role="group"
+                    aria-label="مراحل رحلة المحصول"
+                >
+                    {% for step in region.journey %}
+                    <button
+                        type="button"
+                        class="journey-stage flex w-full items-center gap-4 rounded-2xl bg-[#F5F0E6] p-4 text-right text-[#173C30] dark:bg-[#1C2C23] dark:text-[#F5F0E6] md:p-5"
+                        data-journey-index="{{ forloop.counter0 }}"
+                        aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}"
+                    >
+                        <span class="journey-index flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-[#E2EBD9] font-bold text-[#173C30]">
+                            {{ forloop.counter }}
+                        </span>
+
+                        <span class="flex-1 text-base font-bold md:text-lg">
+                            {{ step.title }}
+                        </span>
+
+                        <span class="journey-stage-arrow" aria-hidden="true">
+                            ←
+                        </span>
+                    </button>
+                    {% endfor %}
+                </div>
+
+                <div
+                    class="journey-progress-track mt-8"
+                    role="progressbar"
+                    aria-label="تقدم رحلة المحصول"
+                    aria-valuemin="0"
+                    aria-valuemax="{{ region.journey|length }}"
+                    aria-valuenow="1"
+                >
+                    <div
+                        id="journey-progress"
+                        class="journey-progress"
+                    ></div>
+                </div>
+
+                <div
+                    class="journey-description mt-9 flex-1"
+                    aria-live="polite"
+                    aria-atomic="true"
+                >
+                    {% for step in region.journey %}
+                    <div
+                        class="journey-content {% if not forloop.first %}hidden{% endif %}"
+                        data-journey-content="{{ forloop.counter0 }}"
+                        {% if not forloop.first %}hidden{% endif %}
+                    >
+                        <span class="journey-description-label">
+                            المرحلة {{ forloop.counter }}
+                        </span>
+
+                        <h3 class="mt-3 text-2xl font-bold leading-relaxed text-[#173C30] dark:text-[#F5F0E6]">
+                            {{ step.title }}
+                        </h3>
+
+                        <p class="mt-4 text-lg leading-9 text-[#56685D] dark:text-[#C1D0C4]">
+                            {{ step.description }}
+                        </p>
+                    </div>
+                    {% endfor %}
+                </div>
+
+                <div class="mt-8 flex flex-wrap items-center gap-3">
+                    <button
+                        id="journey-next"
+                        type="button"
+                        class="rounded-full bg-[var(--primary)] px-7 py-3 font-bold text-white transition hover:brightness-110"
+                    >
+                        المرحلة التالية ←
+                    </button>
+
+                    <button
+                        id="journey-prev"
+                        type="button"
+                        class="rounded-full border border-[#173C30]/20 px-6 py-3 font-semibold text-[#173C30] transition hover:bg-[#EAEFE8] disabled:cursor-not-allowed disabled:opacity-40 dark:border-white/20 dark:text-white dark:hover:bg-[#35483B]"
+                        disabled
+                    >
+                        السابقة →
+                    </button>
+
+                    <button
+                        id="journey-reset"
+                        type="button"
+                        class="journey-reset text-sm font-bold text-[#66876A] transition hover:text-[#173C30] dark:text-[#C1D0C4] dark:hover:text-white"
+                    >
+                        ابدأ من جديد
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <p class="mt-8 text-center text-sm text-[#66876A] dark:text-[#AFC7AD]">
+            رحلة تفاعلية تعرض مراحل المحصول في {{ region.name }}.
+        </p>
+    </div>
+</section>
+
+<script src="{% static 'regions/js/components/crop_journey.js' %}"></script>

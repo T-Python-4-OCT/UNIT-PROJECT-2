@@ -1,0 +1,793 @@
+
+.roots-page {
+    --roots-green: #205743;
+    --roots-deep: #112f28;
+    --roots-cream: #f8f5ed;
+    --roots-gold: #e9b747;
+    --roots-ink: #1d312b;
+    --roots-muted: #65746c;
+    --roots-card: #fffefb;
+    background: var(--roots-cream);
+    color: var(--roots-ink);
+    overflow: clip;
+    font-family: 'Tajawal', sans-serif;
+}
+
+.dark .roots-page {
+    --roots-cream: #111e1b;
+    --roots-ink: #e8f1ea;
+    --roots-muted: #acbeb3;
+    --roots-card: #1a2c26;
+}
+
+.roots-page *,
+.roots-page *::before,
+.roots-page *::after {
+    box-sizing: border-box;
+}
+
+.roots-page img {
+    display: block;
+    max-width: 100%;
+}
+
+.roots-page button,
+.roots-page a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.roots-page button {
+    font: inherit;
+    cursor: pointer;
+}
+
+.roots-container {
+    width: min(1160px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+.roots-section {
+    padding: clamp(72px, 9vw, 130px) 0;
+}
+
+.roots-eyebrow {
+    display: inline-block;
+    color: #29845f;
+    font-size: .88rem;
+    font-weight: 800;
+    letter-spacing: .025em;
+    margin-bottom: 17px;
+}
+
+.dark .roots-eyebrow {
+    color: #8fd6b0;
+}
+
+.roots-section-heading {
+    max-width: 700px;
+    margin: 0 auto 42px;
+    text-align: center;
+}
+
+.roots-section-heading h2,
+.roots-father-copy h2 {
+    font-size: clamp(2rem, 4vw, 3.4rem);
+    font-weight: 900;
+    line-height: 1.35;
+    letter-spacing: -.035em;
+}
+
+.roots-section-heading h2 span,
+.roots-father-copy h2 span {
+    color: #29905f;
+}
+
+.roots-section-heading p {
+    margin: 18px auto 0;
+    color: var(--roots-muted);
+    font-size: 1.07rem;
+    line-height: 1.9;
+}
+
+.roots-hero {
+    position: relative;
+    isolation: isolate;
+    min-height: min(850px, 95svh);
+    min-height: max(640px, min(850px, 95svh));
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+.roots-hero-image,
+.roots-hero-shade {
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+}
+
+.roots-hero-image {
+    background-position: center;
+    background-size: cover;
+}
+
+.roots-hero-shade {
+    background:
+        linear-gradient(90deg, rgba(13, 36, 29, .4), rgba(10, 29, 23, .76)),
+        linear-gradient(0deg, rgba(6, 26, 20, .55), transparent 35%);
+}
+
+.roots-hero-content {
+    padding-top: 110px;
+    padding-bottom: 90px;
+}
+
+.roots-hero-eyebrow {
+    color: #ffe6a8;
+}
+
+.roots-hero h1 {
+    max-width: 760px;
+    font-size: clamp(2.9rem, 7vw, 6.5rem);
+    font-weight: 900;
+    line-height: 1.22;
+    letter-spacing: -.06em;
+}
+
+.roots-hero h1 span {
+    color: #f5d88a;
+}
+
+.roots-hero p {
+    max-width: 620px;
+    margin-top: 23px;
+    font-size: clamp(1.06rem, 1.8vw, 1.3rem);
+    line-height: 2;
+    color: #f0f4ef;
+}
+
+.roots-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    padding: 15px 24px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-weight: 800;
+    transition: transform .3s, background .3s;
+}
+
+.roots-button:hover {
+    transform: translateY(-3px);
+}
+
+.roots-button-white {
+    margin-top: 29px;
+    background: white;
+    color: #173f30;
+}
+
+.roots-hero-foot {
+    position: absolute;
+    bottom: 33px;
+    left: max(20px, calc((100vw - 1160px) / 2));
+    font-size: .86rem;
+    color: #f3f4ec;
+}
+
+.roots-father-section {
+    background: var(--roots-cream);
+}
+
+.roots-father-layout {
+    display: grid;
+    grid-template-columns: .94fr 1.06fr;
+    align-items: center;
+    gap: clamp(38px, 6vw, 90px);
+}
+
+.roots-father-photo {
+    min-height: 560px;
+    height: min(670px, 64vw);
+    position: relative;
+    border-radius: 180px 180px 24px 24px;
+    overflow: hidden;
+    box-shadow: 0 28px 55px #00000024;
+}
+
+.roots-father-photo::after {
+    content: '';
+    position: absolute;
+    inset: 65% 0 0;
+    background: linear-gradient(transparent, #071f1a99);
+}
+
+.roots-father-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 43%;
+}
+
+.roots-photo-caption {
+    position: absolute;
+    bottom: 26px;
+    right: 24px;
+    left: 24px;
+    z-index: 1;
+    color: white;
+    font-weight: 800;
+    text-align: center;
+}
+
+.roots-father-copy h2 span {
+    display: block;
+}
+
+.roots-father-role {
+    display: inline-block;
+    margin: 20px 0 16px;
+    color: #a13734;
+    background: #f8e5d9;
+    font-size: .9rem;
+    font-weight: 800;
+    border-radius: 50px;
+    padding: 10px 16px;
+}
+
+.dark .roots-father-role {
+    color: #ffc3aa;
+    background: #542e28;
+}
+
+.roots-father-copy p {
+    font-size: 1.06rem;
+    line-height: 2.15;
+    color: var(--roots-muted);
+    margin: 0 0 18px;
+}
+
+.roots-father-quote {
+    margin: 23px 0 26px;
+    padding: 16px 20px;
+    border-right: 4px solid #cf3b31;
+    font-size: clamp(1.15rem, 2.2vw, 1.5rem);
+    font-weight: 800;
+    line-height: 1.8;
+    color: var(--roots-ink);
+    background: color-mix(in srgb, var(--roots-card) 80%, transparent);
+}
+
+.roots-alqatt {
+    display: flex;
+    overflow: hidden;
+    width: min(360px, 100%);
+    height: 42px;
+    border: 2px solid #1d5e9a;
+    background: #fff;
+}
+
+.roots-alqatt i {
+    flex: 1;
+    border-left: 1px solid #fff;
+    clip-path: polygon(50% 0, 100% 50%, 50% 100%, 0 50%);
+}
+
+.roots-alqatt i:nth-child(4n + 1) {
+    background: #1d5e9a;
+}
+
+.roots-alqatt i:nth-child(4n + 2) {
+    background: #d73e36;
+}
+
+.roots-alqatt i:nth-child(4n + 3) {
+    background: #eebc33;
+}
+
+.roots-alqatt i:nth-child(4n + 4) {
+    background: #2e719c;
+}
+
+.roots-journey-section {
+    background: color-mix(in srgb, var(--roots-card) 45%, var(--roots-cream));
+}
+
+.roots-journey {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 0;
+    border-radius: 30px;
+    background: var(--roots-card);
+    box-shadow: 0 18px 60px #102d2020;
+    overflow: hidden;
+}
+
+.roots-journey-view {
+    position: relative;
+    min-height: 610px;
+    isolation: isolate;
+    background: #d9ded3;
+    overflow: hidden;
+}
+
+.roots-journey-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    opacity: 0;
+    transition: opacity .55s ease;
+}
+
+.roots-journey-photo.is-current,
+.roots-journey-photo.is-visible {
+    opacity: 1;
+}
+
+.roots-journey-photo.is-visible {
+    z-index: 1;
+}
+
+.roots-journey-stamp,
+.roots-journey-counter {
+    position: absolute;
+    z-index: 2;
+    top: 22px;
+    color: #fff;
+    background: #0f3228bc;
+    backdrop-filter: blur(10px);
+    border-radius: 30px;
+    padding: 10px 17px;
+    font-size: .9rem;
+    font-weight: 800;
+}
+
+.roots-journey-stamp {
+    right: 22px;
+}
+
+.roots-journey-counter {
+    left: 22px;
+    direction: ltr;
+}
+
+.roots-journey-panel {
+    padding: clamp(26px, 4vw, 55px);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.roots-journey-panel h3 {
+    font-size: clamp(1.6rem, 2.5vw, 2.4rem);
+    font-weight: 900;
+    line-height: 1.4;
+}
+
+.roots-journey-panel > p:not(.roots-journey-note) {
+    color: var(--roots-muted);
+    line-height: 2;
+    margin: 14px 0 26px;
+    min-height: 85px;
+}
+
+.roots-journey-options {
+    display: grid;
+    gap: 10px;
+}
+
+.roots-stage {
+    display: flex;
+    align-items: center;
+    text-align: right;
+    gap: 17px;
+    padding: 13px 16px;
+    border: 1px solid color-mix(in srgb, var(--roots-muted) 30%, transparent);
+    border-radius: 14px;
+    background: transparent;
+    color: var(--roots-ink);
+    transition: background .25s, border-color .25s, transform .25s;
+}
+
+.roots-stage:hover {
+    transform: translateX(-3px);
+}
+
+.roots-stage.is-active {
+    border-color: #358f65;
+    background: color-mix(in srgb, #2c9d6b 11%, var(--roots-card));
+}
+
+.roots-stage-number {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    border-radius: 13px;
+    background: #e7f1e9;
+    color: #1b5c40;
+    font-weight: 900;
+    direction: ltr;
+}
+
+.roots-stage.is-active .roots-stage-number {
+    color: white;
+    background: #236a4b;
+}
+
+.roots-stage strong,
+.roots-stage small {
+    display: block;
+}
+
+.roots-stage strong {
+    font-size: 1rem;
+}
+
+.roots-stage small {
+    font-size: .84rem;
+    color: var(--roots-muted);
+    margin-top: 3px;
+}
+
+.roots-journey-navigation {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.roots-journey-navigation button {
+    width: 42px;
+    height: 42px;
+    border: 1px solid #b9cec2;
+    border-radius: 50%;
+    color: var(--roots-ink);
+    background: transparent;
+    transition: background .2s;
+}
+
+.roots-journey-navigation button:hover {
+    background: #c9e6d5;
+    color: #164630;
+}
+
+.roots-journey-note {
+    margin-top: 16px;
+    font-size: .78rem;
+    line-height: 1.8;
+    color: var(--roots-muted);
+}
+
+.roots-crop-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+}
+
+.roots-crop-card {
+    overflow: hidden;
+    border-radius: 24px;
+    background: var(--roots-card);
+    box-shadow: 0 8px 34px #0e422016;
+}
+
+.roots-crop-card img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    transition: transform .6s;
+}
+
+.roots-crop-card:hover img {
+    transform: scale(1.045);
+}
+
+.roots-crop-card > div {
+    padding: 25px;
+}
+
+.roots-crop-card > div span {
+    color: #29855d;
+    font-size: .86rem;
+    font-weight: 800;
+}
+
+.roots-crop-card h3 {
+    font-size: 1.8rem;
+    font-weight: 900;
+    margin: 7px 0;
+}
+
+.roots-crop-card p {
+    color: var(--roots-muted);
+    line-height: 1.9;
+}
+
+.roots-gallery-section {
+    background: color-mix(in srgb, var(--roots-card) 40%, var(--roots-cream));
+}
+
+.roots-photo-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-auto-rows: 250px;
+    gap: 17px;
+}
+
+.roots-gallery-item {
+    position: relative;
+    overflow: hidden;
+    display: block;
+    border: 0;
+    border-radius: 20px;
+    padding: 0;
+    text-align: right;
+    background: #163728;
+}
+
+.roots-gallery-item.roots-gallery-wide {
+    grid-column: span 2;
+    grid-row: span 2;
+}
+
+.roots-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease, filter .5s;
+}
+
+.roots-gallery-item::after {
+    content: '';
+    position: absolute;
+    inset: 55% 0 0;
+    background: linear-gradient(transparent, #06190eb3);
+}
+
+.roots-gallery-item:hover img {
+    transform: scale(1.05);
+    filter: saturate(1.1);
+}
+
+.roots-gallery-item span {
+    position: absolute;
+    z-index: 1;
+    right: 22px;
+    bottom: 19px;
+    color: #fff;
+    font-weight: 900;
+    font-size: 1.1rem;
+}
+
+.roots-flowers-section {
+    background: var(--roots-cream);
+}
+
+.roots-flower-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.roots-flower-card {
+    text-align: right;
+    padding: 0;
+    border: 1px solid color-mix(in srgb, var(--roots-muted) 15%, transparent);
+    border-radius: 18px;
+    background: var(--roots-card);
+    overflow: hidden;
+    color: var(--roots-ink);
+    box-shadow: 0 6px 30px #1c3b2610;
+    transition: transform .3s, box-shadow .3s;
+}
+
+.roots-flower-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 14px 36px #1c3b262a;
+}
+
+.roots-flower-card img {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+}
+
+.roots-flower-card span {
+    display: block;
+    font-weight: 800;
+    padding: 17px 14px;
+}
+
+.roots-flowers-note {
+    margin: 26px 0 0;
+    color: var(--roots-muted);
+    font-size: .9rem;
+    text-align: center;
+}
+
+.roots-ending {
+    text-align: center;
+    background: #153a2e;
+    color: white;
+    padding: 72px 20px;
+}
+
+.roots-ending span {
+    color: #e8c575;
+    font-weight: 800;
+}
+
+.roots-ending h2 {
+    font-size: clamp(1.7rem, 4vw, 3rem);
+    font-weight: 900;
+    margin: 14px 0 25px;
+}
+
+.roots-ending a {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 6px;
+}
+
+.roots-modal-open {
+    overflow: hidden;
+}
+
+.roots-lightbox[hidden] {
+    display: none !important;
+}
+
+.roots-lightbox {
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    background: #06140ff0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 14px;
+    padding: 65px 22px 35px;
+    color: white;
+}
+
+.roots-lightbox img {
+    max-height: 78vh;
+    max-width: min(100%, 1000px);
+    object-fit: contain;
+    border-radius: 12px;
+}
+
+.roots-lightbox p {
+    font-weight: 800;
+}
+
+.roots-lightbox-close {
+    position: absolute;
+    top: 16px;
+    left: 24px;
+    width: 48px;
+    height: 48px;
+    border: 1px solid #ffffff63;
+    border-radius: 50%;
+    background: #ffffff18;
+    font-size: 2rem;
+    color: white;
+    cursor: pointer;
+}
+
+[data-roots-reveal] {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+[data-roots-reveal].is-revealed {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+@media (max-width: 900px) {
+    .roots-father-layout,
+    .roots-journey {
+        grid-template-columns: 1fr;
+    }
+
+    .roots-father-photo {
+        height: 580px;
+        min-height: 0;
+        max-width: 550px;
+        width: 100%;
+        margin-inline: auto;
+    }
+
+    .roots-journey-view {
+        min-height: 520px;
+    }
+
+    .roots-journey-panel {
+        padding: 32px;
+    }
+
+    .roots-flower-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 620px) {
+    .roots-container {
+        width: min(100% - 28px, 1160px);
+    }
+
+    .roots-section {
+        padding: 68px 0;
+    }
+
+    .roots-hero {
+        min-height: 680px;
+    }
+
+    .roots-hero-content {
+        padding-top: 105px;
+    }
+
+    .roots-father-photo {
+        height: 500px;
+        border-radius: 130px 130px 20px 20px;
+    }
+
+    .roots-journey-view {
+        min-height: 390px;
+    }
+
+    .roots-journey-panel {
+        padding: 25px 20px;
+    }
+
+    .roots-crop-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .roots-crop-card img {
+        height: 260px;
+    }
+
+    .roots-photo-grid {
+        gap: 10px;
+        grid-auto-rows: 160px;
+    }
+
+    .roots-gallery-item.roots-gallery-wide {
+        grid-row: span 2;
+    }
+
+    .roots-flower-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+    }
+
+    .roots-flower-card span {
+        padding: 12px 10px;
+        font-size: .9rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .roots-page *,
+    .roots-page *::before,
+    .roots-page *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    [data-roots-reveal] {
+        opacity: 1;
+        transform: none;
+    }
+}

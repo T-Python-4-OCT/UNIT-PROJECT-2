@@ -1,0 +1,303 @@
+
+#region-page {
+    position: relative;
+    isolation: isolate;
+    overflow: clip;
+    --identity-accent: #66876a;
+    --identity-light: #e9efe4;
+    --identity-dark: #283c30;
+    --identity-pattern-opacity: 0.11;
+    --identity-shift-x: 0px;
+    --identity-shift-y: 0px;
+    --identity-scroll-shift: 0px;
+}
+
+#region-page[data-region-identity="al-ahsa"] {
+    --identity-accent: #60936c;
+    --identity-light: #e8f0de;
+    --identity-dark: #183f2e;
+}
+
+#region-page[data-region-identity="taif"] {
+    --identity-accent: #c47b91;
+    --identity-light: #fae9ec;
+    --identity-dark: #522d40;
+}
+
+#region-page[data-region-identity="al-qassim"] {
+    --identity-accent: #b18b4d;
+    --identity-light: #f5ebd6;
+    --identity-dark: #59452a;
+}
+
+#region-page[data-region-identity="al-jouf"] {
+    --identity-accent: #87965e;
+    --identity-light: #edf0df;
+    --identity-dark: #39462b;
+}
+
+#region-page[data-region-identity="abha"] {
+    --identity-accent: #a96677;
+    --identity-light: #f7e5e0;
+    --identity-dark: #49334f;
+}
+
+.region-identity-layer {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+    pointer-events: none;
+    color: var(--identity-accent);
+}
+
+.region-identity-pattern {
+    position: absolute;
+    inset: -60px -30px;
+    width: calc(100% + 60px);
+    height: calc(100% + 120px);
+    opacity: var(--identity-pattern-opacity);
+    transform: translate3d(
+        var(--identity-shift-x),
+        calc(var(--identity-shift-y) + var(--identity-scroll-shift)),
+        0
+    );
+    transition: transform 0.5s ease-out;
+    will-change: transform;
+    mask-image: linear-gradient(
+        to bottom,
+        transparent 0%,
+        black 7%,
+        black 90%,
+        transparent 100%
+    );
+}
+
+.region-identity-halo {
+    position: absolute;
+    width: min(55vw, 650px);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(
+        circle,
+        var(--identity-accent) 0%,
+        transparent 70%
+    );
+    opacity: 0.065;
+    filter: blur(55px);
+    animation: identity-float 12s ease-in-out infinite alternate;
+}
+
+.region-identity-halo-one {
+    top: 14%;
+    right: -22%;
+}
+
+.region-identity-halo-two {
+    top: 56%;
+    left: -25%;
+    animation-delay: -5s;
+}
+
+.region-identity-halo-three {
+    bottom: 5%;
+    right: -18%;
+    animation-delay: -8s;
+}
+
+.region-identity-emblem {
+    position: absolute;
+    top: 180px;
+    left: 3%;
+    width: clamp(80px, 12vw, 180px);
+    aspect-ratio: 1;
+    display: grid;
+    place-items: center;
+    color: var(--identity-accent);
+    opacity: 0.25;
+    transform: rotate(-10deg);
+    animation: identity-emblem 9s ease-in-out infinite;
+}
+
+.region-identity-emblem svg {
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+}
+
+.region-identity-layer::after {
+    position: absolute;
+    inset: 0;
+    content: "";
+    background-image: radial-gradient(
+        var(--identity-accent) 0.7px,
+        transparent 0.7px
+    );
+    background-size: 34px 34px;
+    opacity: 0.09;
+}
+
+.dark #region-page {
+    --identity-pattern-opacity: 0.16;
+}
+
+.dark .region-identity-halo {
+    opacity: 0.09;
+}
+
+.dark .region-identity-emblem {
+    opacity: 0.32;
+}
+
+@keyframes identity-float {
+    from {
+        transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    to {
+        transform: translate3d(35px, -45px, 0) scale(1.14);
+    }
+}
+
+@keyframes identity-emblem {
+    0%,
+    100% {
+        transform: translateY(0) rotate(-10deg);
+    }
+
+    50% {
+        transform: translateY(-18px) rotate(-5deg);
+    }
+}
+
+.region-gallery {
+    width: 100%;
+    max-width: 520px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin-inline: auto;
+}
+
+.region-gallery .swiper-wrapper,
+.region-gallery .swiper-slide {
+    height: 100%;
+}
+
+.region-gallery .swiper-slide {
+    overflow: hidden;
+}
+
+.region-gallery .swiper-slide img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition:
+        transform 1.2s cubic-bezier(0.22, 1, 0.36, 1),
+        filter 0.8s ease;
+}
+
+.region-gallery .swiper-slide-active img {
+    transform: scale(1.035);
+}
+
+.region-resource-card {
+    isolation: isolate;
+    transition:
+        transform 0.4s ease,
+        border-color 0.4s ease,
+        box-shadow 0.4s ease,
+        background-color 0.4s ease;
+}
+
+.region-resource-card::before {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    content: "";
+    background: radial-gradient(
+        circle at top right,
+        var(--identity-accent, #66876a),
+        transparent 65%
+    );
+    opacity: 0.08;
+    transition: opacity 0.4s ease;
+}
+
+.region-resource-arrow {
+    transition:
+        transform 0.4s ease,
+        background-color 0.4s ease;
+}
+
+.region-resource-card:focus-visible {
+    outline: 3px solid var(--identity-accent, #66876a);
+    outline-offset: 4px;
+}
+
+.dark .region-resource-card:hover {
+    box-shadow: 0 22px 55px rgb(0 0 0 / 0.25);
+}
+
+@media (hover: hover) {
+    .region-gallery .swiper-slide:hover img {
+        transform: scale(1.09);
+        filter: saturate(1.12);
+    }
+
+    .region-resource-card:hover {
+        transform: translateY(-8px);
+        border-color: var(--identity-accent, #66876a);
+        box-shadow: 0 22px 55px rgb(0 0 0 / 0.09);
+    }
+
+    .region-resource-card:hover::before {
+        opacity: 0.18;
+    }
+
+    .region-resource-card:hover .region-resource-arrow {
+        transform: translate(-5px, -5px) rotate(8deg);
+        background-color: var(--identity-accent, #66876a);
+        color: white;
+    }
+}
+
+@media (max-width: 768px) {
+    .region-gallery {
+        max-width: 100%;
+    }
+
+    .region-identity-emblem {
+        top: 110px;
+        left: -18px;
+        width: 95px;
+        opacity: 0.15;
+    }
+
+    .region-identity-halo {
+        width: 340px;
+        filter: blur(35px);
+    }
+
+    .region-identity-pattern {
+        opacity: calc(var(--identity-pattern-opacity) * 0.75);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .region-identity-pattern,
+    .region-identity-halo,
+    .region-identity-emblem {
+        animation: none;
+        transition: none;
+        transform: none;
+    }
+
+    .region-gallery .swiper-slide img,
+    .region-resource-card,
+    .region-resource-arrow {
+        transition: none;
+        transform: none !important;
+    }
+}

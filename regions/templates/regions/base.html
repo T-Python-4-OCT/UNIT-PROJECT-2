@@ -1,0 +1,222 @@
+
+{% load static %}
+<!doctype html>
+<html
+  lang="ar"
+  dir="rtl"
+  class="{% if request.COOKIES.theme == 'dark' %}dark{% endif %}"
+>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="أرضنا - رحلة لاستكشاف التنوع الزراعي في المملكة العربية السعودية"
+    />
+
+    <title>{% block title %}أرضنا | ARDNA{% endblock %}</title>
+
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <link rel="stylesheet" href="{% static 'regions/css/style.css' %}" />
+  </head>
+
+  <body
+    class="flex min-h-screen flex-col bg-[#F5F0E6] font-sans text-[#173C30] transition-colors duration-300 dark:bg-[#17231D] dark:text-[#F5F0E6]"
+  >
+    
+
+
+<header
+  class="fixed top-4 left-1/2 z-50 w-[calc(100%-24px)] max-w-4xl -translate-x-1/2 sm:top-5 sm:w-[calc(100%-40px)]"
+>
+
+  <nav
+    aria-label="التنقل الرئيسي"
+    class="grid min-h-16 grid-cols-[1fr_auto_1fr] items-center gap-2 rounded-full border border-[#173C30]/10 bg-[#F5F0E6]/75 px-4 py-2 shadow-[0_12px_40px_rgba(23,60,48,0.10)] backdrop-blur-xl transition-colors duration-300 sm:px-6 dark:border-white/15 dark:bg-[#17231D]/75 dark:shadow-[0_12px_40px_rgba(0,0,0,0.25)]"
+  >
+    <a
+      href="{% url 'regions:home' %}"
+      class="flex shrink-0 items-center justify-self-start"
+      aria-label="أرضنا - الصفحة الرئيسية"
+    >
+      <img
+        src="{% static 'regions/images/logos/logo-light.png' %}"
+        alt="شعار أرضنا"
+        class="block h-10 w-auto object-contain sm:h-12 dark:hidden"
+      />
+
+      <img
+        src="{% static 'regions/images/logos/logo-dark.png' %}"
+        alt="شعار أرضنا"
+        class="hidden h-10 w-auto object-contain sm:h-12 dark:block"
+      />
+    </a>
+
+    <div class="flex items-center justify-center gap-3 text-xs font-semibold sm:gap-6 sm:text-sm">
+      <a
+        href="{% url 'regions:home' %}"
+        class="whitespace-nowrap transition-colors hover:text-[#66876A] dark:hover:text-[#C6A46C]"
+      >
+        الرئيسية
+      </a>
+
+      <a
+        href="{% url 'regions:home' %}#regions"
+        class="whitespace-nowrap transition-colors hover:text-[#66876A] dark:hover:text-[#C6A46C]"
+      >
+        <span class="sm:hidden">المناطق</span>
+        <span class="hidden sm:inline">استكشف المناطق</span>
+      </a>
+
+      <a
+        href="{% url 'regions:our_roots' %}"
+        class="whitespace-nowrap transition-colors hover:text-[#66876A] dark:hover:text-[#C6A46C]"
+      >
+        مزرعتنا
+      </a>
+    </div>
+
+    <form
+      id="theme-form"
+      action="{% url 'regions:toggle_theme' %}"
+      method="post"
+      class="justify-self-end"
+    >
+      {% csrf_token %}
+
+      <input
+        type="hidden"
+        name="next"
+        value="{{ request.get_full_path }}"
+      />
+
+      <button
+        id="theme-toggle"
+        type="submit"
+        aria-label="{% if request.COOKIES.theme == 'dark' %}تفعيل الوضع النهاري{% else %}تفعيل الوضع الليلي{% endif %}"
+        title="{% if request.COOKIES.theme == 'dark' %}الوضع النهاري{% else %}الوضع الليلي{% endif %}"
+        class="group flex h-9 w-9 items-center justify-center rounded-full border border-[#173C30]/15 bg-white/60 text-[#173C30] shadow-sm transition-all duration-300 hover:scale-110 hover:border-[#C6A46C] hover:bg-[#C6A46C]/20 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#66876A] disabled:cursor-wait disabled:opacity-60 sm:h-10 sm:w-10 dark:border-white/20 dark:bg-white/10 dark:text-[#F5F0E6] dark:hover:border-[#C6A46C] dark:hover:bg-[#C6A46C]/20"
+      >
+        <svg
+          class="h-5 w-5 transition-transform duration-300 group-hover:-rotate-12 dark:hidden"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <path d="M20.985 12.486a9 9 0 0 1-9.47-9.47 9 9 0 1 0 9.47 9.47Z" />
+        </svg>
+
+        <svg
+          class="hidden h-5 w-5 text-[#E8C47A] transition-transform duration-300 group-hover:rotate-45 dark:block"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          stroke-width="1.8"
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          aria-hidden="true"
+        >
+          <circle cx="12" cy="12" r="4" />
+          <path d="M12 2v2" />
+          <path d="M12 20v2" />
+          <path d="m4.93 4.93 1.42 1.42" />
+          <path d="m17.65 17.65 1.42 1.42" />
+          <path d="m6.35 17.65-1.42 1.42" />
+          <path d="m19.07 4.93-1.42 1.42" />
+          <path d="M2 12h2" />
+          <path d="M20 12h2" />
+          <path d="m4.93 19.07 1.42-1.42" />
+          <path d="m17.65 6.35 1.42-1.42" />
+        </svg>
+      </button>
+
+      <span
+        id="theme-status"
+        role="status"
+        aria-live="polite"
+        class="sr-only"
+      ></span>
+    </form>
+  </nav>
+</header>
+
+
+
+    <main class="flex-1">
+      {% block content %}{% endblock %}
+    </main>
+
+    <footer class="bg-[#173C30] px-6 py-10 text-[#F5F0E6]">
+      <div
+        class="mx-auto flex max-w-7xl flex-col justify-between gap-6 md:flex-row"
+      >
+        <div>
+          <a
+            href="{% url 'regions:home' %}"
+            class="inline-flex items-center"
+            aria-label="أرضنا - الصفحة الرئيسية"
+          >
+            <img
+              src="{% static 'regions/images/logos/logo-dark.png' %}"
+              alt="شعار أرضنا"
+              class="h-20 w-auto object-contain"
+              loading="lazy"
+            />
+          </a>
+        </div>
+
+        <div class="flex flex-wrap items-center gap-5 text-sm">
+          <a
+            href="{% url 'regions:home' %}"
+            class="transition-colors hover:text-[#C6A46C]"
+          >
+            الرئيسية
+          </a>
+
+          <a
+            href="{% url 'regions:home' %}#regions"
+            class="transition-colors hover:text-[#C6A46C]"
+          >
+            المناطق
+          </a>
+
+          <a
+            href="{% url 'regions:our_roots' %}"
+            class="transition-colors hover:text-[#C6A46C]"
+          >
+            مزرعتنا
+          </a>
+        </div>
+      </div>
+
+      <div
+        class="mx-auto mt-8 max-w-7xl border-t border-white/15 pt-5 text-xs text-[#F5F0E6]/60"
+      >
+        © 2026 أرضنا. جميع الحقوق محفوظة.
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="{% static 'regions/js/theme.js' %}"></script>
+
+    {% block extra_js %}{% endblock %}
+  </body>
+</html>

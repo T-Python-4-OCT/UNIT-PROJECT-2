@@ -1,0 +1,286 @@
+{% load static %}
+<section id="farming" class="agri-timeline relative overflow-hidden bg-[#F5F0E6] px-5 py-24 text-[#173C30] dark:bg-[#17231D] dark:text-[#F5F0E6] md:px-6 md:py-32">
+
+  
+
+    <div class="pointer-events-none absolute -left-20 top-16 h-72 w-72 rounded-full border border-[#C6A46C]/20"></div>
+
+    <div class="relative mx-auto max-w-7xl">
+
+        <div class="mb-14 max-w-4xl">
+            <span class="section-eyebrow text-[#66876A] dark:text-[#AFC7AD]">
+                رحلة عبر الزمن
+            </span>
+
+            <h2 class="editorial-heading mt-6 text-5xl md:text-7xl">
+                كيف تغيّرت
+                <span class="block text-[#66876A] dark:text-[#C6A46C]">
+                    حكاية الزراعة؟
+                </span>
+            </h2>
+
+            <p class="mt-7 max-w-2xl text-lg leading-9 text-[#56685D] dark:text-[#C1D0C4]">
+                من الجذور الأولى إلى التقنيات الحديثة.
+                اختر محطة زمنية وشاهد كيف تطورت الزراعة في المملكة.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-2 gap-3 lg:grid-cols-4" aria-label="المحطات التاريخية">
+
+            <button type="button" class="timeline-step rounded-2xl bg-white p-5 text-right dark:bg-[#26382E]" data-stage="0" aria-pressed="true">
+                <span class="timeline-year block text-3xl font-black text-[#356B4E] dark:text-[#C6A46C]">
+                    1947
+                </span>
+                <span class="mt-3 block text-sm font-semibold">
+                    بداية التنظيم الزراعي
+                </span>
+            </button>
+
+            <button type="button" class="timeline-step rounded-2xl bg-white p-5 text-right dark:bg-[#26382E]" data-stage="1" aria-pressed="false">
+                <span class="timeline-year block text-3xl font-black text-[#356B4E] dark:text-[#C6A46C]">
+                    1970s
+                </span>
+                <span class="mt-3 block text-sm font-semibold">
+                    التوسع والتطوير
+                </span>
+            </button>
+
+            <button type="button" class="timeline-step rounded-2xl bg-white p-5 text-right dark:bg-[#26382E]" data-stage="2" aria-pressed="false">
+                <span class="timeline-year block text-3xl font-black text-[#356B4E] dark:text-[#C6A46C]">
+                    2016
+                </span>
+                <span class="mt-3 block text-sm font-semibold">
+                    البيئة والمياه والزراعة
+                </span>
+            </button>
+
+            <button type="button" class="timeline-step rounded-2xl bg-white p-5 text-right dark:bg-[#26382E]" data-stage="3" aria-pressed="false">
+                <span class="timeline-year block text-3xl font-black text-[#356B4E] dark:text-[#C6A46C]">
+                    2024
+                </span>
+                <span class="mt-3 block text-sm font-semibold">
+                    الزراعة بالأرقام
+                </span>
+            </button>
+
+        </div>
+
+        <div class="mt-5 h-[3px] overflow-hidden rounded-full bg-[#173C30]/10 dark:bg-white/10">
+            <div id="timeline-progress" class="timeline-progress"></div>
+        </div>
+
+        <div class="mt-9 grid items-stretch gap-6 lg:grid-cols-2">
+
+            <div id="timeline-scene" data-stage="0" class="timeline-scene relative flex min-h-[340px] items-center justify-center overflow-hidden rounded-[2rem] p-5 md:min-h-[440px]">
+
+                <svg viewBox="0 0 620 390" class="w-full max-w-[620px]" role="img" aria-label="رسم متغير لمراحل تطور الزراعة">
+                    <circle cx="500" cy="76" r="42" fill="#EBC475"/>
+
+                    <path d="M0 280 Q140 205 280 278 T620 270 V390 H0Z" fill="#95B47F"/>
+                    <path d="M0 335 Q145 290 310 334 T620 316 V390 H0Z" fill="#71975F"/>
+
+                    <g id="agri-scene-0" class="scene-layer is-active">
+                        <path d="M60 360 Q300 310 565 360" fill="none" stroke="#548DA6" stroke-width="14" stroke-linecap="round"/>
+
+                        <g class="timeline-plant" stroke="#735431" stroke-width="10" stroke-linecap="round">
+                            <path d="M130 326 V166 M305 324 V137 M475 320 V165"/>
+                        </g>
+
+                        <g fill="none" stroke="#406D3C" stroke-width="17" stroke-linecap="round">
+                            <path d="M130 174 Q65 115 35 160 M130 174 Q175 92 230 145 M130 174 Q110 96 135 85"/>
+                            <path d="M305 145 Q250 80 206 135 M305 145 Q350 75 405 122 M305 145 Q295 76 315 65"/>
+                            <path d="M475 175 Q420 116 385 157 M475 175 Q529 105 584 154 M475 175 Q464 100 486 86"/>
+                        </g>
+                    </g>
+
+                    <g id="agri-scene-1" class="scene-layer">
+                        <g fill="#638E55">
+                            <rect x="60" y="250" width="500" height="12" rx="6"/>
+                            <rect x="60" y="294" width="500" height="12" rx="6"/>
+                            <rect x="60" y="338" width="500" height="12" rx="6"/>
+                        </g>
+
+                        <g stroke="#37794F" stroke-width="5" stroke-linecap="round">
+                            <path d="M100 250 V199 M180 250 V199 M260 250 V199 M340 250 V199 M420 250 V199 M500 250 V199"/>
+                            <path d="M100 294 V243 M180 294 V243 M260 294 V243 M340 294 V243 M420 294 V243 M500 294 V243"/>
+                        </g>
+
+                        <path d="M45 355 H580" stroke="#468BAD" stroke-width="8" stroke-linecap="round"/>
+                        <path d="M145 355 V337 M305 355 V337 M475 355 V337" stroke="#468BAD" stroke-width="5"/>
+                    </g>
+
+                    <g id="agri-scene-2" class="scene-layer">
+                        <path d="M60 315 Q300 80 560 315Z" fill="#D6F2E8" fill-opacity=".45" stroke="#5D9A8D" stroke-width="9"/>
+                        <path d="M310 110 V315 M180 175 V315 M440 175 V315" stroke="#5D9A8D" stroke-width="6"/>
+                        <path d="M75 320 H550" stroke="#387A62" stroke-width="9"/>
+
+                        <g fill="#4B9965">
+                            <ellipse cx="140" cy="286" rx="30" ry="22"/>
+                            <ellipse cx="230" cy="275" rx="32" ry="25"/>
+                            <ellipse cx="320" cy="280" rx="32" ry="23"/>
+                            <ellipse cx="410" cy="275" rx="32" ry="25"/>
+                            <ellipse cx="495" cy="286" rx="30" ry="22"/>
+                        </g>
+                    </g>
+
+                    <g id="agri-scene-3" class="scene-layer">
+                        <g stroke="#427E5A" stroke-width="7" stroke-linecap="round">
+                            <path d="M95 335 V235 M190 335 V218 M285 335 V235 M380 335 V218 M475 335 V235"/>
+                        </g>
+
+                        <g fill="#4FA36D">
+                            <ellipse cx="95" cy="232" rx="37" ry="22"/>
+                            <ellipse cx="190" cy="215" rx="37" ry="22"/>
+                            <ellipse cx="285" cy="232" rx="37" ry="22"/>
+                            <ellipse cx="380" cy="215" rx="37" ry="22"/>
+                            <ellipse cx="475" cy="232" rx="37" ry="22"/>
+                        </g>
+
+                        <path d="M65 345 H530" stroke="#428FA7" stroke-width="9" stroke-linecap="round"/>
+                        <path d="M540 315 V165 H580" stroke="#526A70" stroke-width="8" fill="none"/>
+                        <circle cx="540" cy="153" r="19" fill="#6597A7"/>
+                        <path d="M505 136 Q540 100 575 136 M487 120 Q540 65 593 120" fill="none" stroke="#6597A7" stroke-width="5"/>
+                    </g>
+                </svg>
+
+                <span class="absolute bottom-5 left-6 rounded-full border border-[#173C30]/20 bg-white/60 px-4 py-2 text-xs font-bold text-[#173C30] backdrop-blur-md">
+                    ARDNA / TIME TRAVEL
+                </span>
+
+            </div>
+
+            <div class="flex flex-col justify-center rounded-[2rem] border border-[#173C30]/10 bg-white p-8 shadow-lg dark:border-white/10 dark:bg-[#26382E] md:p-12">
+
+                <span id="timeline-year-label" class="text-6xl font-black text-[#C6A46C] md:text-8xl">
+                    1947
+                </span>
+
+                <div class="my-7 h-1 w-16 rounded-full bg-[#356B4E] dark:bg-[#C6A46C]"></div>
+
+                <h3 id="timeline-title" class="text-3xl font-bold leading-relaxed md:text-4xl">
+                    بداية التنظيم الزراعي
+                </h3>
+
+                <p id="timeline-description" class="mt-6 text-lg leading-10 text-[#56685D] dark:text-[#C1D0C4]" aria-live="polite">
+                    تأسست المديرية العامة للزراعة في المملكة، لتبدأ مرحلة مهمة في تنظيم العمل الزراعي وتطوير خدماته.
+                </p>
+
+                <div class="mt-12 flex flex-wrap gap-3">
+                    <button
+                        id="timeline-next"
+                        type="button"
+                        class="rounded-full bg-[#173C30] px-7 py-3 font-semibold text-white transition hover:bg-[#356B4E] dark:bg-[#C6A46C] dark:text-[#173C30]"
+                    >
+                        المحطة التالية ←
+                    </button>
+
+                    <button
+                        id="timeline-reset"
+                        type="button"
+                        class="rounded-full border border-[#173C30]/20 px-7 py-3 font-semibold transition hover:bg-[#EAEFE8] dark:border-white/20 dark:hover:bg-[#35483B]"
+                    >
+                        ابدأ من جديد
+                    </button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="mt-24 grid items-start gap-10 lg:grid-cols-2">
+
+            <div>
+                <span class="section-eyebrow text-[#66876A] dark:text-[#AFC7AD]">
+                    الأرض تتحدث بالأرقام
+                </span>
+
+                <h3 class="editorial-heading mt-6 text-4xl md:text-5xl">
+                    أرقام تنمو
+                    <span class="block text-[#66876A] dark:text-[#C6A46C]">
+                        من أرض المملكة.
+                    </span>
+                </h3>
+
+                <p class="mt-6 max-w-lg leading-9 text-[#56685D] dark:text-[#C1D0C4]">
+                    شاهد مقارنة إنتاج مجموعة مختارة من المنتجات الزراعية في المملكة خلال عام 2024.
+                    تستطيع التبديل بين الرسم بالأعمدة والرسم الدائري.
+                </p>
+
+                <div class="mt-8 grid grid-cols-2 gap-3">
+                    <div class="rounded-2xl bg-white p-5 dark:bg-[#26382E]">
+                        <p class="text-sm text-[#66876A] dark:text-[#AFC7AD]">
+                            إنتاج التمور
+                        </p>
+                        <p class="mt-3 text-2xl font-bold">
+                            1.923 مليون
+                        </p>
+                        <p class="mt-1 text-xs text-[#66876A] dark:text-[#AFC7AD]">
+                            طن / 2024
+                        </p>
+                    </div>
+
+                    <div class="rounded-2xl bg-white p-5 dark:bg-[#26382E]">
+                        <p class="text-sm text-[#66876A] dark:text-[#AFC7AD]">
+                            أشجار النخيل
+                        </p>
+                        <p class="mt-3 text-2xl font-bold">
+                            37.6+ مليون
+                        </p>
+                        <p class="mt-1 text-xs text-[#66876A] dark:text-[#AFC7AD]">
+                            شجرة / 2024
+                        </p>
+                    </div>
+                </div>
+
+                <a
+                    href="https://www.stats.gov.sa/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="mt-7 inline-flex items-center gap-2 text-sm font-semibold text-[#356B4E] underline underline-offset-4 dark:text-[#C6A46C]"
+                >
+                    المصدر: الهيئة العامة للإحصاء — الإحصاءات الزراعية 2024 ↗
+                </a>
+            </div>
+
+            <div class="rounded-[2rem] border border-[#173C30]/10 bg-white p-5 shadow-xl dark:border-white/10 dark:bg-[#26382E] md:p-8">
+
+                <div class="flex flex-wrap items-center justify-between gap-4">
+                    <div>
+                        <h4 class="text-xl font-bold">
+                            الإنتاج الزراعي المختار
+                        </h4>
+                        <p class="mt-2 text-sm text-[#66876A] dark:text-[#AFC7AD]">
+                            2024 — ألف طن
+                        </p>
+                    </div>
+
+                    <div class="flex gap-2">
+                        <button type="button" class="chart-switch rounded-full border border-[#173C30]/15 px-4 py-2 text-sm font-semibold dark:border-white/20" data-chart-type="bar" aria-pressed="true">
+                            أعمدة
+                        </button>
+
+                        <button type="button" class="chart-switch rounded-full border border-[#173C30]/15 px-4 py-2 text-sm font-semibold dark:border-white/20" data-chart-type="doughnut" aria-pressed="false">
+                            دائري
+                        </button>
+                    </div>
+                </div>
+
+                <div class="relative mt-8 h-[340px] md:h-[390px]">
+                    <canvas id="agriculture-chart" role="img" aria-label="مقارنة إنتاج التمور والزيتون وخضروات البيوت المحمية عام 2024"></canvas>
+                </div>
+
+                <p class="mt-6 text-xs leading-7 text-[#66876A] dark:text-[#AFC7AD]">
+                    البيانات: التمور 1,923 ألف طن، الزيتون 351.7 ألف طن،
+                    وخضروات البيوت المحمية 797 ألف طن.
+                    هذه فئات مختارة، وليست إجمالي الإنتاج الزراعي.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.8/dist/chart.umd.min.js"></script>
+<script src="{% static 'regions/js/components/agriculture_timeline.js' %}"></script>
