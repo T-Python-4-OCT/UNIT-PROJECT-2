@@ -21,8 +21,6 @@ The detector works in two layers:
 
 Both are merged into one final score. Without an API key or internet, the site still works with the local rules.
 
-> Unit 2 project, Tuwaiq Academy Python Bootcamp. It's based on our **Entabih** mobile app (React Native + FastAPI), rebuilt as a server-rendered Django website.
-> There is **no database** in this unit: checks, reports and feedback are saved in JSON files inside `data/`.
 
 ## Features
 - 🔍 **Smart detector** for text messages: safety gauge, highlighted red flags, AI quotes, steps, and "already clicked?" help.
