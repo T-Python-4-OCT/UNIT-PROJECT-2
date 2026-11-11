@@ -173,3 +173,64 @@ class ExistingValidationTests(TestCase):
 
     def test_language_switch_requires_post(self):
         self.assertEqual(self.client.get(reverse("portal:set_language")).status_code, 405)
+
+
+class SearchTests(TestCase):
+    url = reverse("portal:search")
+
+    def set_language(self, language):
+        session = self.client.session
+        session["language"] = language
+        session.save()
+
+    def test_page_loads_without_query_and_shows_no_error(self):
+        response = self.client.get(self.url)
+        self.assertEqual(response.status_code, 200)
+        self.assertFalse(response.context["form"].errors)
+        self.assertIsNone(response.context["results"])
+
+    def test_empty_query_shows_error(self):
+        response = self.client.get(self.url, {"q": "   "})
+        self.assertIn("q", response.context["form"].errors)
+
+    def test_one_character_is_too_short(self):
+        response = self.client.get(self.url, {"q": "a"})
+        self.assertIn("q", response.context["form"].errors)
+
+    def test_query_too_long(self):
+        response = self.client.get(self.url, {"q": "a" * 81})
+        self.assertIn("q", response.context["form"].errors)
+
+    def test_symbols_only_is_rejected(self):
+        response = self.client.get(self.url, {"q": "!!@@##"})
+        self.assertIn("q", response.context["form"].errors)
+
+    def test_finds_absher_in_english(self):
+        response = self.client.get(self.url, {"q": "absher"})
+        slugs = [result["slug"] for result in response.context["results"]]
+        self.assertIn("absher", slugs)
+
+    def test_finds_arabic_without_hamza_or_ta_marbuta(self):
+        "'ابشر' should find 'أبشر', and 'الهويه' should find 'الهوية'."
+        self.set_language("ar")
+        for query, slug in (("ابشر", "absher"), ("الهويه الرقميه", "digital-identity")):
+            with self.subTest(query=query):
+                response = self.client.get(self.url, {"q": query})
+                slugs = [result["slug"] for result in response.context["results"]]
+                self.assertIn(slug, slugs)
+
+    def test_no_results_is_not_an_error(self):
+        response = self.client.get(self.url, {"q": "zzzqqq"})
+        self.assertFalse(response.context["form"].errors)
+        self.assertEqual(response.context["results"], [])
+
+    def test_html_in_query_is_escaped(self):
+        response = self.client.get(self.url, {"q": "<script>alert(1)</script>"})
+        self.assertNotContains(response, "<script>alert(1)</script>", html=False)
+
+    def test_match_is_highlighted(self):
+        response = self.client.get(self.url, {"q": "absher"})
+        self.assertContains(response, "<mark>")
+
+    def test_search_url_is_not_read_as_a_page_slug(self):
+        self.assertEqual(self.client.get(self.url).resolver_match.url_name, "search")

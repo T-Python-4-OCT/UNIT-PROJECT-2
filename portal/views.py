@@ -8,7 +8,8 @@ from django.urls import reverse
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.decorators.http import require_http_methods, require_POST
 
-from .forms import FeedbackForm
+from .forms import FeedbackForm, SearchForm
+from .search import search_pages
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
 
@@ -30,6 +31,7 @@ UI_TEXT = {
         "toggle_navigation": "Toggle navigation",
         "source": "Source",
         "feedback": "Share your feedback",
+        "search": "Search",
     },
     "ar": {
         "dark_mode": "الوضع الداكن",
@@ -45,6 +47,7 @@ UI_TEXT = {
         "toggle_navigation": "فتح أو إغلاق القائمة",
         "source": "المصدر",
         "feedback": "شاركنا رأيك",
+        "search": "بحث",
     },
 }
 
@@ -165,6 +168,41 @@ def content_page(request, slug):
     }
 
     return render(request, "portal/page.html", context)
+
+
+def search(request):
+    language = get_language(request)
+    site = load_json("site.json", language)
+    text = load_json("search.json", language)
+
+    form = None
+    results = None
+
+    # Only validate once a search was actually sent; an empty visit just shows the box.
+    if "q" in request.GET:
+        form = SearchForm(request.GET, text=text)
+
+        if form.is_valid():
+            pages = [
+                (page["slug"], find_page_content(site, page["slug"], language))
+                for page in site["pages"]
+            ]
+            results = search_pages(pages, form.cleaned_data["q"])
+    else:
+        form = SearchForm(text=text)
+
+    context = {
+        **get_common_context(request),
+        "site": site,
+        "text": text,
+        "form": form,
+        # Shown back in the search box; Django escapes it in the template.
+        "query": request.GET.get("q", ""),
+        "results": results,
+        "current_slug": "search",
+    }
+
+    return render(request, "portal/search.html", context)
 
 
 def sent_feedback_recently(request):

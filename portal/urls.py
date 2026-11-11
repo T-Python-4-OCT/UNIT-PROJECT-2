@@ -8,5 +8,6 @@ urlpatterns = [
     path("language/", views.set_language, name="set_language"),
     # Must stay above the slug pattern, otherwise "feedback" is read as a page slug.
     path("feedback/", views.feedback, name="feedback"),
+    path("search/", views.search, name="search"),
     path("<slug:slug>/", views.content_page, name="page"),
 ]

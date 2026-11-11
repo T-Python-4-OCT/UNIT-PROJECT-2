@@ -99,3 +99,31 @@ class FeedbackForm(forms.Form):
             message=data["message"],
             language=language,
         )
+
+
+# Letters (Arabic or English) or digits: a query of only symbols is rejected.
+SEARCHABLE_PATTERN = re.compile(r"[A-Za-z0-9ء-ي٠-٩]")
+
+
+class SearchForm(forms.Form):
+    "Validates the ?q= search query. Error messages come from search.json."
+
+    q = forms.CharField(min_length=2, max_length=80)
+
+    def __init__(self, *args, text, **kwargs):
+        super().__init__(*args, **kwargs)
+        errors = text["errors"]
+        self.fields["q"].error_messages.update(
+            required=errors["required"],
+            min_length=errors["min_length"],
+            max_length=errors["max_length"],
+        )
+        self.errors_text = errors
+
+    def clean_q(self):
+        query = " ".join(self.cleaned_data["q"].split())
+
+        if not SEARCHABLE_PATTERN.search(query):
+            raise forms.ValidationError(self.errors_text["symbols_only"])
+
+        return query
