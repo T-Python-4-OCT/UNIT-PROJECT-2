@@ -1,7 +1,6 @@
 <div align="center">
 
-<img src="banner.svg" alt="Ruya: Saudi Vision 2030 giga-projects" width="100%">
-<div align="center">
+
 
 <img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f3b26,100:2f7d4a&height=220&section=header&text=%D8%B1%D8%A4%D9%8A%D8%A9%20%C2%B7%20Ruya&fontSize=64&fontColor=f3d58f&fontAlignY=38&animation=fadeIn&desc=Saudi%20Vision%202030%20Giga-Projects&descSize=20&descAlignY=60&descAlign=50" alt="Ruya: Saudi Vision 2030 Giga-Projects" width="100%">
 
