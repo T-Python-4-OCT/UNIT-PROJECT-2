@@ -1,56 +1,349 @@
 {% extends "kingdom/base.html" %}
 {% load translations %}
-{% block title %}{{ 'عن المشروع | حكاية وطن'|tr }}{% endblock %}
-{% block meta_description %}{{ 'تعرف على فكرة مشروع حكاية وطن والتقنيات المستخدمة وكيف يحقق متطلبات UNIT-PROJECT-2.'|tr }}{% endblock %}
+
+{% block title %}
+{{ 'عن المشروع | حكاية وطن'|tr }}
+{% endblock %}
+
+{% block meta_description %}
+{{ 'تعرف على مشروع حكاية وطن ورؤيته ورسالته وأهدافه في التعريف بتاريخ المملكة العربية السعودية وتراثها ومدنها.'|tr }}
+{% endblock %}
+
 {% block content %}
+
+<!-- ================= ABOUT HERO ================= -->
+
 <section class="page-hero about-hero">
     <div class="container page-hero-content">
-        <span class="eyebrow">UNIT-PROJECT-2 · SAUDI ARABIA</span>
-        <h1>{{ 'عن'|tr }} <em>{{ 'حكاية وطن'|tr }}</em></h1>
-        <p>{{ 'مشروع تعليمي باستخدام Django للتعريف بالمملكة العربية السعودية من خلال مدنها وتاريخها وتراثها ومعالمها.'|tr }}</p>
+
+        <span class="eyebrow">
+            {{ 'حكاية وطن · المملكة العربية السعودية'|tr }}
+        </span>
+
+        <h1>
+            {{ 'عن'|tr }}
+            <em>{{ 'حكاية وطن'|tr }}</em>
+        </h1>
+
+        <p>
+            {{ 'رحلة معرفية نروي من خلالها تاريخ وطن عريق، ونكتشف جمال مدنه، وأصالة تراثه، وطموح مستقبله.'|tr }}
+        </p>
+
     </div>
 </section>
+
+
+<!-- ================= PROJECT IDEA ================= -->
+
 <section class="section-pad">
     <div class="container">
+
         <div class="about-grid">
+
             <div>
-                <span class="section-kicker">{{ 'فكرة المشروع'|tr }}</span>
-                <h2>{{ 'نقرأ الماضي'|tr }}<br>{{ 'لنرى الحاضر بعمق'|tr }}</h2>
+                <span class="section-kicker">
+                    {{ 'فكرة المشروع'|tr }}
+                </span>
+
+                <h2>
+                    {{ 'أرضٌ تحكي'|tr }}
+                    <br>
+                    <span class="text-accent">
+                        {{ 'وتاريخٌ لا يُنسى'|tr }}
+                    </span>
+                </h2>
             </div>
+
             <div>
-                <p>{{ 'يهدف الموقع إلى تقديم محتوى مبسط ومنظم عن ست مدن سعودية: الرياض، أبها، مكة المكرمة، العلا، جدة، والمدينة المنورة. ويعرض أبرز المعالم ومحطات من تاريخ كل مدينة وفعالياتها، إلى جانب معرض صور وفيديو تعريفي. كما يضم صفحة مستقلة لتاريخ المملكة تستعرض مراحل التأسيس والتوحيد وملوك المملكة والمناسبات الوطنية.'|tr }}</p>
-                <p>{{ 'ويضم قسم التاريخ خمس صفحات تفصيلية مترابطة، تتناول الدولة السعودية الأولى والثانية وتوحيد المملكة وملوكها ورؤية السعودية 2030، مع تصميم موحد وروابط ديناميكية لكل صفحة.'|tr }}</p>
+                <p>
+                    {{ 'حكاية وطن منصة معرفية تهدف إلى التعريف بالمملكة العربية السعودية، من خلال استعراض تاريخها العريق، ومراحل تأسيسها وتوحيدها، والتطور الذي شهدته عبر العقود.'|tr }}
+                </p>
+
+                <p>
+                    {{ 'يأخذ الموقع الزائر في رحلة بين مدن المملكة ومعالمها التاريخية والثقافية والطبيعية، ليكتشف تنوع مناطقها، وأصالة تراثها، وما تتميز به من حضارة وهوية وطنية راسخة.'|tr }}
+                </p>
             </div>
+
         </div>
 
-        <div class="section-heading mt-5">
-            <div><span class="section-kicker">{{ 'متطلبات UNIT-PROJECT-2'|tr }}</span><h2>{{ 'كيف يحقق الموقع المطلوب؟'|tr }}</h2></div>
-            <span class="heading-note">{{ 'قائمة التحقق'|tr }}</span>
-        </div>
-        <div class="requirements-grid">
-            <article class="requirement-card"><span>✓</span>
-                <div><h3>Django</h3><p>{{ 'المشروع مبني باستخدام Django، مع مسارات URL وعروض Views.'|tr }}</p></div></article>
-            <article class="requirement-card"><span>✓</span>
-                <div><h3>Templates & Inheritance</h3><p>{{ 'كل الصفحات داخل مجلد templates، وتشترك في القالب الأساسي base.html، كما ترث صفحات الفصول التاريخية قالبًا موحدًا.'|tr }}</p></div></article>
-            <article class="requirement-card"><span>✓</span>
-                <div><h3>Dynamic URLs</h3><p>{{ 'صفحات المدن وفصول التاريخ تُفتح بروابط ديناميكية باستخدام slug، وكل فصل تاريخي مرتبط بصفحة تاريخ المملكة الرئيسية.'|tr }}</p></div></article>
-            <article class="requirement-card"><span>✓</span>
-                <div><h3>Static Files</h3><p>{{ 'ملفات CSS وJavaScript والصور المساندة موجودة داخل مجلد static.'|tr }}</p></div></article>
-            <article class="requirement-card"><span>✓</span>
-                <div><h3>Homepage + 6 Pages</h3><p>{{ 'صفحة رئيسية وست صفحات مستقلة للمدن، وصفحة تاريخ رئيسية وخمسة فصول تاريخية تفصيلية، بالإضافة إلى صفحة التعريف بالمشروع.'|tr }}</p></div></article>
-            <article class="requirement-card"><span>✓</span>
-                <div><h3>Uniform Design</h3><p>{{ 'هوية بصرية موحدة، وألوان وخطوط ومكونات مشتركة في جميع الصفحات.'|tr }}</p></div></article>
-            <article class="requirement-card"><span>✓</span>
-                <div><h3>Dark & Light Mode</h3><p>{{ 'التبديل بين الوضع الليلي والنهاري مع حفظ اختيار المستخدم في المتصفح.'|tr }}</p></div></article>
-            <article class="requirement-card"><span>✓</span><div><h3>Responsive</h3><p>{{ 'تصميم متجاوب مع شاشات الجوال واللوحي والكمبيوتر باستخدام Bootstrap وCSS.'|tr }}</p></div></article>
-            <article class="requirement-card"><span>✓</span><div><h3>Arabic & English</h3><p>{{ 'يدعم الموقع اللغتين العربية والإنجليزية، ويحفظ اختيار اللغة في Cookie باستخدام نظام Django.'|tr }}</p></div></article>
-        </div>
-
-        <div class="tech-panel mt-5">
-            <div><span class="section-kicker">{{ 'بنية المشروع'|tr }}</span><h2>{{ 'تقنيات بسيطة وتنظيم واضح'|tr }}</h2></div>
-            <div class="tech-tags"><span>Django</span><span>Python</span><span>HTML5</span><span>CSS3</span><span>JavaScript</span><span>Bootstrap 5</span></div>
-            <p>{{ 'لا توجد نماذج بيانات مخصصة أو قاعدة بيانات؛ بيانات المدن محفوظة في'|tr }} <code>kingdom/data.py</code>{{ '، ومحتوى التاريخ محفوظ في'|tr }} <code>kingdom/history_data.py</code> {{ 'و'|tr }} <code>kingdom/history_chapters.py</code>{{ '، وتُرسل جميعها إلى صفحات HTML عبر Django Views.'|tr }}</p>
-        </div>
     </div>
 </section>
+
+
+<!-- ================= VISION & MISSION ================= -->
+
+<section class="section-pad about-vision-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+            <div>
+                <span class="section-kicker">
+                    {{ 'رؤيتنا ورسالتنا'|tr }}
+                </span>
+
+                <h2>
+                    {{ 'من الماضي نستمد الإلهام'|tr }}
+                </h2>
+            </div>
+        </div>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+                <article class="requirement-card about-feature-card">
+
+                    <span>✦</span>
+
+                    <div>
+                        <h3>{{ 'رؤيتنا'|tr }}</h3>
+
+                        <p>
+                            {{ 'أن يكون حكاية وطن نافذة معرفية مميزة للتعريف بتاريخ المملكة العربية السعودية وتراثها ومدنها، وإبراز هويتها الوطنية للأجيال الحالية والقادمة.'|tr }}
+                        </p>
+                    </div>
+
+                </article>
+            </div>
+
+            <div class="col-md-6">
+                <article class="requirement-card about-feature-card">
+
+                    <span>✧</span>
+
+                    <div>
+                        <h3>{{ 'رسالتنا'|tr }}</h3>
+
+                        <p>
+                            {{ 'تقديم محتوى معرفي ممتع ومبسط يجمع بين التاريخ والثقافة والجغرافيا، ويتيح للزائر استكشاف المملكة والتعرف على أبرز محطاتها التاريخية ومعالمها الحضارية.'|tr }}
+                        </p>
+                    </div>
+
+                </article>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROJECT GOALS ================= -->
+
+<section class="section-pad">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-kicker">
+                    {{ 'ما الذي نسعى إليه؟'|tr }}
+                </span>
+
+                <h2>
+                    {{ 'أهداف حكاية وطن'|tr }}
+                </h2>
+            </div>
+
+            <span class="heading-note">
+                {{ 'ستة أهداف تجمعنا'|tr }}
+            </span>
+
+        </div>
+
+        <div class="requirements-grid">
+
+            <article class="requirement-card">
+                <span>01</span>
+                <div>
+                    <h3>{{ 'التعريف بتاريخ المملكة'|tr }}</h3>
+                    <p>{{ 'تسليط الضوء على مراحل تأسيس الدولة السعودية وتوحيد المملكة وأبرز المحطات التاريخية التي مرت بها.'|tr }}</p>
+                </div>
+            </article>
+
+            <article class="requirement-card">
+                <span>02</span>
+                <div>
+                    <h3>{{ 'تعزيز الانتماء الوطني'|tr }}</h3>
+                    <p>{{ 'تعزيز الاعتزاز بالهوية الوطنية السعودية من خلال التعرف على تاريخ الوطن وإنجازاته وتراثه.'|tr }}</p>
+                </div>
+            </article>
+
+            <article class="requirement-card">
+                <span>03</span>
+                <div>
+                    <h3>{{ 'إبراز التراث السعودي'|tr }}</h3>
+                    <p>{{ 'التعريف بالمعالم التاريخية والموروث الثقافي والعمارة التقليدية التي تتميز بها مناطق المملكة.'|tr }}</p>
+                </div>
+            </article>
+
+            <article class="requirement-card">
+                <span>04</span>
+                <div>
+                    <h3>{{ 'اكتشاف المدن السعودية'|tr }}</h3>
+                    <p>{{ 'التعريف بأبرز المدن السعودية ومعالمها السياحية وتاريخها وتنوعها الجغرافي والثقافي.'|tr }}</p>
+                </div>
+            </article>
+
+            <article class="requirement-card">
+                <span>05</span>
+                <div>
+                    <h3>{{ 'ربط الماضي بالحاضر'|tr }}</h3>
+                    <p>{{ 'إظهار مسيرة المملكة من جذورها التاريخية إلى نهضتها الحديثة ومشروعاتها التنموية.'|tr }}</p>
+                </div>
+            </article>
+
+            <article class="requirement-card">
+                <span>06</span>
+                <div>
+                    <h3>{{ 'نشر المعرفة بطريقة ممتعة'|tr }}</h3>
+                    <p>{{ 'تقديم المعلومات التاريخية والثقافية بأسلوب بصري وتفاعلي يجعل رحلة الاستكشاف أكثر متعة وفائدة.'|tr }}</p>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= WHAT WE OFFER ================= -->
+
+<section class="section-pad about-offer-section">
+
+    <div class="container">
+
+        <div class="about-grid">
+
+            <div>
+                <span class="section-kicker">
+                    {{ 'اكتشف محتوى الموقع'|tr }}
+                </span>
+
+                <h2>
+                    {{ 'رحلة بين'|tr }}
+                    <br>
+                    <span class="text-accent">
+                        {{ 'التاريخ والحضارة'|tr }}
+                    </span>
+                </h2>
+            </div>
+
+            <div>
+
+                <p>
+                    {{ 'يقدم حكاية وطن مجموعة من الصفحات التي تأخذ الزائر في رحلة عبر تاريخ المملكة العربية السعودية، بدءًا من الدولة السعودية الأولى والثانية، وصولًا إلى توحيد المملكة ومسيرة ملوكها ورؤية السعودية 2030.'|tr }}
+                </p>
+
+                <p>
+                    {{ 'كما يتيح الموقع استكشاف مدن الرياض ومكة المكرمة والمدينة المنورة وجدة والعلا وأبها، والتعرف على أبرز معالمها التاريخية والطبيعية والثقافية من خلال الصور والمعلومات والقصص المرتبطة بكل مدينة.'|tr }}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PROJECT VALUES ================= -->
+
+<section class="section-pad">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <div>
+                <span class="section-kicker">
+                    {{ 'قيم نعتز بها'|tr }}
+                </span>
+
+                <h2>
+                    {{ 'قيم حكاية وطن'|tr }}
+                </h2>
+            </div>
+
+        </div>
+
+        <div class="requirements-grid">
+
+            <article class="requirement-card">
+                <span>✦</span>
+                <div>
+                    <h3>{{ 'الأصالة'|tr }}</h3>
+                    <p>{{ 'الاعتزاز بالجذور التاريخية والموروث الثقافي الذي يشكل هوية المملكة.'|tr }}</p>
+                </div>
+            </article>
+
+            <article class="requirement-card">
+                <span>✦</span>
+                <div>
+                    <h3>{{ 'الانتماء'|tr }}</h3>
+                    <p>{{ 'تعزيز الارتباط بالوطن والفخر بتاريخه وحضارته وإنجازاته.'|tr }}</p>
+                </div>
+            </article>
+
+            <article class="requirement-card">
+                <span>✦</span>
+                <div>
+                    <h3>{{ 'المعرفة'|tr }}</h3>
+                    <p>{{ 'تقديم معلومات واضحة ومفيدة تساعد على فهم تاريخ المملكة وتنوعها.'|tr }}</p>
+                </div>
+            </article>
+
+            <article class="requirement-card">
+                <span>✦</span>
+                <div>
+                    <h3>{{ 'الطموح'|tr }}</h3>
+                    <p>{{ 'إبراز تطور المملكة وتطلعاتها المستقبلية مع المحافظة على هويتها الأصيلة.'|tr }}</p>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= CLOSING SECTION ================= -->
+
+<section class="closing-quote section-pad">
+
+    <div class="container quote-box">
+
+        <span class="quote-mark" aria-hidden="true">“</span>
+
+        <p>
+            {{ 'نروي حكاية الماضي، ونفتخر بإنجازات الحاضر،'|tr }}
+            <br>
+            {{ 'ونتطلع إلى مستقبل يليق بتاريخ وطننا.'|tr }}
+        </p>
+
+        <span class="quote-line"></span>
+
+        <small>
+            {{ 'حكاية وطن'|tr }}
+        </small>
+
+        <div class="mt-4">
+
+            <a class="btn btn-gold"
+               href="{% url 'kingdom:history' %}">
+                {{ 'ابدأ رحلتك في تاريخ المملكة'|tr }}
+                <span aria-hidden="true">←</span>
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
 {% endblock %}
