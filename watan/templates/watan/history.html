@@ -10,7 +10,7 @@
     <div class="vtimeline">
       {% for era in eras %}
       <article class="vt-item reveal">
-        <span class="vt-dot" style="border-color: {{ era.color }}"><i class="bi {{ era.icon }}"></i></span>
+        <span class="vt-dot"><i class="bi {{ era.icon }}"></i></span>
         <a class="d-block vt-card text-reset" href="{% url 'watan:era_detail' era.slug %}">
           <div class="row g-3 align-items-center">
             <div class="col-md-4"><img class="img-fluid rounded-4" src="{% asset era.image %}" alt="{{ era.title }}" loading="lazy"></div>
