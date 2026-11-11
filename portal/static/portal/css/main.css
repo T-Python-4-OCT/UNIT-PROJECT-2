@@ -11,6 +11,9 @@
   --c-accent-text: #7a5f17;
   --c-primary: #0b3d2e;
   --c-primary-hover: #14594a;
+  --c-card: linear-gradient(160deg, #ffffff 0%, #f1f6f3 100%);
+  --c-glow: rgba(176, 141, 60, 0.28);
+  --radius-lg: 20px;
 
   --bs-body-bg: var(--c-bg);
   --bs-body-color: var(--c-text);
@@ -31,6 +34,8 @@
   --c-accent-text: #d4b15f;
   --c-primary: #1f7a5a;
   --c-primary-hover: #26926d;
+  --c-card: linear-gradient(160deg, #13302a 0%, #0d201b 100%);
+  --c-glow: rgba(212, 177, 95, 0.22);
 
   --bs-link-color-rgb: 111, 208, 168;
   --bs-link-hover-color-rgb: 160, 230, 200;
@@ -41,8 +46,11 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  font-family: "Segoe UI", system-ui, -apple-system, "Helvetica Neue", Arial, sans-serif;
+  font-family: "IBM Plex Sans Arabic", "Segoe UI", system-ui, -apple-system, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
 }
+
+h1, h2, h3 { letter-spacing: -0.015em; }
 
 main { flex: 1; }
 
@@ -62,17 +70,30 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
 .about h2,
 .section-heading {
   padding-bottom: 0.6rem;
+  font-weight: 700;
 }
 
+.section-heading {
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+}
+
+/* Accent line under headings: fades from gold to transparent */
 .journey h2::after,
 .about h2::after,
 .section-heading::after {
   content: "";
   display: block;
-  width: 48px;
-  height: 3px;
-  margin-top: 0.6rem;
-  background: var(--c-accent);
+  width: 72px;
+  height: 4px;
+  margin-top: 0.75rem;
+  border-radius: 4px;
+  background: linear-gradient(90deg, var(--c-accent), transparent);
+}
+
+[dir="rtl"] .journey h2::after,
+[dir="rtl"] .about h2::after,
+[dir="rtl"] .section-heading::after {
+  background: linear-gradient(270deg, var(--c-accent), transparent);
 }
 
 /* ===== Buttons ===== */
@@ -137,6 +158,18 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
   align-items: center;
 }
 
+/* Arabic: text sits on the right, so the dark side of the gradient goes right too */
+[dir="rtl"] .hero {
+  background:
+    linear-gradient(
+      270deg,
+      rgba(3, 25, 19, 0.88) 0%,
+      rgba(3, 25, 19, 0.62) 30%,
+      rgba(3, 25, 19, 0.12) 100%
+    ),
+    url("../img/hero-riyadh.webp") center 45% / cover no-repeat;
+}
+
 .hero::after {
   content: "";
   position: absolute;
@@ -172,8 +205,20 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
   color: #ffffff;
   font-size: 1.15rem;
   font-weight: 500;
-  line-height: 1.9;
+  line-height: 1.7;
   text-shadow: 0 2px 8px rgba(0, 0, 0, 0.9);
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.hero-actions .btn {
+  padding-inline: 1.5rem;
+  border-radius: 999px;
+  font-weight: 600;
 }
 
 .hero .btn-primary {
@@ -202,7 +247,9 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
   position: relative;
   overflow: hidden;
   isolation: isolate;
+  background: var(--c-card);
   border: 1px solid var(--c-border);
+  border-radius: var(--radius-lg);
   transition:
     transform 0.35s ease,
     border-color 0.35s ease,
@@ -361,10 +408,9 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
 .info-card {
   position: relative;
   overflow: hidden;
-  background: var(--c-surface);
+  background: var(--c-card);
   border: 1px solid var(--c-border);
-  border-top: 3px solid var(--c-accent);
-  border-radius: 14px;
+  border-radius: var(--radius-lg);
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
   transition:
     transform 0.4s ease,
@@ -386,7 +432,22 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
 .info-card:hover {
   transform: translateY(-6px);
   border-color: var(--c-accent);
-  box-shadow: 0 18px 38px rgba(7, 42, 32, 0.14);
+  box-shadow:
+    0 0 0 1px var(--c-accent),
+    0 22px 45px -18px var(--c-glow);
+}
+
+/* Thin gold highlight along the top edge, replaces the old thick top border */
+.info-card::before,
+.stat-card::before {
+  content: "";
+  position: absolute;
+  inset-inline: 1.5rem;
+  top: 0;
+  height: 2px;
+  border-radius: 2px;
+  background: linear-gradient(90deg, transparent, var(--c-accent), transparent);
+  opacity: 0.8;
 }
 
 .info-card:hover .info-card-image {
@@ -440,19 +501,30 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
 
 /* ===== Stat cards ===== */
 .stat-card {
-  padding: 1.25rem;
-  background: var(--c-surface);
+  position: relative;
+  padding: 1.5rem;
+  background: var(--c-card);
   border: 1px solid var(--c-border);
-  border-top: 3px solid var(--c-accent);
-  border-radius: var(--bs-border-radius);
+  border-radius: var(--radius-lg);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+.stat-card:hover {
+  border-color: var(--c-accent);
+  box-shadow: 0 18px 40px -20px var(--c-glow);
+}
+
+/* Big numbers with a green-to-gold gradient fill */
 .stat-value {
-  margin: 0 0 0.25rem;
-  color: var(--c-heading);
-  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  margin: 0 0 0.35rem;
+  font-size: clamp(2rem, 4vw, 2.75rem);
   font-weight: 700;
   line-height: 1.1;
+  font-variant-numeric: tabular-nums;
+  background: linear-gradient(120deg, var(--c-heading) 20%, var(--c-accent) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
 }
 
 .stat-label { margin-bottom: 0.75rem; }
@@ -605,6 +677,33 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
 
 .site-navbar .container {
   min-height: 76px;
+  transition: min-height 0.25s ease;
+}
+
+/* After the user scrolls: slimmer bar, stronger shadow (class set in theme.js) */
+.site-navbar.is-scrolled .container {
+  min-height: 62px;
+}
+
+.site-navbar.is-scrolled {
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.28);
+}
+
+/* Reading progress: gold line at the bottom of the navbar, width from --scroll-progress */
+.site-navbar::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: -1px;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, #d4b15f, #f0d68f);
+  transform: scaleX(var(--scroll-progress, 0));
+  transform-origin: left;
+}
+
+[dir="rtl"] .site-navbar::after {
+  transform-origin: right;
 }
 
 .site-navbar .navbar-brand {

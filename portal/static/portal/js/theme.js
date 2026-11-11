@@ -76,3 +76,89 @@ document.addEventListener("DOMContentLoaded", function () {
     revealObserver.observe(element);
   });
 });
+
+
+/* ===== Navbar scroll state + reading progress ===== */
+document.addEventListener("DOMContentLoaded", function () {
+  const navbar = document.querySelector(".site-navbar");
+
+  if (!navbar) {
+    return;
+  }
+
+  let ticking = false;
+
+  function updateNavbar() {
+    const scrollTop = window.scrollY;
+    const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+    const progress = maxScroll > 0 ? scrollTop / maxScroll : 0;
+
+    navbar.classList.toggle("is-scrolled", scrollTop > 24);
+    navbar.style.setProperty("--scroll-progress", progress.toFixed(3));
+    ticking = false;
+  }
+
+  // requestAnimationFrame: update at most once per frame, not on every scroll event
+  window.addEventListener("scroll", function () {
+    if (!ticking) {
+      window.requestAnimationFrame(updateNavbar);
+      ticking = true;
+    }
+  }, { passive: true });
+
+  updateNavbar();
+});
+
+
+/* ===== Count-up for stat numbers ===== */
+document.addEventListener("DOMContentLoaded", function () {
+  const statValues = document.querySelectorAll(".stat-value");
+
+  if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
+    return;
+  }
+
+  // Animate only values like "280", "18.3 million", "460+".
+  // Skip dates and rankings such as "25 April 2016" or "2nd of 197".
+  const pattern = /^(\d+(?:\.\d+)?)(\D*)$/;
+
+  function countUp(element, target, decimals, suffix) {
+    const duration = 1200;
+    const start = performance.now();
+
+    function frame(now) {
+      const t = Math.min((now - start) / duration, 1);
+      const eased = 1 - Math.pow(1 - t, 3);
+      element.textContent = (target * eased).toFixed(decimals) + suffix;
+
+      if (t < 1) {
+        requestAnimationFrame(frame);
+      }
+    }
+
+    requestAnimationFrame(frame);
+  }
+
+  const observer = new IntersectionObserver(function (entries, obs) {
+    entries.forEach(function (entry) {
+      if (!entry.isIntersecting) {
+        return;
+      }
+
+      const element = entry.target;
+      const match = element.textContent.trim().match(pattern);
+      obs.unobserve(element);
+
+      if (!match) {
+        return;
+      }
+
+      const decimals = (match[1].split(".")[1] || "").length;
+      countUp(element, parseFloat(match[1]), decimals, match[2]);
+    });
+  }, { threshold: 0.6 });
+
+  statValues.forEach(function (element) {
+    observer.observe(element);
+  });
+});
