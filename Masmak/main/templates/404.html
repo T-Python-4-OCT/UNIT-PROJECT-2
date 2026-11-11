@@ -1,0 +1,18 @@
+{% extends "main/base.html" %}
+
+{% block title %}الصفحة غير موجودة{% endblock %}
+{% block description %}الصفحة المطلوبة غير موجودة.{% endblock %}
+
+{% block content %}
+<section class="section err">
+  <div class="container--narrow">
+    <div class="err__code">404</div>
+    <h1 style="font-size:2.2rem">ضللت الطريق في الصحراء</h1>
+    <p class="lead">الصفحة التي تبحث عنها غير موجودة. لعل البوابة الصحيحة من هنا:</p>
+    <p class="hero__actions" style="justify-content:center">
+      <a class="btn btn--gold" href="{% url 'main:home' %}">الرئيسية</a>
+      <a class="btn" href="{% url 'main:story' %}">قصة الاسترداد</a>
+    </p>
+  </div>
+</section>
+{% endblock %}
