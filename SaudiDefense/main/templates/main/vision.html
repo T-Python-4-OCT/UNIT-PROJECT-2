@@ -1,0 +1,157 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ t.vision }}{% endblock %}
+
+{% block content %}
+
+<section class="page-hero" style="background-image: url('{% static 'images/photos/sami-banner.webp' %}');">
+    <div class="container">
+        <div class="crumbs"><a href="{% url 'main:home_view' %}">{{ t.home }}</a> / {{ t.vision }}</div>
+        <h1>{{ t.vision }}</h1>
+        <p class="lead mb-0">{{ t.vision_lead }}</p>
+    </div>
+</section>
+
+<!-- الهدف -->
+<section class="section">
+    <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+            <div class="col-lg-6">
+                <span class="section-label">{{ t.goal_label }}</span>
+                <p class="quote mb-0">{{ t.goal_quote_1 }} <span>{{ t.goal_quote_value }}</span> {{ t.goal_quote_2 }} <span>2030</span>.</p>
+            </div>
+            <div class="col-lg-6">
+                <p class="fs-5 text-muted-2 mb-0">{{ t.goal_text }}</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- مسيرة التوطين -->
+<section class="section section-soft">
+    <div class="container">
+        <span class="section-label">{{ t.numbers_label }}</span>
+        <h2 class="section-title">{{ t.progress_title }}</h2>
+        <p class="section-intro">{{ t.approx_note }}</p>
+
+        <div class="meter">
+            <div class="meter-top"><span>{{ t.before_vision }}</span><span class="value">~2%</span></div>
+            <div class="meter-bar"><div class="meter-fill" style="width: 2%"></div></div>
+        </div>
+
+        <div class="meter">
+            <div class="meter-top"><span>2023</span><span class="value">~20%</span></div>
+            <div class="meter-bar"><div class="meter-fill" style="width: 20%"></div></div>
+        </div>
+
+        <div class="meter mb-0">
+            <div class="meter-top"><span>{{ t.target_2030 }}</span><span class="value">+50%</span></div>
+            <div class="meter-bar"><div class="meter-fill target" style="width: 50%"></div></div>
+        </div>
+    </div>
+</section>
+
+<!-- حاسبة التوطين (calc.js) -->
+<section class="section">
+    <div class="container">
+        <span class="section-label">{{ t.calc_label }}</span>
+        <h2 class="section-title">{{ t.calc_title }}</h2>
+        <p class="section-intro">{{ t.calc_intro }}</p>
+
+
+        <div class="card-x calc-card">
+            <!-- 1) المدخلات -->
+            <label for="calcInput" class="form-label fw-bold">{{ t.calc_input }}</label>
+            <div class="row g-3 align-items-center">
+                <div class="col-md-4">
+                    <input id="calcInput" class="form-control calc-input" type="text" value="100" inputmode="decimal" autocomplete="off">
+                </div>
+                <div class="col-md-8">
+                    <input id="calcRange" class="form-range" type="range" min="10" max="500" step="10" value="100" aria-label="{{ t.calc_input }}">
+                </div>
+            </div>
+
+            <!-- 2) الجملة اللي تشرح النتيجة (تتغير مع الرقم) -->
+            <p id="calcSentence" class="calc-sentence" data-template="{{ t.calc_sentence }}"></p>
+
+            <!-- 3) شريط ملوّن: المحلي اليوم + المطلوب إضافته + الباقي مستورد -->
+            <div class="calc-bar" aria-hidden="true">
+                <div id="barNow" class="calc-bar-part part-now" style="width: 20%"></div>
+                <div id="barGap" class="calc-bar-part part-gap" style="width: 30%"></div>
+                <div id="barImported" class="calc-bar-part part-imported" style="width: 50%"></div>
+            </div>
+            <div class="calc-legend">
+                <span><i class="dot part-now"></i> {{ t.calc_now }} <bdi dir="ltr">20%</bdi></span>
+                <span><i class="dot part-gap"></i> {{ t.calc_gap }} <bdi dir="ltr">30%</bdi></span>
+                <span><i class="dot part-imported"></i> {{ t.calc_imported }} <bdi dir="ltr">50%</bdi></span>
+            </div>
+
+            <!-- 4) الأرقام: اليوم ← المطلوب ← الهدف -->
+            <div class="calc-results">
+                <div class="calc-box">
+                    <span class="calc-label">{{ t.calc_now }}</span>
+                    <strong id="calcNow">20</strong>
+                    <small>{{ t.calc_unit }}</small>
+                </div>
+                <div class="calc-box calc-gap-box">
+                    <span class="calc-label">{{ t.calc_gap }}</span>
+                    <strong id="calcGap">30</strong>
+                    <small>{{ t.calc_unit }}</small>
+                </div>
+                <div class="calc-box calc-main">
+                    <span class="calc-label">{{ t.calc_target }}</span>
+                    <strong id="calcTarget">50</strong>
+                    <small>{{ t.calc_unit }}</small>
+                </div>
+            </div>
+        </div>
+        <p class="small text-muted-2 mt-3 mb-0"><i class="bi bi-info-circle"></i> {{ t.calc_note }}</p>
+    </div>
+</section>
+
+<!-- الركائز -->
+<section class="section">
+    <div class="container">
+        <span class="section-label">{{ t.pillars_label }}</span>
+        <h2 class="section-title">{{ t.pillars_title }}</h2>
+        <p class="section-intro">{{ t.pillars_intro }}</p>
+
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card-x"><div class="card-body-x">
+                    <span class="icon-badge"><i class="bi bi-people-fill"></i></span>
+                    <h3>{{ t.pillar_1 }}</h3>
+                    <p class="mb-0">{{ t.pillar_1_text }}</p>
+                </div></div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card-x"><div class="card-body-x">
+                    <span class="icon-badge"><i class="bi bi-cpu-fill"></i></span>
+                    <h3>{{ t.pillar_2 }}</h3>
+                    <p class="mb-0">{{ t.pillar_2_text }}</p>
+                </div></div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card-x"><div class="card-body-x">
+                    <span class="icon-badge"><i class="bi bi-buildings-fill"></i></span>
+                    <h3>{{ t.pillar_3 }}</h3>
+                    <p class="mb-0">{{ t.pillar_3_text }}</p>
+                </div></div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card-x"><div class="card-body-x">
+                    <span class="icon-badge"><i class="bi bi-lightbulb-fill"></i></span>
+                    <h3>{{ t.pillar_4 }}</h3>
+                    <p class="mb-0">{{ t.pillar_4_text }}</p>
+                </div></div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/calc.js' %}?v=3"></script>
+{% endblock %}
