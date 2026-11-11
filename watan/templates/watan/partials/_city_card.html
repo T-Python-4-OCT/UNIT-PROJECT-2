@@ -1,0 +1,12 @@
+{% load watan_extras %}
+<a class="city-card" href="{% url 'watan:city_detail' city.slug %}">
+  <div class="city-card-media">
+    <img src="{% asset city.card_image %}" alt="{{ city.name }}" loading="lazy">
+    <span class="city-card-tag"><i class="bi bi-geo-alt-fill"></i> {{ city.region }}</span>
+  </div>
+  <div class="city-card-body">
+    <h3>{{ city.name }} <small>{{ city.name_en }}</small></h3>
+    <p>{{ city.tagline }}</p>
+    <span class="city-card-more">استكشف المدينة <i class="bi bi-arrow-left"></i></span>
+  </div>
+</a>

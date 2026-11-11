@@ -1,0 +1,172 @@
+{% extends "watan/base.html" %}
+{% load watan_extras %}
+{% block title %}{{ city.name }}{% endblock %}
+{% block description %}{{ city.tagline }}{% endblock %}
+
+{% block content %}
+{# ===== عنوان المدينة + عبارة جذابة ===== #}
+{% url 'watan:cities' as cities_url %}
+<header class="page-header city-hero">
+  <div class="page-header-bg" style="background-image: url('{% asset city.hero_image %}')"></div>
+  <div class="page-header-shade"></div>
+  <div class="container position-relative">
+    <nav aria-label="مسار التنقل">
+      <ol class="breadcrumb wt-breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'watan:home' %}">الرئيسية</a></li>
+        <li class="breadcrumb-item"><a href="{{ cities_url }}">المدن</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ city.name }}</li>
+      </ol>
+    </nav>
+    <span class="eyebrow eyebrow-light">{{ city.name_en }}</span>
+    <h1 class="page-title">{{ city.name }}</h1>
+    <p class="page-subtitle">{{ city.tagline }}</p>
+    <div class="city-meta">
+      <span><i class="bi bi-geo-alt-fill"></i> {{ city.region }}</span>
+      <span><i class="bi bi-calendar-heart"></i> أفضل وقت للزيارة: {{ city.best_time }}</span>
+    </div>
+  </div>
+</header>
+
+{# ===== نبذة + حقائق ===== #}
+<section class="section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-7 reveal">
+        <span class="eyebrow">نبذة</span>
+        <h2 class="section-title">عن {{ city.name }}</h2>
+        <div class="prose">{% for p in city.brief %}<p>{{ p }}</p>{% endfor %}</div>
+      </div>
+      <div class="col-lg-5 reveal">
+        <div class="row g-3">
+          {% for f in city.facts %}
+          <div class="col-6"><div class="fact-card"><small>{{ f.label }}</small><strong>{{ f.value }}</strong></div></div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ===== معرض الصور (Carousel) ===== #}
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">معرض الصور</span><h2 class="section-title">{{ city.name }} بعدسة الفن</h2></div>
+    <div class="reveal">
+      <div id="cityGallery" class="carousel slide gallery-carousel" data-bs-ride="carousel" data-bs-interval="5000" aria-label="معرض صور {{ city.name }}">
+        <div class="carousel-indicators">
+          {% for g in city.gallery %}<button type="button" data-bs-target="#cityGallery" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="الصورة {{ forloop.counter }}"></button>{% endfor %}
+        </div>
+        <div class="carousel-inner">
+          {% for g in city.gallery %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <img src="{% asset g.src %}" alt="{{ g.caption }}" {% if not forloop.first %}loading="lazy"{% endif %}>
+            <div class="carousel-caption"><p>{{ g.caption }}</p></div>
+          </div>
+          {% endfor %}
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#cityGallery" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">السابق</span></button>
+        <button class="carousel-control-next" type="button" data-bs-target="#cityGallery" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">التالي</span></button>
+      </div>
+      <div class="gallery-thumbs">
+        {% for g in city.gallery %}
+        <button type="button" data-bs-target="#cityGallery" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-label="{{ g.caption }}"><img src="{% asset g.src %}" alt="" loading="lazy"></button>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+{# ===== فيديو المدينة: مشغل YouTube داخل الصفحة مثل النموذج المرجعي ===== #}
+<section class="section city-video-section" aria-label="فيديو عن {{ city.name }}">
+  <div class="container">
+    <div class="city-video-panel">
+      <div class="row align-items-center g-4 g-lg-5">
+        {# يظهر النص على اليمين في الشاشات الكبيرة، وأسفل الفيديو في الجوال #}
+        <div class="col-lg-4 order-2 order-lg-1">
+          <div class="city-video-copy">
+            <span class="eyebrow">06 / شاهد واكتشف</span>
+            <h2 class="section-title">شاهد {{ city.name }} عن قرب</h2>
+            <p class="city-video-subtitle">{{ city.video.caption }}</p>
+            <p class="city-video-description">صورة وصوت يقرّبانك من تفاصيل المكان.</p>
+          </div>
+        </div>
+        <div class="col-lg-8 order-1 order-lg-2">
+          {% if city.video.youtube_id %}
+          {# مشغل YouTube مدمج داخل صفحة المدينة، مع نسبة عرض سينمائية 16:9 #}
+          <div class="video-frame city-video-frame">
+            <iframe
+              src="https://www.youtube.com/embed/{{ city.video.youtube_id }}?rel=0&amp;playsinline=1&amp;modestbranding=1"
+              title="فيديو {{ city.name }} من YouTube"
+              loading="lazy"
+              referrerpolicy="strict-origin-when-cross-origin"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+              allowfullscreen>
+            </iframe>
+          </div>
+          <a class="city-video-external" href="https://www.youtube.com/watch?v={{ city.video.youtube_id }}" target="_blank" rel="noopener noreferrer">
+            <i class="bi bi-youtube" aria-hidden="true"></i>
+            إذا منع YouTube التضمين، افتح الفيديو من المصدر
+            <i class="bi bi-box-arrow-up-left" aria-hidden="true"></i>
+          </a>
+          {% else %}
+          <p class="city-video-description">لا يتوفر فيديو لهذه المدينة حاليًا.</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+{# ===== أبرز المعالم ===== #}
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">أبرز المعالم</span><h2 class="section-title">ماذا تزور في {{ city.name }}؟</h2></div>
+    <div class="row g-4">
+      {% for a in city.attractions %}
+      <div class="col-md-6 col-lg-4 reveal"><div class="attraction-card">
+        <div class="icon-bubble"><i class="bi {{ a.icon }}"></i></div>
+        <h3>{{ a.name }}</h3><p>{{ a.description }}</p>
+      </div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ===== الخط الزمني ===== #}
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">موجز تاريخي</span><h2 class="section-title">محطات من تاريخ {{ city.name }}</h2></div>
+    {% include "watan/partials/_timeline.html" with items=city.timeline icon="bi-clock-history" %}
+  </div>
+</section>
+
+{# ===== الفعاليات ===== #}
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">فعاليات</span><h2 class="section-title">أبرز الفعاليات في {{ city.name }}</h2></div>
+    <div class="row g-4">
+      {% for e in city.events %}
+      <div class="col-lg-6 reveal"><div class="event-card">
+        <div class="icon-bubble"><i class="bi {{ e.icon }}"></i></div>
+        <div><span class="event-season"><i class="bi bi-calendar-event"></i> {{ e.season }}</span><h3>{{ e.name }}</h3><p>{{ e.description }}</p></div>
+      </div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{# ===== المدينة السابقة / التالية + مدن أخرى ===== #}
+<section class="section">
+  <div class="container">
+    <div class="pager mb-5">
+      {% if next_city %}<a class="next" href="{% url 'watan:city_detail' next_city.slug %}"><small><i class="bi bi-arrow-right"></i> المدينة التالية</small>{{ next_city.name }}</a>{% else %}<span></span>{% endif %}
+      {% if prev_city %}<a class="prev" href="{% url 'watan:city_detail' prev_city.slug %}"><small>المدينة السابقة <i class="bi bi-arrow-left"></i></small>{{ prev_city.name }}</a>{% else %}<span></span>{% endif %}
+    </div>
+    <div class="section-head reveal"><span class="eyebrow">تابع الرحلة</span><h2 class="section-title">مدن أخرى</h2></div>
+    <div class="row g-4">
+      {% for city in other_cities|slice:":3" %}
+      <div class="col-md-6 col-lg-4 reveal">{% include "watan/partials/_city_card.html" %}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

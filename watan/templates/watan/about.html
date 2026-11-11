@@ -1,0 +1,34 @@
+{% extends "watan/base.html" %}
+{% block title %}{{ about.title }}{% endblock %}
+
+{% block content %}
+{% include "watan/partials/_page_header.html" with title=about.title eyebrow="مشروع تعليمي" subtitle=about.lead image="img/watan-day.svg" %}
+
+<section class="section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-6 reveal">
+        <span class="eyebrow">أهداف المشروع</span>
+        <h2 class="section-title">لماذا «حكاية وطن»؟</h2>
+        <ul class="check-list">{% for g in about.goals %}<li>{{ g }}</li>{% endfor %}</ul>
+      </div>
+      <div class="col-lg-6 reveal">
+        <span class="eyebrow">كيف يعمل؟</span>
+        <h2 class="section-title">المحتوى من ملف JSON</h2>
+        <ul class="check-list">{% for h in about.how %}<li>{{ h }}</li>{% endfor %}</ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head text-center reveal"><span class="eyebrow">التقنيات</span><h2 class="section-title">ما الذي بُني به الموقع؟</h2></div>
+    <div class="row g-4">
+      {% for t in about.tech %}
+      <div class="col-sm-6 col-lg-4 reveal"><div class="tech-card"><div class="icon-bubble"><i class="bi {{ t.icon }}"></i></div><h3 class="h5">{{ t.name }}</h3><p class="text-body-secondary mb-0">{{ t.desc }}</p></div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

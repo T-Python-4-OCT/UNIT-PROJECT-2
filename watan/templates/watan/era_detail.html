@@ -1,0 +1,69 @@
+{% extends "watan/base.html" %}
+{% load watan_extras %}
+{% block title %}{{ era.title }}{% endblock %}
+{% block description %}{{ era.summary }}{% endblock %}
+
+{% block content %}
+{% url 'watan:history' as history_url %}
+{% include "watan/partials/_page_header.html" with title=era.title eyebrow=era.period subtitle=era.tagline image=era.image parent_url=history_url parent_label="تاريخ المملكة" %}
+
+<section class="section">
+  <div class="container">
+    <div class="row g-5">
+      <div class="col-lg-7 reveal">
+        <span class="eyebrow">نبذة</span>
+        <h2 class="section-title">{{ era.tagline }}</h2>
+        <div class="prose">
+          <p><strong>{{ era.summary }}</strong></p>
+          {% for p in era.paragraphs %}<p>{{ p }}</p>{% endfor %}
+        </div>
+      </div>
+      <div class="col-lg-5 reveal">
+        <div class="intro-visual"><img src="{% asset era.image %}" alt="{{ era.title }}"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">أحداث</span><h2 class="section-title">أبرز أحداث المرحلة</h2></div>
+    {% include "watan/partials/_timeline.html" with items=era.events icon=era.icon %}
+  </div>
+</section>
+
+{% if era.highlights %}
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">شواهد</span><h2 class="section-title">معالم ومحطات بارزة</h2></div>
+    <div class="row g-4">
+      {% for h in era.highlights %}
+      <div class="col-md-6 reveal"><div class="highlight-box"><h3>{{ h.title }}</h3><p>{{ h.text }}</p></div></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+{% if related_cities %}
+<section class="section section-alt">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">مدن مرتبطة</span><h2 class="section-title">أين تجد أثر هذه المرحلة؟</h2></div>
+    <div class="row g-4">
+      {% for city in related_cities %}
+      <div class="col-md-6 col-lg-4 reveal">{% include "watan/partials/_city_card.html" %}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section">
+  <div class="container">
+    <div class="pager">
+      {% if next_era %}<a class="next" href="{% url 'watan:era_detail' next_era.slug %}"><small><i class="bi bi-arrow-right"></i> المرحلة التالية</small>{{ next_era.title }}</a>{% else %}<span></span>{% endif %}
+      {% if prev_era %}<a class="prev" href="{% url 'watan:era_detail' prev_era.slug %}"><small>المرحلة السابقة <i class="bi bi-arrow-left"></i></small>{{ prev_era.title }}</a>{% else %}<span></span>{% endif %}
+    </div>
+  </div>
+</section>
+{% endblock %}

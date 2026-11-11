@@ -1,0 +1,19 @@
+{% load watan_extras %}
+<header class="page-header">
+  {% if image %}<div class="page-header-bg" style="background-image: url('{% asset image %}')"></div>{% endif %}
+  <div class="page-header-shade"></div>
+  <div class="container position-relative">
+    {% if parent_url %}
+    <nav aria-label="مسار التنقل">
+      <ol class="breadcrumb wt-breadcrumb">
+        <li class="breadcrumb-item"><a href="{% url 'watan:home' %}">الرئيسية</a></li>
+        <li class="breadcrumb-item"><a href="{{ parent_url }}">{{ parent_label }}</a></li>
+        <li class="breadcrumb-item active" aria-current="page">{{ title }}</li>
+      </ol>
+    </nav>
+    {% endif %}
+    {% if eyebrow %}<span class="eyebrow eyebrow-light">{{ eyebrow }}</span>{% endif %}
+    <h1 class="page-title">{{ title }}</h1>
+    {% if subtitle %}<p class="page-subtitle">{{ subtitle }}</p>{% endif %}
+  </div>
+</header>

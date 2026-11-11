@@ -1,0 +1,20 @@
+{% extends "watan/base.html" %}
+{% block title %}المدن السعودية{% endblock %}
+
+{% block content %}
+{% include "watan/partials/_page_header.html" with title="أبرز المدن السعودية" eyebrow="وجوه الوطن" subtitle="اختر مدينة لتتعرف على معالمها وتاريخها وفعالياتها." image="img/watan-day.svg" %}
+
+<section class="section">
+  <div class="container">
+    <div class="filter-bar" role="group" aria-label="تصفية المدن حسب المنطقة">
+      <button type="button" class="filter-btn active" data-filter="all" aria-pressed="true">الكل</button>
+      {% for r in regions %}<button type="button" class="filter-btn" data-filter="{{ r.key }}" aria-pressed="false">{{ r.label }}</button>{% endfor %}
+    </div>
+    <div class="row g-4">
+      {% for city in cities %}
+      <div class="col-md-6 col-lg-4 city-col reveal" data-region="{{ city.region_key }}">{% include "watan/partials/_city_card.html" %}</div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}
