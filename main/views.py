@@ -1,5 +1,7 @@
 from django.shortcuts import render
 from django.http import Http404
+
+from main.services import place_context, project_context
 from .data import PLACES, PROJECTS
 from .search_service import get_search_context
 from django.views.decorators.http import require_POST
@@ -24,17 +26,8 @@ def places(request):
 
 
 def place_detail(request, slug):
-    place = next(
-        (item for item in PLACES if item['slug'] == slug),
-        None
-    )
-
-    if place is None:
-        raise Http404("المكان غير موجود")
-
-    return render(request, 'main/place_detail.html', {
-        'place': place,
-    })
+    return render(request, 'main/place_detail.html', place_context(slug))
+    
 
 
 def events(request):
@@ -52,23 +45,8 @@ def projects(request):
 
 
 def project_detail(request, slug):
-    project = next(
-        (item for item in PROJECTS if item['slug'] == slug),
-        None
-    )
+    return render(request, 'main/project_detail.html', project_context(slug))
 
-    if project is None:
-        raise Http404("المشروع غير موجود")
-
-    related_projects = [
-        item for item in PROJECTS
-        if item['slug'] != slug
-    ][:3]
-
-    return render(request, 'main/project_detail.html', {
-        'project': project,
-        'related_projects': related_projects,
-    })
 
 
 def gallery(request):
