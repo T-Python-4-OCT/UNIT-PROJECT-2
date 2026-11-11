@@ -18,10 +18,6 @@
             <h1>{{ project.name }}</h1>
             <p>{{ project.tagline }}</p>
         </div>
-        <div class="rs-waves" aria-hidden="true">
-            <span></span>
-            <span></span>
-        </div>
     </section>
 
     <!-- ================= DEPTH 1: OVERVIEW ================= -->
@@ -91,7 +87,8 @@
                 <div class="rs-reef">
                     {% for item in project.reef %}
                         <div>
-                            <strong>{{ item.value }}</strong>
+                            <span class="visually-hidden">{{ item.value }}</span>
+                            <strong class="rs-count" style="--num: {{ item.number }}" data-unit="{{ item.unit }}" aria-hidden="true"></strong>
                             <span>{{ item.text }}</span>
                         </div>
                     {% endfor %}

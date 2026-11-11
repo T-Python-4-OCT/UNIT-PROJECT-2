@@ -36,29 +36,32 @@
     </div>
 </section>
 
-<!-- ================= STREET SCENE ================= -->
-<section class="rn-band" aria-hidden="true">
-    <div class="rn-scene">
-        <span class="rn-sun"></span>
-        <span class="rn-cloud"></span>
-        <span class="rn-cloud c2"></span>
-        <div class="rn-houses">
-            <div class="house"><span class="roof"></span></div>
-            <span class="rn-tree"></span>
-            <div class="house tower"></div>
-            <div class="house wide"><span class="roof"></span></div>
-            <span class="rn-tree"></span>
-            <div class="house mosque"><span class="dome"></span><span class="minaret"></span></div>
-            <div class="house"><span class="roof"></span></div>
-            <span class="rn-tree"></span>
-            <div class="house tower short"></div>
-            <div class="house wide"><span class="roof"></span></div>
-        </div>
-        <div class="rn-street">
-            <span class="rn-walker"></span>
-            <span class="rn-walker back"></span>
-            <span class="rn-car"></span>
-        </div>
+<!-- ================= LIVING SCENE ================= -->
+<section class="rn-live">
+    <div class="rn-photo rn-day" style="--img: url('{% static 'images/roshn/park.jpg' %}')" aria-hidden="true">
+        <span class="rn-rays"></span>
+        <span class="rn-shine"></span>
+        <span class="rn-fountain"></span>
+        <span class="rn-spray s1"></span>
+        <span class="rn-spray s2"></span>
+        <span class="rn-spray s3"></span>
+        <span class="rn-birds"></span>
+        <span class="rn-birds b2"></span>
+    </div>
+
+    <div class="rn-photo rn-night" style="--img: url('{% static 'images/roshn/3.jpg' %}')" aria-hidden="true">
+        <span class="rn-stars"></span>
+        <span class="rn-moon"></span>
+        <span class="rn-glow-dot lantern"></span>
+        {% for spot in "1234567" %}<span class="rn-glow-dot g{{ spot }}"></span>{% endfor %}
+    </div>
+
+    <div class="container rn-live-text">
+        <span class="eyebrow on-dark">Everyday Life</span>
+        <h2>
+            <span class="rn-day-title">Days in the Park</span>
+            <span class="rn-night-title">Evenings in SEDRA</span>
+        </h2>
     </div>
 </section>
 
@@ -91,14 +94,17 @@
 
             <div class="rn-panel">
                 <div class="rn-map" aria-hidden="true">
-                    <div class="rn-land"></div>
                     <span class="rn-sea">Red Sea</span>
                     <span class="rn-gulf">Arabian Gulf</span>
-                    {% for item in project.communities %}
-                        <span class="rn-dot rn-dot-{{ forloop.counter }}" style="--x: {{ item.x }}%; --y: {{ item.y }}%">
-                            <em>{{ item.name }}</em>
-                        </span>
-                    {% endfor %}
+                    <div class="rn-country">
+                        <div class="rn-land"></div>
+                        <span class="rn-country-name" lang="ar">المملكة العربية السعودية</span>
+                        {% for item in project.communities %}
+                            <span class="rn-dot rn-dot-{{ forloop.counter }}" style="--x: {{ item.x }}%; --y: {{ item.y }}%">
+                                <em>{{ item.name }}</em>
+                            </span>
+                        {% endfor %}
+                    </div>
                 </div>
 
                 {% for item in project.communities %}

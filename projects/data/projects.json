@@ -325,15 +325,21 @@
         "reef": [
             {
                 "value": "75%",
-                "text": "of the archipelago left untouched"
+                "text": "of the archipelago left untouched",
+                "number": 75,
+                "unit": "%"
             },
             {
                 "value": "9",
-                "text": "islands set aside as conservation zones"
+                "text": "islands set aside as conservation zones",
+                "number": 9,
+                "unit": ""
             },
             {
                 "value": "200 km",
-                "text": "of coastline"
+                "text": "of coastline",
+                "number": 200,
+                "unit": " km"
             }
         ],
         "highlights": [
@@ -555,16 +561,16 @@
                 "title": "Royal Arts Complex",
                 "text": "A museum, national theatre and arts institute.",
                 "icon": "museum",
-                "x": 28,
-                "y": 30,
+                "x": 24,
+                "y": 66,
                 "scene": "arts"
             },
             {
                 "title": "Visitor Pavilion",
                 "text": "An environmental and cultural centre.",
                 "icon": "visibility",
-                "x": 66,
-                "y": 24,
+                "x": 47,
+                "y": 56,
                 "scene": "pavilion"
             },
             {
@@ -572,23 +578,23 @@
                 "text": "Over 11 km² of planted parkland.",
                 "icon": "forest",
                 "x": 50,
-                "y": 56,
+                "y": 22,
                 "scene": "green"
             },
             {
                 "title": "Urban Loop",
                 "text": "A 7.2 km path circling the park.",
                 "icon": "directions_walk",
-                "x": 82,
-                "y": 68,
+                "x": 63,
+                "y": 40,
                 "scene": "loop"
             },
             {
                 "title": "Abu Bakr Al-Siddiq Tunnel",
                 "text": "Opened to traffic in 2024.",
                 "icon": "swap_calls",
-                "x": 20,
-                "y": 76,
+                "x": 30,
+                "y": 44,
                 "scene": "tunnel"
             }
         ],
@@ -662,32 +668,32 @@
                 "city": "Riyadh",
                 "text": "ROSHN's flagship community, covering about 20 million m² in north Riyadh.",
                 "icon": "home",
-                "x": 56,
-                "y": 46
+                "x": 57.0,
+                "y": 45.8
             },
             {
                 "name": "WAREFA",
                 "city": "Riyadh",
                 "text": "A community in eastern Riyadh with homes, parks and everyday services.",
                 "icon": "holiday_village",
-                "x": 60,
-                "y": 50
+                "x": 58.2,
+                "y": 47.2
             },
             {
                 "name": "ALAROUS",
                 "city": "Jeddah",
                 "text": "A seaside community in north Jeddah on the Red Sea coast.",
                 "icon": "waves",
-                "x": 20,
-                "y": 58
+                "x": 21.6,
+                "y": 65.8
             },
             {
                 "name": "ALFULWA",
                 "city": "Eastern Province",
                 "text": "A community bringing ROSHN's model to the Eastern Province.",
                 "icon": "location_city",
-                "x": 78,
-                "y": 38
+                "x": 71.2,
+                "y": 42.9
             }
         ],
         "amenities": [
@@ -755,11 +761,6 @@
                 "image": "images/roshn/card.jpg",
                 "caption": "A school next door",
                 "text": "Courts and gardens within walking distance"
-            },
-            {
-                "image": "images/roshn/3.jpg",
-                "caption": "Evening in SEDRA",
-                "text": "Car-free paths lit for night walks"
             },
             {
                 "image": "images/roshn/4.jpg",

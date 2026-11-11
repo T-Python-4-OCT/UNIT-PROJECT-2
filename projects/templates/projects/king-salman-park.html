@@ -89,17 +89,41 @@
             <input type="radio" name="park-place" id="place-{{ forloop.counter }}" class="ks-radio" {% if forloop.first %}checked{% endif %}>
         {% endfor %}
 
-        <div class="ks-map">
-            <div class="ks-loop" aria-hidden="true">
-                <span class="ks-walker"></span>
-                <span class="ks-walker late"></span>
-            </div>
+        <div class="ks-tabs">
             {% for place in project.map %}
-                <label for="place-{{ forloop.counter }}" class="ks-pin ks-pin-{{ forloop.counter }}" style="--x: {{ place.x }}%; --y: {{ place.y }}%" title="{{ place.title }}">
-                    <span class="material-symbols-outlined" aria-hidden="true">{{ place.icon }}</span>
-                    <em>{{ forloop.counter }}</em>
+                <label for="place-{{ forloop.counter }}" class="ks-tab ks-tab-{{ forloop.counter }}">
+                    <span>{{ forloop.counter }}</span>{{ place.title }}
                 </label>
             {% endfor %}
+        </div>
+
+        <div class="ks-map">
+            <div class="ks-world">
+                <span class="ks-district"></span>
+                <span class="ks-wing north"></span>
+                <span class="ks-wing west"></span>
+                <span class="ks-wing east"></span>
+                <span class="ks-wing south"></span>
+                <span class="ks-highway"></span>
+                <span class="ks-avenue"></span>
+                <span class="ks-core"></span>
+                <span class="ks-lake"></span>
+                <span class="ks-terraces"></span>
+                <span class="ks-dome"></span>
+                <span class="ks-campus"></span>
+                <div class="ks-loop" aria-hidden="true">
+                    <span class="ks-walker"></span>
+                    <span class="ks-walker late"></span>
+                </div>
+                {% for place in project.map %}
+                    <label for="place-{{ forloop.counter }}" class="ks-pin ks-pin-{{ forloop.counter }}" style="--x: {{ place.x }}%; --y: {{ place.y }}%" title="{{ place.title }}">
+                        <span class="ks-pin-head">
+                            <span class="material-symbols-outlined" aria-hidden="true">{{ place.icon }}</span>
+                            <em>{{ forloop.counter }}</em>
+                        </span>
+                    </label>
+                {% endfor %}
+            </div>
             <span class="ks-map-hint">
                 <span class="material-symbols-outlined" aria-hidden="true">touch_app</span> Tap a pin
             </span>
@@ -180,13 +204,6 @@
             {% endfor %}
         </div>
 
-        <div class="ks-tabs">
-            {% for place in project.map %}
-                <label for="place-{{ forloop.counter }}" class="ks-tab ks-tab-{{ forloop.counter }}">
-                    <span>{{ forloop.counter }}</span>{{ place.title }}
-                </label>
-            {% endfor %}
-        </div>
     </div>
 </section>
 
