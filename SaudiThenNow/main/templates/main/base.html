@@ -18,10 +18,15 @@
     <div class="container header-inner">
       <a href="{% url 'main:home' %}" class="logo">
         <svg class="logo-mark" viewBox="0 0 34 34" aria-hidden="true">
-          <polygon points="17,3 31,31 3,31"/>
-          <polygon class="logo-inner" points="17,15 23,27 11,27"/>
+          <path class="mark-then" fill-rule="evenodd" d="M3 31 L4.5 15 H13.5 L15 31 Z M7.5 31 V26.8 A1.5 1.5 0 0 1 10.5 26.8 V31 Z M4.5 15 L6 11.5 L7.5 15 Z M7.5 15 L9 11.5 L10.5 15 Z M10.5 15 L12 11.5 L13.5 15 Z"/>
+          <path class="mark-now" fill-rule="evenodd" d="M18 31 L20.2 2.5 H27.8 L30 31 Z M21.3 2.5 H26.7 Q24 24 21.3 2.5 Z"/>
+          <rect class="mark-ground" x="1" y="31" width="32" height="2"/>
         </svg>
-        <span>{{ t.site_name }}</span>
+        {% if lang == 'ar' %}
+          <span class="logo-name">السعودية بين <span class="word-then">الماضي</span> <span class="word-now">والحاضر</span></span>
+        {% else %}
+          <span class="logo-name">Saudi <span class="word-then">Then</span> &amp; <span class="word-now">Now</span></span>
+        {% endif %}
       </a>
 
       <nav class="nav" id="nav">
@@ -60,8 +65,9 @@
       <div class="footer-brand">
         <a href="{% url 'main:home' %}" class="logo">
           <svg class="logo-mark" viewBox="0 0 34 34" aria-hidden="true">
-            <polygon points="17,3 31,31 3,31"/>
-            <polygon class="logo-inner" points="17,15 23,27 11,27"/>
+            <path class="mark-then" fill-rule="evenodd" d="M3 31 L4.5 15 H13.5 L15 31 Z M7.5 31 V26.8 A1.5 1.5 0 0 1 10.5 26.8 V31 Z M4.5 15 L6 11.5 L7.5 15 Z M7.5 15 L9 11.5 L10.5 15 Z M10.5 15 L12 11.5 L13.5 15 Z"/>
+            <path class="mark-now" fill-rule="evenodd" d="M18 31 L20.2 2.5 H27.8 L30 31 Z M21.3 2.5 H26.7 Q24 24 21.3 2.5 Z"/>
+            <rect class="mark-ground" x="1" y="31" width="32" height="2"/>
           </svg>
           <span>{{ t.site_name }}</span>
         </a>
@@ -75,16 +81,6 @@
         <a href="{% url 'main:timeline' %}">{{ t.nav_timeline }}</a>
         <a href="{% url 'main:about' %}">{{ t.nav_about }}</a>
       </div>
-
-      <div class="footer-col">
-        <h4>{{ t.sources }}</h4>
-        <a href="https://heritage.moc.gov.sa/" target="_blank" rel="noopener">{{ t.heritage }}</a>
-        {% block footer_sources %}{% endblock %}
-      </div>
-    </div>
-
-    <div class="container footer-bottom">
-      <p>{{ t.copyright }}</p>
     </div>
   </footer>
 

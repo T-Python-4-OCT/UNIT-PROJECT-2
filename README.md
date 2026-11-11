@@ -1,76 +1,102 @@
-# UNIT-PROJECT-2
+# Saudi Then & Now | السعودية بين الماضي والحاضر
 
-## Using Django create a project about our beloved kingdom of your choosing. Examples :
-- Tourism in Saudi Arabia.
-- Culture & Heritage in Saudi Arabia.
-- Manufacturing & Industries in Saudi Arabia.
-- Agriculture in Saudi Arabia.
-- Science in Saudi Arabia.
-- History of Saudi Arabia.
-- etc.....
+A bilingual Django website that tells how Saudi Arabia changed, from mud houses and camel caravans to Vision 2030. Seven stories put the Kingdom's past and present side by side, and an interactive journey through time walks through 56 milestones from 1902 to 2034.
 
+موقع بالعربي والإنجليزي مبني بـ Django، يحكي كيف تغيّرت المملكة العربية السعودية من بيوت الطين وقوافل الإبل إلى رؤية 2030. سبع قصص تضع الماضي والحاضر جنبًا إلى جنب، وتنقّل تفاعلي عبر الزمن يمر على 56 محطة من 1902 إلى 2034.
 
-# Minumum Requirements
-- Use Django.
-- Use templates & templates inheritance.
-- Use dynamic urls where applicable.
-- Use static files where applicable.
-- homepage + at least 6 pages.
-- Coherent, uniform design .
-- Implement dark and light mode.
-- Must be Responsive. 
-- You can use a CSS library to style your website (such as Bootstrap or equivalent)
-- You can use a cdn or a cloud storage to host large files such as large videos (example: Goolge Firebase Cloud Storage: https://firebase.google.com/docs/storage)
+---
 
+## Pages
 
+| URL | Page | What it shows |
+| --- | --- | --- |
+| `/` | Home | "From Sand to Skyline" hero with a then-and-now time machine, the Kingdom in numbers, the seven story cards and the milestones that shaped the Kingdom |
+| `/topic/<slug>/` | 7 story pages | A title with a catchy line, a then-and-now image slider, the story with four key numbers, key moments, a short video and what is coming next with a countdown |
+| `/timeline/` | Travel Through Time | Opens with a short animated welcome, then 39 milestones and 17 future plans in an interactive slider, with story filters, eras, autoplay, keyboard and swipe support |
+| `/about/` | About | The idea behind the project and the project in numbers |
 
-# Example : TOURISM-PROJECT
+The seven stories:
 
-## Using Django create a website for Tourism in Saudi Arabia . The project name is : Tourister
+1. Riyadh & Urban Growth — `/topic/riyadh/`
+2. Transport — `/topic/transport/`
+3. Economy & Energy — `/topic/economy/`
+4. Education — `/topic/education/`
+5. Tourism — `/topic/tourism/`
+6. Sports, Entertainment & Global Events — `/topic/events/`
+7. Digital Government — `/topic/digital/`
 
-### Your website has the following pages :
+## Features
 
-#### "" : home page , with the following content:
-- Title of the page , with a catchy phrase about tourism in Saudi Arabia
-- A single wide image covering the page.
-- A paragraph about the tourism in Saudi Arabia in General.
-- A list of cities pages with links to them (the pages are listed down below).
+- **Arabic and English** with full right-to-left support, saved in a cookie.
+- **Dark and light mode**, saved in a cookie.
+- **Responsive** on phones, tablets and desktops.
+- **Interactive**: then-and-now image sliders, a time machine on the home page, a time-travel slider, countdowns, scroll animations and counting numbers.
+- **Animated logo**: a mud fort and the Kingdom Centre; the tower grows as you scroll down the page.
+- **Welcome intro** on Travel Through Time: two Najdi doors open on the page while the years count from 1902 to today. It plays each time the page opens, can be skipped, and is turned off for people who prefer reduced motion.
+- **Custom design** inspired by Najdi architecture, written in plain CSS without a framework.
 
+## Requirements checklist
 
-#### "city/Riyadh/"
-- Title of city with a catchy phrase
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+| Requirement | How it is met |
+| --- | --- |
+| Use Django | Django 6.1 project with one app, `main` |
+| Templates and template inheritance | Every page extends `base.html`, which holds the header, footer and theme |
+| Dynamic URLs | `topic/<slug:slug>/` for the seven stories and `lang/<str:lang>/` for the language |
+| Static files | CSS, JavaScript, images and videos loaded with `{% static %}` |
+| Home page and at least 6 pages | Home page plus 9 pages: 7 stories, Travel Through Time and About |
+| Coherent, uniform design | One design system shared by every page |
+| Dark and light mode | Theme switch in the header |
+| Responsive | Layouts adapt from 360px phones to wide screens |
 
-#### "city/Abha/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+## Built with
 
-#### "city/Mekkah/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+- Python and Django
+- HTML, CSS and JavaScript
+- Google Fonts (Readex Pro, Reem Kufi) and Material Symbols icons
 
-#### "city/AlUla/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+## Project structure
+
+```
+UNIT-PROJECT-2/
+├── README.md
+├── requirements.txt
+└── SaudiThenNow/
+    ├── manage.py
+    ├── SaudiThenNow/          project settings and main urls
+    └── main/
+        ├── views.py           page views
+        ├── urls.py            app urls
+        ├── translations.py    language helpers
+        ├── data/
+        │   ├── topics.json    data shared by several pages (stories and milestones)
+        │   └── text.json      shared Arabic and English text (menu, footer, labels)
+        ├── templates/main/
+        │   ├── base.html
+        │   ├── index.html
+        │   ├── timeline.html
+        │   ├── about.html
+        │   └── topics/        one page for each story
+        └── static/
+            ├── css/style.css
+            ├── js/main.js
+            ├── images/
+            └── video/
+```
+
+## Run it locally
+
+```bash
+git clone https://github.com/mohammedalnsaf10-design/UNIT-PROJECT-2.git
+cd UNIT-PROJECT-2
+python -m venv venv
+venv\Scripts\activate          # on macOS or Linux: source venv/bin/activate
+pip install -r requirements.txt
+cd SaudiThenNow
+python manage.py runserver
+```
+
+Then open http://127.0.0.1:8000
+
+## Author
+
+**Mohammed Alnsafi** 

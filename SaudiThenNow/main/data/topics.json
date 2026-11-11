@@ -3,78 +3,38 @@
     "slug": "riyadh",
     "title": "Riyadh & Urban Growth",
     "icon": "location_city",
-    "then": "Mud-brick towns",
+    "then": "Mud houses",
     "now": "Modern skylines",
-    "summary": "From the mud walls of old Riyadh to the towers of the King Abdullah Financial District.",
-    "image_then": "images/topics/riyadh-then.jpg",
-    "image_now": "images/topics/riyadh-now.jpg",
-    "now_focus": "center 70%",
-    "tagline": "From a walled town of 8,000 people to a capital of almost 7 million.",
-    "story_title": "The town behind nine gates",
-    "story": [
-      "On 15 January 1902, King Abdulaziz and his men stormed Masmak Fortress and took back Riyadh. The town he won was tiny: about 8,000 people packed into one square kilometre of mud-brick houses and lanes only three metres wide.",
-      "He wrapped it in new mud walls, 7.5 metres high, with nine gates. As late as 1917, those gates were still shut every Friday during the noon prayer. By 1932, when the Kingdom was united, around 30,000 people lived inside them.",
-      "Then the city stepped outside. In 1936 the King ordered Al Murabba Palace to be built two kilometres beyond the walls, and between 1950 and 1952 the walls themselves came down. New streets were planned sixteen metres wide.",
-      "Today, the old walled town would fit into Riyadh hundreds of times over. About 6.9 million people call it home, the 302-metre Kingdom Centre lights up the skyline, driverless trains run on 176 km of metro, and in 2030 the whole world is coming for Expo."
-    ],
-    "facts": [
-      {
-        "icon": "groups",
-        "label": "Population",
-        "then": "8,000",
-        "then_year": "1902",
-        "now": "6.9 million",
-        "now_year": "2022"
-      },
-      {
-        "icon": "fence",
-        "label": "City walls",
-        "then": "7.5 m, 9 gates",
-        "then_year": "1902",
-        "now": "Removed",
-        "now_year": "1950–52"
-      },
-      {
-        "icon": "apartment",
-        "label": "Tallest structure",
-        "then": "12 m towers",
-        "then_year": "city wall",
-        "now": "302 m",
-        "now_year": "Kingdom Centre"
-      },
-      {
-        "icon": "subway",
-        "label": "Getting around",
-        "then": "On foot & camel",
-        "then_year": "1902",
-        "now": "176 km metro",
-        "now_year": "2024"
-      }
-    ],
     "timeline": [
       {
         "year": "1902",
-        "text": "King Abdulaziz recaptures Riyadh and rebuilds its walls."
+        "text": "King Abdulaziz recaptures Riyadh and rebuilds its walls.",
+        "image": "images/timeline/1902-masmak.jpg"
       },
       {
         "year": "1936",
-        "text": "Al Murabba Palace is built outside the old walls."
+        "text": "Al Murabba Palace is built outside the old walls.",
+        "image": "images/timeline/1936-murabba-palace.jpg"
       },
       {
         "year": "1950",
-        "text": "The old walls start to come down as the city grows."
+        "text": "The old walls start to come down as the city grows.",
+        "image": "images/timeline/1950-riyadh-walls.jpg"
       },
       {
         "year": "2002",
-        "text": "The 302-metre Kingdom Centre is completed."
+        "text": "The 302-metre Kingdom Centre is completed.",
+        "image": "images/timeline/2002-kingdom-centre.jpg"
       },
       {
         "year": "2023",
-        "text": "Riyadh wins the vote to host Expo 2030."
+        "text": "Riyadh wins the vote to host Expo 2030.",
+        "image": "images/timeline/2023-expo-vote.jpg"
       },
       {
         "year": "2024",
-        "text": "The Riyadh Metro opens with 6 lines and 85 stations."
+        "text": "The Riyadh Metro opens with 6 lines and 85 stations.",
+        "image": "images/timeline/2024-riyadh-metro.jpg"
       }
     ],
     "future": [
@@ -83,125 +43,57 @@
         "icon": "park",
         "title": "King Salman Park",
         "text": "The old Riyadh airbase is becoming one of the world's largest city parks: nearly 17 km² with about a million trees. It will open in phases, with most of it due by 2027.",
-        "source": "https://www.archdaily.com/1038859/king-salman-park-advances-toward-2026-opening-on-former-riyadh-airbase"
+        "image": "images/timeline/2027-king-salman-park.jpg"
       },
       {
         "year": "2030",
-        "date": "2030-10-01T00:00:00+03:00",
         "icon": "public",
         "title": "Expo 2030 Riyadh",
         "text": "From 1 October 2030 to 31 March 2031, Riyadh hosts the world's fair under the theme \"The Era of Change\", expecting 40 million visits.",
-        "source": "https://saudipedia.com/en/riyadh-expo-2030"
+        "image": "images/timeline/2030-expo.jpg"
       },
       {
         "year": "2034",
         "icon": "stadium",
         "title": "FIFA World Cup 2034",
         "text": "The new King Salman International Stadium in north Riyadh, with about 92,000 seats, will host the opening match and the final.",
-        "source": "https://saudipedia.com/en/where-will-the-opening-and-final-matches-of-the-2034-world-cup-be-played"
-      }
-    ],
-    "video": {
-      "file": "video/riyadh.mp4",
-      "tall": false,
-      "credit": {
-        "name": "@eve.media.studio",
-        "url": "https://www.tiktok.com/@eve.media.studio/video/7495002438823431431"
-      }
-    },
-    "sources": [
-      {
-        "name": "Saudipedia: Old Riyadh Wall",
-        "url": "https://saudipedia.com/en/old-riyadh-wall"
-      },
-      {
-        "name": "Saudipedia: Al Murabba Palace",
-        "url": "https://saudipedia.com/en/article/856/history/landmarks-and-monuments/al-murabba-historical-palace"
-      },
-      {
-        "name": "Saudipedia: Top Saudi cities by population",
-        "url": "https://saudipedia.com/en/article/4276/geography/provinces-and-cities/top-five-saudi-cities-by-population"
-      },
-      {
-        "name": "AramcoWorld: Riyadh's centennial",
-        "url": "https://archive.aramcoworld.com/issue/199901/the.centennial.s.jewel.riyadh.htm"
-      },
-      {
-        "name": "Arab News: Riyadh Metro",
-        "url": "https://www.arabnews.com/node/2590210"
+        "image": "images/timeline/2034-world-cup.jpg"
       }
     ],
     "ar": {
       "title": "الرياض والنمو العمراني",
-      "then": "بلدات من الطين",
+      "then": "بيوت الطين",
       "now": "أبراج حديثة",
-      "summary": "من أسوار الرياض الطينية إلى أبراج مركز الملك عبدالله المالي.",
-      "tagline": "من بلدة مسوّرة يسكنها 8 آلاف شخص إلى عاصمة يسكنها قرابة 7 ملايين.",
-      "story_title": "البلدة خلف البوابات التسع",
-      "story": [
-        "في 15 يناير 1902 اقتحم الملك عبدالعزيز رحمه الله ورجاله قصر المصمك واستردوا الرياض. كانت بلدة صغيرة جدًا: نحو 8 آلاف شخص في كيلومتر مربع واحد من بيوت الطين، وأزقّة لا يتجاوز عرضها ثلاثة أمتار.",
-        "فأحاطها بأسوار طينية جديدة ارتفاعها 7.5 متر، ولها تسع بوابات. وحتى عام 1917 كانت هذه البوابات تُغلق كل جمعة وقت الصلاة. وعند توحيد المملكة عام 1932 كان يسكن داخلها نحو 30 ألف شخص.",
-        "ثم خرجت المدينة من أسوارها. في عام 1936 أمر الملك ببناء قصر المربع على بعد كيلومترين خارج السور، وبين 1950 و1952 أُزيلت الأسوار نفسها، وخُطّطت الشوارع الجديدة بعرض ستة عشر مترًا.",
-        "واليوم تتسع الرياض للبلدة القديمة مئات المرات. يسكنها نحو 6.9 ملايين شخص، ويضيء برج المملكة بارتفاع 302 متر سماءها، وتسير القطارات بلا سائق على 176 كم من المترو، وفي 2030 يأتيها العالم كله لمعرض إكسبو."
-      ],
-      "facts": [
-        {
-          "icon": "groups",
-          "label": "السكان",
-          "then": "8,000",
-          "then_year": "1902",
-          "now": "6.9 مليون",
-          "now_year": "2022"
-        },
-        {
-          "icon": "fence",
-          "label": "أسوار المدينة",
-          "then": "7.5 م، 9 بوابات",
-          "then_year": "1902",
-          "now": "أُزيلت",
-          "now_year": "1950–52"
-        },
-        {
-          "icon": "apartment",
-          "label": "أعلى مبنى",
-          "then": "أبراج 12 م",
-          "then_year": "سور المدينة",
-          "now": "302 م",
-          "now_year": "برج المملكة"
-        },
-        {
-          "icon": "subway",
-          "label": "التنقل",
-          "then": "مشيًا وعلى الإبل",
-          "then_year": "1902",
-          "now": "مترو 176 كم",
-          "now_year": "2024"
-        }
-      ],
       "timeline": [
         {
           "year": "1902",
-          "text": "الملك عبدالعزيز يسترد الرياض ويعيد بناء أسوارها."
+          "text": "الملك عبدالعزيز يسترد الرياض ويعيد بناء أسوارها.",
+          "image": "images/timeline/1902-masmak.jpg"
         },
         {
           "year": "1936",
-          "text": "بناء قصر المربع خارج الأسوار القديمة."
+          "text": "بناء قصر المربع خارج الأسوار القديمة.",
+          "image": "images/timeline/1936-murabba-palace.jpg"
         },
         {
           "year": "1950",
-          "text": "بدء إزالة الأسوار القديمة مع توسّع المدينة."
+          "text": "بدء إزالة الأسوار القديمة مع توسّع المدينة.",
+          "image": "images/timeline/1950-riyadh-walls.jpg"
         },
         {
           "year": "2002",
-          "text": "اكتمال برج المملكة بارتفاع 302 متر."
+          "text": "اكتمال برج المملكة بارتفاع 302 متر.",
+          "image": "images/timeline/2002-kingdom-centre.jpg"
         },
         {
           "year": "2023",
-          "text": "الرياض تفوز بتصويت استضافة إكسبو 2030."
+          "text": "الرياض تفوز بتصويت استضافة إكسبو 2030.",
+          "image": "images/timeline/2023-expo-vote.jpg"
         },
         {
           "year": "2024",
-          "text": "افتتاح مترو الرياض بستة مسارات و85 محطة."
+          "text": "افتتاح مترو الرياض بستة مسارات و85 محطة.",
+          "image": "images/timeline/2024-riyadh-metro.jpg"
         }
       ],
       "future": [
@@ -210,22 +102,21 @@
           "icon": "park",
           "title": "حديقة الملك سلمان",
           "text": "قاعدة الرياض الجوية القديمة تتحول إلى واحدة من أكبر الحدائق داخل المدن في العالم: قرابة 17 كم² ونحو مليون شجرة. تُفتتح على مراحل، ويكتمل معظمها بحلول 2027.",
-          "source": "https://www.archdaily.com/1038859/king-salman-park-advances-toward-2026-opening-on-former-riyadh-airbase"
+          "image": "images/timeline/2027-king-salman-park.jpg"
         },
         {
           "year": "2030",
-          "date": "2030-10-01T00:00:00+03:00",
           "icon": "public",
           "title": "إكسبو 2030 الرياض",
           "text": "من 1 أكتوبر 2030 إلى 31 مارس 2031 تستضيف الرياض المعرض العالمي تحت شعار «حقبة التغيير: معًا نستشرف المستقبل»، وتتوقع 40 مليون زيارة.",
-          "source": "https://saudipedia.com/en/riyadh-expo-2030"
+          "image": "images/timeline/2030-expo.jpg"
         },
         {
           "year": "2034",
           "icon": "stadium",
           "title": "كأس العالم 2034",
           "text": "ملعب الملك سلمان الدولي الجديد شمال الرياض، بسعة تقارب 92 ألف مقعد، سيستضيف مباراة الافتتاح والنهائي.",
-          "source": "https://saudipedia.com/en/where-will-the-opening-and-final-matches-of-the-2034-world-cup-be-played"
+          "image": "images/timeline/2034-world-cup.jpg"
         }
       ]
     }
@@ -236,75 +127,36 @@
     "icon": "train",
     "then": "Camel caravans",
     "now": "High-speed rail",
-    "summary": "Journeys that took weeks by camel now take hours by train, metro and plane.",
-    "image_then": "images/topics/transport-then.jpg",
-    "image_now": "images/topics/transport-now.jpg",
-    "tagline": "From caravans that took months to trains that run at 300 km/h.",
-    "story_title": "From caravans to 300 km/h",
-    "story": [
-      "For centuries, the only way across Arabia was on foot or by camel. Pilgrim caravans crossed the desert on journeys that could take weeks or even months.",
-      "In 1908 the Hejaz Railway reached Madinah, cutting the trip from Damascus from 40 days to just 5. But the line was badly damaged in the First World War, and by 1920 its southern section had fallen silent.",
-      "In 1945, President Roosevelt gave King Abdulaziz a Douglas DC-3, the plane that started Saudia. Six years later, in 1951, the Kingdom's first railway opened between Dammam and Riyadh: 569 km of track across the desert.",
-      "Today, trains on the Haramain High Speed Railway reach 300 km/h and link Makkah and Madinah in about 2 hours and 15 minutes. The national network has grown to 5,330 km, and Riyadh has a driverless metro."
-    ],
-    "facts": [
-      {
-        "icon": "mosque",
-        "label": "Pilgrim journeys",
-        "then": "Weeks or months",
-        "then_year": "by caravan",
-        "now": "Hours",
-        "now_year": "by train or plane"
-      },
-      {
-        "icon": "train",
-        "label": "Makkah to Madinah",
-        "then": "No railway",
-        "then_year": "before 2018",
-        "now": "2 h 15 min",
-        "now_year": "2018"
-      },
-      {
-        "icon": "route",
-        "label": "Railway network",
-        "then": "569 km",
-        "then_year": "1951",
-        "now": "5,330 km",
-        "now_year": "2023"
-      },
-      {
-        "icon": "flight",
-        "label": "Saudia fleet",
-        "then": "1 DC-3",
-        "then_year": "1945",
-        "now": "144 planes",
-        "now_year": "2024"
-      }
-    ],
     "timeline": [
       {
         "year": "1908",
-        "text": "The Hejaz Railway reaches Madinah, cutting the trip from Damascus from 40 days to 5."
+        "text": "The Hejaz Railway reaches Madinah, cutting the trip from Damascus from 40 days to 5.",
+        "image": "images/timeline/1908-hejaz-railway.jpg"
       },
       {
         "year": "1920",
-        "text": "War damage leaves the southern Hejaz line silent."
+        "text": "War damage leaves the southern Hejaz line silent.",
+        "image": "images/timeline/1920-hejaz-railway-ruins.jpg"
       },
       {
         "year": "1945",
-        "text": "Roosevelt gives King Abdulaziz a DC-3, and Saudia is founded."
+        "text": "Roosevelt gives King Abdulaziz a DC-3, and Saudia is founded.",
+        "image": "images/timeline/1945-dc3.jpg"
       },
       {
         "year": "1951",
-        "text": "The first railway opens between Dammam and Riyadh: 569 km."
+        "text": "The first railway opens between Dammam and Riyadh: 569 km.",
+        "image": "images/timeline/1951-dammam-riyadh-railway.jpg"
       },
       {
         "year": "2018",
-        "text": "The Haramain High Speed Railway links Makkah and Madinah in about 2 hours."
+        "text": "The Haramain High Speed Railway links Makkah and Madinah in about 2 hours.",
+        "image": "images/timeline/2018-haramain-train.jpg"
       },
       {
         "year": "2024",
-        "text": "The Riyadh Metro opens with 6 lines and 85 stations."
+        "text": "The Riyadh Metro opens with 6 lines and 85 stations.",
+        "image": "images/timeline/2024-riyadh-metro.jpg"
       }
     ],
     "future": [
@@ -313,124 +165,57 @@
         "icon": "flight_takeoff",
         "title": "King Salman International Airport",
         "text": "Riyadh's new airport will cover 57 km² with six runways, built to handle 100 million passengers a year by 2030 and 185 million by 2050.",
-        "source": "https://www.pif.gov.sa/en/our-investments/our-portfolio/king-salman-international-airport/"
+        "image": "images/timeline/2030-king-salman-airport.jpg"
       },
       {
         "year": "2032",
         "icon": "train",
         "title": "Riyadh–Doha high-speed rail",
         "text": "Approved in 2026, a 785 km electric line running at over 300 km/h will link the two capitals in about two hours. It is due within six years.",
-        "source": "https://www.aa.com.tr/en/middle-east/saudi-cabinet-approves-high-speed-electric-rail-link-agreement-with-qatar/3826322"
+        "image": "images/timeline/2032-riyadh-doha-train.jpg"
       },
       {
         "year": "2034",
         "icon": "route",
         "title": "The Landbridge",
         "text": "A new railway across the Kingdom will connect Riyadh to Jeddah on the Red Sea. It will open in phases and is targeted before 2034.",
-        "source": "https://www.constructionweekonline.com/projects-tenders/sar-riyadh-jeddah-rail"
-      }
-    ],
-    "video": {
-      "file": "video/transport.mp4",
-      "tall": false
-    },
-    "sources": [
-      {
-        "name": "Wikipedia: Hejaz Railway",
-        "url": "https://en.wikipedia.org/wiki/Hejaz_railway"
-      },
-      {
-        "name": "Arab News: Saudi aviation since 1945",
-        "url": "https://www.arabnews.com/node/2123186"
-      },
-      {
-        "name": "Arab News: Saudia fleet",
-        "url": "https://www.arabnews.pk/node/2620307"
-      },
-      {
-        "name": "Saudipedia: Railway timeline",
-        "url": "https://saudipedia.com/en/article/1562/government-and-politics/timeline-for-the-inauguration-of-railways-in-the-kingdom"
-      },
-      {
-        "name": "Saudipedia: Length of Saudi railways",
-        "url": "https://saudipedia.com/en/article/2171/government-and-politics/transport/how-long-are-railways-in-saudi-arabia"
-      },
-      {
-        "name": "Pilgrim Experience Program: Haramain train",
-        "url": "https://pep.gov.sa/en/news/953"
+        "image": "images/timeline/2034-landbridge.jpg"
       }
     ],
     "ar": {
       "title": "النقل",
       "then": "قوافل الإبل",
       "now": "القطار السريع",
-      "summary": "رحلات كانت تستغرق أسابيع على ظهور الإبل، أصبحت تستغرق ساعات بالقطار والمترو والطائرة.",
-      "tagline": "من قوافل تستغرق شهورًا إلى قطارات تسير بسرعة 300 كم/س.",
-      "story_title": "من القوافل إلى 300 كم في الساعة",
-      "story": [
-        "لقرون طويلة، كان التنقل في الجزيرة العربية مشيًا أو على ظهور الإبل. وكانت قوافل الحجاج تعبر الصحراء في رحلات قد تستغرق أسابيع أو حتى شهورًا.",
-        "في عام 1908 وصلت سكة حديد الحجاز إلى المدينة المنورة، فاختصرت الرحلة من دمشق من 40 يومًا إلى 5 أيام فقط. لكن الخط تضرر كثيرًا في الحرب العالمية الأولى، وبحلول 1920 توقف جزؤه الجنوبي.",
-        "في عام 1945 أهدى الرئيس روزفلت الملك عبدالعزيز رحمه الله طائرة DC-3، وكانت بداية الخطوط السعودية. وبعد ست سنوات، في 1951، افتُتح أول خط حديدي في المملكة بين الدمام والرياض بطول 569 كم.",
-        "واليوم تسير قطارات الحرمين السريع بسرعة 300 كم في الساعة، وتربط مكة المكرمة بالمدينة المنورة في نحو ساعتين وربع. وامتدت شبكة السكك الحديدية إلى 5,330 كم، وأصبح في الرياض مترو بلا سائق."
-      ],
-      "facts": [
-        {
-          "icon": "mosque",
-          "label": "رحلات الحج",
-          "then": "أسابيع أو شهور",
-          "then_year": "بالقوافل",
-          "now": "ساعات",
-          "now_year": "بالقطار أو الطائرة"
-        },
-        {
-          "icon": "train",
-          "label": "من مكة إلى المدينة",
-          "then": "لا يوجد قطار",
-          "then_year": "قبل 2018",
-          "now": "ساعتان وربع",
-          "now_year": "2018"
-        },
-        {
-          "icon": "route",
-          "label": "شبكة السكك الحديدية",
-          "then": "569 كم",
-          "then_year": "1951",
-          "now": "5,330 كم",
-          "now_year": "2023"
-        },
-        {
-          "icon": "flight",
-          "label": "أسطول السعودية",
-          "then": "طائرة DC-3 واحدة",
-          "then_year": "1945",
-          "now": "144 طائرة",
-          "now_year": "2024"
-        }
-      ],
       "timeline": [
         {
           "year": "1908",
-          "text": "سكة حديد الحجاز تصل المدينة المنورة، وتختصر الرحلة من دمشق من 40 يومًا إلى 5."
+          "text": "سكة حديد الحجاز تصل المدينة المنورة، وتختصر الرحلة من دمشق من 40 يومًا إلى 5.",
+          "image": "images/timeline/1908-hejaz-railway.jpg"
         },
         {
           "year": "1920",
-          "text": "توقف الجزء الجنوبي من سكة حديد الحجاز بعد أضرار الحرب."
+          "text": "توقف الجزء الجنوبي من سكة حديد الحجاز بعد أضرار الحرب.",
+          "image": "images/timeline/1920-hejaz-railway-ruins.jpg"
         },
         {
           "year": "1945",
-          "text": "روزفلت يهدي الملك عبدالعزيز طائرة DC-3، وتأسيس الخطوط السعودية."
+          "text": "روزفلت يهدي الملك عبدالعزيز طائرة DC-3، وتأسيس الخطوط السعودية.",
+          "image": "images/timeline/1945-dc3.jpg"
         },
         {
           "year": "1951",
-          "text": "افتتاح أول خط حديدي بين الدمام والرياض بطول 569 كم."
+          "text": "افتتاح أول خط حديدي بين الدمام والرياض بطول 569 كم.",
+          "image": "images/timeline/1951-dammam-riyadh-railway.jpg"
         },
         {
           "year": "2018",
-          "text": "افتتاح قطار الحرمين السريع: من مكة إلى المدينة في نحو ساعتين."
+          "text": "افتتاح قطار الحرمين السريع: من مكة إلى المدينة في نحو ساعتين.",
+          "image": "images/timeline/2018-haramain-train.jpg"
         },
         {
           "year": "2024",
-          "text": "افتتاح مترو الرياض بستة مسارات و85 محطة."
+          "text": "افتتاح مترو الرياض بستة مسارات و85 محطة.",
+          "image": "images/timeline/2024-riyadh-metro.jpg"
         }
       ],
       "future": [
@@ -439,21 +224,21 @@
           "icon": "flight_takeoff",
           "title": "مطار الملك سلمان الدولي",
           "text": "مطار الرياض الجديد على مساحة 57 كم² وبستة مدارج، ومصمم لاستقبال 100 مليون مسافر سنويًا بحلول 2030، و185 مليونًا بحلول 2050.",
-          "source": "https://www.pif.gov.sa/en/our-investments/our-portfolio/king-salman-international-airport/"
+          "image": "images/timeline/2030-king-salman-airport.jpg"
         },
         {
           "year": "2032",
           "icon": "train",
           "title": "القطار السريع بين الرياض والدوحة",
           "text": "أُقرّ عام 2026: خط كهربائي بطول 785 كم وبسرعة تتجاوز 300 كم في الساعة، يربط العاصمتين في نحو ساعتين، ومن المتوقع اكتماله خلال ست سنوات.",
-          "source": "https://www.aa.com.tr/en/middle-east/saudi-cabinet-approves-high-speed-electric-rail-link-agreement-with-qatar/3826322"
+          "image": "images/timeline/2032-riyadh-doha-train.jpg"
         },
         {
           "year": "2034",
           "icon": "route",
           "title": "الجسر البري",
           "text": "سكة حديد جديدة تعبر المملكة لتربط الرياض بجدة على البحر الأحمر، تُنفّذ على مراحل ومستهدف اكتمالها قبل 2034.",
-          "source": "https://www.constructionweekonline.com/projects-tenders/sar-riyadh-jeddah-rail"
+          "image": "images/timeline/2034-landbridge.jpg"
         }
       ]
     }
@@ -464,74 +249,36 @@
     "icon": "oil_barrel",
     "then": "Pearls & trade",
     "now": "Oil & Vision 2030",
-    "summary": "From pearl diving and caravan trade to oil, and now a future beyond oil.",
-    "image_then": "images/topics/economy-then.jpg",
-    "image_now": "images/topics/economy-now.jpg",
-    "tagline": "From pearl diving to one of the world's largest sovereign funds.",
-    "story_title": "From pearls to petroleum, and beyond",
-    "story": [
-      "Before oil, life in Arabia ran on the sea and the desert. Men dived for pearls in the Gulf, caravans carried goods between towns, oases grew dates, and many families lived from serving pilgrims.",
-      "In 1933 the Kingdom signed an oil concession. In March 1938 oil flowed from Dammam Well No. 7, and on 1 May 1939 King Abdulaziz opened the valve at Ras Tanura to fill the first tanker. Oil money built roads, schools and hospitals across the country.",
-      "Since 2016, Vision 2030 has been moving the economy beyond oil. The Public Investment Fund grew from $152 billion in 2015 to $913 billion in 2024, women's participation in the workforce doubled, and military industries are being built at home: 24.89% of military spending was localized by 2024."
-    ],
-    "facts": [
-      {
-        "icon": "oil_barrel",
-        "label": "Oil",
-        "then": "1,585 barrels a day",
-        "then_year": "1938",
-        "now": "12% of world output",
-        "now_year": "today"
-      },
-      {
-        "icon": "work",
-        "label": "Women's workforce participation",
-        "then": "17.4%",
-        "then_year": "2017",
-        "now": "36%",
-        "now_year": "2023"
-      },
-      {
-        "icon": "military_tech",
-        "label": "Military spending made locally",
-        "then": "2%",
-        "then_year": "2016",
-        "now": "24.89%",
-        "now_year": "2024"
-      },
-      {
-        "icon": "account_balance",
-        "label": "Public Investment Fund",
-        "then": "$152 billion",
-        "then_year": "2015",
-        "now": "$913 billion",
-        "now_year": "2024"
-      }
-    ],
     "timeline": [
       {
         "year": "1933",
-        "text": "The Kingdom signs its first oil concession agreement."
+        "text": "The Kingdom signs its first oil concession agreement.",
+        "image": "images/timeline/1933-oil-concession.jpg"
       },
       {
         "year": "1938",
-        "text": "Oil flows from Dammam Well No. 7."
+        "text": "Oil flows from Dammam Well No. 7.",
+        "image": "images/timeline/1938-dammam-well-7.jpg"
       },
       {
         "year": "1939",
-        "text": "King Abdulaziz opens the valve to fill the first oil tanker at Ras Tanura."
+        "text": "King Abdulaziz opens the valve to fill the first oil tanker at Ras Tanura.",
+        "image": "images/timeline/1939-ras-tanura.jpg"
       },
       {
         "year": "1971",
-        "text": "The Public Investment Fund is founded."
+        "text": "The Public Investment Fund is founded.",
+        "image": "images/timeline/1971-pif.jpg"
       },
       {
         "year": "2016",
-        "text": "Vision 2030 is launched to build an economy beyond oil."
+        "text": "Vision 2030 is launched to build an economy beyond oil.",
+        "image": "images/timeline/2016-vision-2030.jpg"
       },
       {
         "year": "2019",
-        "text": "Aramco's share sale becomes the largest IPO in history."
+        "text": "Aramco's share sale becomes the largest IPO in history.",
+        "image": "images/timeline/2019-aramco-ipo.jpg"
       }
     ],
     "future": [
@@ -540,127 +287,57 @@
         "icon": "solar_power",
         "title": "Half from renewables",
         "text": "The Ministry of Energy aims for renewables to make up half of the energy mix by 2030.",
-        "source": "https://www.arabnews.pk/node/2387486"
+        "image": "images/timeline/2030-renewables.jpg"
       },
       {
         "year": "2030",
         "icon": "military_tech",
         "title": "50% military industry at home",
         "text": "The General Authority for Military Industries aims to localize more than 50% of military spending by 2030.",
-        "source": "https://www.gami.gov.sa/en/news/gami-reports-localization-military-spending-saudi-arabia-increases-2489"
+        "image": "images/timeline/2030-local-industry.jpg"
       },
       {
         "year": "2030",
         "icon": "account_balance",
         "title": "SAR 7.5 trillion fund",
         "text": "The Public Investment Fund aims to manage SAR 7.5 trillion in assets by the end of 2030.",
-        "source": "https://saudipedia.com/en/public-investment-fund-pif"
-      }
-    ],
-    "video": {
-      "file": "video/Economy.mp4",
-      "tall": true
-    },
-    "sources": [
-      {
-        "name": "Saudipedia: Oil discovery",
-        "url": "https://saudipedia.com/en/oil-discovery-in-saudi-arabia"
-      },
-      {
-        "name": "Saudipedia: Public Investment Fund",
-        "url": "https://saudipedia.com/en/public-investment-fund-pif"
-      },
-      {
-        "name": "Al Riyadh Daily: PIF assets 2024",
-        "url": "https://alriyadhdaily.com/article/0102e6a6712548a8af5038456a418021"
-      },
-      {
-        "name": "Asharq Al-Awsat: Women in the workforce",
-        "url": "https://english.aawsat.com/business/4685301-world-bank-saudi-arabia-leads-arab-world-advancing-womens-workforce-participation"
-      },
-      {
-        "name": "Defence Industries: 2% of military purchases local (2016)",
-        "url": "https://www.defence-industries.com/news/half-of-saudi-arabias-military-purchases-to-be-local"
-      },
-      {
-        "name": "GAMI: Military spending localization 2024",
-        "url": "https://www.gami.gov.sa/en/news/gami-reports-localization-military-spending-saudi-arabia-increases-2489"
-      },
-      {
-        "name": "Fortune: Aramco IPO",
-        "url": "https://fortune.com/2019/12/05/saudi-aramco-biggest-ipo-in-history/"
+        "image": "images/timeline/2030-pif-tower.jpg"
       }
     ],
     "ar": {
       "title": "الاقتصاد والطاقة",
       "then": "اللؤلؤ والتجارة",
       "now": "النفط ورؤية 2030",
-      "summary": "من الغوص على اللؤلؤ وتجارة القوافل إلى النفط، والآن إلى مستقبل ما بعد النفط.",
-      "tagline": "من الغوص على اللؤلؤ إلى واحد من أكبر الصناديق السيادية في العالم.",
-      "story_title": "من اللؤلؤ إلى النفط، وما بعده",
-      "story": [
-        "قبل النفط كانت الحياة في الجزيرة العربية تقوم على البحر والصحراء: رجال يغوصون على اللؤلؤ في الخليج، وقوافل تنقل البضائع بين البلدات، وواحات تزرع النخيل، وأسر كثيرة تعيش من خدمة الحجاج.",
-        "في عام 1933 وقّعت المملكة اتفاقية امتياز النفط. وفي مارس 1938 تدفق النفط من بئر الدمام رقم 7، وفي 1 مايو 1939 فتح الملك عبدالعزيز الصمام في رأس تنورة لتعبئة أول ناقلة. ومن عائدات النفط بُنيت الطرق والمدارس والمستشفيات في أنحاء البلاد.",
-        "ومنذ 2016 تنقل رؤية 2030 الاقتصاد إلى ما بعد النفط: نما صندوق الاستثمارات العامة من 152 مليار دولار عام 2015 إلى 913 مليار دولار عام 2024، وتضاعفت مشاركة المرأة في سوق العمل، وبدأت الصناعات العسكرية تُبنى محليًا، إذ وصلت نسبة توطين الإنفاق العسكري إلى 24.89% بنهاية 2024."
-      ],
-      "facts": [
-        {
-          "icon": "oil_barrel",
-          "label": "النفط",
-          "then": "1,585 برميلًا يوميًا",
-          "then_year": "1938",
-          "now": "12% من إنتاج العالم",
-          "now_year": "اليوم"
-        },
-        {
-          "icon": "work",
-          "label": "مشاركة المرأة في سوق العمل",
-          "then": "17.4%",
-          "then_year": "2017",
-          "now": "36%",
-          "now_year": "2023"
-        },
-        {
-          "icon": "military_tech",
-          "label": "توطين الإنفاق العسكري",
-          "then": "2%",
-          "then_year": "2016",
-          "now": "24.89%",
-          "now_year": "2024"
-        },
-        {
-          "icon": "account_balance",
-          "label": "صندوق الاستثمارات العامة",
-          "then": "152 مليار دولار",
-          "then_year": "2015",
-          "now": "913 مليار دولار",
-          "now_year": "2024"
-        }
-      ],
       "timeline": [
         {
           "year": "1933",
-          "text": "المملكة توقّع أول اتفاقية امتياز للتنقيب عن النفط."
+          "text": "المملكة توقّع أول اتفاقية امتياز للتنقيب عن النفط.",
+          "image": "images/timeline/1933-oil-concession.jpg"
         },
         {
           "year": "1938",
-          "text": "النفط يتدفق من بئر الدمام رقم 7."
+          "text": "النفط يتدفق من بئر الدمام رقم 7.",
+          "image": "images/timeline/1938-dammam-well-7.jpg"
         },
         {
           "year": "1939",
-          "text": "الملك عبدالعزيز يفتح الصمام لتعبئة أول ناقلة نفط في رأس تنورة."
+          "text": "الملك عبدالعزيز يفتح الصمام لتعبئة أول ناقلة نفط في رأس تنورة.",
+          "image": "images/timeline/1939-ras-tanura.jpg"
         },
         {
           "year": "1971",
-          "text": "تأسيس صندوق الاستثمارات العامة."
+          "text": "تأسيس صندوق الاستثمارات العامة.",
+          "image": "images/timeline/1971-pif.jpg"
         },
         {
           "year": "2016",
-          "text": "إطلاق رؤية 2030 لبناء اقتصاد ما بعد النفط."
+          "text": "إطلاق رؤية 2030 لبناء اقتصاد ما بعد النفط.",
+          "image": "images/timeline/2016-vision-2030.jpg"
         },
         {
           "year": "2019",
-          "text": "طرح أرامكو يصبح أكبر طرح عام أولي في التاريخ."
+          "text": "طرح أرامكو يصبح أكبر طرح عام أولي في التاريخ.",
+          "image": "images/timeline/2019-aramco-ipo.jpg"
         }
       ],
       "future": [
@@ -669,21 +346,21 @@
           "icon": "solar_power",
           "title": "نصف الطاقة من المصادر المتجددة",
           "text": "تهدف وزارة الطاقة إلى أن تشكّل المصادر المتجددة نصف مزيج الطاقة بحلول 2030.",
-          "source": "https://www.arabnews.pk/node/2387486"
+          "image": "images/timeline/2030-renewables.jpg"
         },
         {
           "year": "2030",
           "icon": "military_tech",
           "title": "توطين أكثر من 50%",
           "text": "تهدف الهيئة العامة للصناعات العسكرية إلى توطين أكثر من 50% من الإنفاق العسكري بحلول 2030.",
-          "source": "https://www.gami.gov.sa/en/news/gami-reports-localization-military-spending-saudi-arabia-increases-2489"
+          "image": "images/timeline/2030-local-industry.jpg"
         },
         {
           "year": "2030",
           "icon": "account_balance",
           "title": "صندوق بـ7.5 تريليون ريال",
           "text": "يهدف صندوق الاستثمارات العامة إلى إدارة أصول بقيمة 7.5 تريليون ريال بنهاية 2030.",
-          "source": "https://saudipedia.com/en/public-investment-fund-pif"
+          "image": "images/timeline/2030-pif-tower.jpg"
         }
       ]
     }
@@ -694,74 +371,31 @@
     "icon": "school",
     "then": "Kuttab lessons",
     "now": "Modern universities",
-    "summary": "From small Quran schools to universities that work with the best in the world.",
-    "image_then": "images/topics/education-then.jpg",
-    "image_now": "images/topics/education-now.jpg",
-    "tagline": "From a circle around one teacher to 36,800 schools.",
-    "story_title": "From the kuttab to the campus",
-    "story": [
-      "For generations, learning meant the kuttab: children sat in a circle around one teacher in a mosque or a house, memorizing the Quran and learning to read, write and count. In 1905 the merchant Mohammed Ali Zainal opened Al-Falah School in Jeddah.",
-      "In 1926 the Directorate of Knowledge was set up, and by 1932 it supervised 323 schools. The Ministry of Knowledge followed in 1953 with King Fahd as its first minister, King Saud University opened in 1957 as the first university, and in 1959 a presidency for girls' education was created.",
-      "Today 36,800 schools teach 6.7 million students, half of them girls, and 29 public universities serve the country. Adult literacy rose from about 40% in 1972 to 97.9% in 2024, and since 2005 a national scholarship program has sent Saudis to study at universities around the world."
-    ],
-    "facts": [
-      {
-        "icon": "menu_book",
-        "label": "Adults who can read",
-        "then": "About 40%",
-        "then_year": "1972",
-        "now": "97.9%",
-        "now_year": "2024"
-      },
-      {
-        "icon": "domain",
-        "label": "Schools",
-        "then": "323",
-        "then_year": "1932",
-        "now": "36,800",
-        "now_year": "2024"
-      },
-      {
-        "icon": "account_balance",
-        "label": "Universities",
-        "then": "1",
-        "then_year": "1957",
-        "now": "29 public",
-        "now_year": "today"
-      },
-      {
-        "icon": "girl",
-        "label": "Girls in school",
-        "then": "No public schools",
-        "then_year": "before 1959",
-        "now": "3.3 million",
-        "now_year": "2024"
-      }
-    ],
     "timeline": [
       {
         "year": "1905",
-        "text": "Mohammed Ali Zainal opens Al-Falah School in Jeddah."
+        "text": "Mohammed Ali Zainal opens Al-Falah School in Jeddah.",
+        "image": "images/timeline/1905-alfalah-school.jpg"
       },
       {
         "year": "1926",
-        "text": "The Directorate of Knowledge is founded."
+        "text": "The Directorate of Knowledge is founded.",
+        "image": "images/timeline/1926-old-school.jpg"
       },
       {
         "year": "1953",
-        "text": "The Ministry of Knowledge is created, with King Fahd as its first minister."
+        "text": "The Ministry of Knowledge is created, with King Fahd as its first minister.",
+        "image": "images/timeline/1953-ministry-of-education.jpg"
       },
       {
         "year": "1957",
-        "text": "King Saud University opens as the first university."
-      },
-      {
-        "year": "1959",
-        "text": "A general presidency for girls' education is established."
+        "text": "King Saud University opens as the first university.",
+        "image": "images/timeline/1957-king-saud-university.jpg"
       },
       {
         "year": "2005",
-        "text": "A national scholarship program starts sending students abroad."
+        "text": "A national scholarship program starts sending students abroad.",
+        "image": "images/timeline/2005-scholarship.jpg"
       }
     ],
     "future": [
@@ -770,112 +404,45 @@
         "icon": "flight_takeoff",
         "title": "70,000 scholarships",
         "text": "The Human Capability Development Program aims to send 70,000 citizens to the world's top 200 universities and training institutions by 2030.",
-        "source": "https://saudipedia.com/en/article/366/economy-and-business/saudi-vision-2030/human-capability-development-program"
+        "image": "images/timeline/2030-scholars.jpg"
       },
       {
         "year": "2030",
         "icon": "workspace_premium",
         "title": "Five universities in the top 200",
         "text": "Vision 2030 aims for at least five Saudi universities among the top 200 in international rankings.",
-        "source": "https://www.moe.gov.sa/en/education/Pages/DRI.aspx"
-      }
-    ],
-    "video": {
-      "file": "video/Education.mp4",
-      "tall": false
-    },
-    "sources": [
-      {
-        "name": "Saudipedia: Education in Saudi Arabia",
-        "url": "https://saudipedia.com/en/education-in-saudi-arabia"
-      },
-      {
-        "name": "Saudipedia: Al-Falah Schools",
-        "url": "https://saudipedia.com/en/al-falah-private-schools"
-      },
-      {
-        "name": "Arab News: Illiteracy since 1972",
-        "url": "https://arabnews.com/node/1408346"
-      },
-      {
-        "name": "World Bank via FRED: Adult literacy rate",
-        "url": "https://fred.stlouisfed.org/series/SEADTLITRZSSAU"
-      },
-      {
-        "name": "Argaam: Students and teachers 2024",
-        "url": "https://www.argaam.com/en/article/articledetail/id/1762550"
+        "image": "images/timeline/2030-universities.jpg"
       }
     ],
     "ar": {
       "title": "التعليم",
       "then": "دروس الكتاتيب",
       "now": "جامعات حديثة",
-      "summary": "من كتاتيب تحفيظ القرآن الصغيرة إلى جامعات تتعاون مع أفضل جامعات العالم.",
-      "tagline": "من حلقة حول معلّم واحد إلى 36,800 مدرسة.",
-      "story_title": "من الكُتّاب إلى الحرم الجامعي",
-      "story": [
-        "لأجيال طويلة كان التعليم يعني الكُتّاب: أطفال يجلسون في حلقة حول معلّم واحد في مسجد أو بيت، يحفظون القرآن ويتعلمون القراءة والكتابة والحساب. وفي عام 1905 افتتح التاجر محمد علي زينل مدرسة الفلاح في جدة.",
-        "في عام 1926 أُنشئت مديرية المعارف، وبحلول 1932 كانت تشرف على 323 مدرسة. ثم تأسست وزارة المعارف عام 1953 وكان الملك فهد أول وزير لها، وافتُتحت جامعة الملك سعود عام 1957 أول جامعة في المملكة، وفي 1959 أُنشئت رئاسة لتعليم البنات.",
-        "واليوم تعلّم 36,800 مدرسة نحو 6.7 ملايين طالب وطالبة، نصفهم تقريبًا من البنات، وتخدم البلاد 29 جامعة حكومية. وارتفعت نسبة من يقرؤون ويكتبون من الكبار من نحو 40% عام 1972 إلى 97.9% عام 2024، ومنذ 2005 يبتعث برنامج وطني الطلاب إلى جامعات العالم."
-      ],
-      "facts": [
-        {
-          "icon": "menu_book",
-          "label": "الكبار الذين يقرؤون",
-          "then": "نحو 40%",
-          "then_year": "1972",
-          "now": "97.9%",
-          "now_year": "2024"
-        },
-        {
-          "icon": "domain",
-          "label": "المدارس",
-          "then": "323",
-          "then_year": "1932",
-          "now": "36,800",
-          "now_year": "2024"
-        },
-        {
-          "icon": "account_balance",
-          "label": "الجامعات",
-          "then": "1",
-          "then_year": "1957",
-          "now": "29 جامعة حكومية",
-          "now_year": "اليوم"
-        },
-        {
-          "icon": "girl",
-          "label": "البنات في المدارس",
-          "then": "لا مدارس حكومية",
-          "then_year": "قبل 1959",
-          "now": "3.3 مليون",
-          "now_year": "2024"
-        }
-      ],
       "timeline": [
         {
           "year": "1905",
-          "text": "محمد علي زينل يفتتح مدرسة الفلاح في جدة."
+          "text": "محمد علي زينل يفتتح مدرسة الفلاح في جدة.",
+          "image": "images/timeline/1905-alfalah-school.jpg"
         },
         {
           "year": "1926",
-          "text": "تأسيس مديرية المعارف."
+          "text": "تأسيس مديرية المعارف.",
+          "image": "images/timeline/1926-old-school.jpg"
         },
         {
           "year": "1953",
-          "text": "إنشاء وزارة المعارف، والملك فهد أول وزير لها."
+          "text": "إنشاء وزارة المعارف، والملك فهد أول وزير لها.",
+          "image": "images/timeline/1953-ministry-of-education.jpg"
         },
         {
           "year": "1957",
-          "text": "افتتاح جامعة الملك سعود، أول جامعة في المملكة."
-        },
-        {
-          "year": "1959",
-          "text": "إنشاء الرئاسة العامة لتعليم البنات."
+          "text": "افتتاح جامعة الملك سعود، أول جامعة في المملكة.",
+          "image": "images/timeline/1957-king-saud-university.jpg"
         },
         {
           "year": "2005",
-          "text": "انطلاق برنامج وطني لابتعاث الطلاب إلى الخارج."
+          "text": "انطلاق برنامج وطني لابتعاث الطلاب إلى الخارج.",
+          "image": "images/timeline/2005-scholarship.jpg"
         }
       ],
       "future": [
@@ -884,14 +451,14 @@
           "icon": "flight_takeoff",
           "title": "70 ألف مبتعث",
           "text": "يهدف برنامج تنمية القدرات البشرية إلى ابتعاث 70 ألف مواطن إلى أفضل 200 جامعة ومؤسسة تدريب في العالم بحلول 2030.",
-          "source": "https://saudipedia.com/en/article/366/economy-and-business/saudi-vision-2030/human-capability-development-program"
+          "image": "images/timeline/2030-scholars.jpg"
         },
         {
           "year": "2030",
           "icon": "workspace_premium",
           "title": "خمس جامعات ضمن أفضل 200",
           "text": "تهدف رؤية 2030 إلى وجود خمس جامعات سعودية على الأقل ضمن أفضل 200 جامعة في التصنيفات الدولية.",
-          "source": "https://www.moe.gov.sa/en/education/Pages/DRI.aspx"
+          "image": "images/timeline/2030-universities.jpg"
         }
       ]
     }
@@ -902,74 +469,36 @@
     "icon": "travel_explore",
     "then": "Pilgrims only",
     "now": "Open to the world",
-    "summary": "Once visited mainly for Hajj and Umrah, the Kingdom now welcomes tourists from everywhere.",
-    "image_then": "images/topics/tourism-then.jpg",
-    "image_now": "images/topics/tourism-now.jpg",
-    "tagline": "From pilgrims only to 116 million tourists a year.",
-    "story_title": "From pilgrims only to the whole world",
-    "story": [
-      "For centuries, travel to Arabia meant pilgrimage. Caravans and ships brought pilgrims to Makkah and Madinah, and there was no visa just to visit and explore.",
-      "The country's heritage opened the door first. In 2008 Hegra became the Kingdom's first UNESCO World Heritage Site, and by 2024 Al-Faw made it eight. On 28 September 2019 the Kingdom launched online tourist visas for 49 countries.",
-      "In 2024 the Kingdom welcomed 116 million tourists: 29.7 million from abroad and 86.2 million trips at home. Visits for reasons other than Hajj and Umrah rose from 44% of international visits in 2019 to 59% in 2024, and the first Red Sea resorts welcomed guests in 2023."
-    ],
-    "facts": [
-      {
-        "icon": "airplane_ticket",
-        "label": "Tourist visa",
-        "then": "Not available",
-        "then_year": "before 2019",
-        "now": "Online for 49 countries",
-        "now_year": "2019"
-      },
-      {
-        "icon": "beach_access",
-        "label": "Foreign visits not for Hajj or Umrah",
-        "then": "44%",
-        "then_year": "2019",
-        "now": "59%",
-        "now_year": "2024"
-      },
-      {
-        "icon": "museum",
-        "label": "UNESCO World Heritage sites",
-        "then": "0",
-        "then_year": "before 2008",
-        "now": "8",
-        "now_year": "2024"
-      },
-      {
-        "icon": "groups",
-        "label": "Tourists a year",
-        "then": "Pilgrims and business visitors",
-        "then_year": "before 2019",
-        "now": "116 million",
-        "now_year": "2024"
-      }
-    ],
     "timeline": [
       {
         "year": "2008",
-        "text": "Hegra becomes the first Saudi UNESCO World Heritage Site."
+        "text": "Hegra becomes the first Saudi UNESCO World Heritage Site.",
+        "image": "images/timeline/2008-hegra.jpg"
       },
       {
         "year": "2010",
-        "text": "At-Turaif District in Diriyah joins the list."
+        "text": "At-Turaif District in Diriyah joins the list.",
+        "image": "images/timeline/2010-at-turaif.jpg"
       },
       {
         "year": "2014",
-        "text": "Historic Jeddah joins the list."
+        "text": "Historic Jeddah joins the list.",
+        "image": "images/timeline/2014-historic-jeddah.jpg"
       },
       {
         "year": "2019",
-        "text": "Online tourist visas launch for 49 countries."
+        "text": "Online tourist visas launch for 49 countries.",
+        "image": "images/timeline/2019-tourist-visa.jpg"
       },
       {
         "year": "2023",
-        "text": "The first Red Sea resorts welcome guests."
+        "text": "The first Red Sea resorts welcome guests.",
+        "image": "images/timeline/2023-red-sea.jpg"
       },
       {
         "year": "2024",
-        "text": "116 million tourists, and Al-Faw becomes the eighth UNESCO site."
+        "text": "116 million tourists, and Al-Faw becomes the eighth UNESCO site.",
+        "image": "images/timeline/2024-al-faw.jpg"
       }
     ],
     "future": [
@@ -978,108 +507,50 @@
         "icon": "groups",
         "title": "150 million tourists",
         "text": "The target is 150 million tourists a year: 70 million from abroad and 80 million at home.",
-        "source": "https://www.arabnews.pk/node/2605395"
+        "image": "images/timeline/2030-tourists.jpg"
       },
       {
         "year": "2030",
         "icon": "hotel",
         "title": "Red Sea: 50 hotels",
         "text": "The Red Sea destination plans 50 hotels with 8,000 rooms by 2030.",
-        "source": "https://na.vision2030.gov.sa/en/explore/projects/red-sea-global"
-      }
-    ],
-    "video": {
-      "file": "video/tourism.mp4",
-      "tall": true
-    },
-    "sources": [
-      {
-        "name": "Saudipedia: Saudi UNESCO sites",
-        "url": "https://saudipedia.com/en/saudi-sites-on-unesco-world-heritage-list"
-      },
-      {
-        "name": "Argaam: Tourist visa launch 2019",
-        "url": "https://www.argaam.com/en/article/articledetail/id/1317127"
-      },
-      {
-        "name": "Arab News: 116 million tourists in 2024",
-        "url": "https://www.arabnews.pk/node/2605395"
-      },
-      {
-        "name": "Vision 2030: Red Sea Global",
-        "url": "https://na.vision2030.gov.sa/en/explore/projects/red-sea-global"
+        "image": "images/timeline/2030-red-sea-hotels.jpg"
       }
     ],
     "ar": {
       "title": "السياحة",
       "then": "للحجاج فقط",
       "now": "مفتوحة للعالم",
-      "summary": "كانت تُزار غالبًا للحج والعمرة، واليوم ترحب المملكة بالسياح من كل مكان.",
-      "tagline": "من الحجاج فقط إلى 116 مليون سائح في السنة.",
-      "story_title": "من الحجاج فقط إلى العالم كله",
-      "story": [
-        "لقرون طويلة كان السفر إلى الجزيرة العربية يعني الحج. كانت القوافل والسفن تحمل الحجاج إلى مكة المكرمة والمدينة المنورة، ولم تكن هناك تأشيرة لمجرد الزيارة والاستكشاف.",
-        "التراث فتح الباب أولًا: في عام 2008 أصبحت الحِجر أول موقع سعودي في قائمة التراث العالمي لليونسكو، وبحلول 2024 صارت المواقع ثمانية بانضمام الفاو. وفي 28 سبتمبر 2019 أطلقت المملكة التأشيرة السياحية الإلكترونية لـ49 دولة.",
-        "وفي 2024 استقبلت المملكة 116 مليون سائح: 29.7 مليون من الخارج و86.2 مليون رحلة داخلية. وارتفعت الزيارات الدولية لغير الحج والعمرة من 44% عام 2019 إلى 59% عام 2024، واستقبلت أولى منتجعات البحر الأحمر ضيوفها عام 2023."
-      ],
-      "facts": [
-        {
-          "icon": "airplane_ticket",
-          "label": "التأشيرة السياحية",
-          "then": "غير متاحة",
-          "then_year": "قبل 2019",
-          "now": "إلكترونية لـ49 دولة",
-          "now_year": "2019"
-        },
-        {
-          "icon": "beach_access",
-          "label": "الزيارات الدولية لغير الحج والعمرة",
-          "then": "44%",
-          "then_year": "2019",
-          "now": "59%",
-          "now_year": "2024"
-        },
-        {
-          "icon": "museum",
-          "label": "مواقع التراث العالمي",
-          "then": "0",
-          "then_year": "قبل 2008",
-          "now": "8",
-          "now_year": "2024"
-        },
-        {
-          "icon": "groups",
-          "label": "السياح سنويًا",
-          "then": "حجاج ومعتمرون ورجال أعمال",
-          "then_year": "قبل 2019",
-          "now": "116 مليون",
-          "now_year": "2024"
-        }
-      ],
       "timeline": [
         {
           "year": "2008",
-          "text": "الحِجر أول موقع سعودي في قائمة التراث العالمي لليونسكو."
+          "text": "الحِجر أول موقع سعودي في قائمة التراث العالمي لليونسكو.",
+          "image": "images/timeline/2008-hegra.jpg"
         },
         {
           "year": "2010",
-          "text": "حي الطريف في الدرعية ينضم إلى القائمة."
+          "text": "حي الطريف في الدرعية ينضم إلى القائمة.",
+          "image": "images/timeline/2010-at-turaif.jpg"
         },
         {
           "year": "2014",
-          "text": "جدة التاريخية تنضم إلى القائمة."
+          "text": "جدة التاريخية تنضم إلى القائمة.",
+          "image": "images/timeline/2014-historic-jeddah.jpg"
         },
         {
           "year": "2019",
-          "text": "إطلاق التأشيرة السياحية الإلكترونية لـ49 دولة."
+          "text": "إطلاق التأشيرة السياحية الإلكترونية لـ49 دولة.",
+          "image": "images/timeline/2019-tourist-visa.jpg"
         },
         {
           "year": "2023",
-          "text": "أولى منتجعات البحر الأحمر تستقبل ضيوفها."
+          "text": "أولى منتجعات البحر الأحمر تستقبل ضيوفها.",
+          "image": "images/timeline/2023-red-sea.jpg"
         },
         {
           "year": "2024",
-          "text": "116 مليون سائح، والفاو يصبح الموقع الثامن في اليونسكو."
+          "text": "116 مليون سائح، والفاو يصبح الموقع الثامن في اليونسكو.",
+          "image": "images/timeline/2024-al-faw.jpg"
         }
       ],
       "future": [
@@ -1088,14 +559,14 @@
           "icon": "groups",
           "title": "150 مليون سائح",
           "text": "الهدف 150 مليون سائح سنويًا: 70 مليونًا من الخارج و80 مليونًا من الداخل.",
-          "source": "https://www.arabnews.pk/node/2605395"
+          "image": "images/timeline/2030-tourists.jpg"
         },
         {
           "year": "2030",
           "icon": "hotel",
           "title": "البحر الأحمر: 50 فندقًا",
           "text": "تخطط وجهة البحر الأحمر لـ50 فندقًا بـ8,000 غرفة بحلول 2030.",
-          "source": "https://na.vision2030.gov.sa/en/explore/projects/red-sea-global"
+          "image": "images/timeline/2030-red-sea-hotels.jpg"
         }
       ]
     }
@@ -1106,15 +577,113 @@
     "icon": "stadium",
     "then": "Dirt pitches",
     "now": "Expo 2030 & World Cup 2034",
-    "summary": "From football on dirt pitches to Riyadh Season, Expo 2030 and the FIFA World Cup 2034.",
-    "image_then": "images/topics/events-then.jpg",
-    "image_now": "images/topics/events-now.jpg",
     "ar": {
       "title": "الرياضة والترفيه والفعاليات العالمية",
       "then": "ملاعب ترابية",
       "now": "إكسبو 2030 وكأس العالم 2034",
-      "summary": "من كرة القدم على الملاعب الترابية إلى موسم الرياض وإكسبو 2030 وكأس العالم 2034."
-    }
+      "timeline": [
+        {
+          "year": "1984",
+          "text": "المنتخب يحقق أول كأس آسيا بفوزه على الصين 2–0 في سنغافورة.",
+          "image": "images/timeline/1984-asian-cup.jpg"
+        },
+        {
+          "year": "1994",
+          "text": "أول مشاركة في كأس العالم: فوز على بلجيكا 1–0 وتأهل إلى دور الستة عشر.",
+          "image": "images/timeline/1994-world-cup.jpg"
+        },
+        {
+          "year": "2016",
+          "text": "تأسيس الهيئة العامة للترفيه في 7 مايو.",
+          "image": "images/timeline/2016-entertainment-authority.jpg"
+        },
+        {
+          "year": "2021",
+          "text": "أول سباق فورمولا 1 في المملكة على حلبة كورنيش جدة.",
+          "image": "images/timeline/2021-formula-1.jpg"
+        },
+        {
+          "year": "2024",
+          "text": "فيفا يعلن رسميًا استضافة المملكة كأس العالم 2034.",
+          "image": "images/timeline/2024-world-cup-host.jpg"
+        }
+      ],
+      "future": [
+        {
+          "year": "2027",
+          "date": "2027-01-07T00:00:00+03:00",
+          "icon": "sports_soccer",
+          "title": "كأس آسيا 2027",
+          "text": "24 منتخبًا و8 ملاعب في الرياض وجدة والخبر، والنهائي في الرياض يوم 5 فبراير 2027.",
+          "image": "images/timeline/2027-asian-cup.jpg"
+        },
+        {
+          "year": "2030",
+          "icon": "public",
+          "title": "إكسبو 2030 الرياض",
+          "text": "ستة أشهر من 1 أكتوبر 2030 إلى 31 مارس 2031، ويُتوقع نحو 40 مليون زيارة.",
+          "image": "images/timeline/2030-expo.jpg"
+        },
+        {
+          "year": "2034",
+          "icon": "emoji_events",
+          "title": "كأس العالم 2034",
+          "text": "أول نسخة بـ48 منتخبًا تقام في دولة واحدة، على 15 ملعبًا في الرياض وجدة والخبر وأبها ونيوم.",
+          "image": "images/timeline/2034-world-cup.jpg"
+        }
+      ]
+    },
+    "timeline": [
+      {
+        "year": "1984",
+        "text": "Saudi Arabia wins its first Asian Cup, beating China 2–0 in Singapore.",
+        "image": "images/timeline/1984-asian-cup.jpg"
+      },
+      {
+        "year": "1994",
+        "text": "First World Cup: a 1–0 win over Belgium and a place in the round of 16.",
+        "image": "images/timeline/1994-world-cup.jpg"
+      },
+      {
+        "year": "2016",
+        "text": "The General Entertainment Authority is founded on 7 May.",
+        "image": "images/timeline/2016-entertainment-authority.jpg"
+      },
+      {
+        "year": "2021",
+        "text": "The first Formula 1 race in the Kingdom runs on the Jeddah Corniche Circuit.",
+        "image": "images/timeline/2021-formula-1.jpg"
+      },
+      {
+        "year": "2024",
+        "text": "FIFA confirms Saudi Arabia as host of the 2034 World Cup.",
+        "image": "images/timeline/2024-world-cup-host.jpg"
+      }
+    ],
+    "future": [
+      {
+        "year": "2027",
+        "date": "2027-01-07T00:00:00+03:00",
+        "icon": "sports_soccer",
+        "title": "AFC Asian Cup 2027",
+        "text": "24 teams and 8 stadiums in Riyadh, Jeddah and Al Khobar. The final is in Riyadh on 5 February 2027.",
+        "image": "images/timeline/2027-asian-cup.jpg"
+      },
+      {
+        "year": "2030",
+        "icon": "public",
+        "title": "Expo 2030 Riyadh",
+        "text": "Six months, from 1 October 2030 to 31 March 2031, with about 40 million visits expected.",
+        "image": "images/timeline/2030-expo.jpg"
+      },
+      {
+        "year": "2034",
+        "icon": "emoji_events",
+        "title": "FIFA World Cup 2034",
+        "text": "The first 48-team World Cup held in one country, played in 15 stadiums across Riyadh, Jeddah, Al Khobar, Abha and NEOM.",
+        "image": "images/timeline/2034-world-cup.jpg"
+      }
+    ]
   },
   {
     "slug": "digital",
@@ -1122,74 +691,36 @@
     "icon": "smartphone",
     "then": "Paper & queues",
     "now": "Services on your phone",
-    "summary": "From paper files and long queues to hundreds of government services on your phone.",
-    "image_then": "images/topics/digital-then.jpg",
-    "image_now": "images/topics/digital-now.jpg",
-    "tagline": "From the waiting room to the phone screen.",
-    "story_title": "From the queue to the app",
-    "story": [
-      "Not long ago, almost every government errand meant a trip to an office: paper forms, photocopies and stamps, long queues, and often a mu'aqqib paid to follow up the papers for you.",
-      "The change began in 2003, when a royal decree set up e-government. In 2005 the Yesser program started moving services online, and in 2010 the Ministry of Interior launched Absher. Step by step, passports, IDs, licences and visas moved to the screen.",
-      "During COVID-19 in 2020, the Tawakkalna app showed how far things had come. It began as a health app and grew into an everyday companion with 225 services. Today the Kingdom is among the world's leaders: 6th in the UN e-government index in 2024, and 2nd of 197 countries in the World Bank's GovTech index in 2025."
-    ],
-    "facts": [
-      {
-        "icon": "apps",
-        "label": "Absher services",
-        "then": "160 services",
-        "then_year": "2015",
-        "now": "460+ services",
-        "now_year": "2024"
-      },
-      {
-        "icon": "fingerprint",
-        "label": "Digital IDs",
-        "then": "None",
-        "then_year": "before 2021",
-        "now": "28 million+",
-        "now_year": "2024"
-      },
-      {
-        "icon": "public",
-        "label": "UN e-government rank",
-        "then": "#31",
-        "then_year": "2022",
-        "now": "#6",
-        "now_year": "2024"
-      },
-      {
-        "icon": "id_card",
-        "label": "Renewing your ID",
-        "then": "Visit an office",
-        "then_year": "before 2022",
-        "now": "Online via Absher",
-        "now_year": "2022"
-      }
-    ],
     "timeline": [
       {
         "year": "2005",
-        "text": "The Yesser program starts moving government services online."
+        "text": "The Yesser program starts moving government services online.",
+        "image": "images/timeline/2005-yesser.jpg"
       },
       {
         "year": "2010",
-        "text": "The Ministry of Interior launches the Absher platform."
+        "text": "The Ministry of Interior launches the Absher platform.",
+        "image": "images/timeline/2010-absher.jpg"
       },
       {
         "year": "2020",
-        "text": "Tawakkalna launches on 3 May to help fight COVID-19."
+        "text": "Tawakkalna launches on 3 May to help fight COVID-19.",
+        "image": "images/timeline/2020-tawakkalna.jpg"
       },
       {
         "year": "2021",
-        "text": "The Digital Government Authority is founded, and the digital ID arrives in Absher."
+        "text": "The Digital Government Authority is founded, and the digital ID arrives in Absher.",
+        "image": "images/timeline/2021-digital-government.jpg"
       },
       {
         "year": "2024",
-        "text": "The UN ranks the Kingdom 6th in e-government and 4th in online services."
+        "text": "The UN ranks the Kingdom 6th in e-government and 4th in online services.",
+        "image": "images/timeline/2024-un-ranking.jpg"
       },
       {
         "year": "2025",
-        "text": "The World Bank ranks the Kingdom 2nd of 197 countries in digital government."
+        "text": "The World Bank ranks the Kingdom 2nd of 197 countries in digital government.",
+        "image": "images/timeline/2025-world-bank.jpg"
       }
     ],
     "future": [
@@ -1198,123 +729,57 @@
         "icon": "workspace_premium",
         "title": "Top 3 in the world",
         "text": "The Digital Government Strategy aims to place the Kingdom among the top 3 countries in digital government maturity by 2030, adding more than 26,000 jobs.",
-        "source": "https://my.gov.sa/en/content/digital-strategy"
+        "image": "images/timeline/2030-digital-services.jpg"
       },
       {
         "year": "2030",
         "icon": "smart_toy",
         "title": "Top 15 in AI",
         "text": "The National Strategy for Data and AI aims to make the Kingdom one of the world's top 15 countries in AI and to attract SAR 75 billion of investment.",
-        "source": "https://saudipedia.com/en/national-strategy-for-data-and-ai-nsdai"
+        "image": "images/timeline/2030-ai.jpg"
       },
       {
         "year": "2030",
         "icon": "school",
         "title": "20,000 AI specialists",
         "text": "The same strategy aims to build 20,000 data and AI specialists and to train 40% of the workforce in basic data and AI skills.",
-        "source": "https://saudipedia.com/en/national-strategy-for-data-and-ai-nsdai"
-      }
-    ],
-    "sources": [
-      {
-        "name": "Saudipedia: Absher timeline",
-        "url": "https://saudipedia.com/en/article/3646/government-and-politics/digital-government/abshers-development-timeline"
-      },
-      {
-        "name": "Saudipedia: Tawakkalna",
-        "url": "https://saudipedia.com/en/article/387/government-and-politics/digital-government/tawakkalna-application"
-      },
-      {
-        "name": "Saudipedia: Digital Government Authority",
-        "url": "https://saudipedia.com/en/digital-government-authority"
-      },
-      {
-        "name": "Wikipedia: E-Government in Saudi Arabia",
-        "url": "https://en.wikipedia.org/wiki/E-Government_in_Saudi_Arabia"
-      },
-      {
-        "name": "Enterprise: UN e-government ranking 2024",
-        "url": "https://enterpriseam.com/ksa/2024/09/26/saudi-arabia-sixth-globally-in-e-government-ranking-un-report-says/"
-      },
-      {
-        "name": "Arab News: UN online services index 2024",
-        "url": "https://arabnews.com/node/2571785"
-      },
-      {
-        "name": "Arab News: World Bank GovTech index 2025",
-        "url": "https://www.arabnews.pk/node/2626749"
+        "image": "images/timeline/2030-tech-talent.jpg"
       }
     ],
     "ar": {
       "title": "الحكومة الرقمية",
       "then": "ورق وطوابير",
       "now": "الخدمات في جوالك",
-      "summary": "من الملفات الورقية والطوابير الطويلة إلى مئات الخدمات الحكومية في جوالك.",
-      "tagline": "من صالة الانتظار إلى شاشة الجوال.",
-      "story_title": "من الطابور إلى التطبيق",
-      "story": [
-        "قبل سنوات قليلة، كانت أغلب المعاملات الحكومية تعني مشوارًا إلى الدائرة: نماذج ورقية وصور وأختام، وطوابير طويلة، وكثيرًا ما كان الناس يدفعون لمعقّب يتابع أوراقهم عنهم.",
-        "بدأ التحول عام 2003 حين صدر أمر ملكي بإنشاء التعاملات الإلكترونية الحكومية. وفي 2005 انطلق برنامج «يسّر» لنقل الخدمات إلى الإنترنت، ثم أطلقت وزارة الداخلية منصة «أبشر» عام 2010، فانتقلت الجوازات والهويات والرخص والتأشيرات خطوة بخطوة إلى الشاشة.",
-        "وفي جائحة كورونا عام 2020 ظهر حجم هذا التحول مع تطبيق «توكلنا»: بدأ تطبيقًا صحيًا، ثم أصبح رفيقًا يوميًا يضم 225 خدمة. واليوم تأتي المملكة بين رواد العالم: المركز السادس في مؤشر الأمم المتحدة للحكومة الإلكترونية 2024، والثانية من بين 197 دولة في مؤشر البنك الدولي للتقنية الحكومية 2025."
-      ],
-      "facts": [
-        {
-          "icon": "apps",
-          "label": "خدمات أبشر",
-          "then": "160 خدمة",
-          "then_year": "2015",
-          "now": "أكثر من 460 خدمة",
-          "now_year": "2024"
-        },
-        {
-          "icon": "fingerprint",
-          "label": "الهويات الرقمية",
-          "then": "لا يوجد",
-          "then_year": "قبل 2021",
-          "now": "أكثر من 28 مليون",
-          "now_year": "2024"
-        },
-        {
-          "icon": "public",
-          "label": "ترتيب الأمم المتحدة",
-          "then": "المركز 31",
-          "then_year": "2022",
-          "now": "المركز 6",
-          "now_year": "2024"
-        },
-        {
-          "icon": "id_card",
-          "label": "تجديد الهوية",
-          "then": "زيارة الأحوال المدنية",
-          "then_year": "قبل 2022",
-          "now": "إلكترونيًا عبر أبشر",
-          "now_year": "2022"
-        }
-      ],
       "timeline": [
         {
           "year": "2005",
-          "text": "انطلاق برنامج «يسّر» لنقل الخدمات الحكومية إلى الإنترنت."
+          "text": "انطلاق برنامج «يسّر» لنقل الخدمات الحكومية إلى الإنترنت.",
+          "image": "images/timeline/2005-yesser.jpg"
         },
         {
           "year": "2010",
-          "text": "وزارة الداخلية تطلق منصة «أبشر»."
+          "text": "وزارة الداخلية تطلق منصة «أبشر».",
+          "image": "images/timeline/2010-absher.jpg"
         },
         {
           "year": "2020",
-          "text": "إطلاق تطبيق «توكلنا» في 3 مايو للمساعدة في مواجهة كورونا."
+          "text": "إطلاق تطبيق «توكلنا» في 3 مايو للمساعدة في مواجهة كورونا.",
+          "image": "images/timeline/2020-tawakkalna.jpg"
         },
         {
           "year": "2021",
-          "text": "تأسيس هيئة الحكومة الرقمية، ووصول الهوية الرقمية إلى «أبشر»."
+          "text": "تأسيس هيئة الحكومة الرقمية، ووصول الهوية الرقمية إلى «أبشر».",
+          "image": "images/timeline/2021-digital-government.jpg"
         },
         {
           "year": "2024",
-          "text": "الأمم المتحدة تضع المملكة في المركز 6 عالميًا في الحكومة الإلكترونية، والرابع في الخدمات الرقمية."
+          "text": "الأمم المتحدة تضع المملكة في المركز 6 عالميًا في الحكومة الإلكترونية، والرابع في الخدمات الرقمية.",
+          "image": "images/timeline/2024-un-ranking.jpg"
         },
         {
           "year": "2025",
-          "text": "البنك الدولي يضع المملكة في المركز الثاني من بين 197 دولة في الحكومة الرقمية."
+          "text": "البنك الدولي يضع المملكة في المركز الثاني من بين 197 دولة في الحكومة الرقمية.",
+          "image": "images/timeline/2025-world-bank.jpg"
         }
       ],
       "future": [
@@ -1323,21 +788,21 @@
           "icon": "workspace_premium",
           "title": "ضمن أفضل 3 دول",
           "text": "تهدف استراتيجية الحكومة الرقمية إلى وضع المملكة ضمن أفضل 3 دول في العالم في نضج الحكومة الرقمية بحلول 2030، مع أكثر من 26 ألف وظيفة جديدة.",
-          "source": "https://my.gov.sa/en/content/digital-strategy"
+          "image": "images/timeline/2030-digital-services.jpg"
         },
         {
           "year": "2030",
           "icon": "smart_toy",
           "title": "ضمن أفضل 15 دولة في الذكاء الاصطناعي",
           "text": "تهدف الاستراتيجية الوطنية للبيانات والذكاء الاصطناعي إلى جعل المملكة ضمن أفضل 15 دولة في الذكاء الاصطناعي، واستقطاب استثمارات بقيمة 75 مليار ريال.",
-          "source": "https://saudipedia.com/en/national-strategy-for-data-and-ai-nsdai"
+          "image": "images/timeline/2030-ai.jpg"
         },
         {
           "year": "2030",
           "icon": "school",
           "title": "20 ألف متخصص",
           "text": "وتهدف الاستراتيجية نفسها إلى تأهيل 20 ألف متخصص في البيانات والذكاء الاصطناعي، وتدريب 40% من القوى العاملة على أساسياتهما.",
-          "source": "https://saudipedia.com/en/national-strategy-for-data-and-ai-nsdai"
+          "image": "images/timeline/2030-tech-talent.jpg"
         }
       ]
     }

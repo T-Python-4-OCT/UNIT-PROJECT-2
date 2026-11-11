@@ -1,12 +1,55 @@
 {% extends "main/base.html" %}
 
-{% block title %}{{ t.about_title }}{% endblock %}
+{% block title %}{% if lang == 'ar' %}عن المشروع{% else %}About{% endif %}{% endblock %}
 
 {% block content %}
+
   <section class="page-head parapet">
     <div class="container">
-      <h1>{{ t.about_title }}</h1>
-      <p>{{ t.about_text }}</p>
+      <h1>{% if lang == 'ar' %}عن المشروع{% else %}About{% endif %}</h1>
+      <p>{% if lang == 'ar' %}مشروع طالب يحكي كيف تغيّرت السعودية، قصةً بعد قصة.{% else %}A student project that tells how Saudi Arabia changed, one story at a time.{% endif %}</p>
     </div>
   </section>
+
+  <section class="container section intro">
+    {% if lang == 'ar' %}
+      <div class="intro-text">
+        <h2>الفكرة</h2>
+        <p>يضع هذا المشروع صورتين لبلد واحد جنبًا إلى جنب: مملكة بيوت الطين والقوافل والغوص على اللؤلؤ، ومملكة المترو والمشاريع الكبرى والفعاليات العالمية.</p>
+        <p>بدأ الملك عبدالعزيز هذه المسيرة بتوحيد البلاد، وتعيش اليوم أزهى فصولها بقيادة خادم الحرمين الشريفين الملك سلمان بن عبدالعزيز آل سعود، وصاحب السمو الملكي الأمير محمد بن سلمان بن عبدالعزيز، ولي العهد رئيس مجلس الوزراء، مهندس رؤية 2030 الذي يحوّل الطموح كل يوم إلى واقع نراه بأعيننا.</p>
+        <p>تجمع كل قصة صورة قديمة بصورة حديثة، وتضيف أرقامًا تُظهر حجم التغيير، وتنتهي بما هو مخطط له في المستقبل.</p>
+      </div>
+    {% else %}
+      <div class="intro-text">
+        <h2>The idea</h2>
+        <p>Saudi Then &amp; Now puts two pictures of one country side by side: the Kingdom of mud houses, caravans and pearl diving, and the Kingdom of metros, giga-projects and world events.</p>
+        <p>King Abdulaziz began this journey by uniting the land, and today it lives its brightest chapter under the leadership of the Custodian of the Two Holy Mosques, King Salman bin Abdulaziz Al Saud, and His Royal Highness Prince Mohammed bin Salman bin Abdulaziz, Crown Prince and Prime Minister, the architect of Vision 2030, who turns ambition into a reality we see every day.</p>
+        <p>Each story pairs an old photo with a new one, adds numbers that show how much changed and ends with what is planned next.</p>
+      </div>
+    {% endif %}
+
+    <div class="numbers">
+      <div class="number">
+        <strong class="count-up">{{ topics|length }}</strong>
+        <span>{% if lang == 'ar' %}القصص{% else %}Stories{% endif %}</span>
+      </div>
+      <div class="number">
+        <strong class="count-up">{{ milestone_count }}</strong>
+        <span>{% if lang == 'ar' %}المحطات{% else %}Milestones{% endif %}</span>
+      </div>
+      <div class="number">
+        <strong class="count-up">2</strong>
+        <span>{% if lang == 'ar' %}اللغات{% else %}Languages{% endif %}</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="container section about-end">
+    <p>{% if lang == 'ar' %}برمجة محمد النصافي.{% else %}Developed by Mohammed Alnsafi.{% endif %}</p>
+    <a href="{% url 'main:home' %}#topics" class="btn btn-primary">
+      {{ t.explore_topics }}
+      <span class="material-symbols-outlined flip-rtl">arrow_forward</span>
+    </a>
+  </section>
+
 {% endblock %}

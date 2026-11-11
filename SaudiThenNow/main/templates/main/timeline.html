@@ -1,12 +1,113 @@
 {% extends "main/base.html" %}
+{% load static %}
 
-{% block title %}{{ t.timeline_title }}{% endblock %}
+{% block title %}{% if lang == 'ar' %}التنقل عبر الزمن{% else %}Travel Through Time{% endif %}{% endblock %}
 
 {% block content %}
+
+  <div class="time-intro" id="time-intro" hidden>
+    <span class="intro-leaf intro-leaf-left"></span>
+    <span class="intro-leaf intro-leaf-right"></span>
+    <span class="intro-crack"></span>
+    <div class="intro-center">
+      <div class="intro-card">
+        <svg class="intro-mark" viewBox="0 0 34 34" aria-hidden="true">
+          <g class="intro-fort">
+            <path class="mark-then" d="M3 31 L4.5 15 H13.5 L15 31 Z M4.5 15 L6 11.5 L7.5 15 Z M7.5 15 L9 11.5 L10.5 15 Z M10.5 15 L12 11.5 L13.5 15 Z"/>
+            <path class="intro-door" d="M7.5 31 V26.8 A1.5 1.5 0 0 1 10.5 26.8 V31 Z"/>
+          </g>
+          <path class="intro-tower" d="M18 31 L20.2 2.5 H21.3 Q24 24 26.7 2.5 H27.8 L30 31 Z"/>
+          <rect class="intro-ground" x="1" y="31" width="32" height="2"/>
+        </svg>
+        {% if lang == 'ar' %}
+          <p>مرحبًا بكم في</p>
+          <h2>التنقل <span>عبر الزمن</span></h2>
+        {% else %}
+          <p>Welcome to</p>
+          <h2>Travel <span>Through Time</span></h2>
+        {% endif %}
+        <div class="intro-count">
+          <span>1902</span>
+          <strong id="intro-year">1902</strong>
+          <span>{{ this_year }}</span>
+        </div>
+      </div>
+    </div>
+    <button type="button" class="intro-skip" id="intro-skip">{% if lang == 'ar' %}تخطَّ{% else %}Skip{% endif %}</button>
+  </div>
+
   <section class="page-head parapet">
     <div class="container">
-      <h1>{{ t.timeline_title }}</h1>
-      <p>{{ t.timeline_text }}</p>
+      <h1>{% if lang == 'ar' %}التنقل عبر الزمن{% else %}Travel Through Time{% endif %}</h1>
+      <p>{% if lang == 'ar' %}تنقّل بين محطات القصص السبع، محطة بمحطة.{% else %}Travel through the milestones of the seven stories, one at a time.{% endif %}</p>
     </div>
   </section>
+
+  <section class="container section">
+    <div class="filters" id="filters">
+      <button type="button" class="filter active" data-topic="all" aria-pressed="true">{% if lang == 'ar' %}الكل{% else %}All{% endif %}</button>
+      {% for topic in topics %}
+        <button type="button" class="filter" data-topic="{{ topic.slug }}" aria-pressed="false">
+          <span class="material-symbols-outlined">{{ topic.icon }}</span>
+          {{ topic.title }}
+        </button>
+      {% endfor %}
+    </div>
+
+    <div class="stage" id="stage" tabindex="0" aria-label="{{ t.nav_timeline }}">
+      {% for slide in slides %}
+        <article class="slide era-{{ slide.era }}" data-year="{{ slide.year }}" data-topics="{% for topic in slide.topics %}{{ topic.slug }} {% endfor %}">
+          {% if slide.image %}
+            <img src="{% static slide.image %}" alt="" loading="lazy">
+          {% else %}
+            <span class="slide-art"><span class="material-symbols-outlined">{{ slide.topics.0.icon }}</span></span>
+          {% endif %}
+          <div class="slide-body">
+            {% if slide.era == 'before' %}
+              <span class="slide-era">{% if lang == 'ar' %}قبل النفط{% else %}Before oil{% endif %}</span>
+            {% elif slide.era == 'oil' %}
+              <span class="slide-era">{% if lang == 'ar' %}عصر النفط{% else %}The oil era{% endif %}</span>
+            {% elif slide.era == 'vision' %}
+              <span class="slide-era">{% if lang == 'ar' %}رؤية 2030{% else %}Vision 2030{% endif %}</span>
+            {% else %}
+              <span class="slide-era">{{ t.future_title }}</span>
+            {% endif %}
+            <strong class="slide-year">{{ slide.year }}</strong>
+            <p>{{ slide.text }}</p>
+            {% if slide.future %}
+              <p class="countdown" data-year="{{ slide.year }}"{% if slide.date %} data-date="{{ slide.date }}"{% endif %}></p>
+            {% endif %}
+            <div class="slide-tags">
+              {% for topic in slide.topics %}
+                <a href="{% url 'main:topic' topic.slug %}" class="slide-tag">
+                  <span class="material-symbols-outlined">{{ topic.icon }}</span>
+                  {{ topic.title }}
+                </a>
+              {% endfor %}
+            </div>
+          </div>
+        </article>
+      {% endfor %}
+
+      <span class="stage-progress" id="stage-progress"></span>
+
+      <button type="button" class="stage-btn stage-prev" id="stage-prev" aria-label="{% if lang == 'ar' %}السابق{% else %}Previous{% endif %}">
+        <span class="material-symbols-outlined flip-rtl">arrow_back</span>
+      </button>
+      <button type="button" class="stage-btn stage-next" id="stage-next" aria-label="{% if lang == 'ar' %}التالي{% else %}Next{% endif %}">
+        <span class="material-symbols-outlined flip-rtl">arrow_forward</span>
+      </button>
+
+      <div class="stage-bar">
+        <button type="button" class="stage-play" id="stage-play" data-play="{% if lang == 'ar' %}تشغيل{% else %}Play{% endif %}" data-pause="{% if lang == 'ar' %}إيقاف{% else %}Pause{% endif %}">
+          <span class="material-symbols-outlined">play_arrow</span>
+          <span>{% if lang == 'ar' %}تشغيل{% else %}Play{% endif %}</span>
+        </button>
+        <span class="stage-count" id="stage-count"></span>
+      </div>
+    </div>
+
+    <div class="years" id="years"></div>
+  </section>
+
 {% endblock %}
