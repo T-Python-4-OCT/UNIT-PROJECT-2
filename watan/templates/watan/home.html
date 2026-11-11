@@ -44,6 +44,7 @@
       <p class="hero-tagline">{{ site.tagline }}</p>
 
       <div class="hero-actions">
+
         <a class="btn-wt" href="{% url 'watan:history' %}">
           <i class="bi bi-clock-history"></i>
           ابدأ رحلة التاريخ
@@ -53,8 +54,8 @@
           <i class="bi bi-geo-alt"></i>
           اكتشف المدن
         </a>
-      </div>
 
+      </div>
     </div>
   </div>
 
@@ -71,10 +72,13 @@
       {% for s in stats %}
       <div class="col-6 col-lg-3 reveal">
         <div class="stat-card">
+
           <div class="stat-value">
             <span data-count="{{ s.value }}">{{ s.value }}</span>{{ s.suffix }}
           </div>
+
           <div class="stat-label">{{ s.label }}</div>
+
         </div>
       </div>
       {% endfor %}
@@ -90,6 +94,7 @@
     <div class="row align-items-center g-5">
 
       <div class="col-lg-6 reveal">
+
         <span class="eyebrow">عن الحكاية</span>
 
         <h2 class="section-title">{{ intro.title }}</h2>
@@ -101,14 +106,17 @@
         <p class="intro-quote">
           «من الدرعية إلى رؤية 2030… حكاية وطنٍ كُتبت بالعزيمة»
         </p>
+
       </div>
 
       <div class="col-lg-6 reveal">
         <div class="intro-visual">
+
           <img
-            src="{%  static 'watan/img/Diriyah.png'  %}"
-            alt="لوحة فنية لوطنٍ يشرق"
+            src="{% static 'watan/img/Diriyah.png' %}"
+            alt="الدرعية التاريخية"
             loading="lazy">
+
         </div>
       </div>
 
@@ -122,42 +130,113 @@
   <div class="container">
 
     <div class="section-head text-center reveal">
+
       <span class="eyebrow">رحلة عبر الزمن</span>
+
       <h2 class="section-title">مراحل تاريخ المملكة</h2>
+
       <p class="section-lead mx-auto">
-        سبع محطات تروي كيف تشكّلت الأرض والإنسان والدولة.
+        ست محطات تروي كيف تشكّلت الأرض والإنسان والدولة.
       </p>
+
     </div>
 
     <div class="row g-4">
 
       {% for era in eras %}
+
       <div class="col-sm-6 col-lg-4 reveal">
 
-        <a class="era-card" href="{% url 'watan:era_detail' era.slug %}">
-          <img src="{% asset era.image %}" alt="" loading="lazy">
+        <a class="era-card"
+           href="{% url 'watan:era_detail' era.slug %}">
+
+          {# صور المراحل التاريخية #}
+
+          {% if era.order == 1 %}
+
+            <img
+              src="{% static 'watan/img/pre-islamic.jpg' %}"
+              alt="حضارات ما قبل الإسلام"
+              loading="lazy">
+
+          {% elif era.order == 2 %}
+
+            <img
+              src="{% static 'watan/img/islam-era.jpg' %}"
+              alt="فجر الإسلام"
+              loading="lazy">
+
+          {% elif era.order == 3 %}
+
+            <img
+              src="{% static 'watan/img/historic-hejaz.jpg' %}"
+              alt="الحجاز عبر القرون"
+              loading="lazy">
+
+          {% elif era.order == 4 %}
+
+            <img
+              src="{% static 'watan/img/first-saudi-state.jpg' %}"
+              alt="الدولة السعودية الأولى"
+              loading="lazy">
+
+          {% elif era.order == 5 %}
+
+            <img
+              src="{% static 'watan/img/second-saudi-state.jpg' %}"
+              alt="الدولة السعودية الثانية"
+              loading="lazy">
+
+          {% elif era.order == 6 %}
+
+            <img
+              src="{% static 'watan/img/unification.jpg' %}"
+              alt="توحيد المملكة العربية السعودية"
+              loading="lazy">
+
+          {% else %}
+
+            <img
+              src="{% asset era.image %}"
+              alt="{{ era.title }}"
+              loading="lazy">
+
+          {% endif %}
 
           <span class="era-card-icon">
             <i class="bi {{ era.icon }}"></i>
           </span>
 
           <div class="era-card-body">
-            <span class="era-card-num">{{ era.order|pad2 }}</span>
+
+            <span class="era-card-num">
+              {{ era.order|pad2 }}
+            </span>
+
             <h3>{{ era.title }}</h3>
+
             <p>{{ era.tagline }}</p>
+
           </div>
+
         </a>
 
       </div>
+
       {% endfor %}
 
     </div>
 
     <div class="text-center mt-5">
-      <a class="btn-wt-outline dark" href="{% url 'watan:history' %}">
+
+      <a class="btn-wt-outline dark"
+         href="{% url 'watan:history' %}">
+
         كل المراحل
         <i class="bi bi-arrow-left"></i>
+
       </a>
+
     </div>
 
   </div>
@@ -169,19 +248,27 @@
   <div class="container">
 
     <div class="section-head text-center reveal">
+
       <span class="eyebrow">أبرز المدن</span>
+
       <h2 class="section-title">مدنٌ لكلٍّ منها حكاية</h2>
+
       <p class="section-lead mx-auto">
         من عاصمة العزم إلى مدينة الحجر، تعرّف على وجوه الوطن.
       </p>
+
     </div>
 
     <div class="row g-4">
 
       {% for city in cities %}
+
       <div class="col-md-6 col-lg-4 reveal">
+
         {% include "watan/partials/_city_card.html" %}
+
       </div>
+
       {% endfor %}
 
     </div>
