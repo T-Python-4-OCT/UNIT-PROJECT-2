@@ -6,7 +6,7 @@
         "order": 1,
         "type": "Terrestrial Planet",
         "category": "Rocky Planet",
-        "image": "main/images/mercury.jpg",
+        "image": "main/images/mercury.png",
         "temperature": {
             "average_celsius": 167,
             "description": "Extreme temperature changes between day and night."
@@ -62,7 +62,7 @@
         "order": 2,
         "type": "Terrestrial Planet",
         "category": "Rocky Planet",
-        "image": "main/images/venus.jpg",
+        "image": "main/images/venus.png",
         "temperature": {
             "average_celsius": 464,
             "description": "The hottest planetary surface in the solar system."
@@ -118,7 +118,7 @@
         "order": 3,
         "type": "Terrestrial Planet",
         "category": "Rocky Planet",
-        "image": "main/images/earth.jpg",
+        "image": "main/images/earth.png",
         "temperature": {
             "average_celsius": 15,
             "description": "Average global surface temperature."
@@ -175,7 +175,7 @@
         "order": 4,
         "type": "Terrestrial Planet",
         "category": "Rocky Planet",
-        "image": "main/images/mars.jpg",
+        "image": "main/images/mars.png",
         "temperature": {
             "average_celsius": -65,
             "description": "Cold desert environment with large temperature variations."
@@ -231,7 +231,7 @@
         "order": 5,
         "type": "Gas Giant",
         "category": "Gas Giant",
-        "image": "main/images/jupiter.jpg",
+        "image": "main/images/jupiter.png",
         "temperature": {
             "average_celsius": -110,
             "description": "Approximate temperature at the 1-bar atmospheric pressure level."
@@ -287,7 +287,7 @@
         "order": 6,
         "type": "Gas Giant",
         "category": "Gas Giant",
-        "image": "main/images/saturn.jpg",
+        "image": "main/images/saturn.png",
         "temperature": {
             "average_celsius": -140,
             "description": "Approximate temperature at the 1-bar atmospheric pressure level."
@@ -343,7 +343,7 @@
         "order": 7,
         "type": "Ice Giant",
         "category": "Ice Giant",
-        "image": "main/images/uranus.jpg",
+        "image": "main/images/uranus.png",
         "temperature": {
             "average_celsius": -195,
             "description": "Extremely cold atmosphere."
@@ -399,7 +399,7 @@
         "order": 8,
         "type": "Ice Giant",
         "category": "Ice Giant",
-        "image": "main/images/neptune.jpg",
+        "image": "main/images/neptune.png",
         "temperature": {
             "average_celsius": -200,
             "description": "Approximate temperature in the upper atmosphere."
