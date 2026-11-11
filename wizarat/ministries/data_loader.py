@@ -2,6 +2,8 @@ import json
 import re
 from pathlib import Path
 
+from PIL import Image
+
 DATA_DIR = Path(__file__).resolve().parent / "data"
 IMAGE_DIR = Path(__file__).resolve().parent / "static" / "ministries" / "images"
 
@@ -15,25 +17,56 @@ def add_images(ministry):
     slug = ministry["slug"]
     ministry_dir = IMAGE_DIR / slug
     cover = ministry_dir / "cover.jpg"
+    base = f"ministries/images/{slug}"
+    ministry["cover"] = f"{base}/cover.jpg" if cover.is_file() else ""
+    ministry["cover_webp"] = []
+    ministry["gallery"] = []
+
+    if ministry_dir.is_dir():
+        def webp_variants(pattern):
+            variants = []
+            seen_widths = set()
+            paths = sorted(
+                (
+                    path
+                    for path in ministry_dir.glob(pattern)
+                    if path.stem.rsplit("-", 1)[-1].isdigit()
+                ),
+                key=lambda path: int(path.stem.rsplit("-", 1)[1]),
+            )
+            for path in paths:
+                with Image.open(path) as image:
+                    width = image.width
+                if width not in seen_widths:
+                    variants.append({"url": f"{base}/{path.name}", "width": width})
+                    seen_widths.add(width)
+            return variants
+
+        ministry["cover_webp"] = webp_variants("cover-*.webp")
+        gallery = []
+        gallery_paths = sorted(
+            (
+                path
+                for path in ministry_dir.glob("*.jpg")
+                if path.stem.isdigit()
+            ),
+            key=lambda path: int(path.stem),
+        )
+        for path in gallery_paths:
+            variants = webp_variants(f"{path.stem}-*.webp")
+            gallery.append({"url": f"{base}/{path.name}", "webp": variants})
+        ministry["gallery"] = gallery
 
     if cover.is_file():
-        base = f"ministries/images/{slug}"
-        gallery = [
-            f"{base}/{number}.jpg"
-            for number in range(1, 4)
-            if (ministry_dir / f"{number}.jpg").is_file()
-        ]
-        ministry["cover"] = f"{base}/cover.jpg"
-        ministry["gallery"] = gallery or [ministry["cover"]]
+        if not ministry["gallery"]:
+            ministry["gallery"] = [{"url": f"{base}/cover.jpg", "webp": []}]
         return ministry
 
     flat_image = IMAGE_DIR / f"{slug}.jpg"
     if flat_image.is_file():
         ministry["cover"] = f"ministries/images/{slug}.jpg"
-        ministry["gallery"] = [ministry["cover"]]
-    else:
-        ministry["cover"] = ""
-        ministry["gallery"] = []
+        if not ministry["gallery"]:
+            ministry["gallery"] = [{"url": ministry["cover"], "webp": []}]
 
     return ministry
 
@@ -86,6 +119,10 @@ def get_ministry(slug):
 
 def get_site_content():
     return read_json("site.json")
+
+
+def get_home_features():
+    return read_json("home_features.json")
 
 
 def get_random_facts():

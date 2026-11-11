@@ -1,11 +1,18 @@
 {% extends "ministries/base.html" %}
 {% load static %}
 
-{% block title %}وِجهة | وزارات المملكة العربية السعودية{% endblock %}
+{% block title %}{{ home_features.brand_name }} | وزارات المملكة العربية السعودية{% endblock %}
 
 {% block content %}
 {% with content=site_content.home %}
-<section class="home-hero">
+<section class="home-hero" data-video-background>
+  {% if hero_video_url %}
+  <div class="hero-video" aria-hidden="true">
+    <iframe src="{{ hero_video_url }}" title="" tabindex="-1" loading="eager"
+      referrerpolicy="strict-origin-when-cross-origin"
+      allow="autoplay; encrypted-media; picture-in-picture"></iframe>
+  </div>
+  {% endif %}
   <div class="container hero-inner">
     <div class="hero-copy reveal is-visible">
       <span class="eyebrow">{{ content.eyebrow }}</span>
@@ -91,7 +98,7 @@
         <article class="ministry-card">
           <div class="card-image">
             {% if ministry.cover %}
-            <img src="{% static ministry.cover %}" alt="{{ ministry.name }}" loading="lazy">
+            {% include "ministries/partials/picture.html" with ministry=ministry image_url=ministry.cover webp_variants=ministry.cover_webp eager=forloop.first sizes="(min-width: 992px) 33vw, (min-width: 576px) 50vw, 100vw" %}
             {% else %}
             <div class="image-fallback" role="img" aria-label="{{ ministry.name }}"></div>
             {% endif %}

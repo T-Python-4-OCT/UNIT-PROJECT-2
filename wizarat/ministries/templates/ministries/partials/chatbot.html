@@ -1,0 +1,30 @@
+{% load static %}
+{{ home_features.assistant|json_script:"chatbot-copy" }}
+{{ chatbot_ministries|json_script:"chatbot-ministries" }}
+<div class="site-assistant" data-assistant>
+  <section class="assistant-panel" id="assistantPanel" role="dialog" aria-modal="false" aria-labelledby="assistantTitle" hidden>
+    <header class="assistant-header">
+      <div>
+        <span class="assistant-status"><i aria-hidden="true"></i>{{ home_features.assistant.scope_note }}</span>
+        <h2 id="assistantTitle">{{ home_features.assistant.title }}</h2>
+      </div>
+      <button class="assistant-close" type="button" aria-label="{{ home_features.assistant.close_label }}" data-assistant-close>
+        <i class="bi bi-x-lg" aria-hidden="true"></i>
+      </button>
+    </header>
+    <div class="assistant-messages" role="log" aria-live="polite" aria-relevant="additions text" data-assistant-messages></div>
+    <div class="assistant-suggestions" data-assistant-suggestions></div>
+    <form class="assistant-form" data-assistant-form>
+      <label class="visually-hidden" for="assistantInput">{{ home_features.assistant.input_placeholder }}</label>
+      <input id="assistantInput" name="question" type="text" maxlength="240" autocomplete="off"
+        placeholder="{{ home_features.assistant.input_placeholder }}" required data-assistant-input>
+      <button type="submit" aria-label="{{ home_features.assistant.send_label }}">
+        <i class="bi bi-arrow-up" aria-hidden="true"></i>
+      </button>
+    </form>
+  </section>
+  <button class="assistant-toggle" type="button" aria-label="{{ home_features.assistant.open_label }}"
+    aria-expanded="false" aria-controls="assistantPanel" data-assistant-toggle>
+    <i class="bi bi-chat-dots-fill" aria-hidden="true"></i>
+  </button>
+</div>

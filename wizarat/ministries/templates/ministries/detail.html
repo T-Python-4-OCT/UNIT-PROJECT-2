@@ -1,11 +1,16 @@
 {% extends "ministries/base.html" %}
 {% load static %}
 
-{% block title %}{{ ministry.name }} | وِجهة{% endblock %}
+{% block title %}{{ ministry.name }} | {{ home_features.brand_name }}{% endblock %}
 
 {% block content %}
 <div class="reading-progress" aria-hidden="true"><span></span></div>
-<section class="ministry-hero" {% if ministry.cover %}style="--cover: url('{% static ministry.cover %}')" {% endif %}>
+<section class="ministry-hero">
+  <div class="detail-hero-media">
+    {% if ministry.cover %}
+    {% include "ministries/partials/picture.html" with ministry=ministry image_url=ministry.cover webp_variants=ministry.cover_webp eager=True sizes="100vw" picture_class="detail-hero-picture" %}
+    {% endif %}
+  </div>
   <div class="container detail-hero-inner">
     <a class="back-link" href="{% url 'ministries:home' %}#directory"><i class="bi bi-arrow-right"></i> كل الوزارات</a>
     <div class="hero-icon"><i class="bi {{ ministry.icon }}" aria-hidden="true"></i></div>
@@ -106,7 +111,7 @@
           {% for image in ministry.gallery %}
           <button class="gallery-trigger" type="button" data-bs-toggle="modal" data-bs-target="#galleryLightbox"
             data-gallery-index="{{ forloop.counter0 }}" aria-label="تكبير الصورة {{ forloop.counter }} لـ {{ ministry.name }}">
-            <img src="{% static image %}" alt="{{ ministry.name }} - صورة {{ forloop.counter }}" loading="lazy">
+            {% include "ministries/partials/picture.html" with ministry=ministry image_url=image.url webp_variants=image.webp picture_class="gallery-picture" image_number=forloop.counter sizes="(min-width: 768px) 33vw, 50vw" %}
             <span>{{ ministry.name }}</span>
           </button>
           {% endfor %}
@@ -122,7 +127,7 @@
                 <div class="carousel-inner">
                   {% for image in ministry.gallery %}
                   <div class="carousel-item {% if forloop.first %}active{% endif %}">
-                    <img src="{% static image %}" alt="{{ ministry.name }} - صورة {{ forloop.counter }}">
+                    {% include "ministries/partials/picture.html" with ministry=ministry image_url=image.url webp_variants=image.webp picture_class="lightbox-picture" image_number=forloop.counter eager=forloop.first sizes="100vw" aspect_ratio="auto" %}
                   </div>
                   {% endfor %}
                 </div>

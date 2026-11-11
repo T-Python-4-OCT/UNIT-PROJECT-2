@@ -1,0 +1,12 @@
+{% load static %}
+<picture class="responsive-picture {{ picture_class }}">
+  {% if webp_variants %}
+  <source type="image/webp"
+    srcset="{% for variant in webp_variants %}{% static variant.url %} {{ variant.width }}w{% if not forloop.last %}, {% endif %}{% endfor %}"
+    sizes="{{ sizes|default:'100vw' }}">
+  {% endif %}
+  <img src="{% static image_url %}" alt="{{ ministry.name }}{% if image_number %} - صورة {{ image_number }}{% endif %}"
+    style="aspect-ratio: {{ aspect_ratio|default:'16 / 9' }};"
+    {% if eager %}loading="eager" fetchpriority="high"{% else %}loading="lazy"{% endif %}
+    decoding="async">
+</picture>

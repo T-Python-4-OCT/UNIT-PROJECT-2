@@ -1,9 +1,9 @@
 {% extends "ministries/base.html" %}
 
-{% block title %}{{ site_content.directory_page.title }} | وِجهة{% endblock %}
+{% block title %}{{ site_content.directory_page.title }} | {{ home_features.brand_name }}{% endblock %}
 
 {% block content %}
-<header class="page-heading">
+<header class="page-heading directory-page-heading">
   <div class="container">
     <span class="eyebrow">{{ site_content.directory_page.eyebrow }}</span>
     <h1>{{ site_content.directory_page.title }}</h1>
@@ -15,7 +15,7 @@
   </div>
 </header>
 
-<section class="section-wrap">
+<section class="section-wrap directory-listing">
   <div class="container">
     <div class="directory-tools">
       <label class="search-field">
@@ -24,7 +24,7 @@
         <input class="js-directory-search" type="search"
           placeholder="{{ site_content.directory_page.search_placeholder }}" autocomplete="off">
       </label>
-      <label>
+      <label class="directory-category-field">
         <span class="visually-hidden">{{ site_content.directory_page.all_categories }}</span>
         <select class="filter-select js-directory-category">
           <option value="">{{ site_content.directory_page.all_categories }}</option>
@@ -47,6 +47,13 @@
           <div class="directory-card-head">
             <span class="directory-card-icon"><i class="bi {{ ministry.icon|default:'bi-building' }}" aria-hidden="true"></i></span>
             <span class="directory-card-number">{{ forloop.counter|stringformat:"02d" }}</span>
+          </div>
+          <div class="directory-card-image">
+            {% if ministry.cover %}
+            {% include "ministries/partials/picture.html" with ministry=ministry image_url=ministry.cover webp_variants=ministry.cover_webp eager=forloop.first sizes="(min-width: 1200px) 33vw, (min-width: 768px) 50vw, 100vw" %}
+            {% else %}
+            <div class="image-fallback" role="img" aria-label="{{ ministry.name }}"></div>
+            {% endif %}
           </div>
           <span class="directory-card-category">{{ ministry.category }}</span>
           <h2>{{ ministry.name }}</h2>

@@ -27,13 +27,23 @@ class MinistryPagesTests(SimpleTestCase):
     def test_homepage_and_ministry_pages_load(self):
         ministries = get_ministries()
 
-        self.assertEqual(self.client.get(reverse("ministries:home")).status_code, 200)
+        home_response = self.client.get(reverse("ministries:home"))
+        self.assertEqual(home_response.status_code, 200)
+        self.assertContains(
+            home_response,
+            "youtube-nocookie.com/embed/XdtPmrf3sxI?autoplay=1&amp;mute=1",
+        )
+        self.assertContains(home_response, 'data-assistant')
+        self.assertEqual(len(home_response.context["chatbot_ministries"]), 24)
         for ministry in ministries:
             with self.subTest(slug=ministry["slug"]):
                 response = self.client.get(
                     reverse("ministries:detail", args=[ministry["slug"]])
                 )
                 self.assertEqual(response.status_code, 200)
+                self.assertContains(response, 'data-assistant')
+                self.assertNotContains(response, "class=\"detail-hero-video\"")
+                self.assertContains(response, "detail-hero-picture")
 
     def test_all_additional_pages_load(self):
         routes = (
@@ -51,6 +61,7 @@ class MinistryPagesTests(SimpleTestCase):
         directory = get_all_ministries()
 
         self.assertEqual(response.status_code, 200)
+        self.assertNotContains(response, "class=\"hero-video\"")
         self.assertEqual(len(directory), 24)
         self.assertEqual(len({item["slug"] for item in directory}), 24)
         self.assertContains(response, "وزارة الحرس الوطني")
@@ -76,13 +87,18 @@ class MinistryPagesTests(SimpleTestCase):
                 self.assertTrue((IMAGE_DIR.parent.parent / ministry["cover"]).is_file())
                 self.assertTrue(ministry["gallery"])
                 for image in ministry["gallery"]:
-                    self.assertTrue((IMAGE_DIR.parent.parent / image).is_file())
+                    self.assertTrue((IMAGE_DIR.parent.parent / image["url"]).is_file())
+                    for variant in image["webp"]:
+                        self.assertTrue((IMAGE_DIR.parent.parent / variant["url"]).is_file())
+                for variant in ministry["cover_webp"]:
+                    self.assertTrue((IMAGE_DIR.parent.parent / variant["url"]).is_file())
 
     def test_missing_image_data_has_an_empty_fallback_path(self):
         ministry = add_images({"slug": "ministry-without-an-image"})
 
         self.assertEqual(ministry["cover"], "")
         self.assertEqual(ministry["gallery"], [])
+        self.assertEqual(ministry["cover_webp"], [])
 
     def test_every_ministry_has_expected_json_fields(self):
         expected_fields = {

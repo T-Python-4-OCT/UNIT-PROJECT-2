@@ -8,6 +8,7 @@ from .data_loader import (
     get_ministries,
     get_ministry,
     get_all_ministries,
+    get_home_features,
     get_quiz_questions,
     get_random_facts,
     get_site_content,
@@ -15,6 +16,8 @@ from .data_loader import (
 
 
 def home(request):
+    features = get_home_features()
+    home_video = f"https://www.youtube-nocookie.com/embed/{features['video']['video_id']}"
     ministries = get_ministries()
     years = [item["timeline"][0]["year"] for item in ministries if item["timeline"]]
     categories = sorted({item["category"] for item in ministries})
@@ -45,6 +48,7 @@ def home(request):
             ),
             "daily_fact": fact,
             "vision_pillars": vision_cards,
+            "hero_video_url": youtube_background_url(home_video),
         },
     )
 
@@ -144,6 +148,21 @@ def youtube_embed_url(url):
     if not re.fullmatch(r"[A-Za-z0-9_-]{11}", video_id):
         return ""
     return f"https://www.youtube-nocookie.com/embed/{video_id}"
+
+
+def youtube_background_url(url):
+    parsed = urlparse(url)
+    if parsed.hostname != "www.youtube-nocookie.com":
+        return ""
+    match = re.fullmatch(r"/embed/([A-Za-z0-9_-]{11})", parsed.path)
+    if not match:
+        return ""
+    video_id = match.group(1)
+    return (
+        f"https://www.youtube-nocookie.com/embed/{video_id}"
+        f"?autoplay=1&mute=1&controls=0&loop=1&playlist={video_id}"
+        "&playsinline=1&rel=0"
+    )
 
 
 def page_not_found(request, exception):
