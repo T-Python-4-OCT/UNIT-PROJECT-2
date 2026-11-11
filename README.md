@@ -1,8 +1,11 @@
 <div align="center">
 
-<img src="docs/banner.svg" alt="Ruya: Saudi Vision 2030 giga-projects" width="100%">
+<img src="banner.svg" alt="Ruya: Saudi Vision 2030 giga-projects" width="100%">
+<div align="center">
 
-### Six giga-projects, six designs, built on Saudi Vision 2030
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:0f3b26,100:2f7d4a&height=220&section=header&text=%D8%B1%D8%A4%D9%8A%D8%A9%20%C2%B7%20Ruya&fontSize=64&fontColor=f3d58f&fontAlignY=38&animation=fadeIn&desc=Saudi%20Vision%202030%20Giga-Projects&descSize=20&descAlignY=60&descAlign=50" alt="Ruya: Saudi Vision 2030 Giga-Projects" width="100%">
+
+<img src="https://readme-typing-svg.demolab.com?font=Playfair+Display&weight=700&size=26&duration=3000&pause=900&color=2F7D4A&center=true&vCenter=true&width=720&lines=Six+giga-projects.+Six+designs.;Built+with+Django+and+pure+CSS;Zero+JavaScript.+Every+animation+is+CSS.;Diriyah+%C2%B7+Qiddiya+%C2%B7+AlUla;The+Red+Sea+%C2%B7+King+Salman+Park+%C2%B7+ROSHN" alt="Six giga-projects. Six designs. Built with Django and pure CSS.">
 
 A Django website about the giga-projects shaping Saudi Arabia's future.
 Each project has its own handcrafted page, and every animation and interactive part is pure CSS.
@@ -12,10 +15,6 @@ Each project has its own handcrafted page, and every animation and interactive p
 ![HTML5](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![CSS3](https://img.shields.io/badge/CSS3-1572B6?style=for-the-badge&logo=css3&logoColor=white)
 ![JavaScript](https://img.shields.io/badge/JavaScript-0%25-8c6a33?style=for-the-badge)
-
-<br>
-
-<img src="docs/screenshots/projects-collage.jpg" alt="The six project pages of Ruya" width="100%">
 
 </div>
 
@@ -49,32 +48,11 @@ Each project gets a custom template. If a project has no custom page yet, Django
 
 ---
 
-## 🎬 See It in Motion
+<div align="center">
 
-Everything below runs on HTML and CSS only.
+<img src="https://readme-typing-svg.demolab.com?font=Inter&weight=600&size=18&duration=2500&pause=700&color=B8863B&center=true&vCenter=true&width=640&lines=Interactive+maps+with+radio+buttons+and+labels;A+3D+masterplan+with+preserve-3d;Numbers+that+count+as+you+scroll;Day+and+night+scenes+with+the+theme" alt="Interactive maps, a 3D masterplan, scroll counters and day and night scenes, all in CSS">
 
-<p align="center">
-<img src="docs/gifs/ksp.gif" alt="King Salman Park 3D masterplan with interactive pins" width="100%">
-<br><sub><b>King Salman Park</b>: a 3D masterplan. Pick a place and the pin and scene change.</sub>
-</p>
-
-<table>
-<tr>
-<td width="50%"><img src="docs/gifs/roshn.gif" alt="ROSHN community explorer on a map of Saudi Arabia"></td>
-<td width="50%"><img src="docs/gifs/reef.gif" alt="Red Sea numbers counting up on scroll"></td>
-</tr>
-<tr>
-<td align="center"><sub><b>ROSHN</b>: each community lights up on the map</sub></td>
-<td align="center"><sub><b>The Red Sea</b>: numbers count up as you scroll</sub></td>
-</tr>
-</table>
-
-<p align="center">
-<img src="docs/gifs/live.gif" alt="ROSHN park scene with animated sun rays and fountain" width="100%">
-<br><sub><b>ROSHN</b>: sun rays, a sparkling fountain and birds over a photo. In dark mode it becomes night in SEDRA.</sub>
-</p>
-
----
+</div>
 
 ## 🪄 How It Works Without JavaScript
 
@@ -104,23 +82,6 @@ Everything below runs on HTML and CSS only.
 | About | `/about/` | Vision 2030: pillars, progress, milestones and leadership |
 | Theme | `/theme/<light\|dark>/` | Switches the theme and returns you to the same page |
 
-<table>
-<tr>
-<td width="50%"><img src="docs/screenshots/home.jpg" alt="Home page"></td>
-<td width="50%"><img src="docs/screenshots/projects.jpg" alt="All projects page"></td>
-</tr>
-<tr>
-<td width="50%"><img src="docs/screenshots/about.jpg" alt="About page"></td>
-<td width="50%"><img src="docs/screenshots/qiddiya.jpg" alt="Qiddiya page in dark mode"></td>
-</tr>
-</table>
-
-<p align="center">
-<img src="docs/screenshots/mobile.jpg" alt="ROSHN on mobile" width="260">
-&nbsp;&nbsp;
-<img src="docs/screenshots/mobile-dark.jpg" alt="Home on mobile in dark mode" width="260">
-</p>
-
 ---
 
 ## 🧱 Tech Stack
@@ -137,7 +98,6 @@ Everything below runs on HTML and CSS only.
 ```
 UNIT-PROJECT-2/
 ├── manage.py
-├── docs/                      # README banner, screenshots and GIFs
 ├── requirements.txt
 ├── Ruya/                      # Django project settings
 └── projects/                  # The main app (app_name = 'projects')
@@ -229,7 +189,11 @@ Then open **http://127.0.0.1:8000** in your browser.
 
 ---
 
+## ⚠️ Disclaimer
 
+This is a **student project**, made for learning purposes only.
+It is not affiliated with or endorsed by Saudi Vision 2030, the Public Investment Fund, or any of the projects shown.
+All names, logos and images belong to their respective owners.
 
 ---
 
@@ -238,5 +202,7 @@ Then open **http://127.0.0.1:8000** in your browser.
 Made with 💚 for Saudi Arabia 🇸🇦
 
 **Sami Al-Harbi**
+
+<img src="https://capsule-render.vercel.app/api?type=waving&color=0:2f7d4a,100:0f3b26&height=120&section=footer" alt="" width="100%">
 
 </div>
