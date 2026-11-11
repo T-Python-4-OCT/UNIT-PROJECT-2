@@ -5,12 +5,42 @@
 
 {% block content %}
 
-<!-- ================= HERO ================= -->
-<section class="hero hero-page" style="--hero-img: url('{% static 'images/site/riyadh-kafd-sunset.jpg' %}')">
-    <div class="container hero-content">
-        <span class="eyebrow">Giga-Projects</span>
-        <h1>All Projects</h1>
-        <p>Explore the landmark developments shaping the future of Saudi Arabia.</p>
+<!-- ================= BANNER ================= -->
+<section class="pj-banner">
+    <span class="pj-stars" aria-hidden="true"></span>
+    <span class="pj-glow" aria-hidden="true"></span>
+
+    <div class="container pj-banner-inner">
+        <div class="pj-text">
+            <span class="pj-ar" lang="ar" dir="rtl">رؤية</span>
+            <span class="pj-line" aria-hidden="true"></span>
+            <span class="eyebrow on-dark">Giga-Projects</span>
+            <h1>All Projects</h1>
+            <p>Explore the landmark developments shaping the future of Saudi Arabia.</p>
+            <div class="pj-count">
+                <strong>{{ projects|length }}</strong>
+                <span>projects across the Kingdom</span>
+            </div>
+        </div>
+
+        <div class="pj-art" aria-hidden="true">
+            <div class="pj-year">
+                <span>2</span><span>0</span><span>3</span><span>0</span>
+            </div>
+            <div class="pj-skyline">
+                <span class="pj-b b1"></span>
+                <span class="pj-kc"></span>
+                <span class="pj-b b2"></span>
+                <span class="pj-fs"></span>
+                <span class="pj-b b3"></span>
+                <span class="pj-b b4"></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="pj-strip" aria-hidden="true">
+        <span class="pj-light"></span>
+        <span class="pj-light l2"></span>
     </div>
 </section>
 
