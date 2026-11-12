@@ -1492,3 +1492,41 @@ h1, h2, h3, h4, h5, h6 { color: var(--c-heading); }
   .gallery-item img,
   .journey-card-image img { transition: none; }
 }
+
+/* ===== 404 page ===== */
+.not-found {
+  padding-block: clamp(3rem, 8vw, 6rem);
+  text-align: center;
+  background: radial-gradient(ellipse at 50% 0%, var(--c-glow), transparent 60%);
+}
+
+.not-found-code {
+  margin: 0;
+  font-size: clamp(5rem, 18vw, 10rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  background: linear-gradient(120deg, var(--c-heading) 10%, var(--c-accent) 90%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.not-found h1 { margin-top: 0.5rem; }
+
+.not-found .lead {
+  max-width: 52ch;
+  margin-inline: auto;
+  color: var(--c-muted);
+}
+
+.not-found-search { margin: 2rem auto 0; }
+
+.not-found .search-browse { margin: 1.5rem auto 0; max-width: 760px; }
+.not-found .search-browse ul { justify-content: center; }
+
+.not-found-home {
+  margin-top: 2rem;
+  padding-inline: 1.75rem;
+  border-radius: 999px;
+}

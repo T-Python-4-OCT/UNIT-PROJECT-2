@@ -92,7 +92,9 @@
         "type": "gallery",
         "heading": "بالصور",
         "items": [
-          { "image": "portal/img/gallery/identity-1.webp", "caption": "مسح البصمة، إحدى طرق التحقق الرقمي من الهوية" }
+          { "image": "portal/img/gallery/identity-1.webp", "caption": "مسح البصمة، إحدى طرق التحقق الرقمي من الهوية" },
+          { "image": "portal/img/gallery/identity-2.webp", "caption": "بصمة إصبع تُقرأ رقميًا" },
+          { "image": "portal/img/gallery/identity-3.webp", "caption": "التحقق من بطاقة هوية رقمية" }
         ]
       },
       {
@@ -136,7 +138,9 @@
         "type": "gallery",
         "heading": "بالصور",
         "items": [
-          { "image": "portal/img/gallery/services-1.webp", "caption": "البوابات الذكية في جوازات المطار" }
+          { "image": "portal/img/gallery/services-1.webp", "caption": "البوابات الذكية في جوازات المطار" },
+          { "image": "portal/img/gallery/services-2.webp", "caption": "إدارة الخدمات من جهاز لوحي" },
+          { "image": "portal/img/gallery/services-3.webp", "caption": "خدمات مترابطة عبر السحابة" }
         ]
       },
       {

@@ -29,7 +29,9 @@
       "type": "gallery",
       "heading": "In Pictures",
       "items": [
-        { "image": "portal/img/gallery/future-1.webp", "caption": "Data and computing power behind the services of tomorrow" }
+        { "image": "portal/img/gallery/future-1.webp", "caption": "Data and computing power behind the services of tomorrow" },
+        { "image": "portal/img/gallery/future-2.webp", "caption": "Riyadh at night with a digital overlay" },
+        { "image": "portal/img/gallery/future-3.webp", "caption": "The Line at NEOM, from its published design" }
       ]
     },
     {

@@ -99,6 +99,7 @@ source venv/Scripts/activate      # Windows (Git Bash)
 # source venv/bin/activate        # macOS / Linux
 
 pip install -r requirements.txt
+cp .env.example .env              # then put your own key in .env (see below)
 python manage.py migrate          # creates the feedback and session tables
 python manage.py runserver
 ```
@@ -115,6 +116,24 @@ Then sign in at http://127.0.0.1:8000/admin/
 
 > `migrate` is required: the language switch stores the choice in Django's session table, and the feedback form saves to its own table.
 
+### Environment variables
+
+Settings that differ between machines are read from a `.env` file (loaded by `python-dotenv`). `.env` is in `.gitignore`, so secrets never reach GitHub; `.env.example` shows its shape.
+
+| Variable | Default | Purpose |
+| --- | --- | --- |
+| `DJANGO_SECRET_KEY` | a random key made at startup | Signs sessions and CSRF tokens |
+| `DJANGO_DEBUG` | `True` | Set to `False` in production |
+| `DJANGO_ALLOWED_HOSTS` | `127.0.0.1,localhost` | Comma-separated host names |
+
+Generate a key:
+
+```bash
+python -c "from django.core.management.utils import get_random_secret_key; print(get_random_secret_key())"
+```
+
+To see the custom 404 page locally, set `DJANGO_DEBUG=False` in `.env` and run `python manage.py runserver --insecure` (the flag keeps static files served).
+
 ---
 
 ## Tests
@@ -123,24 +142,25 @@ Then sign in at http://127.0.0.1:8000/admin/
 python manage.py test portal
 ```
 
-48 tests cover every invalid-input case above, plus:
+50 tests cover every invalid-input case above, plus:
 
 - all seven pages load in both languages
-- unknown URLs return 404
+- unknown URLs return a 404 page that offers search and links to every page
+- the secret key is not written in `settings.py`
 - the language switch accepts only `en` and `ar`, and refuses to redirect to another site
 - search ignores empty, too short, too long and symbols-only queries, finds Arabic words without hamza, and escapes HTML
 - the before/after images exist and the slider renders in both languages
 - every gallery photo exists and has a caption in both languages, and search finds words in captions
 
-The custom 404 page shows when `DEBUG = False`. With `DEBUG = True`, Django shows its own debug page instead.
 
 ---
 
 ## Project structure
 
 ```
+.env.example              template for your local .env
 config/
-  settings.py
+  settings.py             reads DJANGO_* values from .env
   urls.py                 admin, favicon redirect, portal URLs
 portal/
   data/                   page content in English
@@ -168,8 +188,8 @@ docs/screenshots/         images used in this README
 
 ## Tech stack
 
-Django 6.1 · Python · SQLite · Bootstrap 5.3 · vanilla JavaScript · IBM Plex Sans Arabic
+Django 6.1 · Python · SQLite · python-dotenv · Bootstrap 5.3 · vanilla JavaScript · IBM Plex Sans Arabic
 
 ## Sources and media
 
-Figures come from official and news sources cited on each page, with the date each figure refers to. All photos and the hero video are from [Pexels](https://www.pexels.com/), used under the Pexels license.
+Figures come from official and news sources cited on each page, with the date each figure refers to. The hero video and several photos are from [Pexels](https://www.pexels.com/). Photos are used for this non-commercial educational project.

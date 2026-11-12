@@ -92,7 +92,9 @@
         "type": "gallery",
         "heading": "In Pictures",
         "items": [
-          { "image": "portal/img/gallery/identity-1.webp", "caption": "A fingerprint scan, one way identity is checked digitally" }
+          { "image": "portal/img/gallery/identity-1.webp", "caption": "A fingerprint scan, one way identity is checked digitally" },
+          { "image": "portal/img/gallery/identity-2.webp", "caption": "A fingerprint scanned with digital overlays" },
+          { "image": "portal/img/gallery/identity-3.webp", "caption": "A digital ID card being verified" }
         ]
       },
       {
@@ -136,7 +138,9 @@
         "type": "gallery",
         "heading": "In Pictures",
         "items": [
-          { "image": "portal/img/gallery/services-1.webp", "caption": "Smart gates at airport passport control" }
+          { "image": "portal/img/gallery/services-1.webp", "caption": "Smart gates at airport passport control" },
+          { "image": "portal/img/gallery/services-2.webp", "caption": "Services managed from a tablet" },
+          { "image": "portal/img/gallery/services-3.webp", "caption": "Connected services in the cloud" }
         ]
       },
       {

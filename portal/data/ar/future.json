@@ -29,7 +29,9 @@
       "type": "gallery",
       "heading": "بالصور",
       "items": [
-        { "image": "portal/img/gallery/future-1.webp", "caption": "البيانات والقدرة الحاسوبية خلف خدمات المستقبل" }
+        { "image": "portal/img/gallery/future-1.webp", "caption": "البيانات والقدرة الحاسوبية خلف خدمات المستقبل" },
+        { "image": "portal/img/gallery/future-2.webp", "caption": "الرياض ليلًا مع طبقة رقمية" },
+        { "image": "portal/img/gallery/future-3.webp", "caption": "ذا لاين في نيوم، من تصميمه المعلن" }
       ]
     },
     {

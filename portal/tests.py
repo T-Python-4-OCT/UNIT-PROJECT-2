@@ -301,3 +301,24 @@ class GalleryTests(TestCase):
         response = self.client.get(reverse("portal:search"), {"q": "المصمك"})
         slugs = [result["slug"] for result in response.context["results"]]
         self.assertIn("moi-evolution", slugs)
+
+
+class SettingsTests(TestCase):
+    def test_secret_key_is_not_in_the_code(self):
+        "The key comes from .env (or is generated), never written in settings.py."
+        from pathlib import Path
+
+        from django.conf import settings
+
+        source = (Path(settings.BASE_DIR) / "config" / "settings.py").read_text(encoding="utf-8")
+        self.assertNotIn("django-insecure", source)
+        self.assertTrue(settings.SECRET_KEY)
+
+
+class NotFoundPageTests(TestCase):
+    def test_404_page_offers_search_and_all_pages(self):
+        response = self.client.get("/not-a-real-page/")
+        self.assertEqual(response.status_code, 404)
+        self.assertContains(response, 'action="/search/"', status_code=404)
+        for page in load_json("site.json", "en")["pages"]:
+            self.assertContains(response, page["title"], status_code=404)
