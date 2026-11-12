@@ -1,0 +1,616 @@
+{
+  "slug": "alula",
+  "order": 7,
+  "accent": {
+    "light": "#8c3f55",
+    "dark": "#eaa7b9"
+  },
+  "logo": "atlas/logos/alula.svg",
+  "texture": "atlas/textures/alula.svg",
+  "name": {
+    "en": "AlUla",
+    "ar": "العُلا"
+  },
+  "category": {
+    "en": "Heritage and tourism",
+    "ar": "التراث والسياحة"
+  },
+  "region": {
+    "en": "Madinah region",
+    "ar": "منطقة المدينة المنورة"
+  },
+  "tagline": {
+    "en": "Nabataean tombs in a sandstone valley",
+    "ar": "مقابر نبطية في وادٍ من الحجر الرملي"
+  },
+  "summary": {
+    "en": "AlUla covers 22,561 km² of northwest Saudi Arabia. Hegra, the country’s first UNESCO World Heritage Site, lies within it. The Royal Commission for AlUla is developing the valley as a cultural destination through the Journey Through Time masterplan.",
+    "ar": "تمتد العُلا على مساحة 22,561 كيلومترًا مربعًا في شمال غرب المملكة، وتضم الحِجر، أول موقع سعودي على قائمة اليونسكو للتراث العالمي. وتطوّر الهيئة الملكية لمحافظة العُلا الوادي وجهةً ثقافية ضمن مخطط «رحلة عبر الزمن»."
+  },
+  "status": {
+    "key": "partly-open",
+    "label": {
+      "en": "Partly open",
+      "ar": "افتتاح جزئي"
+    }
+  },
+  "facts": [
+    {
+      "label": {
+        "en": "Heritage core",
+        "ar": "النواة التاريخية"
+      },
+      "value": {
+        "en": "Hegra, UNESCO listed in 2008",
+        "ar": "الحِجر، أُدرج على قائمة التراث العالمي عام 2008"
+      }
+    },
+    {
+      "label": {
+        "en": "Area",
+        "ar": "المساحة"
+      },
+      "value": {
+        "en": "22,561 km²",
+        "ar": "22,561 كم²"
+      }
+    },
+    {
+      "label": {
+        "en": "Developer",
+        "ar": "المطوّر"
+      },
+      "value": {
+        "en": "Royal Commission for AlUla",
+        "ar": "الهيئة الملكية لمحافظة العُلا"
+      }
+    }
+  ],
+  "highlights": [
+    {
+      "en": "Hegra preserves monumental Nabataean tombs carved into sandstone outcrops.",
+      "ar": "تضم الحِجر مقابر نبطية ضخمة منحوتة في الكتل الصخرية الرملية."
+    },
+    {
+      "en": "Maraya holds the Guinness World Record as the largest mirrored building.",
+      "ar": "يحمل مبنى مرايا رقمًا قياسيًا في موسوعة غينيس بوصفه أكبر مبنى مكسو بالمرايا."
+    },
+    {
+      "en": "Sharaan National Park protects 1,540 km² of canyons and desert habitat.",
+      "ar": "تحمي محمية شرعان الطبيعية 1,540 كيلومترًا مربعًا من الأودية والموائل الصحراوية."
+    },
+    {
+      "en": "Dadan was the capital of the Dadan and Lihyan kingdoms, with tombs carved into its cliffs.",
+      "ar": "كانت دادان عاصمة مملكتي دادان ولحيان، وتضم مقابر منحوتة في المنحدرات الصخرية."
+    },
+    {
+      "en": "Jabal Ikmah preserves inscriptions from the ancient peoples of northwest Arabia.",
+      "ar": "يحتضن جبل عِكمة نقوشًا وكتابات تعود إلى حضارات شمال غرب الجزيرة العربية."
+    },
+    {
+      "en": "Elephant Rock is a sandstone formation shaped over time by wind and rain.",
+      "ar": "جبل الفيل تكوين من الحجر الرملي شكّلته الرياح والأمطار على مدى الزمن."
+    }
+  ],
+  "things_to_do": [
+    {
+      "name": {
+        "en": "Hegra Day Tour",
+        "ar": "جولة الحِجر النهارية"
+      },
+      "brief": {
+        "en": "A guided visit to the Nabataean tombs of Saudi Arabia’s first UNESCO World Heritage Site.",
+        "ar": "زيارة بصحبة مرشد إلى المقابر النبطية في أول موقع سعودي على قائمة التراث العالمي لليونسكو."
+      },
+      "price": {
+        "en": "From SAR 95 per person",
+        "ar": "من 95 ريالًا للشخص"
+      },
+      "image": {
+        "src": "atlas/media/alula-hegra-farid",
+        "widths": [
+          480,
+          960,
+          1600
+        ],
+        "width": 1600,
+        "height": 900,
+        "color": "#886858",
+        "caption": {
+          "en": "Qasr al-Farid standing alone in the desert at Hegra",
+          "ar": "قصر الفريد منفردًا في صحراء الحِجر"
+        },
+        "alt": {
+          "en": "Qasr al-Farid standing alone in the desert at Hegra",
+          "ar": "قصر الفريد منفردًا في صحراء الحِجر"
+        }
+      }
+    },
+    {
+      "name": {
+        "en": "Dadan & Jabal Ikmah Tour",
+        "ar": "جولة دادان وجبل عكمة"
+      },
+      "brief": {
+        "en": "Lion-guarded tombs of the Dadan and Lihyan kingdoms and the inscribed rocks of Jabal Ikmah.",
+        "ar": "مقابر مملكتي دادان ولحيان التي تحرسها منحوتات الأسود، ونقوش جبل عكمة."
+      },
+      "price": {
+        "en": "From SAR 60 per person",
+        "ar": "من 60 ريالًا للشخص"
+      },
+      "image": {
+        "src": "atlas/media/alula-dadan-tombs",
+        "widths": [
+          480,
+          960,
+          1600
+        ],
+        "width": 1600,
+        "height": 900,
+        "color": "#a88868",
+        "caption": {
+          "en": "Rock-cut tombs in the cliffs at Dadan",
+          "ar": "مقابر منحوتة في منحدرات دادان"
+        },
+        "alt": {
+          "en": "Rock-cut tombs in the cliffs at Dadan",
+          "ar": "مقابر منحوتة في منحدرات دادان"
+        }
+      }
+    },
+    {
+      "name": {
+        "en": "AlUla Old Town",
+        "ar": "البلدة القديمة"
+      },
+      "brief": {
+        "en": "Mudbrick lanes of a settlement on the incense and pilgrimage routes, dating from about the 12th century.",
+        "ar": "أزقة طينية لبلدة على طرق البخور والحج، يعود تاريخها إلى نحو القرن الثاني عشر."
+      },
+      "price": {
+        "en": "Free entry",
+        "ar": "الدخول مجاني"
+      },
+      "image": {
+        "src": "atlas/media/alula-old-town",
+        "widths": [
+          480,
+          960,
+          1600
+        ],
+        "width": 1600,
+        "height": 900,
+        "color": "#886848",
+        "caption": {
+          "en": "Mudbrick rooftops of AlUla Old Town",
+          "ar": "أسطح البيوت الطينية في البلدة القديمة بالعُلا"
+        },
+        "alt": {
+          "en": "Rows of roofless mudbrick houses seen from above in AlUla Old Town",
+          "ar": "صفوف من البيوت الطينية المكشوفة في البلدة القديمة بالعُلا من الأعلى"
+        }
+      }
+    },
+    {
+      "name": {
+        "en": "Hegra Premium Tour",
+        "ar": "جولة الحِجر المميزة"
+      },
+      "brief": {
+        "en": "A private two-hour tour of Hegra for your group, with its own vehicle and guide.",
+        "ar": "جولة خاصة لمدة ساعتين في الحِجر لمجموعتك، بمركبة ومرشد خاصين."
+      },
+      "price": {
+        "en": "From SAR 1,000 per vehicle",
+        "ar": "من 1,000 ريال للمركبة"
+      },
+      "image": {
+        "src": "atlas/media/alula-hegra-facade",
+        "widths": [
+          480,
+          960,
+          1600
+        ],
+        "width": 1600,
+        "height": 900,
+        "color": "#785848",
+        "caption": {
+          "en": "A carved tomb façade at Hegra",
+          "ar": "واجهة مقبرة منحوتة في الحِجر"
+        },
+        "alt": {
+          "en": "A carved tomb façade at Hegra",
+          "ar": "واجهة مقبرة منحوتة في الحِجر"
+        }
+      }
+    },
+    {
+      "name": {
+        "en": "Oasis Heritage Trail Tour",
+        "ar": "جولة درب تراث الواحة"
+      },
+      "brief": {
+        "en": "A guided walk through AlUla’s palm groves and the oasis’s place in the valley’s history.",
+        "ar": "جولة مشي بصحبة مرشد بين بساتين النخيل في العُلا، ودور الواحة في تاريخ الوادي."
+      },
+      "price": {
+        "en": "From SAR 35 per person",
+        "ar": "من 35 ريالًا للشخص"
+      },
+      "image": {
+        "src": "atlas/media/alula-oasis-canyon",
+        "widths": [
+          480,
+          960,
+          1600
+        ],
+        "width": 1600,
+        "height": 900,
+        "color": "#d8e8e8",
+        "caption": {
+          "en": "Palm groves in the AlUla valley below sandstone cliffs",
+          "ar": "بساتين النخيل في وادي العُلا أسفل المنحدرات الرملية"
+        },
+        "alt": {
+          "en": "Palm groves in the AlUla valley below sandstone cliffs",
+          "ar": "بساتين النخيل في وادي العُلا أسفل المنحدرات الرملية"
+        }
+      }
+    },
+    {
+      "name": {
+        "en": "Hegra Wildlife & Nature Tour",
+        "ar": "جولة الحياة البرية والطبيعة في الحِجر"
+      },
+      "brief": {
+        "en": "A guided drive through Hegra’s landscapes to discover its wildlife and natural heritage.",
+        "ar": "جولة بصحبة مرشد في تضاريس الحِجر للتعرّف على الحياة الفطرية والتراث الطبيعي."
+      },
+      "price": {
+        "en": "From SAR 150 per person",
+        "ar": "من 150 ريالًا للشخص"
+      },
+      "image": {
+        "src": "atlas/media/alula-hegra-farid",
+        "widths": [
+          480,
+          960,
+          1600
+        ],
+        "width": 1600,
+        "height": 900,
+        "color": "#886858",
+        "caption": {
+          "en": "Qasr al-Farid standing alone in the desert at Hegra",
+          "ar": "قصر الفريد منفردًا في صحراء الحِجر"
+        },
+        "alt": {
+          "en": "Qasr al-Farid standing alone in the desert at Hegra",
+          "ar": "قصر الفريد منفردًا في صحراء الحِجر"
+        }
+      }
+    }
+  ],
+  "milestones": [
+    {
+      "date": "2008-07-07",
+      "text": {
+        "en": "UNESCO added Hegra to the World Heritage List, the first Saudi site to be inscribed.",
+        "ar": "أدرجت اليونسكو الحِجر على قائمة التراث العالمي، ليكون أول موقع سعودي يُدرج فيها."
+      }
+    },
+    {
+      "date": "2017",
+      "text": {
+        "en": "The Royal Commission for AlUla was established by royal decree.",
+        "ar": "أُنشئت الهيئة الملكية لمحافظة العُلا بأمر ملكي."
+      }
+    },
+    {
+      "date": "2021",
+      "text": {
+        "en": "The Journey Through Time masterplan for AlUla was launched.",
+        "ar": "أُطلق مخطط «رحلة عبر الزمن» لتطوير العُلا."
+      }
+    },
+    {
+      "date": "2025",
+      "text": {
+        "en": "The Arabian leopard breeding programme recorded the birth of six cubs.",
+        "ar": "سجّل برنامج إكثار النمر العربي ولادة ستة أشبال."
+      }
+    }
+  ],
+  "details": [
+    {
+      "title": {
+        "en": "Hegra and the Nabataeans",
+        "ar": "الحِجر والأنباط"
+      },
+      "body": {
+        "en": "Hegra was the Nabataeans’ southern city, best known for the tomb façades they carved directly into free-standing sandstone outcrops. It became Saudi Arabia’s first World Heritage Site in 2008. Older Dadan and Lihyanite tombs are cut into the cliffs across the valley.",
+        "ar": "كانت الحِجر المدينة الجنوبية للأنباط، واشتهرت بواجهات المقابر التي نحتوها مباشرة في الكتل الصخرية الرملية المنفردة. وأصبحت عام 2008 أول موقع سعودي على قائمة التراث العالمي. وتنتشر في المنحدرات المقابلة مقابر أقدم تعود إلى مملكتي دادان ولحيان."
+      }
+    },
+    {
+      "title": {
+        "en": "Journey Through Time",
+        "ar": "رحلة عبر الزمن"
+      },
+      "body": {
+        "en": "The masterplan sets out five districts along the 20-km heart of AlUla, from AlUla Old Town to Hegra Historical City. A 46-km low-carbon tramway is planned to link them with the airport. The plan is phased through 2035 and adds 5,000 hotel keys.",
+        "ar": "يحدد المخطط خمس مناطق على امتداد 20 كيلومترًا في قلب العُلا، من البلدة القديمة إلى مدينة الحِجر التاريخية. ويُخطط لترام منخفض الكربون بطول 46 كيلومترًا يربطها بالمطار. ويُنفذ المخطط على مراحل حتى عام 2035، ويضيف 5,000 غرفة فندقية."
+      }
+    },
+    {
+      "title": {
+        "en": "Landscape and wildlife",
+        "ar": "الطبيعة والحياة الفطرية"
+      },
+      "body": {
+        "en": "Sharaan National Park covers 1,540 km² of canyons and plateaus. The Royal Commission for AlUla supports the critically endangered Arabian leopard through captive breeding and plans for reintroduction.",
+        "ar": "تغطي محمية شرعان الطبيعية 1,540 كيلومترًا مربعًا من الأودية والهضاب. وتدعم الهيئة الملكية لمحافظة العُلا النمر العربي المهدد بالانقراض بشدة من خلال الإكثار في الأسر وخطط إعادة توطينه."
+      }
+    }
+  ],
+  "image": {
+    "src": "atlas/media/alula-hegra-tomb",
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 1600,
+    "height": 900,
+    "color": "#886858",
+    "caption": {
+      "en": "A Nabataean tomb carved into a sandstone outcrop at Hegra",
+      "ar": "مقبرة نبطية منحوتة في كتلة صخرية رملية في الحِجر"
+    },
+    "alt": {
+      "en": "A Nabataean tomb carved into a sandstone outcrop at Hegra",
+      "ar": "مقبرة نبطية منحوتة في كتلة صخرية رملية في الحِجر"
+    }
+  },
+  "gallery": [
+    {
+      "src": "atlas/media/alula-hegra-farid",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "color": "#886858",
+      "caption": {
+        "en": "Qasr al-Farid standing alone in the desert at Hegra",
+        "ar": "قصر الفريد منفردًا في صحراء الحِجر"
+      },
+      "alt": {
+        "en": "Qasr al-Farid standing alone in the desert at Hegra",
+        "ar": "قصر الفريد منفردًا في صحراء الحِجر"
+      }
+    },
+    {
+      "src": "atlas/media/alula-hegra-facade",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "color": "#785848",
+      "caption": {
+        "en": "A carved tomb façade at Hegra",
+        "ar": "واجهة مقبرة منحوتة في الحِجر"
+      },
+      "alt": {
+        "en": "A carved tomb façade at Hegra",
+        "ar": "واجهة مقبرة منحوتة في الحِجر"
+      }
+    },
+    {
+      "src": "atlas/media/alula-hegra-pediment",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "color": "#987868",
+      "caption": {
+        "en": "Pediment and rosettes above a tomb doorway at Hegra",
+        "ar": "جملون وزخارف وردية فوق مدخل مقبرة في الحِجر"
+      },
+      "alt": {
+        "en": "Pediment and rosettes above a tomb doorway at Hegra",
+        "ar": "جملون وزخارف وردية فوق مدخل مقبرة في الحِجر"
+      }
+    },
+    {
+      "src": "atlas/media/alula-dadan-tombs",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "color": "#a88868",
+      "caption": {
+        "en": "Rock-cut tombs in the cliffs at Dadan",
+        "ar": "مقابر منحوتة في منحدرات دادان"
+      },
+      "alt": {
+        "en": "Rock-cut tombs in the cliffs at Dadan",
+        "ar": "مقابر منحوتة في منحدرات دادان"
+      }
+    },
+    {
+      "src": "atlas/media/alula-oasis-canyon",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 900,
+      "color": "#d8e8e8",
+      "caption": {
+        "en": "Palm groves in the AlUla valley below sandstone cliffs",
+        "ar": "بساتين النخيل في وادي العُلا أسفل المنحدرات الرملية"
+      },
+      "alt": {
+        "en": "Palm groves in the AlUla valley below sandstone cliffs",
+        "ar": "بساتين النخيل في وادي العُلا أسفل المنحدرات الرملية"
+      }
+    }
+  ],
+  "video": {
+    "youtube_id": "lMYLrZK457U",
+    "title": {
+      "en": "Hegra from above",
+      "ar": "الحِجر من الأعلى"
+    },
+    "description": {
+      "en": "A drone circles Qasr al-Farid, the lone Nabataean tomb at Hegra, as the narrator describes the people who carved it.",
+      "ar": "تحلّق الكاميرا حول قصر الفريد، المقبرة النبطية المنفردة في الحِجر، بينما يتحدث الراوي عن الأنباط الذين نحتوها."
+    },
+    "start": 265.5,
+    "end": 277.2,
+    "duration": 12,
+    "source_url": "https://www.youtube.com/watch?v=lMYLrZK457U",
+    "captions": [
+      {
+        "src": "atlas/videos/alula-en.vtt",
+        "lang": "en",
+        "label": "English"
+      },
+      {
+        "src": "atlas/videos/alula-ar.vtt",
+        "lang": "ar",
+        "label": "العربية"
+      }
+    ],
+    "poster": "atlas/videos/alula-poster.webp",
+    "speech": true
+  },
+  "sources": [
+    {
+      "url": "https://www.rcu.gov.sa/en/about-rcu",
+      "label": {
+        "en": "Royal Commission for AlUla overview",
+        "ar": "نبذة عن الهيئة الملكية لمحافظة العُلا"
+      },
+      "verified": "2026-11-09"
+    },
+    {
+      "url": "https://www.rcu.gov.sa/en/strategic-initiatives/journey-through-time-masterplan",
+      "label": {
+        "en": "Journey Through Time masterplan",
+        "ar": "مخطط رحلة عبر الزمن"
+      },
+      "verified": "2026-11-09"
+    },
+    {
+      "url": "https://saudipedia.com/en/hegra-archaeological-tombs",
+      "label": {
+        "en": "Saudipedia on Hegra’s UNESCO listing",
+        "ar": "سعوديبيديا عن إدراج الحِجر في اليونسكو"
+      },
+      "verified": "2026-11-09"
+    },
+    {
+      "url": "https://www.experiencealula.com/en/places-to-go/maraya",
+      "label": {
+        "en": "Experience AlUla on Maraya",
+        "ar": "تجربة العُلا عن مرايا"
+      },
+      "verified": "2026-11-09"
+    },
+    {
+      "url": "https://www.rcu.gov.sa/en/strategic-initiatives/sharaan-nature-reserve",
+      "label": {
+        "en": "Sharaan National Park",
+        "ar": "محمية شرعان الطبيعية"
+      },
+      "verified": "2026-11-09"
+    },
+    {
+      "url": "https://www.rcu.gov.sa/en/strategic-initiatives/arabian-leopard-program-fund",
+      "label": {
+        "en": "Arabian leopard programme",
+        "ar": "برنامج النمر العربي"
+      },
+      "verified": "2026-11-09"
+    },
+    {
+      "url": "https://www.experiencealula.com/en/things-to-do/experiences/hegra-day-tour",
+      "label": {
+        "en": "Hegra Day Tour booking page",
+        "ar": "صفحة حجز جولة الحِجر النهارية"
+      },
+      "verified": "2026-11-12"
+    },
+    {
+      "url": "https://www.experiencealula.com/en/places-to-go/dadan",
+      "label": {
+        "en": "Dadan visitor page",
+        "ar": "صفحة زيارة دادان"
+      },
+      "verified": "2026-11-12"
+    },
+    {
+      "url": "https://www.experiencealula.com/en/places-to-go/alula-old-town",
+      "label": {
+        "en": "AlUla Old Town visitor page",
+        "ar": "صفحة زيارة البلدة القديمة"
+      },
+      "verified": "2026-11-12"
+    },
+    {
+      "url": "https://www.experiencealula.com/en/places-to-go/hegra",
+      "label": {
+        "en": "Hegra visitor page",
+        "ar": "صفحة زيارة الحِجر"
+      },
+      "verified": "2026-11-12"
+    },
+    {
+      "url": "https://www.experiencealula.com/en/places-to-go/alula-oasis",
+      "label": {
+        "en": "AlUla Oasis visitor page",
+        "ar": "صفحة زيارة واحة العُلا"
+      },
+      "verified": "2026-11-12"
+    },
+    {
+      "url": "https://www.experiencealula.com/en/places-to-go/elephant-rock",
+      "label": {
+        "en": "Elephant Rock visitor page",
+        "ar": "صفحة زيارة جبل الفيل"
+      },
+      "verified": "2026-11-12"
+    },
+    {
+      "url": "https://www.experiencealula.com/en/places-to-go/jabal-ikmah",
+      "label": {
+        "en": "Jabal Ikmah visitor page",
+        "ar": "صفحة زيارة جبل عِكمة"
+      },
+      "verified": "2026-11-12"
+    },
+    {
+      "url": "https://www.experiencealula.com/en/things-to-do/experiences/hegra-wildlife-and-nature-tour",
+      "label": {
+        "en": "Hegra Wildlife & Nature Tour",
+        "ar": "جولة الحياة البرية والطبيعة في الحِجر"
+      },
+      "verified": "2026-11-12"
+    }
+  ]
+}

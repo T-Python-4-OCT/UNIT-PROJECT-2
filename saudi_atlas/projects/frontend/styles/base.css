@@ -1,0 +1,316 @@
+html {
+  background: var(--page);
+  color: var(--ink);
+  font-family: var(--font-atlas);
+  text-align: start;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  scroll-padding-block-start: 5.5rem;
+}
+
+html:lang(ar),
+.language-switch:lang(ar) {
+  font-family: var(--font-arabic);
+}
+.language-switch:lang(en) {
+  font-family: var(--font-atlas);
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-block-size: 100vh;
+  font-size: var(--step-0);
+  line-height: 1.6;
+}
+
+main {
+  flex: 1;
+}
+main:focus {
+  outline: none;
+}
+
+p {
+  max-inline-size: 68ch;
+  text-wrap: pretty;
+}
+
+h1,
+h2,
+h3 {
+  font-weight: 600;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+a {
+  color: inherit;
+  text-underline-offset: 0.2em;
+}
+button:not(:disabled),
+summary {
+  cursor: pointer;
+}
+[hidden] {
+  display: none !important;
+}
+img {
+  max-inline-size: 100%;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+::selection {
+  background: var(--accent-fill);
+  color: var(--accent-on);
+}
+
+.shell {
+  inline-size: min(var(--measure), 100% - 2 * var(--gutter));
+  max-inline-size: none;
+  margin-inline: auto;
+}
+
+.visually-hidden {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  z-index: 30;
+  inset-block-start: var(--space-4);
+  inset-inline-start: var(--gutter);
+  padding: 0.625rem 1rem;
+  border-radius: var(--radius-1);
+  background: var(--accent-fill);
+  color: var(--accent-on);
+}
+
+.skip-link:not(:focus) {
+  inline-size: 1px;
+  block-size: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  padding: 0;
+}
+
+.eyebrow {
+  color: var(--eyebrow-ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+:lang(en) .eyebrow {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.section-head {
+  margin-block-end: var(--space-6);
+}
+
+.section-head::before {
+  content: '';
+  display: block;
+  inline-size: 4.5rem;
+  block-size: 0.5rem;
+  margin-block-end: var(--space-4);
+  background: var(--project, var(--ornament));
+  -webkit-mask: var(--parapet) 0 100% / 0.75rem 0.5rem repeat-x;
+  mask: var(--parapet) 0 100% / 0.75rem 0.5rem repeat-x;
+}
+
+.section-heading {
+  margin-block-start: var(--space-2);
+  color: var(--accent);
+  font-size: var(--step-4);
+  letter-spacing: -0.02em;
+}
+
+.small-heading {
+  color: var(--eyebrow-ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  margin-block-end: var(--space-4);
+}
+
+:lang(en) .small-heading {
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+:lang(ar) :is(.section-heading, .hero-title, .detail-title, .page-title) {
+  letter-spacing: normal;
+  line-height: 1.3;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-3);
+  min-block-size: 2.875rem;
+  padding: 0.5rem 1.125rem;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  line-height: 1.2;
+  text-decoration: none;
+  transition:
+    background-color var(--dur-1),
+    color var(--dur-1),
+    border-color var(--dur-1);
+}
+
+.button-primary {
+  background: var(--accent-fill);
+  color: var(--accent-on);
+}
+.button-quiet {
+  border-color: var(--rule-strong);
+  color: var(--accent);
+  background: transparent;
+}
+.button-primary[aria-pressed='true'] {
+  background: transparent;
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  min-block-size: 2.75rem;
+  position: relative;
+  color: var(--project, var(--accent));
+  font-weight: 600;
+
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.3em;
+}
+
+:is(.text-link, .footer-links a)::after {
+  content: '';
+  position: absolute;
+  inset-inline: 0;
+  inset-block-end: calc(50% - 0.5lh - 0.0625rem);
+  block-size: 2px;
+  background: currentColor;
+  scale: 0 1;
+  transform-origin: 0 50%;
+  pointer-events: none;
+}
+.footer-links a {
+  position: relative;
+}
+[dir='rtl'] :is(.text-link, .footer-links a, .nav-list > li > a)::after {
+  transform-origin: 100% 50%;
+}
+:is(.text-link, .footer-links a):focus-visible::after {
+  scale: 1 1;
+}
+.text-link:focus-visible {
+  text-decoration-color: transparent;
+}
+@media (hover: hover) {
+  :is(.text-link, .footer-links a):hover::after {
+    scale: 1 1;
+  }
+  .text-link:hover {
+    text-decoration-color: transparent;
+  }
+}
+
+@media (min-width: 52.0625rem) {
+  .nav-list > li > a {
+    position: relative;
+  }
+  .nav-list > li > a::after {
+    content: '';
+    position: absolute;
+    inset-inline: 0.75rem;
+    inset-block-end: calc(50% - 0.5lh - 0.25rem);
+    block-size: 2px;
+    background: currentColor;
+    scale: 0 1;
+    transform-origin: 0 50%;
+    pointer-events: none;
+  }
+  .nav-list a[aria-current='page'] {
+    text-decoration: none;
+  }
+  .nav-list > li > a:is([aria-current='page'], :focus-visible)::after {
+    scale: 1 1;
+  }
+}
+@media (min-width: 52.0625rem) and (hover: hover) {
+  .nav-list > li > a:hover::after {
+    scale: 1 1;
+  }
+}
+
+.status-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.125rem 0.625rem;
+  border: 1px solid var(--rule-strong);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 0.8125rem;
+  font-weight: 600;
+  line-height: 1.6;
+  white-space: nowrap;
+}
+
+.status-chip::before {
+  content: '';
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  border-radius: 50%;
+  background: var(--project, var(--accent));
+}
+
+.status-chip[data-status='phased']::before {
+  background: transparent;
+  border: 1.5px solid var(--project, var(--accent));
+}
+
+.menu-dot {
+  flex: none;
+  inline-size: 0.625rem;
+  block-size: 0.625rem;
+  border-radius: 50%;
+  background: var(--project, var(--accent));
+}
+
+.directional-icon {
+  display: inline-block;
+  flex: none;
+  transition: translate var(--dur-2) var(--ease-out);
+}
+[dir='rtl'] .directional-icon,
+.icon-back {
+  transform: scaleX(-1);
+}
+[dir='rtl'] .icon-back {
+  transform: none;
+}
+.icon-down,
+[dir='rtl'] .icon-down {
+  transform: rotate(90deg);
+}

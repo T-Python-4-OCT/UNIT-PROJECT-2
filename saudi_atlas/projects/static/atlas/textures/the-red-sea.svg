@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 80 70" width="80" height="70">
+  <defs>
+    <g id="r" fill="none" stroke="#000" stroke-width="1">
+      <circle r="5"/><circle r="12" stroke-opacity=".8"/><circle r="19" stroke-opacity=".55"/><circle r="26" stroke-opacity=".3"/>
+    </g>
+  </defs>
+  <use href="#r" x="40" y="35"/>
+  <use href="#r" x="0" y="0"/><use href="#r" x="80" y="0"/><use href="#r" x="0" y="70"/><use href="#r" x="80" y="70"/>
+  <g fill="#000"><circle cx="40" cy="35" r="1.6"/><circle cx="0" cy="0" r="1.6"/><circle cx="80" cy="0" r="1.6"/><circle cx="0" cy="70" r="1.6"/><circle cx="80" cy="70" r="1.6"/></g>
+</svg>

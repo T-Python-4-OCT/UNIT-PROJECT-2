@@ -1,0 +1,292 @@
+{
+  "slug": "roshn",
+  "order": 4,
+  "accent": {
+    "light": "#2c6a3a",
+    "dark": "#a2d6a9"
+  },
+  "logo": "atlas/logos/roshn.png",
+  "texture": "atlas/textures/roshn.svg",
+  "name": {
+    "en": "ROSHN",
+    "ar": "روشن"
+  },
+  "category": {
+    "en": "Residential communities",
+    "ar": "أحياء سكنية"
+  },
+  "region": {
+    "en": "Across Saudi Arabia",
+    "ar": "عدة مناطق في السعودية"
+  },
+  "tagline": {
+    "en": "Neighbourhoods in Riyadh, Jeddah and Dhahran",
+    "ar": "أحياء سكنية في الرياض وجدة والظهران"
+  },
+  "summary": {
+    "en": "ROSHN develops residential communities across Saudi Arabia. Its projects bring homes together with services and public spaces. They include SEDRA in Riyadh, ALAROUS in Jeddah and ALDANAH in Dhahran.",
+    "ar": "تطوّر روشن أحياء سكنية في عدة مناطق من السعودية، وتجمع في مشاريعها بين المنازل والخدمات والأماكن العامة. ومن هذه المشاريع سدرة في الرياض، والعروس في جدة، والدانة في الظهران."
+  },
+  "status": {
+    "key": "phased",
+    "label": {
+      "en": "Phased development",
+      "ar": "تطوير على مراحل"
+    }
+  },
+  "facts": [
+    {
+      "label": {
+        "en": "Cities",
+        "ar": "المدن"
+      },
+      "value": {
+        "en": "Riyadh, Jeddah and Dhahran",
+        "ar": "الرياض وجدة والظهران"
+      }
+    },
+    {
+      "label": {
+        "en": "SEDRA plan",
+        "ar": "مخطط سدرة"
+      },
+      "value": {
+        "en": "20 million m² in eight phases",
+        "ar": "20 مليون م² على ثماني مراحل"
+      }
+    },
+    {
+      "label": {
+        "en": "Launched",
+        "ar": "الإطلاق"
+      },
+      "value": {
+        "en": "2020, by PIF",
+        "ar": "2020، من صندوق الاستثمارات العامة"
+      }
+    }
+  ],
+  "highlights": [
+    {
+      "en": "SEDRA is ROSHN’s first residential development in Riyadh.",
+      "ar": "سدرة أول مشروع سكني لروشن في الرياض."
+    },
+    {
+      "en": "ALAROUS is a residential development in northern Jeddah.",
+      "ar": "العروس مشروع سكني في شمال جدة."
+    },
+    {
+      "en": "ALDANAH is a ROSHN community in Dhahran.",
+      "ar": "الدانة مجتمع سكني لروشن في الظهران."
+    }
+  ],
+  "milestones": [
+    {
+      "date": "2020-08-19",
+      "text": {
+        "en": "PIF launched ROSHN as a developer of urban communities.",
+        "ar": "أطلق صندوق الاستثمارات العامة شركة روشن لتطوير الأحياء الحضرية."
+      }
+    },
+    {
+      "date": "2022-05-24",
+      "text": {
+        "en": "ROSHN announced ALAROUS in Jeddah.",
+        "ar": "أعلنت روشن عن مشروع العروس في جدة."
+      }
+    },
+    {
+      "date": "2024-03-04",
+      "text": {
+        "en": "Sales began for the fourth phase of SEDRA.",
+        "ar": "بدأ البيع في المرحلة الرابعة من مشروع سدرة."
+      }
+    }
+  ],
+  "details": [
+    {
+      "title": {
+        "en": "A network of communities",
+        "ar": "شبكة من المجتمعات السكنية"
+      },
+      "body": {
+        "en": "ROSHN builds communities in several cities. SEDRA is in Riyadh, ALAROUS is in Jeddah and ALDANAH is in the Eastern Province. SEDRA’s plan covers 20 million square metres across eight development phases.",
+        "ar": "تطوّر روشن مجتمعات سكنية في مدن عدة. تقع سدرة في الرياض، والعروس في جدة، والدانة في المنطقة الشرقية. ويمتد مخطط سدرة على مساحة 20 مليون متر مربع موزعة على ثماني مراحل تطويرية."
+      }
+    },
+    {
+      "title": {
+        "en": "Daily needs close to home",
+        "ar": "الخدمات اليومية قرب المنزل"
+      },
+      "body": {
+        "en": "ROSHN’s community plans combine homes with parks, public spaces and local services. Walking routes and shared outdoor spaces help connect residential streets with everyday destinations within each neighbourhood.",
+        "ar": "تجمع مخططات روشن بين المساكن والحدائق والمساحات العامة والخدمات المحلية. وتربط مسارات المشاة والمساحات الخارجية المشتركة الشوارع السكنية بالوجهات اليومية داخل كل حي."
+      }
+    },
+    {
+      "title": {
+        "en": "Architecture with local references",
+        "ar": "عمارة تستلهم طابع المكان"
+      },
+      "body": {
+        "en": "ROSHN describes its housing as contemporary design informed by Saudi architectural traditions. The mix of homes and shared amenities is designed at neighbourhood scale, with the public realm planned alongside the buildings.",
+        "ar": "تصف روشن مساكنها بأنها تصاميم معاصرة تستلهم تقاليد العمارة السعودية. وتُخطَّط المنازل والمرافق المشتركة على مستوى الحي، بحيث تُصمَّم المساحات العامة بالتوازي مع المباني."
+      }
+    }
+  ],
+  "image": {
+    "src": "atlas/media/roshn-sedra-villas",
+    "widths": [
+      480,
+      960,
+      1600
+    ],
+    "width": 1600,
+    "height": 899,
+    "color": "#f8c8a8",
+    "caption": {
+      "en": "Two-storey homes on a SEDRA street",
+      "ar": "منازل من طابقين في أحد شوارع سدرة"
+    },
+    "alt": {
+      "en": "Two-storey villas with shaded parking on a landscaped street in SEDRA, Riyadh",
+      "ar": "فلل من طابقين بمظلات للسيارات في شارع مزروع بسدرة في الرياض"
+    }
+  },
+  "gallery": [
+    {
+      "src": "atlas/media/roshn-sedra-dusk",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 757,
+      "color": "#3a4a5c",
+      "caption": {
+        "en": "A tree-lined SEDRA street at dusk",
+        "ar": "شارع تصطف على جانبيه الأشجار في سدرة عند الغسق"
+      },
+      "alt": {
+        "en": "Townhouses and young trees along a SEDRA street, with streetlights coming on at dusk",
+        "ar": "منازل متلاصقة وأشجار على امتداد شارع في سدرة مع إضاءة الشارع عند الغسق"
+      }
+    },
+    {
+      "src": "atlas/media/roshn-sedra-walkway",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 1200,
+      "color": "#1c2a4a",
+      "caption": {
+        "en": "Shared e-scooters on a lit walkway in SEDRA at night",
+        "ar": "سكوترات كهربائية مشتركة على ممشى مضاء في سدرة ليلًا"
+      },
+      "alt": {
+        "en": "A row of green shared e-scooters parked beside a lamp-lit walkway at night",
+        "ar": "صف من السكوترات الكهربائية الخضراء بجوار ممشى مضاء بالمصابيح ليلًا"
+      }
+    },
+    {
+      "src": "atlas/media/roshn-sedra-park",
+      "widths": [
+        480,
+        960,
+        1600
+      ],
+      "width": 1600,
+      "height": 1066,
+      "color": "#d8b8a8",
+      "caption": {
+        "en": "A pocket park beside SEDRA homes",
+        "ar": "حديقة صغيرة بجوار منازل سدرة"
+      },
+      "alt": {
+        "en": "A bench, lawn and young tree in a small park between SEDRA homes",
+        "ar": "مقعد وعشب وشجرة صغيرة في حديقة صغيرة بين منازل سدرة"
+      }
+    }
+  ],
+  "video": {
+    "youtube_id": "DXEo_XjCqyY",
+    "title": {
+      "en": "SEDRA from above",
+      "ar": "سدرة من الأعلى"
+    },
+    "description": {
+      "en": "A drone glides over the tree-lined streets and townhouses of SEDRA, ROSHN’s first community in north Riyadh.",
+      "ar": "تحلّق الكاميرا فوق الشوارع المشجّرة والمنازل المتلاصقة في سدرة، أول مجتمعات روشن في شمال الرياض."
+    },
+    "start": 0.6,
+    "end": 9.8,
+    "duration": 9,
+    "source_url": "https://www.youtube.com/watch?v=DXEo_XjCqyY",
+    "poster": "atlas/videos/roshn-poster.webp",
+    "captions": [],
+    "speech": false
+  },
+  "sources": [
+    {
+      "url": "https://www.roshn.sa/",
+      "label": {
+        "en": "ROSHN communities",
+        "ar": "أحياء روشن"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.pif.gov.sa/en/our-investments/giga-projects/roshn/sedra/",
+      "label": {
+        "en": "PIF overview of SEDRA",
+        "ar": "نبذة عن سدرة من صندوق الاستثمارات العامة"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.pif.gov.sa/en/our-investments/giga-projects/roshn/alarous/",
+      "label": {
+        "en": "PIF overview of ALAROUS",
+        "ar": "نبذة عن العروس من صندوق الاستثمارات العامة"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.pif.gov.sa/en/news-and-insights/press-releases/2020/roshn/",
+      "label": {
+        "en": "PIF announcement of the ROSHN launch",
+        "ar": "إعلان صندوق الاستثمارات العامة عن إطلاق روشن"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.pif.gov.sa/ar/news-and-insights/newswire/2022/pif-owned-real-estate-developer-roshn-announces-al-arous-community-in-jeddah/",
+      "label": {
+        "en": "PIF coverage of the ALAROUS announcement",
+        "ar": "خبر صندوق الاستثمارات العامة عن إعلان مشروع العروس"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.pif.gov.sa/-/media/project/pif-corporate/pif-corporate-site/our-financials/capital-markets-program/pdf/international-bond-offering-circular-2024.pdf",
+      "label": {
+        "en": "PIF 2024 offering circular (PDF)",
+        "ar": "نشرة إصدار صندوق الاستثمارات العامة لعام 2024 (PDF)"
+      },
+      "verified": "2026-11-08"
+    },
+    {
+      "url": "https://www.roshn.sa/communities",
+      "label": {
+        "en": "ROSHN communities and design",
+        "ar": "مجتمعات روشن وتصميمها"
+      },
+      "verified": "2026-11-08"
+    }
+  ]
+}

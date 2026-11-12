@@ -1,0 +1,208 @@
+{
+  "film_stills": {
+    "neom": [
+      "atlas/media/neom-sindalah-marina",
+      "atlas/media/neom-sindalah-approach",
+      "atlas/media/neom-sindalah-dusk"
+    ],
+    "qiddiya": [
+      "atlas/media/qiddiya-night"
+    ],
+    "diriyah": [
+      "atlas/media/diriyah-parapets"
+    ],
+    "the-red-sea": [
+      "atlas/media/red-sea-shebara-arc",
+      "atlas/media/red-sea-shebara-dawn",
+      "atlas/media/red-sea-shebara-above",
+      "atlas/media/red-sea-reef"
+    ],
+    "amaala": [
+      "atlas/media/amaala-triple-bay-lagoon",
+      "atlas/media/amaala-triple-bay-cove",
+      "atlas/media/amaala-triple-bay-hills",
+      "atlas/media/amaala-pavilion"
+    ],
+    "alula": [
+      "atlas/media/alula-hegra-tomb",
+      "atlas/media/alula-hegra-farid",
+      "atlas/media/alula-hegra-facade",
+      "atlas/media/alula-hegra-pediment",
+      "atlas/media/alula-dadan-tombs",
+      "atlas/media/alula-oasis-canyon"
+    ]
+  },
+  "film_origins": {
+    "alula": {
+      "publisher": "Experience AlUla",
+      "title": "Ancient Incense Road"
+    },
+    "roshn": {
+      "publisher": "ROSHN Group",
+      "title": "Life in SEDRA Community"
+    }
+  },
+  "photographs": [
+    {
+      "project": "diriyah",
+      "src": "atlas/media/diriyah-turaif-panorama",
+      "title": "At-Turaif District",
+      "author": "Xiquinho Silva",
+      "licence": "CC BY 2.0",
+      "licence_url": "https://creativecommons.org/licenses/by/2.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:At-Turaif_District.jpg"
+    },
+    {
+      "project": "the-red-sea",
+      "src": "atlas/media/red-sea-umluj-coast",
+      "title": "Red Sea’s Northern Harrat Beach in Umluj, Saudi Arabia (2025)",
+      "author": "Saudi Press Agency (SPA)",
+      "licence": "CC BY-SA 4.0",
+      "licence_url": "https://creativecommons.org/licenses/by-sa/4.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Red_Sea%E2%80%99s_Northern_Harrat_Beach_in_Umluj,_Saudi_Arabia_%282025%29.jpg",
+      "terms_url": "https://cc.spa.gov.sa/fr/terms/1220"
+    },
+    {
+      "project": "alula",
+      "src": "atlas/media/alula-old-town",
+      "title": "Al Ula old town, Saudi Arabia 2011",
+      "author": "Pteropus conspicillatus",
+      "licence": "CC BY-SA 3.0",
+      "licence_url": "https://creativecommons.org/licenses/by-sa/3.0/",
+      "source_url": "https://commons.wikimedia.org/wiki/File:Al_Ula_old_town,_Saudi_Arabia_2011.jpg"
+    },
+    {
+      "project": "roshn",
+      "src": "atlas/media/roshn-sedra-villas",
+      "title": "SEDRA homes",
+      "author": "ROSHN Group",
+      "source_url": "https://www.roshn.sa/communities/sedra",
+      "site": "roshn.sa"
+    },
+    {
+      "project": "roshn",
+      "src": "atlas/media/roshn-sedra-dusk",
+      "title": "SEDRA street at dusk",
+      "author": "ROSHN Group",
+      "source_url": "https://www.roshn.sa/communities/sedra",
+      "site": "roshn.sa"
+    },
+    {
+      "project": "roshn",
+      "src": "atlas/media/roshn-sedra-walkway",
+      "title": "SEDRA walkway at night",
+      "author": "ROSHN Group",
+      "source_url": "https://www.roshn.sa/communities/sedra",
+      "site": "roshn.sa"
+    },
+    {
+      "project": "roshn",
+      "src": "atlas/media/roshn-sedra-park",
+      "title": "SEDRA pocket park",
+      "author": "ROSHN Group",
+      "source_url": "https://www.roshn.sa/communities/sedra",
+      "site": "roshn.sa"
+    }
+  ],
+  "typefaces": [
+    {
+      "name": "IBM Plex Sans",
+      "holder": "IBM Corp.",
+      "url": "https://github.com/IBM/plex"
+    },
+    {
+      "name": "IBM Plex Sans Arabic",
+      "holder": "IBM Corp.",
+      "url": "https://github.com/IBM/plex"
+    },
+    {
+      "name": "Instrument Serif",
+      "holder": "The Instrument Serif Project Authors",
+      "url": "https://github.com/Instrument/instrument-serif"
+    },
+    {
+      "name": "Amiri",
+      "holder": "The Amiri Project Authors",
+      "url": "https://github.com/aliftype/amiri"
+    }
+  ],
+  "software": [
+    {
+      "name": "Django",
+      "version": "6.1.3",
+      "role": "framework",
+      "licence": "BSD-3-Clause",
+      "url": "https://www.djangoproject.com/"
+    },
+    {
+      "name": "asgiref",
+      "version": "3.13.0",
+      "role": "django-part",
+      "licence": "BSD-3-Clause",
+      "url": "https://github.com/django/asgiref/"
+    },
+    {
+      "name": "sqlparse",
+      "version": "0.6.1",
+      "role": "django-part",
+      "licence": "BSD License",
+      "url": "https://github.com/andialbrecht/sqlparse"
+    },
+    {
+      "name": "tzdata",
+      "version": "2026.6",
+      "role": "time-zones",
+      "licence": "Apache-2.0",
+      "url": "https://github.com/python/tzdata"
+    },
+    {
+      "name": "WhiteNoise",
+      "version": "6.12.0",
+      "role": "static",
+      "licence": "MIT",
+      "url": "https://whitenoise.readthedocs.io/"
+    },
+    {
+      "name": "polib",
+      "version": "1.2.0",
+      "role": "translations",
+      "licence": "MIT",
+      "url": "https://github.com/izimobil/polib/"
+    },
+    {
+      "name": "gunicorn",
+      "version": "27.0.0",
+      "role": "server",
+      "licence": "MIT",
+      "url": "https://gunicorn.org/"
+    },
+    {
+      "name": "three.js",
+      "version": "r187",
+      "role": "relief",
+      "licence": "MIT",
+      "url": "https://threejs.org/"
+    },
+    {
+      "name": "Vite",
+      "version": "8.3.6",
+      "role": "build",
+      "licence": "MIT",
+      "url": "https://vite.dev"
+    },
+    {
+      "name": "Tailwind CSS",
+      "version": "4.3.5",
+      "role": "styles",
+      "licence": "MIT",
+      "url": "https://tailwindcss.com"
+    },
+    {
+      "name": "Fontsource",
+      "version": "5.3.0",
+      "role": "fonts",
+      "licence": "OFL-1.1",
+      "url": "https://fontsource.org/"
+    }
+  ]
+}

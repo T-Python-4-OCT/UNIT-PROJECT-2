@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+{% load i18n atlas %}
+
+{% block title %}{% translate "Every milestone in one sequence" %} | {% translate "Saudi Giga Atlas" %}{% endblock %}
+{% block description %}{% translate "Every sourced milestone from all seven projects in one sequence." %}{% endblock %}
+
+{% block content %}
+<header class="page-intro shell">
+  <p class="eyebrow">{% translate "Timeline" %}</p>
+  <h1 class="page-title">{% translate "Every milestone in one sequence" %}</h1>
+  <p class="page-summary">{% translate "Openings, launches and listings from all seven projects, each taken from an official source." %}</p>
+</header>
+<nav class="filter-bar shell" aria-label="{% translate 'Filter the timeline' %}">
+  <ul>
+    <li><a href="{% url 'timeline' %}"{% if not selected %} aria-current="true"{% endif %}>{% translate "All projects" %}</a></li>
+    {% for item in nav_projects %}
+    <li><a href="{% url 'timeline' %}?project={{ item.slug }}" style="{{ item|accent_style }}"{% if selected == item.slug %} aria-current="true"{% endif %}><span class="menu-dot" aria-hidden="true"></span>{{ item.name }}</a></li>
+    {% endfor %}
+  </ul>
+</nav>
+<div class="timeline-sheet shell" style="--lane-rows: {{ chart.rows }}; --lane-count: {{ chart.lanes|length }}">
+  {% with first=chart.first_year|stringformat:'d' last=chart.last_year|stringformat:'d' %}
+  <nav class="lanes" aria-label="{% blocktranslate trimmed %}Milestones by project, {{ first }}–{{ last }}{% endblocktranslate %}" style="--year-span: {{ chart.year_span }}" data-scrubber>
+  {% endwith %}
+    <ul class="lane-list">
+      {% for lane in chart.lanes %}
+      <li class="lane" style="{{ lane.project|accent_style }} --rows: {{ lane.rows }};">
+        <span class="lane-name">{{ lane.project.name }}</span>
+        <div class="lane-track">
+          {% for tick in chart.ticks %}<span class="lane-tick" style="--at: {{ tick.at }}" aria-hidden="true"></span>{% endfor %}
+          <ol class="lane-dots">
+            {% for dot in lane.dots %}
+            <li><a class="lane-dot" href="#{{ dot.id }}" style="--at: {{ dot.at }}; --row: {{ dot.row }}; --reach: {{ dot.reach|stringformat:'s' }}"{% if dot.stem %} data-stem="{{ dot.stem }}"{% endif %} data-dot><span class="visually-hidden">{% blocktranslate with project=lane.project.name when=dot.when text=dot.text trimmed %}{{ project }}, {{ when }}: {{ text }}{% endblocktranslate %}</span></a></li>
+            {% endfor %}
+          </ol>
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+    <div class="lane lane-axis" aria-hidden="true">
+      <span class="lane-name"></span>
+      <div class="lane-track">
+        {% for tick in chart.ticks %}<span class="lane-year" style="--at: {{ tick.at }}" data-tick="{{ tick.year|stringformat:'d' }}">{{ tick.year|stringformat:"d" }}</span>{% endfor %}
+        <span class="lane-marker" data-lane-marker hidden></span>
+      </div>
+    </div>
+  </nav>
+  <section class="chronology" aria-label="{% translate 'Milestones by year' %}" data-chronology>
+    {% for group in years %}
+    <div class="chronology-year" data-year="{{ group.year }}" data-at="{{ group.at }}">
+      <h2 class="chronology-label">{{ group.year }}</h2>
+      <ol>
+        {% for entry in group.entries %}
+        <li id="{{ entry.id }}" tabindex="-1" style="{{ entry.project|accent_style }}">
+          <a class="chronology-project" href="{{ entry.project.url }}"><span class="menu-dot" aria-hidden="true"></span>{{ entry.project.name }}</a>
+          <p>{{ entry.text }}</p>
+          {% if entry.date %}<time datetime="{{ entry.iso }}">{{ entry.when }}</time>{% endif %}
+        </li>
+        {% endfor %}
+      </ol>
+    </div>
+    {% endfor %}
+  </section>
+</div>
+{% endblock %}

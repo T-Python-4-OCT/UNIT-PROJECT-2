@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load i18n atlas %}
+
+{% block title %}{% translate "Page not found" %} | {% translate "Saudi Giga Atlas" %}{% endblock %}
+{% block description %}{% translate "This page could not be found. Return to the atlas to explore all seven projects." %}{% endblock %}
+
+{% block content %}
+<section class="off-map shell" aria-labelledby="error-title">
+  <div class="off-map-copy">
+    <p class="eyebrow"><span class="plate-number">{% translate "Plate" %} 404</span></p>
+    <h1 class="page-title" id="error-title">{% translate "Off the map" %}</h1>
+    <p class="page-summary">{% translate "This page could not be found. Return to the atlas to explore all seven projects." %}</p>
+    <form class="search-form" role="search" action="{% url 'search' %}" method="get">
+      <label class="visually-hidden" for="off-map-search">{% translate "Search the atlas" %}</label>
+      <input type="search" id="off-map-search" name="q" maxlength="80" autocomplete="off" enterkeyhint="search">
+      <button class="button button-quiet" type="submit">{% translate "Search" %}</button>
+    </form>
+    <a class="button button-primary" href="{% url 'home' %}">{% include 'includes/arrow.html' with direction='back' %}{% translate "Return to the atlas" %}</a>
+  </div>
+  <div class="off-map-figure locator-frame">
+    <div class="atlas-stage off-map-stage">
+      {% include 'includes/atlas_poster.html' with lazy=False %}
+      <span class="off-map-marker" aria-hidden="true" data-off-map-marker></span>
+    </div>
+  </div>
+  <ul class="not-found-projects">
+    {% for item in nav_projects %}<li style="{{ item|accent_style }}"><a href="{{ item.url }}"><span class="menu-dot" aria-hidden="true"></span>{{ item.name }}</a></li>{% endfor %}
+  </ul>
+</section>
+{% endblock %}

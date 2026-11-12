@@ -1,0 +1,36 @@
+{% load i18n static atlas %}
+<section class="project-gallery" aria-labelledby="gallery-title" data-project-gallery>
+  <div class="gallery-head">
+    <div class="section-head">
+      <p class="eyebrow">{% translate "In pictures" %}</p>
+      <h2 class="section-heading" id="gallery-title">{% translate "Photos and places" %}</h2>
+    </div>
+    <div class="gallery-steps" data-gallery-steps hidden>
+      <button class="gallery-step" type="button" data-gallery-step="-1">{% include 'includes/arrow.html' with direction='back' %}<span class="visually-hidden">{% translate "Previous photos" %}</span></button>
+      <button class="gallery-step" type="button" data-gallery-step="1">{% include 'includes/arrow.html' %}<span class="visually-hidden">{% translate "Next photos" %}</span></button>
+    </div>
+  </div>
+  <ul class="gallery-strip" data-gallery-strip data-view-label="{% translate 'View' %}">
+    {% for photo in project.gallery %}
+    <li>
+      <figure>
+        <a class="gallery-photo" href="{% image_url photo %}" data-project-photo data-index="{{ forloop.counter0 }}" aria-label="{% blocktranslate with caption=photo.caption trimmed %}Open photo: {{ caption }}{% endblocktranslate %}">
+          {% picture photo sizes="(max-width: 48rem) 90vw, 40rem" %}
+        </a>
+        <figcaption class="media-caption">{{ photo.caption }}</figcaption>
+      </figure>
+    </li>
+    {% endfor %}
+  </ul>
+  <dialog class="photo-dialog" aria-label="{% translate 'Photo viewer' %}" data-label-counter="{% translate '%(current)s of %(total)s' %}">
+    <div class="photo-dialog-bar">
+      <p class="photo-counter" aria-live="polite" data-photo-counter></p>
+      <form method="dialog"><button class="button button-quiet" type="submit">{% translate "Close" %}</button></form>
+    </div>
+    <figure class="photo-dialog-figure" data-photo-stage></figure>
+    <div class="photo-dialog-nav">
+      <button class="button button-quiet" type="button" data-photo-step="-1">{% include 'includes/arrow.html' with direction='back' %}{% translate "Previous photo" %}</button>
+      <button class="button button-quiet" type="button" data-photo-step="1">{% translate "Next photo" %}{% include 'includes/arrow.html' %}</button>
+    </div>
+  </dialog>
+</section>

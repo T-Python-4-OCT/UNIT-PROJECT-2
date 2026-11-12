@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% load i18n %}
+
+{% block title %}{% translate "Credits" %} | {% translate "Saudi Giga Atlas" %}{% endblock %}
+{% block description %}{% translate "Sources and terms for the photographs, films, map data and typefaces in the atlas." %}{% endblock %}
+
+{% block content %}
+<header class="page-intro shell">
+  <p class="eyebrow">{% translate "About the atlas" %}</p>
+  <h1 class="page-title">{% translate "Credits" %}</h1>
+  <p class="page-summary">{% translate "Where the photographs, films, map data and typefaces in this atlas come from, and the terms they are used under." %}</p>
+</header>
+<div class="credits shell">
+  <section class="credits-section" aria-labelledby="credits-media-title">
+    <h2 class="section-heading" id="credits-media-title">{% translate "Photographs and films" %}</h2>
+    <p class="credits-lead">{% translate "Each project’s film is an excerpt from an official film, hosted with permission confirmed on 9 November 2026. Stills taken from a film are listed under it." %}</p>
+    {% for item in media %}
+    <article class="credits-group" aria-labelledby="credits-{{ item.project.slug }}">
+      <h3 id="credits-{{ item.project.slug }}">{{ item.project.name }}</h3>
+      <dl class="credits-list">
+        <div>
+          <dt>{% translate "Film" %}</dt>
+          <dd><a href="{{ item.project.video.source_url }}">{{ item.project.video.title }}</a></dd>
+        </div>
+        {% if item.origin %}
+        <div>
+          <dt>{% translate "Original film" %}</dt>
+          <dd>{{ item.origin }}</dd>
+        </div>
+        {% endif %}
+        {% if item.stills %}
+        <div>
+          <dt>{% translate "Stills from the film" %}</dt>
+          <dd><ul>{% for caption in item.stills %}<li>{{ caption }}</li>{% endfor %}</ul></dd>
+        </div>
+        {% endif %}
+        {% for photo in item.photographs %}
+        <div>
+          <dt>{{ photo.heading }}</dt>
+          <dd>{{ photo.credit }}</dd>
+        </div>
+        {% endfor %}
+      </dl>
+    </article>
+    {% endfor %}
+  </section>
+
+  <section class="credits-section" aria-labelledby="credits-map-title">
+    <h2 class="section-heading" id="credits-map-title">{% translate "Map data" %}</h2>
+    <dl class="credits-list">
+      <div>
+        <dt><a href="https://doi.org/10.25921/fd45-gt74" lang="en" dir="ltr">ETOPO 2022 15 Arc-Second Global Relief Model</a></dt>
+        <dd>{% translate "NOAA National Centers for Environmental Information. The heights behind the 3D relief and the flat map’s hillshade, accessed through the NOAA CoastWatch ERDDAP server. NOAA states that the data may be used and redistributed for free." %}</dd>
+      </div>
+      <div>
+        <dt><a href="https://www.naturalearthdata.com/downloads/50m-cultural-vectors/50m-admin-0-countries-2/" lang="en" dir="ltr">Natural Earth 1:50m Admin 0 Countries</a></dt>
+        <dd>{% translate "The country outline and regional context. Public domain." %} <a href="https://www.naturalearthdata.com/about/terms-of-use/">{% translate "Natural Earth terms of use" %}</a></dd>
+      </div>
+    </dl>
+  </section>
+
+  <section class="credits-section" aria-labelledby="credits-type-title">
+    <h2 class="section-heading" id="credits-type-title">{% translate "Typefaces" %}</h2>
+    <dl class="credits-list">
+      {% for face in typefaces %}
+      <div>
+        <dt><a href="{{ face.url }}" lang="en" dir="ltr">{{ face.name }}</a></dt>
+        <dd><span lang="en" dir="ltr">{{ face.holder }}</span><span class="credits-sep" aria-hidden="true"> · </span><a class="credits-name" href="https://openfontlicense.org/" lang="en" dir="ltr">SIL Open Font License 1.1</a></dd>
+      </div>
+      {% endfor %}
+    </dl>
+  </section>
+
+</div>
+{% endblock %}

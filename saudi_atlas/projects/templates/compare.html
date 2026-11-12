@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+{% load i18n atlas %}
+
+{% block title %}{% translate "The seven side by side" %} | {% translate "Saudi Giga Atlas" %}{% endblock %}
+{% block description %}{% translate "Region, focus, developer and current status for the seven projects, side by side." %}{% endblock %}
+
+{% block content %}
+<header class="page-intro shell">
+  <p class="eyebrow">{% translate "Compare" %}</p>
+  <h1 class="page-title">{% translate "The seven side by side" %}</h1>
+  <p class="page-summary">{% translate "Each project in the same few lines, so differences in scale, purpose and progress are easy to see." %}</p>
+</header>
+<div class="compare shell">
+  <div class="compare-frame">
+  <div class="compare-scroll" role="region" aria-labelledby="compare-caption" tabindex="0" data-compare-scroll>
+    <table class="compare-table">
+      <caption id="compare-caption"><span class="compare-caption">{% translate "Region, focus, status, milestones and key facts for each project." %}</span></caption>
+      <thead>
+        <tr>
+          <th scope="col">{% translate "Project" %}</th>
+          <th scope="col">{% translate "Region" %}</th>
+          <th scope="col">{% translate "Focus" %}</th>
+          <th scope="col">{% translate "Status" %}</th>
+          <th scope="col">{% translate "First milestone" %}</th>
+          <th scope="col">{% translate "Latest milestone" %}</th>
+          <th scope="col">{% translate "Key facts" %}</th>
+        </tr>
+      </thead>
+      <tbody>
+        {% for item in nav_projects %}
+        {% with first=item.milestones|first latest=item.milestones|last %}
+        <tr style="{{ item|accent_style }}">
+          <th scope="row">
+            <a class="compare-project" href="{{ item.url }}">{% picture item.image sizes="3rem" decorative=True %}<span class="compare-plate">{% translate "Plate" %} {{ item.order|stringformat:"02d" }}</span> <span class="compare-name">{{ item.name }}</span></a>
+          </th>
+          <td>{{ item.region }}</td>
+          <td>{{ item.category }}</td>
+          <td><span class="status-chip" data-status="{{ item.status.key }}">{{ item.status.label }}</span></td>
+          <td><time class="compare-when" datetime="{{ first.iso }}">{{ first.when }}</time> {{ first.text }}</td>
+          <td><time class="compare-when" datetime="{{ latest.iso }}">{{ latest.when }}</time> {{ latest.text }}</td>
+          <td>
+            <dl class="compare-facts">
+              {% for fact in item.facts %}<div><dt>{{ fact.label }}</dt><dd>{{ fact.value }}</dd></div>{% endfor %}
+            </dl>
+          </td>
+        </tr>
+        {% endwith %}
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,55 @@
+name: Deploy Saudi Giga Atlas to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: github-pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/configure-pages@v5
+        id: pages
+      - uses: actions/setup-python@v6
+        with:
+          python-version: '3.15.2'
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.4.4'
+      - name: Install dependencies
+        run: |
+          python -m pip install -r requirements.txt
+          bun install --frozen-lockfile
+      - name: Build and export
+        env:
+          PAGES_BASE_PATH: ${{ steps.pages.outputs.base_path }}
+          PAGES_BASE_URL: ${{ steps.pages.outputs.base_url }}
+        run: |
+          bun run build --base="${PAGES_BASE_PATH}/static/build/"
+          python manage.py compiletranslations
+          python manage.py test
+          ATLAS_DEBUG=0 python .github/export_pages.py site "$PAGES_BASE_URL"
+      - uses: actions/upload-pages-artifact@v4
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/deploy-pages@v4
+        id: deployment
