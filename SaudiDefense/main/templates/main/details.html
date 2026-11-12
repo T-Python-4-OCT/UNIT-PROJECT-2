@@ -5,7 +5,6 @@
 
 {% block content %}
 
-<!-- العنوان -->
 <section class="page-hero" style="background-image: url('{% static 'images/'|add:page.images.0.0 %}');">
     <div class="container">
         <div class="crumbs"><a href="{% url 'main:home_view' %}">{{ t.home }}</a> / {{ page.name }}</div>
@@ -14,7 +13,6 @@
     </div>
 </section>
 
-<!-- نبذة + معرض الصور -->
 <section class="section">
     <div class="container">
         <div class="row g-4 g-lg-5 align-items-center">
@@ -56,7 +54,6 @@
     </div>
 </section>
 
-<!-- أبرز الإنجازات (بالصور) -->
 <section class="section section-soft">
     <div class="container">
         <span class="section-label">{{ t.highlights_label }}</span>
@@ -81,7 +78,6 @@
     </div>
 </section>
 
-<!-- فيديو يوتيوب (يظهر بس لو حطيت رقم الفيديو في data.py) -->
 {% if page.video_id %}
 <section class="section">
     <div class="container">
@@ -94,7 +90,6 @@
 </section>
 {% endif %}
 
-<!-- الخط الزمني + الأحداث -->
 <section class="section">
     <div class="container">
         <div class="row g-4 g-lg-5">

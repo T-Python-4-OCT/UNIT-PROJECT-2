@@ -1,10 +1,8 @@
-// زر تبديل الوضع الداكن / الفاتح
 const html = document.documentElement;
 const themeButton = document.getElementById("themeToggle");
 
 function updateIcon() {
     const icon = themeButton.querySelector("i");
-    // في الوضع الداكن نعرض الشمس (للتحويل للفاتح) والعكس
     if (html.getAttribute("data-bs-theme") === "dark") {
         icon.className = "bi bi-sun-fill";
     } else {

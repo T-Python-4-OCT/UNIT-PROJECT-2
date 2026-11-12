@@ -5,7 +5,6 @@
 
 {% block content %}
 
-<!-- الواجهة: فيديو خلفية (والصورة احتياطية لين يتحمّل) -->
 <section class="hero" style="background-image: url('{% static 'images/photos/heet.webp' %}');">
     <video class="hero-video" autoplay muted loop playsinline poster="{% static 'images/photos/heet.webp' %}" aria-hidden="true">
         <source src="{% static 'videos/gami.mp4' %}" type="video/mp4">
@@ -22,7 +21,6 @@
     </div>
 </section>
 
-<!-- بطاقة الأرقام -->
 <div class="container">
     <div class="stats-card row g-0">
         <div class="col-6 col-md-3"><div class="stat"><span class="stat-number">+50%</span><span class="stat-label">{{ t.stat_target }}</span></div></div>
@@ -32,7 +30,6 @@
     </div>
 </div>
 
-<!-- نبذة -->
 <section class="section">
     <div class="container">
         <div class="row g-4 g-lg-5 align-items-center">
@@ -51,7 +48,6 @@
     </div>
 </section>
 
-<!-- الجهات -->
 <section class="section section-soft">
     <div class="container">
         <span class="section-label">{{ t.entities }}</span>
@@ -75,7 +71,6 @@
     </div>
 </section>
 
-<!-- القطاعات -->
 <section id="sectors" class="section">
     <div class="container">
         <span class="section-label">{{ t.sectors }}</span>
@@ -101,7 +96,6 @@
     </div>
 </section>
 
-<!-- اكتشف أكثر -->
 <section class="section section-soft">
     <div class="container">
         <span class="section-label">{{ t.footer_explore }}</span>

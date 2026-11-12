@@ -1,4 +1,3 @@
-// رمز QR للصفحة الحالية (مكتبة qrcode.js)
 
 const qrModal = document.getElementById("qrModal");
 const qrBox = document.getElementById("qrBox");
@@ -6,8 +5,6 @@ const qrLink = document.getElementById("qrLink");
 const copyButton = document.getElementById("copyLink");
 const localNote = document.getElementById("qrLocalNote");
 
-// رابط الصفحة اللي يقدر الجوال يفتحه:
-// لو الموقع مفتوح على localhost، نبدّله بعنوان الكمبيوتر في الشبكة (مثل 192.168.1.5)
 function getPhoneUrl() {
     const host = window.location.hostname;
     const lanIp = qrModal.dataset.lanIp;
@@ -20,11 +17,10 @@ function getPhoneUrl() {
     return window.location.href;
 }
 
-// كل ما تنفتح النافذة نرسم الرمز لرابط الصفحة اللي نحن فيها
 qrModal.addEventListener("show.bs.modal", function () {
     const pageUrl = getPhoneUrl();
 
-    qrBox.innerHTML = "";   // نمسح الرمز القديم
+    qrBox.innerHTML = "";
     new QRCode(qrBox, {
         text: pageUrl,
         width: 200,
@@ -35,11 +31,9 @@ qrModal.addEventListener("show.bs.modal", function () {
 
     qrLink.textContent = pageUrl;
 
-    // لو الرابط عنوان شبكة محلية، نذكّر إن الجوال لازم يكون على نفس الواي فاي
     localNote.hidden = pageUrl.startsWith("https://");
 });
 
-// زر نسخ الرابط
 copyButton.addEventListener("click", function () {
     const label = copyButton.querySelector("span");
     const oldText = label.textContent;

@@ -7,7 +7,6 @@ from datetime import date
 from .data import SECTORS, COMPANIES, HISTORY, EVENTS, UPCOMING_EVENTS, CAREERS, CAREER_MAJORS
 
 # Create your views here.
-# كل البيانات في data.py بلغتين، و get_lang(request) تعطينا "ar" أو "en"
 
 
 def home_view(request: HttpRequest):
@@ -52,7 +51,6 @@ def events_view(request: HttpRequest):
 
     lang = get_lang(request)
 
-    # المعارض القادمة: نحسب كم يوم باقي، ونعرض بس اللي ما بدأت للحين
     upcoming = []
     for event in UPCOMING_EVENTS[lang]:
         year, month, day = event["start"]
@@ -64,7 +62,6 @@ def events_view(request: HttpRequest):
     return render(request, "main/events.html", context)
 
 
-# الوظائف والتدريب
 def careers_view(request: HttpRequest):
 
     lang = get_lang(request)
@@ -72,10 +69,8 @@ def careers_view(request: HttpRequest):
     return render(request, "main/careers.html", context)
 
 
-# تغيير اللغة
 def set_language_view(request: HttpRequest, lang_code):
 
-    # نرجع لنفس الصفحة اللي كان فيها المستخدم
     response = redirect(request.META.get("HTTP_REFERER", "/"))
 
     if lang_code in ("ar", "en"):

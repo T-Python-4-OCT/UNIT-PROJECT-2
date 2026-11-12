@@ -13,7 +13,6 @@
     </div>
 </section>
 
-<!-- المعارض القادمة + رابط التسجيل -->
 {% if upcoming %}
 <section class="section">
     <div class="container">
@@ -39,10 +38,8 @@
                         </p>
                         <p>{{ event.text }}</p>
 
-                        <!-- حالة التسجيل -->
                         <p class="reg-status"><i class="bi bi-info-circle-fill"></i> {{ t.reg_status }}</p>
 
-                        <!-- خطوات التسجيل كزائر -->
                         <h4 class="steps-title">{{ t.steps_title }}</h4>
                         <ol class="reg-steps">
                             <li>{{ t.step_1 }}</li>
@@ -52,7 +49,6 @@
                         </ol>
 
                         <div class="d-flex flex-wrap gap-2">
-                            <!-- target="_blank" يفتح الموقع الرسمي في تبويب جديد -->
                             <a href="{{ event.visit_url }}" class="btn-main" target="_blank" rel="noopener">
                                 <i class="bi bi-ticket-perforated"></i> {{ t.register_visit }}
                             </a>
@@ -73,7 +69,6 @@
 </section>
 {% endif %}
 
-<!-- النسخ السابقة -->
 <section class="section section-soft">
     <div class="container">
         <span class="section-label">{{ t.past_label }}</span>
@@ -81,7 +76,6 @@
         <p class="section-intro">{{ t.wds_text }}</p>
 
         {% for event in events %}
-        <!-- كل نسخة: صور (سلايدر) + أرقام الإنجازات -->
         <div class="card-x edition-card">
             <div class="row g-0">
                 <div class="col-lg-6">

@@ -13,7 +13,6 @@
     </div>
 </section>
 
-<!-- الهدف -->
 <section class="section">
     <div class="container">
         <div class="row g-4 g-lg-5 align-items-center">
@@ -28,7 +27,6 @@
     </div>
 </section>
 
-<!-- مسيرة التوطين -->
 <section class="section section-soft">
     <div class="container">
         <span class="section-label">{{ t.numbers_label }}</span>
@@ -52,7 +50,6 @@
     </div>
 </section>
 
-<!-- حاسبة التوطين (calc.js) -->
 <section class="section">
     <div class="container">
         <span class="section-label">{{ t.calc_label }}</span>
@@ -61,7 +58,6 @@
 
 
         <div class="card-x calc-card">
-            <!-- 1) المدخلات -->
             <label for="calcInput" class="form-label fw-bold">{{ t.calc_input }}</label>
             <div class="row g-3 align-items-center">
                 <div class="col-md-4">
@@ -72,10 +68,8 @@
                 </div>
             </div>
 
-            <!-- 2) الجملة اللي تشرح النتيجة (تتغير مع الرقم) -->
             <p id="calcSentence" class="calc-sentence" data-template="{{ t.calc_sentence }}"></p>
 
-            <!-- 3) شريط ملوّن: المحلي اليوم + المطلوب إضافته + الباقي مستورد -->
             <div class="calc-bar" aria-hidden="true">
                 <div id="barNow" class="calc-bar-part part-now" style="width: 20%"></div>
                 <div id="barGap" class="calc-bar-part part-gap" style="width: 30%"></div>
@@ -87,7 +81,6 @@
                 <span><i class="dot part-imported"></i> {{ t.calc_imported }} <bdi dir="ltr">50%</bdi></span>
             </div>
 
-            <!-- 4) الأرقام: اليوم ← المطلوب ← الهدف -->
             <div class="calc-results">
                 <div class="calc-box">
                     <span class="calc-label">{{ t.calc_now }}</span>
@@ -109,7 +102,6 @@
     </div>
 </section>
 
-<!-- الركائز -->
 <section class="section">
     <div class="container">
         <span class="section-label">{{ t.pillars_label }}</span>
