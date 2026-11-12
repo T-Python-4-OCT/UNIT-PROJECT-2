@@ -58,7 +58,7 @@ a {
 }
 
 .navbar {
-    min-height: 90px;
+    min-height: 70px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -1352,5 +1352,272 @@ a {
 
     .nav-links > a {
         font-size: 13px;
+    }
+}
+
+.digital-circuit {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 18px auto 24px;
+    color: #078b58;
+}
+
+.digital-circuit svg {
+    width: min(85%, 520px);
+    height: 65px;
+    overflow: visible;
+}
+
+.circuit-line {
+    fill: none;
+    stroke: #078b58;
+    stroke-width: 1.8;
+    opacity: 0.7;
+}
+
+.circuit-node,
+.moving-dot {
+    fill: #078b58;
+}
+
+.moving-dot {
+    filter: drop-shadow(0 0 4px #078b58);
+}
+
+@media (max-width: 600px) {
+    .digital-circuit svg {
+        width: 95%;
+        height: 48px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .moving-dot animateMotion {
+        display: none;
+    }
+}
+.national-progress {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    margin: 15px auto 25px;
+}
+
+.national-progress svg {
+    width: min(85%, 520px);
+    height: auto;
+    overflow: visible;
+}
+
+.national-progress .progress-path {
+    fill: none;
+    stroke: #B7D8C4;
+    stroke-width: 2;
+}
+
+.national-progress .progress-arrow {
+    fill: none;
+    stroke: #078B58;
+    stroke-width: 2.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+}
+
+.national-progress circle:not(.progress-dot) {
+    fill: #078B58;
+    stroke: #A7D3B8;
+    stroke-width: 5;
+}
+
+.national-progress .progress-dot {
+    fill: #078B58;
+    filter: drop-shadow(0 0 4px #078B58);
+}
+
+@media (max-width: 600px) {
+    .national-progress svg {
+        width: 95%;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .national-progress animateMotion {
+        display: none;
+    }
+}
+
+/* Digital Transformation Journey */
+
+.digital-journey {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0;
+    width: min(90%, 850px);
+    margin: 45px auto 55px;
+    direction: rtl;
+}
+
+.journey-item {
+    position: relative;
+    display: flex;
+    flex: 1;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
+    color: #173b2d;
+    font-size: 14px;
+    font-weight: 600;
+    text-align: center;
+}
+
+.journey-item:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 20px;
+    right: 50%;
+    width: 100%;
+    height: 2px;
+    background: #b7d8c4;
+    z-index: 0;
+}
+
+.journey-icon {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 42px;
+    height: 42px;
+    border: 1px solid #a7d3b8;
+    border-radius: 50%;
+    background: #f2f7f4;
+    color: #078b58;
+    font-size: 23px;
+    transition: 0.3s ease;
+}
+
+.journey-item:hover .journey-icon {
+    background: #078b58;
+    color: white;
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px #078b5833;
+}
+
+/* Journey - Dark Theme */
+.dark-theme .journey-item {
+    color: #A8E6C5;
+}
+
+.dark-theme .journey-icon {
+    background: #173B2D;
+    border: 1px solid #398B64;
+    color: #A8E6C5;
+}
+
+.dark-theme .journey-item:not(:last-child)::after {
+    background: #398B64;
+}
+
+.dark-theme .journey-item:not(:last-child) .journey-icon::after {
+    background: #4CE09A;
+    box-shadow: 0 0 9px #4CE09A;
+}
+
+/* Journey - Light Theme */
+.light-theme .journey-item {
+    color: #173B2D;
+}
+
+.light-theme .journey-icon {
+    background: #F2F7F4;
+    border: 1px solid #A7D3B8;
+    color: #078B58;
+}
+
+.light-theme .journey-item:not(:last-child)::after {
+    background: #B7D8C4;
+}
+
+
+/* Animated progress point */
+
+.journey-item:not(:last-child) .journey-icon::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: 100%;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: #078b58;
+    box-shadow: 0 0 8px #078b58;
+    animation: journeyPulse 2s infinite ease-in-out;
+}
+
+.journey-item:nth-child(2) .journey-icon::after {
+    animation-delay: 0.5s;
+}
+
+.journey-item:nth-child(3) .journey-icon::after {
+    animation-delay: 1s;
+}
+
+@keyframes journeyPulse {
+    0%, 100% {
+        opacity: 0.3;
+        transform: scale(0.7);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.5);
+    }
+}
+
+/* Dark Mode */
+
+[data-theme="dark"] .journey-item {
+    color: #e0eee6;
+}
+
+[data-theme="dark"] .journey-icon {
+    background: #173b2d;
+    border-color: #397e5c;
+    color: #65d69c;
+}
+
+[data-theme="dark"] .journey-item:not(:last-child)::after {
+    background: #397e5c;
+}
+
+/* Mobile */
+
+@media (max-width: 600px) {
+    .digital-journey {
+        width: 100%;
+        margin: 35px auto 40px;
+    }
+
+    .journey-item {
+        font-size: 11px;
+        gap: 9px;
+    }
+
+    .journey-icon {
+        width: 34px;
+        height: 34px;
+        font-size: 19px;
+    }
+
+    .journey-item:not(:last-child)::after {
+        top: 16px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .journey-item .journey-icon::after {
+        animation: none;
     }
 }
