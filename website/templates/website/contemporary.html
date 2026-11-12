@@ -1,16 +1,16 @@
 {% extends "website/base.html" %}
-{% block title %}التصميم المعاصر والمشاريع السعودية<section class="section container">
-  <div class="section-head"><h2>كيف تدعم الفعاليات مشهد التصميم؟</h2><p>الفعاليات تفتح للمصممين فرصاً عملية تتجاوز عرض الأعمال.</p></div>
-  <div class="grid grid--3">
-    <article class="plain-card"><h3>عرض الأعمال</h3><p>تمنح المعارض المصممين مساحة لعرض مشاريعهم وتعريف الجمهور بها.</p></article>
-    <article class="plain-card"><h3>تبادل الخبرات</h3><p>تجمع الورش واللقاءات المصممين والجهات والمهتمين في مكان واحد.</p></article>
-    <article class="plain-card"><h3>فرص جديدة</h3><p>تساعد المبادرات على بناء علاقات تعاون والوصول إلى جمهور أوسع.</p></article>
-  </div>
-</section>
-{% endblock %}
+{% block title %}التصميم المعاصر والمشاريع السعودية{% endblock %}
 {% block content %}
 {% include "website/_page_head.html" with title="التصميم المعاصر والمشاريع السعودية" tagline="ما يُصنع اليوم في السعودية" lead="معارض ومهرجانات ومبادرات تدعم قطاع التصميم وتجمع بين التراث والابتكار." image="contemporary/saudi-design-festival.jpg" image_alt="مشهد من مهرجان التصميم السعودي" %}
 <!-- This page presents current design events and projects. -->
+<section class="section container">
+  <div class="section-head"><h2>أبعاد المعاصرة في التصميم السعودي</h2><p>تتطور الهوية السعودية حين تلتقي الجذور بالأفكار والتقنيات الجديدة.</p></div>
+  <div class="grid grid--3">
+    <article class="plain-card"><h3>الأصالة والتجديد</h3><p>إعادة استلهام العمارة والنقوش التراثية بلغة معمارية وحضرية حديثة.</p></article>
+    <article class="plain-card"><h3>الابتكار الرقمي</h3><p>توظيف الذكاء الاصطناعي والتصميم ثلاثي الأبعاد والواقع المعزز في إحياء التراث.</p></article>
+    <article class="plain-card"><h3>الاستدامة والمنتج</h3><p>دعم المنتجات والخامات المحلية المستدامة التي تمثل الهوية الوطنية.</p></article>
+  </div>
+</section>
 <!-- Events, exhibitions, and recognition. -->
 <section class="section section--tint"><div class="container"><div class="section-head"><h2>معرض الفعاليات والمبادرات</h2><p>تدعم هيئة فنون العمارة والتصميم نمو القطاع، وتعرض الفعاليات أفكارًا ومنتجات جديدة. اختر تصنيفًا لتصفية البطاقات.</p></div>
 <div class="chips" role="group" aria-label="تصفية حسب التصنيف"><button class="chip" type="button" data-filter="all" aria-pressed="true">الكل</button><button class="chip" type="button" data-filter="فعالية" aria-pressed="false">فعالية</button><button class="chip" type="button" data-filter="معرض" aria-pressed="false">معرض</button><button class="chip" type="button" data-filter="مبادرة" aria-pressed="false">مبادرة</button><button class="chip" type="button" data-filter="اعتراف دولي" aria-pressed="false">اعتراف دولي</button><button class="chip" type="button" data-filter="معرض دولي" aria-pressed="false">معرض دولي</button></div>
