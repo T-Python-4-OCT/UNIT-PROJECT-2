@@ -1,0 +1,49 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+<section class="page-hero">
+  {% with hero=page.hero hero_img="main/img/art/masmak-gate.svg" %}{% include "main/partials/_hero_bg.html" %}{% endwith %}
+  <div class="container">
+    <nav class="crumbs" aria-label="مسار التصفح">
+      <a href="{% url 'main:home' %}">الرئيسية</a><span aria-hidden="true">‹</span>
+      <a href="{% url 'main:story' %}">قصة الاسترداد</a><span aria-hidden="true">‹</span>
+      <span>الفصل {{ number }}</span>
+    </nav>
+    <p class="kicker">الفصل {{ number }} من {{ total }} · {{ chapter.date }}</p>
+    <h1>{{ chapter.title }}</h1>
+    <p class="lead">{{ chapter.summary }}</p>
+  </div>
+</section>
+<div class="najdi-band"></div>
+
+<section class="section">
+  <div class="container chapter-page">
+    <article>
+      <p class="group__place" style="margin-bottom:18px"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>{{ chapter.place }}</p>
+      <div class="prose">
+        {% for para in chapter.body %}<p>{{ para }}</p>{% endfor %}
+      </div>
+      <p class="chapter__highlight">{{ chapter.highlight }}</p>
+      {% if chapter.m %}<div style="margin-top:24px">{% with m=chapter.m %}{% include "main/partials/_media.html" %}{% endwith %}</div>{% endif %}
+
+      <div class="pager">
+        {% if prev_chapter %}<a href="{% url 'main:chapter' prev_chapter.slug %}"><small>الفصل السابق</small>{{ prev_chapter.title }}</a>{% endif %}
+        {% if next_chapter %}<a class="next" href="{% url 'main:chapter' next_chapter.slug %}"><small>الفصل التالي</small>{{ next_chapter.title }}</a>{% endif %}
+      </div>
+      <p style="margin-top:22px"><a class="btn" href="{% url 'main:story' %}#ch-{{ chapter.slug }}"><svg class="icon" aria-hidden="true"><use href="#i-map"/></svg>شاهد الفصل على الخريطة</a></p>
+
+      {% include "main/partials/_sources.html" %}
+    </article>
+
+    <nav class="toc" aria-label="فصول القصة">
+      <p class="kicker">الفصول</p>
+      <ol>
+        {% for c in chapters %}
+        <li><a href="{% url 'main:chapter' c.slug %}" {% if c.slug == chapter.slug %}class="is-current" aria-current="page"{% endif %}>{{ c.title }}</a></li>
+        {% endfor %}
+      </ol>
+    </nav>
+  </div>
+</section>
+{% endblock %}
