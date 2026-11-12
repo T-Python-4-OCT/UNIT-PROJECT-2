@@ -1,7 +1,8 @@
 <nav class="navbar navbar-expand-xl site-navbar">
   <div class="container">
     <a class="navbar-brand" href="{% url 'portal:home' %}">
-      {{ site.site_name }}
+      {% include "portal/partials/emblem.html" %}
+      <span>{{ site.site_name }}</span>
     </a>
 
     {# Three lines of different lengths; CSS turns them into an X when aria-expanded="true" #}
@@ -15,13 +16,29 @@
 
     <div class="collapse navbar-collapse" id="mainNav">
       <ul class="navbar-nav ms-auto">
-        {% for nav_page in site.pages %}
-          <li class="nav-item" style="--i: {{ forloop.counter }};">
-            <a class="nav-link{% if nav_page.slug == current_slug %} active{% endif %}"
-               href="{% url 'portal:page' nav_page.slug %}"
-               {% if nav_page.slug == current_slug %}aria-current="page"{% endif %}>
-              {{ nav_page.title }}
-            </a>
+        <li class="nav-item" style="--i: 1;">
+          <a class="nav-link{% if current_slug == '' %} active{% endif %}" href="{% url 'portal:home' %}"
+             {% if current_slug == '' %}aria-current="page"{% endif %}>{{ ui.home }}</a>
+        </li>
+
+        {# One dropdown per group in site.json "nav_groups"; the group holding the current page is highlighted #}
+        {% for group in nav_menu %}
+          <li class="nav-item dropdown" style="--i: {{ forloop.counter|add:1 }};">
+            <button class="nav-link dropdown-toggle{% if current_slug in group.slugs %} active{% endif %}"
+                    type="button" data-bs-toggle="dropdown" aria-expanded="false">
+              {{ group.title }}
+            </button>
+            <ul class="dropdown-menu site-dropdown">
+              {% for nav_page in group.pages %}
+                <li>
+                  <a class="dropdown-item{% if nav_page.slug == current_slug %} active{% endif %}"
+                     href="{% url 'portal:page' nav_page.slug %}"
+                     {% if nav_page.slug == current_slug %}aria-current="page"{% endif %}>
+                    {{ nav_page.title }}
+                  </a>
+                </li>
+              {% endfor %}
+            </ul>
           </li>
         {% endfor %}
       </ul>

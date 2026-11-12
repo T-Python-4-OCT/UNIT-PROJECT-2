@@ -1,0 +1,30 @@
+{# Two bars per figure: "from" (e.g. 2016) and "to" (e.g. 2025). Widths are set in views.add_comparison_bars #}
+<div class="comparison">
+  <p class="comparison-legend" aria-hidden="true">
+    <span class="legend-swatch legend-swatch--from"></span>{{ section.from_label }}
+    <span class="legend-swatch legend-swatch--to"></span>{{ section.to_label }}
+  </p>
+
+  {% for item in section.items %}
+    <div class="comparison-row">
+      <div class="comparison-title">
+        <h3>{{ item.label }}</h3>
+        <span class="comparison-change{% if item.change < 0 %} is-down{% endif %}">
+          {% if item.change > 0 %}+{% endif %}{{ item.change }}%
+        </span>
+        {% include "portal/partials/source_ref.html" %}
+      </div>
+
+      <div class="bar">
+        <span class="bar-year">{{ section.from_label }}</span>
+        <span class="bar-track"><span class="bar-fill bar-fill--from" style="--w: {{ item.from_width }}%;"></span></span>
+        <span class="bar-value">{{ item.from_display }}</span>
+      </div>
+      <div class="bar">
+        <span class="bar-year">{{ section.to_label }}</span>
+        <span class="bar-track"><span class="bar-fill bar-fill--to" style="--w: {{ item.to_width }}%;"></span></span>
+        <span class="bar-value">{{ item.to_display }}</span>
+      </div>
+    </div>
+  {% endfor %}
+</div>

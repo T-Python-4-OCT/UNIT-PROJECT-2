@@ -1,0 +1,97 @@
+{
+  "title": "Tawakkalna",
+  "header_image": "portal/img/tawakkalna.webp",
+  "subtitle": "From a curfew permit app to a national super app.",
+  "intro": "Tawakkalna is developed by the Saudi Data and Artificial Intelligence Authority (SDAIA), not by the Ministry of Interior. It is included here because it sits next to Absher in daily life: it began by issuing movement permits during the 2020 curfews and grew into one app for many government services.",
+  "sections": [
+    {
+      "type": "timeline",
+      "heading": "How It Grew",
+      "items": [
+        {
+          "date": "May 2020",
+          "title": "Launch",
+          "text": "SDAIA launches Tawakkalna with the Ministry of Health to support the COVID-19 response, including movement permits during the curfew.",
+          "source": "saudipedia_tawakkalna"
+        },
+        {
+          "date": "2021",
+          "title": "Beyond health",
+          "text": "More than 23 million users and more than 100 services from over 25 government partners.",
+          "source": "saudigazette_tawakkalna_2021"
+        },
+        {
+          "date": "May 2022",
+          "title": "Tawakkalna Services",
+          "text": "A new version drops the COVID-19 health status and becomes a general services app, building on more than 27 million users.",
+          "source": "arabnews_tawakkalna_2022"
+        },
+        {
+          "date": "2026",
+          "title": "A super app",
+          "text": "More than 36 million users rely on the app for daily digital services.",
+          "source": "arabnews_tawakkalna_2026"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "heading": "In Pictures",
+      "items": [
+        {
+          "image": "portal/img/gallery/tawakkalna-1.webp",
+          "caption": "Showing the Tawakkalna app on a phone"
+        },
+        {
+          "image": "portal/img/gallery/tawakkalna-2.webp",
+          "caption": "The health status code Tawakkalna showed during COVID-19"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "heading": "Tawakkalna in Numbers",
+      "items": [
+        {
+          "label": "Users in 2026",
+          "value": "36 million+",
+          "as_of": "2026-10",
+          "source": "arabnews_tawakkalna_2026"
+        },
+        {
+          "label": "Services in 2025",
+          "value": "1,100+",
+          "as_of": "2025-11",
+          "source": "saudigazette_tawakkalna_2025"
+        },
+        {
+          "label": "Users when Tawakkalna Services launched",
+          "value": "27 million+",
+          "as_of": "2022-05",
+          "source": "arabnews_tawakkalna_2022"
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "heading": "Why It Belongs Here",
+      "items": [
+        {
+          "title": "Same Ecosystem",
+          "text": "Tawakkalna, Absher, and Nafath are separate platforms, but together they let a person prove who they are and finish a procedure from one phone."
+        },
+        {
+          "title": "Shared Lesson",
+          "text": "Like Absher, it shows how a service built for one purpose can become a daily gateway once people trust it."
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "saudipedia_tawakkalna",
+    "saudigazette_tawakkalna_2021",
+    "arabnews_tawakkalna_2022",
+    "saudigazette_tawakkalna_2025",
+    "arabnews_tawakkalna_2026"
+  ]
+}

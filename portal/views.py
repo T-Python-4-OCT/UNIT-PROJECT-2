@@ -8,7 +8,7 @@ from django.urls import reverse
 from django.utils.http import url_has_allowed_host_and_scheme
 from django.views.decorators.http import require_http_methods, require_POST
 
-from .forms import FeedbackForm, SearchForm
+from .forms import FeedbackForm, QuizForm, SearchForm
 from .search import search_pages
 
 DATA_DIR = Path(__file__).resolve().parent / "data"
@@ -33,6 +33,15 @@ UI_TEXT = {
         "source": "Source",
         "feedback": "Share your feedback",
         "search": "Search",
+        "home": "Home",
+        "tools": "Tools",
+        "about_project": "About the project",
+        "about_project_text": "A bilingual Django project that follows how the Ministry of Interior's services moved from the counter to the screen, with a source for every figure.",
+        "back_to_top": "Back to top",
+        "quiz": "Quiz",
+        "quiz_cta": "Think you know the story? Eight questions, one from each part of the site.",
+        "quiz_button": "Take the quiz",
+        "built_with": "Built with Django as a Tuwaiq Academy project.",
     },
     "ar": {
         "dark_mode": "الوضع الداكن",
@@ -50,6 +59,15 @@ UI_TEXT = {
         "source": "المصدر",
         "feedback": "شاركنا رأيك",
         "search": "بحث",
+        "home": "الرئيسية",
+        "tools": "أدوات",
+        "about_project": "عن المشروع",
+        "about_project_text": "مشروع Django ثنائي اللغة يتتبع انتقال خدمات وزارة الداخلية من الشباك إلى الشاشة، مع مصدر لكل رقم.",
+        "back_to_top": "العودة للأعلى",
+        "quiz": "اختبر معلوماتك",
+        "quiz_cta": "تظن أنك تعرف القصة؟ ثمانية أسئلة، سؤال من كل جزء في الموقع.",
+        "quiz_button": "ابدأ الاختبار",
+        "built_with": "بُني باستخدام Django ضمن مشروع في أكاديمية طويق.",
     },
 }
 
@@ -60,13 +78,37 @@ def get_language(request):
     return language if language in ("en", "ar") else "en"
 
 
-def get_common_context(request):
-    "Return values shared by all pages"
+def build_nav_menu(site):
+    """
+    Group the pages for the navbar dropdowns.
+    1. Start one empty group for each entry in site["nav_groups"].
+    2. Put every page into the group named by its "group" key.
+    3. Keep the group's slugs so the template can highlight the open section.
+    """
+    groups = [{**group, "pages": [], "slugs": []} for group in site.get("nav_groups", [])]
+    by_id = {group["id"]: group for group in groups}
+
+    for page in site["pages"]:
+        group = by_id.get(page.get("group"))
+        if group is not None:
+            group["pages"].append(page)
+            group["slugs"].append(page["slug"])
+
+    return [group for group in groups if group["pages"]]
+
+
+def get_common_context(request, site=None):
+    "Return values shared by all pages: language, direction, UI text, site data and the navbar menu."
     language = get_language(request)
+    if site is None:
+        site = load_json("site.json", language)
+
     return {
         "language": language,
         "direction": "rtl" if language == "ar" else "ltr",
         "ui": UI_TEXT[language],
+        "site": site,
+        "nav_menu": build_nav_menu(site),
     }
 
 
@@ -142,6 +184,26 @@ def resolve_sources(page, site):
     return page
 
 
+def add_comparison_bars(page):
+    """
+    Prepare "comparison" sections (two bars per figure, e.g. 2016 vs 2025).
+    1. The larger of the two numbers fills the whole bar (100%).
+    2. The other bar is drawn in proportion to it.
+    3. The change is shown as a percentage, rounded to a whole number.
+    """
+    for section in page["sections"]:
+        if section["type"] != "comparison":
+            continue
+
+        for item in section["items"]:
+            largest = max(item["from"], item["to"])
+            item["from_width"] = round(item["from"] / largest * 100, 1)
+            item["to_width"] = round(item["to"] / largest * 100, 1)
+            item["change"] = round((item["to"] - item["from"]) / item["from"] * 100)
+
+    return page
+
+
 def home(request):
     """
     Home page.
@@ -154,8 +216,7 @@ def home(request):
     home_content = load_json("home.json", language)
 
     context = {
-        **get_common_context(request),
-        "site": site,
+        **get_common_context(request, site),
         "home": home_content,
         "journey_steps": build_journey(site, home_content, language),
         "current_slug": "",
@@ -166,19 +227,19 @@ def home(request):
 
 def content_page(request, slug):
     """
-    One view for all seven content pages (dynamic URL: /<slug>/).
+    One view for every content page (dynamic URL: /<slug>/).
     1. Find the page's content in its JSON file (404 if the slug is unknown).
     2. Number its sources so every figure links to where it came from.
-    3. Render the shared page.html template.
+    3. Size the bars of any comparison section.
+    4. Render the shared page.html template.
     """
     language = get_language(request)
     site = load_json("site.json", language)
 
     context = {
-        **get_common_context(request),
-        "site": site,
-        "page": resolve_sources(
-            find_page_content(site, slug, language), site
+        **get_common_context(request, site),
+        "page": add_comparison_bars(
+            resolve_sources(find_page_content(site, slug, language), site)
         ),
         "current_slug": slug,
     }
@@ -214,8 +275,7 @@ def search(request):
         form = SearchForm(text=text)
 
     context = {
-        **get_common_context(request),
-        "site": site,
+        **get_common_context(request, site),
         "text": text,
         "form": form,
         # Shown back in the search box; Django escapes it in the template.
@@ -261,7 +321,6 @@ def feedback(request):
 
     context = {
         **get_common_context(request),
-        "site": load_json("site.json", language),
         "text": text,
         "form": form,
         "success": request.session.pop("feedback_success", False),
@@ -269,6 +328,53 @@ def feedback(request):
     }
 
     return render(request, "portal/feedback.html", context)
+
+
+@require_http_methods(["GET", "POST"])
+def quiz(request):
+    """
+    Knowledge quiz (GET shows the questions, POST checks the answers).
+    1. Build QuizForm from quiz.json in the current language.
+    2. On a valid POST, mark every answer and count the correct ones.
+    3. Keep the visitor's best score in the session.
+    4. Pick a short message for the score level, then render the review.
+    """
+    language = get_language(request)
+    text = load_json("quiz.json", language)
+    form = QuizForm(request.POST or None, quiz=text)
+    review = None
+    score = 0
+
+    if request.method == "POST" and form.is_valid():
+        review = form.review()
+        score = sum(item["is_correct"] for item in review)
+        request.session["quiz_best"] = max(score, request.session.get("quiz_best", 0))
+
+    total = len(text["questions"])
+    # Four levels: under half, half or more, all but one or two, all correct
+    if score == total:
+        level = 3
+    elif score >= total - 2:
+        level = 2
+    elif score >= total / 2:
+        level = 1
+    else:
+        level = 0
+
+    context = {
+        **get_common_context(request),
+        "text": text,
+        "form": form,
+        "review": review,
+        "score": score,
+        "total": total,
+        "score_percent": round(score / total * 100),
+        "message": text["levels"][level],
+        "best": request.session.get("quiz_best"),
+        "current_slug": "quiz",
+    }
+
+    return render(request, "portal/quiz.html", context)
 
 
 @require_POST
@@ -293,10 +399,4 @@ def set_language(request):
 
 def page_not_found(request, exception):
     "Custom 404 page in the visitor's language (used when DEBUG is False)."
-    language = get_language(request)
-    context = {
-        **get_common_context(request),
-        "site": load_json("site.json", language),
-    }
-
-    return render(request, "portal/404.html", context, status=404)
+    return render(request, "portal/404.html", get_common_context(request), status=404)

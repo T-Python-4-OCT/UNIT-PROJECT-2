@@ -1,0 +1,111 @@
+{
+  "title": "الجوازات الرقمية",
+  "header_image": "portal/img/digital-passports.webp",
+  "subtitle": "من شباك الجوازات إلى أبشر والبوابة الإلكترونية في المطار.",
+  "intro": "تتولى المديرية العامة للجوازات إجراءات السفر والإقامة والمنافذ. أصبحت معظم خدماتها متاحة عبر أبشر، وفي المطارات الكبرى يمكن للمسافر العبور عبر بوابات إلكترونية آلية. بعض المشاريع التالية يعمل حاليًا وبعضها معلن، لذلك وُضعت حالة كل مشروع بجانبه.",
+  "sections": [
+    {
+      "type": "cards",
+      "heading": "يعمل اليوم",
+      "items": [
+        {
+          "title": "الخدمات عبر أبشر",
+          "status": "operating",
+          "status_label": "يعمل حاليًا",
+          "text": "تقدم الجوازات أكثر من 100 خدمة رقمية عبر أبشر، منها الجواز الرقمي.",
+          "source": "saudigazette_jawazat_2025"
+        },
+        {
+          "title": "البوابات الإلكترونية في المطارات",
+          "status": "operating",
+          "status_label": "يعمل حاليًا",
+          "text": "152 بوابة إلكترونية آلية في مطارات الرياض وجدة والدمام والمدينة المنورة، طورتها سدايا مع الجوازات ومطارات القابضة، وترتبط بأنظمة المنافذ والقياسات الحيوية وشركات الطيران والتأشيرات.",
+          "source": "arabianbusiness_egates"
+        },
+        {
+          "title": "المساعد الصوتي الذكي",
+          "status": "operating",
+          "status_label": "يعمل حاليًا",
+          "text": "مساعد صوتي آلي يجيب المتصلين على الرقم 992 على مدار الساعة.",
+          "source": "saudigazette_jawazat_2025"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "heading": "بالصور",
+      "items": [
+        {
+          "image": "portal/img/gallery/passports-1.webp",
+          "caption": "صالة مغادرة في أحد مطارات المملكة"
+        },
+        {
+          "image": "portal/img/gallery/passports-2.webp",
+          "caption": "مسافرون في صالة أحد مطارات المملكة"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "heading": "الجوازات بالأرقام",
+      "items": [
+        {
+          "label": "الخدمات الرقمية عبر أبشر",
+          "value": "+100",
+          "as_of": "2025-11",
+          "source": "saudigazette_jawazat_2025"
+        },
+        {
+          "label": "المستفيدون في 2024",
+          "value": "+24 مليون",
+          "as_of": "2024",
+          "source": "saudigazette_jawazat_2025"
+        },
+        {
+          "label": "بوابات إلكترونية في أربعة مطارات",
+          "value": "152",
+          "as_of": "2025-03",
+          "source": "arabianbusiness_egates"
+        },
+        {
+          "label": "عمليات الجوازات عبر أبشر في نوفمبر 2025",
+          "value": "1,960,089",
+          "as_of": "2025-11",
+          "source": "saudigazette_absher_nov2025"
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "heading": "مجرّب ومُعلن",
+      "items": [
+        {
+          "title": "التوائم الرقمية",
+          "status": "tested",
+          "status_label": "تمت تجربته",
+          "text": "جُربت تقنية التوأم الرقمي، وهو نموذج افتراضي حي لموقع حقيقي، خلال موسم حج 2024.",
+          "source": "saudigazette_jawazat_2025"
+        },
+        {
+          "title": "المسار الذكي",
+          "status": "planned",
+          "status_label": "مخطط له",
+          "text": "كاميرات ذكية تتحقق من هوية ما يصل إلى 35 مسافرًا في وقت واحد دون التوقف عند الشباك.",
+          "source": "saudigazette_jawazat_2025"
+        },
+        {
+          "title": "منصة الترحيل الذاتي",
+          "status": "planned",
+          "status_label": "مخطط له",
+          "text": "منصة رقمية معلنة لإنهاء إجراءات الترحيل الذاتي إلكترونيًا.",
+          "source": "saudigazette_jawazat_2025"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "saudigazette_jawazat_2025",
+    "arabianbusiness_egates",
+    "saudigazette_absher_nov2025"
+  ]
+}

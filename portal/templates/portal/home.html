@@ -97,28 +97,24 @@
         </div>
       </div>
 
-      <div class="row row-cols-1 row-cols-md-2 row-cols-xl-3 g-4 mt-2">
+      {# Bento grid: the first card is large, two others span two columns (sizes in main.css) #}
+      <div class="bento mt-4">
         {% for step in journey_steps %}
-          <div class="col">
-            <a class="card h-100 journey-card cinematic-card text-decoration-none"
-               href="{% url 'portal:page' step.slug %}">
-              {% if step.image %}
-                <div class="journey-card-image">
-                  <img src="{% static step.image %}" alt="" width="400" height="225" loading="lazy" decoding="async">
-                </div>
-              {% endif %}
-              <div class="card-body">
-                <span class="journey-number">
-                  {{ forloop.counter|stringformat:"02d" }}
-                </span>
-
-                <span class="journey-card-arrow" aria-hidden="true">↗</span>
-
-                <h3 class="h5 card-title">{{ step.title }}</h3>
-                <p class="card-text">{{ step.teaser }}</p>
-              </div>
-            </a>
-          </div>
+          <a class="bento-item spotlight{% if forloop.first %} bento-item--hero{% elif forloop.counter == 6 or forloop.counter == 11 %} bento-item--wide{% endif %}"
+             href="{% url 'portal:page' step.slug %}">
+            {% if step.image %}
+              <img class="bento-image" src="{% static step.image %}" alt="" width="640" height="400"
+                   loading="lazy" decoding="async">
+            {% endif %}
+            <span class="bento-top">
+              <span class="journey-number">{{ forloop.counter|stringformat:"02d" }}</span>
+              <span class="journey-card-arrow" aria-hidden="true">↗</span>
+            </span>
+            <span class="bento-text">
+              <h3 class="bento-title">{{ step.title }}</h3>
+              <span class="bento-teaser">{{ step.teaser }}</span>
+            </span>
+          </a>
         {% endfor %}
       </div>
     </div>
@@ -129,6 +125,19 @@
       <p class="section-eyebrow">{{ home.about.heading }}</p>
       <h2>{{ home.about.heading }}</h2>
       <p>{{ home.about.text }}</p>
+    </div>
+  </section>
+
+  {# Quiz invitation, same box style as the feedback one with a gold variant #}
+  <section class="feedback-cta pt-5">
+    <div class="container">
+      <div class="feedback-cta-box feedback-cta-box--quiz">
+        <div>
+          <h2 class="h3 mb-2">{{ ui.quiz }}</h2>
+          <p class="mb-0">{{ ui.quiz_cta }}</p>
+        </div>
+        <a class="btn btn-primary btn-lg" href="{% url 'portal:quiz' %}">{{ ui.quiz_button }}</a>
+      </div>
     </div>
   </section>
 

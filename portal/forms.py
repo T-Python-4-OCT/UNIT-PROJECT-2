@@ -133,3 +133,46 @@ class SearchForm(forms.Form):
             raise forms.ValidationError(self.errors_text["symbols_only"])
 
         return query
+
+
+class QuizForm(forms.Form):
+    """
+    One radio-button question per entry in quiz.json.
+
+    1. Fields are built from the JSON, so adding a question needs no code.
+    2. Each field only accepts the index of one of its own options ("0" to "3").
+    3. review() compares the cleaned answers with the correct indexes.
+    """
+
+    def __init__(self, *args, quiz, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.questions = quiz["questions"]
+        errors = quiz["errors"]
+
+        for question in self.questions:
+            field = forms.ChoiceField(
+                label=question["question"],
+                choices=[(str(index), option) for index, option in enumerate(question["options"])],
+                widget=forms.RadioSelect,
+            )
+            field.error_messages.update(
+                required=errors["required"], invalid_choice=errors["invalid_choice"]
+            )
+            self.fields[question["id"]] = field
+
+    def question_fields(self):
+        "Pair each question with its bound field, in order, for the template."
+        return [(question, self[question["id"]]) for question in self.questions]
+
+    def review(self):
+        "Return each question with the visitor's answer and whether it was right."
+        return [
+            {
+                **question,
+                "chosen": int(self.cleaned_data[question["id"]]),
+                "is_correct": int(self.cleaned_data[question["id"]]) == question["answer"],
+                "correct_option": question["options"][question["answer"]],
+                "chosen_option": question["options"][int(self.cleaned_data[question["id"]])],
+            }
+            for question in self.questions
+        ]

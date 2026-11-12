@@ -3,7 +3,7 @@ from django.urls import reverse
 
 from .forms import FeedbackForm
 from .models import Feedback
-from .views import find_page_content, load_json
+from .views import build_nav_menu, find_page_content, load_json
 
 VALID_DATA = {
     "name": "Sara Ahmed",
@@ -322,3 +322,107 @@ class NotFoundPageTests(TestCase):
         self.assertContains(response, 'action="/search/"', status_code=404)
         for page in load_json("site.json", "en")["pages"]:
             self.assertContains(response, page["title"], status_code=404)
+
+
+class NavigationTests(TestCase):
+    "The navbar dropdowns and the footer are built from site.json."
+
+    def test_every_page_is_in_exactly_one_menu_group(self):
+        for language in ("en", "ar"):
+            site = load_json("site.json", language)
+            grouped = [slug for group in build_nav_menu(site) for slug in group["slugs"]]
+            all_slugs = [page["slug"] for page in site["pages"]]
+            self.assertEqual(sorted(grouped), sorted(all_slugs))
+
+    def test_open_group_is_highlighted(self):
+        response = self.client.get(reverse("portal:page", args=["smart-traffic"]))
+        menu = response.context["nav_menu"]
+        sectors = next(group for group in menu if group["id"] == "sectors")
+        self.assertIn("smart-traffic", sectors["slugs"])
+        self.assertContains(response, 'aria-current="page"')
+
+    def test_footer_links_every_page_and_back_to_top(self):
+        response = self.client.get(reverse("portal:home"))
+        footer = response.content.decode().split('<footer', 1)[1]
+        for page in load_json("site.json", "en")["pages"]:
+            self.assertIn(reverse("portal:page", args=[page["slug"]]), footer)
+        self.assertIn('href="#top"', footer)
+
+
+class NewPagesTests(TestCase):
+    "The four sector and platform pages added in the last round."
+
+    def test_new_pages_have_sources_for_every_figure(self):
+        for language in ("en", "ar"):
+            site = load_json("site.json", language)
+            known = {reference["id"] for reference in site["references"]}
+            for slug in ("smart-traffic", "digital-passports", "civil-defense", "tawakkalna"):
+                page = find_page_content(site, slug, language)
+                for section in page["sections"]:
+                    if section["type"] == "stats":
+                        for item in section["items"]:
+                            self.assertIn(item["source"], known, f"{slug}: {item['label']}")
+
+    def test_tawakkalna_page_says_it_is_not_an_moi_platform(self):
+        response = self.client.get(reverse("portal:page", args=["tawakkalna"]))
+        self.assertContains(response, "not by the Ministry of Interior")
+
+
+class QuizTests(TestCase):
+    "The quiz is built from quiz.json and checked on the server."
+
+    def answers(self, correct=True):
+        questions = load_json("quiz.json", "en")["questions"]
+        return {
+            question["id"]: str(question["answer"] if correct else (question["answer"] + 1) % 4)
+            for question in questions
+        }
+
+    def test_quiz_page_shows_every_question(self):
+        response = self.client.get(reverse("portal:quiz"))
+        self.assertEqual(response.status_code, 200)
+        self.assertContains(response, 'class="quiz-card', count=8)
+
+    def test_all_correct_answers_score_full_marks_and_keep_best(self):
+        response = self.client.post(reverse("portal:quiz"), self.answers(correct=True))
+        self.assertEqual(response.context["score"], 8)
+        self.assertEqual(self.client.session["quiz_best"], 8)
+
+        # A worse second try does not lower the best score
+        response = self.client.post(reverse("portal:quiz"), self.answers(correct=False))
+        self.assertEqual(response.context["score"], 0)
+        self.assertEqual(self.client.session["quiz_best"], 8)
+
+    def test_missing_answer_is_rejected_in_arabic(self):
+        self.client.post(reverse("portal:set_language"), {"language": "ar"})
+        answers = self.answers()
+        del answers["q3"]
+        response = self.client.post(reverse("portal:quiz"), answers)
+        self.assertIsNone(response.context["review"])
+        self.assertContains(response, "اختر إجابة لهذا السؤال.")
+
+    def test_answer_outside_the_options_is_rejected(self):
+        answers = self.answers()
+        answers["q1"] = "9"
+        response = self.client.post(reverse("portal:quiz"), answers)
+        self.assertIsNone(response.context["review"])
+        self.assertIn("q1", response.context["form"].errors)
+
+    def test_every_question_links_to_a_real_page(self):
+        for language in ("en", "ar"):
+            slugs = {page["slug"] for page in load_json("site.json", language)["pages"]}
+            for question in load_json("quiz.json", language)["questions"]:
+                self.assertIn(question["page"], slugs)
+                self.assertLess(question["answer"], len(question["options"]))
+
+
+class ComparisonTests(TestCase):
+    "Bars on the traffic page are sized from the numbers in the JSON."
+
+    def test_bars_are_scaled_to_the_larger_year(self):
+        response = self.client.get(reverse("portal:page", args=["smart-traffic"]))
+        section = next(s for s in response.context["page"]["sections"] if s["type"] == "comparison")
+        deaths = section["items"][0]
+        self.assertEqual(deaths["from_width"], 100)
+        self.assertEqual(deaths["to_width"], 51.4)
+        self.assertEqual(deaths["change"], -49)

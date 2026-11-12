@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
 /* ===== Scroll reveal: sections fade in the first time they enter the screen ===== */
 document.addEventListener("DOMContentLoaded", function () {
   const revealElements = document.querySelectorAll(
-    ".cinematic-journey .journey-heading, .cinematic-journey .col, .cinematic-about, .gallery-item"
+    ".cinematic-journey .journey-heading, .bento-item, .cinematic-about, .gallery-item, .comparison-row"
   );
 
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
@@ -121,18 +121,32 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
-  // Animate only values like "280", "18.3 million", "460+", "+28 مليون".
+  // Animate only values like "280", "4,438", "18.3 million", "460+", "+28 مليون".
   // Skip dates and rankings such as "25 April 2016" or "2nd of 197".
-  const pattern = /^(\+?)(\d+(?:\.\d+)?)(\D*)$/;
+  const pattern = /^(\+?)(\d{1,3}(?:,\d{3})+|\d+(?:\.\d+)?)(\D*)$/;
 
-  function countUp(element, target, decimals, prefix, suffix) {
+  function countUp(element, target, decimals, prefix, suffix, grouped) {
     const duration = 1200;
     const start = performance.now();
+
+    // Only the digits change while counting. They sit in their own box, sized to the
+    // final number, so words like "million" / "مليون" and the "+" sign do not move.
+    const digits = document.createElement("span");
+    digits.className = "count-digits";
+    digits.textContent = element.textContent.trim().slice(prefix.length, element.textContent.trim().length - suffix.length);
+    element.textContent = "";
+    element.append(prefix, digits, suffix);
+    digits.style.minWidth = digits.getBoundingClientRect().width + "px";
 
     function frame(now) {
       const t = Math.min((now - start) / duration, 1);
       const eased = 1 - Math.pow(1 - t, 3);
-      element.textContent = prefix + (target * eased).toFixed(decimals) + suffix;
+      const value = target * eased;
+      // Keep the commas while counting when the original value had them
+      const text = grouped
+        ? Math.round(value).toLocaleString("en-US")
+        : value.toFixed(decimals);
+      digits.textContent = text;
 
       if (t < 1) {
         requestAnimationFrame(frame);
@@ -157,10 +171,11 @@ document.addEventListener("DOMContentLoaded", function () {
       }
 
       const prefix = match[1];
-      const number = match[2];
+      const grouped = match[2].includes(",");
+      const number = match[2].replace(/,/g, "");
       const suffix = match[3];
       const decimals = (number.split(".")[1] || "").length;
-      countUp(element, parseFloat(number), decimals, prefix, suffix);
+      countUp(element, parseFloat(number), decimals, prefix, suffix, grouped);
     });
   }, { threshold: 0.6 });
 
@@ -203,6 +218,40 @@ document.addEventListener("DOMContentLoaded", function () {
 
     range.addEventListener("input", function () {
       compare.style.setProperty("--pos", range.value + "%");
+    });
+  });
+});
+
+/* ===== Quiz progress: count answered questions and fill the bar ===== */
+document.addEventListener("DOMContentLoaded", function () {
+  const quiz = document.querySelector("[data-quiz]");
+  if (!quiz) {
+    return;
+  }
+
+  const total = quiz.querySelectorAll("fieldset").length;
+  const count = quiz.querySelector("[data-quiz-count]");
+  const fill = quiz.querySelector("[data-quiz-fill]");
+
+  function update() {
+    const answered = quiz.querySelectorAll("input[type=radio]:checked").length;
+    count.textContent = answered;
+    fill.style.width = (answered / total) * 100 + "%";
+  }
+
+  quiz.addEventListener("change", update);
+  update(); // answers kept after a failed submit are counted straight away
+});
+
+/* ===== Spotlight: pass the pointer position to CSS so a glow follows it ===== */
+document.addEventListener("DOMContentLoaded", function () {
+  const cards = document.querySelectorAll(".spotlight, .info-card, .stat-card");
+
+  cards.forEach(function (card) {
+    card.addEventListener("pointermove", function (event) {
+      const box = card.getBoundingClientRect();
+      card.style.setProperty("--mx", event.clientX - box.left + "px");
+      card.style.setProperty("--my", event.clientY - box.top + "px");
     });
   });
 });

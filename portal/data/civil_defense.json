@@ -1,0 +1,97 @@
+{
+  "title": "Civil Defense",
+  "header_image": "portal/img/civil-defense.webp",
+  "subtitle": "A warning that reaches every phone in the area, in seconds.",
+  "intro": "The General Directorate of Civil Defense is the Ministry of Interior's sector for emergencies and disasters. Its biggest digital step is the National Early Warning Platform, which sends alerts straight to mobile phones in a targeted area using cell broadcast, alongside the traditional fixed sirens.",
+  "sections": [
+    {
+      "type": "timeline",
+      "heading": "From Trial to Nationwide",
+      "items": [
+        {
+          "date": "2021",
+          "title": "Field trials",
+          "text": "Civil Defense and the communications regulator test cell broadcast messages with a loud tone in selected cities and governorates.",
+          "source": "ajel_early_warning"
+        },
+        {
+          "date": "July 2022",
+          "title": "The platform launches",
+          "text": "The Minister of Interior inaugurates the National Early Warning Platform in Makkah.",
+          "source": "saudigazette_early_warning_2022"
+        },
+        {
+          "date": "3 Nov 2025",
+          "title": "A nationwide test",
+          "text": "Warning messages are broadcast across all regions of the Kingdom, with fixed sirens tested in the Riyadh, Tabuk, and Makkah regions.",
+          "source": "saudigazette_sirens_2025"
+        }
+      ]
+    },
+    {
+      "type": "cards",
+      "heading": "How It Works",
+      "items": [
+        {
+          "title": "Cell Broadcast",
+          "text": "Alerts are sent to every phone connected to the network inside the affected area, so a person can be warned even where a siren cannot be heard.",
+          "source": "ajel_early_warning"
+        },
+        {
+          "title": "Three Sounds, Three Steps",
+          "text": "In the 2025 test, a new behavior tone played at 1:00 p.m., the national alert tone at 1:10 p.m., and the fixed sirens at 1:15 p.m.",
+          "source": "saudigazette_sirens_2025"
+        },
+        {
+          "title": "What To Do",
+          "text": "Stay calm, follow the official instructions, and move to the nearest safe place inside a building.",
+          "source": "okaz_early_warning"
+        }
+      ]
+    },
+    {
+      "type": "gallery",
+      "heading": "In Pictures",
+      "items": [
+        {
+          "image": "portal/img/gallery/civil-1.webp",
+          "caption": "Children in firefighter gear at a Civil Defense awareness event"
+        },
+        {
+          "image": "portal/img/gallery/civil-2.webp",
+          "caption": "A Civil Defense rapid response vehicle"
+        }
+      ]
+    },
+    {
+      "type": "stats",
+      "heading": "The November 2025 Test",
+      "items": [
+        {
+          "label": "Regions covered by the phone alert test (all of the Kingdom's regions)",
+          "value": "13",
+          "as_of": "2025-11-03",
+          "source": "saudigazette_sirens_2025"
+        },
+        {
+          "label": "Regions where fixed sirens were tested",
+          "value": "3",
+          "as_of": "2025-11-03",
+          "source": "saudigazette_sirens_2025"
+        },
+        {
+          "label": "Minutes from the first message to the sirens",
+          "value": "15",
+          "as_of": "2025-11-03",
+          "source": "saudigazette_sirens_2025"
+        }
+      ]
+    }
+  ],
+  "sources": [
+    "saudigazette_early_warning_2022",
+    "saudigazette_sirens_2025",
+    "ajel_early_warning",
+    "okaz_early_warning"
+  ]
+}

@@ -12,6 +12,8 @@ A bilingual (Arabic / English) Django website about how the Saudi Ministry of In
 
 ## Pages
 
+The navbar groups the eleven content pages into three dropdowns: **The Story**, **Platforms** and **Sectors**. The groups come from `nav_groups` in `site.json`, so adding a page means adding one line there and one JSON file.
+
 | URL | Page |
 | --- | --- |
 | `/` | Home: hero video, impact numbers, before/after slider, photo cards for every page |
@@ -19,10 +21,15 @@ A bilingual (Arabic / English) Django website about how the Saudi Ministry of In
 | `/moi-evolution/` | MOI Evolution: timeline from 1926 to today, Hijri and Gregorian dates |
 | `/absher/` | Absher Platform |
 | `/digital-identity/` | Digital Identity |
-| `/smart-security/` | Smart Security |
 | `/digital-services/` | Digital Services |
+| `/tawakkalna/` | Tawakkalna (an SDAIA app, shown next to Absher) |
+| `/smart-traffic/` | Smart Traffic: Absher traffic services, automated monitoring, road safety 2016-2025 |
+| `/digital-passports/` | Digital Passports: Jawazat services and airport e-gates |
+| `/civil-defense/` | Civil Defense: the National Early Warning Platform |
+| `/smart-security/` | Smart Security |
 | `/future-vision/` | Future Vision |
 | `/search/` | Site search |
+| `/quiz/` | Knowledge quiz: eight questions, checked on the server |
 | `/feedback/` | Share your feedback (saved to the database) |
 | `/admin/` | Django admin: review feedback |
 
@@ -33,10 +40,10 @@ A bilingual (Arabic / English) Django website about how the Saudi Ministry of In
 | Requirement | How this project meets it |
 | --- | --- |
 | Use Django | Django 6.1, one app: `portal` |
-| Templates and template inheritance | Every page extends `templates/portal/base.html`; shared parts live in `templates/portal/partials/` (navbar, footer, cards, stats, timeline, sources) |
-| Dynamic URLs | `path("<slug:slug>/", views.content_page)` serves all seven content pages from one view |
+| Templates and template inheritance | Every page extends `templates/portal/base.html`; shared parts live in `templates/portal/partials/` (navbar, footer, emblem, cards, stats, timeline, gallery, sources) |
+| Dynamic URLs | `path("<slug:slug>/", views.content_page)` serves all eleven content pages from one view |
 | Static files | CSS, JavaScript, WebP images and the hero video under `portal/static/portal/` |
-| Home page + at least 6 pages | Home + 7 content pages + Search + Feedback |
+| Home page + at least 6 pages | Home + 11 content pages + Search + Quiz + Feedback |
 | Coherent, uniform design | One stylesheet, one set of color tokens (dark green, white, gold), one font for both languages |
 | Dark and light mode | Toggle in the navbar, saved in `localStorage`, applied before the page paints |
 | Responsive | Tested at 390, 1000, 1200, 1366 and 1500 px wide, no horizontal scroll |
@@ -77,7 +84,19 @@ After a successful submit the view redirects (Post/Redirect/Get), so refreshing 
 
 **Photo galleries.** Every inner page has an "In Pictures" section: a `gallery` section type in the page's JSON, rendered by `partials/gallery.html`. Each photo has a caption in both languages, used as its alt text.
 
-**Motion with care.** Hero video (compressed from 13.6 MB to 0.87 MB, with a poster image while it loads), counting numbers, reading-progress bar, and an animated menu button. All of it stops when the visitor's device asks for reduced motion.
+**Knowledge quiz.** `/quiz/` builds a `QuizForm` from `quiz.json`: one radio question per entry, so a new question needs no code. Answers are checked on the server, missing or tampered answers are rejected in the current language, and the best score is kept in the session. The result shows a score ring and reviews every answer with a link to the page that explains it.
+
+![Quiz result in Arabic](docs/screenshots/quiz-ar.webp)
+
+**Comparison bars.** A `comparison` section type draws two bars per figure (2016 and 2025 on the Smart Traffic page). `add_comparison_bars` in `views.py` scales each pair to the larger number and works out the change, and the bars grow when they scroll into view.
+
+![Comparison bars](docs/screenshots/comparison-en.webp)
+
+**A 2026 visual layer.** A floating glass navbar, a bento grid for the journey on the home page, slow aurora light and film grain behind page headers, a gold glow that follows the pointer on cards, numbered sections, smooth page-to-page transitions (View Transitions API) and sections that rise in as they scroll into view (scroll-driven animations). All of it sits in one marked block at the end of `main.css`, and it switches off when the device asks for reduced motion.
+
+**Navigation built from data.** `build_nav_menu` in `views.py` groups the pages for the navbar dropdowns and the footer columns, and marks the group that holds the current page. On phones the groups open in place inside the menu.
+
+**Motion with care.** Hero video (1080p, compressed from 13.6 MB to 2.5 MB with H.264, with a poster image while it loads), counting numbers, reading-progress bar, and an animated menu button. All of it stops when the visitor's device asks for reduced motion.
 
 <p>
   <img src="docs/screenshots/mobile-home.webp" alt="Home page on a phone" width="260">
@@ -142,9 +161,13 @@ To see the custom 404 page locally, set `DJANGO_DEBUG=False` in `.env` and run `
 python manage.py test portal
 ```
 
-50 tests cover every invalid-input case above, plus:
+61 tests cover every invalid-input case above, plus:
 
-- all seven pages load in both languages
+- all eleven pages load in both languages
+- every page sits in exactly one navbar group, and the footer links every page
+- every figure on the four newest pages has a source
+- the quiz scores full and zero marks correctly, keeps the best score, and rejects missing or made-up answers
+- comparison bars are scaled to the larger year
 - unknown URLs return a 404 page that offers search and links to every page
 - the secret key is not written in `settings.py`
 - the language switch accepts only `en` and `ar`, and refuses to redirect to another site
@@ -168,14 +191,14 @@ portal/
   migrations/0001_initial.py
   static/portal/
     css/main.css
-    js/theme.js           theme toggle, counters, navbar, slider, character counter
+    js/theme.js           theme toggle, counters, navbar, slider, character counter, quiz progress
     img/                  WebP images, gallery/, favicon
     video/hero-riyadh.mp4
   templates/portal/
     base.html             layout every page extends
-    home.html  page.html  search.html  feedback.html  404.html
-    partials/             navbar, footer, cards, stats, timeline, gallery, sources
-  forms.py                FeedbackForm, SearchForm
+    home.html  page.html  search.html  quiz.html  feedback.html  404.html
+    partials/             navbar, footer, emblem, cards, stats, comparison, timeline, gallery, sources
+  forms.py                FeedbackForm, SearchForm, QuizForm
   models.py               Feedback
   search.py               Arabic normalization, scoring, highlighted snippets
   tests.py
@@ -188,7 +211,7 @@ docs/screenshots/         images used in this README
 
 ## Tech stack
 
-Django 6.1 · Python · SQLite · python-dotenv · Bootstrap 5.3 · vanilla JavaScript · IBM Plex Sans Arabic
+Django 6.1 · Python · SQLite · python-dotenv · Bootstrap 5.3 · vanilla JavaScript · Almarai
 
 ## Sources and media
 

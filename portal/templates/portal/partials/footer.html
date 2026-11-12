@@ -1,16 +1,50 @@
-<footer class="site-footer py-4 mt-5">
+<footer class="site-footer mt-5">
   <div class="container">
-    <p class="footer-tagline mb-2">{{ site.tagline }}</p>
-    <ul class="list-inline small mb-2">
-      {% for nav_page in site.pages %}
-        <li class="list-inline-item">
-          <a href="{% url 'portal:page' nav_page.slug %}">{{ nav_page.title }}</a>
-        </li>
+    <div class="footer-grid">
+
+      {# Column 1: emblem, name and what the project is #}
+      <div class="footer-brand">
+        <a class="footer-brand-link" href="{% url 'portal:home' %}">
+          {% include "portal/partials/emblem.html" %}
+          <span>{{ site.site_name }}</span>
+        </a>
+        <p class="footer-tagline">{{ site.tagline }}</p>
+        <p class="footer-about">{{ ui.about_project_text }}</p>
+      </div>
+
+      {# Columns 2-4: the same page groups as the navbar dropdowns #}
+      {% for group in nav_menu %}
+        <nav class="footer-col" aria-label="{{ group.title }}">
+          <h2 class="footer-heading">{{ group.title }}</h2>
+          <ul class="footer-links">
+            {% for nav_page in group.pages %}
+              <li><a href="{% url 'portal:page' nav_page.slug %}">{{ nav_page.title }}</a></li>
+            {% endfor %}
+          </ul>
+        </nav>
       {% endfor %}
-      <li class="list-inline-item">
-        <a class="footer-feedback-link" href="{% url 'portal:feedback' %}">{{ ui.feedback }}</a>
-      </li>
-    </ul>
-    <p class="small mb-0">{{ site.disclaimer }}</p>
+
+      {# Last column: search and feedback #}
+      <nav class="footer-col" aria-label="{{ ui.tools }}">
+        <h2 class="footer-heading">{{ ui.tools }}</h2>
+        <ul class="footer-links">
+          <li><a href="{% url 'portal:search' %}">{{ ui.search }}</a></li>
+          <li><a href="{% url 'portal:quiz' %}">{{ ui.quiz }}</a></li>
+          <li><a class="footer-feedback-link" href="{% url 'portal:feedback' %}">{{ ui.feedback }}</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <div class="footer-bottom">
+      <p class="footer-disclaimer">{{ site.disclaimer }}</p>
+      <p class="footer-credit">{{ ui.built_with }}</p>
+      <a class="back-to-top" href="#top">
+        {{ ui.back_to_top }}
+        <span aria-hidden="true">↑</span>
+      </a>
+    </div>
   </div>
+
+  {# Oversized faded name along the bottom edge: decorative only #}
+  <p class="footer-wordmark" aria-hidden="true">{{ site.site_name }}</p>
 </footer>

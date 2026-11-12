@@ -2,16 +2,42 @@
   "hero": {
     "eyebrow": "Saudi Vision 2030 · Digital Transformation",
     "description": "An independent look at how the Ministry of Interior's services moved from the counter to the screen, and where the transformation is heading next.",
-    "primary_cta": { "label": "Start the Journey", "slug": "vision-2030" },
-    "secondary_cta": { "label": "See the Future", "slug": "future-vision" }
+    "primary_cta": {
+      "label": "Start the Journey",
+      "slug": "vision-2030"
+    },
+    "secondary_cta": {
+      "label": "See the Future",
+      "slug": "future-vision"
+    }
   },
   "impact": {
     "label": "The transformation in numbers",
     "items": [
-      { "value": "28M+", "label": "Unified digital IDs issued through Absher", "as_of": "2024", "slug": "digital-identity" },
-      { "value": "460+", "label": "Services across Absher's three channels", "as_of": "2024", "slug": "absher" },
-      { "value": "189M", "label": "Transactions on Public Security platforms", "as_of": "2025", "slug": "smart-security" },
-      { "value": "2nd", "label": "Worldwide in the World Bank GovTech Maturity Index", "as_of": "2025", "slug": "future-vision" }
+      {
+        "value": "28M+",
+        "label": "Unified digital IDs issued through Absher",
+        "as_of": "2024",
+        "slug": "digital-identity"
+      },
+      {
+        "value": "460+",
+        "label": "Services across Absher's three channels",
+        "as_of": "2024",
+        "slug": "absher"
+      },
+      {
+        "value": "189M",
+        "label": "Transactions on Public Security platforms",
+        "as_of": "2025",
+        "slug": "smart-security"
+      },
+      {
+        "value": "2nd",
+        "label": "Worldwide in the World Bank GovTech Maturity Index",
+        "as_of": "2025",
+        "slug": "future-vision"
+      }
     ]
   },
   "compare": {
@@ -26,15 +52,52 @@
   },
   "journey": {
     "heading": "The Journey",
-    "intro": "Seven pages follow the story from the national vision to the technology shaping what comes next.",
+    "intro": "Eleven pages follow the story from the national vision, through the platforms and sectors, to what comes next.",
     "steps": [
-      { "slug": "vision-2030", "teaser": "The national blueprint and the three pillars behind the transformation." },
-      { "slug": "moi-evolution", "teaser": "A timeline from an early administrative authority to today's digital ministry." },
-      { "slug": "absher", "teaser": "The Ministry's e-services platform and how it has grown." },
-      { "slug": "digital-identity", "teaser": "How one verified identity opens government and private services." },
-      { "slug": "smart-security", "teaser": "Unified platforms and AI in public security, with what is operating and what is planned." },
-      { "slug": "digital-services", "teaser": "Recent services that moved from the counter to the screen." },
-      { "slug": "future-vision", "teaser": "The 2030 roadmap, global rankings, and announced next steps." }
+      {
+        "slug": "vision-2030",
+        "teaser": "The national blueprint and the three pillars behind the transformation."
+      },
+      {
+        "slug": "moi-evolution",
+        "teaser": "A timeline from an early administrative authority to today's digital ministry."
+      },
+      {
+        "slug": "absher",
+        "teaser": "The Ministry's e-services platform and how it has grown."
+      },
+      {
+        "slug": "digital-identity",
+        "teaser": "How one verified identity opens government and private services."
+      },
+      {
+        "slug": "digital-services",
+        "teaser": "Recent services that moved from the counter to the screen."
+      },
+      {
+        "slug": "tawakkalna",
+        "teaser": "SDAIA's super app that grew out of the 2020 curfew permits."
+      },
+      {
+        "slug": "smart-traffic",
+        "teaser": "Traffic services on Absher, automated monitoring, and road deaths halved since 2016."
+      },
+      {
+        "slug": "digital-passports",
+        "teaser": "Jawazat services online and 152 e-gates at the major airports."
+      },
+      {
+        "slug": "civil-defense",
+        "teaser": "The National Early Warning Platform that alerts every phone in an area."
+      },
+      {
+        "slug": "smart-security",
+        "teaser": "Unified platforms and AI in public security, with what is operating and what is planned."
+      },
+      {
+        "slug": "future-vision",
+        "teaser": "The 2030 roadmap, global rankings, and announced next steps."
+      }
     ]
   },
   "feedback_cta": {
