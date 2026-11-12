@@ -1,0 +1,101 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+{% with hero_img="main/img/art/masmak-hero.svg" %}{% include "main/partials/_page_hero.html" %}{% endwith %}
+
+<section class="section">
+  <div class="container split">
+    <div class="reveal">
+      <p class="kicker">متحف المصمك</p>
+      <h2>الحصن الذي صار ذاكرة</h2>
+      <p class="lead">{{ data.lead }}</p>
+      <div class="card" style="margin-top:20px">
+        <h3 style="display:flex;gap:10px;align-items:center"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg>الزيارة</h3>
+        <p style="margin-bottom:6px">{{ visit.address }}</p>
+        <p class="muted small">{{ visit.note }}</p>
+        <div class="hero__actions" style="margin-top:12px">
+          <a class="btn btn--sm btn--gold" href="{{ visit.map_url }}" target="_blank" rel="noopener"><svg class="icon" aria-hidden="true"><use href="#i-map"/></svg>الموقع على الخريطة</a>
+          {% for l in visit.links %}<a class="btn btn--sm" href="{{ l.url }}" target="_blank" rel="noopener">{{ l.title }} <svg class="icon" aria-hidden="true"><use href="#i-external"/></svg></a>{% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="reveal">
+      <p class="kicker">قاعات المتحف</p>
+      <div class="halls" style="grid-template-columns:repeat(2,minmax(0,1fr))">
+        {% for h in halls %}
+        <div class="hall"><svg class="icon" aria-hidden="true"><use href="#i-{{ h.icon }}"/></svg>{{ h.title }}<span class="hall__n">{{ forloop.counter }}</span></div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="videos-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">المرئيات</p>
+      <h2 id="videos-title">رحلة الاسترداد بالصوت والصورة</h2>
+      <p class="lead">مشاهد تمثيلية لمسير الملك عبدالعزيز ورجاله نحو الرياض.</p>
+    </div>
+    <div class="grid" style="max-width:900px">
+      {% for v in videos %}
+      <article class="video-card reveal">
+        {% if v.youtube_id %}
+          <div class="video-embed"><iframe src="https://www.youtube-nocookie.com/embed/{{ v.youtube_id }}" title="{{ v.title }}" loading="lazy" allow="accelerometer; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>
+        {% else %}
+          {% with m=v.m %}{% include "main/partials/_media.html" %}{% endwith %}
+        {% endif %}
+        <h3>{{ v.title }}</h3>
+        {% if v.channel %}<p class="badge">{{ v.channel }}</p>{% endif %}
+        <p class="muted">{{ v.text }}</p>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">منهج العمل</p>
+      <h2>كيف بنينا هذا المتحف؟</h2>
+    </div>
+    <div class="grid grid--4">
+      {% for mm in method %}
+      <div class="card reveal"><h3>{{ mm.title }}</h3><p class="muted small">{{ mm.text }}</p></div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" id="sources" aria-labelledby="all-sources-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">المراجع</p>
+      <h2 id="all-sources-title">المصادر والمراجع</h2>
+      <p class="lead">كل معلومة في الموقع ترجع إلى أحد هذه المصادر. يُستحسن لمشروع جامعي الرجوع أيضاً إلى إصدارات دارة الملك عبدالعزيز المطبوعة.</p>
+    </div>
+    <ol class="src-list">
+      {% for s in all_sources %}
+      <li>
+        <div>
+          <a class="src-title" href="{{ s.url }}" target="_blank" rel="noopener">{{ s.title }}</a>
+          <div class="src-meta">{{ s.publisher }} · {{ s.type }}</div>
+          <div class="src-use">استُخدم في: {{ s.used_for }}</div>
+        </div>
+      </li>
+      {% endfor %}
+    </ol>
+  </div>
+</section>
+
+<section class="section--tight">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div><h2>الخطوة الأخيرة</h2><p>اختبر ما تعلّمته في رحلتك داخل المتحف.</p></div>
+      <a class="btn btn--gold" href="{% url 'main:quiz' %}"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg>الاختبار التاريخي</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
