@@ -1,53 +1,79 @@
-# توجيه — دليل وزارات المملكة
+# Tawjeeh — A Guide to Saudi Ministries
 
-مشروع تعليمي عربي تفاعلي لاستكشاف مجموعة من وزارات المملكة العربية السعودية. يستخدم Django والقوالب وملفات JSON، ولا يخزن محتوى الوزارات في قاعدة بيانات.
+**Tawjeeh** (توجيه) is an interactive Arabic website that introduces the ministries of the Kingdom of Saudi Arabia in a simple, engaging way: what each ministry does, when it was founded, who leads it, and how it connects to Saudi Vision 2030.
 
-## التشغيل
+## The Idea
 
-1. ثبّت الحزم من مجلد المشروع:
+We hear ministry names every day, but few of us know their story or what they actually do. Tawjeeh brings that information together in one place and presents it visually, so visitors explore instead of reading dry lists.
 
-   ```powershell
-   python -m pip install -r requirements.txt
-   ```
+This is an independent educational project, not an official government website.
 
-2. شغّل الخادم من مجلد `wizarat`:
+## Visitor Experience
 
-   ```powershell
-   python manage.py runserver
-   ```
+- **A walk through Riyadh:** The home page opens with an illustrated Riyadh skyline: Kingdom Centre, Al Faisaliah, the TV Tower, and a Najdi-style mud fort. As you scroll, the landmarks draw closer, as if you were walking into the city.
+- **Day and night:** The whole site switches between light and dark mode. By day there is sun and drifting sand; by night, a moon, stars and lit windows.
+- **Instant search:** The search button at the top shows results as you type. You can search by ministry name, field, responsibilities or minister.
+- **Tawjeeh Assistant:** A small chat assistant answers questions such as "What does the Ministry of Health do?" using the guide's own information.
 
-3. افتح `http://127.0.0.1:8000/`.
+## What's on the Site
 
-## الصفحات
+| Page | What it offers |
+|---|---|
+| Home | The interactive scene, quick stats, ministry cards, a timeline preview, a "Did you know?" fact, and the Vision 2030 pillars |
+| All Ministries | The full directory with search, filtering by field, and links to official websites |
+| Ministry page | Overview, history, responsibilities, minister, founding year, headquarters, and a photo gallery |
+| Timeline | Ministries ordered by founding year, from oldest to newest |
+| Compare | Two ministries side by side |
+| Quiz | A short quiz to test your knowledge of the ministries |
 
-- الصفحة الرئيسية مع البحث والتصفية والخط الزمني و«هل تعلم؟». واجهتها مشهد مرسوم للرياض من طبقات: برج المملكة، والفيصلية، وبرج التلفزيون، وبرج صندوق الاستثمارات العامة، وقصر طيني على الطراز النجدي، ونخيل؛ عند التمرير تقترب كل طبقة بسرعة مختلفة فيبدو أنك تمشي داخل المشهد، مع ضباب متحرك (WebGL2). يتبع المشهد الوضع الفاتح/الداكن: شمس وغبار رملي صباحًا، وقمر ونوافذ مضيئة ليلًا.
-- شريط التنقل فيه زر البحث وزر الوضع الداكن.
-- `/ministries/` دليل الوزارات مع البحث والتصفية وروابط المواقع الرسمية.
-- صفحة مستقلة لكل وزارة من الوزارات الـ13، مع معرض صورها ومعلوماتها المتاحة.
-- `search/` بحث في الوزارات بالاسم أو المجال أو المهام أو اسم الوزير. زر البحث في شريط التنقل يفتح نافذة بنتائج فورية (واختصارها مفتاح `/`).
-- `timeline/` الخط الزمني.
-- `compare/` مقارنة وزارتين.
-- `quiz/` اختبار تفاعلي.
+## Ministries in the Guide
 
-## تحديث البيانات
+The guide covers 13 ministries across four fields:
 
-- بيانات الوزارات الأساسية: `ministries/data/ministries.json`.
-- النبذات والتفاصيل: `ministries/data/details.json`.
-- نصوص الموقع ومحاور الرؤية: `ministries/data/site.json`.
-- مصادر فقرة «هل تعلم؟»: `ministries/data/facts.json`.
-- أسئلة الاختبار: `ministries/data/quiz.json`.
-- الصور الحالية: `ministries/static/ministries/images/`.
-- طبقات مشهد الواجهة (SVG): `ministries/templates/ministries/partials/walk_scene.html`، وحركة التمرير والضباب في `ministries/static/ministries/js/walk-hero.js`.
+- **Sovereign:** Foreign Affairs, Interior, Defense, Finance.
+- **Services:** Health, Education, Justice, Hajj and Umrah.
+- **Economic:** Commerce, Energy, Communications and Information Technology.
+- **Quality of Life:** Tourism, Sports.
 
-إذا كانت تفاصيل الخدمة أو الإنجاز أو الفيديو غير موثقة، اترك الحقل فارغًا؛ ستخفي القوالب القسم تلقائيًا. راجع `VERIFY.md` قبل اعتماد المحتوى.
+## Link to Vision 2030
 
-## الاختبارات
+The site presents the three Vision 2030 pillars, **A Vibrant Society**, **A Thriving Economy** and **An Ambitious Nation**, and links each ministry to the pillars closest to its work. This mapping is an exploratory classification for learning purposes, not an official one.
 
-من مجلد `wizarat`:
+## A Note on the Information
 
-```powershell
-python manage.py check
+The information is for educational purposes and may change over time, for example ministers' names. For official, up-to-date information, please refer to each ministry's official website; the links are included in the guide.
+
+## Running and Testing the Project
+
+Requires Python 3.12 or newer.
+
+**1. Run the site** from inside the `wizarat` folder:
+
+```bash
+python -m pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
+
+Then open `http://127.0.0.1:8000/` in your browser.
+
+**2. Automated tests** from inside the `wizarat` folder:
+
+```bash
 python manage.py test ministries
 ```
 
-Bootstrap RTL وBootstrap Icons محمّلان من CDN. لا يحتاج المشروع إلى React أو خطوة بناء للأصول.
+Expected result: 13 tests pass (`OK`). The tests check that every page loads, that each ministry has its page and images, that search returns the right results, and that the quiz and "Did you know?" data are valid.
+
+**3. Quick manual check:**
+
+- [ ] Scroll slowly down the home page and watch the Riyadh landmarks draw closer.
+- [ ] Switch between light and dark mode with the button at the top and confirm the whole site changes.
+- [ ] Click the search button and type «الصحة» (Health) or «الميزانية» (Budget); results should appear instantly.
+- [ ] Open any ministry page and try the photo gallery and the "Share page" button.
+- [ ] On the Compare page, pick two ministries and view the comparison.
+- [ ] Complete the Quiz until your score appears.
+- [ ] Ask the Tawjeeh Assistant: «ما مهام وزارة التعليم؟» (What does the Ministry of Education do?)
+- [ ] Open the site on a phone, or narrow the browser window, and confirm the layout adapts.
+
+> Note: the website itself is in Arabic, so search terms and assistant questions work best in Arabic.
