@@ -1,0 +1,36 @@
+<div class="scroll-progress" id="scrollProgress"></div>
+
+<header class="site-header">
+    <nav class="navbar navbar-expand-lg">
+        <div class="container">
+            <a class="navbar-brand brand" href="{% url 'main:home_view' %}">
+                <i class="bi bi-bricks"></i> آثار
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav" aria-label="القائمة">
+                <i class="bi bi-list"></i>
+            </button>
+
+            <div class="collapse navbar-collapse" id="mainNav">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'home_view' %}active{% endif %}" href="{% url 'main:home_view' %}">الرئيسية</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link {% if request.resolver_match.url_name == 'sites_view' or request.resolver_match.url_name == 'site_detail_view' %}active{% endif %}" href="{% url 'main:sites_view' %}">المواقع</a>
+                    </li>
+                     <li class="nav-item">
+                <a class="nav-link {% if request.resolver_match.url_name == 'favorites_view' %}active{% endif %}" href="{% url 'main:favorites_view' %}">المفضلة</a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link {% if request.resolver_match.url_name == 'about_view' %}active{% endif %}" href="{% url 'main:about_view' %}">عن المشروع</a>
+                     </li>
+                </ul>
+
+                <a href="{% url 'main:toggle_theme' %}" class="theme-btn" aria-label="تبديل الوضع">
+                    <i class="bi {% if request.COOKIES.theme == 'dark' %}bi-sun{% else %}bi-moon-stars{% endif %}"></i>
+                </a>
+            </div>
+        </div>
+    </nav>
+</header>

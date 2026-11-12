@@ -1,0 +1,41 @@
+<footer class="site-footer">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-md-5">
+                <div class="footer-brand"><i class="bi bi-bricks"></i> آثار</div>
+                <p class="footer-text">رحلة عبر مواقع التراث العالمي في المملكة العربية السعودية، حيث يتحدث التاريخ من جديد.</p>
+            </div>
+
+            <div class="col-6 col-md-3">
+                <h6>روابط</h6>
+                                <ul class="footer-links">
+                    <li><a href="{% url 'main:home_view' %}">الرئيسية</a></li>
+                    <li><a href="{% url 'main:sites_view' %}">المواقع</a></li>
+                    <li><a href="{% url 'main:favorites_view' %}">المفضلة</a></li>
+                    <li><a href="{% url 'main:about_view' %}">عن المشروع</a></li>
+                </ul>
+            </div>
+
+            <div class="col-6 col-md-4">
+                <h6>حسابات ذات صلة</h6>
+                <div class="socials">
+                    <a href="https://x.com/saudiunesco" target="_blank" rel="noopener" aria-label="X"><i class="bi bi-twitter-x"></i></a>
+                    <a href="https://www.instagram.com/visitsaudi/" target="_blank" rel="noopener" aria-label="Instagram"><i class="bi bi-instagram"></i></a>
+                    <a href="https://www.youtube.com/@visitsaudi" target="_blank" rel="noopener" aria-label="YouTube"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer-bottom">
+            <span>© 2026 آثار. جميع الحقوق محفوظة.</span>
+            <span class="footer-credits">
+                فيديو الواجهة: <bdi>Volkan Yılmaz / Pexels</bdi> —
+                الصور: <bdi>Pexels</bdi>
+            </span>
+        </div>
+    </div>
+</footer>
+
+<button class="back-to-top" id="backToTop" aria-label="للأعلى">
+    <i class="bi bi-arrow-up"></i>
+</button>

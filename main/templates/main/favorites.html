@@ -1,0 +1,36 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}المفضلة | آثار{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="container py-5">
+        <h1 class="mb-4">مواقعي المفضلة</h1>
+
+        <div class="row g-4">
+            {% for site in sites %}
+                <div class="col-md-6 col-lg-4 reveal">
+                    <a href="{% url 'main:site_detail_view' site.slug %}" class="site-card">
+                        <div class="site-card-img">
+                            <img src="{% static 'images/sites/' %}{{ site.slug }}/1.jpg" alt="{{ site.name }}">
+                        </div>
+                        <div class="site-card-body">
+                            <h3>{{ site.name }}</h3>
+                            <p class="site-card-region"><i class="bi bi-geo-alt"></i> {{ site.region }}</p>
+                            <p>{{ site.tagline }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% empty %}
+                <div class="col-12">
+                    <p>ما أضفت أي موقع للمفضلة للحين.</p>
+                    <a href="{% url 'main:sites_view' %}" class="btn btn-accent">تصفح المواقع</a>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

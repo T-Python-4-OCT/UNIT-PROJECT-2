@@ -1,0 +1,53 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}المواقع | آثار{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="sites-hero" style="background-image: url('{% static 'images/home/hero.jpg' %}');">
+        <div class="container">
+            <h1>مواقع التراث العالمي</h1>
+            <p class="hero-text">اختر موقعاً لتبدأ رحلتك، أو ابحث بالاسم.</p>
+
+            <form method="get" action="{% url 'main:sites_view' %}" class="search-form">
+                {% if selected %}<input type="hidden" name="region" value="{{ selected }}">{% endif %}
+                <input type="text" name="q" value="{{ query }}" class="search-input" placeholder="ابحث عن موقع...">
+                <button type="submit" class="btn btn-accent"><i class="bi bi-search"></i> بحث</button>
+            </form>
+        </div>
+    </section>
+
+    <section class="container py-5">
+        <div class="d-flex flex-wrap gap-2 mb-4 reveal">
+            <a href="{% url 'main:sites_view' %}{% if query %}?q={{ query|urlencode }}{% endif %}"
+               class="btn {% if not selected %}btn-accent{% else %}btn-filter{% endif %}">الكل</a>
+            {% for r in regions %}
+                <a href="{% url 'main:sites_view' %}?region={{ r|urlencode }}{% if query %}&q={{ query|urlencode }}{% endif %}"
+                   class="btn {% if r == selected %}btn-accent{% else %}btn-filter{% endif %}">{{ r }}</a>
+            {% endfor %}
+        </div>
+
+        <div class="row g-4">
+            {% for site in sites %}
+                <div class="col-md-6 col-lg-4 reveal">
+                    <a href="{% url 'main:site_detail_view' site.slug %}" class="site-card">
+                        <div class="site-card-img">
+                            <img src="{% static 'images/sites/' %}{{ site.slug }}/1.jpg" alt="{{ site.name }}" onerror="this.style.display='none'">
+                        </div>
+                        <div class="site-card-body">
+                            <h3>{{ site.name }}</h3>
+                            <p class="site-card-region"><i class="bi bi-geo-alt"></i> {{ site.region }}</p>
+                            <p>{{ site.tagline }}</p>
+                        </div>
+                    </a>
+                </div>
+            {% empty %}
+                <p>ما لقينا مواقع تطابق بحثك.</p>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

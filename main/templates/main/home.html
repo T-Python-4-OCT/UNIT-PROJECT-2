@@ -1,0 +1,75 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}آثار | حيث يتحدث التاريخ من جديد{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="home-hero" style="background-image: url('{% static 'images/home/hero.jpg' %}');">
+    <video class="hero-video" autoplay muted loop playsinline preload="auto"
+           poster="{% static 'images/home/hero.jpg' %}">
+        <source src="{% static 'videos/hero.mp4' %}" type="video/mp4">
+    </video>
+    <div class="container">
+            <p class="eyebrow">التراث العالمي في المملكة</p>
+            <h1>حيث يتحدث التاريخ<br>من جديد</h1>
+            <p class="hero-text">رحلة بين مدن منحوتة في الصخر، وواحات تعمر منذ آلاف السنين، ونقوش تحكي قصة الإنسان.</p>
+            <a href="{% url 'main:sites_view' %}" class="btn-accent">
+                استكشف المواقع <i class="bi bi-arrow-left"></i>
+            </a>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container intro reveal">
+            <h2 class="section-title">إرث يتجاوز الحدود</h2>
+            <p>تضم المملكة العربية السعودية مواقع مسجّلة في قائمة التراث العالمي لدى اليونسكو، من مدن منحوتة في الصخر، إلى أحياء من الطين، وواحات خضراء، ونقوش صخرية تعود لآلاف السنين. وفي هذا الموقع نتجول في ستة منها، نعرف تاريخها وأهم معالمها وصورها.</p>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="container">
+            <div class="row g-4 text-center">
+                <div class="col-4 reveal">
+                    <span class="stat-num" data-target="{{ sites|length }}">0</span>
+                    <span class="stat-label">موقع في هذا الموقع</span>
+                </div>
+                <div class="col-4 reveal">
+                    <span class="stat-num" data-target="8">0</span>
+                    <span class="stat-label">موقع سعودي في قائمة اليونسكو</span>
+                </div>
+                <div class="col-4 reveal">
+                    <span class="stat-num" data-target="10000">0</span>
+                    <span class="stat-label">سنة من تاريخ نقوش حائل</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title reveal">مواقع التراث العالمي</h2>
+            <p class="section-sub reveal">اختر موقعاً لتبدأ رحلتك.</p>
+
+            <div class="row g-4">
+                {% for site in sites %}
+                    <div class="col-lg-4 col-md-6 reveal">
+                        <a href="{% url 'main:site_detail_view' site.slug %}" class="site-card">
+                            <div class="site-card-img">
+                                <img src="{% static 'images/sites/' %}{{ site.slug }}/1.jpg" alt="{{ site.name }}" onerror="this.style.display='none'">
+                            </div>
+                            <div class="site-card-body">
+                                <h3>{{ site.name }}</h3>
+                                <p class="site-card-region"><i class="bi bi-geo-alt"></i> {{ site.region }}</p>
+                                <p>{{ site.tagline }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endblock %}

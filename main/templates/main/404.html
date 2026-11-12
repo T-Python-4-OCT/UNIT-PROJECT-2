@@ -1,0 +1,16 @@
+{% extends "main/base.html" %}
+
+{% block title %}الصفحة غير موجودة | آثار{% endblock %}
+
+{% block content %}
+    <section class="section">
+        <div class="container intro">
+            <p class="eyebrow">404</p>
+            <h1 class="section-title">ضاع الأثر</h1>
+            <p>الصفحة اللي تدوّر عليها غير موجودة، أو انتقلت لمكان ثاني. ارجع للرئيسية أو تصفّح المواقع.</p>
+            <a href="{% url 'main:home_view' %}" class="btn-accent">
+                الرئيسية <i class="bi bi-arrow-left"></i>
+            </a>
+        </div>
+    </section>
+{% endblock %}

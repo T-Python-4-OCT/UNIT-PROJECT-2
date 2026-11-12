@@ -1,0 +1,77 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}عن المشروع | آثار{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="sites-hero" style="background-image: url('{% static 'images/home/hero.jpg' %}');">
+        <div class="container">
+            <h1>عن المشروع</h1>
+            <p class="hero-text">قصة «آثار» ومن وراءه.</p>
+        </div>
+    </section>
+
+    <section class="container about-body reveal">
+        <p>
+            أنا <strong>فيصل فواز الشهري</strong>، عريف في وزارة الداخلية،
+            ومتدرب في معسكر تطوير تطبيقات الويب باستخدام بايثون وجانغو
+            التابع لوزارة الداخلية في أكاديمية طويق.
+        </p>
+        <p>
+            صممت وسويت موقع «آثار» بنفسي كمشروع للوحدة الثانية في المعسكر،
+            وفكرته إنه يعرّف الزائر بمواقع التراث العالمي في المملكة العربية السعودية
+            المسجّلة في اليونسكو: الحجر، الدرعية، جدة التاريخية، الأحساء،
+            الفن الصخري في حائل، ومنطقة حمى الثقافية في نجران.
+        </p>
+
+        <h2 class="section-title">وش تلقى في الموقع؟</h2>
+        <ul class="about-list">
+            <li>صفحة لكل موقع فيها نبذة ومعرض صور وتاريخ وفعاليات.</li>
+            <li>بحث بالاسم، وتصفية المواقع حسب المنطقة.</li>
+            <li>تقدر تحفظ المواقع اللي تعجبك في المفضلة.</li>
+            <li>وضع ليلي ونهاري، وزر لنسخ رابط الموقع.</li>
+        </ul>
+    </section>
+
+    <section class="container pb-5">
+        <h2 class="section-title reveal">شخصيات من تاريخ المواقع</h2>
+        <div class="row g-4 mt-1">
+            {% for person in people %}
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="person-card">
+                        <div class="person-icon"><i class="bi bi-person-fill"></i></div>
+                        <h3>{{ person.name }}</h3>
+                        <span class="person-period">{{ person.period }}</span>
+                        <p>{{ person.story }}</p>
+                        <a href="{% url 'main:site_detail_view' person.slug %}" class="person-link">
+                            زيارة الموقع <i class="bi bi-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <section class="container pb-5">
+        <h2 class="section-title reveal">مستكشفون وباحثون</h2>
+        <div class="row g-4 mt-1">
+            {% for person in explorers %}
+                <div class="col-md-6 col-lg-4 reveal">
+                    <div class="person-card">
+                        <div class="person-icon"><i class="bi bi-compass"></i></div>
+                        <h3>{{ person.name }}</h3>
+                        <span class="person-period">{{ person.period }}</span>
+                        <p>{{ person.story }}</p>
+                        <a href="{% url 'main:site_detail_view' person.slug %}" class="person-link">
+                            زيارة الموقع <i class="bi bi-arrow-left"></i>
+                        </a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+{% endblock %}

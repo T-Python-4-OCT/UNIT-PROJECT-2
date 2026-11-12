@@ -1,0 +1,144 @@
+body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Tajawal', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6, .brand, .footer-brand {
+    font-family: 'Amiri', serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+main {
+    min-height: 60vh;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background: var(--bg);
+    border-bottom: 1px solid var(--border);
+    transition: background-color 0.3s ease;
+}
+
+.brand {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--accent) !important;
+}
+
+.site-header .nav-link {
+    color: var(--text-muted);
+    padding: 0.5rem 1rem;
+    position: relative;
+    transition: color 0.25s ease;
+}
+
+.site-header .nav-link:hover,
+.site-header .nav-link.active {
+    color: var(--text);
+}
+
+.site-header .nav-link::after {
+    content: "";
+    position: absolute;
+    right: 1rem;
+    left: 1rem;
+    bottom: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+}
+
+.site-header .nav-link:hover::after,
+.site-header .nav-link.active::after {
+    transform: scaleX(1);
+}
+
+.theme-btn {
+    font-size: 1.3rem;
+    color: var(--text);
+    transition: color 0.25s ease, transform 0.4s ease;
+}
+
+.theme-btn:hover {
+    color: var(--accent);
+    transform: rotate(20deg) scale(1.15);
+}
+
+.navbar-toggler {
+    border: none;
+    font-size: 1.6rem;
+    color: var(--text);
+}
+
+.navbar-toggler:focus {
+    box-shadow: none;
+}
+
+.site-footer {
+    background: var(--bg-soft);
+    border-top: 1px solid var(--border);
+    padding: 3rem 0 1.5rem;
+    color: var(--text-muted);
+    transition: background-color 0.3s ease;
+}
+
+.footer-brand {
+    font-size: 1.6rem;
+    color: var(--accent);
+    margin-bottom: 0.5rem;
+}
+
+.site-footer h6 {
+    color: var(--text);
+    margin-bottom: 1rem;
+}
+
+.footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-links li {
+    margin-bottom: 0.5rem;
+}
+
+.footer-links a {
+    transition: color 0.25s ease;
+}
+
+.footer-links a:hover {
+    color: var(--accent);
+}
+
+.socials {
+    display: flex;
+    gap: 1rem;
+}
+
+.socials a {
+    font-size: 1.3rem;
+    color: var(--text);
+    transition: color 0.25s ease, transform 0.25s ease;
+}
+
+.socials a:hover {
+    color: var(--accent);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    margin-top: 2rem;
+    padding-top: 1.2rem;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+}

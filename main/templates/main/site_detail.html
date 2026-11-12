@@ -1,0 +1,156 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ site.name }} | آثار{% endblock %}
+
+{% block extra_css %}
+    <link rel="stylesheet" href="{% static 'css/home.css' %}">
+    <link rel="stylesheet" href="{% static 'css/site.css' %}">
+{% endblock %}
+
+{% block content %}
+    <section class="site-hero" style="background-image: url('{% static 'images/sites/' %}{{ site.slug }}/1.jpg');">
+        <div class="container">
+            <nav class="crumbs">
+                <a href="{% url 'main:home_view' %}">الرئيسية</a>
+                <i class="bi bi-chevron-left"></i>
+                <a href="{% url 'main:sites_view' %}">المواقع</a>
+                <i class="bi bi-chevron-left"></i>
+                <span>{{ site.name }}</span>
+            </nav>
+            <p class="eyebrow"><i class="bi bi-geo-alt"></i> {{ site.region }} · سُجّل في اليونسكو {{ site.year }}</p>
+            <h1>{{ site.name }}</h1>
+            <p class="hero-text">{{ site.tagline }}</p>
+                        <button type="button" class="copy-link" id="copyLink">
+                <i class="bi bi-link-45deg"></i> <span>نسخ الرابط</span>
+            </button>
+            <a href="{% url 'main:toggle_favorite' site.slug %}" class="copy-link ms-3">
+                {% if is_favorite %}
+                    <i class="bi bi-heart-fill"></i> <span>في المفضلة</span>
+                {% else %}
+                    <i class="bi bi-heart"></i> <span>أضف للمفضلة</span>
+                {% endif %}
+            </a>
+        </div>
+    </section>
+    <section class="section">
+        <div class="container reveal">
+            <h2 class="section-title">نبذة</h2>
+            <p>{% if site.about %}{{ site.about }}{% else %}{{ site.brief }}{% endif %}</p>
+        </div>
+    </section>
+
+    {% if site.gallery %}
+    <section class="section gallery-section">
+        <div class="container">
+            <h2 class="section-title reveal">معرض الصور</h2>
+
+            <div id="siteCarousel" class="carousel slide reveal" data-bs-ride="carousel">
+                <div class="carousel-indicators">
+                    {% for item in site.gallery %}
+                        <button type="button" data-bs-target="#siteCarousel" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %}></button>
+                    {% endfor %}
+                </div>
+                <div class="carousel-inner">
+                    {% for item in site.gallery %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <img src="{% static item.src %}" alt="{{ item.caption }}">
+                            <div class="carousel-caption-box">{{ item.caption }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#siteCarousel" data-bs-slide="prev">
+                    <span class="carousel-control-prev-icon"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#siteCarousel" data-bs-slide="next">
+                    <span class="carousel-control-next-icon"></span>
+                </button>
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {% if site.highlights %}
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title reveal">أهم المعالم</h2>
+            <div class="row g-4 mt-1">
+                {% for item in site.highlights %}
+                    <div class="col-md-6 reveal">
+                        <div class="highlight-card">
+                            <span class="highlight-num">{{ forloop.counter }}</span>
+                            <div>
+                                <h3>{{ item.title }}</h3>
+                                <p>{{ item.desc }}</p>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {% if site.timeline %}
+    <section class="section timeline-section">
+        <div class="container">
+            <h2 class="section-title reveal">نبذة تاريخية</h2>
+            <div class="timeline">
+                {% for item in site.timeline %}
+                    <div class="timeline-item reveal">
+                        <div class="timeline-year">{{ item.year }}</div>
+                        <div class="timeline-text">{{ item.event }}</div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    {% if site.events %}
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title reveal">أهم الفعاليات</h2>
+            <div class="row g-4 mt-1">
+                {% for item in site.events %}
+                    <div class="col-md-6 reveal">
+                        <div class="event-card">
+                            <i class="bi bi-calendar-event"></i>
+                            <h3>{{ item.title }}</h3>
+                            <p>{{ item.desc }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    {% endif %}
+
+    <section class="section">
+        <div class="container">
+            <h2 class="section-title reveal">مواقع أخرى قد تعجبك</h2>
+            <div class="row g-4 mt-1">
+                {% for other in others %}
+                    <div class="col-lg-4 col-md-6 reveal">
+                        <a href="{% url 'main:site_detail_view' other.slug %}" class="site-card">
+                            <div class="site-card-img">
+                                <img src="{% static 'images/sites/' %}{{ other.slug }}/1.jpg" alt="{{ other.name }}" onerror="this.style.display='none'">
+                            </div>
+                            <div class="site-card-body">
+                                <h3>{{ other.name }}</h3>
+                                <p class="site-card-region"><i class="bi bi-geo-alt"></i> {{ other.region }}</p>
+                                <p>{{ other.tagline }}</p>
+                            </div>
+                        </a>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+
+    <div class="container back-wrap">
+        <a href="{% url 'main:sites_view' %}" class="back-link"><i class="bi bi-arrow-right"></i> العودة لكل المواقع</a>
+    </div>
+    
+
+{% endblock %}
