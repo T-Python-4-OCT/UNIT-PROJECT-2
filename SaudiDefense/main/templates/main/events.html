@@ -1,0 +1,133 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ t.events }}{% endblock %}
+
+{% block content %}
+
+<section class="page-hero" style="background-image: url('{% static 'images/photos/sami-booth.webp' %}');">
+    <div class="container">
+        <div class="crumbs"><a href="{% url 'main:home_view' %}">{{ t.home }}</a> / {{ t.events }}</div>
+        <h1>{{ t.events_page_title }}</h1>
+        <p class="lead mb-0">{{ t.events_lead }}</p>
+    </div>
+</section>
+
+{% if upcoming %}
+<section class="section">
+    <div class="container">
+        <span class="section-label">{{ t.upcoming_label }}</span>
+        <h2 class="section-title">{{ t.upcoming_title }}</h2>
+        <p class="section-intro">{{ t.upcoming_intro }}</p>
+
+        {% for event in upcoming %}
+        <div class="card-x upcoming-card">
+            <div class="row g-0">
+                <div class="col-lg-5">
+                    <div class="upcoming-img">
+                        <img src="{% static 'images/'|add:event.image %}" alt="{{ event.name }}">
+                    </div>
+                </div>
+                <div class="col-lg-7">
+                    <div class="card-body-x">
+                        <span class="days-badge">{{ t.days_before }} <strong>{{ event.days_left }}</strong> {{ t.days_left }}</span>
+                        <h3 class="upcoming-title">{{ event.name }}</h3>
+                        <p class="upcoming-meta">
+                            <span><i class="bi bi-calendar3"></i> {{ event.date_text }}</span>
+                            <span><i class="bi bi-geo-alt-fill"></i> {{ event.place }}</span>
+                        </p>
+                        <p>{{ event.text }}</p>
+
+                        <p class="reg-status"><i class="bi bi-info-circle-fill"></i> {{ t.reg_status }}</p>
+
+                        <h4 class="steps-title">{{ t.steps_title }}</h4>
+                        <ol class="reg-steps">
+                            <li>{{ t.step_1 }}</li>
+                            <li>{{ t.step_2 }}</li>
+                            <li>{{ t.step_3 }}</li>
+                            <li>{{ t.step_4 }}</li>
+                        </ol>
+
+                        <div class="d-flex flex-wrap gap-2">
+                            <a href="{{ event.visit_url }}" class="btn-main" target="_blank" rel="noopener">
+                                <i class="bi bi-ticket-perforated"></i> {{ t.register_visit }}
+                            </a>
+                            <a href="{{ event.contact_url }}" class="btn-soft" target="_blank" rel="noopener">
+                                <i class="bi bi-envelope"></i> {{ t.contact_show }}
+                            </a>
+                            <a href="{{ event.exhibit_url }}" class="btn-soft" target="_blank" rel="noopener">
+                                <i class="bi bi-shop"></i> {{ t.register_exhibit }}
+                            </a>
+                        </div>
+                        <p class="small text-muted-2 mt-3 mb-0"><i class="bi bi-box-arrow-up-right"></i> {{ t.official_note }}</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<section class="section section-soft">
+    <div class="container">
+        <span class="section-label">{{ t.past_label }}</span>
+        <h2 class="section-title">{{ t.past_title }}</h2>
+        <p class="section-intro">{{ t.wds_text }}</p>
+
+        {% for event in events %}
+        <div class="card-x edition-card">
+            <div class="row g-0">
+                <div class="col-lg-6">
+                    <div id="edition-{{ forloop.counter }}" class="carousel slide gallery edition-gallery" data-bs-ride="carousel">
+                        <div class="carousel-indicators">
+                            {% for file, caption in event.images %}
+                            <button type="button" data-bs-target="#edition-{{ forloop.parentloop.counter }}" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %} aria-label="{{ caption }}"></button>
+                            {% endfor %}
+                        </div>
+                        <div class="carousel-inner">
+                            {% for file, caption in event.images %}
+                            <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                                <img src="{% static 'images/'|add:file %}" class="d-block w-100" alt="{{ caption }}">
+                                <div class="carousel-caption"><span class="fw-bold">{{ caption }}</span></div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#edition-{{ forloop.counter }}" data-bs-slide="prev" aria-label="{{ t.prev }}">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#edition-{{ forloop.counter }}" data-bs-slide="next" aria-label="{{ t.next }}">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+                    <div class="card-body-x">
+                        <h3 class="upcoming-title">{{ event.name }}</h3>
+                        <p class="upcoming-meta">
+                            <span><i class="bi bi-calendar3"></i> {{ event.date_text }}</span>
+                            <span><i class="bi bi-geo-alt-fill"></i> {{ event.place }}</span>
+                        </p>
+                        <p>{{ event.text }}</p>
+
+                        <h4 class="steps-title">{{ t.achievements_title }}</h4>
+                        <div class="achievements">
+                            {% for number, label in event.achievements %}
+                            <div class="achievement">
+                                <strong>{{ number }}</strong>
+                                <span>{{ label }}</span>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <p class="small text-muted-2 mt-2 mb-0"><i class="bi bi-info-circle"></i> {{ t.achievements_source }}</p>
+    </div>
+</section>
+
+{% endblock %}

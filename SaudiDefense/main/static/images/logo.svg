@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="12 16 40 32">
+  <!-- Logo: two slanted bars in the site green -->
+  <path d="M14 46 L30 18 H38 L22 46 Z" fill="#0f6b55"/>
+  <path d="M26 46 L42 18 H50 L34 46 Z" fill="#0f6b55" opacity=".55"/>
+</svg>

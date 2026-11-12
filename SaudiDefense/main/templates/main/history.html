@@ -1,0 +1,43 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ t.history }}{% endblock %}
+
+{% block content %}
+
+<section class="page-hero" style="background-image: url('{% static 'images/photos/land-1.jpg' %}');">
+    <div class="container">
+        <div class="crumbs"><a href="{% url 'main:home_view' %}">{{ t.home }}</a> / {{ t.history }}</div>
+        <h1>{{ t.history }}</h1>
+        <p class="lead mb-0">{{ t.history_lead }}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-4 g-lg-5">
+            <div class="col-lg-4">
+                <div class="sticky-lg-top" style="top: 100px;">
+                    <span class="section-label">{{ t.archive_label }}</span>
+                    <h2 class="section-title">{{ t.history_title }}</h2>
+                    <p class="fs-5 text-muted-2 mb-0">{{ t.history_text }}</p>
+                </div>
+            </div>
+
+            <div class="col-lg-8">
+                <ul class="timeline timeline-big">
+                    {% for year, text in history %}
+                    <li>
+                        <span class="timeline-year">{{ year }}</span>
+                        <div class="timeline-card">
+                            <p>{{ text }}</p>
+                        </div>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

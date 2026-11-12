@@ -1,76 +1,86 @@
-# UNIT-PROJECT-2
+# Saudi Military Industries
 
-## Using Django create a project about our beloved kingdom of your choosing. Examples :
-- Tourism in Saudi Arabia.
-- Culture & Heritage in Saudi Arabia.
-- Manufacturing & Industries in Saudi Arabia.
-- Agriculture in Saudi Arabia.
-- Science in Saudi Arabia.
-- History of Saudi Arabia.
-- etc.....
+A website that introduces Saudi Arabia's military industries: their sectors, leading entities, history, events and career opportunities, built with Django.
+> **Made in Saudi Arabia… to protect Saudi Arabia**
 
+---
 
-# Minumum Requirements
-- Use Django.
-- Use templates & templates inheritance.
-- Use dynamic urls where applicable.
-- Use static files where applicable.
-- homepage + at least 6 pages.
-- Coherent, uniform design .
-- Implement dark and light mode.
-- Must be Responsive. 
-- You can use a CSS library to style your website (such as Bootstrap or equivalent)
-- You can use a cdn or a cloud storage to host large files such as large videos (example: Goolge Firebase Cloud Storage: https://firebase.google.com/docs/storage)
+## Pages
 
+| URL | Page | Content |
+|---|---|---|
+| `/` | Home | Hero video, key numbers, about, entities, sectors |
+| `/sector/<name>/` | Sector (`land`, `air`, `naval`) | Photo gallery, highlights, timeline, events |
+| `/company/<name>/` | Entity (`sami`, `gami`) | About, photos, highlights, timeline |
+| `/vision/` | Vision 2030 | The goal, progress in numbers, localization calculator, pillars |
+| `/history/` | History | Timeline from the Al-Kharj factories to today |
+| `/events/` | Events | Upcoming World Defense Show with a days countdown, and past editions |
+| `/careers/` | Careers | Official training and job programs, and in-demand majors |
 
+The sector and entity pages are **dynamic**: one template (`details.html`) shows any sector or entity based on the URL.
 
-# Example : TOURISM-PROJECT
+## Features
 
-## Using Django create a website for Tourism in Saudi Arabia . The project name is : Tourister
+- **Two languages:** Arabic (right to left) and English (left to right). Your choice is saved.
+- **Dark and light mode.**
+- **Responsive** on phones, tablets and desktops.
+- **Localization calculator:** enter a spending amount to see the local share today and the target for 2030.
+- **Event countdown:** shows how many days are left until the next World Defense Show.
+- **QR code:** opens the current page on your phone.
+- **Image lightbox:** click any photo to view it full screen.
 
-### Your website has the following pages :
+## Built With
 
-#### "" : home page , with the following content:
-- Title of the page , with a catchy phrase about tourism in Saudi Arabia
-- A single wide image covering the page.
-- A paragraph about the tourism in Saudi Arabia in General.
-- A list of cities pages with links to them (the pages are listed down below).
+- Python and Django
+- Django templates with inheritance (`base.html`)
+- Bootstrap 5 and Bootstrap Icons
+- Cairo and IBM Plex Sans Arabic fonts
+- JavaScript for dark mode, the calculator, the QR code and the lightbox
 
+## Project Structure
 
-#### "city/Riyadh/"
-- Title of city with a catchy phrase
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+```
+SaudiDefense/
+├── manage.py
+├── IMAGE_CREDITS.md            # sources of all photos and video
+├── SaudiDefense/               # project settings and main urls
+└── main/
+    ├── views.py                # one view per page
+    ├── urls.py                 # routes, including dynamic ones
+    ├── data.py                 # site content in Arabic and English
+    ├── translations.py         # interface text in Arabic and English
+    ├── context_processors.py   # sends language and texts to every page
+    ├── templates/main/
+    │   ├── base.html           # navbar, footer and shared layout
+    │   ├── index.html          # home
+    │   ├── details.html        # sector and entity pages
+    │   ├── vision.html
+    │   ├── history.html
+    │   ├── events.html
+    │   └── careers.html
+    └── static/
+        ├── css/style.css
+        ├── js/                 # theme, effects, calculator, QR, lightbox
+        ├── images/             # logo and photos
+        └── videos/             # home page video
+```
 
-#### "city/Abha/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+## Run Locally
 
-#### "city/Mekkah/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+```bash
+pip install django
+cd SaudiDefense
+python manage.py runserver
+```
 
-#### "city/AlUla/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+Then open `http://127.0.0.1:8000`
+
+## Image Credits
+
+Photos and video are from the Saudi Press Agency, the General Authority for Military Industries (GAMI) and Saudi Arabian Military Industries (SAMI). Full details are in [IMAGE_CREDITS.md](SaudiDefense/IMAGE_CREDITS.md).
+
+This is an educational project for a Python bootcamp. All images belong to their owners.
+
+---
+
+**Morad** · UNIT-PROJECT-2

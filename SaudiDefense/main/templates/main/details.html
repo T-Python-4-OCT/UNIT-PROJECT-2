@@ -1,0 +1,125 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ page.name }}{% endblock %}
+
+{% block content %}
+
+<section class="page-hero" style="background-image: url('{% static 'images/'|add:page.images.0.0 %}');">
+    <div class="container">
+        <div class="crumbs"><a href="{% url 'main:home_view' %}">{{ t.home }}</a> / {{ page.name }}</div>
+        <h1>{{ page.name }}</h1>
+        <p class="lead mb-0">{{ page.slogan }}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="row g-4 g-lg-5 align-items-center">
+            <div class="col-lg-5">
+                {% if page.logo %}
+                <span class="company-logo" role="img" aria-label="{{ page.name }}" style="background-image: url('{% static 'images/'|add:page.logo %}'); {{ page.logo_style }}"></span>
+                {% endif %}
+                <span class="section-label">{{ t.about_label }}</span>
+                <h2 class="section-title">{{ t.about_of }} {{ page.name }}</h2>
+                <p class="fs-5 text-muted-2 mb-0">{{ page.about }}</p>
+            </div>
+
+            <div class="col-lg-7">
+                <div id="gallery" class="carousel slide gallery" data-bs-ride="carousel">
+                    <div class="carousel-indicators">
+                        {% for file, caption in page.images %}
+                        <button type="button" data-bs-target="#gallery" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active"{% endif %} aria-label="{{ caption }}"></button>
+                        {% endfor %}
+                    </div>
+                    <div class="carousel-inner">
+                        {% for file, caption in page.images %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <img src="{% static 'images/'|add:file %}" class="d-block w-100" alt="{{ caption }}">
+                            <div class="carousel-caption">
+                                <span class="fw-bold">{{ caption }}</span>
+                            </div>
+                        </div>
+                        {% endfor %}
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#gallery" data-bs-slide="prev" aria-label="{{ t.prev }}">
+                        <span class="carousel-control-prev-icon"></span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#gallery" data-bs-slide="next" aria-label="{{ t.next }}">
+                        <span class="carousel-control-next-icon"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section section-soft">
+    <div class="container">
+        <span class="section-label">{{ t.highlights_label }}</span>
+        <h2 class="section-title">{{ t.highlights_title }}</h2>
+        <p class="section-intro">{{ t.highlights_intro }} {{ page.name }}.</p>
+
+        <div class="row g-4">
+            {% for title, text, image in page.highlights %}
+            <div class="col-md-4">
+                <div class="card-x">
+                    <div class="card-img">
+                        <img src="{% static 'images/'|add:image %}" alt="{{ title }}">
+                    </div>
+                    <div class="card-body-x">
+                        <h3>{{ title }}</h3>
+                        <p class="mb-0">{{ text }}</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% if page.video_id %}
+<section class="section">
+    <div class="container">
+        <span class="section-label">{{ t.video_label }}</span>
+        <h2 class="section-title">{{ t.video_title }}</h2>
+        <div class="ratio ratio-16x9 video-box mt-4">
+            <iframe src="https://www.youtube.com/embed/{{ page.video_id }}" title="{{ page.name }}" allowfullscreen></iframe>
+        </div>
+    </div>
+</section>
+{% endif %}
+
+<section class="section">
+    <div class="container">
+        <div class="row g-4 g-lg-5">
+            <div class="col-lg-6">
+                <span class="section-label">{{ t.timeline_label }}</span>
+                <h2 class="section-title mb-4">{{ t.timeline_title }}</h2>
+                <ul class="timeline">
+                    {% for year, text in page.timeline %}
+                    <li>
+                        <span class="timeline-year">{{ year }}</span>
+                        <p>{{ text }}</p>
+                    </li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <div class="col-lg-6">
+                <span class="section-label">{{ t.events_label }}</span>
+                <h2 class="section-title mb-4">{{ t.events_title }}</h2>
+                {% for event in page.events %}
+                <div class="event-row">
+                    <i class="bi bi-check-circle-fill"></i>
+                    <span class="fs-5">{{ event }}</span>
+                </div>
+                {% endfor %}
+
+                <a href="{% url 'main:home_view' %}#sectors" class="btn-soft mt-4"><i class="bi bi-arrow-right flip-ltr"></i> {{ t.back_home }}</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

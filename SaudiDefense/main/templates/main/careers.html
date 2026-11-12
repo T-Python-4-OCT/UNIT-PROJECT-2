@@ -1,0 +1,63 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ t.careers }}{% endblock %}
+
+{% block content %}
+
+<section class="page-hero" style="background-image: url('{% static 'images/photos/sami-banner.webp' %}');">
+    <div class="container">
+        <div class="crumbs"><a href="{% url 'main:home_view' %}">{{ t.home }}</a> / {{ t.careers }}</div>
+        <h1>{{ t.careers_title }}</h1>
+        <p class="lead mb-0">{{ t.careers_lead }}</p>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <span class="section-label">{{ t.careers_label }}</span>
+        <h2 class="section-title">{{ t.careers_heading }}</h2>
+        <p class="section-intro">{{ t.careers_intro }}</p>
+
+        <div class="row g-4">
+            {% for item in careers %}
+            <div class="col-lg-4">
+                <div class="card-x">
+                    <div class="card-body-x">
+                        <span class="icon-badge"><i class="bi {{ item.icon }}"></i></span>
+                        <h3>{{ item.title }}</h3>
+                        <p class="career-who"><i class="bi bi-person-check-fill"></i> {{ t.careers_who }} {{ item.who }}</p>
+                        <p>{{ item.text }}</p>
+                        <div class="d-flex flex-wrap gap-2 mt-auto">
+                            <a href="{{ item.url }}" class="btn-main" target="_blank" rel="noopener">
+                                {{ item.button }} <i class="bi bi-box-arrow-up-right"></i>
+                            </a>
+                            {% for label, link in item.extra %}
+                            <a href="{{ link }}" class="btn-soft" target="_blank" rel="noopener">{{ label }}</a>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<section class="section section-soft">
+    <div class="container">
+        <span class="section-label">{{ t.majors_label }}</span>
+        <h2 class="section-title">{{ t.majors_title }}</h2>
+        <p class="section-intro">{{ t.majors_intro }}</p>
+
+        <div class="majors">
+            {% for major in majors %}
+            <span class="major-chip"><i class="bi bi-check2-circle"></i> {{ major }}</span>
+            {% endfor %}
+        </div>
+
+        <p class="small text-muted-2 mt-4 mb-0"><i class="bi bi-info-circle"></i> {{ t.careers_note }}</p>
+    </div>
+</section>
+
+{% endblock %}
