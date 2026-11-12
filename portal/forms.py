@@ -60,6 +60,7 @@ class FeedbackForm(forms.Form):
         self.errors_text = errors
 
     def clean_name(self):
+        "Collapse extra spaces, then allow letters, spaces, hyphens and apostrophes only."
         name = " ".join(self.cleaned_data["name"].split())
 
         if not NAME_PATTERN.match(name):
@@ -68,9 +69,11 @@ class FeedbackForm(forms.Form):
         return name
 
     def clean_email(self):
+        "Store emails in lowercase so the same address is always written the same way."
         return self.cleaned_data["email"].lower()
 
     def clean_message(self):
+        "Reject messages with no letters, or with more links than allowed (spam)."
         message = self.cleaned_data["message"]
 
         if not LETTER_PATTERN.search(message):
@@ -82,6 +85,7 @@ class FeedbackForm(forms.Form):
         return message
 
     def clean(self):
+        "Runs after every field check: a filled honeypot means a bot sent the form."
         cleaned_data = super().clean()
 
         if cleaned_data.get("website"):
@@ -90,6 +94,7 @@ class FeedbackForm(forms.Form):
         return cleaned_data
 
     def save(self, language):
+        "Create one Feedback row from the validated data."
         data = self.cleaned_data
         return Feedback.objects.create(
             name=data["name"],
@@ -121,6 +126,7 @@ class SearchForm(forms.Form):
         self.errors_text = errors
 
     def clean_q(self):
+        "Collapse extra spaces and require at least one letter or digit."
         query = " ".join(self.cleaned_data["q"].split())
 
         if not SEARCHABLE_PATTERN.search(query):

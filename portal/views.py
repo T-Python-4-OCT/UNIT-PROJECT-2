@@ -143,6 +143,12 @@ def resolve_sources(page, site):
 
 
 def home(request):
+    """
+    Home page.
+    1. Read the chosen language from the session.
+    2. Load the shared site data and the home page content (JSON).
+    3. Add each journey card's title and photo, then render home.html.
+    """
     language = get_language(request)
     site = load_json("site.json", language)
     home_content = load_json("home.json", language)
@@ -159,6 +165,12 @@ def home(request):
 
 
 def content_page(request, slug):
+    """
+    One view for all seven content pages (dynamic URL: /<slug>/).
+    1. Find the page's content in its JSON file (404 if the slug is unknown).
+    2. Number its sources so every figure links to where it came from.
+    3. Render the shared page.html template.
+    """
     language = get_language(request)
     site = load_json("site.json", language)
 
@@ -175,6 +187,12 @@ def content_page(request, slug):
 
 
 def search(request):
+    """
+    Site search (GET /search/?q=...).
+    1. Validate the query with SearchForm.
+    2. Collect every page's content and score it with search_pages.
+    3. Render results, or the form's error message.
+    """
     language = get_language(request)
     site = load_json("site.json", language)
     text = load_json("search.json", language)
@@ -217,6 +235,12 @@ def sent_feedback_recently(request):
 
 @require_http_methods(["GET", "POST"])
 def feedback(request):
+    """
+    Feedback page.
+    GET: show an empty form.
+    POST: validate it, block a second message within a minute, save it to the
+    database, then redirect (Post/Redirect/Get) so a refresh does not resend.
+    """
     language = get_language(request)
     text = load_json("feedback.json", language)
 
@@ -268,6 +292,7 @@ def set_language(request):
 
 
 def page_not_found(request, exception):
+    "Custom 404 page in the visitor's language (used when DEBUG is False)."
     language = get_language(request)
     context = {
         **get_common_context(request),

@@ -1,3 +1,6 @@
+/* ===== Dark / light mode toggle =====
+   The saved theme is applied in base.html before the page paints;
+   this script only updates the button and saves the new choice. */
 document.addEventListener("DOMContentLoaded", function () {
   const themeToggle = document.getElementById("themeToggle");
   const root = document.documentElement;
@@ -6,28 +9,27 @@ document.addEventListener("DOMContentLoaded", function () {
     return;
   }
 
+  // Show the icon and label for the mode the button will switch TO
+  function updateThemeButton(theme) {
+    const isDark = theme === "dark";
 
-function updateThemeButton(theme) {
-  const isDark = theme === "dark";
+    const label = isDark
+      ? themeToggle.dataset.lightLabel
+      : themeToggle.dataset.darkLabel;
 
-  const label = isDark
-    ? themeToggle.dataset.lightLabel
-    : themeToggle.dataset.darkLabel;
+    const ariaLabel = isDark
+      ? themeToggle.dataset.lightAria
+      : themeToggle.dataset.darkAria;
 
-  const ariaLabel = isDark
-    ? themeToggle.dataset.lightAria
-    : themeToggle.dataset.darkAria;
+    const icon = themeToggle.querySelector(".theme-icon");
 
-  const icon = themeToggle.querySelector(".theme-icon");
+    if (icon) {
+      icon.textContent = isDark ? "☀" : "☾";
+    }
 
-  if (icon) {
-    icon.textContent = isDark ? "☀" : "☾";
+    themeToggle.setAttribute("aria-label", ariaLabel);
+    themeToggle.setAttribute("title", label);
   }
-
-  themeToggle.setAttribute("aria-label", ariaLabel);
-  themeToggle.setAttribute("title", label);
-}
-
 
   const currentTheme = root.getAttribute("data-bs-theme") || "light";
   updateThemeButton(currentTheme);
@@ -37,13 +39,14 @@ function updateThemeButton(theme) {
     const newTheme = current === "dark" ? "light" : "dark";
 
     root.setAttribute("data-bs-theme", newTheme);
-    localStorage.setItem("site-theme", newTheme);
+    localStorage.setItem("site-theme", newTheme); // remembered on the next visit
 
     updateThemeButton(newTheme);
   });
 });
 
 
+/* ===== Scroll reveal: sections fade in the first time they enter the screen ===== */
 document.addEventListener("DOMContentLoaded", function () {
   const revealElements = document.querySelectorAll(
     ".cinematic-journey .journey-heading, .cinematic-journey .col, .cinematic-about, .gallery-item"
