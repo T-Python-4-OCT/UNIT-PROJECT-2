@@ -1,0 +1,658 @@
+.vision-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+.vision-hero {
+    padding: 135px 0;
+    text-align: center;
+    background:
+        radial-gradient(circle at top, #205a3b 0%, transparent 60%),
+        #091610;
+}
+
+.vision-hero .vision-container {
+    max-width: 950px;
+}
+
+.vision-label {
+    color: #6cdda0;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.vision-hero h1 {
+    color: #fff;
+    font-size: clamp(38px, 5vw, 70px);
+    margin: 25px 0;
+    line-height: 1.4;
+}
+
+.vision-hero p {
+    color: #c5d5ca;
+    font-size: 19px;
+    line-height: 2;
+    margin-bottom: 35px;
+}
+
+.vision-btn {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 10px;
+    background: #62cb91;
+    color: #092014;
+    font-weight: 800;
+    text-decoration: none;
+    transition: .25s;
+}
+
+.vision-btn:hover {
+    background: #85e5ad;
+    transform: translateY(-3px);
+}
+
+.vision-goal {
+    padding: 100px 0;
+    background: #0b1711;
+}
+
+.vision-goal-card {
+    padding: 65px 30px;
+    text-align: center;
+    border: 1px solid #3c8057;
+    border-radius: 24px;
+    background: linear-gradient(135deg, #183d29, #10251a);
+}
+
+.vision-percentage {
+    color: #6cdda0;
+    font-size: clamp(30px, 4vw, 48px);
+    font-weight: 800;
+    line-height: 1.2;
+    margin: 15px 0;
+    direction: ltr;
+}
+
+.vision-goal-card h2 {
+    color: #fff;
+    font-size: clamp(26px, 4vw, 40px);
+    margin-bottom: 20px;
+}
+
+.vision-goal-card p {
+    color: #c5d5ca;
+    font-size: 18px;
+    line-height: 2;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.vision-pillars {
+    padding: 105px 0;
+    background: #0d1e15;
+}
+
+.vision-heading {
+    text-align: center;
+    margin-bottom: 55px;
+}
+
+.vision-heading h2 {
+    color: #fff;
+    font-size: clamp(30px, 4vw, 48px);
+    margin-top: 20px;
+}
+
+.vision-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 25px;
+}
+
+.vision-pillar-card {
+    padding: 40px 30px;
+    border-radius: 20px;
+    background: #173022;
+    border: 1px solid #345a43;
+    transition: .3s;
+}
+
+.vision-pillar-card:hover {
+    transform: translateY(-8px);
+    border-color: #6cdda0;
+}
+
+.vision-card-number {
+    color: #6cdda0;
+    font-size: 35px;
+    font-weight: 900;
+}
+
+.vision-pillar-card h3 {
+    color: #fff;
+    font-size: 26px;
+    margin: 30px 0 15px;
+}
+
+.vision-pillar-card p {
+    color: #c0d0c5;
+    font-size: 16px;
+    line-height: 2;
+}
+
+.vision-journey {
+    padding: 110px 0;
+    background: #0b1711;
+}
+
+.vision-steps {
+    max-width: 850px;
+    margin: auto;
+    display: grid;
+    gap: 22px;
+}
+
+.vision-step {
+    display: flex;
+    align-items: flex-start;
+    gap: 30px;
+    padding: 30px;
+    background: #14291e;
+    border: 1px solid #345a43;
+    border-radius: 16px;
+}
+
+.vision-step > span {
+    color: #6cdda0;
+    font-size: 28px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.vision-step h3 {
+    color: #fff;
+    font-size: 23px;
+    margin: 0 0 10px;
+}
+
+.vision-step p {
+    color: #c0d0c5;
+    line-height: 1.9;
+    margin: 0;
+}
+
+.vision-cta {
+    padding: 110px 0;
+    text-align: center;
+    background: linear-gradient(135deg, #143824, #0c2015);
+}
+
+.vision-cta h2 {
+    color: #fff;
+    font-size: clamp(30px, 4vw, 45px);
+    margin-bottom: 20px;
+}
+
+.vision-cta p {
+    color: #c0d0c5;
+    font-size: 18px;
+    line-height: 1.9;
+    margin-bottom: 30px;
+}
+
+.vision-cta-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.vision-btn-outline {
+    background: transparent;
+    color: #80e5ad;
+    border: 1px solid #80e5ad;
+}
+
+.vision-btn-outline:hover {
+    background: #1c4930;
+}
+
+@media (max-width: 768px) {
+.vision-hero {
+        padding: 90px 0;
+    }
+}
+
+@media (max-width: 768px) {
+.vision-goal,
+.vision-pillars,
+.vision-journey,
+.vision-cta {
+        padding: 75px 0;
+    }
+}
+
+@media (max-width: 768px) {
+.vision-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+.vision-step {
+        flex-direction: column;
+        gap: 12px;
+    }
+}
+
+@media (max-width: 768px) {
+.vision-goal-card {
+        padding: 45px 20px;
+    }
+}
+
+body:not(.dark-mode) .vision-hero {
+    background: linear-gradient(135deg, #e8f3ec, #f4f7f5);
+}
+
+body:not(.dark-mode) .vision-hero h1 {
+    color: #173629;
+}
+
+body:not(.dark-mode) .vision-hero p {
+    color: #52695a;
+}
+
+body:not(.dark-mode) .vision-label {
+    color: #247b4d;
+}
+
+body:not(.dark-mode) .vision-goal {
+    background: #f4f7f5;
+}
+
+body:not(.dark-mode) .vision-goal-card {
+    background: linear-gradient(135deg, #e8f3ec, #ffffff);
+    border-color: #b8d9c4;
+}
+
+body:not(.dark-mode) .vision-percentage {
+    color: #247b4d;
+}
+
+body:not(.dark-mode) .vision-goal-card h2 {
+    color: #173629;
+}
+
+body:not(.dark-mode) .vision-goal-card p {
+    color: #52695a;
+}
+
+body:not(.dark-mode) .vision-pillars {
+    background: #eaf1ec;
+}
+
+body:not(.dark-mode) .vision-heading h2 {
+    color: #173629;
+}
+
+body:not(.dark-mode) .vision-pillar-card {
+    background: #ffffff;
+    border-color: #d5e5da;
+}
+
+body:not(.dark-mode) .vision-pillar-card h3 {
+    color: #173629;
+}
+
+body:not(.dark-mode) .vision-pillar-card p {
+    color: #52695a;
+}
+
+body:not(.dark-mode) .vision-card-number {
+    color: #247b4d;
+}
+
+body:not(.dark-mode) .vision-journey {
+    background: #f4f7f5;
+}
+
+body:not(.dark-mode) .vision-step {
+    background: #ffffff;
+    border-color: #d5e5da;
+}
+
+body:not(.dark-mode) .vision-step > span {
+    color: #247b4d;
+}
+
+body:not(.dark-mode) .vision-step h3 {
+    color: #173629;
+}
+
+body:not(.dark-mode) .vision-step p {
+    color: #52695a;
+}
+
+body:not(.dark-mode) .vision-cta {
+    background: linear-gradient(135deg, #e8f3ec, #f4f7f5);
+}
+
+body:not(.dark-mode) .vision-cta h2 {
+    color: #173629;
+}
+
+body:not(.dark-mode) .vision-cta p {
+    color: #52695a;
+}
+
+body:not(.dark-mode) .vision-btn-outline {
+    color: #247b4d;
+    border-color: #247b4d;
+}
+
+body:not(.dark-mode) .vision-btn-outline:hover {
+    background: #d5eadd;
+    color: #173629;
+}
+
+.vision-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.vision-pillar-card {
+    padding: 0;
+    overflow: hidden;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.vision-card-image {
+    width: 100%;
+    height: 210px;
+    overflow: hidden;
+}
+
+.vision-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.4s ease;
+}
+
+.vision-pillar-card:hover .vision-card-image img {
+    transform: scale(1.05);
+}
+
+.vision-card-content {
+    padding: 26px;
+    flex: 1;
+}
+
+.vision-card-content .vision-card-number {
+    display: block;
+    margin-bottom: 16px;
+}
+
+.vision-card-content h3 {
+    font-size: 25px;
+    margin-bottom: 14px;
+}
+
+.vision-card-content p {
+    font-size: 17px;
+    line-height: 1.9;
+}
+
+@media (max-width: 900px) {
+.vision-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 900px) {
+.vision-card-image {
+        height: 230px;
+    }
+}
+
+@media (max-width: 600px) {
+.vision-card-image {
+        height: 190px;
+    }
+}
+
+@media (max-width: 600px) {
+.vision-card-content {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 600px) {
+.vision-card-content h3 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 600px) {
+.vision-card-content p {
+        font-size: 16px;
+    }
+}
+
+.vision-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 24px;
+    align-items: stretch;
+}
+
+.vision-grid .vision-pillar-card {
+    padding: 0;
+    margin: 0;
+    min-height: 0;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+}
+
+.vision-grid .vision-card-image {
+    height: 200px;
+    width: 100%;
+    flex-shrink: 0;
+    overflow: hidden;
+}
+
+.vision-grid .vision-card-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.vision-grid .vision-card-content {
+    padding: 24px;
+    flex: 1;
+}
+
+.vision-grid .vision-card-number {
+    display: block;
+    margin: 0 0 15px;
+    font-size: 36px;
+}
+
+.vision-grid .vision-card-content h3 {
+    font-size: 24px;
+    margin: 0 0 12px;
+}
+
+.vision-grid .vision-card-content p {
+    font-size: 17px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+@media (max-width: 900px) {
+.vision-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.vision-film {
+    padding: 110px 20px;
+    background: #091610;
+    position: relative;
+    overflow: hidden;
+}
+
+.vision-film::before {
+    content: "";
+    position: absolute;
+    width: 550px;
+    height: 550px;
+    top: -250px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: radial-gradient(circle, rgba(73, 190, 124, 0.12), transparent 70%);
+    pointer-events: none;
+}
+
+.vision-film .vision-container {
+    position: relative;
+    z-index: 1;
+}
+
+.vision-film-heading {
+    text-align: center;
+    max-width: 850px;
+    margin: 0 auto 50px;
+}
+
+.vision-film-heading h2 {
+    font-size: clamp(30px, 4vw, 54px);
+    color: #f5f5f2;
+    line-height: 1.4;
+    margin: 20px 0;
+}
+
+.vision-film-heading p {
+    font-size: 18px;
+    line-height: 2;
+    color: #b7cbbf;
+}
+
+.vision-film-frame {
+    position: relative;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 8px;
+    border: 1px solid rgba(97, 207, 152, 0.45);
+    border-radius: 24px;
+    background: linear-gradient(135deg, #183d2a, #091610);
+    box-shadow: 0 25px 70px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+.vision-film-video {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    object-fit: cover;
+    background: #050b08;
+    border-radius: 17px;
+}
+
+.vision-film-footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+}
+
+.vision-film-footer p {
+    color: #a9c5b5;
+    font-size: 14px;
+    margin: 0;
+}
+
+.vision-film-indicator {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #61cf98;
+    box-shadow: 0 0 12px rgba(97, 207, 152, 0.5);
+}
+
+@media (max-width: 768px) {
+.vision-film {
+        padding: 75px 16px;
+    }
+}
+
+@media (max-width: 768px) {
+.vision-film-heading {
+        margin-bottom: 30px;
+    }
+}
+
+@media (max-width: 768px) {
+.vision-film-heading p {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 768px) {
+.vision-film-frame {
+        padding: 4px;
+        border-radius: 15px;
+    }
+}
+
+@media (max-width: 768px) {
+.vision-film-video {
+        border-radius: 10px;
+    }
+}
+
+.vision-film-frame iframe {
+    display: block;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    border: 0;
+    border-radius: 17px;
+    background: #050b08;
+}
+
+@media (max-width: 768px) {
+.vision-film-frame iframe {
+        border-radius: 10px;
+    }
+}
+
+.vision-film-frame {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+
+.vision-film-frame iframe {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+}
+
+.vision-film {
+    padding-bottom: 55px;
+}
+
+.vision-journey {
+    padding-top: 55px;
+}

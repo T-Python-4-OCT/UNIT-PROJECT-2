@@ -1,0 +1,70 @@
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Saudi Defense 2030{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'main/css/base.css' %}">
+    {% block extra_css %}{% endblock %}
+    
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="navbar container">
+
+            <a href="{% url 'main:home' %}" class="logo">
+                SAUDI <span>DEFENSE</span>
+            </a>
+
+            <div class="nav-links">
+                <a href="{% url 'main:home' %}"
+                   data-ar="الرئيسية" data-en="Home">الرئيسية</a>
+
+                <a href="{% url 'main:history' %}"
+                   data-ar="التاريخ" data-en="History">التاريخ</a>
+
+                <a href="{% url 'main:companies' %}"
+                   data-ar="الشركات" data-en="Companies">الشركات</a>
+
+                <a href="{% url 'main:vision' %}"
+                   data-ar="رؤية 2030" data-en="Vision 2030">رؤية 2030</a>
+
+                <a href="{% url 'main:about' %}"
+                   data-ar="من نحن" data-en="About">من نحن</a>
+            </div>
+
+            <div class="nav-actions">
+                <button id="language-toggle" type="button">EN</button>
+                <button id="theme-toggle" type="button" aria-label="تغيير المظهر">☀</button>
+            </div>
+
+        </nav>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <h3>SAUDI DEFENSE 2030</h3>
+
+            <p data-ar="موقع تعليمي عن تطور الصناعات الدفاعية السعودية."
+               data-en="An educational website about Saudi Arabia's defense industries.">
+                موقع تعليمي عن تطور الصناعات الدفاعية السعودية.
+            </p>
+
+            <small>© 2026 Saudi Defense 2030</small>
+        </div>
+    </footer>
+
+    <script src="{% static 'main/js/script.js' %}"></script>
+
+</body>
+</html>

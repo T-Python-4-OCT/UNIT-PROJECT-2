@@ -1,0 +1,134 @@
+.sectors-section {
+    background: var(--surface);
+}
+
+.sectors-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 26px;
+}
+
+.sector-card {
+    display: block;
+    overflow: hidden;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    box-shadow: var(--shadow);
+    transition:
+        transform 0.3s,
+        box-shadow 0.3s,
+        border-color 0.3s;
+}
+
+.sector-card:hover {
+    transform: translateY(-8px);
+    border-color: var(--accent);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.sector-card img {
+    display: block;
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    background: var(--surface-alt);
+    transition: transform 0.4s;
+}
+
+.sector-card:hover img {
+    transform: scale(1.035);
+}
+
+.sector-card-content {
+    position: relative;
+    padding: 25px;
+    background: var(--bg);
+}
+
+.sector-card-content h3 {
+    margin: 0 0 9px;
+    font-size: 24px;
+    line-height: 1.5;
+}
+
+.sector-card-content p {
+    margin: 0;
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.9;
+}
+
+.card-link {
+    display: inline-block;
+    margin-top: 17px;
+    color: var(--accent);
+    font-size: 14px;
+    font-weight: 800;
+}
+
+@media (max-width: 992px) {
+.sector-card img {
+        height: 245px;
+    }
+}
+
+@media (max-width: 768px) {
+.sectors-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}
+
+@media (max-width: 768px) {
+.sector-card img {
+        height: 250px;
+    }
+}
+
+@media (max-width: 768px) {
+.sector-card-content {
+        padding: 21px;
+    }
+}
+
+@media (max-width: 768px) {
+.sector-card-content h3 {
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 420px) {
+.sector-card img {
+        height: 210px;
+    }
+}
+
+.sectors-grid {
+    gap: 22px;
+}
+
+.sector-card img {
+    height: 230px;
+    object-fit: cover;
+}
+
+.sector-card-content {
+    padding: 22px;
+}
+
+.sector-card-content h3 {
+    font-size: 22px;
+    margin-bottom: 7px;
+}
+
+.sector-card-content p {
+    font-size: 14px;
+    line-height: 1.9;
+}
+
+@media (max-width: 768px) {
+.sector-card img {
+        height: 210px;
+    }
+}

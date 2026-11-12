@@ -1,0 +1,289 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+
+{% block title %}رؤية السعودية 2030 | Saudi Defense{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/vision.css' %}">
+{% endblock %}
+{% block content %}
+
+<section class="vision-hero">
+    <div class="vision-container">
+        <span class="vision-label"
+              data-ar="رؤية السعودية 2030"
+              data-en="SAUDI VISION 2030">
+            رؤية السعودية 2030
+        </span>
+
+        <h1 data-ar="نحو صناعة دفاعية وطنية"
+            data-en="Towards a National Defense Industry">
+            نحو صناعة دفاعية وطنية
+        </h1>
+
+        <p data-ar="تمثل رؤية السعودية 2030 خارطة طريق لتعزيز القدرات الصناعية الوطنية، وتوطين الصناعات العسكرية، وتطوير الكفاءات والتقنيات."
+           data-en="Saudi Vision 2030 provides a roadmap to strengthen national industrial capabilities, localize military industries, and develop talent and technology.">
+            تمثل رؤية السعودية 2030 خارطة طريق لتعزيز القدرات الصناعية الوطنية، وتوطين الصناعات العسكرية، وتطوير الكفاءات والتقنيات.
+        </p>
+
+        <a href="#vision-goal" class="vision-btn"
+           data-ar="اكتشف مستهدفات الرؤية"
+           data-en="Explore Vision Goals">
+            اكتشف مستهدفات الرؤية
+        </a>
+    </div>
+</section>
+
+<section class="vision-goal" id="vision-goal">
+    <div class="vision-container">
+        <div class="vision-goal-card">
+            <span class="vision-label"
+      data-ar="مستقبل الصناعات الدفاعية"
+      data-en="THE FUTURE OF DEFENSE INDUSTRIES">
+    مستقبل الصناعات الدفاعية
+</span>
+
+            <div class="vision-percentage"
+     data-ar="صناعة وطنية مستدامة"
+     data-en="Sustainable National Industry">
+    صناعة وطنية مستدامة
+    </div>
+
+            <h2 data-ar="الاستثمار في المستقبل"
+    data-en="Investing in the Future">
+    الاستثمار في المستقبل
+</h2>
+
+            <p data-ar="تسهم رؤية السعودية 2030 في تطوير منظومة صناعية دفاعية متكاملة، تقوم على الابتكار والشراكات ونقل المعرفة، وتفتح فرصًا جديدة أمام الكفاءات الوطنية."
+   data-en="Saudi Vision 2030 supports an integrated defense industrial ecosystem built on innovation, partnerships, and knowledge transfer, creating new opportunities for national talent.">
+    تسهم رؤية السعودية 2030 في تطوير منظومة صناعية دفاعية متكاملة، تقوم على الابتكار والشراكات ونقل المعرفة، وتفتح فرصًا جديدة أمام الكفاءات الوطنية.
+</p>
+        </div>
+    </div>
+</section>
+
+
+<section class="vision-pillars">
+    <div class="vision-container">
+        <div class="vision-heading">
+            <span class="vision-label"
+                  data-ar="ركائز التطوير"
+                  data-en="DEVELOPMENT PILLARS">
+                ركائز التطوير
+            </span>
+
+            <h2 data-ar="ثلاث ركائز لمستقبل الصناعة"
+                data-en="Three Pillars for the Future">
+                ثلاث ركائز لمستقبل الصناعة
+            </h2>
+        </div>
+
+        <div class="vision-grid">
+            <article class="vision-pillar-card">
+                <div class="vision-card-image">
+                    <img src="{% static 'main/images/vision-factory.jpg' %}"
+                         alt="التصنيع المحلي"
+                         loading="lazy">
+                </div>
+
+                <div class="vision-card-content">
+                    <span class="vision-card-number">01</span>
+
+                    <h3 data-ar="التصنيع المحلي"
+                        data-en="Local Manufacturing">
+                        التصنيع المحلي
+                    </h3>
+
+                    <p data-ar="تعزيز الإنتاج الوطني وتطوير سلاسل الإمداد والمكونات الصناعية داخل المملكة."
+                       data-en="Strengthening national production and developing local supply chains and industrial components.">
+                        تعزيز الإنتاج الوطني وتطوير سلاسل الإمداد والمكونات الصناعية داخل المملكة.
+                    </p>
+                </div>
+            </article>
+
+            <article class="vision-pillar-card">
+                <div class="vision-card-image">
+                    <img src="{% static 'main/images/vision-engineers.jpg' %}"
+                         alt="نقل التقنية"
+                         loading="lazy">
+                </div>
+
+                <div class="vision-card-content">
+                    <span class="vision-card-number">02</span>
+
+                    <h3 data-ar="نقل التقنية"
+                        data-en="Technology Transfer">
+                        نقل التقنية
+                    </h3>
+
+                    <p data-ar="تطوير المعرفة والخبرات التقنية من خلال الشراكات الصناعية والبحث والتطوير."
+                       data-en="Building technical knowledge through industrial partnerships, research, and development.">
+                        تطوير المعرفة والخبرات التقنية من خلال الشراكات الصناعية والبحث والتطوير.
+                    </p>
+                </div>
+            </article>
+
+            <article class="vision-pillar-card">
+                <div class="vision-card-image">
+                    <img src="{% static 'main/images/vision-future.jpg' %}"
+                         alt="تأهيل الكفاءات"
+                         loading="lazy">
+                </div>
+
+                <div class="vision-card-content">
+                    <span class="vision-card-number">03</span>
+
+                    <h3 data-ar="تأهيل الكفاءات"
+                        data-en="Talent Development">
+                        تأهيل الكفاءات
+                    </h3>
+
+                    <p data-ar="إعداد الكوادر الوطنية في المجالات الهندسية والتقنية والصناعية لدعم استدامة القطاع."
+                       data-en="Preparing national talent in engineering, technology, and industry to support long-term sector growth.">
+                        إعداد الكوادر الوطنية في المجالات الهندسية والتقنية والصناعية لدعم استدامة القطاع.
+                    </p>
+                </div>
+            </article>
+        </div>
+    </div>
+</section>
+
+</section>
+
+
+<section class="vision-film" id="vision-film">
+    <div class="vision-container">
+
+        <div class="vision-film-heading">
+            <span class="vision-label"
+                  data-ar="شاهد التحول"
+                  data-en="WATCH THE TRANSFORMATION">
+                شاهد التحول
+            </span>
+
+            <h2 data-ar="من الرؤية إلى واقع الصناعة"
+                data-en="From Vision to Industrial Reality">
+                من الرؤية إلى واقع الصناعة
+            </h2>
+
+            <p data-ar="اكتشف دور توطين الصناعات العسكرية في بناء مستقبل الصناعة الوطنية وتعزيز القدرات السعودية."
+               data-en="Discover how defense industry localization contributes to building Saudi Arabia's industrial future and strengthening national capabilities.">
+                اكتشف دور توطين الصناعات العسكرية في بناء مستقبل الصناعة الوطنية وتعزيز القدرات السعودية.
+            </p>
+        </div>
+
+        <div class="vision-film-frame">
+            <iframe
+                src="https://www.youtube-nocookie.com/embed/3hxyD6y47DE"
+                title="توطين الصناعات العسكرية السعودية"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <div class="vision-film-footer">
+            <span class="vision-film-indicator"></span>
+
+            <p data-ar="توطين الصناعات العسكرية | رؤية السعودية 2030"
+               data-en="Defense Industry Localization | Saudi Vision 2030">
+                توطين الصناعات العسكرية | رؤية السعودية 2030
+            </p>
+        </div>
+
+    </div>
+</section>
+
+<section class="vision-journey">
+
+    <div class="vision-container">
+        <div class="vision-heading">
+            <span class="vision-label"
+                  data-ar="مسار التحول"
+                  data-en="TRANSFORMATION JOURNEY">
+                مسار التحول
+            </span>
+
+            <h2 data-ar="من الطموح إلى المستقبل"
+                data-en="From Ambition to the Future">
+                من الطموح إلى المستقبل
+            </h2>
+        </div>
+
+        <div class="vision-steps">
+            <div class="vision-step">
+                <span>2016</span>
+                <div>
+                    <h3 data-ar="إطلاق الرؤية"
+                        data-en="Vision Launch">
+                        إطلاق الرؤية
+                    </h3>
+                    <p data-ar="إعلان رؤية السعودية 2030 وتحديد مستهدفات تنمية القطاعات الوطنية."
+                       data-en="The launch of Saudi Vision 2030 and its national development objectives.">
+                        إعلان رؤية السعودية 2030 وتحديد مستهدفات تنمية القطاعات الوطنية.
+                    </p>
+                </div>
+            </div>
+
+            <div class="vision-step">
+                <span>2017</span>
+                <div>
+                    <h3 data-ar="تعزيز المنظومة الصناعية"
+                        data-en="Strengthening the Industrial Ecosystem">
+                        تعزيز المنظومة الصناعية
+                    </h3>
+                    <p data-ar="تأسيس الهيئة العامة للصناعات العسكرية والشركة السعودية للصناعات العسكرية."
+                       data-en="The establishment of the General Authority for Military Industries and Saudi Arabian Military Industries.">
+                        تأسيس الهيئة العامة للصناعات العسكرية والشركة السعودية للصناعات العسكرية.
+                    </p>
+                </div>
+            </div>
+
+            <div class="vision-step">
+                <span>2030</span>
+                <div>
+                    <h3 data-ar="المستهدف الوطني"
+                        data-en="National Target">
+                        المستهدف الوطني
+                    </h3>
+                    <p data-ar="الوصول إلى توطين أكثر من 50% من الإنفاق العسكري على المعدات والخدمات."
+                       data-en="Achieving more than 50% localization of military spending on equipment and services.">
+                        الوصول إلى توطين أكثر من 50% من الإنفاق العسكري على المعدات والخدمات.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="vision-cta">
+    <div class="vision-container">
+        <h2 data-ar="اكتشف الصناعات الدفاعية السعودية"
+            data-en="Discover Saudi Defense Industries">
+            اكتشف الصناعات الدفاعية السعودية
+        </h2>
+
+        <p data-ar="تعرّف على الشركات والقطاعات التي تسهم في بناء مستقبل الصناعة الوطنية."
+           data-en="Explore the companies and sectors shaping the future of national industry.">
+            تعرّف على الشركات والقطاعات التي تسهم في بناء مستقبل الصناعة الوطنية.
+        </p>
+
+        <div class="vision-cta-buttons">
+            <a href="{% url 'main:companies' %}" class="vision-btn"
+               data-ar="استكشف الشركات"
+               data-en="Explore Companies">
+                استكشف الشركات
+            </a>
+
+            <a href="{% url 'main:sectors' %}" class="vision-btn vision-btn-outline"
+               data-ar="استكشف القطاعات"
+               data-en="Explore Sectors">
+                استكشف القطاعات
+            </a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,79 @@
+
+{
+  "aerospace": {
+    "title_ar": "الصناعات الجوية",
+    "title_en": "Aerospace Industries",
+    "subtitle_ar": "تطوير القدرات الوطنية في صناعة الطيران والأنظمة الجوية",
+    "subtitle_en": "Developing national capabilities in aviation and aerospace systems",
+    "description_ar": "يشمل هذا القطاع تصنيع وصيانة الطائرات والأنظمة الجوية، وتطوير التقنيات المرتبطة بالطيران، وبناء الكفاءات الوطنية في المجالات الهندسية والتقنية.",
+    "description_en": "This sector includes aircraft manufacturing and maintenance, aerospace systems development, and building national engineering and technical capabilities.",
+    "image": "aerospace.jpg",
+    "features_ar": [
+      "صيانة وإصلاح الطائرات",
+      "تصنيع مكونات الطيران",
+      "الأنظمة الجوية المتقدمة"
+    ],
+    "features_en": [
+      "Aircraft maintenance and repair",
+      "Aerospace component manufacturing",
+      "Advanced aerospace systems"
+    ]
+  },
+  "land": {
+    "title_ar": "الصناعات البرية",
+    "title_en": "Land Industries",
+    "subtitle_ar": "تصنيع وتطوير الأنظمة والمركبات البرية",
+    "subtitle_en": "Manufacturing and developing land systems and vehicles",
+    "description_ar": "يركز القطاع البري على تطوير وتصنيع المركبات والمعدات والأنظمة البرية، مع دعم التصنيع المحلي والصيانة ونقل المعرفة التقنية.",
+    "description_en": "The land sector focuses on developing and manufacturing land vehicles, equipment, and systems while supporting local production and technical knowledge transfer.",
+    "image": "land.jpg",
+    "features_ar": [
+      "المركبات المدرعة",
+      "الأنظمة والمعدات البرية",
+      "الصيانة والتطوير"
+    ],
+    "features_en": [
+      "Armored vehicles",
+      "Land systems and equipment",
+      "Maintenance and development"
+    ]
+  },
+  "naval": {
+    "title_ar": "الصناعات البحرية",
+    "title_en": "Naval Industries",
+    "subtitle_ar": "تطوير السفن والأنظمة والتقنيات البحرية",
+    "subtitle_en": "Developing vessels, naval systems, and marine technologies",
+    "description_ar": "يشمل القطاع البحري بناء وصيانة السفن وتطوير الأنظمة البحرية، ودعم القدرات الصناعية والهندسية الوطنية المرتبطة بهذا المجال.",
+    "description_en": "The naval sector includes shipbuilding, vessel maintenance, and naval systems development, supporting national industrial and engineering capabilities.",
+    "image": "naval.jpg",
+    "features_ar": [
+      "بناء السفن",
+      "صيانة الأنظمة البحرية",
+      "التقنيات والمعدات البحرية"
+    ],
+    "features_en": [
+      "Shipbuilding",
+      "Naval systems maintenance",
+      "Marine technologies and equipment"
+    ]
+  },
+  "technology": {
+    "title_ar": "التقنيات الدفاعية",
+    "title_en": "Defense Technologies",
+    "subtitle_ar": "الابتكار وتطوير الأنظمة الإلكترونية والتقنيات المتقدمة",
+    "subtitle_en": "Innovation in electronic systems and advanced technologies",
+    "description_ar": "يركز هذا القطاع على البحث والتطوير والأنظمة الإلكترونية والاتصالات والتقنيات المتقدمة، بما يدعم الابتكار وتطوير القدرات التقنية الوطنية.",
+    "description_en": "This sector focuses on research and development, electronic systems, communications, and advanced technologies to support national innovation.",
+    "image": "technology.jpg",
+    "features_ar": [
+      "الأنظمة الإلكترونية",
+      "الاتصالات والتقنيات الرقمية",
+      "البحث والتطوير"
+    ],
+    "features_en": [
+      "Electronic systems",
+      "Communications and digital technologies",
+      "Research and development"
+    ]
+  }
+}

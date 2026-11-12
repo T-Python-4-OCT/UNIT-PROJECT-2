@@ -1,0 +1,272 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}الشركات الوطنية | Saudi Defense 2030{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/companies.css' %}">
+{% endblock %}
+{% block content %}
+
+<section class="companies-hero">
+    <div class="container">
+        <span class="companies-eyebrow"
+              data-ar="الصناعات الدفاعية السعودية"
+              data-en="SAUDI DEFENSE INDUSTRIES">
+            الصناعات الدفاعية السعودية
+        </span>
+
+        <h1 data-ar="شركات تصنع المستقبل"
+            data-en="Companies Shaping the Future">
+            شركات تصنع المستقبل
+        </h1>
+
+        <p data-ar="تعرّف على أبرز الشركات الوطنية التي تسهم في تطوير الصناعات الدفاعية السعودية، وتوطين التقنيات، وبناء الكفاءات الوطنية."
+           data-en="Explore leading national companies contributing to Saudi defense industries, technology localization, and national talent development.">
+            تعرّف على أبرز الشركات الوطنية التي تسهم في تطوير الصناعات الدفاعية السعودية، وتوطين التقنيات، وبناء الكفاءات الوطنية.
+        </p>
+
+        <a href="#national-companies" class="companies-main-btn"
+           data-ar="استكشف الشركات"
+           data-en="Explore Companies">
+            استكشف الشركات
+        </a>
+    </div>
+</section>
+
+<section class="companies-section" id="national-companies">
+    <div class="container">
+
+        <div class="companies-heading">
+            <span class="companies-eyebrow"
+                  data-ar="شركاؤنا في التقدم"
+                  data-en="DRIVING NATIONAL PROGRESS">
+                شركاؤنا في التقدم
+            </span>
+
+            <h2 data-ar="أبرز الشركات الوطنية"
+                data-en="Leading National Companies">
+                أبرز الشركات الوطنية
+            </h2>
+
+            <p data-ar="نماذج من الشركات العاملة في مجالات التصنيع الدفاعي والتقنيات المتقدمة والخدمات الجوية."
+               data-en="Examples of companies working in defense manufacturing, advanced technologies, and aerospace services.">
+                نماذج من الشركات العاملة في مجالات التصنيع الدفاعي والتقنيات المتقدمة والخدمات الجوية.
+            </p>
+        </div>
+
+        <div class="companies-grid">
+
+            <article class="company-card">
+                <div class="company-card-top">
+                    <span class="company-index">01</span>
+                    <span class="company-category"
+                          data-ar="الصناعات الدفاعية"
+                          data-en="DEFENSE INDUSTRIES">
+                        الصناعات الدفاعية
+                    </span>
+                </div>
+
+                <div class="company-image">
+                <img src="{% static 'main/images/sami.jpg' %}" alt="شركة SAMI" loading="lazy">
+                </div>
+
+                <h3 data-ar="الشركة السعودية للصناعات العسكرية"
+                    data-en="Saudi Arabian Military Industries">
+                    الشركة السعودية للصناعات العسكرية
+                </h3>
+
+                <p data-ar="شركة وطنية مملوكة لصندوق الاستثمارات العامة، تأسست عام 2017 لتطوير الصناعات الدفاعية والمساهمة في توطينها."
+                   data-en="A PIF-owned national company established in 2017 to develop and localize defense industries.">
+                    شركة وطنية مملوكة لصندوق الاستثمارات العامة، تأسست عام 2017 لتطوير الصناعات الدفاعية والمساهمة في توطينها.
+                </p>
+
+                <div class="company-specialties">
+                    <span data-ar="الأنظمة البرية" data-en="Land Systems">الأنظمة البرية</span>
+                    <span data-ar="الأنظمة الجوية" data-en="Aerospace">الأنظمة الجوية</span>
+                    <span data-ar="التقنيات الدفاعية" data-en="Defense Technology">التقنيات الدفاعية</span>
+                </div>
+
+                <a href="https://www.sami.com.sa/" target="_blank" rel="noopener noreferrer"
+                   class="company-link"
+                   data-ar="زيارة الموقع الرسمي ↗"
+                   data-en="Visit Official Website ↗">
+                    زيارة الموقع الرسمي ↗
+                </a>
+            </article>
+
+            
+<article class="company-card">
+    <div class="company-card-top">
+        <span class="company-index">02</span>
+        <span class="company-category"
+              data-ar="الأنظمة غير المأهولة"
+              data-en="UNMANNED SYSTEMS">
+            الأنظمة غير المأهولة
+        </span>
+    </div>
+
+    <div class="company-image">
+    <img src="{% static 'main/images/intra.jpg' %}" alt="شركة INTRA" loading="lazy">
+    </div>  
+
+    <h3 data-ar="شركة إنترا للتقنيات الدفاعية"
+        data-en="INTRA Defense Technologies">
+        شركة إنترا للتقنيات الدفاعية
+    </h3>
+
+    <p data-ar="شركة سعودية متخصصة في تصميم وتطوير وتصنيع الأنظمة غير المأهولة والتقنيات المتقدمة، وتسهم في توطين تقنيات الطائرات دون طيار."
+       data-en="A Saudi company specializing in the design, development, and manufacturing of unmanned systems and advanced technologies, contributing to UAV technology localization.">
+        شركة سعودية متخصصة في تصميم وتطوير وتصنيع الأنظمة غير المأهولة والتقنيات المتقدمة، وتسهم في توطين تقنيات الطائرات دون طيار.
+    </p>
+
+    <div class="company-specialties">
+        <span data-ar="الطائرات غير المأهولة"
+              data-en="Unmanned Aircraft">
+            الطائرات غير المأهولة
+        </span>
+
+        <span data-ar="الأنظمة الذاتية"
+              data-en="Autonomous Systems">
+            الأنظمة الذاتية
+        </span>
+
+        <span data-ar="التصنيع والتطوير"
+              data-en="Manufacturing & Development">
+            التصنيع والتطوير
+        </span>
+    </div>
+
+    <a href="https://intra.sa/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="company-link"
+       data-ar="زيارة الموقع الرسمي ↗"
+       data-en="Visit Official Website ↗">
+        زيارة الموقع الرسمي ↗
+    </a>
+</article>
+
+          
+
+               
+<article class="company-card">
+    <div class="company-card-top">
+        <span class="company-index">03</span>
+        <span class="company-category"
+              data-ar="التصنيع الدقيق"
+              data-en="PRECISION MANUFACTURING">
+            التصنيع الدقيق
+        </span>
+    </div>
+
+    <div class="company-image">
+    <img src="{% static 'main/images/wahaj.jpg' %}" alt="شركة WAHAJ" loading="lazy">
+    </div>
+
+    <h3 data-ar="الشركة السعودية للتقنيات المتقدمة (وهج)"
+        data-en="Saudi Advanced Technologies (WAHAJ)">
+        الشركة السعودية للتقنيات المتقدمة (وهج)
+    </h3>
+
+    <p data-ar="شركة سعودية تابعة لمجموعة سبكيم، متخصصة في التصنيع الدقيق والمكونات الهندسية المستخدمة في قطاعات الدفاع والطيران والطاقة."
+       data-en="A Saudi company affiliated with SIPCHEM, specializing in precision manufacturing and engineered components for the defense, aerospace, and energy sectors.">
+        شركة سعودية تابعة لمجموعة سبكيم، متخصصة في التصنيع الدقيق والمكونات الهندسية المستخدمة في قطاعات الدفاع والطيران والطاقة.
+    </p>
+
+    <div class="company-specialties">
+        <span data-ar="التصنيع الدقيق"
+              data-en="Precision Manufacturing">
+            التصنيع الدقيق
+        </span>
+
+        <span data-ar="مكونات الطيران"
+              data-en="Aerospace Components">
+            مكونات الطيران
+        </span>
+
+        <span data-ar="الهندسة المتقدمة"
+              data-en="Advanced Engineering">
+            الهندسة المتقدمة
+        </span>
+    </div>
+
+    <a href="https://wahaj.com.sa/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="company-link"
+       data-ar="زيارة الموقع الرسمي ↗"
+       data-en="Visit Official Website ↗">
+        زيارة الموقع الرسمي ↗
+    </a>
+</article>
+
+
+        </div>
+    </div>
+</section>
+
+<section class="companies-ecosystem">
+    <div class="container">
+        <div class="ecosystem-content">
+            <span class="companies-eyebrow"
+                  data-ar="منظومة متكاملة"
+                  data-en="AN INTEGRATED ECOSYSTEM">
+                منظومة متكاملة
+            </span>
+
+            <h2 data-ar="من التصنيع إلى التوطين"
+                data-en="From Manufacturing to Localization">
+                من التصنيع إلى التوطين
+            </h2>
+
+            <p data-ar="تتطور الصناعات الدفاعية من خلال تكامل الشركات الوطنية مع الجهات التنظيمية ومراكز البحث والتطوير والشراكات الصناعية."
+               data-en="Defense industries grow through cooperation among national companies, regulatory authorities, research centers, and industrial partners.">
+                تتطور الصناعات الدفاعية من خلال تكامل الشركات الوطنية مع الجهات التنظيمية ومراكز البحث والتطوير والشراكات الصناعية.
+            </p>
+
+            <div class="ecosystem-features">
+                <div>
+                    <span>01</span>
+                    <h3 data-ar="التصنيع المحلي" data-en="Local Manufacturing">التصنيع المحلي</h3>
+                </div>
+                <div>
+                    <span>02</span>
+                    <h3 data-ar="نقل المعرفة" data-en="Knowledge Transfer">نقل المعرفة</h3>
+                </div>
+                <div>
+                    <span>03</span>
+                    <h3 data-ar="تطوير الكفاءات" data-en="Talent Development">تطوير الكفاءات</h3>
+                </div>
+            </div>
+
+            <p class="ecosystem-note"
+               data-ar="وتؤدي الهيئة العامة للصناعات العسكرية (GAMI) دورًا تنظيميًا في القطاع، وهي جهة حكومية وليست شركة مصنّعة."
+               data-en="The General Authority for Military Industries (GAMI) serves as a regulatory authority in the sector, not a manufacturing company.">
+                وتؤدي الهيئة العامة للصناعات العسكرية (GAMI) دورًا تنظيميًا في القطاع، وهي جهة حكومية وليست شركة مصنّعة.
+            </p>
+        </div>
+    </div>
+</section>
+
+<section class="companies-cta">
+    <div class="container">
+        <h2 data-ar="اكتشف قطاعات الصناعات الدفاعية"
+            data-en="Explore Defense Industry Sectors">
+            اكتشف قطاعات الصناعات الدفاعية
+        </h2>
+
+        <p data-ar="تعرّف على المجالات الجوية والبرية والبحرية والتقنيات الدفاعية."
+           data-en="Discover aerospace, land, naval, and defense technology sectors.">
+            تعرّف على المجالات الجوية والبرية والبحرية والتقنيات الدفاعية.
+        </p>
+
+        <a href="{% url 'main:sectors' %}" class="companies-main-btn"
+           data-ar="استكشف القطاعات"
+           data-en="Explore Sectors">
+            استكشف القطاعات
+        </a>
+    </div>
+</section>
+
+{% endblock %}

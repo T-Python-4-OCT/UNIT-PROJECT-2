@@ -1,0 +1,547 @@
+
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}Saudi Defense 2030 | الرئيسية{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/home.css' %}">
+{% endblock %}
+{% block content %}
+
+
+<section class="hero">
+    <div class="container hero-content">
+
+        <span class="eyebrow">SAUDI DEFENSE 2030</span>
+
+        <h1
+            data-ar="نحو مستقبل الصناعات الدفاعية السعودية"
+            data-en="Building the Future of Saudi Defense Industries">
+            نحو مستقبل الصناعات الدفاعية السعودية
+        </h1>
+
+        <p
+            data-ar="اكتشف رحلة تطور الصناعات الدفاعية في المملكة العربية السعودية، من البدايات إلى التصنيع المتقدم والابتكار وتوطين التقنية."
+            data-en="Explore the evolution of Saudi Arabia's defense industries, from early development to advanced manufacturing, innovation, and technology localization.">
+            اكتشف رحلة تطور الصناعات الدفاعية في المملكة العربية السعودية، من البدايات إلى التصنيع المتقدم والابتكار وتوطين التقنية.
+        </p>
+
+        <div class="hero-buttons">
+
+           <a href="{% url 'main:sectors' %}"
+        class="btn btn-primary"
+        data-ar="استكشف القطاعات"
+        data-en="Explore Sectors">
+         استكشف القطاعات
+        </a>
+
+            <a href="{% url 'main:history' %}"
+               class="btn btn-hero-outline"
+               data-ar="اكتشف التاريخ"
+               data-en="Discover History">
+                اكتشف التاريخ
+            </a>
+
+        </div>
+    </div>
+</section>
+
+
+        </div>
+</section>
+
+
+<section class="section video-section">
+
+    <div class="container">
+
+        <div class="section-heading">
+
+            <span class="section-label"
+                  data-ar="شاهد المستقبل"
+                  data-en="WATCH THE FUTURE">
+                شاهد المستقبل
+            </span>
+
+            <h2
+                data-ar="رحلة تطور الصناعات الدفاعية"
+                data-en="The Evolution of Defense Industries">
+                رحلة تطور الصناعات الدفاعية
+            </h2>
+
+            <p
+                data-ar="شاهد لمحة عن تطور القطاع الدفاعي في المملكة ودور المعارض والابتكار في إبراز القدرات الصناعية."
+                data-en="Discover Saudi Arabia's defense sector and the role of exhibitions and innovation in showcasing industrial capabilities.">
+                شاهد لمحة عن تطور القطاع الدفاعي في المملكة ودور المعارض والابتكار في إبراز القدرات الصناعية.
+            </p>
+
+        </div>
+
+        <div class="video-frame">
+            <div id="defense-video"></div>
+        </div>
+
+    </div>
+</section>
+
+
+<script>
+    const videoScript = document.createElement("script");
+    videoScript.src = "https://www.youtube.com/iframe_api";
+    document.head.appendChild(videoScript);
+
+    let defensePlayer;
+    
+
+    window.onYouTubeIframeAPIReady = function () {
+
+        defensePlayer = new YT.Player("defense-video", {
+
+            videoId: "qGjY2b60B_4",
+
+        playerVars: {
+        autoplay: 1,
+        controls: 1,
+        fs: 1,
+        mute: 1,
+        playsinline: 1,
+        rel: 0
+        },
+
+            events: {
+
+              onReady: function (event) {
+    event.target.mute();
+    event.target.playVideo();
+},
+                onError: function () {
+                    console.log("Video could not be loaded.");
+                }
+
+            }
+        });
+    };
+</script>
+
+
+    </div>
+ </section>
+
+
+<section class="overview-section" id="overview">
+
+    
+
+
+<section class="development-section" id="development">
+
+    <div class="development-container">
+
+        <div class="development-heading">
+            <span class="development-label"
+                  data-ar="رحلة التطور"
+                  data-en="DEVELOPMENT JOURNEY">
+                رحلة التطور
+            </span>
+
+            <h2 data-ar="كيف نبني صناعة دفاعية وطنية؟"
+                data-en="How Do We Build a National Defense Industry?">
+                كيف نبني صناعة دفاعية وطنية؟
+            </h2>
+
+            <p data-ar="تعمل المملكة على تطوير منظومة صناعية متكاملة، من خلال بناء القدرات المحلية ونقل التقنية والاستثمار في الكفاءات الوطنية."
+               data-en="Saudi Arabia is developing an integrated industrial ecosystem through local capabilities, technology transfer, and investment in national talent.">
+                تعمل المملكة على تطوير منظومة صناعية متكاملة،
+                من خلال بناء القدرات المحلية ونقل التقنية
+                والاستثمار في الكفاءات الوطنية.
+            </p>
+        </div>
+
+        <div class="development-grid">
+
+            
+            <article class="development-card">
+
+                <div class="development-card-top">
+                    <span class="development-number">01</span>
+                    <span class="development-icon">⚙</span>
+                </div>
+
+                <h3 data-ar="التصنيع المحلي"
+                    data-en="Local Manufacturing">
+                    التصنيع المحلي
+                </h3>
+
+                <p data-ar="تطوير قدرات الشركات الوطنية في تصنيع المعدات والأنظمة الدفاعية، وتعزيز مشاركة المصانع المحلية في سلاسل الإمداد."
+                   data-en="Developing national companies' capabilities in manufacturing defense equipment and systems, while strengthening local factories in supply chains.">
+                    تطوير قدرات الشركات الوطنية في تصنيع المعدات
+                    والأنظمة الدفاعية، وتعزيز مشاركة المصانع
+                    المحلية في سلاسل الإمداد.
+                </p>
+
+                <span class="development-tag"
+                      data-ar="بناء القدرات الصناعية"
+                      data-en="Industrial Capabilities">
+                    بناء القدرات الصناعية
+                </span>
+
+            </article>
+
+           
+
+            <article class="development-card">
+
+                <div class="development-card-top">
+                    <span class="development-number">02</span>
+                    <span class="development-icon">✧</span>
+                </div>
+
+                <h3 data-ar="التقنية والابتكار"
+                    data-en="Technology & Innovation">
+                    التقنية والابتكار
+                </h3>
+
+                <p data-ar="دعم البحث والتطوير ونقل المعرفة والتقنيات الحديثة، لبناء حلول وطنية متقدمة وتطوير القدرات التقنية."
+                   data-en="Supporting research, development, technology transfer and modern technologies to build advanced national solutions.">
+                    دعم البحث والتطوير ونقل المعرفة والتقنيات
+                    الحديثة، لبناء حلول وطنية متقدمة وتطوير
+                    القدرات التقنية.
+                </p>
+
+                <span class="development-tag"
+                      data-ar="نقل التقنية والمعرفة"
+                      data-en="Technology Transfer">
+                    نقل التقنية والمعرفة
+                </span>
+
+            </article>
+
+           
+
+            <article class="development-card">
+
+                <div class="development-card-top">
+                    <span class="development-number">03</span>
+                    <span class="development-icon">♙</span>
+                </div>
+
+                <h3 data-ar="الكفاءات الوطنية"
+                    data-en="National Talent">
+                    الكفاءات الوطنية
+                </h3>
+
+                <p data-ar="الاستثمار في التدريب والتعليم المتخصص، وتأهيل الكفاءات السعودية للعمل في المجالات الهندسية والتقنية والصناعية."
+                   data-en="Investing in specialized education and training, and preparing Saudi talent for engineering, technical and industrial careers.">
+                    الاستثمار في التدريب والتعليم المتخصص،
+                    وتأهيل الكفاءات السعودية للعمل في المجالات
+                    الهندسية والتقنية والصناعية.
+                </p>
+
+                <span class="development-tag"
+                      data-ar="تأهيل الكوادر السعودية"
+                      data-en="Saudi Talent Development">
+                    تأهيل الكوادر السعودية
+                </span>
+
+            </article>
+
+        </div>
+
+        <div class="development-footer">
+
+            <p data-ar="التكامل بين الصناعة والتقنية والإنسان هو أساس بناء قطاع دفاعي وطني مستدام."
+               data-en="The integration of industry, technology and people is the foundation of a sustainable national defense sector.">
+                التكامل بين الصناعة والتقنية والإنسان
+                هو أساس بناء قطاع دفاعي وطني مستدام.
+            </p>
+
+            <a href="#sectors"
+               class="development-link"
+               data-ar="اكتشف مجالات الصناعة"
+               data-en="Explore Industry Sectors">
+                اكتشف مجالات الصناعة
+                <span>←</span>
+            </a>
+
+        </div>
+
+        <div class="development-source">
+            <span data-ar="للمزيد من المعلومات:"
+                  data-en="Learn more:">
+                للمزيد من المعلومات:
+            </span>
+
+            <a href="https://www.gami.gov.sa/ar/strategy"
+               target="_blank"
+               rel="noopener">
+                الهيئة العامة للصناعات العسكرية GAMI
+            </a>
+        </div>
+
+    </div>
+
+</section>
+
+
+    <div class="overview-container">
+
+        <span class="overview-label"
+              data-ar="نظرة عامة"
+              data-en="OVERVIEW">
+            نظرة عامة
+        </span>
+
+        <h2 data-ar="صناعة وطنية نحو المستقبل"
+            data-en="A National Industry Towards the Future">
+            صناعة وطنية نحو المستقبل
+        </h2>
+
+        <p class="overview-description"
+           data-ar="تمثل الصناعات الدفاعية أحد مجالات التطور الصناعي والتقني في المملكة العربية السعودية. وتشمل أعمال التصنيع والصيانة والتطوير في قطاعات الطيران والأنظمة البرية والبحرية والإلكترونيات، مع التركيز على بناء القدرات الوطنية ونقل المعرفة."
+           data-en="Defense industries represent an important area of industrial and technological development in Saudi Arabia. They include manufacturing, maintenance and development across aerospace, land, naval and electronics sectors, with a focus on building national capabilities and transferring knowledge.">
+            تمثل الصناعات الدفاعية أحد مجالات التطور الصناعي والتقني
+            في المملكة العربية السعودية. وتشمل أعمال التصنيع والصيانة
+            والتطوير في قطاعات الطيران والأنظمة البرية والبحرية
+            والإلكترونيات، مع التركيز على بناء القدرات الوطنية ونقل المعرفة.
+        </p>
+
+        
+<div class="overview-stats">
+
+   
+    <div class="stat-card">
+        <span class="stat-number">4%</span>
+        <h3 data-ar="نسبة التوطين في 2018"
+            data-en="Localization Rate in 2018">
+            نسبة التوطين في 2018
+        </h3>
+        <p data-ar="بداية رحلة التوطين"
+           data-en="Beginning of the localization journey">
+            بداية رحلة التوطين
+        </p>
+    </div>
+
+    
+    <div class="stat-card">
+        <span class="stat-number">27.30%</span>
+        <h3 data-ar="نسبة التوطين في 2025"
+            data-en="Localization Rate in 2025">
+            نسبة التوطين في 2025
+        </h3>
+        <p data-ar="من إجمالي الإنفاق العسكري"
+           data-en="Of total military spending">
+            من إجمالي الإنفاق العسكري
+        </p>
+    </div>
+
+   
+    <div class="stat-card featured-stat">
+        <span class="stat-number">50%+</span>
+        <h3 data-ar="مستهدف رؤية 2030"
+            data-en="Vision 2030 Target">
+            مستهدف رؤية 2030
+        </h3>
+        <p data-ar="توطين الإنفاق العسكري"
+           data-en="Localization of military spending">
+            توطين الإنفاق العسكري
+        </p>
+    </div>
+
+</div>
+
+
+           
+
+        <p class="stats-source">
+            <span data-ar="المصدر:"
+                  data-en="Source:">المصدر:</span>
+            <a href="https://www.gami.gov.sa/ar"
+               target="_blank" rel="noopener">
+                الهيئة العامة للصناعات العسكرية
+            </a>
+        </p>
+
+    </div>
+
+</section>
+
+
+<section class="section intro">
+    <div class="container intro-content">
+        <span class="section-label"
+              data-ar="نظرة عامة"
+              data-en="OVERVIEW">
+            نظرة عامة
+        </span>
+
+        <h2 data-ar="صناعة وطنية نحو المستقبل"
+            data-en="A National Industry Shaping the Future">
+            صناعة وطنية نحو المستقبل
+        </h2>
+
+        <p data-ar="تمثل الصناعات الدفاعية أحد مجالات التطور الصناعي والتقني في المملكة العربية السعودية. وتشمل أعمال التصنيع والصيانة والتطوير في قطاعات الطيران والأنظمة البرية والبحرية والإلكترونيات، مع التركيز على بناء القدرات الوطنية وتطوير الكفاءات ونقل المعرفة."
+           data-en="Defense industries are an important part of Saudi Arabia's industrial and technological development. They include manufacturing, maintenance, and development across aerospace, land, naval, and electronics sectors, with a focus on national capabilities, skilled talent, and knowledge transfer.">
+            تمثل الصناعات الدفاعية أحد مجالات التطور الصناعي والتقني في المملكة العربية السعودية. وتشمل أعمال التصنيع والصيانة والتطوير في قطاعات الطيران والأنظمة البرية والبحرية والإلكترونيات، مع التركيز على بناء القدرات الوطنية وتطوير الكفاءات ونقل المعرفة.
+        </p>
+    </div>
+</section>
+
+<section class="section sectors-section" id="sectors">
+    <div class="container">
+
+        <div class="section-heading">
+            <span class="section-label"
+                  data-ar="مجالات الصناعة"
+                  data-en="INDUSTRY SECTORS">
+                مجالات الصناعة
+            </span>
+
+            <h2 data-ar="اكتشف الصناعات الدفاعية"
+                data-en="Explore Defense Industries">
+                اكتشف الصناعات الدفاعية
+            </h2>
+
+            <p data-ar="تعرف على أبرز القطاعات الصناعية والتقنية التي تشكل منظومة الصناعات الدفاعية."
+               data-en="Discover the major industrial and technological sectors within the defense industry.">
+                تعرف على أبرز القطاعات الصناعية والتقنية التي تشكل منظومة الصناعات الدفاعية.
+            </p>
+        </div>
+
+        <div class="sectors-grid">
+
+            <a href="{% url 'main:sector_detail' 'aerospace' %}" class="sector-card">
+                <img src="{% static 'main/images/aerospace.jpg' %}"
+                     alt="الصناعات الجوية" loading="lazy">
+
+                <div class="sector-card-content">
+                    <h3 data-ar="الصناعات الجوية"
+                        data-en="Aerospace Industries">
+                        الصناعات الجوية
+                    </h3>
+
+                    <p data-ar="استكشف صيانة الطائرات وتصنيع المكونات والهندسة الجوية."
+                       data-en="Explore aircraft maintenance, component manufacturing, and aerospace engineering.">
+                        استكشف صيانة الطائرات وتصنيع المكونات والهندسة الجوية.
+                    </p>
+
+                    <span class="card-link"
+                          data-ar="اكتشف المزيد"
+                          data-en="Discover More">
+                        اكتشف المزيد
+                    </span>
+                </div>
+            </a>
+
+            <a href="{% url 'main:sector_detail' 'land' %}" class="sector-card">
+                <img src="{% static 'main/images/land.jpg' %}"
+                     alt="الصناعات البرية" loading="lazy">
+
+                <div class="sector-card-content">
+                    <h3 data-ar="الصناعات البرية"
+                        data-en="Land Systems">
+                        الصناعات البرية
+                    </h3>
+
+                    <p data-ar="تعرف على المركبات المدرعة والتصنيع والصيانة الهندسية."
+                       data-en="Learn about armored vehicles, manufacturing, and engineering maintenance.">
+                        تعرف على المركبات المدرعة والتصنيع والصيانة الهندسية.
+                    </p>
+
+                    <span class="card-link"
+                          data-ar="اكتشف المزيد"
+                          data-en="Discover More">
+                        اكتشف المزيد
+                    </span>
+                </div>
+            </a>
+
+            <a href="{% url 'main:sector_detail' 'naval' %}" class="sector-card">
+                <img src="{% static 'main/images/naval.jpg' %}"
+                     alt="الصناعات البحرية" loading="lazy">
+
+                <div class="sector-card-content">
+                    <h3 data-ar="الصناعات البحرية"
+                        data-en="Naval Industries">
+                        الصناعات البحرية
+                    </h3>
+
+                    <p data-ar="اكتشف بناء السفن والأنظمة البحرية وأعمال الصيانة."
+                       data-en="Discover shipbuilding, naval systems, and maintenance operations.">
+                        اكتشف بناء السفن والأنظمة البحرية وأعمال الصيانة.
+                    </p>
+
+                    <span class="card-link"
+                          data-ar="اكتشف المزيد"
+                          data-en="Discover More">
+                        اكتشف المزيد
+                    </span>
+                </div>
+            </a>
+
+            <a href="{% url 'main:sector_detail' 'technology' %}" class="sector-card">
+                <img src="{% static 'main/images/technology.jpg' %}"
+                     alt="التقنيات الدفاعية" loading="lazy">
+
+                <div class="sector-card-content">
+                    <h3 data-ar="التقنيات الدفاعية"
+                        data-en="Defense Technology">
+                        التقنيات الدفاعية
+                    </h3>
+
+                    <p data-ar="تعرف على الإلكترونيات والاتصالات والأنظمة الرقمية والابتكار."
+                       data-en="Explore electronics, communications, digital systems, and innovation.">
+                        تعرف على الإلكترونيات والاتصالات والأنظمة الرقمية والابتكار.
+                    </p>
+
+                    <span class="card-link"
+                          data-ar="اكتشف المزيد"
+                          data-en="Discover More">
+                        اكتشف المزيد
+                    </span>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+
+
+<section class="section explore-section">
+    <div class="container explore-content">
+
+        <span class="section-label"
+              data-ar="رحلة التطور"
+              data-en="THE JOURNEY">
+            رحلة التطور
+        </span>
+
+        <h2 data-ar="من التاريخ إلى الابتكار"
+            data-en="From History to Innovation">
+            من التاريخ إلى الابتكار
+        </h2>
+
+        <p data-ar="اكتشف المحطات التي ساهمت في تطور الصناعات الدفاعية السعودية، وتعرف على الشركات الوطنية التي تعمل على بناء مستقبل هذا القطاع."
+           data-en="Discover the milestones behind the evolution of Saudi defense industries and learn about the national companies shaping the sector's future.">
+            اكتشف المحطات التي ساهمت في تطور الصناعات الدفاعية السعودية، وتعرف على الشركات الوطنية التي تعمل على بناء مستقبل هذا القطاع.
+        </p>
+
+        <div class="explore-buttons">
+            <a href="{% url 'main:history' %}" class="btn btn-primary"
+               data-ar="تاريخ الصناعة"
+               data-en="Industry History">
+                تاريخ الصناعة
+            </a>
+
+            <a href="{% url 'main:companies' %}" class="btn btn-outline"
+               data-ar="الشركات الوطنية"
+               data-en="National Companies">
+                الشركات الوطنية
+            </a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

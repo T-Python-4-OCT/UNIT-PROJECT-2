@@ -1,0 +1,103 @@
+
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block title %}{{ sector.title_ar }} | Saudi Defense 2030{% endblock %}
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'main/css/sector-detail.css' %}">
+{% endblock %}
+{% block content %}
+
+<section class="sector-detail-hero">
+    <div class="container">
+
+        <a href="{% url 'main:sectors' %}" class="sector-back"
+           data-ar="العودة إلى القطاعات"
+           data-en="Back to Sectors">
+            ← العودة إلى القطاعات
+        </a>
+
+        <span class="section-label">SAUDI DEFENSE INDUSTRIES</span>
+
+        <h1 data-ar="{{ sector.title_ar }}"
+            data-en="{{ sector.title_en }}">
+            {{ sector.title_ar }}
+        </h1>
+
+        <p data-ar="{{ sector.subtitle_ar }}"
+           data-en="{{ sector.subtitle_en }}">
+            {{ sector.subtitle_ar }}
+        </p>
+
+        <div class="sector-detail-image">
+            <img src="{% static 'main/images/' %}{{ sector.image }}"
+                 alt="{{ sector.title_ar }}">
+        </div>
+
+    </div>
+</section>
+
+<section class="sector-detail-about">
+    <div class="container">
+
+        <span class="section-label"
+              data-ar="نظرة عامة"
+              data-en="OVERVIEW">
+            نظرة عامة
+        </span>
+
+        <h2 data-ar="عن هذا القطاع"
+            data-en="About This Sector">
+            عن هذا القطاع
+        </h2>
+
+        <p data-ar="{{ sector.description_ar }}"
+           data-en="{{ sector.description_en }}">
+            {{ sector.description_ar }}
+        </p>
+
+    </div>
+</section>
+
+<section class="sector-detail-features">
+    <div class="container">
+
+        <span class="section-label"
+              data-ar="المجالات الرئيسية"
+              data-en="KEY AREAS">
+            المجالات الرئيسية
+        </span>
+
+        <h2 data-ar="أبرز المجالات والتقنيات"
+            data-en="Key Areas and Technologies">
+            أبرز المجالات والتقنيات
+        </h2>
+
+        <div class="sector-feature-grid">
+
+            {% for feature in sector.features_ar %}
+            <div class="sector-feature-card">
+                <span class="feature-number">0{{ forloop.counter }}</span>
+
+                <h3 data-ar="{{ feature }}"
+                    data-en="{% for item in sector.features_en %}{% if forloop.counter == forloop.parentloop.counter %}{{ item }}{% endif %}{% endfor %}">
+                    {{ feature }}
+                </h3>
+            </div>
+            {% endfor %}
+
+        </div>
+
+        <div class="sector-detail-bottom">
+            <a href="{% url 'main:sectors' %}"
+               class="btn btn-primary"
+               data-ar="استكشف جميع القطاعات"
+               data-en="Explore All Sectors">
+                استكشف جميع القطاعات
+            </a>
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
