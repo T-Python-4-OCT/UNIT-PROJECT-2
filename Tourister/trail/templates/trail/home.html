@@ -1,0 +1,134 @@
+{% extends "trail/base.html" %}
+{% load static %}
+{% block extra_css %}<link href="{% static 'css/home.css' %}" rel="stylesheet">{% endblock %}
+
+{% block content %}
+{% static 'img/hero.jpg' as hero_image %}
+{% static 'img/poster.jpg' as poster_image %}
+{% static 'img/route-map.jpg' as route_map_image %}
+<div class="container">
+  <section id="top" class="nt-hero" style="background-image: url('{{ hero_image }}');">
+    <div class="nt-hero-content">
+      <a class="nt-hero-map" href="{{ route_map_image }}" target="_blank" rel="noopener" aria-label="عرض خريطة مسار الشمال كاملة">
+        <img src="{{ route_map_image }}" alt="خريطة مصغرة لمسار الشمال من الرياض إلى حائل" loading="lazy">
+        <span><i class="bi bi-geo-alt-fill"></i> من الرياض إلى حائل</span>
+      </a>
+      <div class="nt-hero-text">
+        <span class="nt-badge">رحلة بين التراث والطبيعة والتجارب المحلية</span>
+        <h1>مسار الشمال</h1>
+        <p>اكتشف محطات الطريق من الرياض إلى شمال حائل</p>
+        <div class="nt-hero-actions">
+          <a href="#stations" class="nt-cta">استعرض الوجهات <i class="bi bi-arrow-left"></i></a>
+          <a href="#route" class="nt-hero-secondary">الخريطة والنقل</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nt-ticker" aria-label="محطات المسار">
+      <div class="nt-ticker-track">
+        {% cycle 'nt-c1' 'nt-c2' 'nt-c3' 'nt-c4' as ticker_colors silent %}
+        {% cycle 'nt-sh-tri' 'nt-sh-dia' 'nt-sh-cir' 'nt-sh-hex' as ticker_shapes silent %}
+        {% for group in "12" %}
+          <ul class="nt-ticker-group" {% if not forloop.first %}aria-hidden="true"{% endif %}>
+            {% resetcycle ticker_colors %}
+            {% resetcycle ticker_shapes %}
+            {% for city in cities %}
+              <li class="nt-stop {% cycle ticker_colors %}">
+                <a href="{% url 'city_detail' city.slug %}" {% if not forloop.parentloop.first %}tabindex="-1"{% endif %}>
+                  <span class="nt-shape {% cycle ticker_shapes %}"></span>
+                  {{ city.name }}
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endfor %}
+      </div>
+    </div>
+  </section>
+
+  <section class="nt-stats" aria-label="لمحة عن المسار">
+    <div class="nt-stat nt-c1"><i class="bi bi-geo-alt-fill" aria-hidden="true"></i><strong>{{ cities|length }}</strong><span>وجهة على المسار</span></div>
+    <div class="nt-stat nt-c2"><i class="bi bi-diamond-fill" aria-hidden="true"></i><strong>3</strong><span>مناطق</span></div>
+    <div class="nt-stat nt-c3"><i class="bi bi-circle-fill" aria-hidden="true"></i><strong>4</strong><span>محطات بالقطار</span></div>
+    <div class="nt-stat nt-c4"><i class="bi bi-hexagon-fill" aria-hidden="true"></i><strong>من الرياض</strong><span>إلى جبة شمال حائل</span></div>
+  </section>
+
+  <section id="about" class="nt-intro py-5">
+    <div>
+      <h2 class="nt-title">حكاية طريق بين ثلاث مناطق</h2>
+      <p class="lead">رحلة برية تبدأ من الرياض وتمر بوجهات من منطقة الرياض والقصيم وصولًا إلى حائل. يجمع المسار بين البلدات التراثية والأسواق والمشاهد الطبيعية، ويمكنك اختيار المحطات المناسبة لوقتك.</p>
+      <div class="d-flex flex-wrap gap-2">
+        <span class="nt-pill nt-pill--heritage"><i class="bi bi-building"></i> تراث وعمارة نجدية</span>
+        <span class="nt-pill nt-pill--nature"><i class="bi bi-tree"></i> طبيعة ومشاهد مفتوحة</span>
+        <span class="nt-pill nt-pill--camping"><i class="bi bi-signpost-split"></i> تخطيط لرحلة برية</span>
+      </div>
+    </div>
+    <img class="nt-poster" src="{{ poster_image }}" alt="الملصق التعريفي لمسار الشمال" loading="lazy">
+  </section>
+
+  <section id="route" class="pb-5">
+    <h2 class="nt-title">الخريطة والنقل</h2>
+    <p class="nt-section-lead">تعرّف على ترتيب المحطات، وافتح أي وجهة للحصول على اتجاهات القيادة وخيارات النقل العام إن توفرت. الخريطة والإنفوجرافيك للتخطيط الأولي؛ تحقق من حالة الطرق ومواعيد الخدمات قبل الانطلاق.</p>
+    <div class="nt-route-wrap">
+      <svg class="nt-route-path" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+        <path class="nt-route-line" d="M87.5 16.7 H12.5 C9 16.7 8 19 8 22 V45 C8 48 9 50 12.5 50 H87.5 C91 50 92 52 92 55 V78 C92 81 91 83.3 87.5 83.3 H12.5"></path>
+      </svg>
+      <ol class="nt-route" aria-label="ترتيب وجهات المسار">
+        {% for city in cities %}
+          <li class="{% cycle 'nt-c1' 'nt-c2' 'nt-c3' 'nt-c4' %}">
+            <a href="{% url 'city_detail' city.slug %}">
+              <span class="nt-dot">{{ forloop.counter }}</span>
+              {{ city.name }}
+              {% if forloop.first %}
+                <span class="nt-route-endpoint nt-route-endpoint--start">بداية المسار</span>
+              {% elif forloop.last %}
+                <span class="nt-route-endpoint nt-route-endpoint--end">نهاية المسار</span>
+              {% endif %}
+            </a>
+          </li>
+        {% endfor %}
+      </ol>
+    </div>
+  </section>
+
+  <section id="stations" class="pb-5">
+    <h2 class="nt-title">وجهات مسار الشمال</h2>
+    <p class="nt-section-lead">اختر وجهة لقراءة نبذتها ومعالمها وتجاربها المقترحة.</p>
+    <div class="row g-4">
+      {% for city in cities %}
+        <div class="col-12 col-md-6 col-lg-3 nt-col {% cycle 'nt-c1' 'nt-c2' 'nt-c3' 'nt-c4' %}" style="--i: {{ forloop.counter0 }}">
+          {% include "trail/partials/city_card.html" %}
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="tips" class="pb-5">
+    <h2 class="nt-title">قبل الانطلاق</h2>
+    <div class="nt-tips">
+      {% for tip in tips %}
+        <article class="nt-tip {% cycle 'nt-c1' 'nt-c2' 'nt-c3' 'nt-c4' %}">
+          <span class="nt-tip-icon"><i class="bi {{ tip.icon }}"></i></span>
+          <div>
+            <h3>{{ tip.title }}</h3>
+            <p>{{ tip.text }}</p>
+          </div>
+        </article>
+      {% endfor %}
+    </div>
+  </section>
+
+  <section id="faq" class="pb-5">
+    <h2 class="nt-title">الأسئلة الشائعة</h2>
+    <div class="nt-faq">
+      {% for item in faqs %}
+        <details class="nt-faq-item" {% if forloop.first %}open{% endif %}>
+          <summary>{{ item.q }}</summary>
+          <p>{{ item.a }}</p>
+        </details>
+      {% endfor %}
+    </div>
+  </section>
+
+</div>
+{% endblock %}

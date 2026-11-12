@@ -1,0 +1,20 @@
+{% extends "trail/base.html" %}
+{% load static %}
+
+{% block extra_css %}<link href="{% static 'css/legal_page.css' %}" rel="stylesheet">{% endblock %}
+{% block title %}{{ page_title }} | مسار الشمال{% endblock %}
+
+{% block content %}
+<div class="container py-5">
+  <article class="nt-legal-page">
+    <h1 class="nt-title">{{ page_title }}</h1>
+    <p class="lead">{{ page_intro }}</p>
+    {% for section in sections %}
+      <section class="nt-legal-section">
+        <h2>{{ section.title }}</h2>
+        <p>{{ section.text }}</p>
+      </section>
+    {% endfor %}
+  </article>
+</div>
+{% endblock %}

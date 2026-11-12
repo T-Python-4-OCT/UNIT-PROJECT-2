@@ -1,0 +1,48 @@
+<footer class="nt-footer">
+  <div class="container py-5">
+    <div class="row g-4">
+
+      <div class="col-12 col-md-5">
+        <h5 class="nt-footer-title">مسار الشمال</h5>
+        <p class="nt-footer-text">رحلة برية على امتداد 1,200 كم تربط الرياض بالقصيم وحائل، عبر محطات تجمع بين المعالم التاريخية والطبيعة والتجارب المحلية.</p>
+        <nav class="nt-footer-legal" aria-label="روابط السياسات">
+          <a href="{% url 'terms' %}">الشروط والأحكام</a>
+          <a href="{% url 'privacy' %}">سياسة الخصوصية</a>
+        </nav>
+      </div>
+
+      <div class="col-6 col-md-3">
+        <h6 class="nt-footer-title">المحطات</h6>
+        <ul class="nt-footer-list">
+          {% for c in cities %}
+            <li><a href="{% url 'city_detail' c.slug %}">{{ c.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="col-6 col-md-4">
+        <h6 class="nt-footer-title">تابع الهيئة السعودية للسياحة</h6>
+        <div class="nt-social">
+          {% for s in social_links %}
+            {% if s.url %}
+              <a class="nt-social-{{ s.css_class }}" href="{{ s.url }}" target="_blank" rel="noopener noreferrer" aria-label="{{ s.name }}">
+                <i class="bi {{ s.icon }}"></i>
+              </a>
+            {% endif %}
+          {% endfor %}
+        </div>
+        <a class="nt-footer-source" href="https://www.visitsaudi.com/ar/campaigns/northern-trail" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-box-arrow-up-left"></i> الصفحة الرسمية لمسار الشمال
+        </a>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="nt-footer-bottom">
+    <div class="container d-flex flex-column flex-md-row justify-content-between gap-2 py-3">
+      <span>جميع الحقوق محفوظة © {% now "Y" %} مسار الشمال</span>
+      <span>موقع تجريبي غير رسمي، والمحتوى مستوحى من الموقع الرسمي للسياحة السعودية، وجميع العلامات والشعارات تعود لأصحابها.</span>
+    </div>
+  </div>
+</footer>

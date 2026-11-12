@@ -1,0 +1,11 @@
+{% load static %}
+<a href="{% url 'city_detail' city.slug %}" class="nt-card nt-city-card--{{ city.slug }} h-100 text-decoration-none">
+  <div class="nt-card-img">
+    <img src="{% static city.hero_image %}" alt="مشهد من {{ city.name }}" loading="lazy">
+  </div>
+  <div class="nt-card-body">
+    <h3>{{ city.name }}</h3>
+    <p>{{ city.summary|truncatechars:110 }}</p>
+    <span class="nt-link">اكتشف {{ city.name }}</span>
+  </div>
+</a>

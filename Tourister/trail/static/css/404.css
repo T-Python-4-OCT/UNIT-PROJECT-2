@@ -1,0 +1,18 @@
+.nt-404 {
+  text-align: center;
+  padding: 5rem 0;
+}
+
+.nt-404-code {
+  font-size: clamp(5rem, 18vw, 10rem);
+  font-weight: 800;
+  line-height: 1;
+  margin: 0;
+  color: var(--nt-accent);
+}
+
+.nt-404-btn {
+  display: inline-block;
+  text-decoration: none;
+  margin-top: 1rem;
+}

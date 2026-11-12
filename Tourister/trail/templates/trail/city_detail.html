@@ -1,0 +1,192 @@
+{% extends "trail/base.html" %}
+{% load static %}
+{% block extra_css %}<link href="{% static 'css/city_detail.css' %}" rel="stylesheet">{% endblock %}
+{% block title %}{{ city.name }} | مسار الشمال{% endblock %}
+
+{% block content %}
+<div class="container">
+
+  <section class="nt-hero nt-city-hero nt-city-hero--{{ city.slug }}">
+    <img class="nt-city-hero-image" src="{% static city.hero_image %}" alt="منظر من {{ city.name }}">
+    <div class="nt-hero-text">
+      <h1>{{ city.name }}</h1>
+      <p>{% if city.tagline %}{{ city.tagline }}{% else %}محطة على مسار الشمال{% endif %}</p>
+    </div>
+    <div class="nt-sadu"></div>
+  </section>
+
+  <section id="overview" class="py-5">
+    <h2 class="nt-title">نبذة عن {{ city.name }}</h2>
+    {% if city.summary %}
+      <p class="lead">{{ city.summary }}</p>
+    {% endif %}
+    {% if city.overview_details %}
+      <p class="nt-overview-details">{{ city.overview_details }}</p>
+    {% endif %}
+    {% if city.overview_source %}
+      <p class="nt-source-link">المصدر:
+        <a href="{{ city.overview_source.url }}" target="_blank" rel="noopener">{{ city.overview_source.label }}</a>
+      </p>
+    {% endif %}
+    <span class="nt-pill"><i class="bi bi-signpost-split"></i> المحطة {{ city.order }} على المسار</span>
+  </section>
+
+  <section id="access" class="pb-5">
+    <h2 class="nt-title">الوصول إلى {{ city.name }}</h2>
+    <div class="nt-access-box">
+      <div>
+        {% if access_origin %}
+          <p>المحطة السابقة: <strong>{{ access_origin.name }}</strong></p>
+          <p class="nt-access-note">افتح الاتجاهات من المحطة السابقة، ثم تحقق من حالة الطريق والخدمات قبل الانطلاق.</p>
+        {% else %}
+          <p>ابدأ رحلتك من <strong>{{ city.name }}</strong>، أو افتح موقعها على الخريطة لتخطيط الوصول.</p>
+          <p class="nt-access-note">تأكد من اختيار نقطة الانطلاق المناسبة ومراجعة حالة الطريق قبل السفر.</p>
+        {% endif %}
+      </div>
+      <div class="nt-access-links">
+        {% if access_origin %}
+          <a class="nt-access-link nt-access-link--driving" href="https://www.google.com/maps/dir/?api=1&amp;origin={{ access_origin.name|urlencode }}&amp;destination={{ city.name|urlencode }}&amp;travelmode=driving" target="_blank" rel="noopener">
+            <span class="nt-access-icon"><i class="bi bi-car-front-fill"></i></span>
+            <span><strong>الاتجاهات بالسيارة</strong><small>من {{ access_origin.name }} إلى {{ city.name }}</small></span>
+            <i class="bi bi-arrow-up-left nt-access-external" aria-hidden="true"></i>
+          </a>
+          {% if city.has_train %}
+            <a class="nt-access-link nt-access-link--transit" href="https://www.google.com/maps/dir/?api=1&amp;origin={{ access_origin.name|urlencode }}&amp;destination={{ city.name|urlencode }}&amp;travelmode=transit" target="_blank" rel="noopener">
+              <span class="nt-access-icon"><i class="bi bi-bus-front-fill"></i></span>
+              <span><strong>النقل العام</strong><small>الخيارات المتاحة حسب الوجهة</small></span>
+              <i class="bi bi-arrow-up-left nt-access-external" aria-hidden="true"></i>
+            </a>
+          {% endif %}
+        {% else %}
+          <a class="nt-access-link nt-access-link--driving" href="https://www.google.com/maps/search/?api=1&amp;query={{ city.name|urlencode }}" target="_blank" rel="noopener">
+            <span class="nt-access-icon"><i class="bi bi-map-fill"></i></span>
+            <span><strong>افتح موقع {{ city.name }} على الخريطة</strong><small>استكشف خيارات الوصول المتاحة</small></span>
+            <i class="bi bi-arrow-up-left nt-access-external" aria-hidden="true"></i>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+  </section>
+
+  {% if city.gallery %}
+  <section id="gallery" class="pb-5">
+    <h2 class="nt-title">معرض الصور</h2>
+    <div id="cityCarousel" class="carousel slide nt-carousel" role="region" aria-roledescription="carousel" aria-label="معرض صور {{ city.name }}">
+      <div class="carousel-indicators">
+        {% for img in city.gallery %}
+          <button type="button" data-bs-target="#cityCarousel" data-bs-slide-to="{{ forloop.counter0 }}"
+                  {% if forloop.first %}class="active" aria-current="true"{% endif %}
+                  aria-label="الصورة {{ forloop.counter }}"></button>
+        {% endfor %}
+      </div>
+      <div class="carousel-inner">
+        {% for img in city.gallery %}
+          <div class="carousel-item {% if forloop.first %}active{% endif %}">
+            <img src="{% static img %}" class="d-block w-100" alt="{{ city.name }} - صورة {{ forloop.counter }}">
+          </div>
+        {% endfor %}
+      </div>
+      <button class="carousel-control-prev" type="button" data-bs-target="#cityCarousel" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">السابق</span>
+      </button>
+      <button class="carousel-control-next" type="button" data-bs-target="#cityCarousel" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">التالي</span>
+      </button>
+    </div>
+  </section>
+  {% endif %}
+
+  {% if city.landmarks %}
+  <section id="landmarks" class="pb-5">
+    <h2 class="nt-title">أبرز المعالم</h2>
+    <div class="row g-4">
+      {% for place in city.landmarks %}
+        <div class="col-12 col-md-6 col-lg-4">
+          <div class="nt-box nt-box--{{ place.category }} h-100">
+            {% if place.photo %}
+              <img class="nt-card-photo" src="{{ place.photo.url }}" alt="{{ place.photo.alt }}" loading="lazy">
+            {% endif %}
+            <span class="nt-pill">
+              {% if place.category == "heritage" %}<i class="bi bi-pencil"></i> أماكن تراثية وتاريخية
+              {% elif place.category == "nature" %}<i class="bi bi-tree"></i> مواقع طبيعية
+              {% elif place.category == "camping" %}<i class="bi bi-triangle"></i> التخييم
+              {% elif place.category == "culture" %}<i class="bi bi-shop"></i> أسواق وثقافة محلية
+              {% else %}<i class="bi bi-geo-alt"></i> معالم متنوعة
+              {% endif %}
+            </span>
+            <h3>{{ place.name }}</h3>
+            <p>{{ place.description }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if city.timeline %}
+  <section id="timeline" class="pb-5">
+    <h2 class="nt-title">لمحة تاريخية</h2>
+    <ul class="nt-timeline">
+      {% for item in city.timeline %}
+        <li>
+          <span class="nt-period">{{ item.period }}</span>
+          <p>{{ item.text }}</p>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if city.events %}
+  <section id="events" class="pb-5">
+    <h2 class="nt-title">تجارب مقترحة</h2>
+    <p class="nt-section-lead">هذه أفكار للزيارة وليست إعلانًا عن فعاليات بمواعيد محددة. تحقق من الجهات المنظمة قبل السفر.</p>
+    <div class="row g-4">
+      {% for event in city.events %}
+        <div class="col-12 col-md-6">
+          <div class="nt-box h-100">
+            {% if event.photo %}
+              <img class="nt-card-photo" src="{{ event.photo.url }}" alt="{{ event.photo.alt }}" loading="lazy">
+            {% endif %}
+            <h3>{{ event.title }}</h3>
+            <p>{{ event.description }}</p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </section>
+  {% endif %}
+
+  {% if city.historical_sources %}
+  <section id="sources" class="pb-5">
+    <h2 class="nt-title">مصادر ومراجع</h2>
+    <p class="nt-section-lead">مراجع للمعلومات التاريخية والسياق الجغرافي والمعالم المذكورة في هذه الصفحة.</p>
+    <ul class="nt-sources">
+      {% for source in city.historical_sources %}
+        <li>
+          <a href="{{ source.url }}" target="_blank" rel="noopener">{{ source.label }}</a>
+          <span>{{ source.scope }}</span>
+        </li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% if not city.gallery and not city.landmarks and not city.timeline and not city.events %}
+    <p class="nt-empty">المزيد من التفاصيل عن {{ city.name }} قيد الإضافة.</p>
+  {% endif %}
+
+  <nav class="nt-pager d-flex justify-content-between gap-3 py-4">
+    {% if prev_city %}
+      <a href="{% url 'city_detail' prev_city.slug %}"><i class="bi bi-arrow-right"></i> {{ prev_city.name }}</a>
+    {% else %}<span></span>{% endif %}
+
+    {% if next_city %}
+      <a href="{% url 'city_detail' next_city.slug %}">{{ next_city.name }} <i class="bi bi-arrow-left"></i></a>
+    {% else %}<span></span>{% endif %}
+  </nav>
+
+</div>
+{% endblock %}
