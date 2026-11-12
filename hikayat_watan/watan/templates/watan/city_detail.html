@@ -47,6 +47,14 @@
   </div>
 </section>
 
+{# ===== الخط الزمني ===== #}
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal"><span class="eyebrow">موجز تاريخي</span><h2 class="section-title">محطات من تاريخ {{ city.name }}</h2></div>
+    {% include "watan/partials/_timeline.html" with items=city.timeline icon="bi-clock-history" %}
+  </div>
+</section>
+
 
 {# ===== أبرز المعالم ===== #}
 <section class="section section-alt">
@@ -63,13 +71,7 @@
   </div>
 </section>
 
-{# ===== الخط الزمني ===== #}
-<section class="section">
-  <div class="container">
-    <div class="section-head reveal"><span class="eyebrow">موجز تاريخي</span><h2 class="section-title">محطات من تاريخ {{ city.name }}</h2></div>
-    {% include "watan/partials/_timeline.html" with items=city.timeline icon="bi-clock-history" %}
-  </div>
-</section>
+
 
 {# ===== الفعاليات ===== #}
 <section class="section section-alt">
@@ -82,34 +84,6 @@
         <div><span class="event-season"><i class="bi bi-calendar-event"></i> {{ e.season }}</span><h3>{{ e.name }}</h3><p>{{ e.description }}</p></div>
       </div></div>
       {% endfor %}
-    </div>
-  </div>
-</section>
-{# ===== معرض الصور (Carousel) ===== #}
-<section class="section section-alt">
-  <div class="container">
-    <div class="section-head reveal"><span class="eyebrow">معرض الصور</span><h2 class="section-title">{{ city.name }} بعدسة الفن</h2></div>
-    <div class="reveal">
-      <div id="cityGallery" class="carousel slide gallery-carousel" data-bs-ride="carousel" data-bs-interval="5000" aria-label="معرض صور {{ city.name }}">
-        <div class="carousel-indicators">
-          {% for g in city.gallery %}<button type="button" data-bs-target="#cityGallery" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="الصورة {{ forloop.counter }}"></button>{% endfor %}
-        </div>
-        <div class="carousel-inner">
-          {% for g in city.gallery %}
-          <div class="carousel-item {% if forloop.first %}active{% endif %}">
-            <img src="{% asset g.src %}" alt="{{ g.caption }}" {% if not forloop.first %}loading="lazy"{% endif %}>
-            <div class="carousel-caption"><p>{{ g.caption }}</p></div>
-          </div>
-          {% endfor %}
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#cityGallery" data-bs-slide="prev"><span class="carousel-control-prev-icon" aria-hidden="true"></span><span class="visually-hidden">السابق</span></button>
-        <button class="carousel-control-next" type="button" data-bs-target="#cityGallery" data-bs-slide="next"><span class="carousel-control-next-icon" aria-hidden="true"></span><span class="visually-hidden">التالي</span></button>
-      </div>
-      <div class="gallery-thumbs">
-        {% for g in city.gallery %}
-        <button type="button" data-bs-target="#cityGallery" data-bs-slide-to="{{ forloop.counter0 }}" class="{% if forloop.first %}active{% endif %}" aria-label="{{ g.caption }}"><img src="{% asset g.src %}" alt="" loading="lazy"></button>
-        {% endfor %}
-      </div>
     </div>
   </div>
 </section>
