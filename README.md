@@ -2,8 +2,6 @@
   <img src=".github/banner.svg" alt="Saudi Giga Atlas: seven projects across Saudi Arabia" width="100%">
 </p>
 
-<p align="center"><a href="README.ar.md" lang="ar">العربية</a></p>
-
 <p align="center">
   <a href="https://suliman-altwaijry.github.io/UNIT-PROJECT-2/">
     <img src=".github/visit-button.svg" alt="Visit the website" width="260">
@@ -15,7 +13,7 @@
   <img src="https://img.shields.io/badge/Python-3.15-123d32?style=flat-square&logo=python&logoColor=white" alt="Python 3.15">
   <img src="https://img.shields.io/badge/Vite-8-b4935a?style=flat-square&logo=vite&logoColor=white" alt="Vite 8">
   <img src="https://img.shields.io/badge/three.js-0.187-b4935a?style=flat-square&logo=threedotjs&logoColor=white" alt="three.js">
-  <img src="https://img.shields.io/badge/English%20%C2%B7%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-bilingual-48574e?style=flat-square" alt="English and Arabic">
+  <a href="README.ar.md"><img src="https://img.shields.io/badge/English%20%C2%B7%20%D8%A7%D9%84%D8%B9%D8%B1%D8%A8%D9%8A%D8%A9-bilingual-48574e?style=flat-square" alt="Read the Arabic README — العربية"></a>
 </p>
 
 ## About
