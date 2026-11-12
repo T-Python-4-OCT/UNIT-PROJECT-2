@@ -1,0 +1,406 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Industrial Cities | SAUDI INDUSTRY{% endblock %}
+
+{% block content %}
+
+<!-- INDUSTRIAL CITIES VIDEO HERO -->
+<section class="si-home-hero">
+
+    <div class="si-home-hero__media">
+        <video
+            id="industrialCitiesBackgroundVideo"
+            data-background-video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            aria-hidden="true"
+        >
+            <source
+                src="https://res.cloudinary.com/ew4jvlxr/video/upload/v1794412166/14458723-uhd_3840_2160_30fps.mp4"
+                type="video/mp4"
+            >
+        </video>
+    </div>
+
+    <div class="si-home-hero__shade"></div>
+
+    <div class="container si-home-hero__content">
+        <div class="row">
+            <div class="col-lg-9 col-xl-8">
+
+                <span class="si-eyebrow">
+                    EXPLORE SAUDI INDUSTRY
+                </span>
+
+                <h1 class="si-home-hero__title">
+                    Industrial <span>Cities</span>
+                </h1>
+
+                <p class="si-home-hero__description">
+                    Explore Saudi Arabia's major industrial cities
+                    and manufacturing zones. Discover their locations,
+                    industrial specializations, infrastructure,
+                    and contributions to the Kingdom's industrial growth.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="si-section">
+    <div class="container">
+
+        <form
+            method="get"
+            action="{% url 'catalog:industrial_cities' %}"
+            class="si-filter-panel mb-4"
+            role="search"
+        >
+
+            <div class="row g-3 align-items-end">
+
+                <div class="col-md-6 col-xl-4">
+
+                    <label
+                        for="citySearch"
+                        class="form-label"
+                    >
+                        Search Industrial Locations
+                    </label>
+
+                    <input
+                        type="search"
+                        id="citySearch"
+                        name="q"
+                        class="form-control"
+                        placeholder="Search city, industry, or keyword..."
+                        value="{{ search_query }}"
+                    >
+
+                </div>
+
+
+                <div class="col-md-6 col-xl-3">
+
+                    <label
+                        for="cityRegion"
+                        class="form-label"
+                    >
+                        Region
+                    </label>
+
+                    <select
+                        id="cityRegion"
+                        name="region"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            All Regions
+                        </option>
+
+                        {% for region in regions %}
+
+                        <option
+                            value="{{ region }}"
+                            {% if selected_region == region %}selected{% endif %}
+                        >
+                            {{ region }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <div class="col-md-6 col-xl-3">
+
+                    <label
+                        for="cityType"
+                        class="form-label"
+                    >
+                        Location Type
+                    </label>
+
+                    <select
+                        id="cityType"
+                        name="type"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            All Types
+                        </option>
+
+                        {% for city_type in city_types %}
+
+                        <option
+                            value="{{ city_type }}"
+                            {% if selected_type == city_type %}selected{% endif %}
+                        >
+                            {{ city_type }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <div class="col-md-6 col-xl-2">
+
+                    <div class="d-flex gap-2">
+
+                        <button
+                            type="submit"
+                            class="btn si-primary-btn flex-fill"
+                        >
+                            Apply
+                        </button>
+
+                        <a
+                            href="{% url 'catalog:industrial_cities' %}"
+                            class="btn si-reset-btn"
+                        >
+                            Reset
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+        <div class="si-results-bar">
+
+            <div>
+
+                <h2>
+                    Explore Industrial Locations
+                </h2>
+
+                <p>
+                    Discover manufacturing centers
+                    across Saudi Arabia.
+                </p>
+
+            </div>
+
+            <span class="si-results-count" role="status">
+                {{ industrial_cities|length }} of
+                {{ total_cities }} locations
+            </span>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for city in industrial_cities %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="si-sector-card">
+
+                    <a
+                        href="{% url 'catalog:industrial_city_detail' city.slug %}"
+                        class="si-sector-card__image"
+                        aria-label="Explore {{ city.name }}"
+                    >
+
+                        <img
+                            {% if city.image|slice:":4" == "http" %}
+                            src="{{ city.image }}"
+                            {% else %}
+                            src="{% static city.image %}"
+                            {% endif %}
+                            alt="Illustrative photograph of industrial manufacturing"
+                            loading="lazy"
+                        >
+
+                    </a>
+
+
+                    <div class="si-sector-card__body">
+
+                        <span class="si-sector-card__category">
+                            {{ city.type }}
+                        </span>
+
+
+                        <h3>
+                            {{ city.name }}
+                        </h3>
+
+
+                        <p>
+                            {{ city.description }}
+                        </p>
+
+
+                        <div class="si-city-location">
+
+                            <span
+                                class="si-city-location__icon"
+                                aria-hidden="true"
+                            >
+                                &#9906;
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    {{ city.region }}
+                                </strong>
+
+                                <small>
+                                    {{ city.location }}
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="si-city-authority">
+
+                            <span>
+                                Responsible Organization
+                            </span>
+
+                            <strong>
+                                {{ city.authority }}
+                            </strong>
+
+                        </div>
+
+
+                        {% if city.industries %}
+
+                        <div class="si-city-industries">
+
+                            <span class="si-city-industries__label">
+                                Related Industries
+                            </span>
+
+                            <div class="si-city-industry-tags">
+
+                                {% for industry in city.industries %}
+
+                                <a
+                                    href="{% url 'catalog:industry_detail' industry.slug %}"
+                                    class="si-city-industry-tag"
+                                >
+                                    {{ industry.name }}
+                                </a>
+
+                                {% endfor %}
+
+                            </div>
+
+                        </div>
+
+                        {% endif %}
+
+
+                        <a
+                            href="{% url 'catalog:industrial_city_detail' city.slug %}"
+                            class="si-text-link mt-auto"
+                        >
+                            Explore Location →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="si-empty-results text-center">
+
+                    <h3>
+                        No Industrial Locations Found
+                    </h3>
+
+                    <p>
+                        No locations match your current search
+                        or filters. Try a different keyword,
+                        region, or location type.
+                    </p>
+
+                    <a
+                        href="{% url 'catalog:industrial_cities' %}"
+                        class="btn si-primary-btn mt-3"
+                    >
+                        Show All Locations
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section si-section-alt">
+    <div class="container text-center">
+
+        <span class="si-eyebrow">
+            EXPLORE MORE
+        </span>
+
+        <h2 class="si-section-heading">
+            Discover the Industries Behind These Cities
+        </h2>
+
+        <p class="si-section-description mx-auto">
+            Industrial cities provide the infrastructure
+            that supports manufacturing. Explore Saudi
+            industries and the companies working
+            across these industrial sectors.
+        </p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+
+            <a
+                href="{% url 'catalog:industries' %}"
+                class="btn si-primary-btn"
+            >
+                Explore Industries →
+            </a>
+
+            <a
+                href="{% url 'catalog:companies' %}"
+                class="btn si-detail-secondary-btn"
+            >
+                Explore Companies
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

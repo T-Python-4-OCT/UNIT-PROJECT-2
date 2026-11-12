@@ -1,0 +1,113 @@
+{
+  "companies": [
+    {
+      "id": 1,
+      "slug": "sabic",
+      "name": "SABIC",
+      "industry_slug": "petrochemicals",
+      "location": "Riyadh",
+      "location_type": "Headquarters",
+      "description": "A Saudi-headquartered global chemicals company producing chemicals, polymers, and industrial materials.",
+      "overview": "SABIC is a global chemicals manufacturer headquartered in Riyadh. Its operations include petrochemicals, polymers, specialty materials, and agri-nutrients. It has major manufacturing activities in Saudi industrial cities, including Jubail and Yanbu.",
+      "focus_areas": [
+        "Chemicals",
+        "Polymers",
+        "Agri-nutrients",
+        "Specialty materials"
+      ],
+      "website": "https://www.sabic.com/en",
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794407447/sabic.jpg"
+    },
+    {
+      "id": 2,
+      "slug": "spimaco",
+      "name": "SPIMACO",
+      "industry_slug": "pharmaceuticals",
+      "location": "Al-Qassim",
+      "location_type": "Manufacturing complex",
+      "description": "A Saudi pharmaceutical company manufacturing medicines and healthcare products.",
+      "overview": "SPIMACO is a Saudi pharmaceutical manufacturer with production facilities serving healthcare markets. Its Al-Qassim manufacturing complex supports the production of different pharmaceutical dosage forms.",
+      "focus_areas": [
+        "Medicine manufacturing",
+        "Tablets and capsules",
+        "Injectable medicines",
+        "Pharmaceutical research"
+      ],
+      "website": "https://www.spimaco.com.sa/",
+      "image": "images/industries/pharmaceuticals.jpg"
+    },
+    {
+      "id": 3,
+      "slug": "ceer",
+      "name": "Ceer",
+      "industry_slug": "automotive",
+      "location": "King Abdullah Economic City",
+      "location_type": "Automotive manufacturing complex",
+      "description": "A Saudi automotive company developing electric vehicles and advanced vehicle manufacturing capabilities.",
+      "overview": "Ceer is a Saudi electric vehicle brand developing its main manufacturing complex within the King Salman Automotive Cluster in King Abdullah Economic City. Located in the Industrial Valley near King Abdullah Port, the site covers more than one million square meters. The complex is designed for vehicle manufacturing processes including stamping, body assembly, painting, and final assembly.",
+      "focus_areas": [
+        "Electric vehicles",
+        "Vehicle engineering",
+        "Advanced vehicle assembly",
+        "Automotive manufacturing"
+      ],
+      "website": "https://ceermotors.com/",
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794424402/images_1.jpg"
+    },
+    {
+      "id": 4,
+      "slug": "almarai",
+      "name": "Almarai",
+      "industry_slug": "food-manufacturing",
+      "location": "Riyadh",
+      "location_type": "Headquarters",
+      "description": "A Saudi food and beverage producer operating across several manufacturing categories.",
+      "overview": "Almarai is a food and beverage company headquartered in Riyadh. Its operations include dairy, juices, bakery products, poultry, and infant nutrition, supported by food production and quality-control systems.",
+      "focus_areas": [
+        "Dairy products",
+        "Juices",
+        "Bakery products",
+        "Poultry"
+      ],
+      "website": "https://www.almarai.com/",
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794414119/images.jpg"
+    },
+    {
+      "id": 5,
+      "slug": "maaden",
+      "name": "Maaden",
+      "industry_slug": "mining-metals",
+      "location": "Riyadh",
+      "location_type": "Headquarters",
+      "description": "A Saudi mining and metals company developing mineral resources and industrial materials.",
+      "overview": "Maaden is a Saudi mining company headquartered in Riyadh. Its activities include phosphate, aluminium, gold, and other minerals, supporting mineral processing and industrial development in Saudi Arabia.",
+      "focus_areas": [
+        "Aluminium",
+        "Phosphate",
+        "Gold and metals",
+        "Industrial minerals"
+      ],
+      "website": "https://www.maaden.com/",
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794407458/images_2.jpg"
+    },
+    {
+      "id": 6,
+      "slug": "alfanar",
+      "name": "alfanar",
+      "industry_slug": "energy-technologies",
+      "location": "Riyadh",
+      "location_type": "Industrial facilities",
+      "description": "A Saudi industrial group manufacturing electrical equipment and energy infrastructure systems.",
+      "overview": "alfanar operates manufacturing and engineering businesses focused on electrical products, energy infrastructure, and industrial systems. Its manufacturing facilities in Riyadh produce electrical components and equipment for different applications.",
+      "focus_areas": [
+        "Electrical equipment",
+        "Switchgear",
+        "Power distribution systems",
+        "Control and protection systems"
+      ],
+      "website": "https://www.alfanar.com/",
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794407423/alfanarGlobalPresence.png"
+    }
+  ]
+
+}

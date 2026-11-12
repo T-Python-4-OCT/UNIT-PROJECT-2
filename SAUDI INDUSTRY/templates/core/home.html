@@ -1,0 +1,306 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Home | SAUDI INDUSTRY{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION -->
+<section class="si-home-hero">
+
+    <div class="si-home-hero__media">
+
+        {% if home.hero.video_url %}
+        <video
+            id="homeBackgroundVideo"
+            data-background-video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+        >
+            <source
+                src="{{ home.hero.video_url }}"
+                type="video/mp4"
+            >
+        </video>
+        {% endif %}
+
+    </div>
+
+    <div class="si-home-hero__shade"></div>
+
+    <div class="container si-home-hero__content">
+
+        <div class="row">
+            <div class="col-lg-9 col-xl-8">
+
+                <span class="si-eyebrow">
+                    {{ home.hero.eyebrow }}
+                </span>
+
+                <h1 class="si-home-hero__title">
+                    {{ home.hero.title }}
+                    <span>{{ home.hero.highlight }}</span>
+                </h1>
+
+                <p class="si-home-hero__description">
+                    {{ home.hero.description }}
+                </p>
+
+                <div class="d-flex flex-wrap gap-3 mt-4">
+
+                    <a
+                        href="{% url 'catalog:industries' %}"
+                        class="btn si-primary-btn"
+                    >
+                        Explore Industries →
+                    </a>
+
+                    <a
+                        href="{% url 'core:vision2030' %}"
+                        class="btn si-outline-btn"
+                    >
+                        Discover Our Vision
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- INTRODUCTION -->
+<section class="si-section">
+    <div class="container">
+
+        <div class="row justify-content-center text-center">
+
+            <div class="col-lg-9">
+
+                <span class="si-eyebrow">
+                    {{ home.introduction.eyebrow }}
+                </span>
+
+                <h2 class="si-section-heading">
+                    {{ home.introduction.title }}
+                </h2>
+
+                <p class="si-section-description mx-auto">
+                    {{ home.introduction.description }}
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- FEATURED INDUSTRIES -->
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <div class="si-section-header">
+
+            <div>
+                <span class="si-eyebrow">
+                    EXPLORE OUR SECTORS
+                </span>
+
+                <h2 class="si-section-heading">
+                    Featured Industries
+                </h2>
+            </div>
+
+            <a
+                href="{% url 'catalog:industries' %}"
+                class="si-text-link"
+            >
+                View All Industries →
+            </a>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for industry in featured_industries %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <a
+                    href="{% url 'catalog:industry_detail' industry.slug %}"
+                    class="si-industry-card"
+                >
+
+                    <div
+                        class="si-industry-card__image"
+                        style="--industry-image: url('{% static industry.image %}');"
+                    >
+                        <span class="si-industry-card__category">
+                            {{ industry.category }}
+                        </span>
+                    </div>
+
+                    <div class="si-industry-card__body">
+
+                        <h3>{{ industry.name }}</h3>
+
+                        <p>{{ industry.description }}</p>
+
+                        <span class="si-text-link">
+                            Explore Industry →
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- INDUSTRIAL HIGHLIGHTS -->
+<section class="si-section">
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="si-eyebrow">
+                DISCOVER MORE
+            </span>
+
+            <h2 class="si-section-heading">
+                The Power of Saudi Industry
+            </h2>
+
+        </div>
+
+        <div class="row g-4">
+
+            {% for highlight in home.highlights %}
+
+            <div class="col-md-4">
+
+                <div class="si-highlight-card">
+
+                    <span class="si-highlight-number">
+                        0{{ forloop.counter }}
+                    </span>
+
+                    <h3>{{ highlight.title }}</h3>
+
+                    <p>{{ highlight.description }}</p>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- VISION 2030 -->
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <div class="row align-items-center g-5">
+
+            <div class="col-lg-6">
+
+                <span class="si-eyebrow">
+                    {{ home.vision.eyebrow }}
+                </span>
+
+                <h2 class="si-section-heading">
+                    {{ home.vision.title }}
+                </h2>
+
+                <p class="si-section-description">
+                    {{ home.vision.description }}
+                </p>
+
+                <a
+                    href="{% url 'core:vision2030' %}"
+                    class="btn si-primary-btn mt-3"
+                >
+                    Explore Vision 2030 →
+                </a>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <div
+                    class="si-vision-image"
+                    role="img"
+                    aria-label="Saudi industrial development"
+                    style="--vision-image: url('{% static home.vision.image %}');"
+                ></div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- EXPLORE MORE -->
+<section class="si-section">
+    <div class="container">
+
+        <div class="si-explore-banner text-center">
+
+            <span class="si-eyebrow">
+                EXPLORE SAUDI INDUSTRY
+            </span>
+
+            <h2 class="si-section-heading">
+                {{ home.explore.title }}
+            </h2>
+
+            <p class="si-section-description mx-auto">
+                {{ home.explore.description }}
+            </p>
+
+            <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+
+                <a
+                    href="{% url 'catalog:companies' %}"
+                    class="btn si-primary-btn"
+                >
+                    Explore Companies
+                </a>
+
+                <a
+                    href="{% url 'core:gallery' %}"
+                    class="btn si-outline-btn"
+                >
+                    View Gallery
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

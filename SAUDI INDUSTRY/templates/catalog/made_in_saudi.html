@@ -1,0 +1,395 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Made in Saudi | SAUDI INDUSTRY{% endblock %}
+
+{% block content %}
+
+<!-- MADE IN SAUDI VIDEO HERO -->
+<section class="si-home-hero">
+
+    <div class="si-home-hero__media">
+        <video
+            id="madeInSaudiBackgroundVideo"
+            data-background-video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            aria-hidden="true"
+        >
+            <source
+                src="https://res.cloudinary.com/ew4jvlxr/video/upload/v1794412568/producit.mp4"
+                type="video/mp4"
+            >
+        </video>
+    </div>
+
+    <div class="si-home-hero__shade"></div>
+
+    <div class="container si-home-hero__content">
+        <div class="row">
+            <div class="col-lg-9 col-xl-8">
+
+                <span class="si-eyebrow">
+                    SAUDI MANUFACTURING
+                </span>
+
+                <h1 class="si-home-hero__title">
+                    Made in <span>Saudi</span>
+                </h1>
+
+                <p class="si-home-hero__description">
+                    Discover products manufactured in Saudi Arabia,
+                    explore their industrial applications,
+                    and learn about the manufacturing processes
+                    that transform raw materials into finished products.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="si-section">
+    <div class="container">
+
+        <form
+            method="get"
+            action="{% url 'catalog:made_in_saudi' %}"
+            class="si-filter-panel mb-4"
+            role="search"
+        >
+
+            <div class="row g-3 align-items-end">
+
+                <div class="col-md-6 col-xl-4">
+
+                    <label
+                        for="productSearch"
+                        class="form-label"
+                    >
+                        Search Products
+                    </label>
+
+                    <input
+                        type="search"
+                        id="productSearch"
+                        name="q"
+                        class="form-control"
+                        placeholder="Search products or manufacturers..."
+                        value="{{ search_query }}"
+                    >
+
+                </div>
+
+
+                <div class="col-md-6 col-xl-3">
+
+                    <label
+                        for="productIndustry"
+                        class="form-label"
+                    >
+                        Industry
+                    </label>
+
+                    <select
+                        id="productIndustry"
+                        name="industry"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            All Industries
+                        </option>
+
+                        {% for industry in industry_options %}
+
+                        <option
+                            value="{{ industry.slug }}"
+                            {% if selected_industry == industry.slug %}selected{% endif %}
+                        >
+                            {{ industry.name }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <div class="col-md-6 col-xl-3">
+
+                    <label
+                        for="productCategory"
+                        class="form-label"
+                    >
+                        Product Category
+                    </label>
+
+                    <select
+                        id="productCategory"
+                        name="category"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            All Categories
+                        </option>
+
+                        {% for category in categories %}
+
+                        <option
+                            value="{{ category }}"
+                            {% if selected_category == category %}selected{% endif %}
+                        >
+                            {{ category }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <div class="col-md-6 col-xl-2">
+
+                    <div class="d-flex gap-2">
+
+                        <button
+                            type="submit"
+                            class="btn si-primary-btn flex-fill"
+                        >
+                            Apply
+                        </button>
+
+                        <a
+                            href="{% url 'catalog:made_in_saudi' %}"
+                            class="btn si-reset-btn"
+                        >
+                            Reset
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+        <div class="si-results-bar">
+
+            <div>
+
+                <h2>
+                    Explore Saudi-Manufactured Products
+                </h2>
+
+                <p>
+                    Discover the materials, products, and
+                    manufacturers behind Saudi industry.
+                </p>
+
+            </div>
+
+            <span class="si-results-count" role="status">
+                {{ products|length }} of
+                {{ total_products }} products
+            </span>
+
+        </div>
+
+
+        <p class="si-products-note">
+            This is an educational directory of products
+            manufactured in Saudi Arabia. Inclusion does
+            not imply official Made in Saudi program certification.
+        </p>
+
+
+        <div class="row g-4">
+
+            {% for product in products %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="si-sector-card">
+
+                    <a
+                        href="{% url 'catalog:product_detail' product.slug %}"
+                        class="si-sector-card__image"
+                        aria-label="Explore {{ product.name }}"
+                    >
+
+                        <img
+                            {% if product.image|slice:":4" == "http" %}
+                            src="{{ product.image }}"
+                            {% else %}
+                            src="{% static product.image %}"
+                            {% endif %}
+                            alt="Illustrative image of the {{ product.industry.name }} industry"
+                            loading="lazy"
+                        >
+
+                    </a>
+
+
+                    <div class="si-sector-card__body">
+
+                        <span class="si-sector-card__category">
+                            {{ product.category }}
+                        </span>
+
+
+                        <h3>
+                            {{ product.name }}
+                        </h3>
+
+
+                        <p>
+                            {{ product.description }}
+                        </p>
+
+
+                        <div class="si-product-meta">
+
+                            <div class="si-product-meta__item">
+
+                                <span class="si-product-meta__label">
+                                    Manufacturing Location
+                                </span>
+
+                                <strong>
+                                    {{ product.production_location }}
+                                </strong>
+
+                            </div>
+
+                            <div class="si-product-meta__item">
+
+                                <span class="si-product-meta__label">
+                                    Manufacturer
+                                </span>
+
+                                <a
+                                    href="{% url 'catalog:company_detail' product.company.slug %}"
+                                    class="si-text-link"
+                                >
+                                    {{ product.company.name }}
+                                </a>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="si-product-industry">
+
+                            <span class="si-product-meta__label">
+                                Related Industry
+                            </span>
+
+                            <a
+                                href="{% url 'catalog:industry_detail' product.industry.slug %}"
+                                class="si-product-industry__link"
+                            >
+                                {{ product.industry.name }}
+                            </a>
+
+                        </div>
+
+
+                        <a
+                            href="{% url 'catalog:product_detail' product.slug %}"
+                            class="si-text-link mt-auto"
+                        >
+                            Explore Product →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="si-empty-results text-center">
+
+                    <h3>
+                        No Products Found
+                    </h3>
+
+                    <p>
+                        No products match your search or filters.
+                        Try another keyword, industry, or category.
+                    </p>
+
+                    <a
+                        href="{% url 'catalog:made_in_saudi' %}"
+                        class="btn si-primary-btn mt-3"
+                    >
+                        Show All Products
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section si-section-alt">
+    <div class="container text-center">
+
+        <span class="si-eyebrow">
+            DISCOVER MORE
+        </span>
+
+        <h2 class="si-section-heading">
+            Explore the Industries Behind the Products
+        </h2>
+
+        <p class="si-section-description mx-auto">
+            Every manufactured product has a story.
+            Explore Saudi Arabia's industrial sectors,
+            discover the companies behind production,
+            and learn about the technologies used in manufacturing.
+        </p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+
+            <a
+                href="{% url 'catalog:industries' %}"
+                class="btn si-primary-btn"
+            >
+                Explore Industries →
+            </a>
+
+            <a
+                href="{% url 'catalog:companies' %}"
+                class="btn si-detail-secondary-btn"
+            >
+                Explore Companies
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

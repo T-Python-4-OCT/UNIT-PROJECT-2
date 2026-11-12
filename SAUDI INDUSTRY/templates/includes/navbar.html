@@ -1,0 +1,135 @@
+
+{% load static %}
+
+<nav class="navbar navbar-expand-xl si-navbar sticky-top">
+    <div class="container">
+
+        <!-- Logo -->
+        <a class="navbar-brand si-brand"
+           href="{% url 'core:home' %}">
+            <img
+                class="si-brand-logo"
+                src="https://res.cloudinary.com/ew4jvlxr/image/upload/v1794426830/Saudi_Industrial_logo.png"
+                alt="SAUDI INDUSTRY"
+                width="159"
+                height="53"
+            >
+        </a>
+
+        <!-- Theme and Mobile Menu -->
+        <div class="d-flex align-items-center gap-2 order-xl-3">
+
+            <button
+                id="themeToggle"
+                class="btn si-theme-toggle"
+                type="button"
+                aria-label="Switch color theme"
+            >
+                <span id="themeIcon" aria-hidden="true">☀</span>
+            </button>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#mainNavigation"
+                aria-controls="mainNavigation"
+                aria-expanded="false"
+                aria-label="Toggle navigation"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+        </div>
+
+        <!-- Navigation Links -->
+        <div class="collapse navbar-collapse order-xl-2"
+             id="mainNavigation">
+
+            <ul class="navbar-nav ms-auto align-items-xl-center">
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'core:home' %}">
+                        Home
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'catalog:industries' %}">
+                        Industries
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'catalog:companies' %}">
+                        Companies
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'catalog:industrial_cities' %}">
+                        Industrial Cities
+                    </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link"
+                       href="{% url 'catalog:made_in_saudi' %}">
+                        Made in Saudi
+                    </a>
+                </li>
+
+                <!-- Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle"
+                       href="#"
+                       role="button"
+                       data-bs-toggle="dropdown"
+                       aria-expanded="false">
+                        Explore More
+                    </a>
+
+                    <ul class="dropdown-menu si-dropdown">
+
+                        <li>
+                            <a class="dropdown-item"
+                               href="{% url 'core:technology' %}">
+                                Technology
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item"
+                               href="{% url 'core:vision2030' %}">
+                                Vision 2030
+                            </a>
+                        </li>
+
+                        <li>
+                            <a class="dropdown-item"
+                               href="{% url 'core:gallery' %}">
+                                Gallery
+                            </a>
+                        </li>
+
+                        <li><hr class="dropdown-divider"></li>
+
+                        <li>
+                            <a class="dropdown-item"
+                               href="{% url 'core:about' %}">
+                                About
+                            </a>
+                        </li>
+
+                    </ul>
+                </li>
+
+            </ul>
+        </div>
+
+    </div>
+</nav>

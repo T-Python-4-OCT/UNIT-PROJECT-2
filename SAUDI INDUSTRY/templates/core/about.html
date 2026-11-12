@@ -1,0 +1,414 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}About | SAUDI INDUSTRY{% endblock %}
+
+{% block content %}
+
+<section class="si-home-hero si-about-banner">
+
+    <div class="si-home-hero__media">
+        <video
+            id="aboutBackgroundVideo"
+            data-background-video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            aria-hidden="true"
+        >
+            <source
+                src="https://res.cloudinary.com/ew4jvlxr/video/upload/v1794413288/SAUDI_INDUSTRY.mp4"
+                type="video/mp4"
+            >
+        </video>
+    </div>
+
+    <div class="si-home-hero__shade"></div>
+
+    <div class="container si-home-hero__content">
+        <div class="row">
+            <div class="col-lg-9 col-xl-8">
+
+                <span class="si-eyebrow">
+                    {{ about.hero.eyebrow }}
+                </span>
+
+                <h1 class="si-home-hero__title">
+                    {{ about.hero.title }}
+                </h1>
+
+                <p class="si-home-hero__description">
+                    {{ about.hero.description }}
+                </p>
+
+                <div class="d-flex flex-wrap gap-3 mt-4">
+
+                    <a
+                        href="#about-story"
+                        class="btn si-primary-btn"
+                    >
+                        Discover Our Story
+                    </a>
+
+                    <a
+                        href="#about-explore"
+                        class="btn si-outline-btn text-white"
+                    >
+                        Explore the Website
+                    </a>
+
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section id="about-story" class="si-section">
+    <div class="container">
+
+        <div class="row justify-content-center">
+
+            <div class="col-lg-9 text-center">
+
+                <span class="si-eyebrow">
+                    {{ about.introduction.eyebrow }}
+                </span>
+
+                <h2 class="si-section-heading">
+                    {{ about.introduction.title }}
+                </h2>
+
+                {% for paragraph in about.introduction.paragraphs %}
+
+                <p class="si-section-description mx-auto">
+                    {{ paragraph }}
+                </p>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-6">
+
+                <article class="si-about-statement-card">
+
+                    <span class="si-eyebrow">
+                        WHAT WE DO
+                    </span>
+
+                    <h2>
+                        {{ about.mission.title }}
+                    </h2>
+
+                    <p>
+                        {{ about.mission.description }}
+                    </p>
+
+                </article>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <article class="si-about-statement-card">
+
+                    <span class="si-eyebrow">
+                        WHAT WE AIM FOR
+                    </span>
+
+                    <h2>
+                        {{ about.vision.title }}
+                    </h2>
+
+                    <p>
+                        {{ about.vision.description }}
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<section id="about-explore" class="si-section">
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="si-eyebrow">
+                EXPLORE THE PLATFORM
+            </span>
+
+            <h2 class="si-section-heading">
+                What You Can Discover
+            </h2>
+
+            <p class="si-section-description mx-auto">
+                Explore the different parts of SAUDI INDUSTRY,
+                from manufacturing sectors to industrial
+                technologies and national development.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for section in about.sections %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="si-about-feature-card">
+
+                    <span class="si-about-feature-number">
+                        0{{ forloop.counter }}
+                    </span>
+
+                    <h3>
+                        {{ section.title }}
+                    </h3>
+
+                    <p>
+                        {{ section.description }}
+                    </p>
+
+                    <a
+                        href="{% url section.route_name %}"
+                        class="si-text-link mt-auto"
+                    >
+                        Explore Section →
+                    </a>
+
+                </article>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="si-eyebrow">
+                DEVELOPMENT PROCESS
+            </span>
+
+            <h2 class="si-section-heading">
+                How the Project Was Built
+            </h2>
+
+            <p class="si-section-description mx-auto">
+                From research and data organization
+                to website development and testing.
+            </p>
+
+        </div>
+
+
+        <ol class="row g-4 list-unstyled mb-0">
+
+            {% for step in about.build_process %}
+
+            <li class="col-md-6 col-lg-3">
+
+                <div class="si-about-process-card">
+
+                    <span class="si-about-process-number">
+                        {{ forloop.counter }}
+                    </span>
+
+                    <h3>
+                        {{ step.title }}
+                    </h3>
+
+                    <p>
+                        {{ step.description }}
+                    </p>
+
+                </div>
+
+            </li>
+
+            {% endfor %}
+
+        </ol>
+
+    </div>
+</section>
+
+<section class="si-section">
+    <div class="container text-center">
+
+        <span class="si-eyebrow">
+            PROJECT TECHNOLOGIES
+        </span>
+
+        <h2 class="si-section-heading">
+            Built with Modern Web Technologies
+        </h2>
+
+        <p class="si-section-description mx-auto">
+            This project uses Python and Django
+            to organize and present industrial content
+            through reusable templates and JSON data.
+        </p>
+
+        <ul class="si-about-stack">
+
+            {% for technology in about.technology_stack %}
+
+            <li>
+                {{ technology }}
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+</section>
+
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <div class="text-center mb-5">
+
+            <span class="si-eyebrow">
+                OUR APPROACH
+            </span>
+
+            <h2 class="si-section-heading">
+                Editorial Principles
+            </h2>
+
+            <p class="si-section-description mx-auto">
+                The principles that guide how
+                information and media are presented
+                on this educational website.
+            </p>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for principle in about.editorial_principles %}
+
+            <div class="col-md-6">
+
+                <article class="si-about-principle-card">
+
+                    <span class="si-about-principle-icon"
+                          aria-hidden="true">
+                        ✓
+                    </span>
+
+                    <h3>
+                        {{ principle.title }}
+                    </h3>
+
+                    <p>
+                        {{ principle.description }}
+                    </p>
+
+                </article>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+
+        <div class="text-center mt-4">
+
+            <a
+                href="{% url 'core:gallery' %}"
+                class="si-text-link"
+            >
+                View Media Sources and Credits →
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="si-section">
+    <div class="container">
+
+        <div class="si-about-disclaimer">
+
+            <h2>
+                {{ about.disclaimer.title }}
+            </h2>
+
+            <p>
+                {{ about.disclaimer.text }}
+            </p>
+
+            <p>
+                {{ about.disclaimer.media_note }}
+            </p>
+
+        </div>
+
+    </div>
+</section>
+
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <div class="si-about-cta text-center">
+
+            <span class="si-eyebrow">
+                OPEN SOURCE DEVELOPMENT
+            </span>
+
+            <h2 class="si-section-heading">
+                Explore the Project
+            </h2>
+
+            <p class="si-section-description mx-auto">
+                {{ about.repository.description }}
+            </p>
+
+            <a
+                href="{{ about.repository.url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn si-primary-btn mt-3"
+            >
+                {{ about.repository.label }} ↗
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

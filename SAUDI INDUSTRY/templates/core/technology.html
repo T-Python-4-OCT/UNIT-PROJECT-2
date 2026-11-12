@@ -1,0 +1,390 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Industrial Technology | SAUDI INDUSTRY{% endblock %}
+
+{% block content %}
+
+<!-- TECHNOLOGY VIDEO HERO -->
+<section class="si-home-hero">
+
+    <div class="si-home-hero__media">
+        <video
+            id="technologyBackgroundVideo"
+            data-background-video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            aria-hidden="true"
+        >
+            <source
+                src="https://res.cloudinary.com/ew4jvlxr/video/upload/v1794412739/Technology.mp4"
+                type="video/mp4"
+            >
+        </video>
+    </div>
+
+    <div class="si-home-hero__shade"></div>
+
+    <div class="container si-home-hero__content">
+        <div class="row">
+            <div class="col-lg-9 col-xl-8">
+
+                <span class="si-eyebrow">
+                    {{ page.eyebrow }}
+                </span>
+
+                <h1 class="si-home-hero__title">
+                    {{ page.title }}
+                </h1>
+
+                <p class="si-home-hero__description">
+                    {{ page.description }}
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<section class="si-section">
+    <div class="container">
+
+        <form
+            method="get"
+            action="{% url 'core:technology' %}"
+            class="si-filter-panel mb-4"
+            role="search"
+        >
+
+            <div class="row g-3 align-items-end">
+
+                <div class="col-md-6 col-xl-4">
+
+                    <label
+                        for="technologySearch"
+                        class="form-label"
+                    >
+                        Search Technologies
+                    </label>
+
+                    <input
+                        type="search"
+                        id="technologySearch"
+                        name="q"
+                        class="form-control"
+                        placeholder="Search technologies..."
+                        value="{{ search_query }}"
+                    >
+
+                </div>
+
+
+                <div class="col-md-6 col-xl-3">
+
+                    <label
+                        for="technologyCategory"
+                        class="form-label"
+                    >
+                        Category
+                    </label>
+
+                    <select
+                        id="technologyCategory"
+                        name="category"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            All Categories
+                        </option>
+
+                        {% for category in categories %}
+
+                        <option
+                            value="{{ category }}"
+                            {% if selected_category == category %}selected{% endif %}
+                        >
+                            {{ category }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <div class="col-md-6 col-xl-3">
+
+                    <label
+                        for="technologyIndustry"
+                        class="form-label"
+                    >
+                        Related Industry
+                    </label>
+
+                    <select
+                        id="technologyIndustry"
+                        name="industry"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            All Industries
+                        </option>
+
+                        {% for industry in industry_options %}
+
+                        <option
+                            value="{{ industry.slug }}"
+                            {% if selected_industry == industry.slug %}selected{% endif %}
+                        >
+                            {{ industry.name }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <div class="col-md-6 col-xl-2">
+
+                    <div class="d-flex gap-2">
+
+                        <button
+                            type="submit"
+                            class="btn si-primary-btn flex-fill"
+                        >
+                            Apply
+                        </button>
+
+                        <a
+                            href="{% url 'core:technology' %}"
+                            class="btn si-reset-btn"
+                        >
+                            Reset
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+        <div class="si-results-bar">
+
+            <div>
+
+                <h2>
+                    Explore Industrial Technologies
+                </h2>
+
+                <p>
+                    Discover technologies and their applications
+                    across manufacturing.
+                </p>
+
+            </div>
+
+            <span class="si-results-count" role="status">
+                {{ technologies|length }} of
+                {{ total_technologies }} technologies
+            </span>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for item in technologies %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="si-sector-card">
+
+                    <a
+                        href="{% url 'core:technology_detail' item.slug %}"
+                        class="si-sector-card__image"
+                        aria-label="Explore {{ item.name }}"
+                    >
+
+                        <img
+                            {% if item.image|slice:":4" == "http" %}
+                            src="{{ item.image }}"
+                            {% else %}
+                            src="{% static item.image %}"
+                            {% endif %}
+                            alt="Illustrative industrial sector photograph"
+                            loading="lazy"
+                        >
+
+                    </a>
+
+
+                    <div class="si-sector-card__body">
+
+                        <span class="si-sector-card__category">
+                            {{ item.category }}
+                        </span>
+
+                        <h3>
+                            {{ item.name }}
+                        </h3>
+
+                        <p>
+                            {{ item.description }}
+                        </p>
+
+
+                        <div class="si-tech-card-industries">
+
+                            <span class="si-tech-meta-label">
+                                Potential Industry Applications
+                            </span>
+
+                            <div class="si-tech-tags">
+
+                                {% for industry in item.industries %}
+
+                                <a
+                                    href="{% url 'catalog:industry_detail' industry.slug %}"
+                                    class="si-tech-tag"
+                                >
+                                    {{ industry.name }}
+                                </a>
+
+                                {% endfor %}
+
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            href="{% url 'core:technology_detail' item.slug %}"
+                            class="si-text-link mt-auto"
+                        >
+                            Explore Technology →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="si-empty-results text-center">
+
+                    <h3>
+                        No Technologies Found
+                    </h3>
+
+                    <p>
+                        No technologies match your search or filters.
+                        Try another keyword, category, or industry.
+                    </p>
+
+                    <a
+                        href="{% url 'core:technology' %}"
+                        class="btn si-primary-btn mt-3"
+                    >
+                        Show All Technologies
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <div class="si-tech-saudi-context">
+
+            <span class="si-eyebrow">
+                SAUDI INDUSTRIAL TRANSFORMATION
+            </span>
+
+            <h2 class="si-section-heading">
+                Future Factories in Saudi Arabia
+            </h2>
+
+            <p class="si-section-description">
+                {{ page.saudi_context }}
+            </p>
+
+            <a
+                href="{{ page.saudi_source_url }}"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="btn si-primary-btn mt-3"
+            >
+                View Official Program ↗
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section">
+    <div class="container text-center">
+
+        <span class="si-eyebrow">
+            DISCOVER MORE
+        </span>
+
+        <h2 class="si-section-heading">
+            Explore Saudi Manufacturing
+        </h2>
+
+        <p class="si-section-description mx-auto">
+            Learn about the industries, companies,
+            and products that make up Saudi Arabia's
+            industrial landscape.
+        </p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+
+            <a
+                href="{% url 'catalog:industries' %}"
+                class="btn si-primary-btn"
+            >
+                Explore Industries →
+            </a>
+
+            <a
+                href="{% url 'catalog:made_in_saudi' %}"
+                class="btn si-detail-secondary-btn"
+            >
+                Made in Saudi
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,49 @@
+@media (max-width: 991px) {
+    .si-section {
+        padding: 70px 0;
+    }
+
+    .si-home-hero {
+        min-height: 70vh;
+        min-height: 70svh;
+    }
+
+    .si-section-header {
+        align-items: start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 576px) {
+    .si-section {
+        padding: 55px 0;
+    }
+
+    .si-home-hero__title {
+        font-size: 2.5rem;
+    }
+
+    .si-home-hero__description {
+        font-size: 1rem;
+    }
+
+    .si-home-hero__content {
+        padding-top: 75px;
+        padding-bottom: 75px;
+    }
+
+    .si-highlight-card {
+        padding: 25px;
+    }
+
+    .si-explore-banner {
+        padding: 45px 20px;
+    }
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .si-industry-card {
+        transition: none;
+    }
+}

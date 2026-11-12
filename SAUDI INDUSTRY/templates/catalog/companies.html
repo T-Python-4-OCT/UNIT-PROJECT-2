@@ -1,0 +1,363 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Companies | SAUDI INDUSTRY{% endblock %}
+
+{% block content %}
+
+<!-- COMPANIES VIDEO HERO -->
+<section class="si-home-hero">
+
+    <div class="si-home-hero__media">
+        <video
+            id="companiesBackgroundVideo"
+            data-background-video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            aria-hidden="true"
+        >
+            <source
+                src="https://res.cloudinary.com/ew4jvlxr/video/upload/v1794411932/4607633-hd_1920_1080_30fps.mp4"
+                type="video/mp4"
+            >
+        </video>
+    </div>
+
+    <div class="si-home-hero__shade"></div>
+
+    <div class="container si-home-hero__content">
+        <div class="row">
+            <div class="col-lg-9 col-xl-8">
+
+                <span class="si-eyebrow">
+                    EXPLORE SAUDI MANUFACTURING
+                </span>
+
+                <h1 class="si-home-hero__title">
+                    Industrial <span>Companies</span>
+                </h1>
+
+                <p class="si-home-hero__description">
+                    Discover the companies contributing to
+                    Saudi Arabia's industrial development,
+                    from petrochemicals and pharmaceuticals
+                    to automotive manufacturing and advanced technologies.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+<section class="si-section">
+    <div class="container">
+
+        
+
+        <form
+            method="get"
+            action="{% url 'catalog:companies' %}"
+            class="si-filter-panel mb-4"
+            role="search"
+        >
+
+            <div class="row g-3 align-items-end">
+
+                <div class="col-md-6 col-xl-4">
+
+                    <label
+                        for="companySearch"
+                        class="form-label"
+                    >
+                        Search Companies
+                    </label>
+
+                    <input
+                        type="search"
+                        id="companySearch"
+                        name="q"
+                        class="form-control"
+                        placeholder="Search company or keyword..."
+                        value="{{ search_query }}"
+                    >
+
+                </div>
+
+
+                <div class="col-md-6 col-xl-3">
+
+                    <label
+                        for="companyIndustry"
+                        class="form-label"
+                    >
+                        Industry
+                    </label>
+
+                    <select
+                        id="companyIndustry"
+                        name="industry"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            All Industries
+                        </option>
+
+                        {% for industry in industry_options %}
+
+                        <option
+                            value="{{ industry.slug }}"
+                            {% if selected_industry == industry.slug %}selected{% endif %}
+                        >
+                            {{ industry.name }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <div class="col-md-6 col-xl-3">
+
+                    <label
+                        for="companyLocation"
+                        class="form-label"
+                    >
+                        Location
+                    </label>
+
+                    <select
+                        id="companyLocation"
+                        name="location"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            All Locations
+                        </option>
+
+                        {% for location in locations %}
+
+                        <option
+                            value="{{ location }}"
+                            {% if selected_location == location %}selected{% endif %}
+                        >
+                            {{ location }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <div class="col-md-6 col-xl-2">
+
+                    <div class="d-flex gap-2">
+
+                        <button
+                            type="submit"
+                            class="btn si-primary-btn flex-fill"
+                        >
+                            Apply
+                        </button>
+
+                        <a
+                            href="{% url 'catalog:companies' %}"
+                            class="btn si-reset-btn"
+                        >
+                            Reset
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+        <div class="si-results-bar">
+
+            <div>
+
+                <h2>
+                    Explore Saudi Manufacturers
+                </h2>
+
+                <p>
+                    Discover companies across industrial sectors.
+                </p>
+
+            </div>
+
+            <span class="si-results-count" role="status">
+                {{ companies|length }} of
+                {{ total_companies }} companies
+            </span>
+
+        </div>
+
+
+        <div class="row g-4">
+
+            {% for company in companies %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="si-sector-card">
+
+                    <a
+                        href="{% url 'catalog:company_detail' company.slug %}"
+                        class="si-sector-card__image"
+                        aria-label="View {{ company.name }} profile"
+                    >
+
+                        <img
+                            {% if company.image|slice:":4" == "http" %}
+                            src="{{ company.image }}"
+                            {% else %}
+                            src="{% static company.image %}"
+                            {% endif %}
+                            alt="Illustrative image of the {{ company.industry.name }} industry"
+                            loading="lazy"
+                        >
+
+                    </a>
+
+
+                    <div class="si-sector-card__body">
+
+                        <span class="si-sector-card__category">
+                            {{ company.industry.name }}
+                        </span>
+
+
+                        <h3>
+                            {{ company.name }}
+                        </h3>
+
+
+                        <p>
+                            {{ company.description }}
+                        </p>
+
+
+                        <div class="si-company-location">
+
+                            <span
+                                class="si-company-location__icon"
+                                aria-hidden="true"
+                            >
+                                ⌖
+                            </span>
+
+                            <div>
+
+                                <strong>
+                                    {{ company.location }}
+                                </strong>
+
+                                <small>
+                                    {{ company.location_type }}
+                                </small>
+
+                            </div>
+
+                        </div>
+
+
+                        <a
+                            href="{% url 'catalog:company_detail' company.slug %}"
+                            class="si-text-link mt-auto"
+                        >
+                            View Company Profile →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="si-empty-results text-center">
+
+                    <h3>
+                        No Companies Found
+                    </h3>
+
+                    <p>
+                        No companies match your search or filters.
+                        Try another keyword, industry, or location.
+                    </p>
+
+                    <a
+                        href="{% url 'catalog:companies' %}"
+                        class="btn si-primary-btn mt-3"
+                    >
+                        Show All Companies
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section si-section-alt">
+    <div class="container text-center">
+
+        <span class="si-eyebrow">
+            DISCOVER MORE
+        </span>
+
+        <h2 class="si-section-heading">
+            Explore Saudi Industrial Sectors
+        </h2>
+
+        <p class="si-section-description mx-auto">
+            Discover the industries behind these companies,
+            explore manufacturing technologies,
+            and learn about Saudi Arabia's industrial future.
+        </p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+
+            <a
+                href="{% url 'catalog:industries' %}"
+                class="btn si-primary-btn"
+            >
+                Explore Industries →
+            </a>
+
+            <a
+                href="{% url 'core:technology' %}"
+                class="btn si-detail-secondary-btn"
+            >
+                Discover Technology
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

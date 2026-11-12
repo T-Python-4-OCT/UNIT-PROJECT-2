@@ -1,0 +1,196 @@
+{
+  "products": [
+    {
+      "id": 1,
+      "slug": "polyethylene-resin",
+      "name": "Polyethylene Resin",
+      "category": "Polymers and Plastics",
+      "industry_slug": "petrochemicals",
+      "company_slug": "sabic",
+      "production_location": "Jubail Industrial City",
+      "description": "A widely used thermoplastic material manufactured in Saudi Arabia for packaging and industrial applications.",
+      "overview": "Polyethylene is a versatile polymer produced by converting ethylene into long molecular chains. Saudi petrochemical manufacturers produce several polyethylene grades used in packaging, containers, pipes, and other products.",
+      "raw_materials": [
+        "Ethylene monomer",
+        "Polymerization catalysts",
+        "Processing additives"
+      ],
+      "production_steps": [
+        "Prepare ethylene feedstock and processing materials.",
+        "Convert ethylene into polyethylene through polymerization.",
+        "Separate and recover the polymer.",
+        "Melt, extrude, and cut the polymer into pellets.",
+        "Test and package the finished resin."
+      ],
+      "applications": [
+        "Food and industrial packaging",
+        "Plastic containers",
+        "Industrial pipes",
+        "Plastic films"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794414893/images_1.jpg",
+      "source_url": "https://www.sabic.com/en/products/polymers/polyethylene-pe"
+    },
+    {
+      "id": 2,
+      "slug": "pharmaceutical-tablets",
+      "name": "Pharmaceutical Tablets",
+      "category": "Medicines",
+      "industry_slug": "pharmaceuticals",
+      "company_slug": "spimaco",
+      "production_location": "Al-Qassim",
+      "description": "Solid oral medicines produced through controlled pharmaceutical manufacturing processes.",
+      "overview": "Pharmaceutical tablets are manufactured by combining active pharmaceutical ingredients with supporting materials in carefully controlled formulations. Saudi manufacturers such as SPIMACO operate facilities that produce oral solid medicines.",
+      "raw_materials": [
+        "Active pharmaceutical ingredients",
+        "Pharmaceutical excipients",
+        "Binders and disintegrants",
+        "Optional tablet coating materials"
+      ],
+      "production_steps": [
+        "Verify and measure approved ingredients.",
+        "Blend the formulation to the required specifications.",
+        "Granulate the material when required by the formulation.",
+        "Compress the prepared mixture into tablets.",
+        "Apply coating when required.",
+        "Conduct quality testing and package the tablets."
+      ],
+      "applications": [
+        "Prescription medicines",
+        "General healthcare treatments",
+        "Oral medication delivery"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794415165/Pharmaceutical_Tablets.jpg",
+      "source_url": "https://www.spimaco.com.sa/who-we-are/"
+    },
+    {
+      "id": 3,
+      "slug": "fresh-milk",
+      "name": "Fresh Milk",
+      "category": "Dairy Products",
+      "industry_slug": "food-manufacturing",
+      "company_slug": "almarai",
+      "production_location": "Al-Kharj",
+      "description": "Fresh dairy milk processed and packaged in Saudi Arabian food-manufacturing facilities.",
+      "overview": "Fresh milk production combines dairy farming with modern food processing. Almarai operates dairy farms and processing facilities in Saudi Arabia, including Al-Kharj, where milk is processed, packaged, and prepared for refrigerated distribution.",
+      "raw_materials": [
+        "Raw cow's milk",
+        "Food-grade packaging materials"
+      ],
+      "production_steps": [
+        "Collect fresh milk from dairy farms.",
+        "Transport and store the milk under controlled temperatures.",
+        "Test the milk for quality and food safety.",
+        "Pasteurize and homogenize the milk as required.",
+        "Fill and seal food-grade containers.",
+        "Refrigerate the finished product for distribution."
+      ],
+      "applications": [
+        "Direct consumption",
+        "Food preparation",
+        "Beverages",
+        "Household dairy use"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794415157/Fresh_Milk.jpg",
+      "source_url": "https://www.almarai.com/en/brands/almarai/liquid-dairy/fresh-milk"
+    },
+    {
+      "id": 4,
+      "slug": "rolled-aluminium",
+      "name": "Rolled Aluminium",
+      "category": "Metal Products",
+      "industry_slug": "mining-metals",
+      "company_slug": "maaden",
+      "production_location": "Ras Al Khair",
+      "description": "Aluminium products manufactured through refining, smelting, casting, and rolling processes.",
+      "overview": "Saudi Arabia has developed integrated aluminium production capabilities, including bauxite mining, alumina refining, aluminium smelting, and rolling. Maaden operates an aluminium production complex at Ras Al Khair that supports industrial and commercial applications.",
+      "raw_materials": [
+        "Bauxite ore",
+        "Alumina",
+        "Aluminium alloying elements"
+      ],
+      "production_steps": [
+        "Mine and prepare bauxite ore.",
+        "Refine bauxite into alumina.",
+        "Smelt alumina to produce aluminium.",
+        "Cast aluminium into suitable forms.",
+        "Roll the metal to the required thickness.",
+        "Inspect and prepare the finished material."
+      ],
+      "applications": [
+        "Packaging materials",
+        "Building products",
+        "Industrial components",
+        "Manufacturing supply chains"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794415149/Rolled_Aluminium.jpg",
+      "source_url": "https://www.maaden.com/discover-us/core-business-units/aluminum"
+    },
+    {
+      "id": 5,
+      "slug": "phosphate-fertilizer",
+      "name": "Phosphate Fertilizer",
+      "category": "Agricultural Chemicals",
+      "industry_slug": "mining-metals",
+      "company_slug": "maaden",
+      "production_location": "Ras Al Khair",
+      "description": "Mineral-based fertilizer manufactured to supply phosphorus nutrients for agriculture.",
+      "overview": "Saudi Arabia produces phosphate fertilizers by processing mineral phosphate resources into agricultural products. Maaden's phosphate operations include the production of fertilizers such as diammonium phosphate, supporting agricultural supply chains in domestic and international markets.",
+      "raw_materials": [
+        "Phosphate rock",
+        "Sulfuric acid",
+        "Ammonia",
+        "Processing water"
+      ],
+      "production_steps": [
+        "Extract and prepare phosphate rock.",
+        "Process the rock to obtain phosphoric acid.",
+        "React phosphoric acid with ammonia.",
+        "Form fertilizer granules.",
+        "Dry, screen, and inspect the granules.",
+        "Store and package the fertilizer."
+      ],
+      "applications": [
+        "Agricultural crop production",
+        "Soil nutrient management",
+        "Commercial farming"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794415170/Phosphate_Fertilizer.jpg",
+      "source_url": "https://www.maaden.com/discover-us/core-business-units/phosphate"
+    },
+    {
+      "id": 6,
+      "slug": "electrical-distribution-boards",
+      "name": "Electrical Distribution Boards",
+      "category": "Electrical Equipment",
+      "industry_slug": "energy-technologies",
+      "company_slug": "alfanar",
+      "production_location": "Riyadh",
+      "description": "Electrical assemblies manufactured to distribute and protect electrical power in buildings and industrial facilities.",
+      "overview": "Electrical distribution boards combine protective devices, electrical connections, and engineered enclosures to distribute power safely. Saudi manufacturer alfanar produces electrical distribution systems and panels through its industrial operations in Riyadh.",
+      "raw_materials": [
+        "Steel or other enclosure materials",
+        "Copper or aluminium conductors",
+        "Circuit breakers and protective devices",
+        "Electrical insulation materials",
+        "Connection and mounting components"
+      ],
+      "production_steps": [
+        "Prepare the electrical design and specifications.",
+        "Fabricate and prepare the enclosure.",
+        "Install busbars and electrical components.",
+        "Assemble the internal electrical connections.",
+        "Inspect the assembly and perform electrical tests.",
+        "Label and prepare the finished board for delivery."
+      ],
+      "applications": [
+        "Residential electrical distribution",
+        "Commercial buildings",
+        "Industrial facilities",
+        "Power protection systems"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794415161/Electrical_Distribution_Boards.jpg",
+      "source_url": "https://www.alfanar.com/company/request-a-visit"
+    }
+  ]
+}

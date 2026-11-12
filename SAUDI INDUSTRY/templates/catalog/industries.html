@@ -1,0 +1,272 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Industries | SAUDI INDUSTRY{% endblock %}
+
+{% block content %}
+
+<!-- INDUSTRIES VIDEO HERO -->
+<section class="si-home-hero">
+
+    <div class="si-home-hero__media">
+        <video
+            id="industriesBackgroundVideo"
+            data-background-video
+            autoplay
+            muted
+            loop
+            playsinline
+            preload="auto"
+            aria-hidden="true"
+        >
+            <source
+                src="https://res.cloudinary.com/ew4jvlxr/video/upload/v1794410277/15057575_2560_1440_30fps.mp4"
+                type="video/mp4"
+            >
+        </video>
+    </div>
+
+    <div class="si-home-hero__shade"></div>
+
+    <div class="container si-home-hero__content">
+        <div class="row">
+            <div class="col-lg-9 col-xl-8">
+
+                <span class="si-eyebrow">
+                    EXPLORE SAUDI MANUFACTURING
+                </span>
+
+                <h1 class="si-home-hero__title">
+                    Our <span>Industries</span>
+                </h1>
+
+                <p class="si-home-hero__description">
+                    Discover the industries shaping Saudi Arabia's
+                    manufacturing landscape, from petrochemicals
+                    and pharmaceuticals to advanced technologies.
+                </p>
+
+            </div>
+        </div>
+    </div>
+
+</section>
+
+
+<!-- INDUSTRIES -->
+<section class="si-section">
+    <div class="container">
+
+        <!-- SEARCH AND FILTERS -->
+        <form
+            method="get"
+            action="{% url 'catalog:industries' %}"
+            class="si-filter-panel mb-4"
+            role="search"
+        >
+
+            <div class="row g-3 align-items-end">
+
+                <div class="col-lg-5">
+
+                    <label
+                        for="industrySearch"
+                        class="form-label"
+                    >
+                        Search Industries
+                    </label>
+
+                    <input
+                        type="search"
+                        id="industrySearch"
+                        name="q"
+                        class="form-control"
+                        placeholder="Search by name or keyword..."
+                        value="{{ search_query }}"
+                    >
+
+                </div>
+
+                <div class="col-lg-4">
+
+                    <label
+                        for="industryCategory"
+                        class="form-label"
+                    >
+                        Category
+                    </label>
+
+                    <select
+                        id="industryCategory"
+                        name="category"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            All Categories
+                        </option>
+
+                        {% for category in categories %}
+
+                        <option
+                            value="{{ category }}"
+                            {% if selected_category == category %}selected{% endif %}
+                        >
+                            {{ category }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+                <div class="col-lg-3">
+
+                    <div class="d-flex gap-2">
+
+                        <button
+                            type="submit"
+                            class="btn si-primary-btn flex-fill"
+                        >
+                            Apply
+                        </button>
+
+                        <a
+                            href="{% url 'catalog:industries' %}"
+                            class="btn si-reset-btn"
+                        >
+                            Reset
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+        <!-- RESULTS -->
+        <div class="si-results-bar">
+
+            <div>
+                <h2>Explore Industrial Sectors</h2>
+
+                <p>
+                    Discover manufacturing across the Kingdom.
+                </p>
+            </div>
+
+            <span class="si-results-count">
+                {{ industries|length }} of
+                {{ total_industries }} industries
+            </span>
+
+        </div>
+
+
+        <!-- INDUSTRY CARDS -->
+        <div class="row g-4">
+
+            {% for industry in industries %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="si-sector-card">
+
+                    <a
+                        href="{% url 'catalog:industry_detail' industry.slug %}"
+                        class="si-sector-card__image"
+                    >
+                        <img
+                            src="{% static industry.image %}"
+                            alt="{{ industry.name }} manufacturing"
+                            loading="lazy"
+                        >
+                    </a>
+
+                    <div class="si-sector-card__body">
+
+                        <span class="si-sector-card__category">
+                            {{ industry.category }}
+                        </span>
+
+                        <h3>{{ industry.name }}</h3>
+
+                        <p>{{ industry.description }}</p>
+
+                        <a
+                            href="{% url 'catalog:industry_detail' industry.slug %}"
+                            class="si-text-link mt-auto"
+                        >
+                            Explore Industry →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="si-empty-results text-center">
+
+                    <h3>No industries found</h3>
+
+                    <p>
+                        Try another search term or select
+                        a different category.
+                    </p>
+
+                    <a
+                        href="{% url 'catalog:industries' %}"
+                        class="btn si-primary-btn mt-3"
+                    >
+                        Show All Industries
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- BOTTOM SECTION -->
+<section class="si-section si-section-alt">
+    <div class="container text-center">
+
+        <span class="si-eyebrow">
+            SAUDI INDUSTRIAL DEVELOPMENT
+        </span>
+
+        <h2 class="si-section-heading">
+            Discover the Companies Behind the Industries
+        </h2>
+
+        <p class="si-section-description mx-auto">
+            Explore the manufacturers and industrial companies
+            contributing to Saudi Arabia's manufacturing sector.
+        </p>
+
+        <a
+            href="{% url 'catalog:companies' %}"
+            class="btn si-primary-btn mt-3"
+        >
+            Explore Companies →
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}

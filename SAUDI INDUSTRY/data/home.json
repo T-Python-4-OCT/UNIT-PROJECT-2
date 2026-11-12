@@ -1,0 +1,44 @@
+{
+  "hero": {
+    "eyebrow": "THE FUTURE OF SAUDI MANUFACTURING",
+    "title": "Made in Saudi Arabia.",
+    "highlight": "Built for the Future.",
+    "description": "Discover the industries, companies, and innovations shaping the future of manufacturing in the Kingdom of Saudi Arabia.",
+    "poster": "",
+    "video_url": "https://res.cloudinary.com/ew4jvlxr/video/upload/v1794404207/home-hero-optimized-720p.mp4"
+  },
+  "introduction": {
+    "eyebrow": "WELCOME TO SAUDI INDUSTRY",
+    "title": "Discover the Power of Saudi Manufacturing",
+    "description": "Saudi Arabia is developing a diverse industrial landscape, from petrochemicals and food production to pharmaceuticals, automotive manufacturing, and advanced technologies."
+  },
+  "featured_industries": [
+    "petrochemicals",
+    "pharmaceuticals",
+    "automotive"
+  ],
+  "highlights": [
+    {
+      "title": "Industrial Development",
+      "description": "Explore the industrial sectors and production capabilities across the Kingdom."
+    },
+    {
+      "title": "Advanced Technology",
+      "description": "Discover automation, robotics, and intelligent manufacturing systems."
+    },
+    {
+      "title": "Made in Saudi",
+      "description": "Learn about products and manufacturers contributing to Saudi Arabia's industrial landscape."
+    }
+  ],
+  "vision": {
+    "eyebrow": "SAUDI VISION 2030",
+    "title": "Transforming the Industrial Future",
+    "description": "Discover how Saudi Arabia's industrial strategy supports economic diversification, local manufacturing, and the development of advanced industrial capabilities.",
+    "image": "images/home/vision2030.jpg"
+  },
+  "explore": {
+    "title": "Explore the Industries Shaping Tomorrow",
+    "description": "Discover Saudi manufacturers, industrial cities, technologies, and locally produced goods."
+  }
+}

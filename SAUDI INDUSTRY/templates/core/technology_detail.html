@@ -1,0 +1,369 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ technology.name }} | SAUDI INDUSTRY{% endblock %}
+
+{% block content %}
+
+<section class="si-page-banner">
+    <div class="container">
+
+        <nav aria-label="Breadcrumb">
+
+            <ol class="breadcrumb si-breadcrumb">
+
+                <li class="breadcrumb-item">
+                    <a href="{% url 'core:home' %}">
+                        Home
+                    </a>
+                </li>
+
+                <li class="breadcrumb-item">
+                    <a href="{% url 'core:technology' %}">
+                        Technology
+                    </a>
+                </li>
+
+                <li
+                    class="breadcrumb-item active"
+                    aria-current="page"
+                >
+                    {{ technology.name }}
+                </li>
+
+            </ol>
+
+        </nav>
+
+        <span class="si-eyebrow">
+            {{ technology.category }}
+        </span>
+
+        <h1 class="si-page-banner__title">
+            {{ technology.name }}
+        </h1>
+
+        <p class="si-page-banner__description">
+            {{ technology.description }}
+        </p>
+
+    </div>
+</section>
+
+
+<section class="si-section">
+    <div class="container">
+
+        <div class="row g-5 align-items-center">
+
+            <div class="col-lg-6">
+
+                <div class="si-detail-image">
+
+                    <img
+                        {% if technology.image|slice:":4" == "http" %}
+                        src="{{ technology.image }}"
+                        {% else %}
+                        src="{% static technology.image %}"
+                        {% endif %}
+                        alt="Illustrative industrial manufacturing photograph"
+                        class="img-fluid"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <p class="si-image-caption mt-2">
+                    Illustrative industry photograph.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <span class="si-eyebrow">
+                    TECHNOLOGY PROFILE
+                </span>
+
+                <h2 class="si-section-heading">
+                    About {{ technology.name }}
+                </h2>
+
+                <p class="si-section-description">
+                    {{ technology.overview }}
+                </p>
+
+                <p class="si-tech-detail-note">
+                    These are general manufacturing technology
+                    applications, not verified installations
+                    at specific Saudi facilities.
+                </p>
+
+                <a
+                    href="{{ technology.source_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn si-primary-btn mt-3"
+                >
+                    View Technical Reference ↗
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <span class="si-eyebrow">
+            UNDERSTAND THE TECHNOLOGY
+        </span>
+
+        <h2 class="si-section-heading">
+            How It Works
+        </h2>
+
+        <p class="si-section-description">
+            Explore the typical stages and systems
+            involved in {{ technology.name }}.
+        </p>
+
+        <ol class="si-tech-steps mt-4">
+
+            {% for step in technology.how_it_works %}
+
+            <li class="si-tech-step">
+
+                <span
+                    class="si-tech-step__number"
+                    aria-hidden="true"
+                >
+                    {{ forloop.counter }}
+                </span>
+
+                <p>
+                    {{ step }}
+                </p>
+
+            </li>
+
+            {% endfor %}
+
+        </ol>
+
+    </div>
+</section>
+
+
+<section class="si-section">
+    <div class="container">
+
+        <span class="si-eyebrow">
+            REAL-WORLD USE CASES
+        </span>
+
+        <h2 class="si-section-heading">
+            Industrial Applications
+        </h2>
+
+        <div class="row g-4 mt-2">
+
+            {% for application in technology.applications %}
+
+            <div class="col-sm-6 col-lg-3">
+
+                <div class="si-tech-info-card">
+
+                    <span class="si-tech-info-card__icon">
+                        ✓
+                    </span>
+
+                    <h3>
+                        {{ application }}
+                    </h3>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <div class="row g-4">
+
+            <div class="col-lg-6">
+
+                <div class="si-tech-panel">
+
+                    <span class="si-eyebrow">
+                        OPPORTUNITIES
+                    </span>
+
+                    <h2 class="si-section-heading">
+                        Benefits
+                    </h2>
+
+                    <ul class="si-tech-list">
+
+                        {% for benefit in technology.benefits %}
+
+                        <li>
+                            {{ benefit }}
+                        </li>
+
+                        {% endfor %}
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <div class="si-tech-panel">
+
+                    <span class="si-eyebrow">
+                        IMPLEMENTATION
+                    </span>
+
+                    <h2 class="si-section-heading">
+                        Challenges and Considerations
+                    </h2>
+
+                    <ul class="si-tech-list">
+
+                        {% for consideration in technology.considerations %}
+
+                        <li>
+                            {{ consideration }}
+                        </li>
+
+                        {% endfor %}
+
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section">
+    <div class="container">
+
+        <span class="si-eyebrow">
+            INDUSTRIAL CONNECTIONS
+        </span>
+
+        <h2 class="si-section-heading">
+            Related Industries
+        </h2>
+
+        <p class="si-section-description">
+            This technology has potential applications
+            in the following manufacturing sectors.
+        </p>
+
+        <div class="row g-4 mt-2">
+
+            {% for industry in technology.industries %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="si-sector-card">
+
+                    <a
+                        href="{% url 'catalog:industry_detail' industry.slug %}"
+                        class="si-sector-card__image"
+                        aria-label="Explore {{ industry.name }}"
+                    >
+
+                        <img
+                            src="{% static industry.image %}"
+                            alt="Illustrative image of {{ industry.name }}"
+                            loading="lazy"
+                        >
+
+                    </a>
+
+                    <div class="si-sector-card__body">
+
+                        <span class="si-sector-card__category">
+                            {{ industry.category }}
+                        </span>
+
+                        <h3>
+                            {{ industry.name }}
+                        </h3>
+
+                        <p>
+                            {{ industry.description }}
+                        </p>
+
+                        <a
+                            href="{% url 'catalog:industry_detail' industry.slug %}"
+                            class="si-text-link mt-auto"
+                        >
+                            Explore Industry →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section si-section-alt">
+    <div class="container text-center">
+
+        <span class="si-eyebrow">
+            CONTINUE EXPLORING
+        </span>
+
+        <h2 class="si-section-heading">
+            Discover More Industrial Technologies
+        </h2>
+
+        <p class="si-section-description mx-auto">
+            Explore other technologies used
+            in modern manufacturing.
+        </p>
+
+        <a
+            href="{% url 'core:technology' %}"
+            class="btn si-primary-btn mt-4"
+        >
+            All Technologies →
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}

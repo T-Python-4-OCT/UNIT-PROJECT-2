@@ -1,0 +1,272 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ company.name }} | SAUDI INDUSTRY{% endblock %}
+
+{% block content %}
+
+<section class="si-page-banner">
+    <div class="container">
+
+        <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb si-breadcrumb">
+
+                <li class="breadcrumb-item">
+                    <a href="{% url 'core:home' %}">
+                        Home
+                    </a>
+                </li>
+
+                <li class="breadcrumb-item">
+                    <a href="{% url 'catalog:companies' %}">
+                        Companies
+                    </a>
+                </li>
+
+                <li
+                    class="breadcrumb-item active"
+                    aria-current="page"
+                >
+                    {{ company.name }}
+                </li>
+
+            </ol>
+        </nav>
+
+        <span class="si-eyebrow">
+            {{ company.industry.name }}
+        </span>
+
+        <h1 class="si-page-banner__title">
+            {{ company.name }}
+        </h1>
+
+        <p class="si-page-banner__description">
+            {{ company.description }}
+        </p>
+
+    </div>
+</section>
+
+
+<section class="si-section">
+    <div class="container">
+
+        <div class="row g-5 align-items-center">
+
+            <div class="col-lg-6">
+
+                <div class="si-detail-image">
+
+                    <img
+                        {% if company.image|slice:":4" == "http" %}
+                        src="{{ company.image }}"
+                        {% else %}
+                        src="{% static company.image %}"
+                        {% endif %}
+                        alt="Illustrative photograph of the {{ company.industry.name }} sector"
+                        class="img-fluid"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <p class="si-image-caption mt-2">
+                    Illustrative industry photograph.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <span class="si-eyebrow">
+                    COMPANY PROFILE
+                </span>
+
+                <h2 class="si-section-heading">
+                    About {{ company.name }}
+                </h2>
+
+                <p class="si-section-description">
+                    {{ company.overview }}
+                </p>
+
+
+                <div class="si-company-facts">
+
+                    <div class="si-company-fact">
+
+                        <span class="si-company-fact__label">
+                            Industry
+                        </span>
+
+                        <a
+                            href="{% url 'catalog:industry_detail' company.industry_slug %}"
+                            class="si-text-link"
+                        >
+                            {{ company.industry.name }} →
+                        </a>
+
+                    </div>
+
+
+                    <div class="si-company-fact">
+
+                        <span class="si-company-fact__label">
+                            Featured Location
+                        </span>
+
+                        <strong>
+                            {{ company.location }}
+                        </strong>
+
+                        <small>
+                            {{ company.location_type }}
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                {% if company.website %}
+
+                <a
+                    href="{{ company.website }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn si-primary-btn mt-4"
+                >
+                    Visit Official Website ↗
+                </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <span class="si-eyebrow">
+            INDUSTRIAL ACTIVITIES
+        </span>
+
+        <h2 class="si-section-heading">
+            Main Business Areas
+        </h2>
+
+        <p class="si-section-description">
+            Explore the primary manufacturing activities
+            and industrial focus areas associated with
+            {{ company.name }}.
+        </p>
+
+
+        <div class="row g-4 mt-2">
+
+            {% for area in company.focus_areas %}
+
+            <div class="col-sm-6 col-lg-3">
+
+                <article class="si-detail-item">
+
+                    <span class="si-detail-item__number">
+                        0{{ forloop.counter }}
+                    </span>
+
+                    <h3>
+                        {{ area }}
+                    </h3>
+
+                </article>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section">
+    <div class="container">
+
+        <div class="si-company-related">
+
+            <div>
+
+                <span class="si-eyebrow">
+                    RELATED INDUSTRY
+                </span>
+
+                <h2 class="si-section-heading">
+                    Explore {{ company.industry.name }}
+                </h2>
+
+                <p class="si-section-description">
+                    {{ company.industry.description }}
+                </p>
+
+            </div>
+
+
+            <a
+                href="{% url 'catalog:industry_detail' company.industry_slug %}"
+                class="btn si-primary-btn"
+            >
+                View Industry →
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section si-section-alt">
+    <div class="container text-center">
+
+        <span class="si-eyebrow">
+            EXPLORE MORE
+        </span>
+
+        <h2 class="si-section-heading">
+            Discover More Industrial Companies
+        </h2>
+
+        <p class="si-section-description mx-auto">
+            Continue exploring the companies and industries
+            contributing to Saudi Arabia's industrial future.
+        </p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+
+            <a
+                href="{% url 'catalog:companies' %}"
+                class="btn si-primary-btn"
+            >
+                All Companies →
+            </a>
+
+            <a
+                href="{% url 'catalog:industries' %}"
+                class="btn si-detail-secondary-btn"
+            >
+                Explore Industries
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

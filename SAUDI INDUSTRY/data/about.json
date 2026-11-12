@@ -1,0 +1,133 @@
+
+{
+  "hero": {
+    "eyebrow": "ABOUT THE PROJECT",
+    "title": "Discover SAUDI INDUSTRY",
+    "description": "An independent educational platform exploring Saudi Arabia's manufacturing sectors, companies, industrial cities, products, and technologies.",
+    "image": "images/home/hero-poster.jpg",
+    "image_alt": "Illustrative photograph of industrial manufacturing"
+  },
+  "introduction": {
+    "eyebrow": "OUR STORY",
+    "title": "A Digital Window into Saudi Manufacturing",
+    "paragraphs": [
+      "SAUDI INDUSTRY — صناعة وطن is a web development project created to help visitors explore the industrial landscape of Saudi Arabia through organized, accessible, and visually engaging information.",
+      "The website brings together information about industrial sectors, manufacturers, industrial cities, locally manufactured products, advanced technologies, and Saudi Vision 2030.",
+      "The project was developed as UNIT-PROJECT-2 using Python, Django, HTML, CSS, JavaScript, Bootstrap, and JSON-based content."
+    ]
+  },
+  "mission": {
+    "title": "Our Mission",
+    "description": "Make information about Saudi industry easier to explore and understand through clear explanations, interactive directories, and educational visual content."
+  },
+  "vision": {
+    "title": "Our Vision",
+    "description": "Create an informative digital experience that encourages curiosity about manufacturing, technology, innovation, and industrial development in Saudi Arabia."
+  },
+  "sections": [
+    {
+      "id": 1,
+      "title": "Industries",
+      "description": "Explore major manufacturing sectors, their production capabilities, and the technologies they use.",
+      "route_name": "catalog:industries"
+    },
+    {
+      "id": 2,
+      "title": "Companies",
+      "description": "Discover selected Saudi industrial companies, their activities, and their connections to manufacturing sectors.",
+      "route_name": "catalog:companies"
+    },
+    {
+      "id": 3,
+      "title": "Industrial Cities",
+      "description": "Learn about industrial locations, infrastructure, and important manufacturing centers across the Kingdom.",
+      "route_name": "catalog:industrial_cities"
+    },
+    {
+      "id": 4,
+      "title": "Made in Saudi",
+      "description": "Explore examples of products manufactured in Saudi Arabia, including materials and production processes.",
+      "route_name": "catalog:made_in_saudi"
+    },
+    {
+      "id": 5,
+      "title": "Industrial Technology",
+      "description": "Understand robotics, artificial intelligence, automation, smart factories, industrial IoT, and digital twins.",
+      "route_name": "core:technology"
+    },
+    {
+      "id": 6,
+      "title": "Vision 2030",
+      "description": "Learn about national goals and initiatives connected to economic diversification and industrial development.",
+      "route_name": "core:vision2030"
+    },
+    {
+      "id": 7,
+      "title": "Industrial Gallery",
+      "description": "View educational industrial photographs and available videos, with source and licensing information.",
+      "route_name": "core:gallery"
+    }
+  ],
+  "build_process": [
+    {
+      "id": 1,
+      "title": "Research and Organize",
+      "description": "Collect educational information from relevant sources and organize it by industry, company, location, product, and technology."
+    },
+    {
+      "id": 2,
+      "title": "Structure the Content",
+      "description": "Store website content in JSON files and connect related records using shared identifiers and slugs."
+    },
+    {
+      "id": 3,
+      "title": "Build the Experience",
+      "description": "Use Django templates, Bootstrap, custom CSS, and JavaScript to create responsive pages and interactive features."
+    },
+    {
+      "id": 4,
+      "title": "Test and Improve",
+      "description": "Use Django tests, source reviews, browser checks, and GitHub version control to improve reliability and maintainability."
+    }
+  ],
+  "technology_stack": [
+    "Python",
+    "Django",
+    "JSON",
+    "HTML5 and CSS3",
+    "Bootstrap 5",
+    "JavaScript"
+  ],
+  "editorial_principles": [
+    {
+      "id": 1,
+      "title": "Educational Accuracy",
+      "description": "Present information in a clear educational format and distinguish general industrial explanations from specific company facts."
+    },
+    {
+      "id": 2,
+      "title": "Source Transparency",
+      "description": "Provide references for significant factual claims where available and identify information that requires additional verification."
+    },
+    {
+      "id": 3,
+      "title": "Responsible Media Use",
+      "description": "Identify illustrative imagery, retain available creator and license details, and verify reuse permissions before public distribution."
+    },
+    {
+      "id": 4,
+      "title": "Independent Presentation",
+      "description": "Avoid implying official endorsement, program certification, or relationships with the companies and organizations discussed."
+    }
+  ],
+  "disclaimer": {
+    "title": "Educational Project Disclaimer",
+    "text": "SAUDI INDUSTRY is an independent educational software project. It is not an official government website and is not affiliated with or endorsed by Saudi Vision 2030, the Ministry of Industry and Mineral Resources, or the companies and institutions presented on this website.",
+    "media_note": "Some photographs and videos are illustrative rather than verified images of specific Saudi facilities. Media marked as having unverified rights must be reviewed or replaced before public distribution. Inclusion of a product does not establish official Made in Saudi certification."
+  },
+  "repository": {
+    "label": "Explore the Project on GitHub",
+    "url": "https://github.com/MMutairi/UNIT-PROJECT-2",
+    "description": "Explore the code, website structure, and development history of UNIT-PROJECT-2."
+  }
+}

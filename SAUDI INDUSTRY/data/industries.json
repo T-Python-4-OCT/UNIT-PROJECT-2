@@ -1,0 +1,131 @@
+
+{
+  "industries": [
+    {
+      "id": 1,
+      "slug": "petrochemicals",
+      "name": "Petrochemicals",
+      "category": "Chemical Manufacturing",
+      "description": "Explore Saudi Arabia's petrochemical industry and the production of chemicals and industrial materials.",
+      "overview": "The petrochemical industry is a major part of Saudi Arabia's industrial landscape. It transforms hydrocarbon resources into chemicals and materials used in packaging, construction, manufacturing, agriculture, and many other sectors.",
+      "examples": [
+        "Polymers and plastics",
+        "Industrial chemicals",
+        "Chemical fertilizers",
+        "Specialty chemical materials"
+      ],
+      "technologies": [
+        "Chemical processing",
+        "Industrial automation",
+        "Process monitoring",
+        "Quality control systems"
+      ],
+      "image": "images/industries/petrochemicals.jpg"
+    },
+    {
+      "id": 2,
+      "slug": "pharmaceuticals",
+      "name": "Pharmaceuticals",
+      "category": "Healthcare Manufacturing",
+      "description": "Discover pharmaceutical manufacturing, medical products, and the development of local production capabilities.",
+      "overview": "Pharmaceutical manufacturing supports healthcare by producing medicines and medical products. Saudi Arabia is working to expand local pharmaceutical production and develop advanced manufacturing capabilities in this sector.",
+      "examples": [
+        "Tablets and capsules",
+        "Liquid medicines",
+        "Injectable medicines",
+        "Pharmaceutical packaging"
+      ],
+      "technologies": [
+        "Automated production lines",
+        "Sterile manufacturing",
+        "Quality assurance",
+        "Laboratory testing"
+      ],
+      "image": "images/industries/pharmaceuticals.jpg"
+    },
+    {
+      "id": 3,
+      "slug": "automotive",
+      "name": "Automotive",
+      "category": "Vehicle Manufacturing",
+      "description": "Explore Saudi Arabia's developing automotive manufacturing sector and electric vehicle technologies.",
+      "overview": "Saudi Arabia is developing automotive manufacturing capabilities, including electric vehicle production and related industrial supply chains. This sector combines engineering, advanced assembly systems, and modern manufacturing technologies.",
+      "examples": [
+        "Electric vehicles",
+        "Automotive components",
+        "Vehicle electrical systems",
+        "Interior and exterior parts"
+      ],
+      "technologies": [
+        "Robotic assembly",
+        "Automated inspection",
+        "Battery technologies",
+        "Precision manufacturing"
+      ],
+      "image": "images/industries/automotive.jpg"
+    },
+    {
+      "id": 4,
+      "slug": "food-manufacturing",
+      "name": "Food Manufacturing",
+      "category": "Food and Beverages",
+      "description": "Learn about food processing, dairy production, packaging, and industrial food technologies.",
+      "overview": "Food manufacturing includes the processing, preparation, and packaging of food and beverage products. Saudi Arabia has established food producers serving local and international markets.",
+      "examples": [
+        "Dairy products",
+        "Bakery products",
+        "Packaged foods",
+        "Beverages"
+      ],
+      "technologies": [
+        "Automated packaging",
+        "Food safety systems",
+        "Cold-chain equipment",
+        "Production monitoring"
+      ],
+      "image": "images/industries/food.jpg"
+    },
+    {
+      "id": 5,
+      "slug": "mining-metals",
+      "name": "Mining and Metals",
+      "category": "Materials and Metals",
+      "description": "Discover mineral processing, metal production, and industrial materials manufacturing.",
+      "overview": "Saudi Arabia's mining and metals sector processes mineral resources into materials used by construction, infrastructure, and manufacturing industries. Processing and refining are important parts of the industrial value chain.",
+      "examples": [
+        "Aluminum products",
+        "Steel products",
+        "Processed minerals",
+        "Industrial metal materials"
+      ],
+      "technologies": [
+        "Mineral processing",
+        "Metal refining",
+        "Industrial furnaces",
+        "Automated material handling"
+      ],
+      "image": "images/industries/metals.jpg"
+    },
+    {
+      "id": 6,
+      "slug": "energy-technologies",
+      "name": "Energy Technologies",
+      "category": "Advanced Manufacturing",
+      "description": "Explore manufacturing technologies associated with energy systems and renewable energy equipment.",
+      "overview": "Energy technology manufacturing covers equipment and components used in electricity generation, energy storage, and energy infrastructure. These technologies are relevant to Saudi Arabia's efforts to diversify its energy and industrial capabilities.",
+      "examples": [
+        "Solar energy components",
+        "Electrical equipment",
+        "Energy storage components",
+        "Power distribution equipment"
+      ],
+      "technologies": [
+        "Precision engineering",
+        "Smart energy systems",
+        "Automated manufacturing",
+        "Electrical testing"
+      ],
+      "image": "images/industries/energy.jpg"
+    }
+  ]
+}

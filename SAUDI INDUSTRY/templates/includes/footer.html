@@ -1,0 +1,93 @@
+
+<footer class="si-footer">
+    <div class="container">
+
+        <div class="row gy-4">
+
+            <div class="col-lg-5">
+                <h4 class="si-footer-title">
+                    SAUDI INDUSTRY
+                </h4>
+
+                <p class="si-footer-description">
+                    Discover the industries, companies,
+                    technologies, and innovations shaping
+                    Saudi Arabia's industrial future.
+                </p>
+            </div>
+
+            <div class="col-md-4 col-lg-3">
+                <h5>Explore</h5>
+
+                <ul class="si-footer-links">
+                    <li>
+                        <a href="{% url 'catalog:industries' %}">
+                            Industries
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'catalog:companies' %}">
+                            Companies
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'catalog:industrial_cities' %}">
+                            Industrial Cities
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'catalog:made_in_saudi' %}">
+                            Made in Saudi
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 col-lg-2">
+                <h5>Discover</h5>
+
+                <ul class="si-footer-links">
+                    <li>
+                        <a href="{% url 'core:technology' %}">
+                            Technology
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'core:vision2030' %}">
+                            Vision 2030
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'core:gallery' %}">
+                            Gallery
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'core:about' %}">
+                            About
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-4 col-lg-2">
+                <h5>Project</h5>
+                <p class="small">
+                    UNIT-PROJECT-2
+                </p>
+                <p class="small">
+                    Educational website about Saudi Arabia.
+                </p>
+            </div>
+
+        </div>
+
+        <hr class="si-footer-divider">
+
+        <div class="text-center si-copyright">
+            &copy; {% now "Y" %} SAUDI INDUSTRY.
+            Educational Project.
+        </div>
+
+    </div>
+</footer>

@@ -1,0 +1,525 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Industrial Gallery | SAUDI INDUSTRY{% endblock %}
+
+{% block content %}
+
+<section class="si-page-banner">
+    <div class="container text-center">
+
+        <span class="si-eyebrow">
+            {{ page.eyebrow }}
+        </span>
+
+        <h1 class="si-page-banner__title">
+            {{ page.title }}
+        </h1>
+
+        <p class="si-page-banner__description mx-auto">
+            {{ page.description }}
+        </p>
+
+    </div>
+</section>
+
+
+<section class="si-section">
+    <div class="container">
+
+        <form
+            method="get"
+            action="{% url 'core:gallery' %}"
+            class="si-filter-panel mb-4"
+            role="search"
+        >
+
+            <div class="row g-3 align-items-end">
+
+                <div class="col-md-6 col-xl-4">
+
+                    <label
+                        for="gallerySearch"
+                        class="form-label"
+                    >
+                        Search Media
+                    </label>
+
+                    <input
+                        type="search"
+                        id="gallerySearch"
+                        name="q"
+                        class="form-control"
+                        placeholder="Search manufacturing, locations..."
+                        value="{{ search_query }}"
+                    >
+
+                </div>
+
+                <div class="col-md-6 col-xl-3">
+
+                    <label
+                        for="galleryType"
+                        class="form-label"
+                    >
+                        Media Type
+                    </label>
+
+                    <select
+                        id="galleryType"
+                        name="type"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            All Media
+                        </option>
+
+                        <option
+                            value="image"
+                            {% if selected_type == "image" %}selected{% endif %}
+                        >
+                            Photos
+                        </option>
+
+                        <option
+                            value="video"
+                            {% if selected_type == "video" %}selected{% endif %}
+                        >
+                            Videos
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-6 col-xl-3">
+
+                    <label
+                        for="galleryCategory"
+                        class="form-label"
+                    >
+                        Category
+                    </label>
+
+                    <select
+                        id="galleryCategory"
+                        name="category"
+                        class="form-select"
+                    >
+
+                        <option value="">
+                            All Categories
+                        </option>
+
+                        {% for category in categories %}
+
+                        <option
+                            value="{{ category }}"
+                            {% if selected_category == category %}selected{% endif %}
+                        >
+                            {{ category }}
+                        </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+                <div class="col-md-6 col-xl-2">
+
+                    <div class="d-flex gap-2">
+
+                        <button
+                            type="submit"
+                            class="btn si-primary-btn flex-fill"
+                        >
+                            Apply
+                        </button>
+
+                        <a
+                            href="{% url 'core:gallery' %}"
+                            class="btn si-reset-btn"
+                        >
+                            Reset
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+
+        <div class="si-results-bar">
+
+            <div>
+
+                <h2>
+                    Explore Industrial Media
+                </h2>
+
+                <p>
+                    Photographs and videos illustrating
+                    manufacturing and industrial technology.
+                </p>
+
+            </div>
+
+            <span class="si-results-count" role="status">
+                {{ items|length }} of
+                {{ available_total }} available
+            </span>
+
+        </div>
+
+
+        <p class="si-gallery-notice">
+            {{ page.notice }}
+        </p>
+
+
+        <div class="row g-4">
+
+            {% for item in items %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="si-gallery-card">
+
+                    {% if item.type == "image" %}
+
+                    <button
+                        type="button"
+                        class="si-gallery-card__media si-gallery-card__media-button"
+                        data-bs-toggle="modal"
+                        data-bs-target="#galleryPreview{{ item.id }}"
+                        aria-label="View larger image of {{ item.title }}"
+                    >
+
+                        <img
+                            src="{% static item.file %}"
+                            alt="{{ item.alt }}"
+                            loading="lazy"
+                        >
+
+                    </button>
+
+                    {% elif item.type == "video" %}
+
+                    <div class="si-gallery-card__media">
+
+                        <video
+                            controls
+                            preload="none"
+                            playsinline
+                            poster="{% static item.poster %}"
+                            aria-label="{{ item.title }}"
+                        >
+
+                            <source
+                                src="{{ item.video_url }}"
+                                type="video/mp4"
+                            >
+
+                            Your browser does not support
+                            HTML5 video playback.
+
+                        </video>
+
+                    </div>
+
+                    {% endif %}
+
+
+                    <div class="si-gallery-card__body">
+
+                        <div class="si-gallery-card__labels">
+
+                            <span class="si-gallery-card__type">
+                                {{ item.type|title }}
+                            </span>
+
+                            <span class="si-gallery-card__category">
+                                {{ item.category }}
+                            </span>
+
+                        </div>
+
+                        <h3>
+                            {{ item.title }}
+                        </h3>
+
+                        <p class="si-gallery-card__description">
+                            {{ item.description }}
+                        </p>
+
+                        <p class="si-gallery-card__origin">
+                            {{ item.origin_note }}
+                        </p>
+
+
+                        <div class="si-gallery-card__credits">
+
+                            {% if item.creator %}
+
+                            <span>
+                                Creator: {{ item.creator }}
+                            </span>
+
+                            {% else %}
+
+                            <span>
+                                Creator/source not yet verified
+                            </span>
+
+                            {% endif %}
+
+                            <span>
+                                License: {{ item.license }}
+                            </span>
+
+                            <div class="d-flex flex-wrap gap-3">
+
+                                {% if item.source_url %}
+
+                                <a
+                                    href="{{ item.source_url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="si-text-link"
+                                >
+                                    Original Source ↗
+                                </a>
+
+                                {% endif %}
+
+                                {% if item.license_url %}
+
+                                <a
+                                    href="{{ item.license_url }}"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    class="si-text-link"
+                                >
+                                    License Terms ↗
+                                </a>
+
+                                {% endif %}
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+
+            {% if item.type == "image" %}
+
+            <div
+                class="modal fade"
+                id="galleryPreview{{ item.id }}"
+                tabindex="-1"
+                aria-labelledby="galleryPreviewTitle{{ item.id }}"
+                aria-hidden="true"
+            >
+
+                <div class="modal-dialog modal-xl modal-dialog-centered">
+
+                    <div class="modal-content si-gallery-modal">
+
+                        <div class="modal-header">
+
+                            <h2
+                                class="modal-title fs-5"
+                                id="galleryPreviewTitle{{ item.id }}"
+                            >
+                                {{ item.title }}
+                            </h2>
+
+                            <button
+                                type="button"
+                                class="btn-close"
+                                data-bs-dismiss="modal"
+                                aria-label="Close image preview"
+                            ></button>
+
+                        </div>
+
+                        <div class="modal-body">
+
+                            <img
+                                src="{% static item.file %}"
+                                alt="{{ item.alt }}"
+                                class="si-gallery-modal__image"
+                                loading="lazy"
+                            >
+
+                            <p class="si-gallery-card__origin mt-3">
+                                {{ item.origin_note }}
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% endif %}
+
+
+            {% empty %}
+
+            <div class="col-12">
+
+                <div class="si-empty-results text-center">
+
+                    <h3>
+                        No Media Found
+                    </h3>
+
+                    <p>
+                        No downloaded media match your filters.
+                        Try another search or download
+                        the planned gallery assets.
+                    </p>
+
+                    <a
+                        href="{% url 'core:gallery' %}"
+                        class="btn si-primary-btn mt-3"
+                    >
+                        Show All Media
+                    </a>
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+{% if pending_media %}
+
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <span class="si-eyebrow">
+            UPCOMING MEDIA
+        </span>
+
+        <h2 class="si-section-heading">
+            Media Pending Download
+        </h2>
+
+        <p class="si-section-description">
+            These assets have source references in the gallery
+            database, but their local files are not present.
+            Download them using the media kit to activate
+            their gallery cards.
+        </p>
+
+        <div class="row g-3 mt-2">
+
+            {% for item in pending_media %}
+
+            <div class="col-md-6">
+
+                <div class="si-gallery-pending-card">
+
+                    <div>
+
+                        <span class="si-gallery-card__type">
+                            {{ item.type|title }}
+                        </span>
+
+                        <h3>
+                            {{ item.title }}
+                        </h3>
+
+                        <p>
+                            {{ item.file }}
+                        </p>
+
+                    </div>
+
+                    {% if item.source_url %}
+
+                    <a
+                        href="{{ item.source_url }}"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="si-text-link"
+                    >
+                        View Source ↗
+                    </a>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+{% endif %}
+
+
+<section class="si-section">
+    <div class="container text-center">
+
+        <span class="si-eyebrow">
+            EXPLORE SAUDI INDUSTRY
+        </span>
+
+        <h2 class="si-section-heading">
+            Go Beyond the Gallery
+        </h2>
+
+        <p class="si-section-description mx-auto">
+            Discover the industrial sectors, manufacturers,
+            locations, and technologies explored
+            throughout the website.
+        </p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+
+            <a
+                href="{% url 'catalog:industries' %}"
+                class="btn si-primary-btn"
+            >
+                Explore Industries →
+            </a>
+
+            <a
+                href="{% url 'core:technology' %}"
+                class="btn si-detail-secondary-btn"
+            >
+                Industrial Technology
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

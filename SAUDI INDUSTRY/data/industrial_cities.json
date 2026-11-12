@@ -1,0 +1,136 @@
+{
+  "industrial_cities": [
+    {
+      "id": 1,
+      "slug": "jubail-industrial-city",
+      "name": "Jubail Industrial City",
+      "region": "Eastern Province",
+      "location": "Jubail, Arabian Gulf coast",
+      "type": "Industrial City",
+      "authority": "Royal Commission for Jubail and Yanbu",
+      "description": "A major industrial center on Saudi Arabia's eastern coast, known for petrochemicals and refining.",
+      "overview": "Jubail Industrial City is located on the Arabian Gulf coast in the Eastern Province. Its proximity to energy resources, raw materials, and shipping routes has supported the development of petrochemical, refining, and associated manufacturing industries. The city also includes infrastructure, residential areas, and public services.",
+      "industry_slugs": [
+        "petrochemicals"
+      ],
+      "key_features": [
+        "Petrochemical and refining industries",
+        "Integrated industrial infrastructure",
+        "Access to the Arabian Gulf",
+        "Residential and public services"
+      ],
+      "image": "images/industries/petrochemicals.jpg",
+      "source_url": "https://www.rcjy.gov.sa/en/jubail"
+    },
+    {
+      "id": 2,
+      "slug": "yanbu-industrial-city",
+      "name": "Yanbu Industrial City",
+      "region": "Madinah Region",
+      "location": "Yanbu, Red Sea coast",
+      "type": "Industrial City",
+      "authority": "Royal Commission for Jubail and Yanbu",
+      "description": "An industrial center on Saudi Arabia's Red Sea coast, with refining and petrochemical activities.",
+      "overview": "Yanbu Industrial City is located on the western coast of Saudi Arabia. It supports petroleum refining, petrochemicals, and related industries. Its coastal location, port infrastructure, and connections to energy resources make it an important industrial center on the Red Sea.",
+      "industry_slugs": [
+        "petrochemicals"
+      ],
+      "key_features": [
+        "Petroleum refining",
+        "Petrochemical manufacturing",
+        "Red Sea port access",
+        "Integrated industrial and residential infrastructure"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794414334/%D9%81%D9%86%D8%AF%D9%82_%D8%A7%D9%84%D9%85%D9%88%D9%81%D9%86%D8%A8%D9%8A%D9%83_%D8%A8%D9%8A%D9%86%D8%A8%D8%B9_%D8%A7%D9%84%D8%B5%D9%86%D8%A7%D8%B9%D9%8A%D8%A9.png",
+      "source_url": "https://www.rcjy.gov.sa/en/yanbu"
+    },
+    {
+      "id": 3,
+      "slug": "ras-al-khair",
+      "name": "Ras Al Khair City for Mining Industries",
+      "region": "Eastern Province",
+      "location": "North of Jubail, Arabian Gulf coast",
+      "type": "Industrial City",
+      "authority": "Royal Commission for Jubail and Yanbu",
+      "description": "An industrial city specializing in mineral processing, metals, and mining-related manufacturing.",
+      "overview": "Ras Al Khair City for Mining Industries is located north of Jubail on the Arabian Gulf coast. It supports mineral processing and manufacturing activities, including phosphate and aluminium production. Its infrastructure is designed to support industrial development connected to Saudi Arabia's mineral resources.",
+      "industry_slugs": [
+        "mining-metals"
+      ],
+      "key_features": [
+        "Mineral processing",
+        "Aluminium production",
+        "Phosphate industries",
+        "Industrial utilities and infrastructure"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794414480/bb1dfdab758976a1871acbab17b96ca0.jpg",
+      "source_url": "https://www.rcjy.gov.sa/en/ras-al-khair"
+    },
+    {
+      "id": 4,
+      "slug": "jazan-industrial-city",
+      "name": "Jazan City for Primary and Downstream Industries",
+      "region": "Jazan Region",
+      "location": "North of Jazan City, Red Sea coast",
+      "type": "Industrial City",
+      "authority": "Royal Commission for Jubail and Yanbu",
+      "description": "A developing industrial hub supporting primary industries, downstream manufacturing, and investment in southern Saudi Arabia.",
+      "overview": "Jazan City for Primary and Downstream Industries is located on the Red Sea coast in southern Saudi Arabia. It is designed to support primary and downstream industries through integrated industrial infrastructure, access to port facilities, and opportunities for manufacturing investment.",
+      "industry_slugs": [
+        "petrochemicals",
+        "mining-metals"
+      ],
+      "key_features": [
+        "Primary and downstream industries",
+        "Industrial development opportunities",
+        "Red Sea port connectivity",
+        "Planned integrated industrial infrastructure"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794414567/Jazan_City_for_Primary_and_Downstream_Industries.jpg",
+      "source_url": "https://www.rcjy.gov.sa/en/jazan"
+    },
+    {
+      "id": 5,
+      "slug": "kaec-industrial-valley",
+      "name": "KAEC Industrial Valley",
+      "region": "Makkah Region",
+      "location": "King Abdullah Economic City, near Rabigh",
+      "type": "Industrial Valley",
+      "authority": "Emaar, The Economic City",
+      "description": "A manufacturing and logistics zone within King Abdullah Economic City, connected to King Abdullah Port.",
+      "overview": "KAEC Industrial Valley is part of King Abdullah Economic City on Saudi Arabia's Red Sea coast. It supports manufacturing, logistics, and industrial investment, with sectors including automotive, pharmaceuticals, packaging, and building materials. The industrial ecosystem also includes the King Salman Automotive Cluster.",
+      "industry_slugs": [
+        "automotive",
+        "pharmaceuticals"
+      ],
+      "key_features": [
+        "King Abdullah Port connectivity",
+        "Automotive manufacturing development",
+        "Pharmaceutical and packaging industries",
+        "Industrial and logistics infrastructure"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794414657/KAEC_Industrial_Valley.jpg",
+      "source_url": "https://www.kaec.net/en/about/"
+    },
+    {
+      "id": 6,
+      "slug": "riyadh-second-industrial-city",
+      "name": "Riyadh Second Industrial City",
+      "region": "Riyadh Region",
+      "location": "South of Riyadh, Al-Kharj Road",
+      "type": "Industrial City",
+      "authority": "Saudi Authority for Industrial Cities and Technology Zones (MODON)",
+      "description": "An established industrial city supporting manufacturing and industrial business activities in the Riyadh region.",
+      "overview": "Riyadh Second Industrial City is one of the industrial cities developed under MODON. Established in 1976, it is located south of Riyadh along Al-Kharj Road. It provides industrial land and infrastructure for manufacturing and related business activities.",
+      "industry_slugs": [],
+      "key_features": [
+        "Industrial manufacturing facilities",
+        "Industrial land and infrastructure",
+        "Location in the Riyadh industrial network",
+        "Support for industrial investment"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794414739/Riyadh-2nd.-Industrial-City-e1706623304382.webp",
+      "source_url": "https://saudipedia.com/en/timeline-of-industrial-cities-in-saudi-arabia"
+    }
+  ]
+}

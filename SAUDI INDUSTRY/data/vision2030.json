@@ -1,0 +1,135 @@
+{
+  "hero": {
+    "eyebrow": "SAUDI ARABIA'S INDUSTRIAL TRANSFORMATION",
+    "title": "Vision 2030 & Saudi Industry",
+    "description": "Discover how Saudi Vision 2030 supports economic diversification, industrial competitiveness, local manufacturing, and advanced technologies.",
+    "image": "images/home/vision2030.jpg",
+    "image_alt": "Illustrative image representing Saudi industrial development"
+  },
+  "overview": {
+    "eyebrow": "A THRIVING ECONOMY",
+    "title": "Building a More Diverse Industrial Economy",
+    "description": "Launched in 2016, Saudi Vision 2030 provides a national framework for economic and social transformation. Industrial development contributes to its economic objectives by supporting manufacturing, investment, localization, innovation, and opportunities in non-oil sectors.",
+    "source_url": "https://www.vision2030.gov.sa/en/overview"
+  },
+  "pillars": [
+    {
+      "id": 1,
+      "name": "A Vibrant Society",
+      "description": "A society with strong foundations, improved quality of life, healthcare, education, and opportunities for people to develop their potential."
+    },
+    {
+      "id": 2,
+      "name": "A Thriving Economy",
+      "description": "An economy that supports diversification, investment, private-sector growth, job opportunities, innovation, and competitive industries."
+    },
+    {
+      "id": 3,
+      "name": "An Ambitious Nation",
+      "description": "A nation focused on effective institutions, accountability, public-sector performance, and responsible national development."
+    }
+  ],
+  "targets": [
+    {
+      "id": 1,
+      "value": "50%",
+      "title": "Non-Oil Exports",
+      "description": "Increase non-oil exports as a share of non-oil GDP to 50%.",
+      "status": "Vision 2030 target",
+      "timeframe": "2030",
+      "source_url": "https://www.vision2030.gov.sa/en/overview/pillars/a-thriving-economy"
+    },
+    {
+      "id": 2,
+      "value": "65%",
+      "title": "Private Sector Contribution",
+      "description": "Increase the private sector's contribution to GDP to 65%.",
+      "status": "Vision 2030 target",
+      "timeframe": "2030",
+      "source_url": "https://www.vision2030.gov.sa/en/overview/pillars/a-thriving-economy"
+    },
+    {
+      "id": 3,
+      "value": "4,000",
+      "title": "Factory Transformation",
+      "description": "The Future Factories Program aims to enable the transformation of 4,000 factories through operational efficiency, automation, and advanced industrial solutions.",
+      "status": "Program aim",
+      "timeframe": "Future Factories Program",
+      "source_url": "https://my.gov.sa/en/services/251928"
+    }
+  ],
+  "focus_areas": [
+    {
+      "id": 1,
+      "title": "Local Manufacturing",
+      "description": "Develop local production capabilities, strengthen industrial supply chains, and increase the value created within Saudi Arabia."
+    },
+    {
+      "id": 2,
+      "title": "Industrial Investment",
+      "description": "Support an attractive business environment and expand opportunities for private-sector participation in manufacturing."
+    },
+    {
+      "id": 3,
+      "title": "Advanced Manufacturing",
+      "description": "Encourage the adoption of automation, digital technologies, innovation, and efficient industrial practices."
+    },
+    {
+      "id": 4,
+      "title": "Exports and Competitiveness",
+      "description": "Help Saudi industries compete in international markets through stronger capabilities, quality, and market access."
+    }
+  ],
+  "initiatives": [
+    {
+      "id": 1,
+      "name": "National Industrial Strategy",
+      "type": "National Strategy",
+      "description": "A strategic framework for building a competitive, resilient, and sustainable industrial economy led by the private sector, with priorities including manufacturing capabilities, local content, and innovation.",
+      "source_label": "Official Strategies Directory",
+      "source_url": "https://www.vision2030.gov.sa/en/explore/strategies"
+    },
+    {
+      "id": 2,
+      "name": "National Industrial Development and Logistics Program",
+      "type": "Vision Realization Program",
+      "description": "Known as NIDLP, this program supports industrial and economic diversification by connecting industry, mining, energy, local content, and Fourth Industrial Revolution capabilities.",
+      "source_label": "Government Program Overview",
+      "source_url": "https://my.gov.sa/en/content/saudivision"
+    },
+    {
+      "id": 3,
+      "name": "Future Factories Program",
+      "type": "Ministry Program",
+      "description": "An industrial transformation initiative intended to help factories improve productivity and competitiveness through automation, operational efficiency, and advanced manufacturing solutions.",
+      "source_label": "Official Program Service",
+      "source_url": "https://my.gov.sa/en/services/251928"
+    },
+    {
+      "id": 4,
+      "name": "Made in Saudi Program",
+      "type": "National Branding Program",
+      "description": "A program associated with the Saudi Export Development Authority that promotes Saudi products and strengthens the visibility of national manufacturing in local and international markets.",
+      "source_label": "Saudi Exports",
+      "source_url": "https://www.saudiexports.gov.sa/en/Pages/default.aspx"
+    },
+    {
+      "id": 5,
+      "name": "Industrial Cities Development",
+      "type": "Industrial Infrastructure",
+      "description": "Industrial-city development provides land, infrastructure, and services that support manufacturing and industrial investment. MODON plays an important role in developing industrial cities and technology zones.",
+      "source_label": "Official MODON Agency Profile",
+      "source_url": "https://my.gov.sa/en/agencies/17582"
+    },
+    {
+      "id": 6,
+      "name": "Alat Advanced Manufacturing",
+      "type": "PIF Company and Industrial Initiative",
+      "description": "Launched in 2024, Alat focuses on building advanced manufacturing capabilities in Saudi Arabia through technology partnerships, industrial localization, and investment in areas including electronics and electrification.",
+      "source_label": "Official Alat Project Profile",
+      "source_url": "https://www.vision2030.gov.sa/en/explore/projects/alat"
+    }
+  ],
+  "disclaimer": "This is an independent educational overview based on official Saudi sources. It is not an official Saudi Vision 2030 website. Targets and program aims should not be interpreted as completed achievements.",
+  "last_verified": "2026-11-10"
+}

@@ -1,0 +1,378 @@
+
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ product.name }} | Made in Saudi{% endblock %}
+
+{% block content %}
+
+<section class="si-page-banner">
+    <div class="container">
+
+        <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb si-breadcrumb">
+
+                <li class="breadcrumb-item">
+                    <a href="{% url 'core:home' %}">
+                        Home
+                    </a>
+                </li>
+
+                <li class="breadcrumb-item">
+                    <a href="{% url 'catalog:made_in_saudi' %}">
+                        Made in Saudi
+                    </a>
+                </li>
+
+                <li class="breadcrumb-item active"
+                    aria-current="page">
+                    {{ product.name }}
+                </li>
+
+            </ol>
+        </nav>
+
+        <span class="si-eyebrow">
+            {{ product.category }}
+        </span>
+
+        <h1 class="si-page-banner__title">
+            {{ product.name }}
+        </h1>
+
+        <p class="si-page-banner__description">
+            {{ product.description }}
+        </p>
+
+    </div>
+</section>
+
+
+<section class="si-section">
+    <div class="container">
+
+        <div class="row g-5 align-items-center">
+
+            <div class="col-lg-6">
+
+                <div class="si-detail-image">
+
+                    <img
+                        {% if product.image|slice:":4" == "http" %}
+                        src="{{ product.image }}"
+                        {% else %}
+                        src="{% static product.image %}"
+                        {% endif %}
+                        alt="Illustrative image of {{ product.industry.name }} manufacturing"
+                        class="img-fluid"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <p class="si-image-caption mt-2">
+                    Illustrative industry photograph.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <span class="si-eyebrow">
+                    PRODUCT PROFILE
+                </span>
+
+                <h2 class="si-section-heading">
+                    About {{ product.name }}
+                </h2>
+
+                <p class="si-section-description">
+                    {{ product.overview }}
+                </p>
+
+                <p class="si-products-note mt-3">
+                    This product is featured for educational purposes.
+                    Inclusion does not imply official Made in Saudi
+                    program certification.
+                </p>
+
+                <div class="si-product-detail-facts">
+
+                    <div class="si-product-detail-fact">
+                        <span class="si-product-detail-fact__label">
+                            Product Category
+                        </span>
+
+                        <strong>
+                            {{ product.category }}
+                        </strong>
+                    </div>
+
+
+                    <div class="si-product-detail-fact">
+                        <span class="si-product-detail-fact__label">
+                            Production Location
+                        </span>
+
+                        <strong>
+                            {{ product.production_location }}
+                        </strong>
+                    </div>
+
+
+                    <div class="si-product-detail-fact">
+                        <span class="si-product-detail-fact__label">
+                            Example Manufacturer
+                        </span>
+
+                        <a
+                            href="{% url 'catalog:company_detail' product.company.slug %}"
+                            class="si-text-link"
+                        >
+                            {{ product.company.name }} →
+                        </a>
+                    </div>
+
+
+                    <div class="si-product-detail-fact">
+                        <span class="si-product-detail-fact__label">
+                            Related Industry
+                        </span>
+
+                        <a
+                            href="{% url 'catalog:industry_detail' product.industry.slug %}"
+                            class="si-text-link"
+                        >
+                            {{ product.industry.name }} →
+                        </a>
+                    </div>
+
+                </div>
+
+                {% if product.source_url %}
+
+                <a
+                    href="{{ product.source_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn si-primary-btn mt-4"
+                >
+                    View Reference Source ↗
+                </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <span class="si-eyebrow">
+            MANUFACTURING INPUTS
+        </span>
+
+        <h2 class="si-section-heading">
+            Raw Materials
+        </h2>
+
+        <p class="si-section-description">
+            Explore the primary materials and ingredients
+            typically used to manufacture {{ product.name }}.
+        </p>
+
+        <ul class="row g-3 list-unstyled mt-2 mb-0">
+
+            {% for material in product.raw_materials %}
+
+            <li class="col-md-6 col-lg-4">
+
+                <div class="si-product-material-card">
+
+                    <span
+                        class="si-product-material-card__icon"
+                        aria-hidden="true"
+                    >
+                        ✓
+                    </span>
+
+                    <span>
+                        {{ material }}
+                    </span>
+
+                </div>
+
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+</section>
+
+
+<section class="si-section">
+    <div class="container">
+
+        <span class="si-eyebrow">
+            FROM MATERIALS TO PRODUCTS
+        </span>
+
+        <h2 class="si-section-heading">
+            Manufacturing Process
+        </h2>
+
+        <p class="si-section-description">
+            Follow the main stages involved
+            in manufacturing {{ product.name }}.
+        </p>
+
+        <ol class="si-product-process mt-4">
+
+            {% for step in product.production_steps %}
+
+            <li class="si-product-process__item">
+
+                <span
+                    class="si-product-process__number"
+                    aria-hidden="true"
+                >
+                    {{ forloop.counter }}
+                </span>
+
+                <p>
+                    {{ step }}
+                </p>
+
+            </li>
+
+            {% endfor %}
+
+        </ol>
+
+        <p class="si-products-note mt-4">
+            These are simplified educational descriptions.
+            Actual factory processes may differ depending
+            on the manufacturer and product specification.
+        </p>
+
+    </div>
+</section>
+
+
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <span class="si-eyebrow">
+            INDUSTRIAL APPLICATIONS
+        </span>
+
+        <h2 class="si-section-heading">
+            Where Is This Product Used?
+        </h2>
+
+        <p class="si-section-description">
+            Explore the common applications
+            of {{ product.name }}.
+        </p>
+
+        <ul class="row g-4 mt-2 list-unstyled mb-0">
+
+            {% for application in product.applications %}
+
+            <li class="col-sm-6 col-lg-3">
+
+                <div class="si-product-application-card">
+
+                    <span
+                        class="si-product-application-card__icon"
+                        aria-hidden="true"
+                    >
+                        ✓
+                    </span>
+
+                    <h3>
+                        {{ application }}
+                    </h3>
+
+                </div>
+
+            </li>
+
+            {% endfor %}
+
+        </ul>
+
+    </div>
+</section>
+
+
+<section class="si-section">
+    <div class="container">
+
+        <div class="si-company-related">
+
+            <div>
+
+                <span class="si-eyebrow">
+                    RELATED INDUSTRY
+                </span>
+
+                <h2 class="si-section-heading">
+                    {{ product.industry.name }}
+                </h2>
+
+                <p class="si-section-description">
+                    {{ product.industry.description }}
+                </p>
+
+            </div>
+
+            <a
+                href="{% url 'catalog:industry_detail' product.industry.slug %}"
+                class="btn si-primary-btn"
+            >
+                Explore Industry →
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section si-section-alt">
+    <div class="container text-center">
+
+        <span class="si-eyebrow">
+            CONTINUE EXPLORING
+        </span>
+
+        <h2 class="si-section-heading">
+            Discover More Saudi Products
+        </h2>
+
+        <p class="si-section-description mx-auto">
+            Explore other products manufactured
+            in Saudi Arabia and learn how industrial
+            processes turn raw materials into useful products.
+        </p>
+
+        <a
+            href="{% url 'catalog:made_in_saudi' %}"
+            class="btn si-primary-btn mt-4"
+        >
+            All Products →
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}

@@ -1,0 +1,220 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}
+{{ industry.name }} | SAUDI INDUSTRY
+{% endblock %}
+
+{% block content %}
+
+<!-- DETAIL HEADER -->
+<section class="si-page-banner">
+    <div class="container">
+
+        <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb si-breadcrumb">
+
+                <li class="breadcrumb-item">
+                    <a href="{% url 'core:home' %}">
+                        Home
+                    </a>
+                </li>
+
+                <li class="breadcrumb-item">
+                    <a href="{% url 'catalog:industries' %}">
+                        Industries
+                    </a>
+                </li>
+
+                <li
+                    class="breadcrumb-item active"
+                    aria-current="page"
+                >
+                    {{ industry.name }}
+                </li>
+
+            </ol>
+        </nav>
+
+        <span class="si-eyebrow">
+            {{ industry.category }}
+        </span>
+
+        <h1 class="si-page-banner__title">
+            {{ industry.name }}
+        </h1>
+
+        <p class="si-page-banner__description">
+            {{ industry.description }}
+        </p>
+
+    </div>
+</section>
+
+
+<!-- INDUSTRY INFORMATION -->
+<section class="si-section">
+    <div class="container">
+
+        <div class="row g-5 align-items-center">
+
+            <div class="col-lg-6">
+
+                <div class="si-detail-image">
+
+                    <img
+                        src="{% static industry.image %}"
+                        alt="{{ industry.name }} industry"
+                        class="img-fluid"
+                    >
+
+                </div>
+
+            </div>
+
+            <div class="col-lg-6">
+
+                <span class="si-eyebrow">
+                    INDUSTRY OVERVIEW
+                </span>
+
+                <h2 class="si-section-heading">
+                    About {{ industry.name }}
+                </h2>
+
+                <p class="si-section-description">
+                    {{ industry.overview }}
+                </p>
+
+                <a
+                    href="{% url 'catalog:industries' %}"
+                    class="si-text-link"
+                >
+                    ← Back to All Industries
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PRODUCTS -->
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <span class="si-eyebrow">
+            INDUSTRY OUTPUTS
+        </span>
+
+        <h2 class="si-section-heading">
+            Products and Materials
+        </h2>
+
+        <p class="si-section-description">
+            Examples of products and materials associated
+            with this industrial sector.
+        </p>
+
+        <div class="row g-3 mt-3">
+
+            {% for product in industry.examples %}
+
+            <div class="col-sm-6 col-lg-3">
+
+                <div class="si-detail-item">
+                    <span class="si-detail-item__number">
+                        0{{ forloop.counter }}
+                    </span>
+
+                    <h3>{{ product }}</h3>
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- TECHNOLOGIES -->
+<section class="si-section">
+    <div class="container">
+
+        <span class="si-eyebrow">
+            MODERN MANUFACTURING
+        </span>
+
+        <h2 class="si-section-heading">
+            Technologies and Processes
+        </h2>
+
+        <p class="si-section-description">
+            Manufacturing technologies commonly associated
+            with this sector.
+        </p>
+
+        <div class="row g-3 mt-3">
+
+            {% for technology in industry.technologies %}
+
+            <div class="col-md-6">
+
+                <div class="si-technology-item">
+                    <span class="si-technology-item__icon">
+                        ✓
+                    </span>
+
+                    <span>{{ technology }}</span>
+                </div>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- EXPLORE MORE -->
+<section class="si-section si-section-alt">
+    <div class="container text-center">
+
+        <h2 class="si-section-heading">
+            Discover More Saudi Industries
+        </h2>
+
+        <p class="si-section-description mx-auto">
+            Continue exploring manufacturing sectors
+            and industrial development in Saudi Arabia.
+        </p>
+
+        <div class="d-flex flex-wrap justify-content-center gap-3 mt-4">
+
+            <a
+                href="{% url 'catalog:industries' %}"
+                class="btn si-primary-btn"
+            >
+                All Industries
+            </a>
+
+            <a
+                href="{% url 'core:technology' %}"
+                class="btn si-detail-secondary-btn"
+            >
+                Explore Technology
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

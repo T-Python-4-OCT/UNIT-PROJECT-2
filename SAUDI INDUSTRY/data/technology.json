@@ -1,0 +1,233 @@
+{
+  "page": {
+    "title": "Industrial Technology",
+    "eyebrow": "THE FUTURE OF MANUFACTURING",
+    "description": "Explore the technologies transforming industrial production, from robotics and artificial intelligence to connected factories and digital engineering.",
+    "saudi_context": "Saudi Arabia's Future Factories Program aims to support the transformation of 4,000 factories through operational efficiency, automation, and advanced industrial solutions. The technologies presented here are educational examples of capabilities relevant to manufacturing, not claims of installation at specific Saudi facilities.",
+    "saudi_source_url": "https://my.gov.sa/en/services/251928"
+  },
+  "technologies": [
+    {
+      "id": 1,
+      "slug": "industrial-robotics",
+      "name": "Industrial Robotics",
+      "category": "Robotics & Automation",
+      "description": "Programmable industrial robots perform controlled physical tasks such as handling, assembly, and welding.",
+      "overview": "Industrial robots are automatically controlled, reprogrammable machines used in industrial automation. They can perform precise, repeatable operations when appropriately programmed and integrated with tools, sensors, and safety systems.",
+      "how_it_works": [
+        "A robot controller receives a programmed sequence of operations.",
+        "Motors and mechanical joints position the robot and its tools.",
+        "Sensors and feedback systems help monitor movement and operating conditions.",
+        "The robot performs tasks such as assembly, handling, or inspection.",
+        "Operators monitor performance and maintain the system."
+      ],
+      "applications": [
+        "Automotive component assembly",
+        "Material handling",
+        "Automated packaging",
+        "Manufacturing inspection"
+      ],
+      "benefits": [
+        "Repeatable operations",
+        "Improved precision",
+        "Automation of repetitive tasks"
+      ],
+      "considerations": [
+        "Worker safety and robot-cell guarding",
+        "Integration and maintenance costs"
+      ],
+      "industry_slugs": [
+        "automotive",
+        "food-manufacturing",
+        "pharmaceuticals"
+      ],
+      "image": "images/industries/automotive.jpg",
+      "source_url": "https://ifr.org/industrial-robots"
+    },
+    {
+      "id": 2,
+      "slug": "ai-manufacturing",
+      "name": "AI in Manufacturing",
+      "category": "Artificial Intelligence",
+      "description": "Artificial intelligence analyzes manufacturing data to support inspection, forecasting, and operational decisions.",
+      "overview": "Artificial intelligence and machine learning can help manufacturers analyze production data, detect patterns, identify quality problems, and estimate equipment condition. Effective use depends on reliable data, validation, and human oversight.",
+      "how_it_works": [
+        "Collect information from production systems, sensors, or inspection equipment.",
+        "Prepare and validate the collected data.",
+        "Train or configure an AI model for a defined manufacturing task.",
+        "Use the model to generate predictions or identify abnormal patterns.",
+        "Review results, monitor accuracy, and improve the system."
+      ],
+      "applications": [
+        "Visual quality inspection",
+        "Predictive maintenance",
+        "Production performance analysis",
+        "Demand and production forecasting"
+      ],
+      "benefits": [
+        "Earlier detection of potential problems",
+        "Better use of operational data",
+        "Decision support for engineers"
+      ],
+      "considerations": [
+        "Data quality and model reliability",
+        "Human oversight and operational safety"
+      ],
+      "industry_slugs": [
+        "pharmaceuticals",
+        "mining-metals",
+        "food-manufacturing"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794415616/AI_in_Manufacturing.jpg",
+      "source_url": "https://www.nist.gov/publications/2026-roadmap-artificial-intelligence-and-machine-learning-smart-manufacturing"
+    },
+    {
+      "id": 3,
+      "slug": "industrial-automation",
+      "name": "Industrial Automation",
+      "category": "Robotics & Automation",
+      "description": "Control technologies, including programmable logic controllers (PLCs), operate and monitor industrial equipment.",
+      "overview": "Industrial automation uses sensors, controllers, actuators, and control software to regulate manufacturing operations. Examples include controlling conveyor systems, process temperatures, filling equipment, and production sequences.",
+      "how_it_works": [
+        "Sensors measure conditions such as pressure, temperature, or position.",
+        "Programmable controllers process signals according to control logic.",
+        "Actuators, motors, and valves perform the required physical actions.",
+        "Monitoring systems display equipment and process information.",
+        "Operators maintain, supervise, and adjust the production process."
+      ],
+      "applications": [
+        "Petrochemical process control",
+        "Food filling and packaging",
+        "Electrical equipment production",
+        "Automated manufacturing lines"
+      ],
+      "benefits": [
+        "Consistent process control",
+        "Reduced repetitive manual operations",
+        "Improved monitoring"
+      ],
+      "considerations": [
+        "Control-system cybersecurity",
+        "Equipment maintenance and reliability"
+      ],
+      "industry_slugs": [
+        "petrochemicals",
+        "food-manufacturing",
+        "energy-technologies"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794415619/Industrial_Automation.jpg",
+      "source_url": "https://www.nist.gov/programs-projects/smart-manufacturing-systems-design-and-analysis-program"
+    },
+    {
+      "id": 4,
+      "slug": "smart-factories",
+      "name": "Smart Factories",
+      "category": "Smart Manufacturing",
+      "description": "Connected manufacturing systems combine production equipment, sensors, software, and data analysis.",
+      "overview": "A smart factory integrates industrial equipment with digital systems to provide better visibility into production. Data gathered from operations can support process improvement, maintenance planning, and more responsive manufacturing decisions.",
+      "how_it_works": [
+        "Connect suitable production equipment and information systems.",
+        "Collect manufacturing and equipment performance data.",
+        "Analyze information using monitoring and production software.",
+        "Identify process variations and potential improvements.",
+        "Use validated insights to support production decisions."
+      ],
+      "applications": [
+        "Integrated manufacturing operations",
+        "Production performance dashboards",
+        "Quality monitoring",
+        "Maintenance planning"
+      ],
+      "benefits": [
+        "Improved visibility into operations",
+        "Data-informed production decisions",
+        "More responsive manufacturing processes"
+      ],
+      "considerations": [
+        "Compatibility between existing systems",
+        "Data security and workforce training"
+      ],
+      "industry_slugs": [
+        "automotive",
+        "energy-technologies",
+        "pharmaceuticals"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794415580/Smart_Factories.jpg",
+      "source_url": "https://www.nist.gov/programs-projects/smart-manufacturing-systems-design-and-analysis-program"
+    },
+    {
+      "id": 5,
+      "slug": "industrial-iot",
+      "name": "Industrial IoT",
+      "category": "Connected Systems",
+      "description": "Industrial Internet of Things systems connect machines, instruments, and sensors to exchange operational information.",
+      "overview": "The Industrial Internet of Things, or IIoT, uses connected industrial devices to collect and exchange measurements. These systems support equipment monitoring, operational analysis, and informed maintenance decisions.",
+      "how_it_works": [
+        "Sensors measure equipment and environmental conditions.",
+        "Connected devices transmit measurements through suitable networks.",
+        "Monitoring platforms collect and organize the data.",
+        "Software identifies trends, thresholds, or unexpected changes.",
+        "Engineers use the information to monitor and maintain equipment."
+      ],
+      "applications": [
+        "Machine condition monitoring",
+        "Energy consumption analysis",
+        "Industrial equipment monitoring",
+        "Maintenance alerts"
+      ],
+      "benefits": [
+        "Greater equipment visibility",
+        "Earlier awareness of abnormal conditions",
+        "Access to operational measurements"
+      ],
+      "considerations": [
+        "Network and device cybersecurity",
+        "Connectivity and data integrity"
+      ],
+      "industry_slugs": [
+        "petrochemicals",
+        "energy-technologies",
+        "mining-metals"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794415575/ndustrial_IoT.webp",
+      "source_url": "https://csrc.nist.gov/glossary/term/industrial_internet_of_things"
+    },
+    {
+      "id": 6,
+      "slug": "digital-twins",
+      "name": "Digital Twins",
+      "category": "Digital Engineering",
+      "description": "Digital twins use synchronized virtual models to represent and analyze physical manufacturing systems.",
+      "overview": "A digital twin is a virtual representation connected to information about a physical system. In manufacturing, digital twins can support monitoring, simulation, prediction, and evaluation of different operational choices.",
+      "how_it_works": [
+        "Identify the machine, production line, or process to model.",
+        "Develop a virtual model of the physical system.",
+        "Connect relevant measurements and operating information.",
+        "Validate the model against observed behavior.",
+        "Use simulations and analysis to evaluate possible improvements."
+      ],
+      "applications": [
+        "Equipment performance simulation",
+        "Manufacturing process optimization",
+        "Maintenance planning",
+        "Virtual evaluation of production changes"
+      ],
+      "benefits": [
+        "Testing scenarios before physical changes",
+        "Better understanding of system behavior",
+        "Support for predictive analysis"
+      ],
+      "considerations": [
+        "Model validation and accuracy",
+        "Reliable synchronization of physical and digital data"
+      ],
+      "industry_slugs": [
+        "automotive",
+        "mining-metals",
+        "petrochemicals"
+      ],
+      "image": "https://res.cloudinary.com/ew4jvlxr/image/upload/v1794415573/Digital_Twins.jpg",
+      "source_url": "https://www.nist.gov/programs-projects/digital-twins-advanced-manufacturing"
+    }
+  ]
+}

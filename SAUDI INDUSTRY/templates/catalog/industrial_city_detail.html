@@ -1,0 +1,357 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}{{ city.name }} | SAUDI INDUSTRY{% endblock %}
+
+{% block content %}
+
+<section class="si-page-banner">
+    <div class="container">
+
+        <nav aria-label="Breadcrumb">
+            <ol class="breadcrumb si-breadcrumb">
+
+                <li class="breadcrumb-item">
+                    <a href="{% url 'core:home' %}">
+                        Home
+                    </a>
+                </li>
+
+                <li class="breadcrumb-item">
+                    <a href="{% url 'catalog:industrial_cities' %}">
+                        Industrial Cities
+                    </a>
+                </li>
+
+                <li
+                    class="breadcrumb-item active"
+                    aria-current="page"
+                >
+                    {{ city.name }}
+                </li>
+
+            </ol>
+        </nav>
+
+        <span class="si-eyebrow">
+            {{ city.type }} | {{ city.region }}
+        </span>
+
+        <h1 class="si-page-banner__title">
+            {{ city.name }}
+        </h1>
+
+        <p class="si-page-banner__description">
+            {{ city.description }}
+        </p>
+
+    </div>
+</section>
+
+
+<section class="si-section">
+    <div class="container">
+
+        <div class="row g-5 align-items-center">
+
+            <div class="col-lg-6">
+
+                <div class="si-detail-image">
+
+                    <img
+                        {% if city.image|slice:":4" == "http" %}
+                        src="{{ city.image }}"
+                        {% else %}
+                        src="{% static city.image %}"
+                        {% endif %}
+                        alt="Illustrative industrial manufacturing photograph"
+                        class="img-fluid"
+                        loading="lazy"
+                    >
+
+                </div>
+
+                <p class="si-image-caption mt-2">
+                    Illustrative industry photograph.
+                </p>
+
+            </div>
+
+
+            <div class="col-lg-6">
+
+                <span class="si-eyebrow">
+                    INDUSTRIAL LOCATION PROFILE
+                </span>
+
+                <h2 class="si-section-heading">
+                    About {{ city.name }}
+                </h2>
+
+                <p class="si-section-description">
+                    {{ city.overview }}
+                </p>
+
+
+                <div class="si-city-profile-facts">
+
+                    <div class="si-city-profile-fact">
+
+                        <span class="si-city-profile-fact__label">
+                            Region
+                        </span>
+
+                        <strong>
+                            {{ city.region }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="si-city-profile-fact">
+
+                        <span class="si-city-profile-fact__label">
+                            Location
+                        </span>
+
+                        <strong>
+                            {{ city.location }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="si-city-profile-fact">
+
+                        <span class="si-city-profile-fact__label">
+                            Location Type
+                        </span>
+
+                        <strong>
+                            {{ city.type }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="si-city-profile-fact">
+
+                        <span class="si-city-profile-fact__label">
+                            Responsible Organization
+                        </span>
+
+                        <strong>
+                            {{ city.authority }}
+                        </strong>
+
+                    </div>
+
+                </div>
+
+
+                {% if city.source_url %}
+
+                <a
+                    href="{{ city.source_url }}"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="btn si-primary-btn mt-4"
+                >
+                    View Reference Website ↗
+                </a>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <span class="si-eyebrow">
+            INDUSTRIAL INFRASTRUCTURE
+        </span>
+
+        <h2 class="si-section-heading">
+            Key Industrial Features
+        </h2>
+
+        <p class="si-section-description">
+            Explore the industrial activities,
+            facilities, and infrastructure associated
+            with {{ city.name }}.
+        </p>
+
+
+        <div class="row g-4 mt-2">
+
+            {% for feature in city.key_features %}
+
+            <div class="col-sm-6 col-lg-3">
+
+                <article class="si-detail-item">
+
+                    <span class="si-detail-item__number">
+                        0{{ forloop.counter }}
+                    </span>
+
+                    <h3>
+                        {{ feature }}
+                    </h3>
+
+                </article>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<section class="si-section">
+    <div class="container">
+
+        <span class="si-eyebrow">
+            MANUFACTURING SECTORS
+        </span>
+
+        <h2 class="si-section-heading">
+            Related Industries
+        </h2>
+
+        <p class="si-section-description">
+            Discover the industrial sectors associated
+            with this location and learn about their
+            manufacturing processes and technologies.
+        </p>
+
+
+        {% if city.industries %}
+
+        <div class="row g-4 mt-2">
+
+            {% for industry in city.industries %}
+
+            <div class="col-md-6 col-lg-4">
+
+                <article class="si-sector-card">
+
+                    <a
+                        href="{% url 'catalog:industry_detail' industry.slug %}"
+                        class="si-sector-card__image"
+                        aria-label="Explore {{ industry.name }}"
+                    >
+
+                        <img
+                            src="{% static industry.image %}"
+                            alt="Illustrative photograph of {{ industry.name }}"
+                            loading="lazy"
+                        >
+
+                    </a>
+
+
+                    <div class="si-sector-card__body">
+
+                        <span class="si-sector-card__category">
+                            {{ industry.category }}
+                        </span>
+
+                        <h3>
+                            {{ industry.name }}
+                        </h3>
+
+                        <p>
+                            {{ industry.description }}
+                        </p>
+
+                        <a
+                            href="{% url 'catalog:industry_detail' industry.slug %}"
+                            class="si-text-link mt-auto"
+                        >
+                            Explore Industry →
+                        </a>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            {% endfor %}
+
+        </div>
+
+        {% else %}
+
+        <div class="si-empty-results text-center mt-4">
+
+            <h3>
+                Related Industries
+            </h3>
+
+            <p>
+                Specific industry categories have not
+                yet been linked to this location
+                in our directory.
+            </p>
+
+            <a
+                href="{% url 'catalog:industries' %}"
+                class="btn si-primary-btn mt-3"
+            >
+                Explore All Industries
+            </a>
+
+        </div>
+
+        {% endif %}
+
+    </div>
+</section>
+
+
+<section class="si-section si-section-alt">
+    <div class="container">
+
+        <div class="si-company-related">
+
+            <div>
+
+                <span class="si-eyebrow">
+                    CONTINUE EXPLORING
+                </span>
+
+                <h2 class="si-section-heading">
+                    Discover More Industrial Cities
+                </h2>
+
+                <p class="si-section-description">
+                    Explore other industrial cities
+                    and manufacturing zones throughout
+                    Saudi Arabia.
+                </p>
+
+            </div>
+
+            <a
+                href="{% url 'catalog:industrial_cities' %}"
+                class="btn si-primary-btn"
+            >
+                All Industrial Cities →
+            </a>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}
