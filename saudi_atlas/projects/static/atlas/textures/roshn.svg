@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60" width="60" height="60">
+  <defs>
+    <g id="s" fill="none" stroke="#000" stroke-width="1.1" stroke-linejoin="round">
+      <rect x="-9" y="-9" width="18" height="18"/>
+      <rect x="-9" y="-9" width="18" height="18" transform="rotate(45)"/>
+      <circle r="2.6"/>
+      <circle r="16.5" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="0 4.32" stroke-opacity=".6"/>
+    </g>
+  </defs>
+  <use href="#s" x="30" y="30"/>
+  <use href="#s" x="0" y="0"/><use href="#s" x="60" y="0"/><use href="#s" x="0" y="60"/><use href="#s" x="60" y="60"/>
+  <g stroke="#000" stroke-width=".9" stroke-opacity=".55">
+    <path d="M42.7 30H47.3M12.7 30h4.6M30 12.7v4.6M30 42.7v4.6"/>
+    <path d="M12.7 0H17.3M42.7 0h4.6M12.7 60h4.6M42.7 60h4.6M0 12.7v4.6M0 42.7v4.6M60 12.7v4.6M60 42.7v4.6"/>
+  </g>
+</svg>
