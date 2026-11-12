@@ -1,0 +1,405 @@
+
+{% extends 'portal/base.html' %}
+{% load static %}
+
+{% block title %}الرئيسية | SAUDI CYBER FUTURE{% endblock %}
+
+{% block content %}
+
+
+<!-- الواجهة الرئيسية -->
+<section class="hero">
+
+    <video class="hero-video" autoplay muted loop playsinline preload="metadata">
+        <source src="{% static 'portal/videos/home-background.mp4' %}" type="video/mp4">
+    </video>
+
+    <div class="container">
+        <div class="hero-content">
+
+            <h1>
+                السعودية نحو مستقبل رقمي
+                <span>آمن ومبتكر</span>
+            </h1>
+
+            <p>
+                اكتشف رحلة التحول الرقمي في المملكة،
+                والتقنيات الحديثة، ودور الأمن السيبراني
+                في حماية مستقبلنا الرقمي.
+            </p>
+
+            <a href="#topics" class="hero-button">
+                استكشف المحاور
+                <span>←</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- المشهد الرقمي في المملكة -->
+<section class="about" id="about">
+    <div class="container">
+
+        <div class="section-heading">
+            <span>المملكة في العصر الرقمي</span>
+            <h2>تحول رقمي يصنع المستقبل</h2>
+
+<div class="digital-journey">
+    <div class="journey-item">
+        <span class="journey-icon">▦</span>
+        <span>البنية الرقمية</span>
+    </div>
+
+    <div class="journey-item">
+        <span class="journey-icon">⌘</span>
+        <span>التقنيات الحديثة</span>
+    </div>
+
+    <div class="journey-item">
+        <span class="journey-icon">♢</span>
+        <span>الأمن والحماية</span>
+    </div>
+
+    <div class="journey-item">
+        <span class="journey-icon">↗</span>
+        <span>المستقبل</span>
+    </div>
+</div>
+
+            <p>
+                تشهد المملكة العربية السعودية تطورًا متسارعًا
+                في مجالات التقنية والخدمات الرقمية، مع اهتمام
+                متزايد بالابتكار والأمن وحماية المعلومات.
+            </p>
+        </div>
+
+        <div class="about-content">
+
+    <div class="about-card">
+        <img src="{% static 'portal/images/digital-services.jpg' %}"
+             alt="خدمات رقمية متطورة">
+
+        <h3>خدمات رقمية متطورة</h3>
+        <p>
+            تسهم المنصات الحكومية الرقمية في تسهيل
+            الوصول إلى الخدمات، وتسريع الإجراءات،
+            وتحسين تجربة المستفيدين.
+        </p>
+    </div>
+
+    <div class="about-card">
+        <img src="{% static 'portal/images/future-technologies.jpg' %}"
+             alt="تقنيات المستقبل">
+
+        <h3>تقنيات المستقبل</h3>
+        <p>
+            تفتح تقنيات الذكاء الاصطناعي والحوسبة
+            السحابية وإنترنت الأشياء آفاقًا جديدة
+            للتطوير والابتكار في مختلف القطاعات.
+        </p>
+    </div>
+
+    <div class="about-card">
+        <img src="{% static 'portal/images/secure-digital-space.jpg' %}"
+             alt="فضاء رقمي آمن">
+
+        <h3>فضاء رقمي آمن</h3>
+        <p>
+            تمثل حماية الأنظمة والشبكات والبيانات
+            عنصرًا أساسيًا لتعزيز الثقة والخصوصية
+            ومواجهة التهديدات الإلكترونية.
+        </p>
+    </div>
+
+</div>
+
+    </div>
+</section>
+
+
+<!-- محاور المستقبل الرقمي -->
+<section class="topics" id="topics">
+    <div class="container">
+
+        <div class="section-heading">
+            <span>اكتشف المزيد</span>
+            <h2>محاور المستقبل الرقمي</h2>
+            
+<div class="digital-circuit" aria-hidden="true">
+    <svg viewBox="0 0 260 32">
+        <path class="circuit-line"
+              d="M10 16 H75 L86 5 H174 L185 16 H250 M75 16 H185"/>
+
+        <circle class="circuit-node" cx="86" cy="5" r="3"/>
+        <circle class="circuit-node" cx="174" cy="5" r="3"/>
+        <circle class="circuit-node" cx="130" cy="16" r="4"/>
+
+        <circle class="moving-dot" r="2.5">
+            <animateMotion
+                dur="3s"
+                repeatCount="indefinite"
+                path="M10 16 H75 L86 5 H174 L185 16 H250"/>
+        </circle>
+
+        <circle class="moving-dot second-dot" r="2.5">
+            <animateMotion
+                dur="3s"
+                begin="-1.5s"
+                repeatCount="indefinite"
+                path="M250 16 H185 L174 5 H86 L75 16 H10"/>
+        </circle>
+    </svg>
+</div>
+
+            <p>
+                تعرف على أبرز مجالات التقنية والتحول الرقمي
+                والأمن السيبراني في المملكة.
+            </p>
+        </div>
+
+        <div class="topics-grid">
+
+            <article class="topic-card">
+                <div class="topic-image">
+                    <img src="{% static 'portal/images/digital-transformation.jpg' %}" alt="التحول الرقمي">
+                    <span class="topic-number">01</span>
+                </div>
+                <div class="topic-info">
+                    <h3>التحول الرقمي</h3>
+                    <p>
+                        تطور الخدمات والبنية التحتية الرقمية،
+                        ودورها في دعم الاقتصاد وتحسين جودة الحياة.
+                    </p>
+                    <a href="{% url 'digital_transformation' %}" class="topic-link">
+                        اكتشف المحور <span>←</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="topic-card">
+                <div class="topic-image">
+                    <img src="{% static 'portal/images/smart-technologies.jpg' %}" alt="التقنيات الذكية">
+                    <span class="topic-number">02</span>
+                </div>
+                <div class="topic-info">
+                    <h3>التقنيات الذكية</h3>
+                    <p>
+                        استعراض تطبيقات الذكاء الاصطناعي
+                        وإنترنت الأشياء والحوسبة السحابية.
+                    </p>
+                    <a href="{% url 'smart_technologies' %}" class="topic-link">
+                         اكتشف المحور <span>←</span>
+                        </a>
+                </div>
+            </article>
+
+            <article class="topic-card">
+                <div class="topic-image">
+                    <img src="{% static 'portal/images/digital-government.jpg' %}" alt="الحكومة الرقمية">
+                    <span class="topic-number">03</span>
+                </div>
+                <div class="topic-info">
+                    <h3>الحكومة الرقمية</h3>
+                    <p>
+                        تطور المنصات والخدمات الحكومية الرقمية
+                        ودورها في تسهيل الإجراءات ورفع كفاءة الخدمات.
+                    </p>
+                    <a href="{% url 'digital_government' %}" class="topic-link">
+                         اكتشف المحور <span>←</span>
+                        </a>
+                </div>
+            </article>
+
+            <article class="topic-card">
+                <div class="topic-image">
+                    <img src="{% static 'portal/images/cybersecurity-development.jpg' %}" alt="تطور الأمن السيبراني">
+                    <span class="topic-number">04</span>
+                </div>
+                <div class="topic-info">
+                    <h3>تطور الأمن السيبراني</h3>
+                    <p>
+                        مراحل تطور الأمن السيبراني وأبرز
+                        التقنيات المستخدمة في حماية الأنظمة والشبكات.
+                    </p>
+                    <a href="{% url 'cybersecurity_development' %}" class="topic-link">
+                         اكتشف المحور <span>←</span>
+                        </a>
+                </div>
+            </article>
+
+            <article class="topic-card">
+                <div class="topic-image">
+                    <img src="{% static 'portal/images/national-cybersecurity.jpg' %}" alt="الأمن السيبراني الوطني">
+                    <span class="topic-number">05</span>
+                </div>
+                <div class="topic-info">
+                    <h3>الأمن السيبراني الوطني</h3>
+                    <p>
+                        الاستراتيجية الوطنية والجهود المبذولة
+                        لتعزيز الأمن السيبراني في المملكة.
+                    </p>
+                    <a href="{% url 'national_cybersecurity' %}" class="topic-link">
+                        اكتشف المحور <span>←</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="topic-card">
+                <div class="topic-image">
+                    <img src="{% static 'portal/images/cyber-threats.jpg' %}" alt="التهديدات والدفاع السيبراني">
+                    <span class="topic-number">06</span>
+                </div>
+                <div class="topic-info">
+                    <h3>التهديدات والدفاع السيبراني</h3>
+                    <p>
+                        أنواع الهجمات الإلكترونية وأساليب
+                        اكتشافها والوقاية منها والاستجابة لها.
+                    </p>
+                    <a href="{% url 'cyber_threats' %}" class="topic-link">
+                        اكتشف المحور <span>←</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="topic-card">
+                <div class="topic-image">
+                    <img src="{% static 'portal/images/future-innovation.jpg' %}" alt="مستقبل الابتكار">
+                    <span class="topic-number">07</span>
+                </div>
+                <div class="topic-info">
+                    <h3>مستقبل الابتكار</h3>
+                    <p>
+                        التقنيات الناشئة والمدن الذكية
+                        ودورها في تشكيل مستقبل القطاعات المختلفة.
+                    </p>
+                    <a href="{% url 'future_innovation' %}" class="topic-link">
+                        اكتشف المحور <span>←</span>
+                    </a>
+                </div>
+            </article>
+
+            <article class="topic-card">
+                <div class="topic-image">
+                    <img src="{% static 'portal/images/digital-identity.jpg' %}" alt="الهوية الرقمية وحماية البيانات">
+                    <span class="topic-number">08</span>
+                </div>
+                <div class="topic-info">
+                    <h3>الهوية الرقمية وحماية البيانات</h3>
+                    <p>
+                        حماية الهوية الرقمية والبيانات الشخصية،
+                        وتعزيز الخصوصية والثقة في العالم الرقمي.
+                    </p>
+                    <a href="{% url 'digital_identity' %}" class="topic-link">
+                        اكتشف المحور <span>←</span>
+                    </a>
+                </div>
+            </article>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- المبادرات والتوجهات -->
+<section class="initiatives">
+    <div class="container">
+
+        <div class="section-heading">
+            <span>رؤية المستقبل</span>
+            <h2>نحو وطن رقمي متقدم</h2>
+           
+<div class="national-progress">
+    <svg viewBox="0 0 520 105"
+         xmlns="http://www.w3.org/2000/svg">
+
+        <path
+            d="M490 78 H400 L355 62 H275 L230 43 H150 L95 19 H42"
+            fill="none"
+            stroke="#078B58"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+        <path
+            d="M55 19 L42 19 L48 31"
+            fill="none"
+            stroke="#078B58"
+            stroke-width="2.5"
+            stroke-linecap="round"
+            stroke-linejoin="round"/>
+
+        <circle cx="400" cy="78" r="7" fill="#078B58" stroke="#A7D3B8" stroke-width="4"/>
+        <circle cx="275" cy="62" r="7" fill="#078B58" stroke="#A7D3B8" stroke-width="4"/>
+        <circle cx="150" cy="43" r="7" fill="#078B58" stroke="#A7D3B8" stroke-width="4"/>
+        <circle cx="95" cy="19" r="7" fill="#078B58" stroke="#A7D3B8" stroke-width="4"/>
+
+        <circle r="4" fill="#4CE09A">
+            <animateMotion
+                dur="3.5s"
+                repeatCount="indefinite"
+                path="M490 78 H400 L355 62 H275 L230 43 H150 L95 19"/>
+        </circle>
+
+    </svg>
+</div>
+
+            <p>
+                تعمل المملكة على تطوير بنية رقمية متقدمة،
+                وتوسيع استخدام التقنيات الحديثة، وتعزيز أمن
+                الفضاء السيبراني لدعم اقتصاد رقمي مزدهر.
+            </p>
+        </div>
+
+        <div class="initiative-content">
+
+            <div class="initiative-item">
+                <div class="initiative-image">
+                    <img src="{% static 'portal/images/vision-2030.jpg' %}"
+                         alt="رؤية السعودية 2030">
+                </div>
+                <span>01</span>
+                <h3>رؤية السعودية 2030</h3>
+                <p>
+                    تسعى رؤية السعودية 2030 إلى تسريع التحول الرقمي،
+                    وتطوير الخدمات الحكومية، وتعزيز الابتكار
+                    لبناء اقتصاد رقمي متنوع.
+                </p>
+            </div>
+
+            <div class="initiative-item">
+                <div class="initiative-image">
+                    <img src="{% static 'portal/images/digital-community.jpg' %}"
+                         alt="مجتمع رقمي آمن">
+                </div>
+                <span>02</span>
+                <h3>مجتمع رقمي آمن</h3>
+                <p>
+                    رفع مستوى الوعي بالمخاطر السيبرانية،
+                    وتعزيز ممارسات حماية المعلومات والبيانات
+                    الشخصية لدى الأفراد والمؤسسات.
+                </p>
+            </div>
+
+            <div class="initiative-item">
+                <div class="initiative-image">
+                    <img src="{% static 'portal/images/digital-innovation.jpg' %}"
+                         alt="ابتكار بلا حدود">
+                </div>
+                <span>03</span>
+                <h3>ابتكار بلا حدود</h3>
+                <p>
+                    توظيف تقنيات الذكاء الاصطناعي والابتكار الرقمي
+                    لتطوير حلول جديدة، وفتح آفاق أوسع
+                    للنمو والتقدم في مختلف القطاعات.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+{% endblock %}

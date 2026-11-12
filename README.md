@@ -1,76 +1,147 @@
-# UNIT-PROJECT-2
 
-## Using Django create a project about our beloved kingdom of your choosing. Examples :
-- Tourism in Saudi Arabia.
-- Culture & Heritage in Saudi Arabia.
-- Manufacturing & Industries in Saudi Arabia.
-- Agriculture in Saudi Arabia.
-- Science in Saudi Arabia.
-- History of Saudi Arabia.
-- etc.....
+#  المستقبل الرقمي السعودي
 
+### 🚀 نحو وطن رقمي آمن ومبتكر
 
-# Minumum Requirements
-- Use Django.
-- Use templates & templates inheritance.
-- Use dynamic urls where applicable.
-- Use static files where applicable.
-- homepage + at least 6 pages.
-- Coherent, uniform design .
-- Implement dark and light mode.
-- Must be Responsive. 
-- You can use a CSS library to style your website (such as Bootstrap or equivalent)
-- You can use a cdn or a cloud storage to host large files such as large videos (example: Goolge Firebase Cloud Storage: https://firebase.google.com/docs/storage)
+---
 
+## 🌐 نبذة عن المشروع
 
+**المستقبل الرقمي السعودي** هو موقع إلكتروني تفاعلي يسلط الضوء على مسيرة المملكة العربية السعودية في التحول الرقمي، والتطور التقني، والابتكارات الحديثة، والخدمات الحكومية الرقمية، وجهودها في تعزيز الأمن السيبراني.
 
-# Example : TOURISM-PROJECT
+يهدف المشروع إلى تقديم محتوى عربي منظم يساعد الزائر على التعرف على أبرز الإنجازات والتوجهات الرقمية في المملكة، واستكشاف التقنيات الحديثة ودورها في بناء مستقبل رقمي آمن ومستدام.
 
-## Using Django create a website for Tourism in Saudi Arabia . The project name is : Tourister
+## 🎯 أهداف المشروع
 
-### Your website has the following pages :
+- التعريف بجهود المملكة في التحول الرقمي.
+- 💡 استعراض التقنيات الحديثة والابتكارات.
+- 🏛️ إبراز تطور الخدمات الحكومية الرقمية.
+- 🛡️ التعريف بالأمن السيبراني وأهميته.
+- ⚠️ توضيح أبرز التهديدات الرقمية وطرق الحماية منها.
+- 🔭 استكشاف مستقبل التقنية والابتكار في المملكة.
 
-#### "" : home page , with the following content:
-- Title of the page , with a catchy phrase about tourism in Saudi Arabia
-- A single wide image covering the page.
-- A paragraph about the tourism in Saudi Arabia in General.
-- A list of cities pages with links to them (the pages are listed down below).
+## 📚 أقسام الموقع
 
+**🏠 الرئيسية**
 
-#### "city/Riyadh/"
-- Title of city with a catchy phrase
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+مقدمة عن المشروع وأبرز محتوياته.
 
-#### "city/Abha/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+**🌐 التحول الرقمي**
 
-#### "city/Mekkah/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+رحلة التحول الرقمي في المملكة العربية السعودية.
 
-#### "city/AlUla/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+**🤖 التقنيات الذكية**
+
+استعراض التقنيات الحديثة والابتكارات.
+
+**🏛️ الحكومة الرقمية**
+
+التعريف بالخدمات الحكومية الإلكترونية وتطورها.
+
+**📈 تطور الأمن السيبراني**
+
+مراحل تطور الأمن السيبراني في المملكة.
+
+**🛡️ الأمن السيبراني الوطني**
+
+الجهود والاستراتيجيات الوطنية لتعزيز الحماية الرقمية.
+
+**⚠️ التهديدات السيبرانية**
+
+أبرز المخاطر الرقمية وطرق الحماية منها.
+
+**🔮 الابتكار المستقبلي**
+
+التقنيات والابتكارات التي تسهم في بناء المستقبل.
+
+**🪪 الهوية الرقمية**
+
+مفهوم الهوية الرقمية وأهميتها.
+
+## ✨ مميزات الموقع
+
+- 🖥️ تصميم متجاوب مع مختلف أحجام الشاشات.
+- 🌙 التبديل بين الوضع الليلي والنهاري مع حفظ اختيار المستخدم.
+- 🎬 مكتبة للمقاطع المرئية.
+- 📊 إحصائيات ومؤشرات رقمية.
+- 🗓️ خط زمني لأبرز مراحل التطور.
+- واجهة عربية تدعم الكتابة من اليمين إلى اليسار.
+
+## 🧰 التقنيات المستخدمة
+
+- 🐍 **Python** — لغة البرمجة الأساسية.
+- 🎸 **Django** — إطار عمل تطوير الموقع.
+- 🧱 **HTML** — بناء هيكل الصفحات.
+- 🎨 **CSS** — تصميم وتنسيق الواجهات.
+- ⚡ **JavaScript** — إضافة التفاعلات والوظائف.
+
+## 📁 هيكل المشروع
+
+```text
+UNIT-PROJECT-2/
+│
+├── portal/
+│   │
+│   ├── static/
+│   │   └── portal/
+│   │       ├── css/
+│   │       │   └── style.css
+│   │       ├── images/
+│   │       └── videos/
+│   │
+│   ├── templates/
+│   │   └── portal/
+│   │       ├── base.html
+│   │       ├── home.html
+│   │       ├── digital_transformation.html
+│   │       ├── smart_technologies.html
+│   │       ├── digital_government.html
+│   │       ├── cybersecurity_development.html
+│   │       ├── national_cybersecurity.html
+│   │       ├── cyber_threats.html
+│   │       ├── future_innovation.html
+│   │       └── digital_identity.html
+│   │
+│   ├── admin.py
+│   ├── apps.py
+│   ├── models.py
+│   ├── tests.py
+│   ├── urls.py
+│   └── views.py
+│
+├── saudi_cyber_future/
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── manage.py
+├── requirements.txt
+└── README.md
+```
+
+## ▶️ طريقة تشغيل المشروع
+
+**1. تثبيت المتطلبات**
+
+```bash
+pip install -r requirements.txt
+```
+
+**2. تشغيل الموقع**
+
+```bash
+python manage.py runserver
+```
+
+**3. فتح الموقع من المتصفح**
+
+```text
+http://127.0.0.1:8000/
+```
+
+---
+
+### المستقبل الرقمي السعودي
+
+**نحو وطن رقمي آمن ومبتكر**

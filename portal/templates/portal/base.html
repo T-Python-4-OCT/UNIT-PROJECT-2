@@ -1,0 +1,130 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="description" content="مستقبل التحول الرقمي والأمن السيبراني في المملكة العربية السعودية">
+
+    <title>{% block title %}المستقبل السيبراني السعودي{% endblock %}</title>
+
+    <link rel="stylesheet" href="{% static 'portal/css/style.css' %}">
+</head>
+
+<body class="{% if request.COOKIES.theme == 'light' %}light-theme{% else %}dark-theme{% endif %}">
+
+    <header class="site-header">
+        <div class="container">
+            <nav class="navbar">
+
+                
+   <a href="{% url 'home' %}" class="logo">
+    
+<span class="logo-mark">
+    <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+        <path d="M32 5 L53 14 V29 C53 43 44 54 32 60 C20 54 11 43 11 29 V14 Z"/>
+        <path d="M21 32 L28 39 L43 23"/>
+    </svg>
+</span>
+
+
+    <span class="logo-text">
+        المستقبل الرقمي السعودي
+        <small>نحو وطن رقمي آمن ومبتكر</small>
+    </span>
+</a>
+
+
+                <div class="nav-links">
+                    <a href="{% url 'home' %}">الرئيسية</a>
+
+                    <a href="{% url 'home' %}#about">المشهد الرقمي</a>
+
+                    <a href="{% url 'home' %}#topics">المحاور</a>
+
+                    <form method="POST" action="{% url 'toggle_theme' %}">
+    {% csrf_token %}
+
+    <button type="submit" class="theme-toggle" aria-label="تغيير المظهر">
+        {% if request.COOKIES.theme == 'light' %}
+            <span class="theme-icon">☾</span>
+        {% else %}
+            <span class="theme-icon">☀</span>
+        {% endif %}
+    </button>
+</form>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        {% block content %}
+        {% endblock %}
+    </main>
+
+    
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-content">
+
+            <div class="footer-brand">
+                <h3>المستقبل الرقمي السعودي</h3>
+                <p>
+                    نحو مستقبل رقمي آمن ومبتكر للمملكة العربية السعودية،
+                    ونافذة معرفية على التحول الرقمي والأمن السيبراني.
+                </p>
+            </div>
+
+            <div class="footer-sources">
+                <h3>مصادر موثوقة</h3>
+
+                <a href="https://www.vision2030.gov.sa/ar/"
+                target="_blank" rel="noopener noreferrer">
+                 رؤية السعودية 2030
+                </a>
+
+                <a href="https://nca.gov.sa/ar/"
+                   target="_blank" rel="noopener noreferrer">
+                    الهيئة الوطنية للأمن السيبراني
+                </a>
+
+                <a href="https://my.gov.sa/ar"
+                   target="_blank" rel="noopener noreferrer">
+                    المنصة الوطنية
+                </a>
+            </div>
+
+            <div class="footer-info">
+                <h3>عن الموقع</h3>
+                <p>
+                    محتوى يستعرض مستقبل التقنية والأمن السيبراني في المملكة.
+                </p>
+                <p>المملكة العربية السعودية</p>
+            </div>
+
+        </div>
+
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة © 2026 المستقبل الرقمي السعودي</p>
+        </div>
+    </div>
+</footer>
+
+
+    <script>
+        if ("scrollRestoration" in history) {
+            history.scrollRestoration = "manual";
+        }
+
+        window.addEventListener("load", function () {
+            window.scrollTo(0, 0);
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,213 @@
+
+{% extends 'portal/base.html' %}
+{% load static %}
+
+{% block title %}الأمن السيبراني الوطني | المستقبل الرقمي السعودي{% endblock %}
+
+{% block content %}
+
+<section class="topic-detail">
+    <div class="container">
+
+        <!-- عنوان الصفحة -->
+        <div class="detail-heading">
+            <h1>الأمن السيبراني الوطني</h1>
+            <p>
+                حماية الفضاء الرقمي وتعزيز أمن المعلومات
+                لدعم مستقبل المملكة الرقمي.
+            </p>
+        </div>
+
+        <!-- الصورة الرئيسية -->
+        <div class="media-placeholder detail-hero">
+            <img src="{% static 'portal/images/national-cybersecurity-hero.jpg' %}"
+                 alt="الأمن السيبراني الوطني في المملكة العربية السعودية">
+        </div>
+
+        <!-- معرض الصور -->
+        <section class="detail-section">
+
+            <div class="section-heading">
+                <span>الحماية الوطنية</span>
+                <h2>جهود المملكة في الأمن السيبراني</h2>
+                <p>
+                    منظومة وطنية تعمل على حماية الأنظمة الرقمية
+                    ورفع مستوى الجاهزية لمواجهة المخاطر السيبرانية.
+                </p>
+            </div>
+
+            <div class="detail-gallery">
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/national-cybersecurity-1.jpg' %}"
+                         alt="مراكز عمليات الأمن السيبراني">
+                    <div class="gallery-info">
+                        <h3>مراكز العمليات السيبرانية</h3>
+                        <p>
+                            مراقبة الأنظمة الرقمية وتحليل الأحداث
+                            الأمنية والاستجابة للمخاطر.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/national-cybersecurity-2.jpg' %}"
+                         alt="التوعية بالأمن السيبراني">
+                    <div class="gallery-info">
+                        <h3>التوعية وبناء القدرات</h3>
+                        <p>
+                            نشر الوعي بالممارسات الآمنة
+                            وتنمية المهارات الوطنية المتخصصة.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="gallery-card">
+                    <img src="{% static 'portal/images/national-cybersecurity-3.jpg' %}"
+                         alt="فعاليات الأمن السيبراني في السعودية">
+                    <div class="gallery-info">
+                        <h3>التعاون الوطني</h3>
+                        <p>
+                            تعزيز التعاون وتبادل الخبرات
+                            بين الجهات المعنية بالأمن السيبراني.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- الفيديو -->
+        <section class="detail-section">
+            <div class="section-heading">
+                <span>شاهد وتعرّف</span>
+                <h2>الأمن السيبراني في المملكة</h2>
+                <p>
+                    تعرّف على أهمية حماية الفضاء الرقمي
+                    ودور الجهود الوطنية في تعزيز أمن المعلومات.
+                </p>
+            </div>
+
+            <div class="detail-video">
+                <video controls preload="metadata">
+                    <source src="{% static 'portal/videos/national-cybersecurity-video.mp4' %}"
+                            type="video/mp4">
+                    متصفحك لا يدعم تشغيل الفيديو.
+                </video>
+            </div>
+        </section>
+
+        <!-- أهمية الأمن السيبراني الوطني -->
+        <section class="detail-section">
+            <div class="section-heading">
+                <span>الأمن الرقمي</span>
+                <h2>ركائز الحماية الوطنية</h2>
+            </div>
+
+            <div class="detail-content">
+
+        
+
+                <div class="detail-card">
+                    <h3>الاستجابة للحوادث</h3>
+                    <p>
+                        رفع الجاهزية للتعامل مع الحوادث الأمنية
+                        والحد من آثارها على الجهات والخدمات.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>تنمية الكفاءات الوطنية</h3>
+                    <p>
+                        تطوير المهارات والخبرات الوطنية
+                        المتخصصة في مجالات الأمن السيبراني.
+                    </p>
+                </div>
+
+                <div class="detail-card">
+                    <h3>تعزيز التعاون</h3>
+                    <p>
+                        دعم تبادل المعلومات والخبرات
+                        لتعزيز منظومة الأمن السيبراني.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- الخط الزمني -->
+        <section class="detail-section">
+            <div class="section-heading">
+                <span>مسيرة وطنية</span>
+                <h2>محطات في الأمن السيبراني السعودي</h2>
+                <p>
+                    محطات بارزة في بناء وتعزيز منظومة
+                    الأمن السيبراني في المملكة.
+                </p>
+            </div>
+
+            <div class="progress-timeline">
+
+                <div class="progress-step">
+                    <div class="progress-year">2017</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>تأسيس الهيئة الوطنية</h3>
+                        <p>
+                            تأسيس الهيئة الوطنية للأمن السيبراني
+                            لتكون الجهة المختصة بالأمن السيبراني
+                            في المملكة.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">2018</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>الضوابط الأساسية</h3>
+                        <p>
+                            إصدار الضوابط الأساسية للأمن السيبراني
+                            لتعزيز حماية الجهات الوطنية.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">2019</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>الاستراتيجية الوطنية</h3>
+                        <p>
+                            إطلاق الاستراتيجية الوطنية للأمن
+                            السيبراني لتعزيز التوجه الوطني
+                            في هذا المجال.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="progress-step">
+                    <div class="progress-year">2030</div>
+                    <div class="progress-dot"></div>
+                    <div class="progress-info">
+                        <h3>مستقبل رقمي آمن</h3>
+                        <p>
+                            مواصلة تطوير القدرات الوطنية
+                            وتعزيز الثقة في البيئة الرقمية
+                            بما يدعم مستهدفات رؤية السعودية 2030.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- العودة -->
+        <a href="{% url 'home' %}#topics" class="detail-back">
+            العودة إلى جميع المحاور ←
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}
