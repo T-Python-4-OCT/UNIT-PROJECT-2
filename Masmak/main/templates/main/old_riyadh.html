@@ -1,0 +1,178 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+{% with hero_img="main/img/art/riyadh-old.svg" %}{% include "main/partials/_page_hero.html" %}{% endwith %}
+
+<section class="section">
+  <div class="container split">
+    <div class="reveal">
+      <p class="kicker">المدينة سنة 1319هـ</p>
+      <h2>بلدة الطين والنخيل</h2>
+      <p class="lead">{{ data.intro.lead }}</p>
+      <p>{{ data.intro.capital }}</p>
+      <div class="note note--gold"><svg class="icon" aria-hidden="true"><use href="#i-info"/></svg><span>المصمك اليوم في حي الديرة وسط الرياض، قريباً من منطقة قصر الحكم — في قلب المدينة القديمة نفسها.</span></div>
+    </div>
+    <div class="reveal">
+      {% with m=compare_old %}{% include "main/partials/_media.html" %}{% endwith %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="compare-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">قديماً وحديثاً</p>
+      <h2 id="compare-title">الرياض… بين زمنين</h2>
+      <p class="lead">{{ data.intro.compare_note }}</p>
+    </div>
+    <div class="compare reveal" data-compare>
+      <div class="compare__layer">
+        {% if compare_new.mode == "local" %}<img src="{% static compare_new.path %}" alt="{{ compare_new.alt }}">{% elif compare_new.mode == "remote" %}<img src="{{ compare_new.remote_url }}" alt="{{ compare_new.alt }}" referrerpolicy="no-referrer" data-fallback="{% static compare_new.art_path %}">{% else %}<img src="{% static compare_new.art_path %}" alt="رسم توضيحي: الرياض اليوم">{% endif %}
+      </div>
+      <div class="compare__layer compare__layer--top" data-compare-top>
+        {% if compare_old.mode == "local" %}<img src="{% static compare_old.path %}" alt="{{ compare_old.alt }}">{% elif compare_old.mode == "remote" %}<img src="{{ compare_old.remote_url }}" alt="{{ compare_old.alt }}" referrerpolicy="no-referrer" data-fallback="{% static compare_old.art_path %}">{% else %}<img src="{% static compare_old.art_path %}" alt="رسم توضيحي: الرياض القديمة">{% endif %}
+      </div>
+      <span class="compare__label compare__label--old">الرياض قديماً</span>
+      <span class="compare__label compare__label--new">الرياض اليوم</span>
+      <div class="compare__handle" data-compare-handle><span class="compare__knob"><svg class="icon" aria-hidden="true"><use href="#i-swap"/></svg></span></div>
+      <input class="compare__range" type="range" min="0" max="100" value="50" dir="ltr" aria-label="اسحب للمقارنة بين الرياض قديماً واليوم" data-compare-range>
+      <div class="compare__badges">
+        <span class="media__badge">{% if compare_old.mode == "art" %}رسم توضيحي{% else %}{{ compare_old.caption }}{% endif %}</span>
+        <span class="media__badge">{% if compare_new.mode == "art" %}رسم توضيحي{% else %}{{ compare_new.caption }}{% endif %}</span>
+      </div>
+    </div>
+    <div class="chips" style="margin-top:14px" role="group" aria-label="مواضع جاهزة للمقارنة">
+      <button class="chip" type="button" data-compare-set="100">الرياض قديماً</button>
+      <button class="chip is-active" type="button" data-compare-set="50">المنتصف</button>
+      <button class="chip" type="button" data-compare-set="0">الرياض اليوم</button>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">قصة السور</p>
+      <h2>سورٌ بُني وهُدم ثلاث مرات</h2>
+    </div>
+    <div class="wall-steps">
+      {% for w in wall_history %}
+      <div class="wall-step reveal" style="--i: {{ forloop.counter }}">
+        <span class="wall-step__date">{{ w.date }}</span>
+        <h3>{{ w.title }}</h3>
+        <p>{{ w.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt" aria-labelledby="gates-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">خريطة تفاعلية</p>
+      <h2 id="gates-title">بوابات الرياض التسع</h2>
+      <p class="lead">اضغط على أي بوابة لتعرف اسمها واتجاهها وقصّة تسميتها. كانت «الدراويز» بوابات رئيسية، و«النُّقَب» بوابات صغيرة للمشاة.</p>
+    </div>
+    <div class="gates">
+      <div class="gates-map reveal">
+        <svg viewBox="0 0 600 600" role="img" aria-labelledby="gm-title">
+          <title id="gm-title">مخطط تقريبي لسور الرياض القديم وبواباته</title>
+          <g class="gm-palm">
+            <circle cx="40" cy="80" r="16"/><circle cx="66" cy="60" r="12"/><circle cx="560" cy="120" r="18"/><circle cx="575" cy="470" r="14"/><circle cx="545" cy="500" r="11"/>
+            <circle cx="40" cy="520" r="18"/><circle cx="70" cy="555" r="12"/><circle cx="470" cy="570" r="15"/><circle cx="140" cy="40" r="12"/><circle cx="440" cy="30" r="13"/>
+          </g>
+          <path class="gm-wall" d="M300 70 L400 78 L480 130 L530 210 L540 300 L520 390 L470 470 L380 525 L280 535 L180 495 L110 420 L80 330 L90 230 L140 140 L220 88 Z"/>
+          <path class="gm-inner" d="M300 110 L380 116 L445 160 L490 225 L498 300 L480 375 L438 440 L365 488 L282 496 L200 462 L144 400 L120 330 L128 245 L168 172 L232 128 Z"/>
+          <g class="gm-block">
+            <rect x="170" y="180" width="60" height="40"/><rect x="240" y="150" width="40" height="50"/><rect x="380" y="170" width="50" height="40"/>
+            <rect x="420" y="240" width="40" height="60"/><rect x="390" y="380" width="60" height="40"/><rect x="200" y="400" width="50" height="45"/>
+            <rect x="150" y="300" width="45" height="55"/><rect x="330" y="420" width="40" height="40"/><rect x="430" y="320" width="35" height="40"/>
+          </g>
+          <g>
+            <rect class="gm-landmark" x="278" y="230" width="44" height="44" rx="3"/>
+            <circle class="gm-landmark" cx="278" cy="230" r="7"/><circle class="gm-landmark" cx="322" cy="230" r="7"/><circle class="gm-landmark" cx="278" cy="274" r="7"/><circle class="gm-landmark" cx="322" cy="274" r="7"/>
+            <text class="gm-landmark-label" x="300" y="216" text-anchor="middle">المصمك</text>
+            <rect x="262" y="318" width="40" height="30" fill="none" stroke="currentColor" class="gm-label" style="stroke: var(--accent)"/>
+            <text class="gm-label" x="282" y="372" text-anchor="middle">قصر الحكم</text>
+            <rect x="318" y="318" width="36" height="30" fill="none" style="stroke: var(--accent-2)"/>
+            <text class="gm-label" x="336" y="306" text-anchor="middle">الجامع</text>
+          </g>
+          <g class="gm-compass" transform="translate(560 560)"><circle r="20" fill="none" stroke="currentColor" style="stroke: var(--muted)"/><path d="M0 -16 L5 0 L0 -4 L-5 0Z" style="fill: var(--accent)"/><text y="-26" text-anchor="middle">ش</text></g>
+          {% for g in gates %}
+          <g class="gm-gate" data-gate="{{ g.id }}" tabindex="0" role="button" aria-label="{{ g.name }}">
+            <circle cx="{{ g.x }}" cy="{{ g.y }}" r="11"/>
+            <text x="{{ g.lx }}" y="{{ g.ly }}" text-anchor="middle">{{ g.short }}</text>
+          </g>
+          {% endfor %}
+        </svg>
+        <p class="small muted" style="margin:8px 10px 2px">مخطط توضيحي تقريبي من إعداد المشروع — المواقع بحسب الاتجاهات الواردة في المصادر.</p>
+      </div>
+      <div class="gate-panel card reveal" data-gate-panel aria-live="polite">
+        <p class="kicker">بوابة</p>
+        <h3 data-gate-name>اختر بوابة من الخريطة</h3>
+        <p class="gate-panel__dir" data-gate-dir></p>
+        <p class="gate-panel__aka" data-gate-aka></p>
+        <p data-gate-note>للسور تسع بوابات موزعة على جهاته، وقرب بوابة الظهيرة في الشمال انتظر رجال محمد بن عبدالرحمن ليلة الاسترداد.</p>
+        <div class="gate-list">
+          {% for g in gates %}<button class="chip" type="button" data-gate-btn="{{ g.id }}">{{ g.short }}</button>{% endfor %}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">معالم</p>
+      <h2>قلب المدينة القديمة</h2>
+    </div>
+    <div class="grid grid--3">
+      {% for l in landmarks %}
+      <article class="reveal">
+        {% with m=l.m %}{% include "main/partials/_media.html" %}{% endwith %}
+        <h3 style="margin-top:16px">{{ l.title }}</h3>
+        <p class="muted">{{ l.text }}</p>
+        {% if l.url_name %}<a href="{% url l.url_name %}" class="journey__go">ادخل جولة المصمك <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>{% endif %}
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">العمارة النجدية</p>
+      <h2>كيف بُنيت الرياض؟</h2>
+      <p class="lead">{{ data.architecture_note }}</p>
+    </div>
+    <div class="grid grid--4 arch-grid">
+      {% for a in architecture %}
+      <div class="card reveal">
+        <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-{{ a.icon }}"/></svg></span>
+        <h3>{{ a.title }}</h3>
+        <p>{{ a.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section--tight">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div><h2>من هذه المدينة خرج صبيٌّ… وإليها عاد</h2><p>تعرّف على سيرة الملك عبدالعزيز.</p></div>
+      <a class="btn btn--gold" href="{% url 'main:king' %}">القاعة التالية <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    {% include "main/partials/_sources.html" %}
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+{{ gates_json|json_script:"gates-data" }}
+<script src="{% static 'main/js/old_riyadh.js' %}" defer></script>
+{% endblock %}

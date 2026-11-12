@@ -1,0 +1,101 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block content %}
+{% with hero_img="main/img/art/riyadh-new.svg" %}{% include "main/partials/_page_hero.html" %}{% endwith %}
+
+<section class="section" aria-labelledby="tl-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">خط زمني تفاعلي</p>
+      <h2 id="tl-title">272 عاماً في {{ events|length }} محطة</h2>
+      <p class="lead">اختر حقبة، ثم تنقّل بين المحطات بالضغط أو بأسهم لوحة المفاتيح.</p>
+    </div>
+
+    <div class="scale reveal">
+      <p class="small muted scale__hint"><svg class="icon" aria-hidden="true"><use href="#i-swap"/></svg>اسحب المؤشر على الشريط أو اضغط أي نقطة للتنقل بين المحطات حسب بُعدها الزمني الحقيقي.</p>
+      <div class="scale__bar" data-scale tabindex="0" role="slider" aria-label="المقياس الزمني من {{ scale.from }} إلى {{ scale.to }}م"
+           aria-valuemin="{{ scale.from }}" aria-valuemax="{{ scale.to }}" aria-valuenow="1902" aria-valuetext="5 شوال 1319هـ — استرداد الرياض">
+        {% for sg in scale.segments %}<span class="scale__seg scale__seg--{{ sg.era }}" style="inset-inline-start: {{ sg.start }}%; width: {{ sg.width }}%" title="{{ sg.title }} {{ sg.range }}"><span>{{ sg.title }}</span></span>{% endfor %}
+        {% for e in events %}<span class="scale__dot {% if e.major %}is-major{% endif %}" data-tl-jump="{{ e.id }}" data-pos="{{ e.pos }}" data-year="{{ e.year }}" data-label="{{ e.hijri }} — {{ e.title }}" style="inset-inline-start: {{ e.pos }}%"></span>{% endfor %}
+        <span class="scale__handle" data-scale-handle aria-hidden="true"><span class="scale__bubble" data-scale-bubble></span></span>
+      </div>
+      <div class="scale__labels"><span>{{ scale.from }}م</span><span class="scale__mid">مرحلة التوحيد 1902 – 1932م</span><span>{{ scale.to }}م</span></div>
+    </div>
+
+    <div class="tl-filters">
+      <div class="chips" role="group" aria-label="تصفية حسب الحقبة">
+        {% for era in eras %}
+        <button class="chip {% if era.id == 'all' %}is-active{% endif %}" type="button" data-era="{{ era.id }}">{{ era.title }}{% if era.range %} <span class="count">{{ era.range }}</span>{% endif %}</button>
+        {% endfor %}
+      </div>
+      <div class="carousel__nav">
+        <button class="icon-btn" type="button" data-tl-prev aria-label="المحطة السابقة"><svg class="icon" aria-hidden="true"><use href="#i-arrow-back"/></svg></button>
+        <button class="icon-btn" type="button" data-tl-next aria-label="المحطة التالية"><svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></button>
+      </div>
+    </div>
+
+    <div class="tl" data-tl>
+      <div class="tl__scroller" data-tl-scroller>
+        <div class="tl__track" role="tablist" aria-label="محطات الخط الزمني">
+          {% for e in events %}
+          <button class="tl__mark {% if e.major %}is-major{% endif %} {% if e.id == 'e1902' %}is-active{% endif %}" type="button" role="tab" data-event="{{ e.id }}" data-era="{{ e.era }}" aria-selected="{% if e.id == 'e1902' %}true{% else %}false{% endif %}">
+            <span class="tl__year">{{ e.hijri }}</span>
+            <span class="tl__dot"></span>
+            <span class="tl__mark-title">{{ e.title }}</span>
+          </button>
+          {% endfor %}
+        </div>
+      </div>
+
+      {% for e in events %}
+      <article class="card tl-card" data-event-card="{{ e.id }}" {% if e.id != 'e1902' %}hidden{% endif %} aria-live="polite">
+        <div class="tl-card__date">
+          <div class="tl-card__h">{{ e.hijri }}</div>
+          <div class="tl-card__g">{{ e.greg }}</div>
+        </div>
+        <div>
+          <div class="tl-card__era">{% for era in eras %}{% if era.id == e.era %}<span class="badge badge--gold">{{ era.title }}</span>{% endif %}{% endfor %}</div>
+          <h3>{{ e.title }}</h3>
+          <p class="muted" style="margin:0">{{ e.text }}</p>
+          {% if e.url_name %}<p style="margin:10px 0 0"><a class="journey__go" href="{% url e.url_name %}">اقرأ المزيد في المتحف <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>{% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt results" aria-labelledby="results-title">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">النتائج والأثر</p>
+      <h2 id="results-title">ماذا تغيّر بعد فجر الخامس من شوال؟</h2>
+      <p class="lead">من الرياض بدأت مراحل التوحيد واحدة بعد أخرى، حتى صدر الأمر الملكي بتسمية المملكة العربية السعودية بعد ثلاثين عاماً.</p>
+    </div>
+    <div class="grid grid--3">
+      {% for r in results %}
+      <div class="card reveal">
+        <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-{{ r.icon }}"/></svg></span>
+        <h3>{{ r.title }}</h3>
+        <p class="muted">{{ r.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section--tight">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div><h2>المصمك اليوم متحف</h2><p>قاعاته، ومرئياته، والمصادر التي بُني عليها هذا الموقع.</p></div>
+      <a class="btn btn--gold" href="{% url 'main:museum' %}">المتحف والمصادر <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+    </div>
+    {% include "main/partials/_sources.html" %}
+  </div>
+</section>
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'main/js/timeline.js' %}" defer></script>
+{% endblock %}

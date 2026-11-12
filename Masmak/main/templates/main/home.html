@@ -1,0 +1,168 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}{{ site.tagline }}{% endblock %}
+{% block header_class %}is-hero{% endblock %}
+
+{% block content %}
+<section class="hero" aria-labelledby="hero-title">
+  <div class="hero__bg">
+    {% if hero.mode == "local" %}
+      <img src="{% static hero.path %}" alt="{{ hero.alt }}">
+    {% elif hero.mode == "remote" %}
+      <img src="{{ hero.remote_url }}" alt="{{ hero.alt }}" referrerpolicy="no-referrer" data-fallback="{% static hero.art_path %}">
+    {% else %}
+      <img src="{% static hero.art_path %}" alt="رسم توضيحي لحصن المصمك ليلاً">
+    {% endif %}
+  </div>
+  <canvas class="hero__dust" data-dust aria-hidden="true"></canvas>
+  <div class="hero__veil"></div>
+
+  <div class="container">
+    <div class="hero__content">
+      <p class="hero__date"><b>5 شوال 1319هـ</b> فجر الخامس عشر من يناير 1902م</p>
+      <p class="kicker hero__kicker">{{ page.kicker }}</p>
+      <h1 id="hero-title">{{ site.name }}</h1>
+      <p class="hero__sub">{{ site.tagline }}</p>
+      <p class="hero__lead">ليلةٌ واحدة، وسبعة رجال، وبوابة من خشب النخل ما زال فيها رأس حربة. هنا تبدأ حكاية الرياض الحديثة.</p>
+      <div class="hero__actions">
+        <a class="btn btn--gold" href="#journey">ابدأ الرحلة <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a>
+        <a class="btn" href="{% url 'main:story' %}"><svg class="icon" aria-hidden="true"><use href="#i-map"/></svg>خريطة الاسترداد</a>
+      </div>
+    </div>
+  </div>
+  {% if hero.mode == "art" %}<span class="hero__credit">رسم توضيحي من إعداد المشروع — ليس صورة فوتوغرافية</span>
+  {% else %}<a class="hero__credit" href="{{ hero.source_page }}" target="_blank" rel="noopener">صورة: {% if hero.credit %}{{ hero.credit }}{% else %}ويكيميديا كومنز{% endif %}{% if hero.license %} · {{ hero.license }}{% endif %}</a>{% endif %}
+  <span class="scroll-cue" aria-hidden="true"></span>
+</section>
+
+<section class="section--tight">
+  <div class="container">
+    <div class="stats reveal" data-counters>
+      {% for s in stats %}
+      <div class="stat">
+        <div class="stat__value"><span data-count="{{ s.value }}">{{ s.value }}</span>{% if s.suffix %}<small>{{ s.suffix }}</small>{% endif %}</div>
+        <div class="stat__label">{{ s.label }}</div>
+        <div class="stat__note">{{ s.note }}</div>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split">
+    <div class="reveal">
+      <p class="kicker">الحكاية باختصار</p>
+      <h2>من منفى الكويت إلى بوابة المصمك</h2>
+      <p class="lead">خرجت أسرة آل سعود من الرياض بعد معركة المليداء عام 1308هـ، واستقرت في الكويت. وبعد أحد عشر عاماً عاد الشاب عبدالعزيز بن عبدالرحمن مع نحو ستين رجلاً.</p>
+      <p>تسلّل سبعة منهم ليلاً من ثغرات السور إلى بيت عجلان عامل ابن رشيد، وانتظروا حتى فُتح باب المصمك عند الشروق. انتهت المواجهة بمقتل عجلان واستسلام حاميته، وبدأت بعدها مسيرة توحيد استمرت ثلاثين عاماً حتى إعلان المملكة العربية السعودية عام 1351هـ.</p>
+      <div class="hero__actions">
+        <a class="btn" href="{% url 'main:king' %}"><svg class="icon" aria-hidden="true"><use href="#i-crown"/></svg>سيرة الملك عبدالعزيز</a>
+        <a class="btn" href="{% url 'main:timeline' %}"><svg class="icon" aria-hidden="true"><use href="#i-clock"/></svg>الخط الزمني</a>
+      </div>
+    </div>
+    <div class="reveal">
+      <figure class="card quote">
+        الحكم لله ثم لعبدالعزيز بن عبدالرحمن آل سعود
+        <cite>النداء الذي أُعلن من برج المصمك صباح 5 شوال 1319هـ — كما ترويه سعوديبيديا</cite>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="kicker">الليلة الحاسمة</p>
+      <h2>أربعة مشاهد قبل الشروق</h2>
+      <p class="lead">من مساء الرابع من شوال حتى صباح الخامس.</p>
+    </div>
+    <ol class="night reveal" style="list-style:none;padding:0;margin:0">
+      {% for n in night %}
+      <li class="night__item">
+        <span class="night__dot"><svg class="icon" aria-hidden="true"><use href="#i-{{ n.icon }}"/></svg></span>
+        <span class="night__time">{{ n.time }}</span>
+        <h3>{{ n.title }}</h3>
+        <p>{{ n.text }}</p>
+      </li>
+      {% endfor %}
+    </ol>
+    <p style="text-align:center;margin-top:24px"><a class="btn btn--gold" href="{% url 'main:story' %}">تابع القصة كاملة <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></a></p>
+  </div>
+</section>
+
+<section class="section" id="journey">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">قاعات المتحف الرقمي</p>
+      <h2>ثماني قاعات، رحلة واحدة</h2>
+      <p class="lead">تنقّل بالترتيب أو ابدأ من أي قاعة.</p>
+    </div>
+    <div class="grid grid--4 journey reveal-stagger">
+      {% for j in journey %}
+      <a class="card card--link reveal" style="--i: {{ forloop.counter }}" href="{% url j.url_name %}">
+        <span class="journey__num">{{ j.number }}</span>
+        <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-{{ j.icon }}"/></svg></span>
+        <h3>{{ j.title }}</h3>
+        <p class="muted small">{{ j.text }}</p>
+        <span class="journey__go">ادخل القاعة <svg class="icon" aria-hidden="true"><use href="#i-arrow"/></svg></span>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section section--alt">
+  <div class="container">
+    <div class="section-head reveal">
+      <p class="kicker">رجال المسيرة</p>
+      <h2>وجوه بلا صور… وأسماء لا تُنسى</h2>
+      <p class="lead">لا نعرض وجوهاً مصنوعة. كل رجل يظهر باسمه ودوره كما وثّقته المصادر.</p>
+    </div>
+    <div class="grid grid--4">
+      {% for p in featured_people %}
+      <a class="person-card reveal" href="{% url 'main:person' p.slug %}">
+        {% if p.m %}<div class="portrait portrait--photo"><img src="{% static p.m.path %}" alt="{{ p.m.alt }}" loading="lazy"></div>{% endif %}
+        <div class="person-card__body">
+          <span class="person-card__role">{{ p.role }}</span>
+          <span class="person-card__name">{{ p.short }}</span>
+          {% if p.years %}<span class="person-card__years">{{ p.years }}</span>{% endif %}
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+    <p style="margin-top:24px"><a class="btn" href="{% url 'main:participants' %}"><svg class="icon" aria-hidden="true"><use href="#i-users"/></svg>معرض المشاركين الـ63</a></p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center reveal">
+      <p class="kicker">منهج المتحف</p>
+      <h2>أمانة قبل الإبهار</h2>
+    </div>
+    <div class="grid grid--3">
+      {% for pr in principles %}
+      <div class="card reveal">
+        <span class="card__icon"><svg class="icon" aria-hidden="true"><use href="#i-{% if forloop.first %}image{% elif forloop.last %}swap{% else %}scroll{% endif %}"/></svg></span>
+        <h3>{{ pr.title }}</h3>
+        <p class="muted">{{ pr.text }}</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<section class="section--tight">
+  <div class="container">
+    <div class="cta-band reveal">
+      <div>
+        <h2>هل تابعت الرحلة جيداً؟</h2>
+        <p>اثنا عشر سؤالاً عن الرياض والمصمك ورجال الاسترداد.</p>
+      </div>
+      <a class="btn btn--gold" href="{% url 'main:quiz' %}"><svg class="icon" aria-hidden="true"><use href="#i-quiz"/></svg>ابدأ الاختبار</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

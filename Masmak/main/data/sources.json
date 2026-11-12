@@ -1,0 +1,109 @@
+{
+  "items": {
+    "sp_battle": {
+      "title": "معركة استعادة الرياض",
+      "publisher": "سعوديبيديا (الموسوعة السعودية)",
+      "url": "https://saudipedia.com/article/15463",
+      "type": "موسوعة",
+      "used_for": "التواريخ، المسار، أعداد الرجال وتقسيمهم، بيت عجلان، الإعلان من البرج."
+    },
+    "sp_king": {
+      "title": "عبدالعزيز بن عبدالرحمن آل سعود",
+      "publisher": "سعوديبيديا",
+      "url": "https://saudipedia.com/article/10118",
+      "type": "موسوعة",
+      "used_for": "المولد، الانتقال إلى الكويت، محطات التوحيد، الوفاة."
+    },
+    "sp_museum": {
+      "title": "متحف المصمك التاريخي",
+      "publisher": "سعوديبيديا",
+      "url": "https://saudipedia.com/متحف-المصمك-التاريخي",
+      "type": "موسوعة",
+      "used_for": "تاريخ البناء 1282هـ، معنى التسمية، افتتاح المتحف 1416هـ، القاعات."
+    },
+    "sp_inside": {
+      "title": "ماذا يوجد داخل قصر المصمك؟",
+      "publisher": "سعوديبيديا",
+      "url": "https://saudipedia.com/ماذا-يوجد-داخل-قصر-المصمك؟",
+      "type": "موسوعة",
+      "used_for": "مكونات القصر: البوابة، المجلس والوجار، البئر والمحالة، الأبراج والمربعة، الوحدات السكنية."
+    },
+    "sp_gates": {
+      "title": "قائمة بوابات الرياض القديمة",
+      "publisher": "سعوديبيديا",
+      "url": "https://saudipedia.com/قائمة-بوابات-الرياض-القديمة",
+      "type": "موسوعة",
+      "used_for": "أسماء بوابات السور التسع واتجاهاتها."
+    },
+    "sp_ibnjiluwi": {
+      "title": "عبدالله بن جلوي بن تركي آل سعود",
+      "publisher": "سعوديبيديا",
+      "url": "https://saudipedia.com/عبدالله-بن-جلوي-بن-تركي-آل-سعود",
+      "type": "موسوعة",
+      "used_for": "سيرة عبدالله بن جلوي ودوره."
+    },
+    "sp_musaed": {
+      "title": "عبدالعزيز بن مساعد بن جلوي آل سعود",
+      "publisher": "سعوديبيديا",
+      "url": "https://saudipedia.com/عبدالعزيز-بن-مساعد-بن-جلوي-آل-سعود",
+      "type": "موسوعة",
+      "used_for": "سيرة عبدالعزيز بن مساعد ودوره في اقتحام البرج."
+    },
+    "sp_askar": {
+      "title": "عبدالله بن عسكر",
+      "publisher": "سعوديبيديا",
+      "url": "https://saudipedia.com/عبدالله-بن-عسكر",
+      "type": "موسوعة",
+      "used_for": "سيرة عبدالله بن علي بن عسكر «السيّد»."
+    },
+    "sp_majid": {
+      "title": "ماجد بن مرعيد السبيعي",
+      "publisher": "سعوديبيديا",
+      "url": "https://saudipedia.com/ماجد-بن-مرعيد-السبيعي",
+      "type": "موسوعة",
+      "used_for": "سيرة ماجد بن مرعيد السبيعي."
+    },
+    "sp_mashouq": {
+      "title": "فهد بن علي المعشوق",
+      "publisher": "سعوديبيديا",
+      "url": "https://saudipedia.com/ar/فهد-بن-علي-المعشوق",
+      "type": "موسوعة",
+      "used_for": "مجموعة ضلع الشقيب وحامل راية الحملة."
+    },
+    "sp_wabeer": {
+      "title": "محمد بن عامر الوبير العجمي",
+      "publisher": "سعوديبيديا",
+      "url": "https://saudipedia.com/محمد-بن-عامر-الوبير-العجمي",
+      "type": "موسوعة",
+      "used_for": "سيرته ووفاته في معركة الاسترداد."
+    },
+    "alyaum_companions": {
+      "title": "رفاق استرداد الرياض: تفاصيل الملحمة وأسماء الأبطال",
+      "publisher": "صحيفة اليوم",
+      "url": "https://www.alyaum.com/articles/6615473",
+      "type": "صحافة",
+      "used_for": "قائمة الأسماء الـ63، والتواريخ التفصيلية للمسير، ورواية فهد بن جلوي والحربة."
+    },
+    "wiki_masmak": {
+      "title": "Al Masmak Palace",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Al_Masmak_Palace",
+      "type": "موسوعة",
+      "used_for": "أبعاد البوابة، موقع المسجد والمجلس والبئر، الترميم 1979م وتحويله متحفاً 1995م، استخدامه مستودعاً حتى 1938م."
+    },
+    "wiki_walls": {
+      "title": "Riyadh city fortifications",
+      "publisher": "Wikipedia",
+      "url": "https://en.wikipedia.org/wiki/Riyadh_city_fortifications",
+      "type": "موسوعة",
+      "used_for": "تاريخ سور الرياض: دهام بن دواس، الإمام تركي، هدمه بعد المليداء، إعادة بنائه 1902م، إزالته في الخمسينيات."
+    },
+    "archnet": {
+      "title": "Qasr al-Masmak",
+      "publisher": "Archnet (MIT / Aga Khan)",
+      "url": "https://archnet.org/sites/3797",
+      "type": "أرشيف معماري",
+      "used_for": "مرجع إضافي لطلاب العمارة: صور ومخططات القصر."
+    }
+  }
+}

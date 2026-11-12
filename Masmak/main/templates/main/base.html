@@ -1,0 +1,102 @@
+{% load static %}<!DOCTYPE html>
+<html lang="ar" dir="rtl" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}{{ page.title }}{% endblock %} | {{ site.full_title }}</title>
+  <meta name="description" content="{% block description %}{{ page.description }}{% endblock %}">
+  <meta name="theme-color" content="#121110">
+  <meta property="og:title" content="{{ site.full_title }}">
+  <meta property="og:description" content="{{ site.description }}">
+  <link rel="icon" href="{% static 'main/img/favicon.svg' %}" type="image/svg+xml">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Amiri:wght@400;700&family=Reem+Kufi:wght@500;600;700&family=Cairo:wght@400;600;700;800&display=swap">
+  <link rel="stylesheet" href="{% static 'main/css/main.css' %}">
+  <script>
+    /* يُطبَّق الوضع (داكن/فاتح) قبل الرسم لتجنّب الوميض */
+    (function () {
+      var d = document.documentElement, t = null;
+      try { t = localStorage.getItem("masmak-theme"); } catch (e) {}
+      if (!t) { t = window.matchMedia && matchMedia("(prefers-color-scheme: light)").matches ? "light" : "dark"; }
+      d.setAttribute("data-theme", t);
+      d.classList.remove("no-js");
+    })();
+  </script>
+  {% block head %}{% endblock %}
+</head>
+<body data-page="{{ active }}">
+  {% include "main/partials/_icons.html" %}
+  <a class="skip-link" href="#content">تخطَّ إلى المحتوى</a>
+
+  <header class="site-header {% block header_class %}{% endblock %}" id="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="{% url 'main:home' %}" aria-label="{{ site.full_title }} — الرئيسية">
+        <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo-masmak"/></svg>
+        <span class="brand__text">
+          <span class="brand__name">{{ site.name }}</span>
+          <span class="brand__tag">{{ site.tagline }}</span>
+        </span>
+      </a>
+
+      <nav class="nav" id="site-nav" aria-label="التنقل الرئيسي">
+        <ul class="nav__list">
+          {% for item in nav_items %}
+          <li>
+            <a class="nav__link {% if item.slug == active %}is-active{% endif %}" href="{% url item.url_name %}"{% if item.slug == active %} aria-current="page"{% endif %}>
+              <svg class="icon" aria-hidden="true"><use href="#i-{{ item.icon }}"/></svg>{{ item.label }}
+            </a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <div class="header-tools">
+        <button class="icon-btn theme-toggle" type="button" data-theme-toggle aria-label="تبديل الوضع الداكن والفاتح">
+          <svg class="icon i-moon" aria-hidden="true"><use href="#i-moon"/></svg>
+          <svg class="icon i-sun" aria-hidden="true"><use href="#i-sun"/></svg>
+        </button>
+        <button class="icon-btn menu-toggle" type="button" data-menu-toggle aria-controls="site-nav" aria-expanded="false" aria-label="فتح القائمة">
+          <svg class="icon" aria-hidden="true"><use href="#i-menu"/></svg>
+        </button>
+      </div>
+    </div>
+    <div class="read-progress" data-read-progress></div>
+  </header>
+
+  <main id="content">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="najdi-band najdi-band--flip"></div>
+    <div class="container site-footer__inner">
+      <div>
+        <a class="brand" href="{% url 'main:home' %}">
+          <svg class="brand__mark" viewBox="0 0 64 64" aria-hidden="true"><use href="#logo-masmak"/></svg>
+          <span class="brand__text"><span class="brand__name">{{ site.name }}</span><span class="brand__tag">{{ site.tagline }}</span></span>
+        </a>
+        <p class="muted small" style="margin-top:14px">{{ site.description }}</p>
+      </div>
+      <div>
+        <h3>أقسام المتحف</h3>
+        <ul class="footer-cols">
+          {% for item in nav_items %}<li><a href="{% url item.url_name %}">{{ item.label }}</a></li>{% endfor %}
+        </ul>
+      </div>
+      <div>
+        <h3>منهج المحتوى</h3>
+        <p class="small muted">الرسوم في الموقع توضيحية من إعداد المشروع وعليها شارة واضحة، ولا توجد صور مولّدة لشخصيات تاريخية. المصادر مذكورة أسفل كل صفحة وفي <a href="{% url 'main:museum' %}#sources">صفحة المصادر</a>.</p>
+      </div>
+    </div>
+    <div class="container footer-bottom">
+      <span>{{ site.full_title }}</span>
+    </div>
+  </footer>
+
+  <div class="toast" role="status" aria-live="polite" data-toast></div>
+
+  <script src="{% static 'main/js/main.js' %}" defer></script>
+  {% block scripts %}{% endblock %}
+</body>
+</html>

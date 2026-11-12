@@ -1,0 +1,7 @@
+{% load static %}{# خلفية رأس الصفحة: صورة محلية ← صورة حقيقية من الإنترنت ← رسم توضيحي احتياطي #}
+<div class="page-hero__bg">
+  {% if hero.mode == "local" %}<img src="{% static hero.path %}" alt="" aria-hidden="true">
+  {% elif hero.mode == "remote" %}<img src="{{ hero.remote_url }}" alt="" aria-hidden="true" referrerpolicy="no-referrer" data-fallback="{% static hero_img %}">
+  {% else %}<img src="{% static hero_img %}" alt="" aria-hidden="true">{% endif %}
+</div>
+{% if hero.mode != "art" and hero.source_page %}<a class="page-hero__credit" href="{{ hero.source_page }}" target="_blank" rel="noopener">صورة الخلفية: {% if hero.credit %}{{ hero.credit }}{% if hero.license %} · {{ hero.license }}{% endif %}{% else %}ويكيميديا كومنز{% endif %}</a>{% endif %}

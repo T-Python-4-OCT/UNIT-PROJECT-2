@@ -1,0 +1,10 @@
+{% if sources %}
+<aside class="sources" aria-labelledby="sources-title">
+  <h2 id="sources-title"><svg class="icon" aria-hidden="true"><use href="#i-scroll"/></svg>مصادر هذه الصفحة</h2>
+  <ol>
+    {% for s in sources %}
+    <li><a href="{{ s.url }}" target="_blank" rel="noopener">{{ s.title }}</a> — <span class="src-pub">{{ s.publisher }}</span></li>
+    {% endfor %}
+  </ol>
+</aside>
+{% endif %}

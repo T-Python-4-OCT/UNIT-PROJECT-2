@@ -1,0 +1,25 @@
+{% load static %}{% if m %}
+<figure class="media media--{{ m.ratio }}{% if m.kind == "video" and m.mode == "local" %} media--video{% endif %}">
+  {% if m.mode == "local" %}
+    {% if m.kind == "video" %}
+    <video src="{% static m.path %}" controls preload="none" playsinline{% if m.poster %} poster="{% static m.poster %}"{% endif %}></video>
+    {% else %}
+    <img src="{% static m.path %}" alt="{{ m.alt }}" loading="lazy">
+    {% endif %}
+  {% elif m.mode == "remote" %}
+    {# صورة من ويكيميديا كومنز؛ إن تعذّر تحميلها يحل محلها الرسم التوضيحي #}
+    <img src="{{ m.remote_url }}" alt="{{ m.alt }}" loading="lazy" referrerpolicy="no-referrer" data-fallback="{% static m.art_path %}">
+  {% else %}
+    <img src="{% static m.art_path %}" alt="رسم توضيحي: {{ m.alt }}" loading="lazy">
+    <span class="media__badge"><svg class="icon" aria-hidden="true"><use href="#i-image"/></svg>رسم توضيحي — الصورة الأصلية مطلوبة</span>
+  {% endif %}
+  <figcaption>
+    {{ m.caption }}
+    {% if m.mode == "art" %}<span class="media__need">static/{{ m.path }}</span>
+      {% for r in m.references %}<span class="credit"><a href="{{ r.url }}" target="_blank" rel="noopener">صورة حقيقية للاطلاع: {{ r.title }} (Flickr)</a></span>{% endfor %}
+    {% elif m.credit %}<span class="credit">{% if m.source_page %}<a href="{{ m.source_page }}" target="_blank" rel="noopener">{{ m.credit }}</a>{% else %}{{ m.credit }}{% endif %}{% if m.license %} · {{ m.license }}{% endif %}</span>
+    {% elif m.source_page %}<span class="credit"><a href="{{ m.source_page }}" target="_blank" rel="noopener">ويكيميديا كومنز — المصوّر والترخيص في صفحة الملف</a></span>
+    {% endif %}
+  </figcaption>
+</figure>
+{% endif %}
