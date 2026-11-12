@@ -1,0 +1,15 @@
+services:
+  - type: web
+    name: saudi-giga-atlas
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    healthCheckPath: /robots.txt
+    envVars:
+      - key: ATLAS_DEBUG
+        value: "0"
+      - key: ATLAS_HTTPS
+        value: "1"
+      - key: ATLAS_SECRET_KEY
+        generateValue: true

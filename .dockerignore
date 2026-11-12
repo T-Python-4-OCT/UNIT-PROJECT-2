@@ -1,0 +1,15 @@
+.git
+.gitignore
+.venv
+node_modules
+collected-static
+saudi_atlas/projects/static/build
+**/__pycache__
+**/*.py[cod]
+**/*.mo
+*.log
+.env
+.envrc
+Dockerfile
+.dockerignore
+.github
