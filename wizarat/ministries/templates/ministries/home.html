@@ -1,0 +1,183 @@
+{% extends "ministries/base.html" %}
+{% load static %}
+
+{% block title %}{{ home_features.brand_name }} | وزارات المملكة العربية السعودية{% endblock %}
+
+{% block content %}
+{% with content=site_content.home %}
+<section class="walk-hero" data-walk-hero aria-labelledby="heroTitle">
+  <div class="walk-stage">
+    {% include "ministries/partials/walk_scene.html" %}
+    <canvas class="wh-dust" aria-hidden="true"></canvas>
+    <div class="wh-copy">
+      <span class="wh-eyebrow">{{ content.eyebrow }}</span>
+      <h1 id="heroTitle">{{ content.title }}</h1>
+      <p class="wh-subtitle">{{ content.subtitle }}</p>
+      <div class="wh-actions">
+        <a class="btn-gold" href="#directory">{{ content.explore }} <i class="bi bi-arrow-left"></i></a>
+        <a class="wh-outline" href="{% url 'ministries:timeline' %}"><i class="bi bi-clock-history"></i> الخط الزمني</a>
+      </div>
+    </div>
+    <span class="wh-place"><i class="bi bi-geo-alt" aria-hidden="true"></i>{{ content.hero_place }}</span>
+    <a class="wh-scroll" href="#intro">{{ content.scroll_label }}<i aria-hidden="true"></i></a>
+    <div class="wh-veil" aria-hidden="true"></div>
+  </div>
+</section>
+
+<section class="container stats-row" aria-label="إحصاءات الدليل">
+  <div class="row g-3">
+    <div class="col-12 col-sm-4">
+      <div class="stat-card reveal">
+        <span class="stat-value" data-count-target="{{ ministry_count }}">٠</span>
+        <span class="stat-label">{{ content.stat_ministries }}</span>
+      </div>
+    </div>
+    <div class="col-12 col-sm-4">
+      <div class="stat-card reveal delay-1">
+        <span class="stat-value" data-count-target="{{ category_count }}">٠</span>
+        <span class="stat-label">{{ content.stat_categories }}</span>
+      </div>
+    </div>
+    <div class="col-12 col-sm-4">
+      <div class="stat-card reveal delay-2">
+        <span class="stat-value" data-count-target="{{ oldest_year }}">٠</span>
+        <span class="stat-label">{{ content.stat_oldest }}</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="intro" class="intro-section section-wrap compact">
+  <div class="container">
+    <div class="intro-card reveal">
+      <div class="section-heading mb-2">
+        <span class="eyebrow">{{ content.intro_eyebrow }}</span>
+        <h2>{{ content.intro_title }}</h2>
+      </div>
+      <p>{{ content.intro }}</p>
+    </div>
+  </div>
+</section>
+
+<section id="directory" class="directory-section section-wrap">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">{{ content.directory_eyebrow }}</span>
+      <h2>{{ content.directory_title }}</h2>
+      <p>{{ content.directory_description }}</p>
+      <a class="directory-all-link" href="{% url 'ministries:directory' %}">
+        {{ site_content.directory_page.nav_title }} <i class="bi bi-arrow-left"></i>
+      </a>
+    </div>
+    <div class="directory-tools">
+      <label class="search-field">
+        <span class="visually-hidden">البحث عن وزارة</span>
+        <i class="bi bi-search" aria-hidden="true"></i>
+        <input class="js-ministry-search" type="search" placeholder="{{ content.search_placeholder }}" autocomplete="off">
+      </label>
+      <label>
+        <span class="visually-hidden">تصفية حسب المجال</span>
+        <select class="filter-select js-category-filter">
+          <option value="">{{ content.all_categories }}</option>
+          {% for category in categories %}
+          <option value="{{ category }}">{{ category }}</option>
+          {% endfor %}
+        </select>
+      </label>
+      <span class="directory-count" aria-live="polite"><span class="js-result-count">{{ ministry_count }}</span> {{ content.result_suffix }}</span>
+    </div>
+    <div class="row g-4">
+      {% for ministry in ministries %}
+      <div class="col-12 col-sm-6 col-lg-4 js-ministry-card reveal"
+        data-search="{{ ministry.name }} {{ ministry.tagline }} {{ ministry.category }}"
+        data-category="{{ ministry.category }}">
+        <article class="ministry-card">
+          <div class="card-image">
+            {% if ministry.cover %}
+            {% include "ministries/partials/picture.html" with ministry=ministry image_url=ministry.cover webp_variants=ministry.cover_webp eager=forloop.first sizes="(min-width: 992px) 33vw, (min-width: 576px) 50vw, 100vw" %}
+            {% else %}
+            <div class="image-fallback" role="img" aria-label="{{ ministry.name }}"></div>
+            {% endif %}
+            <span class="card-category">{{ ministry.category }}</span>
+          </div>
+          <div class="card-content">
+            <div class="card-icon" aria-hidden="true"><i class="bi {{ ministry.icon }}"></i></div>
+            <h3><a href="{% url 'ministries:detail' ministry.slug %}">{{ ministry.name }}</a></h3>
+            <p>{{ ministry.tagline }}</p>
+            <div class="card-meta">
+              <span><i class="bi bi-calendar3"></i> {{ ministry.founded }}</span>
+              <span>{{ ministry.timeline.0.year }}</span>
+            </div>
+            <i class="bi bi-arrow-left card-arrow" aria-hidden="true"></i>
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+    <div class="empty-state js-empty-state" role="status">{{ content.no_results }}</div>
+  </div>
+</section>
+
+<section class="timeline-strip section-wrap compact">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">{{ content.timeline_eyebrow }}</span>
+      <h2>{{ content.timeline_title }}</h2>
+      <p>{{ content.timeline_description }}</p>
+    </div>
+    <div class="timeline-track" aria-label="خط زمني أفقي لتأسيس الوزارات">
+      {% for ministry in timeline_ministries %}
+      <article class="timeline-mini reveal">
+        <span class="timeline-mini-year">{{ ministry.timeline.0.year }}</span>
+        <a href="{% url 'ministries:detail' ministry.slug %}">{{ ministry.name }}</a>
+      </article>
+      {% endfor %}
+    </div>
+    <a class="btn-outline-light-custom mt-3" href="{% url 'ministries:timeline' %}">{{ content.view_timeline }} <i class="bi bi-arrow-left"></i></a>
+  </div>
+</section>
+
+<section class="section-wrap">
+  <div class="container">
+    <div class="fact-panel reveal">
+      <span class="eyebrow">{{ content.fact_title }}</span>
+      <blockquote>{{ daily_fact.text }}</blockquote>
+      <a class="fact-source" href="{% url 'ministries:detail' daily_fact.ministry.slug %}">
+        {{ daily_fact.ministry.name }} <i class="bi bi-arrow-up-left"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="vision-section section-wrap">
+  <div class="container">
+    <div class="section-heading">
+      <span class="eyebrow">{{ content.vision_eyebrow }}</span>
+      <h2>{{ content.vision_title }}</h2>
+      <p>{{ content.vision_intro }}</p>
+    </div>
+    <div class="row g-4">
+      {% for pillar in vision_pillars %}
+      <div class="col-12 col-md-4">
+        <article class="vision-card reveal">
+          <span class="vision-icon"><i class="bi {{ pillar.icon }}" aria-hidden="true"></i></span>
+          <h3>{{ pillar.title }}</h3>
+          <p>{{ pillar.description }}</p>
+          <div class="vision-list">
+            {% for ministry in pillar.ministries %}
+            <a href="{% url 'ministries:detail' ministry.slug %}">{{ ministry.name }}</a>
+            {% endfor %}
+          </div>
+        </article>
+      </div>
+      {% endfor %}
+    </div>
+    <p class="editorial-note"><i class="bi bi-info-circle"></i> {{ content.vision_note }}</p>
+  </div>
+</section>
+{% endwith %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'ministries/js/walk-hero.js' %}?v=2"></script>
+{% endblock %}

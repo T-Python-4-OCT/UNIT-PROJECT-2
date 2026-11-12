@@ -1,0 +1,15 @@
+[
+  {"slug": "foreign", "field": "history"},
+  {"slug": "interior", "field": "history"},
+  {"slug": "defense", "field": "history"},
+  {"slug": "finance", "field": "history"},
+  {"slug": "health", "field": "history"},
+  {"slug": "education", "field": "history"},
+  {"slug": "justice", "field": "history"},
+  {"slug": "hajj", "field": "history"},
+  {"slug": "commerce", "field": "history"},
+  {"slug": "energy", "field": "history"},
+  {"slug": "mcit", "field": "history"},
+  {"slug": "tourism", "field": "history"},
+  {"slug": "sports", "field": "history"}
+]

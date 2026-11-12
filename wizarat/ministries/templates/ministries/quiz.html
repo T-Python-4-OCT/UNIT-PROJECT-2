@@ -1,0 +1,39 @@
+{% extends "ministries/base.html" %}
+
+{% block title %}{{ site_content.quiz.title }} | {{ home_features.brand_name }}{% endblock %}
+
+{% block content %}
+<header class="page-heading">
+  <div class="container">
+    <span class="eyebrow">{{ site_content.quiz.eyebrow }}</span>
+    <h1>{{ site_content.quiz.title }}</h1>
+    <p>{{ site_content.quiz.description }}</p>
+  </div>
+</header>
+<section class="section-wrap">
+  <div class="container quiz-shell">
+    <div id="quizApp" class="quiz-card">
+      <div class="quiz-progress" aria-hidden="true"><span class="js-quiz-progress"></span></div>
+      <div class="js-quiz-content">
+        <div class="quiz-meta">
+          <span class="js-question-number"></span>
+          <span>{{ site_content.quiz.start_note }}</span>
+        </div>
+        <h2 class="quiz-question js-question" aria-live="polite"></h2>
+        <div class="quiz-choices js-choices"></div>
+        <div class="quiz-controls">
+          <button class="btn-gold js-quiz-next" type="button" disabled>{{ site_content.quiz.next_question }}</button>
+        </div>
+      </div>
+      <section class="quiz-result js-quiz-result" hidden aria-live="polite">
+        <span class="eyebrow">{{ site_content.quiz.score_label }}</span>
+        <div class="quiz-score js-score"></div>
+        <p class="js-result-message"></p>
+        <button class="btn-gold js-quiz-restart" type="button">{{ site_content.quiz.restart }}</button>
+      </section>
+    </div>
+  </div>
+</section>
+{{ questions|json_script:"quizData" }}
+{{ site_content.quiz|json_script:"quizCopy" }}
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends "ministries/base.html" %}
+
+{% block title %}الخط الزمني | {{ home_features.brand_name }}{% endblock %}
+
+{% block content %}
+<header class="page-heading">
+  <div class="container">
+    <span class="eyebrow">{{ site_content.timeline_page.eyebrow }}</span>
+    <h1>{{ site_content.timeline_page.title }}</h1>
+    <p>{{ site_content.timeline_page.description }}</p>
+  </div>
+</header>
+<section class="section-wrap">
+  <div class="container">
+    <div class="full-timeline">
+      {% for ministry in ministries %}
+      {% for event in ministry.timeline %}
+      <article class="timeline-card reveal">
+        <div>
+          {% if event.year %}<time>{{ event.year }}</time>{% endif %}
+          <h2><a href="{% url 'ministries:detail' ministry.slug %}">{{ ministry.name }}</a></h2>
+        </div>
+        {% if event.description %}<p>{{ event.description }}</p>{% endif %}
+      </article>
+      {% endfor %}
+      {% empty %}
+      <p>{{ site_content.timeline_page.empty }}</p>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endblock %}

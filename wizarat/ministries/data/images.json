@@ -1,0 +1,54 @@
+{
+  "foreign": {
+    "cover": "وزارة الخارجية.jpg",
+    "gallery": ["وزارة الخارجية"]
+  },
+  "interior": {
+    "cover": "interior.jpg",
+    "gallery": ["الداخلية"]
+  },
+  "defense": {
+    "cover": "defense.jpg",
+    "gallery": ["وزارة الدفاع"]
+  },
+  "finance": {
+    "cover": "finance.jpg",
+    "gallery": ["وزارة المالية"]
+  },
+  "health": {
+    "cover": "health.jpg",
+    "gallery": ["وزارة الصحة"]
+  },
+  "education": {
+    "cover": "education.jpg",
+    "gallery": ["وزارة التعليم"]
+  },
+  "justice": {
+    "cover": "justice.jpg",
+    "gallery": ["وزارة العدل"]
+  },
+  "hajj": {
+    "cover": "hajj.jpg",
+    "gallery": ["وزارة الحج والعمرة"]
+  },
+  "commerce": {
+    "cover": "commerce.jpg",
+    "gallery": ["وزارة التجارة"]
+  },
+  "energy": {
+    "cover": "energy.jpg",
+    "gallery": ["وزارة الطاقة"]
+  },
+  "mcit": {
+    "cover": "mcit.jpg",
+    "gallery": ["وزارة الاتصالات وتقنية المعلومات"]
+  },
+  "tourism": {
+    "cover": "tourism.jpg",
+    "gallery": ["وزارة السياحة"]
+  },
+  "sports": {
+    "cover": "sports.jpg",
+    "gallery": ["وزارة الرياضة"]
+  }
+}

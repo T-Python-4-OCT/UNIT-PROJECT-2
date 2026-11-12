@@ -1,0 +1,27 @@
+[
+  {
+    "question": "أي وزارة تتولى إدارة علاقات المملكة مع دول العالم؟",
+    "choices": ["foreign", "commerce", "tourism"],
+    "answer": "foreign"
+  },
+  {
+    "question": "أي وزارة تشرف على إعداد الميزانية العامة للدولة؟",
+    "choices": ["finance", "justice", "health"],
+    "answer": "finance"
+  },
+  {
+    "question": "أي وزارة تتولى تنظيم خدمات الحج والعمرة؟",
+    "choices": ["hajj", "education", "sports"],
+    "answer": "hajj"
+  },
+  {
+    "question": "أي وزارة تعمل على حماية حقوق المستهلك وتحسين بيئة الأعمال؟",
+    "choices": ["commerce", "defense", "interior"],
+    "answer": "commerce"
+  },
+  {
+    "question": "أي وزارة تقود التحول الرقمي وتطوير قطاع الاتصالات؟",
+    "choices": ["mcit", "energy", "foreign"],
+    "answer": "mcit"
+  }
+]

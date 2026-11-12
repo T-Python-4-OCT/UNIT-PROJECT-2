@@ -1,0 +1,47 @@
+{# Layered Riyadh skyline: each layer scales at its own speed while scrolling, so the visitor seems to walk in.
+   Towers: TV Tower, Al Faisaliah, Kingdom Centre, PIF Tower and KAFD. Up close: a Najdi mud fort and houses, then palms. #}
+<div class="wl wl-sky" aria-hidden="true">
+  <div class="wl-sky-day"></div>
+  <div class="wl-sky-night"></div>
+</div>
+<div class="wl wl-far" aria-hidden="true">
+  <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" focusable="false">
+    <path d="M0 760V610h46v-38h52v58h40V548h58v62h34v-92h50v120h44V590h62v-50h48v96h40V568h56v74h38V520h54v104h42v-72h60v84h36V586h58v-58h46v118h44V560h56v68h40V532h50v92h46v-60h58v72h42V600h54v-50h48v94h44V580h52v66h40V556h56v84h36v120Z"/>
+  </svg>
+</div>
+<div class="wl wl-mid" aria-hidden="true">
+  <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" focusable="false">
+    <defs>
+      <path id="wh-towers" d="M119 760 121 330h8l2 430ZM106 760 119 700h12l13 60ZM106 396h38l-5-36h-28ZM112 352h26v-8h-26ZM123 344h4l-1-92h-2ZM200 760V520h62v240ZM276 760V600h100v160ZM390 760V505l48-30 48 30v255ZM505 760 560 296l55 464ZM583 418a23 23 0 1 1-46 0 23 23 0 1 1 46 0ZM558 300h4l-1-52h-2ZM640 760V560h86v200ZM742 760V430h64v330ZM822 760V610h94v150ZM935 760 957 205h18q25 96 50 0h18l22 555ZM982 226h36v8h-36ZM1088 760V520h80v240ZM1184 760V470l72-40v330ZM1288 760 1297 250l28-80 28 80 9 510ZM1380 760V430l30-30 30 30v330ZM1452 760V520h58v240ZM1520 760V580l40-24 40 24v180Z"/>
+      <pattern id="wh-windows" width="72" height="52" patternUnits="userSpaceOnUse" fill="#ffd27f">
+        <rect x="8" y="10" width="7" height="10" opacity=".95"/>
+        <rect x="26" y="10" width="7" height="10" opacity=".35"/>
+        <rect x="44" y="10" width="7" height="10" opacity=".8"/>
+        <rect x="62" y="10" width="7" height="10" opacity=".2"/>
+        <rect x="8" y="36" width="7" height="10" opacity=".3"/>
+        <rect x="26" y="36" width="7" height="10" opacity=".9"/>
+        <rect x="44" y="36" width="7" height="10" opacity=".15"/>
+        <rect x="62" y="36" width="7" height="10" opacity=".75"/>
+      </pattern>
+    </defs>
+    <use href="#wh-towers" class="wl-towers" transform="matrix(.8 0 0 .8 230 192)"/>
+    <use href="#wh-towers" class="wl-lights" fill="url(#wh-windows)" transform="matrix(.8 0 0 .8 230 192)"/>
+  </svg>
+</div>
+<div class="wl wl-ground" aria-hidden="true">
+  <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" focusable="false">
+    <path d="M0 900V772c200-10 420-14 640-8s520 12 960 2V900Z"/>
+  </svg>
+</div>
+<div class="wl wl-near" aria-hidden="true">
+  <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" focusable="false">
+    <path class="wl-mud" d="M270 840 284 640h52l14 200ZM650 840 664 640h52l14 200ZM440 840 452 600h76l12 240ZM340 840V690h320v150ZM286 640l6 -10 6 10ZM302 640l6 -10 6 10ZM318 640l6 -10 6 10ZM666 640l6 -10 6 10ZM682 640l6 -10 6 10ZM698 640l6 -10 6 10ZM454 600l7 -12 7 12ZM472 600l7 -12 7 12ZM490 600l7 -12 7 12ZM508 600l7 -12 7 12ZM344 690l8 -14 8 14ZM364 690l8 -14 8 14ZM384 690l8 -14 8 14ZM404 690l8 -14 8 14ZM424 690l8 -14 8 14ZM540 690l8 -14 8 14ZM560 690l8 -14 8 14ZM580 690l8 -14 8 14ZM600 690l8 -14 8 14ZM620 690l8 -14 8 14ZM640 690l8 -14 8 14ZM1060 840V722h150v118ZM1210 840V690h130v150ZM1340 840V742h100v98ZM1064 722l8 -14 8 14ZM1084 722l8 -14 8 14ZM1104 722l8 -14 8 14ZM1124 722l8 -14 8 14ZM1144 722l8 -14 8 14ZM1164 722l8 -14 8 14ZM1184 722l8 -14 8 14ZM1214 690l8 -14 8 14ZM1234 690l8 -14 8 14ZM1254 690l8 -14 8 14ZM1274 690l8 -14 8 14ZM1294 690l8 -14 8 14ZM1314 690l8 -14 8 14ZM1344 742l8 -14 8 14ZM1364 742l8 -14 8 14ZM1384 742l8 -14 8 14ZM1404 742l8 -14 8 14Z"/>
+    <path class="wl-vents" d="M296 676l4 -9 4 9ZM314 676l4 -9 4 9ZM676 676l4 -9 4 9ZM694 676l4 -9 4 9ZM464 640l5 -10 5 10ZM484 640l5 -10 5 10ZM504 640l5 -10 5 10ZM356 726l5 -10 5 10ZM382 726l5 -10 5 10ZM408 726l5 -10 5 10ZM548 726l5 -10 5 10ZM574 726l5 -10 5 10ZM600 726l5 -10 5 10ZM626 726l5 -10 5 10ZM1078 760l5 -10 5 10ZM1104 760l5 -10 5 10ZM1130 760l5 -10 5 10ZM1156 760l5 -10 5 10ZM1182 760l5 -10 5 10ZM1226 730l5 -10 5 10ZM1252 730l5 -10 5 10ZM1278 730l5 -10 5 10ZM1304 730l5 -10 5 10ZM1356 778l5 -10 5 10ZM1382 778l5 -10 5 10ZM1408 778l5 -10 5 10Z"/>
+    <path class="wl-gate" d="M468 840V786a22 22 0 0 1 44 0V840Z"/>
+  </svg>
+</div>
+<div class="wl wl-front" aria-hidden="true">
+  <svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMax slice" focusable="false">
+    <path d="M0 900V846c260-14 560-18 820-10s500 12 780 0V900ZM118 852c3-44 2-77-3-110l7-1c5 33 7 68 3 111ZM118 742c-20-12-44-12-64 2 22-4 42 0 60 6ZM122 742c18-16 44-18 66-6-22-2-44 2-62 10ZM118 740c-12-18-32-26-54-22 20 4 36 12 50 26ZM124 740c10-20 28-30 50-28-20 6-34 16-46 30ZM120 740c-2-20 4-36 18-48-8 16-12 30-12 48ZM206 858c3-31 2-55-3-78l7-1c5 23 7 48 3 79ZM206 780c-15-12-33-12-48 2 16-4 32 0 45 6ZM210 780c14-16 33-18 50-6-16-2-33 2-46 10ZM206 778c-9-18-24-26-40-22 15 4 27 12 38 26ZM212 778c8-20 21-30 38-28-15 6-26 16-34 30ZM208 778c-2-20 4-36 18-48-8 16-12 30-12 48ZM1478 850c3-51 2-90-3-128l7-1c5 38 7 79 3 129ZM1478 722c-22-12-48-12-70 2 24-4 46 0 66 6ZM1482 722c20-16 48-18 73-6-24-2-48 2-68 10ZM1478 720c-13-18-35-26-59-22 22 4 40 12 55 26ZM1484 720c11-20 31-30 55-28-22 6-37 16-51 30ZM1480 720c-2-20 4-36 18-48-8 16-12 30-12 48ZM1548 856c3-34 2-60-3-86l7-1c5 26 7 53 3 87ZM1548 770c-16-12-35-12-51 2 18-4 34 0 48 6ZM1552 770c14-16 35-18 53-6-18-2-35 2-50 10ZM1548 768c-10-18-26-26-43-22 16 4 29 12 40 26ZM1554 768c8-20 22-30 40-28-16 6-27 16-37 30ZM1550 768c-2-20 4-36 18-48-8 16-12 30-12 48ZM780 862c3-24 2-42-3-60l7-1c5 18 7 37 3 61ZM780 802c-12-12-26-12-38 2 13-4 25 0 36 6ZM784 802c11-16 26-18 40-6-13-2-26 2-37 10ZM780 800c-7-18-19-26-32-22 12 4 22 12 30 26ZM786 800c6-20 17-30 30-28-12 6-20 16-28 30ZM782 800c-2-20 4-36 18-48-8 16-12 30-12 48Z"/>
+  </svg>
+</div>

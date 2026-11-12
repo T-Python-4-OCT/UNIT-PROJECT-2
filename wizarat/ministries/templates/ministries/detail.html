@@ -1,0 +1,203 @@
+{% extends "ministries/base.html" %}
+{% load static %}
+
+{% block title %}{{ ministry.name }} | {{ home_features.brand_name }}{% endblock %}
+
+{% block content %}
+<div class="reading-progress" aria-hidden="true"><span></span></div>
+<section class="ministry-hero">
+  <div class="detail-hero-media">
+    {% if ministry.cover %}
+    {% include "ministries/partials/picture.html" with ministry=ministry image_url=ministry.cover webp_variants=ministry.cover_webp eager=True sizes="100vw" picture_class="detail-hero-picture" %}
+    {% endif %}
+  </div>
+  <div class="container detail-hero-inner">
+    <a class="back-link" href="{% url 'ministries:home' %}#directory"><i class="bi bi-arrow-right"></i> كل الوزارات</a>
+    <div class="hero-icon"><i class="bi {{ ministry.icon }}" aria-hidden="true"></i></div>
+    <h1>{{ ministry.name }}</h1>
+    <p>{{ ministry.tagline }}</p>
+    <div class="hero-tags">
+      <span>{{ ministry.category }}</span>
+      {% if ministry.founded %}<span>{{ ministry.founded }}</span>{% endif %}
+    </div>
+  </div>
+</section>
+
+<div class="container detail-page">
+  <nav class="detail-index" aria-label="أقسام الصفحة">
+    <a href="#overview">{{ site_content.detail.overview }}</a>
+    <a href="#history">{{ site_content.detail.history }}</a>
+    <a href="#responsibilities">{{ site_content.detail.responsibilities }}</a>
+    {% if ministry.services %}<a href="#services">{{ site_content.detail.services }}</a>{% endif %}
+    {% if ministry.achievements %}<a href="#achievements">{{ site_content.detail.achievements }}</a>{% endif %}
+    <a href="#timeline">{{ site_content.detail.timeline }}</a>
+    {% if ministry.gallery %}<a href="#gallery">{{ site_content.detail.gallery }}</a>{% endif %}
+  </nav>
+
+  <div class="detail-layout">
+    <div class="detail-main">
+      <section id="overview" class="detail-section">
+        <h2><i class="bi bi-info-circle"></i>{{ site_content.detail.overview }}</h2>
+        <p>{{ ministry.about }}</p>
+      </section>
+
+      <section id="history" class="detail-section">
+        <h2><i class="bi bi-hourglass-split"></i>{{ site_content.detail.history }}</h2>
+        <p>{{ ministry.history }}</p>
+      </section>
+
+      <section id="responsibilities" class="detail-section">
+        <h2><i class="bi bi-list-check"></i>{{ site_content.detail.responsibilities }}</h2>
+        {% if ministry.tasks %}
+        <ul class="task-list">
+          {% for task in ministry.tasks %}<li>{{ task }}</li>{% endfor %}
+        </ul>
+        {% endif %}
+      </section>
+
+      {% if ministry.services %}
+      <section id="services" class="detail-section">
+        <h2><i class="bi bi-grid"></i>{{ site_content.detail.services }}</h2>
+        <ul class="content-list">{% for service in ministry.services %}<li>{{ service }}</li>{% endfor %}</ul>
+      </section>
+      {% endif %}
+
+      {% if ministry.achievements %}
+      <section id="achievements" class="detail-section">
+        <h2><i class="bi bi-award"></i>{{ site_content.detail.achievements }}</h2>
+        <ul class="content-list">{% for achievement in ministry.achievements %}<li>{{ achievement }}</li>{% endfor %}</ul>
+      </section>
+      {% endif %}
+
+      {% if ministry.timeline %}
+      <section id="timeline" class="detail-section">
+        <h2><i class="bi bi-clock-history"></i>{{ site_content.detail.timeline }}</h2>
+        <div class="timeline-vertical">
+          {% for event in ministry.timeline %}
+          <article class="timeline-entry">
+            {% if event.year %}<strong>{{ event.year }}</strong>{% endif %}
+            {% if event.title %}<h3>{{ event.title }}</h3>{% endif %}
+            {% if event.description %}<p>{{ event.description }}</p>{% endif %}
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+
+      {% if ministry.vision_goals %}
+      <section class="detail-section">
+        <h2><i class="bi bi-compass"></i>صلة استكشافية برؤية 2030</h2>
+        <div class="vision-list">
+          {% for goal in ministry.vision_goals %}<span>{{ goal }}</span>{% endfor %}
+        </div>
+        <p class="editorial-note">هذا الربط تصنيف استكشافي للمحتوى، وليس تصنيفًا رسميًا.</p>
+      </section>
+      {% endif %}
+
+      {% if video_embed_url %}
+      <section class="detail-section">
+        <h2><i class="bi bi-play-circle"></i>{{ site_content.detail.video }}</h2>
+        <iframe class="video-frame" src="{{ video_embed_url }}" title="فيديو عن {{ ministry.name }}"
+          loading="lazy" referrerpolicy="strict-origin-when-cross-origin"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+          allowfullscreen></iframe>
+      </section>
+      {% endif %}
+
+      {% if ministry.gallery %}
+      <section id="gallery" class="detail-section">
+        <h2><i class="bi bi-images"></i>{{ site_content.detail.gallery }}</h2>
+        <div class="gallery-grid">
+          {% for image in ministry.gallery %}
+          <button class="gallery-trigger" type="button" data-bs-toggle="modal" data-bs-target="#galleryLightbox"
+            data-gallery-index="{{ forloop.counter0 }}" aria-label="تكبير الصورة {{ forloop.counter }} لـ {{ ministry.name }}">
+            {% include "ministries/partials/picture.html" with ministry=ministry image_url=image.url webp_variants=image.webp picture_class="gallery-picture" image_number=forloop.counter sizes="(min-width: 768px) 33vw, 50vw" %}
+            <span>{{ ministry.name }}</span>
+          </button>
+          {% endfor %}
+        </div>
+        <div class="modal fade lightbox-modal" id="galleryLightbox" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered modal-xl">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h2 class="modal-title fs-6">{{ ministry.name }}</h2>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
+              </div>
+              <div id="galleryCarousel" class="carousel slide">
+                <div class="carousel-inner">
+                  {% for image in ministry.gallery %}
+                  <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                    {% include "ministries/partials/picture.html" with ministry=ministry image_url=image.url webp_variants=image.webp picture_class="lightbox-picture" image_number=forloop.counter eager=forloop.first sizes="100vw" aspect_ratio="auto" %}
+                  </div>
+                  {% endfor %}
+                </div>
+                {% if ministry.gallery|length > 1 %}
+                <button class="carousel-control-prev" type="button" data-bs-target="#galleryCarousel" data-bs-slide="prev" aria-label="الصورة السابقة">
+                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#galleryCarousel" data-bs-slide="next" aria-label="الصورة التالية">
+                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                </button>
+                {% endif %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      {% endif %}
+
+      <nav class="ministry-switch" aria-label="التنقل بين الوزارات">
+        {% if previous_ministry %}
+        <a href="{% url 'ministries:detail' previous_ministry.slug %}">
+          <i class="bi bi-arrow-right"></i><span><small>{{ site_content.detail.previous }}</small>{{ previous_ministry.name }}</span>
+        </a>
+        {% else %}<span></span>{% endif %}
+        {% if next_ministry %}
+        <a href="{% url 'ministries:detail' next_ministry.slug %}">
+          <span><small>{{ site_content.detail.next }}</small>{{ next_ministry.name }}</span><i class="bi bi-arrow-left"></i>
+        </a>
+        {% endif %}
+      </nav>
+
+      {% if related_ministries %}
+      <section class="detail-section mt-4">
+        <h2><i class="bi bi-stars"></i>{{ site_content.detail.related }}</h2>
+        <div class="related-grid">
+          {% for item in related_ministries %}
+          <a class="related-card" href="{% url 'ministries:detail' item.slug %}"><i class="bi {{ item.icon }}"></i>{{ item.name }}</a>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
+    </div>
+
+    <aside class="detail-aside">
+      <div class="facts-panel">
+        <h2><i class="bi bi-card-list"></i>{{ site_content.detail.quick_facts }}</h2>
+        {% if ministry.minister %}
+        <div class="fact-row"><span>{{ site_content.detail.minister }}</span><strong>{{ ministry.minister }}</strong></div>
+        {% endif %}
+        {% if ministry.founded %}
+        <div class="fact-row"><span>{{ site_content.detail.founded }}</span><strong>{{ ministry.founded }}</strong></div>
+        {% endif %}
+        {% if ministry.hq %}
+        <div class="fact-row"><span>{{ site_content.detail.headquarters }}</span><strong>{{ ministry.hq }}</strong></div>
+        {% endif %}
+        {% if ministry.category %}
+        <div class="fact-row"><span>{{ site_content.detail.category }}</span><strong>{{ ministry.category }}</strong></div>
+        {% endif %}
+        {% if ministry.website %}
+        <a class="official-button" href="{{ ministry.website }}" target="_blank" rel="noopener noreferrer">
+          <i class="bi bi-box-arrow-up-left"></i>{{ site_content.detail.official_site }}
+        </a>
+        {% endif %}
+        <button class="share-button js-share-page" type="button" data-feedback-target="#shareFeedback"
+          data-success="{{ site_content.detail.share_success }}" data-error="{{ site_content.detail.share_error }}">
+          <i class="bi bi-share"></i>{{ site_content.detail.share }}
+        </button>
+        <p id="shareFeedback" class="share-feedback" role="status" aria-live="polite"></p>
+      </div>
+    </aside>
+  </div>
+</div>
+{% endblock %}
