@@ -1458,12 +1458,12 @@
       ],
       "video": {
         "type": "youtube",
-        "src": "",
-        "poster": "watan/img/eastern-province.jpg",
-        "youtube_id": "d01J62uJxzc",
-        "caption": "جولة تستعرض المنطقة الشرقية، من تراث الأحساء وواحتها إلى الدمام والخبر ومعالم الخليج.",
-        "youtube_url": "https://www.youtube.com/watch?v=d01J62uJxzc",
-        "youtube_source": "Inside Saudi | Exploring Saudi Arabia's Eastern Province"
+      "src": "",
+      "poster": "watan/img/eastern-province.jpg",
+      "youtube_id": "wE-mEVghdlI",
+      "caption": "جولة سياحية تستعرض جمال المنطقة الشرقية ومعالمها.",
+      "youtube_url": "https://www.youtube.com/watch?v=wE-mEVghdlI",
+      "youtube_source": "YouTube"
       },
       "attractions": [
         {
