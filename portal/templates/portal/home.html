@@ -59,7 +59,8 @@
       <p class="compare-intro">{{ home.compare.text }}</p>
 
       {# The "before" photo sits on top and is clipped to --pos; the range input moves it #}
-      <div class="compare" data-compare style="--pos: 50%;">
+      {# Starts at 35% so the phone in the "today" photo is visible in both reading directions #}
+      <div class="compare" data-compare style="--pos: 35%;">
         <img class="compare-img" src="{% static 'portal/img/after-app.webp' %}"
              alt="{{ home.compare.after_alt }}" width="1200" height="800" loading="lazy" decoding="async">
         <div class="compare-before">
@@ -80,7 +81,7 @@
         </div>
 
         {# A real range input: works with mouse, touch and keyboard arrows #}
-        <input class="compare-range" type="range" min="0" max="100" value="50"
+        <input class="compare-range" type="range" min="0" max="100" value="35"
                aria-label="{{ home.compare.slider_label }}">
       </div>
     </div>
