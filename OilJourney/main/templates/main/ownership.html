@@ -1,0 +1,228 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}الملكية الوطنية | رحلة النفط{% endblock %}
+{% block stage %}5{% endblock %}
+{% block body_class %}ownership-page{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/ownership.css' %}">
+{% endblock %}
+
+{% block content %}
+<main class="ow-main">
+
+    <!-- Hero -->
+    <section class="ow-hero">
+        <div class="ow-hero-overlay"></div>
+
+        <div class="ow-container ow-hero-content">
+            <span class="ow-eyebrow">مرحلة التحول الوطني</span>
+
+            <h1>الملكية <span>الوطنية</span></h1>
+
+            <p>من المشاركة في إدارة الموارد النفطية إلى امتلاك السيطرة الكاملة على أرامكو، مرحلة تاريخية عززت استقلال القرار الاقتصادي للمملكة.</p>
+
+            <a href="#national-ownership" class="ow-primary-btn">
+                اكتشف مرحلة الملكية الوطنية
+                <span aria-hidden="true">←</span>
+            </a>
+
+            <div class="ow-hero-caption">
+                <span aria-hidden="true"></span>
+                التحول نحو إدارة وطنية للثروة النفطية
+            </div>
+        </div>
+
+        <div class="ow-hero-bottom">
+            <span>02</span>
+            <span class="ow-scroll-line" aria-hidden="true"></span>
+            <span>تابع الرحلة</span>
+        </div>
+    </section>
+
+
+    <!-- Introduction -->
+    <section class="ow-intro ow-section" id="national-ownership">
+        <div class="ow-container">
+
+            <div class="ow-section-heading ow-reveal">
+                <span class="ow-section-label">من المشاركة إلى الاستقلال</span>
+                <h2>قرار وطني <span>ومرحلة جديدة</span></h2>
+            </div>
+
+            <div class="ow-intro-grid">
+                <div class="ow-intro-text ow-reveal">
+                   <p>
+                        مع تزايد أهمية النفط في الاقتصاد العالمي، بدأت المملكة خطوات متتابعة لتعزيز دورها في إدارة مواردها الطبيعية، والعمل على امتلاك خبرات أكبر في صناعة النفط. وأصبح التحكم في هذا القطاع الحيوي هدفًا استراتيجيًا لدعم الاقتصاد الوطني وحماية المصالح الاقتصادية للمملكة.
+                    </p>
+
+                    <p>
+                        وشكّلت المشاركة الحكومية في ملكية أرامكو خطوة مهمة نحو تحقيق السيطرة الوطنية، حيث بدأت المملكة بزيادة حصتها في الشركة تدريجيًا، وصولًا إلى استكمال الاستحواذ على كامل ملكيتها عام 1980. ومثّلت هذه الخطوة مرحلة تاريخية أنهت الاعتماد على الملكية الأجنبية وفتحت المجال أمام إدارة وطنية كاملة للشركة.
+                    </p>
+
+                    <p>
+                        لم يقتصر أثر هذا التحول على تغيير ملكية الشركة فحسب، بل امتد ليشمل تعزيز قدرة المملكة على اتخاذ القرارات المتعلقة بإنتاج النفط وتطوير موارده وتوجيه عائداته. كما أسهم في ترسيخ مكانة المملكة في أسواق الطاقة العالمية، ومهّد الطريق لمراحل جديدة من النمو الاقتصادي والصناعي خلال العقود اللاحقة.
+                    </p>
+                </div>
+
+                <div class="ow-intro-image ow-reveal">
+                    <img src="{% static 'images/ownership-intro.jpg' %}" alt="تطور إدارة قطاع النفط في المملكة" loading="lazy" decoding="async">
+                    <span class="ow-image-caption">تعزيز الدور الوطني في قطاع الطاقة</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <!-- OPEC -->
+    <section class="ow-opec ow-section">
+        <div class="ow-container">
+            <div class="ow-opec-grid">
+
+                <div class="ow-opec-content ow-reveal">
+                    <span class="ow-section-label">التعاون الدولي</span>
+                    <h2>تأسيس <span>أوبك 1960</span></h2>
+
+                    <p>
+                        في سبتمبر 1960، شاركت المملكة مع أربع دول أخرى في تأسيس منظمة الدول المصدرة للبترول (أوبك) في بغداد، لتكون المملكة إحدى الدول المؤسسة التي أسهمت في انطلاق هذا التعاون الدولي في قطاع الطاقة.
+                    </p>
+
+                    <p>
+                        هدفت المنظمة إلى تنسيق السياسات النفطية بين الدول الأعضاء، وتعزيز استقرار أسواق النفط وحماية مصالح الدول المنتجة، إلى جانب دعم قدرتها على المشاركة في رسم مستقبل صناعة النفط العالمية.
+                    </p>
+                    <div class="ow-opec-facts">
+                        <div class="ow-opec-fact">
+                            <strong>1960</strong>
+                            <span>عام التأسيس</span>
+                        </div>
+                        <div class="ow-opec-fact">
+                            <strong>5</strong>
+                            <span>الدول المؤسسة</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ow-opec-image ow-reveal">
+                    <img src="{% static 'images/ownership-opec.jpg' %}" alt="منظمة الدول المصدرة للبترول أوبك" loading="lazy" decoding="async">
+                    <div class="ow-image-overlay-caption">
+                        <strong>منظمة أوبك</strong>
+                        <span>التعاون بين الدول المنتجة للنفط</span>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Participation -->
+    <section class="ow-participation ow-section">
+        <div class="ow-container">
+
+            <div class="ow-section-heading ow-center ow-reveal">
+                <span class="ow-section-label">بداية التحول</span>
+                <h2>المشاركة الحكومية <span>في ملكية أرامكو</span></h2>
+                <p>انتقلت المملكة تدريجيًا من مرحلة الامتياز الأجنبي إلى المشاركة في ملكية الشركة وإدارتها.</p>
+            </div>
+
+            <div class="ow-participation-grid">
+
+                <article class="ow-participation-card ow-reveal">
+                    <span class="ow-card-year">1973</span>
+                    <div class="ow-card-icon">01</div>
+                    <h3>بداية المشاركة</h3>
+                    <p>توصلت المملكة إلى اتفاقية المشاركة في ملكية أرامكو، لتبدأ مرحلة جديدة من تعزيز دورها في القطاع النفطي.</p>
+                </article>
+
+                <article class="ow-participation-card ow-reveal">
+                    <span class="ow-card-year">1974</span>
+                    <div class="ow-card-icon">02</div>
+                    <h3>توسيع الملكية</h3>
+                    <p>ارتفعت حصة الحكومة السعودية إلى 60% ضمن خطوات متتابعة نحو امتلاك الشركة بالكامل.</p>
+                </article>
+
+                <article class="ow-participation-card ow-reveal">
+                    <span class="ow-card-year">1980</span>
+                    <div class="ow-card-icon">03</div>
+                    <h3>اكتمال الاستحواذ</h3>
+                    <p>استكملت المملكة الاستحواذ على كامل ملكية أرامكو، لتصبح الشركة مملوكة بالكامل للدولة.</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+
+    
+    <!-- National Management -->
+    <section class="ow-management ow-section">
+        <div class="ow-container">
+            <div class="ow-management-grid">
+
+                <div class="ow-management-image ow-reveal">
+                    <img src="{% static 'images/ownership-management.jpg' %}" alt="الكوادر الوطنية في قطاع الطاقة" loading="lazy" decoding="async">
+                </div>
+
+                <div class="ow-management-content ow-reveal">
+                    <span class="ow-section-label">الإدارة الوطنية</span>
+                    <h2>إدارة وطنية <span>ومستقبل أكثر استقلالًا</span></h2>
+
+                   <p>
+                        ساهمت السيطرة الوطنية في تعزيز قدرة المملكة على إدارة مواردها النفطية
+                        والإشراف على مختلف مراحل الإنتاج والتطوير، مما منحها دورًا أكبر
+                        في توجيه هذا القطاع الحيوي بما يخدم أهدافها الاقتصادية.
+                    </p>
+
+                    <p>
+                        كما فتحت هذه المرحلة المجال أمام تنمية الكفاءات الوطنية وتوسيع
+                        المسؤوليات الإدارية والفنية، والاستفادة من الخبرات المتراكمة
+                        في صناعة النفط. وأسهم ذلك في بناء قدرات محلية قادرة على مواصلة
+                        تطوير القطاع وتعزيز استدامته ومكانته الاقتصادية.
+                    </p>
+                    <div class="ow-management-points">
+                        <div class="ow-management-point">
+                            <span>01</span>
+                            <p>تعزيز إدارة الموارد النفطية.</p>
+                        </div>
+                        <div class="ow-management-point">
+                            <span>02</span>
+                            <p>تطوير الكفاءات والخبرات الوطنية.</p>
+                        </div>
+                        <div class="ow-management-point">
+                            <span>03</span>
+                            <p>دعم استقلال القرار الاقتصادي.</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Closing -->
+    <section class="ow-ending">
+        <div class="ow-ending-overlay"></div>
+
+        <div class="ow-container ow-ending-content ow-reveal">
+            <span class="ow-section-label">ملكية وطنية وطموح عالمي</span>
+            <h2>ثروة وطنية <span>بإدارة سعودية</span></h2>
+
+            <p>شكّلت السيطرة الوطنية نقطة تحول في تاريخ النفط السعودي، ومهدت لمرحلة جديدة من التطور والتنمية الاقتصادية.</p>
+
+            <a href="{% url 'main:society' %}" class="ow-primary-btn">
+                اكتشف أثر النفط على المجتمع
+                <span aria-hidden="true">←</span>
+            </a>
+        </div>
+    </section>
+
+</main>
+{% endblock %}
+
+
+{% block extra_js %}
+<script src="{% static 'js/ownership.js' %}" defer></script>
+{% endblock %}

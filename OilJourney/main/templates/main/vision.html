@@ -1,0 +1,382 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}التحول ورؤية 2030{% endblock %}
+
+{% block stage %}7{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/vision.css' %}">
+{% endblock %}
+
+{% block body_class %}vision-page{% endblock %}
+
+{% block content %}
+
+<!-- HERO -->
+<section class="vp-hero" id="vision-top">
+    <div class="vp-hero-overlay"></div>
+
+    <div class="vp-hero-content vp-reveal">
+        <span class="vp-eyebrow">المستقبل يبدأ من اليوم</span>
+
+        <h1>
+            التحول
+            <span>ورؤية 2030</span>
+        </h1>
+
+        <p>
+            من اقتصاد يعتمد على النفط إلى آفاق أوسع من التنوع
+            والابتكار والاستدامة، تواصل المملكة رسم ملامح
+            مستقبلها بثقة وطموح.
+        </p>
+
+        <a href="#vp-intro" class="vp-hero-link">
+            اكتشف ملامح التحول
+            <span>↓</span>
+        </a>
+    </div>
+
+    <div class="vp-hero-mark">
+        <img
+            src="{% static 'images/vision-logo.png' %}"
+            alt="شعار رؤية السعودية 2030">
+    </div>
+
+    <div class="vp-hero-bottom">
+        <span>من تاريخ النفط إلى مستقبل متجدد</span>
+        <span class="vp-hero-line"></span>
+    </div>
+</section>
+
+
+<!-- INTRO -->
+<section class="vp-intro" id="vp-intro">
+    <div class="vp-intro-heading vp-reveal">
+        <span class="vp-section-label">مرحلة جديدة من التنمية</span>
+
+        <h2>
+            النفط كان بداية الرحلة،
+            <span>والتنوع يرسم المستقبل</span>
+        </h2>
+    </div>
+
+    <div class="vp-intro-layout">
+        <div class="vp-intro-image vp-reveal">
+            <img
+                src="{% static 'images/vision-intro.jpg' %}"
+                alt="مشهد يعكس التطور والتحول في المملكة"
+                loading="lazy"
+                decoding="async"
+            >
+            <span class="vp-image-caption">المملكة العربية السعودية</span>
+        </div>
+
+        <div class="vp-intro-text vp-reveal">
+            <p>
+                شكّل النفط أحد أهم مصادر النمو الاقتصادي في المملكة
+                لعقود طويلة، وأسهمت عوائده في بناء البنية التحتية
+                وتطوير التعليم والصحة والصناعة، وتهيئة الأساس
+                الذي انطلقت منه مراحل التنمية المتتابعة.
+            </p>
+
+            <p>
+                ومع التغيرات الاقتصادية العالمية، برزت الحاجة إلى
+                توسيع مصادر الدخل وتعزيز كفاءة الاقتصاد، والاستفادة
+                من الإمكانات الوطنية في مجالات متعددة، بما يضمن
+                استمرار التنمية وتقليل الاعتماد على مصدر واحد.
+            </p>
+
+            <p>
+                وفي عام 2016 أُطلقت رؤية السعودية 2030 لتكون
+                إطارًا شاملًا للتحول الوطني، وتفتح مرحلة جديدة
+                تقوم على تنويع الاقتصاد، وتمكين المجتمع،
+                وتطوير القطاعات الواعدة، وبناء مستقبل أكثر استدامة.
+            </p>
+
+            <div class="vp-intro-year">
+                <strong>2016</strong>
+                <span>إطلاق رؤية السعودية 2030</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- VISION PILLARS -->
+<section class="vp-pillars" id="vp-pillars">
+    <div class="vp-section-heading vp-reveal">
+        <span class="vp-section-label">مرتكزات الرؤية</span>
+        <h2>ثلاثة محاور تصنع <span>مستقبل الوطن</span></h2>
+        <p>
+            تقوم رؤية السعودية 2030 على ثلاثة محاور رئيسية
+            تتكامل لتحقيق مجتمع حيوي واقتصاد مزدهر ووطن طموح.
+        </p>
+    </div>
+
+    <div class="vp-pillars-layout">
+
+        <article class="vp-pillar vp-pillar-society vp-reveal">
+            <div class="vp-pillar-number">01</div>
+
+            <div class="vp-pillar-image">
+                <img
+                    src="{% static 'images/vision-society.jpg' %}"
+                    alt="الحياة والمجتمع في المملكة"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="vp-pillar-content">
+                <span>المحور الأول</span>
+                <h3>مجتمع حيوي</h3>
+                <p>
+                    الارتقاء بجودة الحياة، وتعزيز الثقافة والرياضة،
+                    والاهتمام بالصحة والتعليم، وتوفير بيئة تساعد
+                    الأفراد والأسر على تحقيق طموحاتهم.
+                </p>
+            </div>
+        </article>
+
+
+        <article class="vp-pillar vp-pillar-economy vp-reveal">
+            <div class="vp-pillar-number">02</div>
+
+            <div class="vp-pillar-image">
+                <img
+                    src="{% static 'images/vision-economy.jpg' %}"
+                    alt="التنمية الاقتصادية والصناعية"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="vp-pillar-content">
+                <span>المحور الثاني</span>
+                <h3>اقتصاد مزدهر</h3>
+                <p>
+                    تنويع مصادر الدخل، ودعم الاستثمار والقطاع الخاص،
+                    وتطوير الصناعة والسياحة والتقنية، وخلق فرص
+                    عمل جديدة للمواطنين.
+                </p>
+            </div>
+        </article>
+
+
+        <article class="vp-pillar vp-pillar-nation vp-reveal">
+            <div class="vp-pillar-number">03</div>
+
+            <div class="vp-pillar-image">
+                <img
+                    src="{% static 'images/vision-nation.jpg' %}"
+                    alt="التطور المؤسسي والوطني في المملكة"
+                    loading="lazy"
+                >
+            </div>
+
+            <div class="vp-pillar-content">
+                <span>المحور الثالث</span>
+                <h3>وطن طموح</h3>
+                <p>
+                    رفع كفاءة الأداء الحكومي، وتعزيز الشفافية
+                    والمسؤولية، وتطوير الخدمات والمؤسسات،
+                    وترسيخ العمل الفاعل لخدمة المجتمع.
+                </p>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+
+<!-- ECONOMIC DIVERSIFICATION -->
+<section class="vp-diversification" id="vp-diversification">
+    <div class="vp-diversification-content vp-reveal">
+        <span class="vp-section-label">اقتصاد يتجاوز النفط</span>
+
+        <h2>
+            مصادر جديدة
+            <span>لفرص أكبر</span>
+        </h2>
+
+        <p>
+            لم يعد تطوير الاقتصاد مقتصرًا على قطاع النفط والغاز،
+            بل اتجهت المملكة إلى تنمية قطاعات متعددة تمتلك فيها
+            فرصًا وإمكانات كبيرة. ويشمل ذلك السياحة والترفيه،
+            والصناعة والتعدين، والخدمات اللوجستية، والتقنية،
+            والاستثمار، بما يساهم في توسيع القاعدة الاقتصادية
+            وفتح مجالات جديدة للعمل والإنتاج.
+        </p>
+
+        <p>
+            ويعزز هذا التوجه دور القطاع الخاص، ويشجع على جذب
+            الاستثمارات، وتطوير المشاريع المحلية، وزيادة
+            مساهمة الأنشطة غير النفطية في الاقتصاد الوطني.
+        </p>
+    </div>
+
+    <div class="vp-diversification-image vp-reveal">
+        <img
+            src="{% static 'images/vision-diversification.jpg' %}"
+            alt="تنوع الأنشطة الاقتصادية في المملكة"
+            loading="lazy"
+        >
+        <div class="vp-image-stamp">
+            <strong>تنوع</strong>
+            <span>اقتصادي مستدام</span>
+        </div>
+    </div>
+</section>
+
+
+<!-- ENERGY TRANSFORMATION -->
+<section class="vp-energy" id="vp-energy">
+    <div class="vp-energy-header vp-reveal">
+        <span class="vp-section-label">مستقبل الطاقة</span>
+
+        <h2>
+            من الطاقة التقليدية
+            <span>إلى حلول أكثر استدامة</span>
+        </h2>
+
+        <p>
+            مع استمرار أهمية النفط والغاز في الاقتصاد العالمي،
+            تتجه المملكة إلى تطوير مزيج الطاقة، والاستثمار
+            في مصادر الطاقة المتجددة، ورفع كفاءة الاستهلاك،
+            وتبني التقنيات التي تدعم الاستدامة البيئية.
+        </p>
+    </div>
+
+    <div class="vp-energy-layout">
+        <div class="vp-energy-image vp-reveal">
+            <img
+                src="{% static 'images/vision-energy.jpg' %}"
+                alt="مشروعات الطاقة المتجددة في المملكة"
+                loading="lazy"
+            >
+        </div>
+
+        <div class="vp-energy-details vp-reveal">
+            <div class="vp-energy-item">
+                <span class="vp-energy-icon">01</span>
+                <div>
+                    <h3>الطاقة المتجددة</h3>
+                    <p>
+                        التوسع في مشروعات الطاقة الشمسية وطاقة
+                        الرياح والاستفادة من الموارد الطبيعية.
+                    </p>
+                </div>
+            </div>
+
+            <div class="vp-energy-item">
+                <span class="vp-energy-icon">02</span>
+                <div>
+                    <h3>كفاءة الطاقة</h3>
+                    <p>
+                        تطوير التقنيات ورفع كفاءة الإنتاج
+                        والاستهلاك وتقليل الهدر.
+                    </p>
+                </div>
+            </div>
+
+            <div class="vp-energy-item">
+                <span class="vp-energy-icon">03</span>
+                <div>
+                    <h3>الاستدامة البيئية</h3>
+                    <p>
+                        دعم المبادرات والمشروعات التي تسهم
+                        في حماية البيئة وخفض الانبعاثات.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- TECHNOLOGY AND HUMAN CAPITAL -->
+<section class="vp-innovation" id="vp-innovation">
+    <div class="vp-innovation-image vp-reveal">
+        <img
+            src="{% static 'images/vision-innovation.jpg' %}"
+            alt="التقنية والابتكار في المملكة"
+            loading="lazy"
+        >
+    </div>
+
+    <div class="vp-innovation-content vp-reveal">
+        <span class="vp-section-label">الإنسان والتقنية</span>
+
+        <h2>
+            استثمار في العقول
+            <span>وصناعة للابتكار</span>
+        </h2>
+
+        <p>
+            يمثل تطوير الإنسان أحد أهم عناصر التحول الوطني،
+            لذلك تتجه الجهود إلى رفع جودة التعليم والتدريب،
+            وتمكين الشباب، وتأهيل الكفاءات في المجالات
+            العلمية والتقنية والمهنية.
+        </p>
+
+        <p>
+            كما أصبحت التقنيات الحديثة، والذكاء الاصطناعي،
+            والبيانات، والتحول الرقمي أدوات مهمة لتطوير
+            الخدمات ورفع الإنتاجية، وخلق فرص جديدة
+            للابتكار وريادة الأعمال.
+        </p>
+
+        <p>
+            ويعكس هذا التوجه انتقال التنمية من التركيز
+            على الموارد الطبيعية وحدها إلى الاستثمار
+            في المعرفة والمهارات والقدرات البشرية.
+        </p>
+    </div>
+</section>
+
+
+<!-- FINAL MESSAGE -->
+<section class="vp-future" id="vp-future">
+    <div class="vp-future-overlay"></div>
+
+    <div class="vp-future-content vp-reveal">
+        <span class="vp-section-label">رحلة مستمرة نحو المستقبل</span>
+
+        <h2>
+            إرث من الطاقة،
+            <span>وطموح لا يتوقف</span>
+        </h2>
+
+        <p>
+            بدأت رحلة النفط باكتشاف غيّر مسار المملكة،
+            وأسهم في بناء اقتصادها وتطوير مجتمعها.
+            واليوم تواصل المملكة مسيرتها نحو مستقبل أكثر
+            تنوعًا وابتكارًا واستدامة، مستندة إلى ما تحقق
+            من إنجازات، وطموح أجيالها القادمة.
+        </p>
+
+        <div class="vp-future-mark">
+            <span>رؤية السعودية</span>
+            <strong>2030</strong>
+        </div>
+    </div>
+</section>
+
+
+<!-- PAGE NAVIGATION -->
+<section class="vp-page-end">
+    <a href="{% url 'main:society' %}" class="vp-back-link">
+        <span>→</span>
+        العودة إلى أثر النفط على المجتمع
+    </a>
+
+    <a href="{% url 'main:home' %}" class="vp-home-link">
+        العودة إلى بداية الرحلة
+        <span>↑</span>
+    </a>
+</section>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/vision.js' %}" defer></script>
+{% endblock %}

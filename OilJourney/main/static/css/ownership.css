@@ -1,0 +1,693 @@
+/* ========================================
+   NATIONAL OWNERSHIP PAGE
+======================================== */
+
+.ownership-page {
+    --ow-blue: #00A3E0;
+    --ow-dark-blue: #0033A0;
+    --ow-green: #84BD00;
+    --ow-dark-green: #00843D;
+
+    --ow-bg: #ffffff;
+    --ow-bg-soft: #f5f8fa;
+    --ow-card: #ffffff;
+    --ow-text: #172b3a;
+    --ow-muted: #667783;
+    --ow-border: rgba(0, 51, 160, 0.12);
+    --ow-accent: var(--ow-dark-green);
+
+    --ow-font-heading: "Cairo", sans-serif;
+    --ow-radius: 8px;
+
+    background: var(--ow-bg);
+    color: var(--ow-text);
+    overflow-x: clip;
+    font-family: "IBM Plex Sans Arabic", sans-serif;
+}
+
+/* Dark Mode */
+body.dark.ownership-page {
+    --ow-bg: #101b25;
+    --ow-bg-soft: #162633;
+    --ow-card: #1b2c3a;
+    --ow-text: #edf4f8;
+    --ow-muted: #aabac5;
+    --ow-border: rgba(255, 255, 255, 0.1);
+    --ow-accent: var(--ow-green);
+}
+
+
+/* ========================================
+   GENERAL
+======================================== */
+
+.ownership-page *,
+.ownership-page *::before,
+.ownership-page *::after {
+    box-sizing: border-box;
+}
+
+.ownership-page img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.ownership-page a {
+    text-decoration: none;
+}
+
+.ow-container {
+    width: min(1180px, calc(100% - 48px));
+    margin-inline: auto;
+}
+
+.ow-section {
+    padding: 110px 0;
+}
+
+.ow-intro,
+.ow-participation,
+.ow-management {
+    background: var(--ow-bg);
+}
+
+.ow-opec {
+    background: var(--ow-bg-soft);
+}
+
+.ow-section-heading {
+    max-width: 700px;
+    margin-bottom: 55px;
+}
+
+.ow-section-heading.ow-center {
+    margin-inline: auto;
+    text-align: center;
+}
+
+.ow-section-heading > p {
+    color: var(--ow-muted);
+    font-size: 16px;
+    line-height: 2;
+    margin: 0;
+}
+
+.ow-section-heading h2,
+.ow-opec-content h2,
+.ow-management-content h2 {
+    font-family: var(--ow-font-heading);
+    font-size: clamp(30px, 4vw, 46px);
+    line-height: 1.5;
+    font-weight: 900;
+    margin: 0 0 18px;
+    color: var(--ow-text);
+}
+
+.ow-opec-content h2,
+.ow-management-content h2 {
+    margin-bottom: 22px;
+}
+
+.ow-section-heading h2 span,
+.ow-opec-content h2 span,
+.ow-management-content h2 span {
+    color: var(--ow-blue);
+}
+
+.ow-section-label,
+.ow-card-year {
+    color: var(--ow-accent);
+}
+
+.ow-section-label {
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 800;
+    margin-bottom: 17px;
+    letter-spacing: 0.3px;
+}
+
+.ow-intro-text p,
+.ow-opec-content > p,
+.ow-management-content > p {
+    color: var(--ow-muted);
+    font-size: 16px;
+    line-height: 2.1;
+    margin: 0 0 20px;
+}
+
+.ow-intro-image,
+.ow-opec-image,
+.ow-management-image {
+    position: relative;
+    border-radius: var(--ow-radius);
+    overflow: hidden;
+}
+
+.ow-intro-image img,
+.ow-management-image img {
+    transition: transform 0.7s ease;
+}
+
+.ow-intro-image:hover img,
+.ow-management-image:hover img {
+    transform: scale(1.04);
+}
+
+.ow-card-icon,
+.ow-management-point > span {
+    display: grid;
+    place-items: center;
+    background: rgba(0, 163, 224, 0.1);
+    color: var(--ow-blue);
+    font-weight: 900;
+}
+
+
+/* ========================================
+   HERO
+======================================== */
+
+.ow-hero {
+    min-height: 650px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: url("../images/ownership-hero.jpg") center / cover no-repeat;
+    color: #ffffff;
+}
+
+.ow-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        270deg,
+        rgba(0, 24, 55, 0.94) 0%,
+        rgba(0, 36, 78, 0.78) 48%,
+        rgba(0, 25, 55, 0.25) 100%
+    );
+}
+
+.ow-hero-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 70px;
+    padding-bottom: 80px;
+}
+
+.ow-eyebrow {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: #b8e5f5;
+    font-size: 15px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.ow-eyebrow::before {
+    content: "";
+    width: 30px;
+    height: 2px;
+    background: var(--ow-green);
+}
+
+.ow-hero h1 {
+    font-family: var(--ow-font-heading);
+    font-size: clamp(52px, 8vw, 88px);
+    line-height: 1.2;
+    font-weight: 900;
+    margin: 0 0 25px;
+    max-width: 700px;
+}
+
+.ow-hero h1 span {
+    display: block;
+    color: var(--ow-green);
+}
+
+.ow-hero-content > p {
+    max-width: 570px;
+    color: rgba(255, 255, 255, 0.86);
+    font-size: 18px;
+    line-height: 2.1;
+    margin-bottom: 35px;
+}
+
+.ow-primary-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 18px;
+    padding: 10px 25px;
+    border-radius: 6px;
+    background: var(--ow-green);
+    color: #10252c;
+    font-size: 15px;
+    font-weight: 800;
+    transition: 0.3s ease;
+}
+
+.ow-primary-btn span {
+    font-size: 21px;
+    transition: transform 0.3s ease;
+}
+
+.ow-primary-btn:hover {
+    background: #a1d52d;
+    transform: translateY(-3px);
+}
+
+.ow-primary-btn:hover span {
+    transform: translateX(-5px);
+}
+
+.ow-hero-caption {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+    margin-top: 65px;
+}
+
+.ow-hero-caption span {
+    width: 7px;
+    height: 7px;
+    background: var(--ow-green);
+    border-radius: 50%;
+}
+
+.ow-hero-bottom {
+    position: absolute;
+    z-index: 2;
+    bottom: 25px;
+    left: 5%;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: rgba(255, 255, 255, 0.7);
+    font-size: 12px;
+}
+
+.ow-scroll-line {
+    width: 45px;
+    height: 1px;
+    background: var(--ow-green);
+}
+
+
+/* ========================================
+   INTRODUCTION
+======================================== */
+
+.ow-intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 65px;
+}
+
+.ow-intro-image {
+    height: 390px;
+}
+
+.ow-image-caption {
+    position: absolute;
+    inset: auto 0 0;
+    padding: 18px 22px;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: 700;
+    background: linear-gradient(transparent, rgba(0, 20, 40, 0.85));
+}
+
+
+/* ========================================
+   OPEC
+======================================== */
+
+.ow-opec-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.ow-opec-image {
+    height: 440px;
+}
+
+.ow-opec-image::after {
+    content: "";
+    position: absolute;
+    inset: 35% 0 0;
+    background: linear-gradient(transparent, rgba(0, 20, 40, 0.85));
+}
+
+.ow-image-overlay-caption {
+    position: absolute;
+    z-index: 2;
+    inset: auto 25px 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    color: #ffffff;
+}
+
+.ow-image-overlay-caption strong {
+    font-family: var(--ow-font-heading);
+    font-size: 23px;
+}
+
+.ow-image-overlay-caption span {
+    color: rgba(255, 255, 255, 0.8);
+    font-size: 13px;
+}
+
+.ow-opec-facts {
+    display: flex;
+    gap: 45px;
+    margin-top: 30px;
+}
+
+.ow-opec-fact {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.ow-opec-fact strong {
+    color: var(--ow-blue);
+    font-family: var(--ow-font-heading);
+    font-size: 35px;
+    font-weight: 900;
+}
+
+.ow-opec-fact span {
+    color: var(--ow-muted);
+    font-size: 13px;
+}
+
+
+/* ========================================
+   GOVERNMENT PARTICIPATION
+======================================== */
+
+.ow-participation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.ow-participation-card {
+    min-height: 300px;
+    padding: 32px 27px;
+    background: var(--ow-card);
+    border: 1px solid var(--ow-border);
+    border-radius: var(--ow-radius);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ow-participation-card:hover {
+    transform: translateY(-7px);
+    box-shadow: 0 15px 35px rgba(0, 51, 160, 0.09);
+}
+
+.ow-card-year {
+    display: block;
+    font-size: 15px;
+    font-weight: 900;
+    margin-bottom: 20px;
+}
+
+.ow-card-icon {
+    width: 48px;
+    height: 48px;
+    font-size: 17px;
+    border-radius: var(--ow-radius);
+    margin-bottom: 22px;
+}
+
+.ow-participation-card h3 {
+    color: var(--ow-text);
+    font-family: var(--ow-font-heading);
+    font-size: 20px;
+    font-weight: 800;
+    margin: 0 0 13px;
+}
+
+.ow-participation-card p {
+    color: var(--ow-muted);
+    font-size: 14px;
+    line-height: 2;
+    margin: 0;
+}
+
+
+/* ========================================
+   NATIONAL MANAGEMENT
+======================================== */
+
+.ow-management-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    align-items: center;
+    gap: 70px;
+}
+
+.ow-management-image {
+    height: 480px;
+}
+
+.ow-management-points {
+    display: grid;
+    gap: 18px;
+    margin-top: 30px;
+}
+
+.ow-management-point {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.ow-management-point > span {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
+    font-size: 12px;
+    border-radius: 6px;
+}
+
+.ow-management-point p {
+    color: var(--ow-muted);
+    font-size: 14px;
+    line-height: 1.8;
+    margin: 0;
+}
+
+
+/* ========================================
+   CLOSING
+======================================== */
+
+.ow-ending {
+    min-height: 430px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background: url("../images/ownership-ending.jpg") center / cover no-repeat;
+    color: #ffffff;
+    text-align: center;
+}
+
+.ow-ending-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(0, 29, 61, 0.88);
+}
+
+.ow-ending-content {
+    position: relative;
+    z-index: 2;
+    padding-top: 90px;
+    padding-bottom: 90px;
+}
+
+.ow-ending .ow-section-label,
+.ow-ending h2 span {
+    color: var(--ow-green);
+}
+
+.ow-ending h2 {
+    font-family: var(--ow-font-heading);
+    font-size: clamp(30px, 5vw, 48px);
+    line-height: 1.5;
+    font-weight: 900;
+    margin: 0 0 18px;
+}
+
+.ow-ending p {
+    max-width: 650px;
+    margin: 0 auto 30px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 16px;
+    line-height: 2;
+}
+
+
+/* ========================================
+   REVEAL ANIMATION
+======================================== */
+
+.ow-reveal {
+    transition: opacity 0.75s ease, transform 0.75s ease;
+}
+
+.ow-reveal-pending {
+    opacity: 0;
+    transform: translateY(30px);
+}
+
+.ow-reveal-pending.ow-visible {
+    opacity: 1;
+    transform: none;
+}
+
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1000px) {
+
+    .ow-participation-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .ow-intro-grid,
+    .ow-opec-grid,
+    .ow-management-grid {
+        gap: 40px;
+    }
+
+    .ow-management-image {
+        height: 420px;
+    }
+
+}
+
+@media (max-width: 700px) {
+
+    .ow-container {
+        width: min(100% - 32px, 550px);
+    }
+
+    .ow-section {
+        padding: 75px 0;
+    }
+
+    .ow-hero {
+        min-height: 590px;
+        background-position: 60% center;
+    }
+
+    .ow-hero-overlay {
+        background: rgba(0, 27, 58, 0.82);
+    }
+
+    .ow-hero-content {
+        padding-top: 65px;
+        padding-bottom: 80px;
+    }
+
+    .ow-hero h1 {
+        font-size: 53px;
+    }
+
+    .ow-hero-content > p {
+        font-size: 15px;
+    }
+
+    .ow-hero-caption {
+        margin-top: 45px;
+    }
+
+    .ow-section-heading {
+        margin-bottom: 35px;
+    }
+
+    .ow-section-heading h2,
+    .ow-opec-content h2,
+    .ow-management-content h2 {
+        font-size: 29px;
+    }
+
+    .ow-intro-grid,
+    .ow-opec-grid,
+    .ow-management-grid {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .ow-intro-image {
+        height: 300px;
+    }
+
+    .ow-opec-image,
+    .ow-management-image {
+        height: 310px;
+    }
+
+    .ow-opec-facts {
+        gap: 35px;
+    }
+
+    .ow-participation-grid {
+        grid-template-columns: 1fr;
+        gap: 15px;
+    }
+
+    .ow-participation-card {
+        min-height: auto;
+        padding: 25px;
+    }
+
+    .ow-ending {
+        min-height: 400px;
+    }
+
+    .ow-ending-content {
+        padding-top: 70px;
+        padding-bottom: 70px;
+    }
+
+    .ow-ending p {
+        font-size: 14px;
+    }
+
+}
+
+
+/* ========================================
+   REDUCED MOTION
+======================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .ownership-page *,
+    .ownership-page *::before,
+    .ownership-page *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
+
+    .ow-reveal-pending {
+        opacity: 1;
+        transform: none;
+    }
+
+}
