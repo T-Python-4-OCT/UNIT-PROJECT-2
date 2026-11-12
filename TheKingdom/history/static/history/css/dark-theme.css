@@ -1,0 +1,815 @@
+
+/* ===================================================
+   المملكة — نظام الوضع الليلي الموحد
+
+   الهوية:
+   فحمي زيتي + أخضر عميق + ذهبي معتق + عاجي
+
+   التفعيل:
+   html.dark
+=================================================== */
+
+
+/* ==========================================
+   ١. لوحة الألوان المركزية
+========================================== */
+
+html.dark {
+
+    color-scheme: dark;
+
+    --bg: #242d29;
+    --surface: #303b35;
+    --fg: #f0e9dc;
+    --muted: #bac4b8;
+    --accent: #d4ad73;
+    --accent-dark: #b89058;
+    --border: #49564c;
+
+    --nav-bg: rgba(36, 45, 41, .95);
+    --nav-active-bg: rgba(36, 45, 41, .97);
+    --nav-active-text: #f0e9dc;
+    --nav-active-border: rgba(212, 173, 115, .18);
+
+    --night-base: #242d29;
+    --night-raised: #303b35;
+    --night-soft: #3d4840;
+    --night-deep: #1a2520;
+
+    --night-title: #f0e9dc;
+    --night-text: #d5dbd0;
+    --night-muted: #bac4b8;
+    --night-gold: #d4ad73;
+    --night-line: #49564c;
+
+    background: var(--night-base);
+}
+
+
+/* ==========================================
+   ٢. العناصر العامة
+========================================== */
+
+html.dark body,
+html.dark main {
+    background-color: var(--night-base);
+    color: var(--night-text);
+}
+
+html.dark ::selection {
+    background: #b89058;
+    color: #19221d;
+}
+
+html.dark a:focus-visible,
+html.dark button:focus-visible {
+    outline: 3px solid var(--night-gold);
+    outline-offset: 3px;
+}
+
+html.dark .site-footer {
+    background: #1c2721;
+    border-top-color: var(--night-line);
+}
+
+html.dark .footer-brand {
+    color: var(--night-title);
+}
+
+html.dark .footer-brand span {
+    color: var(--night-gold);
+}
+
+html.dark .footer-description,
+html.dark .footer-info {
+    color: var(--night-muted);
+}
+
+
+/* ==========================================
+   ٣. الناف بار والقائمة
+========================================== */
+
+html.dark .navbar:not(.navbar-home) {
+    background: var(--nav-bg);
+    border-bottom-color: var(--night-line);
+}
+
+html.dark .navbar-brand,
+html.dark .navbar .nav-link {
+    color: var(--night-title);
+}
+
+html.dark .navbar .nav-link.active,
+html.dark .navbar .nav-link:hover {
+    color: var(--night-gold);
+}
+
+html.dark .navbar .dropdown-menu {
+    background: var(--night-raised);
+    border-color: var(--night-line);
+}
+
+html.dark .navbar .dropdown-item {
+    color: var(--night-title);
+}
+
+html.dark .navbar .dropdown-item:hover {
+    background: var(--night-soft);
+    color: var(--night-gold);
+}
+
+html.dark .theme-toggle {
+    background: var(--night-raised);
+    border-color: var(--night-line);
+    color: var(--night-gold);
+}
+
+html.dark .brand-icon {
+    background: #315646;
+    color: #f4e9d3;
+}
+
+
+/* ==========================================
+   ٤. الصفحة الرئيسية
+========================================== */
+
+html.dark .states-showcase {
+    background: var(--night-deep);
+}
+
+html.dark .state-panel {
+    background: #1b2923;
+}
+
+html.dark .state-panel::before {
+    background: rgba(13, 23, 18, .68);
+}
+
+html.dark .state-panel.is-playing::before {
+    background: rgba(13, 23, 18, .22);
+}
+
+/* تبقى صور وفيديوهات الافتتاحية بألوانها */
+html.dark .state-panel-video {
+    filter: brightness(.85);
+}
+
+
+/* ==========================================
+   ٥. الدولة السعودية الأولى
+========================================== */
+
+/* متغيرات التصميم الداخلية */
+
+html.dark .origins-page {
+
+    --sand: #303b35;
+    --paper: #38443c;
+    --gold: #d4ad73;
+    --gold-dark: #c6a06d;
+    --ink: #f0e9dc;
+    --charcoal: #1a2520;
+    --soft-ink: #bac4b8;
+
+    background: var(--night-base);
+    color: var(--night-title);
+}
+
+
+/* المقدمة */
+
+html.dark .origins-intro {
+    background: var(--night-base);
+    color: var(--night-title);
+}
+
+html.dark .origins-intro h2,
+html.dark .origins-intro h3 {
+    color: var(--night-title);
+}
+
+html.dark .origins-intro p {
+    color: var(--night-text);
+}
+
+
+/* قسم التأسيس */
+
+/* تُحفظ الصورة الخلفية والألوان البيضاء فوقها */
+html.dark .origins-founding {
+    background-color: var(--night-deep);
+}
+
+html.dark .origins-founding h2,
+html.dark .origins-founding h3 {
+    color: #f5ede0;
+}
+
+
+/* الخط الزمني */
+
+html.dark .origins-timeline {
+    background: var(--night-raised);
+    color: var(--night-title);
+}
+
+html.dark .origins-timeline h2,
+html.dark .origins-timeline h3 {
+    color: var(--night-title);
+}
+
+html.dark .origins-timeline p {
+    color: var(--night-muted);
+}
+
+html.dark .origins-timeline button:not(.is-active) {
+    color: var(--night-text);
+}
+
+html.dark .origins-timeline button.is-active,
+html.dark .origins-timeline button[aria-pressed="true"] {
+    color: var(--night-gold);
+}
+
+
+/* الخريطة */
+
+html.dark .origins-map-section {
+    background: var(--night-soft);
+    color: var(--night-title);
+}
+
+html.dark .origins-map-section h2,
+html.dark .origins-map-section h3 {
+    color: var(--night-title);
+}
+
+html.dark .origins-map-section p {
+    color: var(--night-muted);
+}
+
+
+/* الحكام */
+
+html.dark .origins-rulers {
+    background: var(--night-base);
+    color: var(--night-title);
+}
+
+html.dark .origins-rulers h2,
+html.dark .origins-rulers h3 {
+    color: var(--night-title);
+}
+
+html.dark .origins-rulers p {
+    color: var(--night-muted);
+}
+
+html.dark .origins-rulers a {
+    color: var(--night-title);
+}
+
+
+/* خاتمة الدولة الأولى */
+
+html.dark .origins-legacy {
+    background-color: var(--night-deep);
+}
+
+html.dark .origins-legacy h2,
+html.dark .origins-legacy h3 {
+    color: #f0e9dc;
+}
+
+
+/* المصادر */
+
+html.dark .origins-sources {
+    background: var(--night-raised);
+}
+
+html.dark .origins-sources h2,
+html.dark .origins-sources a {
+    color: var(--night-title);
+}
+
+html.dark .origins-sources a:hover {
+    color: var(--night-gold);
+}
+
+
+/* ==========================================
+   ٦. الدولة السعودية الثانية
+========================================== */
+
+html.dark .revival-page {
+
+    --rv-bg: #242d29;
+    --rv-paper: #ede1c8;
+    --rv-ink: #f0e9dc;
+    --rv-forest: #163d32;
+    --rv-green: #d4ad73;
+    --rv-brass: #d4ad73;
+    --rv-muted: #bac4b8;
+    --rv-line: #49564c;
+
+    background: var(--night-base);
+    color: var(--night-title);
+}
+
+
+/* المقدمة */
+
+html.dark .revival-introduction {
+    background: var(--night-base);
+}
+
+html.dark .revival-intro-story h2 {
+    color: var(--night-title);
+}
+
+html.dark .revival-intro-story h2 em {
+    color: var(--night-gold);
+}
+
+html.dark .revival-intro-story p {
+    color: var(--night-muted);
+}
+
+html.dark .revival-intro-story .revival-lead {
+    color: var(--night-title);
+}
+
+html.dark .revival-intro-index {
+    color: var(--night-muted);
+}
+
+html.dark .revival-intro-index strong {
+    color: #6f806e;
+}
+
+
+/* الإحصاءات */
+
+html.dark .revival-stat-grid {
+    background: var(--night-line);
+    border-color: var(--night-line);
+}
+
+html.dark .revival-stat {
+    background: var(--night-raised);
+}
+
+html.dark .revival-stat strong {
+    color: var(--night-title);
+}
+
+html.dark .revival-stat > span,
+html.dark .revival-stat small {
+    color: var(--night-muted);
+}
+
+
+/* قسم العاصمة: خلفية الصورة تبقى */
+
+html.dark .revival-capital {
+    background-color: var(--night-deep);
+}
+
+html.dark .revival-capital-heading h2 {
+    color: #f4ecdb;
+}
+
+html.dark .revival-capital-heading h2 em {
+    color: var(--night-gold);
+}
+
+/* الوثيقة الورقية لا نحولها للفحمي */
+html.dark .revival-capital-document {
+    color: #2d302b;
+}
+
+html.dark .revival-capital-document h3 {
+    color: #2d302b;
+}
+
+html.dark .revival-capital-document p {
+    color: #615b50;
+}
+
+
+/* ==========================================
+   ٧. خريطة الدولة السعودية الثانية
+========================================== */
+
+html.dark .revival-map-section {
+    background: var(--night-raised);
+    color: var(--night-title);
+}
+
+html.dark .revival-map-heading h2 {
+    color: var(--night-title);
+}
+
+html.dark .revival-map-heading h2 em,
+html.dark .revival-map-kicker {
+    color: var(--night-gold);
+}
+
+html.dark .revival-map-heading-description p,
+html.dark .revival-map-bottom p {
+    color: var(--night-muted);
+}
+
+html.dark .revival-map-bottom a {
+    color: var(--night-gold);
+}
+
+/* إطار الوثيقة يبقى أفتح من الخلفية */
+html.dark .revival-map-document {
+    background: #ddd0b5;
+    border-color: #88795d;
+}
+
+html.dark .revival-map-document-header,
+html.dark .revival-map-document-footer span {
+    color: #605642;
+}
+
+html.dark .revival-map-document-footer strong {
+    color: #263a30;
+}
+
+html.dark .revival-map-document-footer > div {
+    border-right-color: #a79775;
+}
+
+/* نافذة التكبير تظل واضحة */
+html.dark .revival-map-dialog {
+    background: #e7dcc7;
+    color: #263d34;
+}
+
+html.dark .revival-map-dialog-header h2 {
+    color: #263d34;
+}
+
+html.dark .revival-map-dialog-caption {
+    color: #615b4e;
+}
+
+
+/* ==========================================
+   ٨. أرشيف الوثائق
+========================================== */
+
+html.dark .revival-archive {
+    background: var(--night-base);
+}
+
+html.dark .revival-archive-header h2 {
+    color: var(--night-title);
+}
+
+html.dark .revival-archive-header h2 em {
+    color: var(--night-gold);
+}
+
+html.dark .revival-archive-header > p {
+    color: var(--night-muted);
+}
+
+html.dark .revival-archive-item {
+    background: var(--night-raised);
+    border-color: var(--night-line);
+    color: var(--night-title);
+}
+
+html.dark .revival-archive-item:hover {
+    background: var(--night-soft);
+    border-color: var(--night-gold);
+}
+
+html.dark .revival-archive-item.is-active {
+    background: #1b493b;
+    border-color: #c4a06a;
+    color: #f8f1df;
+}
+
+html.dark .revival-archive-item-text small {
+    color: #c6cfbe;
+}
+
+html.dark .revival-archive-number {
+    border-color: #a3ab9e;
+}
+
+
+/* ==========================================
+   ٩. الكتاب التفاعلي
+
+   مهم: نحافظ على لون الورق العتيق، ونغيّر
+   محيط الكتاب فقط.
+========================================== */
+
+html.dark .rb-book {
+    --book-green: #1a352b;
+    --book-gold: #c29b63;
+    --book-paper: #eadfc5;
+    --book-ink: #293b30;
+
+    color: #293b30;
+}
+
+html.dark .rb-book-heading,
+html.dark .rb-book-toolbar {
+    background: #1a352b;
+    color: #e7d4ad;
+}
+
+html.dark .rb-flip-stage {
+    background: #354039;
+}
+
+html.dark .rb-flip-page {
+    background-color: #eadfc5;
+    color: #293b30;
+}
+
+html.dark .rb-paper-content,
+html.dark .rb-paper-content h3 {
+    color: #293b30;
+}
+
+html.dark .rb-document-title {
+    color: #1c352b;
+}
+
+html.dark .rb-document-description {
+    color: #514f45;
+}
+
+html.dark .rb-visual-page {
+    background-color: #dfd1b4;
+}
+
+html.dark .rb-visual-title {
+    color: #234b3e;
+}
+
+html.dark .rb-book-hint {
+    color: var(--night-muted);
+}
+
+html.dark .rb-book-counter {
+    color: #e2c18b;
+}
+
+html.dark .rb-book-control {
+    color: #f0e9dc;
+    border-color: #85978b;
+}
+
+html.dark .rb-book-control:hover:not(:disabled) {
+    background: var(--night-gold);
+    color: #1a2520;
+}
+
+
+/* التوافق مع الكتاب اليدوي القديم إن بقي مستخدمًا */
+
+html.dark .rb-book-spread {
+    background: #d7c6a6;
+}
+
+html.dark .rb-book-page,
+html.dark .rb-turn-face {
+    color: #293b30;
+}
+
+html.dark .rb-book-page .rb-document-title,
+html.dark .rb-turn-face .rb-document-title {
+    color: #1c352b;
+}
+
+html.dark .rb-book-page .rb-document-description,
+html.dark .rb-turn-face .rb-document-description {
+    color: #514f45;
+}
+
+
+/* ==========================================
+   ١٠. حكام الدولة الثانية
+========================================== */
+
+html.dark .revival-rulers {
+    background: var(--night-raised);
+}
+
+html.dark .revival-rulers-head h2,
+html.dark .revival-ruler-body h3 {
+    color: var(--night-title);
+}
+
+html.dark .revival-rulers-head h2 em {
+    color: var(--night-gold);
+}
+
+html.dark .revival-rulers-head > p,
+html.dark .revival-ruler-body p,
+html.dark .revival-historical-note {
+    color: var(--night-muted);
+}
+
+html.dark .revival-ruler {
+    color: var(--night-title);
+    border-bottom-color: var(--night-line);
+}
+
+html.dark .revival-rulers-list {
+    border-top-color: var(--night-line);
+}
+
+html.dark .revival-ruler:hover {
+    background: var(--night-soft);
+    color: var(--night-title);
+}
+
+html.dark .revival-ruler-number,
+html.dark .revival-ruler-period {
+    color: var(--night-gold);
+}
+
+html.dark .revival-ruler-open {
+    color: var(--night-gold);
+    border-color: var(--night-line);
+}
+
+
+/* ==========================================
+   ١١. ختام الدولة الثانية
+========================================== */
+
+html.dark .revival-ending {
+    background:
+        radial-gradient(
+            circle at 50% 15%,
+            #30463b,
+            #17271f 75%
+        );
+}
+
+html.dark .revival-ending h2 {
+    color: #f0e9dc;
+}
+
+html.dark .revival-ending h2 em {
+    color: var(--night-gold);
+}
+
+html.dark .revival-ending-inner > p {
+    color: #d5dbd0;
+}
+
+html.dark .revival-ending-back {
+    color: #e1d8c4;
+}
+
+
+/* المصادر */
+
+html.dark .revival-sources {
+    background: var(--night-soft);
+}
+
+html.dark .revival-sources h2 {
+    color: var(--night-title);
+}
+
+html.dark .revival-source-links a {
+    color: var(--night-title);
+    border-color: #69766b;
+}
+
+html.dark .revival-source-links a:hover {
+    background: #536252;
+}
+
+
+/* ==========================================
+   ١٢. صفحات الحكام العامة
+========================================== */
+
+html.dark .ruler-hero,
+html.dark .ruler-milestones,
+html.dark .ruler-bottom {
+    background-color: var(--night-base);
+}
+
+html.dark .ruler-biography,
+html.dark .ruler-legacy {
+    background-color: var(--night-raised);
+}
+
+html.dark .ruler-hero h1,
+html.dark .ruler-section-heading h2,
+html.dark .ruler-legacy h2,
+html.dark .ruler-bottom h2 {
+    color: var(--night-title);
+}
+
+html.dark .ruler-subtitle,
+html.dark .ruler-overview-text,
+html.dark .ruler-legacy p,
+html.dark .ruler-bottom p {
+    color: var(--night-muted);
+}
+
+html.dark .ruler-fact-card,
+html.dark .ruler-timeline-content {
+    background: var(--night-soft);
+    border-color: var(--night-line);
+}
+
+html.dark .ruler-fact-card strong,
+html.dark .ruler-timeline-content p {
+    color: var(--night-title);
+}
+
+html.dark .ruler-hero-portrait {
+    background: var(--night-soft);
+    border-color: var(--night-line);
+}
+
+
+/* ==========================================
+   ١٣. صفحات الدول العامة
+========================================== */
+
+html.dark .era-overview,
+html.dark .era-end,
+html.dark .states-navigation {
+    background: var(--night-base);
+}
+
+html.dark .era-rulers {
+    background: var(--night-raised);
+}
+
+html.dark .era-section-heading h2,
+html.dark .era-end h2,
+html.dark .states-navigation-heading h2 {
+    color: var(--night-title);
+}
+
+html.dark .era-section-heading p,
+html.dark .era-intro,
+html.dark .era-end p,
+html.dark .states-navigation-heading p {
+    color: var(--night-muted);
+}
+
+html.dark .era-fact,
+html.dark .state-navigation-card,
+html.dark .state-navigation-placeholder {
+    background: var(--night-soft);
+    border-color: var(--night-line);
+}
+
+html.dark .era-fact strong,
+html.dark .state-navigation-card strong {
+    color: var(--night-title);
+}
+
+html.dark .ruler-card {
+    background: var(--night-soft);
+    border-color: var(--night-line);
+}
+
+html.dark .ruler-content h3 {
+    color: var(--night-title);
+}
+
+html.dark .ruler-content p {
+    color: var(--night-muted);
+}
+
+html.dark .state-navigation-card:hover {
+    border-color: var(--night-gold);
+}
+
+
+/* ==========================================
+   ١٤. تقليل الحركة
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    html.dark body,
+    html.dark .revival-page,
+    html.dark .origins-page {
+        transition: none;
+    }
+}

@@ -1,0 +1,231 @@
+
+{% extends 'history/base.html' %}
+{% load static %}
+
+{% block title %}{{ state.title }} | TheKingdom{% endblock %}
+
+{% block content %}
+
+<!-- STATE HERO -->
+<section
+    class="era-hero"
+    style="--era-image: url('{% static state.image %}');"
+>
+    <div class="container era-hero-content">
+
+        <a href="{% url 'home' %}" class="era-back">
+            <i class="bi bi-arrow-right"></i>
+            العودة إلى الرئيسية
+        </a>
+
+        <span class="era-label">
+            THE KINGDOM HISTORY
+        </span>
+
+        <h1>{{ state.title }}</h1>
+
+        <p class="era-period">
+            {{ state.period }}
+        </p>
+
+        <a href="#era-overview" class="era-scroll">
+            اكتشف تاريخ الدولة
+            <i class="bi bi-arrow-down"></i>
+        </a>
+
+    </div>
+</section>
+
+
+<!-- HISTORICAL OVERVIEW -->
+<section id="era-overview" class="era-overview">
+    <div class="container">
+
+        <div class="era-section-heading">
+            <span>HISTORICAL OVERVIEW</span>
+            <h2>نبذة تاريخية</h2>
+        </div>
+
+        <p class="era-intro">
+            {{ state.intro }}
+        </p>
+
+        <!-- Historical Facts -->
+        <div class="era-facts">
+
+            <div class="era-fact">
+                <i class="bi bi-calendar-event"></i>
+                <span>الفترة التاريخية</span>
+                <strong>{{ state.period }}</strong>
+            </div>
+
+            <div class="era-fact">
+                <i class="bi bi-geo-alt"></i>
+                <span>العاصمة</span>
+                <strong>{{ state.capital }}</strong>
+            </div>
+
+            <div class="era-fact">
+                <i class="bi bi-person-badge"></i>
+                <span>المؤسس</span>
+                <strong>{{ state.founder }}</strong>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- RULERS SECTION -->
+<section class="era-rulers" id="rulers">
+    <div class="container">
+
+        <div class="era-section-heading">
+            <span>LEADERS THROUGH HISTORY</span>
+
+            <h2>
+                {% if era == 'third' %}
+                    ملوك المملكة العربية السعودية
+                {% else %}
+                    حكام {{ state.title }}
+                {% endif %}
+            </h2>
+
+            <p>
+                تعرّف على القادة الذين ساهموا
+                في تشكيل تاريخ الدولة.
+            </p>
+        </div>
+
+        <div class="rulers-grid">
+
+            {% for ruler in rulers %}
+
+            <a
+                href="{% url 'ruler_detail' ruler.slug %}"
+                class="ruler-card ruler-card-link"
+                aria-label="اقرأ سيرة {{ ruler.name }}"
+            >
+
+                <div class="ruler-image">
+
+                    <img
+                        src="{% static ruler.image %}"
+                        alt="{{ ruler.name }}"
+                        loading="lazy"
+                    >
+
+                    <span class="ruler-number">
+                        {{ forloop.counter|stringformat:"02d" }}
+                    </span>
+
+                </div>
+
+                <div class="ruler-content">
+
+                    <span class="ruler-period">
+                        {{ ruler.period }}
+                    </span>
+
+                    <h3>{{ ruler.name }}</h3>
+
+                    <p>{{ ruler.description }}</p>
+
+                    <span class="ruler-read-more">
+                        اقرأ السيرة
+                        <i class="bi bi-arrow-up-left"></i>
+                    </span>
+
+                </div>
+
+            </a>
+
+            {% empty %}
+
+            <p>لا توجد بيانات حكام متاحة لهذه الدولة.</p>
+
+            {% endfor %}
+
+        </div>
+
+    </div>
+</section>
+
+
+<!-- PREVIOUS / NEXT STATE -->
+<section class="states-navigation">
+    <div class="container">
+
+        <div class="states-navigation-heading">
+            <span class="section-kicker">
+                CONTINUE EXPLORING
+            </span>
+
+            <h2>واصل رحلتك عبر التاريخ</h2>
+
+            <p>
+                انتقل بين مراحل الدولة السعودية
+                واكتشف تاريخ كل مرحلة.
+            </p>
+        </div>
+
+        <nav class="states-navigation-grid"
+             aria-label="التنقل بين الدول السعودية">
+
+            {% if previous_state %}
+
+            <a
+                href="{% url 'state_detail' previous_state.slug %}"
+                class="state-navigation-card"
+            >
+                <span class="state-navigation-label">
+                    <i class="bi bi-arrow-right"></i>
+                    الدولة السابقة
+                </span>
+
+                <strong>{{ previous_state.title }}</strong>
+            </a>
+
+            {% else %}
+
+            <div class="state-navigation-placeholder">
+                <span>أنت في بداية الرحلة التاريخية</span>
+            </div>
+
+            {% endif %}
+
+
+            {% if next_state %}
+
+            <a
+                href="{% url 'state_detail' next_state.slug %}"
+                class="state-navigation-card"
+            >
+                <span class="state-navigation-label">
+                    الدولة التالية
+                    <i class="bi bi-arrow-left"></i>
+                </span>
+
+                <strong>{{ next_state.title }}</strong>
+            </a>
+
+            {% else %}
+
+            <div class="state-navigation-placeholder">
+                <span>وصلت إلى أحدث مراحل الدولة السعودية</span>
+            </div>
+
+            {% endif %}
+
+        </nav>
+
+        <a href="{% url 'home' %}" class="states-home-link">
+            <i class="bi bi-grid-3x3-gap"></i>
+            عرض جميع الدول
+        </a>
+
+    </div>
+</section>
+
+{% endblock %}

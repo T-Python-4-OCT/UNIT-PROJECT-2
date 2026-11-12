@@ -1,0 +1,508 @@
+
+/* ================================================
+   THE KINGDOM — SECOND SAUDI STATE
+   Historical book powered by StPageFlip
+================================================ */
+
+/* ==========================================
+   عارض الوثائق
+========================================== */
+
+.revival-book-ready > .revival-document-toolbar,
+.revival-book-ready > .revival-paper,
+.revival-book-ready > .revival-document-controls {
+    display: none !important;
+}
+
+.revival-document-viewer.revival-book-ready {
+    min-width: 0;
+    overflow: visible;
+    background: transparent;
+    box-shadow: none;
+    perspective: none;
+}
+
+.revival-page .revival-archive-layout {
+    display: grid;
+    grid-template-columns:
+        minmax(250px, .65fr)
+        minmax(0, 1.8fr);
+    align-items: start;
+    gap: 24px;
+}
+
+/* ==========================================
+   هيكل الكتاب
+========================================== */
+
+.rb-book {
+    --book-green: #163d32;
+    --book-gold: #b18a51;
+    --book-paper: #f1e5cc;
+    --book-ink: #27382e;
+
+    width: 100%;
+    min-width: 0;
+    color: var(--book-ink);
+}
+
+.rb-book-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 12px;
+
+    min-height: 52px;
+    padding: 12px 16px;
+
+    background: var(--book-green);
+    color: #e7d4ad;
+
+    font-size: 12px;
+    font-weight: 900;
+}
+
+/* ==========================================
+   مساحة التقليب
+========================================== */
+
+.rb-flip-stage {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    width: 100%;
+    min-width: 0;
+    min-height: 535px;
+
+    padding: 10px 0 20px;
+
+    background: #d6c6a6;
+
+    box-shadow:
+        0 8px 0 -3px #c2af89,
+        0 16px 0 -8px #aa916b,
+        0 28px 55px rgba(20, 31, 24, .16);
+}
+
+.rb-flip-root {
+    width: 100%;
+    min-width: 0;
+    margin: 0 auto;
+}
+
+/* ==========================================
+   صفحات المكتبة
+========================================== */
+
+.rb-flip-page {
+    position: relative;
+    overflow: hidden;
+
+    width: 100%;
+    height: 100%;
+
+    background:
+        radial-gradient(
+            ellipse at center,
+            transparent 45%,
+            rgba(100, 74, 40, .09)
+        ),
+        var(--book-paper);
+
+    border: 1px solid rgba(101, 75, 40, .16);
+
+    box-shadow:
+        inset 0 0 22px rgba(99, 72, 35, .05);
+}
+
+.rb-paper-content {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+
+    width: 100%;
+    height: 100%;
+
+    min-height: 0;
+    padding: 25px 23px;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    overscroll-behavior: contain;
+    scrollbar-width: thin;
+    scrollbar-color: #b9a27c transparent;
+
+    direction: rtl;
+    text-align: right;
+}
+
+/* ==========================================
+   رأس الوثيقة
+========================================== */
+
+.rb-document-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 8px;
+
+    min-height: 30px;
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #c9b996;
+
+    color: #88714d;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+/* ==========================================
+   ختم السيفين والنخلة
+========================================== */
+
+.rb-document-seal {
+    position: absolute;
+    left: 18px;
+    top: 64px;
+
+    display: grid;
+    place-items: center;
+
+    width: 76px;
+    height: 76px;
+
+    border: 3px double rgba(126, 76, 53, .3);
+    border-radius: 50%;
+
+    background: rgba(126, 76, 53, .025);
+
+    opacity: .75;
+    pointer-events: none;
+}
+
+.rb-document-seal img {
+    display: block;
+    width: 50px;
+    height: 50px;
+
+    object-fit: contain;
+    opacity: .8;
+}
+
+/* ==========================================
+   نصوص الوثيقة
+========================================== */
+
+.rb-document-category {
+    display: block;
+    align-self: flex-start;
+
+    margin-top: 50px;
+
+    color: #98723c;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.rb-document-title {
+    margin: 17px 0 22px;
+
+    color: #1c352b;
+    font-size: clamp(21px, 2vw, 31px);
+    font-weight: 900;
+    line-height: 1.55;
+
+    overflow-wrap: anywhere;
+}
+
+.rb-document-rule {
+    flex: 0 0 auto;
+
+    width: 54px;
+    height: 3px;
+    margin-bottom: 26px;
+
+    background: var(--book-gold);
+}
+
+.rb-document-description {
+    margin: 0 0 26px;
+
+    color: #5b594f;
+    font-size: 15px;
+    line-height: 2.15;
+
+    overflow-wrap: anywhere;
+}
+
+.rb-document-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+
+    margin-top: auto;
+    padding-top: 15px;
+
+    border-top: 1px solid #c9b996;
+
+    color: #8a785a;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+/* ==========================================
+   صفحات المشاهد التاريخية
+========================================== */
+
+.rb-visual-page {
+    background:
+        linear-gradient(
+            145deg,
+            rgba(196, 168, 116, .12),
+            transparent 55%
+        ),
+        #eaddc2;
+}
+
+.rb-visual-content {
+    text-align: center;
+    align-items: stretch;
+}
+
+.rb-visual-kicker {
+    display: block;
+    margin-top: 75px;
+
+    color: #8e6b3e;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.rb-visual-year {
+    display: grid;
+    place-items: center;
+
+    flex: 1;
+
+    min-height: 155px;
+    margin: 18px 0;
+
+    color: rgba(127, 91, 45, .25);
+    font-size: clamp(65px, 6.5vw, 105px);
+    font-weight: 900;
+    letter-spacing: -3px;
+}
+
+.rb-visual-title {
+    margin: 12px 0 18px;
+
+    color: #234b3e;
+    font-size: clamp(22px, 2.4vw, 34px);
+    font-weight: 900;
+    line-height: 1.55;
+}
+
+.rb-visual-description {
+    margin-bottom: 22px;
+    color: #756b5b;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.rb-visual-image {
+    margin: 22px 0 12px;
+    padding: 6px;
+
+    border: 1px solid #c4ac84;
+    background: #f6ebd4;
+}
+
+.rb-visual-image img {
+    display: block;
+
+    width: 100%;
+    height: 190px;
+
+    object-fit: cover;
+    filter: sepia(.25) saturate(.8);
+}
+
+.rb-visual-image figcaption {
+    margin: 10px 0 0;
+
+    color: #74664e;
+    font-size: 11px;
+    line-height: 1.8;
+}
+
+/* ==========================================
+   التحكم والعداد
+========================================== */
+
+.rb-book-toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+
+    min-height: 78px;
+    padding: 16px 20px;
+
+    background: var(--book-green);
+}
+
+.rb-book-control {
+    min-width: 98px;
+    min-height: 43px;
+
+    padding: 10px 18px;
+
+    border: 1px solid #839c90;
+    background: transparent;
+
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+
+    cursor: pointer;
+    transition:
+        background .2s ease,
+        color .2s ease;
+}
+
+.rb-book-control:hover:not(:disabled) {
+    background: #e0be83;
+    color: #163d32;
+}
+
+.rb-book-control:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+.rb-book-counter {
+    display: inline-block;
+
+    min-width: 75px;
+    color: #e7c78c;
+
+    font-size: 14px;
+    font-weight: 900;
+    text-align: center;
+
+    unicode-bidi: isolate;
+}
+
+.rb-book-hint {
+    margin: 16px 0 0;
+
+    color: #716c61;
+    font-size: 12px;
+    line-height: 2;
+
+    text-align: center;
+}
+
+.rb-library-warning {
+    padding: 20px;
+    color: #8b352a;
+    background: #f2e5dd;
+}
+
+/* ==========================================
+   توافق الشاشات
+========================================== */
+
+@media (max-width: 1150px) {
+
+    .revival-page .revival-archive-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .revival-page .revival-archive-list {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 650px) {
+
+    .revival-page .revival-archive-list {
+        grid-template-columns: 1fr;
+    }
+
+    .rb-flip-stage {
+        min-height: 365px;
+        padding: 8px 0 15px;
+    }
+
+    .rb-book-heading {
+        font-size: 11px;
+    }
+
+    .rb-paper-content {
+        padding: 17px 14px;
+    }
+
+    .rb-document-category {
+        margin-top: 35px;
+    }
+
+    .rb-document-title {
+        font-size: 23px;
+    }
+
+    .rb-document-description {
+        font-size: 13px;
+        line-height: 1.95;
+    }
+
+    .rb-document-seal {
+        top: 54px;
+        left: 12px;
+        width: 57px;
+        height: 57px;
+    }
+
+    .rb-document-seal img {
+        width: 36px;
+        height: 36px;
+    }
+
+    .rb-visual-kicker {
+        margin-top: 54px;
+    }
+
+    .rb-visual-image img {
+        height: 140px;
+    }
+
+    .rb-book-toolbar {
+        gap: 12px;
+        padding: 13px 8px;
+    }
+
+    .rb-book-control {
+        min-width: 75px;
+        padding: 9px 11px;
+        font-size: 12px;
+    }
+
+    .rb-book-counter {
+        min-width: 60px;
+        font-size: 12px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .rb-book-control {
+        transition: none;
+    }
+}

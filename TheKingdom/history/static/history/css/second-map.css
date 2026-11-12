@@ -1,0 +1,375 @@
+
+/* ==========================================
+   الدولة السعودية الثانية
+   الأرشيف الجغرافي والخريطة التاريخية
+========================================== */
+
+.revival-map-section {
+    padding: 125px 0;
+    background: #e5dfd1;
+    color: #252b2a;
+}
+
+/* عنوان القسم */
+
+.revival-map-heading {
+    display: grid;
+    grid-template-columns: 1.15fr .65fr;
+    align-items: end;
+    gap: 70px;
+    margin-bottom: 48px;
+}
+
+.revival-map-kicker {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: #99713e;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.revival-map-heading h2 {
+    margin: 0;
+    color: #253b31;
+    font-size: clamp(43px, 5.6vw, 82px);
+    font-weight: 900;
+    line-height: 1.35;
+}
+
+.revival-map-heading h2 em {
+    display: block;
+    color: #b28c54;
+    font-style: normal;
+}
+
+.revival-map-heading-description p {
+    margin: 20px 0 0;
+    color: #706a5d;
+    font-size: 17px;
+    line-height: 2.1;
+}
+
+.revival-map-decoration {
+    display: block;
+    width: 70px;
+    height: 3px;
+    background: #b28c54;
+}
+
+/* إطار الوثيقة */
+
+.revival-map-document {
+    padding: 16px;
+    border: 1px solid #c3b69c;
+    background: #f3ead6;
+    box-shadow:
+        0 20px 55px rgba(32, 37, 30, .08),
+        0 4px 10px rgba(32, 37, 30, .04);
+}
+
+.revival-map-document-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 12px 12px 24px;
+    color: #685c49;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.revival-map-document-header i {
+    margin-left: 8px;
+    color: #a67a41;
+}
+
+/* الخريطة القابلة للضغط */
+
+.revival-map-view {
+    position: relative;
+    display: block;
+    width: 100%;
+    padding: 0;
+    overflow: hidden;
+    border: 0;
+    background: #e2d6bd;
+    cursor: zoom-in;
+}
+
+.revival-map-view img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 690px;
+    object-fit: contain;
+    transition: transform .6s ease;
+}
+
+.revival-map-view:hover img {
+    transform: scale(1.025);
+}
+
+.revival-map-zoom {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    min-height: 46px;
+    padding: 12px 18px;
+    background: rgba(18, 48, 39, .94);
+    color: #fff;
+    font-size: 13px;
+    font-weight: 800;
+    transition: background .2s ease;
+}
+
+.revival-map-view:hover .revival-map-zoom {
+    background: #99713e;
+}
+
+/* بيانات الخريطة */
+
+.revival-map-document-footer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    padding: 24px 12px 12px;
+}
+
+.revival-map-document-footer > div {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-right: 17px;
+    border-right: 2px solid #c7b895;
+}
+
+.revival-map-document-footer span {
+    color: #8a785b;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.revival-map-document-footer strong {
+    color: #263d34;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+/* الشرح أسفل الخريطة */
+
+.revival-map-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 25px;
+}
+
+.revival-map-bottom p {
+    max-width: 720px;
+    margin: 0;
+    color: #756e60;
+    font-size: 13px;
+    line-height: 2;
+}
+
+.revival-map-bottom p i {
+    margin-left: 7px;
+    color: #a47a45;
+}
+
+.revival-map-bottom a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    flex-shrink: 0;
+    color: #245648;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.revival-map-bottom a:hover {
+    color: #99713e;
+}
+
+/* ==========================================
+   نافذة تكبير الخريطة
+========================================== */
+
+.revival-map-dialog {
+    position: fixed;
+    inset: 0;
+    width: min(96vw, 1500px);
+    max-width: none;
+    max-height: 94dvh;
+    margin: auto;
+    padding: 0;
+    overflow: auto;
+    border: 1px solid rgba(255, 255, 255, .2);
+    background: #efe6d5;
+    color: #263d34;
+    box-shadow: 0 30px 100px rgba(0, 0, 0, .45);
+}
+
+.revival-map-dialog:not([open]) {
+    display: none;
+}
+
+.revival-map-dialog::backdrop {
+    background: rgba(5, 19, 15, .91);
+    backdrop-filter: blur(8px);
+}
+
+.revival-map-dialog-inner {
+    padding: 22px;
+}
+
+.revival-map-dialog-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.revival-map-dialog-header span {
+    color: #987246;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.revival-map-dialog-header h2 {
+    margin: 7px 0 0;
+    color: #263d34;
+    font-size: clamp(20px, 2.6vw, 34px);
+    font-weight: 900;
+}
+
+.revival-map-dialog-header button {
+    display: grid;
+    place-items: center;
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    border: 0;
+    background: #183b32;
+    color: #fff;
+    cursor: pointer;
+}
+
+.revival-map-dialog-header button:hover {
+    background: #99713e;
+}
+
+.revival-map-dialog-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 240px;
+    background: #d9cfbb;
+}
+
+.revival-map-dialog-image img {
+    display: block;
+    max-width: 100%;
+    max-height: calc(94dvh - 175px);
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+.revival-map-dialog-caption {
+    margin: 17px 0 0;
+    color: #736c5d;
+    font-size: 13px;
+    line-height: 1.9;
+    text-align: center;
+}
+
+/* ==========================================
+   التوافق مع الشاشات
+========================================== */
+
+@media (max-width: 850px) {
+
+    .revival-map-heading {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .revival-map-bottom {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .revival-map-section {
+        padding: 75px 0;
+    }
+
+    .revival-map-heading h2 {
+        font-size: 43px;
+    }
+
+    .revival-map-heading-description p {
+        font-size: 15px;
+    }
+
+    .revival-map-document {
+        padding: 7px;
+    }
+
+    .revival-map-document-header {
+        font-size: 11px;
+        padding: 12px 8px;
+    }
+
+    .revival-map-zoom {
+        bottom: 10px;
+        left: 10px;
+        gap: 7px;
+        min-height: 38px;
+        padding: 9px 12px;
+        font-size: 11px;
+    }
+
+    .revival-map-document-footer {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .revival-map-document-footer strong {
+        font-size: 16px;
+    }
+
+    .revival-map-dialog {
+        width: 98vw;
+        max-height: 95dvh;
+    }
+
+    .revival-map-dialog-inner {
+        padding: 12px;
+    }
+
+    .revival-map-dialog-header button {
+        width: 40px;
+        height: 40px;
+    }
+
+    .revival-map-dialog-image img {
+        max-height: calc(95dvh - 150px);
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .revival-map-view img {
+        transition: none;
+    }
+}

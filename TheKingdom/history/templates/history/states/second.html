@@ -1,0 +1,1123 @@
+
+{% extends 'history/base.html' %}
+{% load static %}
+
+{% block title %}الدولة السعودية الثانية | العودة إلى الحكم{% endblock %}
+
+{% block extra_head %}
+
+<meta
+    name="description"
+    content="رحلة تفاعلية في تاريخ الدولة السعودية الثانية من عام ١٨٢٤م إلى عام ١٨٩١م."
+>
+
+<link
+    rel="stylesheet"
+    href="{% static 'history/css/second.css' %}"
+>
+
+<link
+    rel="stylesheet"
+    href="{% static 'history/css/second-map.css' %}"
+>
+
+<style>
+    /* ==========================================
+       صور الوثائق الاختيارية
+    ========================================== */
+
+    .revival-page .revival-paper-image {
+        margin: 24px 0 28px;
+        padding: 8px;
+        border: 1px solid #c5b58f;
+        background: #f7eedb;
+    }
+
+    .revival-page .revival-paper-image[hidden] {
+        display: none !important;
+    }
+
+    .revival-page .revival-paper-image img {
+        display: block;
+        width: 100%;
+        max-height: 320px;
+        object-fit: cover;
+        filter: sepia(.28) saturate(.75);
+    }
+
+    .revival-page .revival-paper-image figcaption {
+        margin-top: 11px;
+        color: #74664e;
+        font-size: 12px;
+        line-height: 1.9;
+        text-align: center;
+    }
+
+    .revival-page .revival-paper-image figcaption:empty {
+        display: none;
+    }
+
+    /* ==========================================
+       ختم السيفين والنخلة
+    ========================================== */
+
+    .revival-page .revival-paper-seal {
+        position: absolute;
+        left: 30px;
+        top: 90px;
+        display: grid;
+        place-items: center;
+        width: 115px;
+        height: 115px;
+        border: 3px double rgba(126, 76, 53, .35);
+        border-radius: 50%;
+        background: rgba(126, 76, 53, .035);
+        transform: none;
+        pointer-events: none;
+    }
+
+    .revival-page .revival-paper-seal img {
+        display: block;
+        width: 75px;
+        height: 75px;
+        object-fit: contain;
+        opacity: .75;
+        filter: none;
+    }
+
+    /* ==========================================
+       البنر الأول — فجر العودة
+    ========================================== */
+
+    .revival-page .revival-hero-photo {
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    /*
+       التدرج يحافظ على وضوح النصوص
+       الموجودة في جهة اليمين.
+    */
+
+    .revival-page .revival-hero-overlay {
+        background: linear-gradient(
+            270deg,
+            rgba(13, 28, 22, .86) 0%,
+            rgba(13, 28, 22, .68) 38%,
+            rgba(13, 28, 22, .28) 75%,
+            rgba(13, 28, 22, .12) 100%
+        );
+    }
+
+    /* ==========================================
+       البنر الثاني — قلب الرياض
+    ========================================== */
+
+    .revival-page .revival-capital-photo {
+        background-position: center center;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    .revival-page .revival-capital-shade {
+        background: linear-gradient(
+            270deg,
+            rgba(17, 34, 27, .78),
+            rgba(17, 34, 27, .46) 48%,
+            rgba(17, 34, 27, .30)
+        );
+    }
+
+    /* ==========================================
+       البنر الثالث — غروب المرحلة
+
+       صورة مستقلة للخاتمة مع تدرج
+       يمنع ضياع العناوين والأزرار.
+    ========================================== */
+
+    .revival-page .revival-ending {
+        position: relative;
+        isolation: isolate;
+        overflow: hidden;
+
+        background-image:
+            linear-gradient(
+                180deg,
+                rgba(18, 32, 25, .70) 0%,
+                rgba(18, 32, 25, .86) 65%,
+                rgba(18, 32, 25, .94) 100%
+            ),
+            url("{% static 'history/images/second-state/second-ending.webp' %}");
+
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
+    }
+
+    .revival-page .revival-ending::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: radial-gradient(
+            ellipse at center,
+            transparent 15%,
+            rgba(8, 19, 14, .38) 100%
+        );
+        pointer-events: none;
+    }
+
+    .revival-page .revival-ending-inner {
+        position: relative;
+        z-index: 1;
+    }
+
+    .revival-page .revival-ending h2 {
+        color: #f6f0e6;
+    }
+
+    .revival-page .revival-ending h2 em {
+        color: #dab477;
+    }
+
+    .revival-page .revival-ending-inner > p {
+        color: #e5e1d7;
+    }
+
+    .revival-page .revival-ending-overline {
+        color: #dfb776;
+    }
+
+    /* الحفاظ على صورة الخاتمة في الوضع الليلي
+       بدل أن يستبدلها تدرج dark-theme.css */
+
+    html.dark .revival-page .revival-ending {
+        background-image:
+            linear-gradient(
+                180deg,
+                rgba(18, 32, 25, .70) 0%,
+                rgba(18, 32, 25, .86) 65%,
+                rgba(18, 32, 25, .94) 100%
+            ),
+            url("{% static 'history/images/second-state/second-ending.webp' %}");
+    }
+
+    html.dark .revival-page .revival-ending h2 {
+        color: #f6f0e6;
+    }
+
+    html.dark .revival-page .revival-ending h2 em {
+        color: #dab477;
+    }
+
+    /* ==========================================
+       تجاوب الصور مع الشاشات
+    ========================================== */
+
+    @media (max-width: 600px) {
+
+        .revival-page .revival-paper-seal {
+            width: 80px;
+            height: 80px;
+        }
+
+        .revival-page .revival-paper-seal img {
+            width: 52px;
+            height: 52px;
+        }
+
+        .revival-page .revival-hero-photo {
+            background-position: 45% center;
+        }
+
+        .revival-page .revival-capital-photo {
+            background-position: 60% center;
+        }
+
+        .revival-page .revival-ending {
+            background-position: 40% center;
+        }
+    }
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="revival-page" id="revivalPage" dir="rtl">
+
+    <div
+        class="revival-reading-progress"
+        id="revivalProgress"
+        aria-hidden="true">
+    </div>
+
+
+    <!-- ==========================================
+         ١. فجر العودة — ١٨٢٤م
+    ========================================== -->
+
+    <header class="revival-hero" id="revival-top">
+
+        <div
+            class="revival-hero-photo"
+            style="background-image: url('{% static 'history/images/second-state/second-revival.webp' %}');">
+        </div>
+
+        <div class="revival-hero-overlay"></div>
+
+        <div class="container revival-hero-inner">
+
+            <div class="revival-hero-meta">
+                <span>الأرشيف التاريخي السعودي</span>
+                <span>الفصل الثاني من ثلاثة فصول</span>
+            </div>
+
+            <div class="revival-hero-content">
+
+                <span class="revival-eyebrow">
+                    الفصل الثاني من تاريخ الدولة السعودية
+                </span>
+
+                <div class="revival-hero-line"></div>
+
+                <h1>
+                    العودة
+                    <span>إلى الحكم.</span>
+                </h1>
+
+                <p class="revival-hero-subtitle">
+                    الدولة السعودية الثانية
+                </p>
+
+                <p class="revival-hero-description">
+                    بعد سقوط الدرعية، لم تنتهِ الحكاية.
+                    من الرياض، أعاد الإمام تركي بن عبدالله
+                    تأسيس الدولة السعودية عام ١٨٢٤م،
+                    لتبدأ مرحلة جديدة من الاستقرار والتحديات.
+                </p>
+
+                <div class="revival-hero-actions">
+
+                    <a
+                        href="#revival-introduction"
+                        class="revival-button revival-button-main">
+
+                        افتح الأرشيف
+                        <i class="bi bi-arrow-down"></i>
+
+                    </a>
+
+                    <a
+                        href="#revival-archive"
+                        class="revival-button revival-button-ghost">
+
+                        استكشف الوثائق
+                        <i class="bi bi-arrow-left"></i>
+
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="revival-hero-bottom">
+                <span>١٢٤٠هـ — ١٣٠٩هـ</span>
+                <span>١٨٢٤م — ١٨٩١م</span>
+                <span>العاصمة: الرياض</span>
+            </div>
+
+        </div>
+
+        <div
+            class="revival-hero-watermark"
+            aria-hidden="true">
+            ٠٢
+        </div>
+
+    </header>
+
+
+    <!-- ==========================================
+         ٢. مقدمة الحكاية
+    ========================================== -->
+
+    <section
+        class="revival-introduction revival-section"
+        id="revival-introduction">
+
+        <div class="container">
+
+            <div class="revival-intro-grid">
+
+                <aside class="revival-intro-index revival-reveal">
+
+                    <span>الملف التاريخي</span>
+
+                    <strong>٠١</strong>
+
+                    <p>إعادة التأسيس</p>
+
+                    <div class="revival-index-line"></div>
+
+                    <small>
+                        الرياض
+                        <br>
+                        عام ١٨٢٤م
+                    </small>
+
+                </aside>
+
+                <div class="revival-intro-story revival-reveal">
+
+                    <span class="revival-section-kicker">
+                        عودة الدولة
+                    </span>
+
+                    <h2>
+                        من رماد النهاية
+                        <em>نهضت بداية جديدة.</em>
+                    </h2>
+
+                    <p class="revival-lead">
+                        شكّل سقوط الدرعية عام ١٨١٨م نهاية
+                        الدولة السعودية الأولى، لكنه لم يُنهِ
+                        مسيرة الدولة السعودية.
+                    </p>
+
+                    <p>
+                        وبعد سنوات من الاضطرابات، تمكّن
+                        الإمام تركي بن عبدالله من إعادة
+                        تأسيس الدولة السعودية سنة ١٨٢٤م،
+                        واتخذ مدينة الرياض عاصمة جديدة للحكم.
+                    </p>
+
+                    <p>
+                        استمرت الدولة السعودية الثانية حتى
+                        عام ١٨٩١م، وشهد تاريخها مراحل من
+                        إعادة البناء وتوطيد الحكم، إلى جانب
+                        تحديات سياسية وصراعات داخلية.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="revival-stat-grid revival-reveal">
+
+                <div class="revival-stat">
+
+                    <span>بداية الدولة</span>
+                    <strong>١٨٢٤</strong>
+                    <small>ميلادي</small>
+
+                </div>
+
+                <div class="revival-stat">
+
+                    <span>نهاية الدولة</span>
+                    <strong>١٨٩١</strong>
+                    <small>ميلادي</small>
+
+                </div>
+
+                <div class="revival-stat">
+
+                    <span>العاصمة</span>
+
+                    <strong class="revival-stat-word">
+                        {{ state.capital }}
+                    </strong>
+
+                    <small>مركز الحكم</small>
+
+                </div>
+
+                <div class="revival-stat">
+
+                    <span>المؤسس</span>
+
+                    <strong class="revival-stat-word">
+                        الإمام تركي
+                    </strong>
+
+                    <small>بن عبدالله</small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         ٣. الرياض — قلب الدولة الجديدة
+    ========================================== -->
+
+    <section
+        class="revival-capital revival-section"
+        id="revival-capital">
+
+        <div
+            class="revival-capital-photo"
+            style="background-image: url('{% static 'history/images/second-state/second-capital.webp' %}');">
+        </div>
+
+        <div class="revival-capital-shade"></div>
+
+        <div class="container revival-capital-inner">
+
+            <div class="revival-capital-heading revival-reveal">
+
+                <span>الملف ٠٢ — العاصمة</span>
+
+                <h2>
+                    الرياض.
+                    <em>قلب الدولة الجديدة.</em>
+                </h2>
+
+            </div>
+
+            <div class="revival-capital-document revival-reveal">
+
+                <div class="revival-document-top">
+                    <span>سجل تاريخي</span>
+                    <span>١٢٤٠هـ</span>
+                </div>
+
+                <div class="revival-document-stamp">
+                    الرياض
+                </div>
+
+                <h3>لماذا أصبحت الرياض العاصمة؟</h3>
+
+                <p>
+                    بعد ما شهدته الدرعية من دمار في نهاية
+                    الدولة الأولى، اتخذ الإمام تركي بن عبدالله
+                    الرياض عاصمة للدولة السعودية الثانية.
+                    وأصبحت مركزًا للحكم والإدارة في هذه المرحلة.
+                </p>
+
+                <div class="revival-document-bottom">
+                    <span>الموقع: نجد</span>
+                    <span>العاصمة: الرياض</span>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         ٤. الجغرافيا التاريخية
+    ========================================== -->
+
+    <section
+        class="revival-map-section revival-section"
+        id="revival-map">
+
+        <div class="container">
+
+            <div class="revival-map-heading revival-reveal">
+
+                <div class="revival-map-heading-main">
+
+                    <span class="revival-map-kicker">
+                        الملف ٠٣ — الجغرافيا التاريخية
+                    </span>
+
+                    <h2>
+                        من الرياض
+                        <em>امتد النفوذ.</em>
+                    </h2>
+
+                </div>
+
+                <div class="revival-map-heading-description">
+
+                    <span
+                        class="revival-map-decoration"
+                        aria-hidden="true">
+                    </span>
+
+                    <p>
+                        اتخذت الدولة السعودية الثانية
+                        الرياض مركزًا للحكم، وامتد نفوذها
+                        عبر مناطق من الجزيرة العربية
+                        خلال مراحل مختلفة من تاريخها.
+                    </p>
+
+                </div>
+
+            </div>
+
+            <div class="revival-map-document revival-reveal">
+
+                <div class="revival-map-document-header">
+
+                    <span>
+                        <i class="bi bi-map"></i>
+                        سجل جغرافي
+                    </span>
+
+                    <span>الدولة السعودية الثانية</span>
+
+                </div>
+
+                <button
+                    type="button"
+                    class="revival-map-view"
+                    id="revivalMapOpen"
+                    aria-label="تكبير خريطة الدولة السعودية الثانية">
+
+                    <img
+                        src="{% static 'history/images/second-state/second-state-map.webp' %}"
+                        alt="خريطة توضيحية للامتداد الجغرافي للدولة السعودية الثانية"
+                        loading="lazy">
+
+                    <span class="revival-map-zoom">
+
+                        <i class="bi bi-arrows-fullscreen"></i>
+
+                        عرض الخريطة بحجم أكبر
+
+                    </span>
+
+                </button>
+
+                <div class="revival-map-document-footer">
+
+                    <div>
+
+                        <span>العاصمة التاريخية</span>
+                        <strong>الرياض</strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>الفترة الزمنية</span>
+                        <strong>١٨٢٤ — ١٨٩١م</strong>
+
+                    </div>
+
+                    <div>
+
+                        <span>نوع الوثيقة</span>
+                        <strong>خريطة توضيحية</strong>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="revival-map-bottom revival-reveal">
+
+                <p>
+                    <i class="bi bi-info-circle"></i>
+                    خريطة توضيحية للامتداد التاريخي؛
+                    لا تمثل حدودًا سياسية ثابتة،
+                    وقد اختلف نطاق النفوذ باختلاف الفترة.
+                </p>
+
+                <a href="#revival-archive">
+
+                    انتقل إلى الوثائق التاريخية
+                    <i class="bi bi-arrow-left"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         ٥. الأرشيف التاريخي التفاعلي
+    ========================================== -->
+
+    <section
+        class="revival-archive revival-section"
+        id="revival-archive">
+
+        <div class="container">
+
+            <div class="revival-archive-header revival-reveal">
+
+                <div>
+
+                    <span class="revival-section-kicker">
+                        السجل الزمني
+                    </span>
+
+                    <h2>
+                        افتح صفحات
+                        <em>التاريخ.</em>
+                    </h2>
+
+                </div>
+
+                <p>
+                    اختر إحدى المحطات التاريخية لقراءة
+                    الوثيقة المرتبطة بها، واكتشاف الأحداث
+                    التي شكّلت مسار الدولة السعودية الثانية.
+                </p>
+
+            </div>
+
+            {% if state.timeline_events %}
+
+            <div class="revival-archive-layout">
+
+                <div
+                    class="revival-archive-list revival-reveal"
+                    aria-label="الوثائق التاريخية">
+
+                    {% for event in state.timeline_events %}
+
+                    <button
+                        type="button"
+                        class="revival-archive-item {% if forloop.first %}is-active{% endif %}"
+                        data-index="{{ forloop.counter0 }}"
+                        data-year="{{ event.year }}"
+                        data-title="{{ event.title }}"
+                        data-description="{{ event.description }}"
+                        data-label="{{ event.label }}"
+                        data-image="{% if event.image %}{% static event.image %}{% endif %}"
+                        data-alt="{{ event.alt|default:'' }}"
+                        data-image-note="{{ event.image_note|default:'' }}"
+                        aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}">
+
+                        <span class="revival-archive-number">
+                            {{ forloop.counter }}
+                        </span>
+
+                        <span class="revival-archive-item-text">
+
+                            <strong>{{ event.label }}</strong>
+
+                            <small>{{ event.year }}م</small>
+
+                        </span>
+
+                        <i
+                            class="bi bi-arrow-up-left"
+                            aria-hidden="true">
+                        </i>
+
+                    </button>
+
+                    {% endfor %}
+
+                </div>
+
+                <article
+                    class="revival-document-viewer revival-reveal"
+                    id="revivalDocumentViewer"
+                    aria-label="عرض الوثيقة التاريخية">
+
+                    <div class="revival-document-toolbar">
+
+                        <span>
+
+                            <i class="bi bi-folder2-open"></i>
+
+                            وثائق الدولة السعودية الثانية
+
+                        </span>
+
+                        <span
+                            id="revivalDocumentCount"
+                            dir="ltr">
+                            ٠١ / ٠٨
+                        </span>
+
+                    </div>
+
+                    <div class="revival-paper">
+
+                        <div class="revival-paper-head">
+
+                            <span>وثيقة تاريخية</span>
+
+                            <span id="revivalPaperYear">
+                                {{ state.timeline_events.0.year }}م
+                            </span>
+
+                        </div>
+
+                        <!-- ختم السيفين والنخلة -->
+
+                        <div
+                            class="revival-paper-seal"
+                            aria-hidden="true">
+
+                            <img
+                                src="{% static 'history/images/second-state/saudi-emblem.png' %}"
+                                alt="">
+
+                        </div>
+
+                        <span
+                            class="revival-paper-category"
+                            id="revivalPaperLabel">
+                            {{ state.timeline_events.0.label }}
+                        </span>
+
+                        <h3 id="revivalPaperTitle">
+                            {{ state.timeline_events.0.title }}
+                        </h3>
+
+                        <div class="revival-paper-divider"></div>
+
+                        <!-- صورة الوثيقة الاختيارية -->
+
+                        <figure
+                            class="revival-paper-image"
+                            id="revivalPaperFigure"
+                            {% if not state.timeline_events.0.image %}hidden{% endif %}>
+
+                            <img
+                                id="revivalPaperImage"
+                                src="{% if state.timeline_events.0.image %}{% static state.timeline_events.0.image %}{% endif %}"
+                                alt="{{ state.timeline_events.0.alt|default:'' }}"
+                                loading="lazy">
+
+                            <figcaption id="revivalPaperImageNote">
+                                {{ state.timeline_events.0.image_note|default:'' }}
+                            </figcaption>
+
+                        </figure>
+
+                        <p id="revivalPaperDescription">
+                            {{ state.timeline_events.0.description }}
+                        </p>
+
+                        <div class="revival-paper-foot">
+
+                            <span>أرشيف تاريخ المملكة</span>
+                            <span>الدولة السعودية الثانية</span>
+
+                        </div>
+
+                    </div>
+
+                    <div class="revival-document-controls">
+
+                        <button
+                            type="button"
+                            id="revivalPrevious"
+                            aria-label="الوثيقة السابقة"
+                            disabled>
+
+                            <i class="bi bi-arrow-right"></i>
+
+                        </button>
+
+                        <span
+                            id="revivalDocumentPosition"
+                            dir="ltr">
+                            ٠١ / ٠٨
+                        </span>
+
+                        <button
+                            type="button"
+                            id="revivalNext"
+                            aria-label="الوثيقة التالية">
+
+                            <i class="bi bi-arrow-left"></i>
+
+                        </button>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            {% else %}
+
+            <p class="revival-empty">
+                لا توجد وثائق تاريخية مضافة بعد.
+            </p>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         ٦. أئمة الدولة السعودية الثانية
+    ========================================== -->
+
+    <section
+        class="revival-rulers revival-section"
+        id="revival-rulers">
+
+        <div class="container">
+
+            <div class="revival-rulers-head revival-reveal">
+
+                <div>
+
+                    <span class="revival-section-kicker">
+                        شخصيات من تاريخ الدولة
+                    </span>
+
+                    <h2>
+                        أئمة قادوا
+                        <em>المرحلة.</em>
+                    </h2>
+
+                </div>
+
+                <p>
+                    تعرّف على الأئمة الرئيسيين
+                    للدولة السعودية الثانية،
+                    وعلى أدوارهم في الحكم وإعادة البناء.
+                </p>
+
+            </div>
+
+            <div class="revival-rulers-list">
+
+                {% for ruler in rulers %}
+
+                <a
+                    href="{% url 'ruler_detail' ruler.slug %}"
+                    class="revival-ruler revival-reveal">
+
+                    <div class="revival-ruler-image">
+
+                        <img
+                            src="{% static ruler.image %}"
+                            alt="{{ ruler.name }}"
+                            loading="lazy">
+
+                    </div>
+
+                    <div class="revival-ruler-body">
+
+                        <span class="revival-ruler-number">
+                            الشخصية {{ forloop.counter }}
+                        </span>
+
+                        <h3>{{ ruler.name }}</h3>
+
+                        <span class="revival-ruler-period">
+                            {{ ruler.period }}
+                        </span>
+
+                        <p>{{ ruler.description }}</p>
+
+                    </div>
+
+                    <span class="revival-ruler-open">
+
+                        <i class="bi bi-arrow-up-left"></i>
+
+                    </span>
+
+                </a>
+
+                {% endfor %}
+
+            </div>
+
+            <p class="revival-historical-note">
+                يتناول الأرشيف أيضًا الإمام سعود بن فيصل
+                ودوره في التنافس على الحكم خلال القرن
+                التاسع عشر، ضمن وثيقة مستقلة لعام ١٨٧١م.
+                شهدت هذه المرحلة فترات متداخلة من التنافس
+                السياسي على الحكم.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         ٧. غروب المرحلة — ١٨٩١م
+    ========================================== -->
+
+    <section
+        class="revival-ending revival-section"
+        id="revival-ending">
+
+        <div class="container revival-ending-inner">
+
+            <span class="revival-ending-overline revival-reveal">
+                السجل الأخير — ١٨٩١م
+            </span>
+
+            <div class="revival-ending-year revival-reveal">
+                ١٨٩١
+            </div>
+
+            <h2 class="revival-reveal">
+                طُويت صفحة.
+                <em>وبدأ انتظار العودة.</em>
+            </h2>
+
+            <p class="revival-reveal">
+                انتهت الدولة السعودية الثانية عام ١٨٩١م
+                بعد سلسلة من الخلافات والصراعات،
+                وغادر الإمام عبدالرحمن بن فيصل الرياض.
+                وبعد نحو عقد، استرد الملك عبدالعزيز
+                الرياض عام ١٩٠٢م، لتبدأ مرحلة الدولة
+                السعودية الثالثة.
+            </p>
+
+            <div class="revival-ending-links revival-reveal">
+
+                <a
+                    href="{% url 'state_detail' 'third' %}"
+                    class="revival-button revival-button-main">
+
+                    اكتشف الدولة السعودية الثالثة
+
+                    <i class="bi bi-arrow-left"></i>
+
+                </a>
+
+                <a
+                    href="{% url 'state_detail' 'first' %}"
+                    class="revival-ending-back">
+
+                    العودة إلى الدولة الأولى
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         ٨. المصادر
+    ========================================== -->
+
+    <section class="revival-sources">
+
+        <div class="container">
+
+            <div>
+
+                <span>مراجع تاريخية</span>
+
+                <h2>مصادر معرفة القصة</h2>
+
+            </div>
+
+            <div class="revival-source-links">
+
+                <a
+                    href="https://www.mofa.gov.sa/ar/ksa/Pages/history.aspx"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    وزارة الخارجية — تاريخ المملكة
+
+                    <i class="bi bi-box-arrow-up-left"></i>
+
+                </a>
+
+                <a
+                    href="https://saudipedia.com/الدولة-السعودية-الثانية"
+                    target="_blank"
+                    rel="noopener noreferrer">
+
+                    سعوديبيديا — الدولة السعودية الثانية
+
+                    <i class="bi bi-box-arrow-up-left"></i>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         ٩. نافذة تكبير الخريطة
+    ========================================== -->
+
+    <dialog
+        class="revival-map-dialog"
+        id="revivalMapDialog"
+        aria-label="الخريطة التاريخية للدولة السعودية الثانية">
+
+        <div class="revival-map-dialog-inner">
+
+            <div class="revival-map-dialog-header">
+
+                <div>
+
+                    <span>الأرشيف الجغرافي</span>
+
+                    <h2>الدولة السعودية الثانية</h2>
+
+                </div>
+
+                <button
+                    type="button"
+                    id="revivalMapClose"
+                    aria-label="إغلاق الخريطة">
+
+                    <i class="bi bi-x-lg"></i>
+
+                </button>
+
+            </div>
+
+            <div class="revival-map-dialog-image">
+
+                <img
+                    src="{% static 'history/images/second-state/second-state-map.webp' %}"
+                    alt="خريطة توضيحية مكبرة لامتداد نفوذ الدولة السعودية الثانية">
+
+            </div>
+
+            <p class="revival-map-dialog-caption">
+                خريطة توضيحية للامتداد التاريخي للدولة
+                السعودية الثانية خلال مراحل مختلفة.
+            </p>
+
+        </div>
+
+    </dialog>
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_scripts %}
+
+<script
+    src="{% static 'history/js/second.js' %}"
+    defer>
+</script>
+
+<script
+    src="{% static 'history/js/second-map.js' %}"
+    defer>
+</script>
+
+{% endblock %}

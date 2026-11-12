@@ -1,0 +1,562 @@
+
+{% extends 'history/base.html' %}
+{% load static %}
+
+{% block title %}المملكة | حكاية ثلاثة قرون{% endblock %}
+
+{% block content %}
+
+<div class="kingdom-home" dir="rtl">
+
+    <!-- ======================================
+         HERO — INTRODUCTION
+    ======================================= -->
+
+    <section class="home-hero" id="homeHero">
+
+        <div
+            class="home-hero-background"
+            style="background-image: url('{% static 'history/images/first-state/diriyah-hero.webp' %}');"
+        ></div>
+
+        <div class="home-hero-overlay"></div>
+
+        <div class="container home-hero-inner">
+
+            <div class="home-hero-content">
+
+                <span class="home-eyebrow">
+
+                    <i class="bi bi-stars"></i>
+
+                    رحلة عبر التاريخ السعودي
+
+                </span>
+
+                <h1>
+                    المملكة
+                    <span>حكاية ثلاثة قرون.</span>
+                </h1>
+
+                <p>
+                    من الدرعية حيث بدأت الدولة السعودية الأولى،
+                    إلى الرياض التي شهدت إعادة تأسيس الدولة،
+                    ثم رحلة التوحيد وبناء المملكة العربية السعودية.
+                    اكتشف التاريخ من خلال مشاهد وقصص
+                    وخرائط وسير تفاعلية.
+                </p>
+
+                <div class="home-hero-actions">
+
+                    <a
+                        href="#statesJourney"
+                        class="home-primary-button"
+                    >
+                        ابدأ الرحلة
+                        <i class="bi bi-arrow-down-left"></i>
+                    </a>
+
+                    <a
+                        href="#discover"
+                        class="home-secondary-button"
+                    >
+                        تعرّف على المشروع
+                        <i class="bi bi-arrow-left"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="home-hero-stats">
+
+                <div>
+                    <strong>١٧٢٧م</strong>
+                    <span>بداية التأسيس</span>
+                </div>
+
+                <div>
+                    <strong>١٨٢٤م</strong>
+                    <span>قيام الدولة الثانية</span>
+                </div>
+
+                <div>
+                    <strong>١٩٣٢م</strong>
+                    <span>إعلان المملكة</span>
+                </div>
+
+            </div>
+
+        </div>
+
+        <a
+            href="#statesJourney"
+            class="home-hero-scroll"
+            aria-label="انتقل إلى الدول السعودية"
+        >
+            <span>اكتشف الفصول الثلاثة</span>
+            <i class="bi bi-arrow-down"></i>
+        </a>
+
+    </section>
+
+
+    <!-- ======================================
+         SECTION INTRO
+    ======================================= -->
+
+    <section class="home-journey-intro" id="statesJourney">
+
+        <div class="container">
+
+            <span class="home-section-label">
+                الفصول التاريخية
+            </span>
+
+            <h2>
+                ثلاث دول.
+                <em>حكاية وطن.</em>
+            </h2>
+
+            <p>
+                لكل مرحلة حكايتها وتحدياتها وقادتها.
+                اختر إحدى الدول السعودية وابدأ
+                استكشاف الأحداث التاريخية.
+            </p>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         THREE VIDEO PANELS
+    ======================================= -->
+
+    <section
+        class="states-showcase"
+        aria-label="الدول السعودية عبر التاريخ"
+    >
+
+        <!-- FIRST STATE -->
+
+        <article class="state-panel">
+
+            <video
+                class="state-panel-video"
+                muted
+                loop
+                playsinline
+                preload="auto"
+                aria-hidden="true"
+            >
+
+                <source
+                    src="{% static 'history/videos/first-state.mp4' %}"
+                    type="video/mp4"
+                >
+
+            </video>
+
+            <div class="state-panel-content">
+
+                <span class="state-period">
+                    ١٧٢٧ — ١٨١٨م
+                </span>
+
+                <h2>الدولة السعودية الأولى</h2>
+
+                <p class="state-description">
+                    من الدرعية بدأت حكاية تأسيس
+                    الدولة السعودية في عهد
+                    الإمام محمد بن سعود.
+                </p>
+
+                <a
+                    href="{% url 'state_detail' 'first' %}"
+                    class="state-explore"
+                >
+                    استكشف الدولة
+                    <i class="bi bi-arrow-up-left"></i>
+                </a>
+
+            </div>
+
+            <span class="state-index">٠١</span>
+
+        </article>
+
+
+        <!-- SECOND STATE -->
+
+        <article class="state-panel">
+
+            <video
+                class="state-panel-video"
+                muted
+                loop
+                playsinline
+                preload="auto"
+                aria-hidden="true"
+            >
+
+                <source
+                    src="{% static 'history/videos/second-state.mp4' %}"
+                    type="video/mp4"
+                >
+
+            </video>
+
+            <div class="state-panel-content">
+
+                <span class="state-period">
+                    ١٨٢٤ — ١٨٩١م
+                </span>
+
+                <h2>الدولة السعودية الثانية</h2>
+
+                <p class="state-description">
+                    أعاد الإمام تركي بن عبدالله
+                    تأسيس الدولة، وأصبحت الرياض
+                    عاصمتها ومركز حكمها.
+                </p>
+
+                <a
+                    href="{% url 'state_detail' 'second' %}"
+                    class="state-explore"
+                >
+                    استكشف الدولة
+                    <i class="bi bi-arrow-up-left"></i>
+                </a>
+
+            </div>
+
+            <span class="state-index">٠٢</span>
+
+        </article>
+
+
+        <!-- THIRD STATE -->
+
+        <article class="state-panel">
+
+            <video
+                class="state-panel-video"
+                muted
+                loop
+                playsinline
+                preload="auto"
+                aria-hidden="true"
+            >
+
+                <source
+                    src="{% static 'history/videos/third-state.mp4' %}"
+                    type="video/mp4"
+                >
+
+            </video>
+
+            <div class="state-panel-content">
+
+                <span class="state-period">
+                    ١٩٠٢م — العصر الحديث
+                </span>
+
+                <h2>الدولة السعودية الثالثة</h2>
+
+                <p class="state-description">
+                    من استرداد الرياض على يد
+                    الملك عبدالعزيز، إلى توحيد
+                    المملكة ونهضتها الحديثة.
+                </p>
+
+                <a
+                    href="{% url 'state_detail' 'third' %}"
+                    class="state-explore"
+                >
+                    استكشف الدولة
+                    <i class="bi bi-arrow-up-left"></i>
+                </a>
+
+            </div>
+
+            <span class="state-index">٠٣</span>
+
+        </article>
+
+    </section>
+
+
+    <!-- ======================================
+         EXPLORE THE EXPERIENCE
+    ======================================= -->
+
+    <section class="home-discover" id="discover">
+
+        <div class="container">
+
+            <div class="home-discover-heading">
+
+                <div>
+
+                    <span class="home-section-label">
+                        داخل المملكة
+                    </span>
+
+                    <h2>
+                        التاريخ ليس نصًا فقط.
+                        <em>إنه رحلة.</em>
+                    </h2>
+
+                </div>
+
+                <p>
+                    يجمع المشروع بين السرد التاريخي،
+                    والتصميم التفاعلي، والمواد البصرية،
+                    ليمنحك تجربة مختلفة لاستكشاف
+                    مراحل التاريخ السعودي.
+                </p>
+
+            </div>
+
+            <div class="home-features-grid">
+
+                <!-- History -->
+
+                <a
+                    href="{% url 'state_detail' 'first' %}"
+                    class="home-feature-card"
+                >
+
+                    <span class="home-feature-icon">
+                        <i class="bi bi-hourglass-split"></i>
+                    </span>
+
+                    <span class="home-feature-number">
+                        ٠١
+                    </span>
+
+                    <h3>اكتشف الأحداث</h3>
+
+                    <p>
+                        تنقل بين أبرز المراحل
+                        التاريخية، من التأسيس
+                        وإعادة البناء إلى التوحيد.
+                    </p>
+
+                    <span class="home-feature-link">
+                        ابدأ الاستكشاف
+                        <i class="bi bi-arrow-left"></i>
+                    </span>
+
+                </a>
+
+
+                <!-- Rulers -->
+
+                <a
+                    href="{% url 'state_detail' 'third' %}#unity-rulers"
+                    class="home-feature-card"
+                >
+
+                    <span class="home-feature-icon">
+                        <i class="bi bi-people"></i>
+                    </span>
+
+                    <span class="home-feature-number">
+                        ٠٢
+                    </span>
+
+                    <h3>تعرّف على الحكام</h3>
+
+                    <p>
+                        اقرأ سير الأئمة والملوك
+                        وتعرّف على التحديات
+                        والأحداث التي شهدتها عهودهم.
+                    </p>
+
+                    <span class="home-feature-link">
+                        تصفّح السير
+                        <i class="bi bi-arrow-left"></i>
+                    </span>
+
+                </a>
+
+
+                <!-- Interactive stories -->
+
+                <a
+                    href="{% url 'state_detail' 'second' %}"
+                    class="home-feature-card"
+                >
+
+                    <span class="home-feature-icon">
+                        <i class="bi bi-map"></i>
+                    </span>
+
+                    <span class="home-feature-number">
+                        ٠٣
+                    </span>
+
+                    <h3>عِش القصة</h3>
+
+                    <p>
+                        استكشف الخرائط التاريخية
+                        والوثائق التفاعلية والمشاهد
+                        التي توضح مراحل الدولة.
+                    </p>
+
+                    <span class="home-feature-link">
+                        اكتشف التجربة
+                        <i class="bi bi-arrow-left"></i>
+                    </span>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ======================================
+         FINAL CALL TO ACTION
+    ======================================= -->
+
+    <section class="home-ending">
+
+        <div class="container">
+
+            <span class="home-section-label">
+                البداية من هنا
+            </span>
+
+            <h2>
+                من الدرعية إلى المملكة.
+                <em>تاريخ يستحق أن يُروى.</em>
+            </h2>
+
+            <p>
+                اختر الفصل الذي ترغب باستكشافه،
+                وتعرّف على أبرز المحطات التي
+                شكّلت تاريخ الدولة السعودية.
+            </p>
+
+            <a
+                href="{% url 'state_detail' 'first' %}"
+                class="home-primary-button"
+            >
+                ابدأ من الدولة الأولى
+                <i class="bi bi-arrow-left"></i>
+            </a>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<!-- ======================================
+     HOME VIDEO INTERACTIONS
+======================================= -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const panels = document.querySelectorAll(".state-panel");
+
+    const canHover = window.matchMedia(
+        "(hover: hover) and (pointer: fine)"
+    ).matches;
+
+    panels.forEach(function (panel) {
+
+        const video = panel.querySelector(".state-panel-video");
+
+        if (!video) return;
+
+        video.muted = true;
+        video.preload = "auto";
+        video.autoplay = false;
+
+        let isHovering = false;
+
+        // تحميل أول إطار من الفيديو عند فتح الصفحة
+        video.load();
+
+        video.addEventListener("loadeddata", function () {
+
+            if (!isHovering) {
+                video.pause();
+                video.currentTime = 0;
+            }
+
+        });
+
+        function playVideo() {
+
+            if (!canHover) return;
+
+            isHovering = true;
+
+            panel.classList.add("is-playing");
+
+            // التشغيل من بداية المقطع
+            if (video.readyState >= 2) {
+                video.currentTime = 0;
+            }
+
+            const playPromise = video.play();
+
+            if (playPromise) {
+                playPromise.catch(function () {
+                    panel.classList.remove("is-playing");
+                });
+            }
+        }
+
+        function resetVideo() {
+
+            isHovering = false;
+
+            video.pause();
+
+            if (video.readyState >= 2) {
+                video.currentTime = 0;
+            }
+
+            panel.classList.remove("is-playing");
+        }
+
+        panel.addEventListener("mouseenter", playVideo);
+
+        panel.addEventListener("mouseleave", resetVideo);
+
+        panel.addEventListener("focusin", playVideo);
+
+        panel.addEventListener("focusout", function (event) {
+
+            if (!panel.contains(event.relatedTarget)) {
+                resetVideo();
+            }
+
+        });
+
+        document.addEventListener("visibilitychange", function () {
+
+            if (document.hidden) {
+                resetVideo();
+            }
+
+        });
+
+    });
+
+});
+
+</script>
+
+{% endblock %}

@@ -1,0 +1,591 @@
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon"
+      type="image/png"
+      href="{% static 'history/images/second-state/saudi-emblem.png' %}">
+
+    <title>{% block title %}المملكة{% endblock %}</title>
+
+    <meta
+        name="theme-color"
+        content="#f8f5ed"
+        id="browserThemeColor"
+    >
+
+    <meta
+        name="description"
+        content="المملكة، تجربة تفاعلية لاستكشاف تاريخ الدول السعودية الثلاث وسير الحكام والملوك."
+    >
+
+    <!-- Arabic Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;500;600;700;800;900&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap RTL -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css"
+        rel="stylesheet"
+    >
+
+    <!-- Bootstrap Icons -->
+    <link
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+        rel="stylesheet"
+    >
+
+    <!-- Global Styles -->
+    <link
+        rel="stylesheet"
+        href="{% static 'history/css/styles.css' %}"
+    >
+
+    <!-- Restore saved theme before rendering -->
+    <script>
+        (function () {
+            try {
+                if (localStorage.getItem("theme") === "dark") {
+                    document.documentElement.classList.add("dark");
+                }
+            } catch (error) {
+                // The page remains functional without localStorage.
+            }
+        })();
+    </script>
+
+    {% block extra_head %}{% endblock %}
+
+    <!-- Existing unified dark theme -->
+    <link
+        rel="stylesheet"
+        href="{% static 'history/css/dark-theme.css' %}"
+    >
+</head>
+
+<body>
+
+    <!-- ==========================================
+         NAVIGATION
+    ========================================== -->
+
+    <nav
+        class="navbar navbar-expand-lg fixed-top {% if request.resolver_match.url_name == 'home' %}navbar-home{% endif %}"
+        id="mainNavbar"
+        aria-label="التنقل الرئيسي"
+    >
+
+        <div class="container">
+
+            <a
+                class="navbar-brand kingdom-brand"
+                href="{% url 'home' %}"
+                aria-label="المملكة - الصفحة الرئيسية"
+            >
+
+                <!-- Original architectural logo -->
+                <span class="kingdom-brand-mark" aria-hidden="true">
+
+                    <img
+                        src="{% static 'history/images/second-state/saudi-emblem.png' %}"
+                        alt=""
+                        class="kingdom-emblem"
+                    >
+
+                </span>
+
+                <span class="kingdom-brand-type">
+
+                    <strong>المملكة</strong>
+
+                    <small>حكاية ثلاثة قرون</small>
+
+                </span>
+
+            </a>
+
+            <button
+                class="navbar-toggler"
+                type="button"
+                data-bs-toggle="collapse"
+                data-bs-target="#navbarMenu"
+                aria-controls="navbarMenu"
+                aria-expanded="false"
+                aria-label="فتح القائمة"
+            >
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div
+                class="collapse navbar-collapse"
+                id="navbarMenu"
+            >
+
+                <ul class="navbar-nav mx-auto align-items-lg-center">
+
+                    <li class="nav-item">
+
+                        <a
+                            class="nav-link {% if request.resolver_match.url_name == 'home' %}active{% endif %}"
+                            href="{% url 'home' %}"
+                            {% if request.resolver_match.url_name == 'home' %}aria-current="page"{% endif %}
+                        >
+                            الرئيسية
+                        </a>
+
+                    </li>
+
+                    <li class="nav-item dropdown">
+
+                        <button
+                            class="nav-link dropdown-toggle {% if request.resolver_match.url_name == 'state_detail' %}active{% endif %}"
+                            type="button"
+                            data-bs-toggle="dropdown"
+                            aria-expanded="false"
+                        >
+                            الدول السعودية
+                        </button>
+
+                        <ul class="dropdown-menu">
+
+                            <li>
+                                <a
+                                    class="dropdown-item"
+                                    href="{% url 'state_detail' 'first' %}"
+                                >
+                                    الدولة السعودية الأولى
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    class="dropdown-item"
+                                    href="{% url 'state_detail' 'second' %}"
+                                >
+                                    الدولة السعودية الثانية
+                                </a>
+                            </li>
+
+                            <li>
+                                <a
+                                    class="dropdown-item"
+                                    href="{% url 'state_detail' 'third' %}"
+                                >
+                                    الدولة السعودية الثالثة
+                                </a>
+                            </li>
+
+                        </ul>
+
+                    </li>
+
+                    <li class="nav-item">
+
+                        <a
+                            class="nav-link {% if request.resolver_match.url_name == 'about' %}active{% endif %}"
+                            href="{% url 'about' %}"
+                            {% if request.resolver_match.url_name == 'about' %}aria-current="page"{% endif %}
+                        >
+                            اكتشف المشروع
+                        </a>
+
+                    </li>
+
+                </ul>
+
+                <button
+                    id="modeToggle"
+                    class="theme-toggle"
+                    type="button"
+                    aria-label="تفعيل الوضع الليلي"
+                    aria-pressed="false"
+                    title="تبديل المظهر"
+                >
+                    <i
+                        id="modeIcon"
+                        class="bi bi-moon-stars"
+                        aria-hidden="true"
+                    ></i>
+                </button>
+
+            </div>
+
+        </div>
+
+    </nav>
+
+
+    <!-- ==========================================
+         MAIN CONTENT
+    ========================================== -->
+
+    <main id="mainContent">
+        {% block content %}{% endblock %}
+    </main>
+
+
+    <!-- ==========================================
+         NEW FOOTER
+    ========================================== -->
+
+    <footer
+        class="site-footer kingdom-footer"
+        id="siteFooter"
+    >
+
+        <div class="container">
+
+            <div class="kingdom-footer-top">
+
+                <!-- Brand Column -->
+
+                <div class="kingdom-footer-about">
+
+                    <a
+                        href="{% url 'home' %}"
+                        class="kingdom-footer-logo kingdom-brand"
+                    >
+
+                        <span>
+                            <img
+                                src="{% static 'history/images/second-state/saudi-emblem.png' %}"
+                                alt=""
+                                class="kingdom-emblem"
+                            >
+
+                        </span>
+
+                        <span class="kingdom-brand-type">
+                            <strong>المملكة</strong>
+                            <small>حكاية ثلاثة قرون</small>
+                        </span>
+
+                    </a>
+
+                    <p>
+                        رحلة رقمية تفاعلية عبر تاريخ الدولة
+                        السعودية، من الدرعية وبداية التأسيس،
+                        إلى الرياض ومسيرة إعادة البناء،
+                        وصولًا إلى توحيد المملكة وعهدها الحديث.
+                    </p>
+
+                    <span class="kingdom-footer-tag">
+                        <i class="bi bi-book-half"></i>
+                        مشروع تاريخي تعليمي
+                    </span>
+
+                </div>
+
+
+                <!-- Explore Column -->
+
+                <div class="kingdom-footer-column">
+
+                    <h3>استكشف</h3>
+
+                    <ul>
+
+                        <li>
+                            <a href="{% url 'home' %}">
+                                الرئيسية
+                            </a>
+                        </li>
+                        <li>
+                            <a href="{% url 'about' %}">
+                                عن المشروع
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'state_detail' 'first' %}">
+                                الدولة السعودية الأولى
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'state_detail' 'second' %}">
+                                الدولة السعودية الثانية
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'state_detail' 'third' %}">
+                                الدولة السعودية الثالثة
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Content Column -->
+
+                <div class="kingdom-footer-column">
+
+                    <h3>رحلتك التاريخية</h3>
+
+                    <ul>
+
+                        <li>
+                            <a href="{% url 'state_detail' 'first' %}">
+                                التأسيس في الدرعية
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'state_detail' 'second' %}">
+                                استعادة الدولة
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'state_detail' 'third' %}#unity-timeline">
+                                محطات التوحيد
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="{% url 'state_detail' 'third' %}#unity-rulers">
+                                ملوك المملكة
+                            </a>
+                        </li>
+
+                    </ul>
+
+                </div>
+
+
+                <!-- Reference Column -->
+
+                <div class="kingdom-footer-column kingdom-footer-references">
+
+                    <h3>مصادر ومعرفة</h3>
+
+                    <p>
+                        للمزيد من المعلومات حول التاريخ
+                        السعودي، يمكنك الرجوع إلى
+                        المصادر التاريخية المتخصصة.
+                    </p>
+
+                    <a
+                        href="https://saudipedia.com/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        موسوعة سعوديبيديا
+                        <i class="bi bi-box-arrow-up-left"></i>
+                    </a>
+
+                    <a
+                        href="https://foundingday.sa/"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        يوم التأسيس
+                        <i class="bi bi-box-arrow-up-left"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+
+            <!-- Footer Bottom -->
+
+            <div class="kingdom-footer-bottom">
+
+                <span>
+                    © ٢٠٢٦ المملكة — مشروع تعليمي
+                </span>
+
+                <span>
+                    صُمم للتعريف بتاريخ المملكة العربية السعودية
+                </span>
+
+                <a
+                    href="#mainContent"
+                    class="kingdom-back-top"
+                    aria-label="العودة إلى أعلى الصفحة"
+                >
+                    العودة للأعلى
+                    <i class="bi bi-arrow-up"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </footer>
+
+
+    <!-- ==========================================
+         SCRIPTS
+    ========================================== -->
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    ></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const html = document.documentElement;
+
+            const themeButton =
+                document.getElementById("modeToggle");
+
+            const themeIcon =
+                document.getElementById("modeIcon");
+
+            const browserThemeColor =
+                document.getElementById("browserThemeColor");
+
+            const navbar =
+                document.getElementById("mainNavbar");
+
+            const navbarMenu =
+                document.getElementById("navbarMenu");
+
+
+            function updateThemeInterface() {
+
+                const isDark =
+                    html.classList.contains("dark");
+
+                if (themeIcon) {
+                    themeIcon.className = isDark
+                        ? "bi bi-sun-fill"
+                        : "bi bi-moon-stars";
+                }
+
+                if (themeButton) {
+
+                    themeButton.setAttribute(
+                        "aria-pressed",
+                        String(isDark)
+                    );
+
+                    themeButton.setAttribute(
+                        "aria-label",
+                        isDark
+                            ? "تفعيل الوضع الفاتح"
+                            : "تفعيل الوضع الليلي"
+                    );
+
+                    themeButton.title = isDark
+                        ? "الانتقال إلى الوضع الفاتح"
+                        : "الانتقال إلى الوضع الليلي";
+                }
+
+                if (browserThemeColor) {
+
+                    browserThemeColor.content = isDark
+                        ? "#242d29"
+                        : "#f8f5ed";
+                }
+            }
+
+
+            updateThemeInterface();
+
+
+            if (themeButton) {
+
+                themeButton.addEventListener(
+                    "click",
+                    function () {
+
+                        const isDark =
+                            html.classList.toggle("dark");
+
+                        try {
+
+                            localStorage.setItem(
+                                "theme",
+                                isDark ? "dark" : "light"
+                            );
+
+                        } catch (error) {
+                            // Theme works without storage.
+                        }
+
+                        updateThemeInterface();
+
+                        window.dispatchEvent(
+                            new CustomEvent(
+                                "kingdom:themechange",
+                                {
+                                    detail: {
+                                        theme: isDark
+                                            ? "dark"
+                                            : "light"
+                                    }
+                                }
+                            )
+                        );
+                    }
+                );
+            }
+
+
+            // Navbar scroll behaviour
+            if (
+                navbar &&
+                navbar.classList.contains("navbar-home")
+            ) {
+
+                function updateNavbar() {
+
+                    navbar.classList.toggle(
+                        "navbar-scrolled",
+                        window.scrollY > 40
+                    );
+                }
+
+                updateNavbar();
+
+                window.addEventListener(
+                    "scroll",
+                    updateNavbar,
+                    { passive: true }
+                );
+
+                if (navbarMenu) {
+
+                    navbarMenu.addEventListener(
+                        "shown.bs.collapse",
+                        function () {
+                            navbar.classList.add(
+                                "navbar-menu-open"
+                            );
+                        }
+                    );
+
+                    navbarMenu.addEventListener(
+                        "hidden.bs.collapse",
+                        function () {
+                            navbar.classList.remove(
+                                "navbar-menu-open"
+                            );
+                        }
+                    );
+                }
+            }
+
+        });
+    </script>
+
+    {% block extra_scripts %}{% endblock %}
+
+</body>
+</html>

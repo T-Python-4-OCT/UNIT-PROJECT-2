@@ -1,0 +1,1139 @@
+
+/* =====================================================
+   THE KINGDOM — RULER BIOGRAPHIES
+   صفحات السير التاريخية
+===================================================== */
+
+.bio-page {
+    --bio-bg: #f4f0e7;
+    --bio-surface: #ffffff;
+    --bio-surface-2: #ebe8de;
+    --bio-text: #23342d;
+    --bio-muted: #69766d;
+    --bio-accent: #b39053;
+    --bio-accent-light: #e0c389;
+    --bio-border: rgba(35, 52, 45, 0.14);
+    --bio-hero-bg: #182820;
+
+    background: var(--bio-bg);
+    color: var(--bio-text);
+    overflow: hidden;
+    min-height: 100vh;
+}
+
+html.dark .bio-page {
+    --bio-bg: #242d29;
+    --bio-surface: #2c3831;
+    --bio-surface-2: #1e2a24;
+    --bio-text: #f1eee5;
+    --bio-muted: #b4beb4;
+    --bio-border: rgba(235, 226, 199, 0.12);
+}
+
+.bio-era-first {
+    --bio-accent: #bc955a;
+    --bio-accent-light: #e6c78c;
+}
+
+.bio-era-second {
+    --bio-accent: #c39d62;
+    --bio-accent-light: #edd09b;
+}
+
+.bio-era-third {
+    --bio-accent: #d0a86d;
+    --bio-accent-light: #f0d6a0;
+}
+
+.bio-page *,
+.bio-page *::before,
+.bio-page *::after {
+    box-sizing: border-box;
+}
+
+.bio-page a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.bio-page p {
+    line-height: 1.95;
+}
+
+.bio-container {
+    width: min(1200px, calc(100% - 48px));
+    margin-inline: auto;
+}
+
+.bio-section {
+    padding: clamp(70px, 9vw, 130px) 0;
+}
+
+.bio-page em {
+    color: var(--bio-accent);
+    font-style: normal;
+}
+
+.bio-page :focus-visible {
+    outline: 3px solid var(--bio-accent-light);
+    outline-offset: 4px;
+}
+
+/* ==========================================
+   شريط تقدم القراءة
+========================================== */
+
+.bio-progress {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 3px;
+    z-index: 1000;
+
+    background: linear-gradient(
+        90deg,
+        #a57843,
+        #e9d39e
+    );
+}
+
+/* ==========================================
+   افتتاحية السيرة
+========================================== */
+
+.bio-hero {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    min-height: min(860px, 100svh);
+
+    background: var(--bio-hero-bg);
+    color: #f5f0e5;
+}
+
+.bio-hero-backdrop {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+
+    background:
+        radial-gradient(
+            ellipse at 18% 45%,
+            rgba(184, 146, 80, 0.12),
+            transparent 44%
+        ),
+        linear-gradient(
+            130deg,
+            #28382d 0%,
+            #102219 65%,
+            #0b1b14 100%
+        );
+}
+
+.bio-hero-glow {
+    position: absolute;
+    z-index: -2;
+    left: -12%;
+    top: -20%;
+    width: 60%;
+    aspect-ratio: 1;
+
+    border-radius: 50%;
+
+    background: radial-gradient(
+        circle,
+        rgba(189, 149, 82, 0.17),
+        transparent 65%
+    );
+
+    filter: blur(25px);
+    pointer-events: none;
+}
+
+.bio-hero .bio-container {
+    position: relative;
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+}
+
+.bio-breadcrumb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 11px;
+
+    padding: 35px 0 18px;
+
+    font-size: 0.82rem;
+    color: rgba(244, 239, 223, 0.66);
+}
+
+.bio-breadcrumb a:hover {
+    color: var(--bio-accent-light);
+}
+
+.bio-breadcrumb i {
+    font-size: 0.65rem;
+    opacity: 0.6;
+}
+
+.bio-breadcrumb span {
+    color: var(--bio-accent-light);
+}
+
+.bio-hero-grid {
+    flex: 1;
+
+    display: grid;
+    grid-template-columns: minmax(0, 1.12fr) minmax(0, 0.88fr);
+    align-items: center;
+    gap: clamp(38px, 6vw, 100px);
+
+    padding-block: 70px;
+}
+
+.bio-hero-copy {
+    min-width: 0;
+}
+
+.bio-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    color: var(--bio-accent-light);
+    font-size: 0.94rem;
+    font-weight: 700;
+}
+
+.bio-kicker-line {
+    display: inline-block;
+    width: 28px;
+    height: 2px;
+    background: var(--bio-accent);
+}
+
+.bio-chapter {
+    margin-top: 22px;
+    color: rgba(244, 239, 223, 0.58);
+    font-size: 0.84rem;
+}
+
+.bio-hero h1 {
+    margin: 24px 0 10px;
+    max-width: 760px;
+
+    font-size: clamp(2.6rem, 5.6vw, 5.7rem);
+    line-height: 1.35;
+    font-weight: 900;
+    letter-spacing: -0.035em;
+    color: #fffaf0;
+}
+
+.bio-hero-title {
+    margin: 0;
+    color: var(--bio-accent-light);
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 700;
+}
+
+.bio-hero-rule {
+    height: 1px;
+    width: min(310px, 80%);
+
+    margin: 30px 0;
+
+    background: linear-gradient(
+        270deg,
+        var(--bio-accent),
+        transparent
+    );
+}
+
+.bio-hero-intro {
+    max-width: 610px;
+    color: rgba(250, 246, 233, 0.82);
+    font-size: clamp(1rem, 1.45vw, 1.16rem);
+    line-height: 2.1;
+}
+
+.bio-hero-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 26px;
+
+    padding-top: 24px;
+}
+
+.bio-meta-item {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    max-width: 230px;
+}
+
+.bio-meta-item span {
+    color: rgba(244, 239, 223, 0.55);
+    font-size: 0.78rem;
+}
+
+.bio-meta-item strong {
+    color: #f8f0df;
+    font-size: 0.96rem;
+    line-height: 1.7;
+}
+
+.bio-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 38px;
+}
+
+.bio-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+
+    min-height: 48px;
+    padding: 13px 22px;
+
+    border-radius: 3px;
+    border: 1px solid transparent;
+
+    font-weight: 700;
+    font-size: 0.92rem;
+
+    transition:
+        background 0.25s,
+        color 0.25s,
+        transform 0.25s;
+}
+
+.bio-btn:hover {
+    transform: translateY(-3px);
+}
+
+.bio-btn-primary {
+    background: var(--bio-accent-light);
+    color: #1b271f !important;
+}
+
+.bio-btn-primary:hover {
+    background: #f6dfa9;
+}
+
+.bio-btn-outline {
+    color: #f3ecdf !important;
+    border-color: rgba(245, 239, 221, 0.4);
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.bio-btn-outline:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+/* ==========================================
+   صورة الحاكم
+========================================== */
+
+.bio-portrait-wrap {
+    width: 100%;
+    max-width: 470px;
+    justify-self: center;
+}
+
+.bio-portrait-frame {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+
+    width: 100%;
+    aspect-ratio: 4 / 5;
+
+    background: #304035;
+    border: 1px solid rgba(226, 192, 128, 0.45);
+
+    box-shadow:
+        18px 18px 0 rgba(196, 157, 94, 0.06),
+        0 34px 90px rgba(0, 0, 0, 0.35);
+}
+
+.bio-portrait-frame::after {
+    content: "";
+    position: absolute;
+    z-index: 3;
+    inset: 13px;
+    pointer-events: none;
+
+    border: 1px solid rgba(232, 205, 151, 0.18);
+}
+
+.bio-portrait {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    object-fit: cover;
+    object-position: center 20%;
+
+    filter: saturate(0.85);
+    transition: transform 1s ease;
+}
+
+.bio-portrait-frame:hover .bio-portrait {
+    transform: scale(1.04);
+}
+
+.bio-portrait-shade {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+
+    pointer-events: none;
+
+    background: linear-gradient(
+        0deg,
+        rgba(10, 24, 16, 0.84),
+        transparent 40%,
+        rgba(11, 27, 19, 0.1)
+    );
+}
+
+.bio-portrait-number {
+    position: absolute;
+    right: 28px;
+    bottom: 8px;
+    z-index: 2;
+
+    color: rgba(245, 229, 192, 0.24);
+    font-size: clamp(5rem, 11vw, 9rem);
+    line-height: 1;
+    font-weight: 900;
+}
+
+.bio-portrait-empty {
+    display: grid;
+    place-items: center;
+    height: 100%;
+    color: rgba(237, 208, 155, 0.35);
+    font-size: 6rem;
+}
+
+.bio-portrait-caption {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+
+    margin-top: 19px;
+
+    color: rgba(248, 240, 221, 0.64);
+    font-size: 0.78rem;
+}
+
+.bio-hero-bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 22px 0 30px;
+
+    border-top: 1px solid rgba(243, 224, 188, 0.15);
+
+    color: rgba(246, 236, 213, 0.54);
+    font-size: 0.81rem;
+}
+
+.bio-hero-bottom a {
+    display: inline-flex;
+    gap: 12px;
+    align-items: center;
+}
+
+.bio-hero-bottom a:hover {
+    color: var(--bio-accent-light);
+}
+
+/* ==========================================
+   عناوين الأقسام
+========================================== */
+
+.bio-section-heading {
+    margin-bottom: 42px;
+}
+
+.bio-section-index {
+    display: inline-block;
+
+    color: var(--bio-accent);
+    font-size: 0.83rem;
+    font-weight: 700;
+}
+
+.bio-section-heading h2,
+.bio-navigation-heading h2,
+.bio-legacy h2 {
+    margin: 18px 0 0;
+
+    font-size: clamp(2rem, 4vw, 4rem);
+    font-weight: 900;
+    line-height: 1.45;
+    letter-spacing: -0.02em;
+}
+
+.bio-section-heading p {
+    max-width: 600px;
+    margin-top: 18px;
+    color: var(--bio-muted);
+}
+
+/* ==========================================
+   قسم السيرة
+========================================== */
+
+.bio-story {
+    background: var(--bio-bg);
+}
+
+.bio-story-grid {
+    display: grid;
+    grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.8fr);
+    gap: clamp(28px, 5vw, 85px);
+}
+
+.bio-story-aside {
+    display: flex;
+    flex-direction: column;
+    gap: 22px;
+}
+
+.bio-story-quote {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+
+    padding: 36px;
+
+    background: #203128;
+    color: #f4eee2;
+    border-right: 3px solid var(--bio-accent);
+}
+
+.bio-story-quote i {
+    color: var(--bio-accent-light);
+    font-size: 2rem;
+}
+
+.bio-story-quote span {
+    color: #c3cfc2;
+    font-size: 0.83rem;
+}
+
+.bio-story-quote strong {
+    font-size: clamp(1.15rem, 2vw, 1.7rem);
+    line-height: 1.6;
+}
+
+.bio-story-identity {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    padding: 12px 4px;
+}
+
+.bio-story-identity span {
+    color: var(--bio-muted);
+    font-size: 0.83rem;
+}
+
+.bio-story-identity strong {
+    font-size: 1rem;
+}
+
+.bio-story-content {
+    min-width: 0;
+
+    padding: 4px 0;
+    border-top: 1px solid var(--bio-border);
+}
+
+.bio-story-text p {
+    margin: 25px 0;
+
+    color: var(--bio-text);
+    font-size: clamp(1rem, 1.25vw, 1.16rem);
+    line-height: 2.35;
+}
+
+.bio-story-text p:first-child::first-letter {
+    color: var(--bio-accent);
+    font-size: 1.45em;
+    font-weight: 900;
+}
+
+.bio-empty-text {
+    color: var(--bio-muted);
+}
+
+/* ==========================================
+   أبرز الإنجازات
+========================================== */
+
+.bio-highlights {
+    background: var(--bio-surface-2);
+}
+
+.bio-highlights-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 19px;
+}
+
+.bio-highlight-card {
+    position: relative;
+    overflow: hidden;
+
+    min-height: 250px;
+    padding: 34px;
+
+    background: var(--bio-surface);
+    border: 1px solid var(--bio-border);
+
+    transition:
+        border-color 0.25s,
+        transform 0.25s,
+        box-shadow 0.25s;
+}
+
+.bio-highlight-card:hover {
+    transform: translateY(-5px);
+    border-color: var(--bio-accent);
+    box-shadow: 0 18px 34px rgba(0, 0, 0, 0.07);
+}
+
+.bio-highlight-number {
+    position: absolute;
+    top: 18px;
+    left: 24px;
+
+    color: var(--bio-muted);
+    opacity: 0.55;
+    font-size: 0.83rem;
+}
+
+.bio-highlight-icon {
+    display: grid;
+    place-items: center;
+
+    width: 48px;
+    height: 48px;
+
+    margin-bottom: 25px;
+
+    color: var(--bio-accent);
+    background: rgba(179, 144, 83, 0.10);
+    font-size: 1.35rem;
+}
+
+.bio-highlight-card h3 {
+    margin: 0 0 12px;
+    font-size: 1.22rem;
+    line-height: 1.65;
+    color: var(--bio-text);
+}
+
+.bio-highlight-card p {
+    margin: 0;
+    color: var(--bio-muted);
+    font-size: 0.94rem;
+}
+
+/* ==========================================
+   الخط الزمني
+========================================== */
+
+.bio-timeline-section {
+    background: var(--bio-bg);
+}
+
+.bio-timeline {
+    position: relative;
+    max-width: 880px;
+    padding-right: 32px;
+}
+
+.bio-timeline::before {
+    content: "";
+    position: absolute;
+    right: 5px;
+    top: 12px;
+    bottom: 12px;
+
+    width: 1px;
+    background: linear-gradient(
+        to bottom,
+        transparent,
+        var(--bio-accent),
+        transparent
+    );
+}
+
+.bio-timeline-item {
+    position: relative;
+    margin-bottom: 22px;
+}
+
+.bio-timeline-marker {
+    position: absolute;
+    right: -32px;
+    top: 31px;
+
+    width: 11px;
+    height: 11px;
+
+    border-radius: 50%;
+    background: var(--bio-accent);
+    box-shadow: 0 0 0 6px rgba(179, 144, 83, 0.12);
+}
+
+.bio-timeline-card {
+    padding: 28px 34px;
+    background: var(--bio-surface);
+    border: 1px solid var(--bio-border);
+}
+
+.bio-timeline-year {
+    display: inline-block;
+    margin-bottom: 12px;
+
+    color: var(--bio-accent);
+    font-weight: 800;
+    font-size: 1.06rem;
+}
+
+.bio-timeline-card h3 {
+    margin: 0;
+    font-size: 1.28rem;
+}
+
+.bio-timeline-card p {
+    margin: 13px 0 0;
+    color: var(--bio-muted);
+}
+
+/* ==========================================
+   الإرث التاريخي
+========================================== */
+
+.bio-legacy {
+    position: relative;
+    overflow: hidden;
+
+    background:
+        radial-gradient(
+            ellipse at 70% 30%,
+            rgba(205, 165, 92, 0.11),
+            transparent 55%
+        ),
+        #14251b;
+
+    color: #f4efdf;
+}
+
+.bio-legacy-inner {
+    max-width: 850px;
+    margin: auto;
+    text-align: center;
+}
+
+.bio-legacy h2 {
+    margin-bottom: 24px;
+    color: #fffaf0;
+}
+
+.bio-legacy-text {
+    color: rgba(248, 242, 225, 0.82);
+    font-size: 1.12rem;
+    line-height: 2.2;
+}
+
+.bio-legacy-text p {
+    margin-bottom: 16px;
+}
+
+/* ==========================================
+   المصادر
+========================================== */
+
+.bio-sources {
+    background: var(--bio-surface-2);
+}
+
+.bio-sources-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.bio-source-link {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    padding: 24px;
+
+    background: var(--bio-surface);
+    border: 1px solid var(--bio-border);
+
+    font-weight: 700;
+}
+
+.bio-source-link:hover {
+    border-color: var(--bio-accent);
+}
+
+.bio-source-link i {
+    color: var(--bio-accent);
+}
+
+/* ==========================================
+   التنقل بين الحكام
+========================================== */
+
+.bio-navigation {
+    background: var(--bio-bg);
+}
+
+.bio-navigation-heading {
+    margin-bottom: 36px;
+}
+
+.bio-navigation-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.bio-navigation-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 28px;
+
+    min-height: 150px;
+    padding: 28px;
+
+    background: var(--bio-surface);
+    border: 1px solid var(--bio-border);
+
+    transition:
+        transform 0.25s,
+        border-color 0.25s;
+}
+
+.bio-navigation-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--bio-accent);
+}
+
+.bio-navigation-card span {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+
+    color: var(--bio-muted);
+    font-size: 0.83rem;
+}
+
+.bio-navigation-card strong {
+    color: var(--bio-text);
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+.bio-navigation-home {
+    background: #26382d;
+}
+
+.bio-navigation-home span {
+    color: #b8c5b7;
+}
+
+.bio-navigation-home strong {
+    color: #e7cc91;
+}
+
+/* ==========================================
+   حركات الظهور
+========================================== */
+
+.bio-reveal {
+    opacity: 1;
+    transform: none;
+}
+
+.bio-page.bio-motion-ready .bio-reveal {
+    opacity: 0;
+    transform: translateY(24px);
+
+    transition:
+        opacity 0.75s ease,
+        transform 0.75s ease;
+}
+
+.bio-page.bio-motion-ready .bio-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ==========================================
+   الأجهزة اللوحية
+========================================== */
+
+@media (max-width: 1000px) {
+    .bio-hero-grid {
+        grid-template-columns: 1fr 0.85fr;
+        gap: 35px;
+    }
+
+    .bio-highlights-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .bio-story-grid {
+        grid-template-columns: 230px minmax(0, 1fr);
+        gap: 30px;
+    }
+}
+
+/* ==========================================
+   الجوال
+========================================== */
+
+@media (max-width: 760px) {
+    .bio-container {
+        width: min(100% - 32px, 540px);
+    }
+
+    .bio-section {
+        padding: 65px 0;
+    }
+
+    .bio-hero {
+        min-height: 0;
+    }
+
+    .bio-breadcrumb {
+        padding: 23px 0;
+        font-size: 0.72rem;
+    }
+
+    .bio-hero-grid {
+        grid-template-columns: 1fr;
+        gap: 38px;
+        padding: 30px 0 50px;
+    }
+
+    .bio-hero h1 {
+        font-size: clamp(2.5rem, 10vw, 4rem);
+    }
+
+    .bio-hero-intro {
+        font-size: 0.96rem;
+    }
+
+    .bio-hero-meta {
+        gap: 20px;
+    }
+
+    .bio-portrait-wrap {
+        max-width: 420px;
+    }
+
+    .bio-hero-bottom {
+        font-size: 0.72rem;
+    }
+
+    .bio-story-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .bio-story-quote {
+        padding: 24px;
+    }
+
+    .bio-highlights-grid,
+    .bio-navigation-grid,
+    .bio-sources-list {
+        grid-template-columns: 1fr;
+    }
+
+    .bio-highlight-card {
+        min-height: 0;
+        padding: 27px;
+    }
+
+    .bio-navigation-card {
+        min-height: 120px;
+    }
+
+    .bio-timeline-card {
+        padding: 24px;
+    }
+
+    .bio-legacy-text {
+        font-size: 1rem;
+    }
+}
+
+/* ==========================================
+   تفضيل تقليل الحركة
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+    .bio-page *,
+    .bio-page *::before,
+    .bio-page *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .bio-page.bio-motion-ready .bio-reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+
+/* =====================================================
+   مشاهد سردية مخصصة للحكام
+===================================================== */
+
+.bio-chapters {
+    background: var(--bio-bg);
+}
+
+.bio-chapters-list {
+    display: grid;
+    gap: clamp(38px, 7vw, 90px);
+}
+
+.bio-chapter-scene {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: clamp(24px, 4vw, 65px);
+    align-items: center;
+}
+
+.bio-chapter-scene.bio-scene-b .bio-chapter-visual {
+    order: 2;
+}
+
+.bio-chapter-visual {
+    position: relative;
+    min-width: 0;
+}
+
+.bio-chapter-visual img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 1px solid var(--bio-border);
+    filter: saturate(0.83);
+}
+
+.bio-chapter-visual small {
+    display: block;
+    margin-top: 11px;
+    color: var(--bio-muted);
+    font-size: 0.75rem;
+    line-height: 1.8;
+}
+
+.bio-chapter-copy {
+    padding: clamp(14px, 3vw, 40px) 0;
+}
+
+.bio-chapter-counter {
+    display: block;
+    color: var(--bio-accent);
+    font-weight: 800;
+    font-size: 0.88rem;
+}
+
+.bio-chapter-date {
+    display: block;
+    margin-top: 18px;
+    color: var(--bio-muted);
+    font-weight: 700;
+}
+
+.bio-chapter-copy h3 {
+    margin: 16px 0 25px;
+    color: var(--bio-text);
+    font-size: clamp(1.8rem, 3vw, 3.25rem);
+    line-height: 1.4;
+}
+
+.bio-chapter-copy p {
+    color: var(--bio-muted);
+    font-size: clamp(0.97rem, 1.1vw, 1.13rem);
+    line-height: 2.25;
+}
+
+.bio-facts {
+    background: var(--bio-surface-2);
+}
+
+.bio-facts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 14px;
+    margin: 0;
+}
+
+.bio-fact-item {
+    padding: 24px 28px;
+    border: 1px solid var(--bio-border);
+    background: var(--bio-surface);
+}
+
+.bio-fact-item dt {
+    color: var(--bio-muted);
+    font-size: 0.82rem;
+}
+
+.bio-fact-item dd {
+    margin: 10px 0 0;
+    color: var(--bio-text);
+    font-size: 1.08rem;
+    font-weight: 700;
+    line-height: 1.75;
+}
+
+@media (max-width: 800px) {
+    .bio-chapter-scene {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+
+    .bio-chapter-scene.bio-scene-b .bio-chapter-visual {
+        order: 0;
+    }
+
+    .bio-chapter-copy {
+        padding: 8px 0 10px;
+    }
+
+    .bio-facts-grid {
+        grid-template-columns: 1fr;
+    }
+}

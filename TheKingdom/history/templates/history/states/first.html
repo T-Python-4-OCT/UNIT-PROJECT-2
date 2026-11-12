@@ -1,0 +1,688 @@
+
+{% extends 'history/base.html' %}
+{% load static %}
+
+{% block title %}الدولة السعودية الأولى | من الدرعية بدأت الحكاية{% endblock %}
+
+{% block extra_head %}
+<meta name="description" content="رحلة تفاعلية في تاريخ الدولة السعودية الأولى من عام ١٧٢٧م إلى عام ١٨١٨م.">
+<link rel="stylesheet" href="{% static 'history/css/states.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="origins-page" id="originsPage" dir="rtl">
+
+    <!-- شريط تقدم القراءة -->
+    <div class="origins-progress"
+         id="originsProgress"
+         aria-hidden="true"></div>
+
+    <!-- ======================================
+         الافتتاحية السينمائية
+    ======================================= -->
+    <header class="origins-hero" id="origins-top">
+
+        <div class="origins-hero-image"
+             style="background-image: url('{% static 'history/images/first-state/diriyah-hero.webp' %}');"
+             aria-hidden="true"></div>
+
+
+        <div class="origins-hero-shade"></div>
+
+        <div class="origins-hero-inner container">
+
+            <div class="origins-topline">
+                <span>تاريخ المملكة / الفصل الأول</span>
+                <span>١٧٢٧ — ١٨١٨م</span>
+            </div>
+
+            <div class="origins-hero-copy">
+
+                <span class="origins-eyebrow">
+                    الفصل الأول · الدولة السعودية الأولى
+                </span>
+
+                <h1>
+                    من الدرعية
+                    <em>بدأت الحكاية.</em>
+                </h1>
+
+                <p>
+                    قبل ثلاثة قرون، انطلقت من قلب الجزيرة العربية
+                    رحلة بناء دولة. رحلة بدأت من الدرعية،
+                    وامتد أثرها عبر الأجيال.
+                </p>
+
+                <div class="origins-hero-actions">
+
+                    <a href="#origins-intro"
+                       class="origins-btn origins-btn-gold">
+                        ابدأ الرحلة
+                        <i class="bi bi-arrow-down"></i>
+                    </a>
+
+                    <a href="#origins-timeline"
+                       class="origins-text-link">
+                        استكشف الخط الزمني
+                        <i class="bi bi-arrow-left"></i>
+                    </a>
+
+                </div>
+            </div>
+
+            <div class="origins-hero-bottom">
+
+                <span>الدرعية · المملكة العربية السعودية</span>
+
+                <a href="#origins-intro"
+                   aria-label="انتقل إلى المقدمة">
+                    <i class="bi bi-arrow-down"></i>
+                </a>
+
+                <span>مرّر لاكتشاف التاريخ</span>
+            </div>
+        </div>
+
+        <div class="origins-hero-outline"
+             aria-hidden="true">٠١</div>
+
+    </header>
+
+    <!-- ======================================
+         الفصل الأول — الدرعية
+    ======================================= -->
+    <section class="origins-intro origins-section"
+             id="origins-intro">
+
+        <div class="container">
+            <div class="origins-intro-grid">
+
+                <div class="origins-intro-side reveal">
+                    <span class="origins-kicker">البدايات</span>
+                    <span class="origins-big-index">٠١ / ٠٥</span>
+                    <div class="origins-small-rule"></div>
+                    <p>بداية الحكاية</p>
+                </div>
+
+                <div class="origins-intro-main reveal">
+
+                    <span class="origins-overline">
+                        حيث وُلدت مرحلة جديدة من التاريخ
+                    </span>
+
+                    <h2>
+                        لم تكن الدرعية
+                        <span>مجرد مدينة.</span>
+                    </h2>
+
+                    <p class="origins-lead">
+                        على ضفاف وادي حنيفة، نمت الدرعية حتى
+                        أصبحت مركزًا مهمًا للاستقرار والعمران
+                        في نجد. ومنها انطلقت الدولة السعودية
+                        الأولى عام ١٧٢٧م بقيادة الإمام محمد بن سعود.
+                    </p>
+
+                    <p>
+                        تميزت الدرعية بموقعها في قلب الجزيرة
+                        العربية، وتطورت فيها أنماط البناء النجدي
+                        الذي ما زالت شواهده قائمة في حي الطريف.
+                        وأصبحت المدينة عاصمة للدولة الأولى
+                        ومركزًا لحكمها.
+                    </p>
+
+                    <div class="origins-intro-quote">
+                        <span class="quote-mark">“</span>
+                        <p>
+                            بعض الأماكن تحفظ التاريخ،
+                            والدرعية صنعت فصلًا منه.
+                        </p>
+                        <small>عبارة تحريرية عن أهمية الدرعية</small>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================
+         الفصل الثاني — التأسيس
+    ======================================= -->
+    <section class="origins-founding origins-section"
+             id="origins-founding">
+
+        <div class="origins-founding-image"
+             style="background-image: url('{% static 'history/images/first-state/salwa-palace.webp' %}');"
+             aria-hidden="true"></div>
+
+        <div class="origins-founding-overlay"></div>
+
+        <div class="container origins-founding-content">
+
+            <div class="origins-founding-top reveal">
+                <span>الفصل الثاني — التأسيس</span>
+                <span>١١٣٩هـ</span>
+            </div>
+
+            <div class="origins-founding-layout">
+
+                <div class="origins-founding-year reveal">
+                    <span class="origins-year-prefix">عام</span>
+                    <strong>١٧٢٧</strong>
+                    <span class="origins-year-suffix">ميلادي</span>
+                </div>
+
+                <div class="origins-founding-story reveal">
+
+                    <span class="origins-kicker origins-kicker-light">
+                        لحظة التأسيس
+                    </span>
+
+                    <h2>
+                        بداية دولة.
+                        <br>
+                        بداية إرث.
+                    </h2>
+
+                    <p>
+                        تولى الإمام محمد بن سعود الحكم في الدرعية
+                        عام ١١٣٩هـ الموافق ١٧٢٧م. وشكلت هذه المرحلة
+                        بداية الدولة السعودية الأولى، وشهدت جهودًا
+                        لتوحيد الدرعية وتعزيز الاستقرار وتنظيم
+                        شؤون الحكم.
+                    </p>
+
+                    <div class="origins-founding-facts">
+                        <div>
+                            <span>المؤسس</span>
+                            <strong>{{ state.founder }}</strong>
+                        </div>
+                        <div>
+                            <span>العاصمة</span>
+                            <strong>{{ state.capital }}</strong>
+                        </div>
+                    </div>
+
+                    {% if rulers %}
+                    <a href="{% url 'ruler_detail' rulers.0.slug %}"
+                       class="origins-light-link">
+                        اكتشف سيرة المؤسس
+                        <i class="bi bi-arrow-left"></i>
+                    </a>
+                    {% endif %}
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================
+         الخط الزمني المصور — من JSON
+    ======================================= -->
+    <section class="origins-timeline origins-section"
+             id="origins-timeline">
+
+        <div class="container">
+
+            <div class="origins-section-header reveal">
+                <span class="origins-kicker">رحلة عبر الزمن</span>
+                <h2>خمسة مفاصل صنعت التاريخ.</h2>
+                <p>
+                    من التأسيس إلى الحصار، استكشف أبرز محطات
+                    الدولة السعودية الأولى، وشاهد صورًا مرتبطة
+                    بكل مرحلة من تاريخها.
+                </p>
+            </div>
+
+            {% if state.timeline_events %}
+
+            <div class="origins-timeline-layout">
+
+                <!-- قائمة الأحداث -->
+                <nav class="origins-timeline-selector"
+                     aria-label="محطات الدولة السعودية الأولى">
+
+                    {% for event in state.timeline_events %}
+
+                    <button type="button"
+                            class="origins-time-btn {% if forloop.first %}is-active{% endif %}"
+                            data-time="{{ forloop.counter0 }}"
+                            data-year="{{ event.year }}"
+                            data-title="{{ event.title }}"
+                            data-description="{{ event.description }}"
+                            data-image="{% static event.image %}"
+                            data-alt="{{ event.alt }}"
+                            aria-pressed="{% if forloop.first %}true{% else %}false{% endif %}">
+
+                        <span class="time-dot"
+                              aria-hidden="true"></span>
+
+                        <span class="time-name">
+                            {{ event.label }}
+                        </span>
+
+                        <span class="time-year">
+                            {{ event.year }}
+                        </span>
+
+                    </button>
+
+                    {% endfor %}
+
+                </nav>
+
+                <!-- بطاقة الحدث المصورة -->
+                <article class="origins-timeline-stage reveal"
+                         aria-label="تفاصيل الحدث التاريخي">
+
+                    <div class="origins-timeline-media">
+
+                        <img id="timelineImage"
+                             src="{% static state.timeline_events.0.image %}"
+                             alt="{{ state.timeline_events.0.alt }}"
+                             loading="lazy">
+
+                        <div class="origins-timeline-image-shade"></div>
+
+                        <span class="origins-timeline-image-label">
+                            مشاهد من التاريخ
+                        </span>
+
+                        <button type="button"
+                                class="origins-timeline-expand"
+                                id="timelineImageOpen"
+                                aria-label="تكبير صورة الحدث التاريخي">
+                            <i class="bi bi-arrows-fullscreen"></i>
+                            <span>عرض الصورة</span>
+                        </button>
+
+                    </div>
+
+                    <div class="origins-timeline-content">
+
+                        <div class="origins-timeline-topbar">
+
+                            <span class="origins-timeline-counter"
+                                  id="timelineCounter">
+                                الحدث ٠١ من ٠٥
+                            </span>
+
+                            <span class="origins-timeline-year"
+                                  id="timelineYear">
+                                {{ state.timeline_events.0.year }}م
+                            </span>
+
+                        </div>
+
+                        <h3 id="timelineTitle">
+                            {{ state.timeline_events.0.title }}
+                        </h3>
+
+                        <p id="timelineDescription">
+                            {{ state.timeline_events.0.description }}
+                        </p>
+
+                        <div class="origins-timeline-bottom">
+
+                            <span class="origins-timeline-caption">
+                                اختر سنة لاستكشاف الحدث
+                            </span>
+
+                            <div class="origins-timeline-controls">
+
+                                <button type="button"
+                                        id="timelinePrev"
+                                        aria-label="الحدث السابق"
+                                        disabled>
+                                    <i class="bi bi-arrow-right"></i>
+                                </button>
+
+                                <span id="timelinePosition"
+                                      dir="ltr">
+                                    ٠١ / ٠٥
+                                </span>
+
+                                <button type="button"
+                                        id="timelineNext"
+                                        aria-label="الحدث التالي">
+                                    <i class="bi bi-arrow-left"></i>
+                                </button>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </article>
+
+            </div>
+
+            {% else %}
+
+            <p class="origins-timeline-empty">
+                لم تُضف أحداث الخط الزمني إلى بيانات الدولة بعد.
+            </p>
+
+            {% endif %}
+
+        </div>
+    </section>
+
+    <!-- ======================================
+         الفصل الثالث — حي الطريف
+    ======================================= -->
+    <section class="origins-place origins-section"
+             id="origins-place">
+
+        <div class="origins-place-media"
+             style="background-image: url('{% static 'history/images/first-state/at-turaif.webp' %}');"
+             aria-hidden="true"></div>
+
+        <div class="container origins-place-container">
+
+            <div class="origins-place-card reveal">
+
+                <span class="origins-kicker">
+                    قلب الدرعية التاريخية
+                </span>
+
+                <span class="origins-place-number">
+                    ٠٣ / ٠٥
+                </span>
+
+                <h2>
+                    حي الطريف
+                    <span>شاهد على التاريخ.</span>
+                </h2>
+
+                <p>
+                    يضم حي الطريف آثار قصور ومبانٍ تاريخية
+                    تعكس العمارة النجدية التقليدية. وقد كان
+                    مركزًا مهمًا للحكم في الدولة السعودية الأولى.
+                </p>
+
+                <p>
+                    أُدرج حي الطريف في قائمة التراث العالمي
+                    لليونسكو عام ٢٠١٠م، تقديرًا لقيمته
+                    التاريخية والمعمارية.
+                </p>
+
+                <a href="https://whc.unesco.org/ar/list/1329/"
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   class="origins-source-link">
+                    اقرأ عن حي الطريف في اليونسكو
+                    <i class="bi bi-box-arrow-up-left"></i>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================
+         الخريطة التاريخية
+    ======================================= -->
+    <section class="origins-map-section origins-section"
+             id="origins-map">
+
+        <div class="container">
+
+            <div class="origins-map-heading reveal">
+                <div>
+                    <span class="origins-kicker">
+                        الامتداد التاريخي
+                    </span>
+
+                    <h2>
+                        دولة امتد
+                        <em>نفوذها عبر الجزيرة.</em>
+                    </h2>
+                </div>
+
+                <p>
+                    شاهد الخريطة التاريخية للدولة السعودية
+                    الأولى، وتعرف على الامتداد الجغرافي
+                    خلال مراحل تطورها.
+                </p>
+            </div>
+
+            <button type="button"
+                    class="origins-map-frame reveal"
+                    id="originsMapOpen"
+                    aria-label="تكبير الخريطة التاريخية">
+
+                <img src="{% static 'history/images/first-state/first-state-map.webp' %}"
+                     alt="خريطة توضيحية للامتداد التاريخي للدولة السعودية الأولى"
+                     loading="lazy">
+
+                <span class="origins-map-zoom">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                    تكبير الخريطة
+                </span>
+
+            </button>
+
+            <div class="origins-map-footer reveal">
+
+                <div>
+                    <span>الامتداد التاريخي</span>
+                    <strong>الدولة السعودية الأولى</strong>
+                </div>
+
+                <div>
+                    <span>الفترة التاريخية</span>
+                    <strong>١٧٢٧ – ١٨١٨م</strong>
+                </div>
+
+            </div>
+
+            <p class="origins-map-note">
+                الخريطة توضيحية للامتداد التاريخي،
+                وقد تختلف حدود النفوذ باختلاف الفترة الزمنية.
+            </p>
+
+        </div>
+    </section>
+
+    <!-- ======================================
+         الفصل الرابع — الأئمة
+    ======================================= -->
+    <section class="origins-rulers origins-section"
+             id="origins-rulers">
+
+        <div class="container">
+
+            <div class="origins-rulers-heading reveal">
+
+                <div>
+                    <span class="origins-kicker">
+                        أئمة الدولة السعودية الأولى
+                    </span>
+
+                    <h2>
+                        أربعة أئمة.
+                        <br>
+                        <em>إرث واحد.</em>
+                    </h2>
+                </div>
+
+                <p>
+                    تعاقب على حكم الدولة السعودية الأولى
+                    أربعة من أئمة آل سعود، ولكل واحد منهم
+                    دور في تاريخ الدولة.
+                </p>
+
+            </div>
+
+            <div class="origins-rulers-grid">
+
+                {% for ruler in rulers %}
+
+                <a href="{% url 'ruler_detail' ruler.slug %}"
+                   class="origins-ruler reveal"
+                   aria-label="اقرأ سيرة {{ ruler.name }}">
+
+                    <div class="origins-ruler-image">
+
+                        <img src="{% static ruler.image %}"
+                             alt="{{ ruler.name }}"
+                             loading="lazy">
+
+                        <span class="origins-ruler-index">
+                            {{ forloop.counter }}
+                        </span>
+
+                        <span class="origins-ruler-arrow"
+                              aria-hidden="true">
+                            <i class="bi bi-arrow-up-left"></i>
+                        </span>
+
+                    </div>
+
+                    <div class="origins-ruler-info">
+
+                        <span>{{ ruler.period }}</span>
+
+                        <h3>{{ ruler.name }}</h3>
+
+                        <p>{{ ruler.description }}</p>
+
+                        <strong>
+                            اكتشف السيرة
+                            <i class="bi bi-arrow-left"></i>
+                        </strong>
+
+                    </div>
+                </a>
+
+                {% endfor %}
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================
+         الفصل الأخير — الإرث
+    ======================================= -->
+    <section class="origins-legacy origins-section"
+             id="origins-legacy"
+             style="background-image:
+                linear-gradient(
+                    rgba(12, 18, 14, 0.65),
+                    rgba(12, 18, 14, 0.85)
+                ),
+                url('{% static 'history/images/first-state/end-of-first-state.webp' %}');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;">
+
+        <div class="container origins-legacy-inner">
+
+            <span class="origins-legacy-index reveal">
+                الفصل الأخير / ١٨١٨م
+            </span>
+
+            <span class="origins-legacy-big-year reveal">
+                ١٨١٨
+            </span>
+
+            <h2 class="reveal">
+                انتهت دولة.
+                <br>
+                <em>ولم تنتهِ الحكاية.</em>
+            </h2>
+
+            <p class="reveal">
+                في عام ١٨١٨م، انتهت الدولة السعودية الأولى
+                بعد حصار الدرعية على يد قوات إبراهيم باشا.
+                لكن مرحلة جديدة من التاريخ السعودي بدأت
+                بعد ذلك بسنوات، عندما تأسست الدولة السعودية
+                الثانية عام ١٨٢٤م بقيادة الإمام تركي بن عبدالله.
+            </p>
+
+            <a href="{% url 'state_detail' 'second' %}"
+               class="origins-btn origins-btn-gold reveal">
+                انتقل إلى الدولة السعودية الثانية
+                <i class="bi bi-arrow-left"></i>
+            </a>
+
+            <div class="origins-legacy-footer">
+                <span>الحكاية مستمرة</span>
+                <span>
+                    الفصل الثاني
+                    <i class="bi bi-arrow-left"></i>
+                </span>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ======================================
+         المصادر التاريخية
+    ======================================= -->
+    <section class="origins-sources">
+
+        <div class="container">
+
+            <div>
+                <span class="origins-kicker">
+                    المصادر التاريخية
+                </span>
+                <h2>مصادر للقراءة والتوثيق</h2>
+            </div>
+
+            <div class="origins-sources-links">
+
+                <a href="https://www.foundingday.sa/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    الموقع الرسمي ليوم التأسيس
+                    <i class="bi bi-box-arrow-up-left"></i>
+                </a>
+
+                <a href="https://whc.unesco.org/ar/list/1329/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    اليونسكو — حي الطريف
+                    <i class="bi bi-box-arrow-up-left"></i>
+                </a>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================================
+         عارض الصور والخريطة
+    ======================================= -->
+    <div class="origins-map-lightbox"
+         id="originsMapLightbox"
+         role="dialog"
+         aria-modal="true"
+         aria-label="عرض الصورة المكبرة"
+         aria-hidden="true"
+         tabindex="-1"
+         hidden>
+
+        <button type="button"
+                class="origins-map-close"
+                id="originsMapClose"
+                aria-label="إغلاق الصورة">
+            <i class="bi bi-x-lg"></i>
+        </button>
+
+        <div class="origins-lightbox-inner">
+            <img id="originsLightboxImage"
+                 src="{% static 'history/images/first-state/first-state-map.webp' %}"
+                 alt="صورة مكبرة">
+            <p id="originsLightboxCaption"></p>
+        </div>
+
+    </div>
+
+</div>
+
+{% endblock %}
+
+{% block extra_scripts %}
+<script src="{% static 'history/js/states.js' %}" defer></script>
+{% endblock %}

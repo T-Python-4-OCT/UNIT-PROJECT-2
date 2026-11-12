@@ -1,0 +1,1167 @@
+
+{% extends 'history/base.html' %}
+{% load static %}
+
+{% block title %}
+عن المشروع | المملكة
+{% endblock %}
+
+{% block extra_head %}
+
+<style>
+/* ==========================================
+   ABOUT THE KINGDOM
+========================================== */
+
+.about-page {
+    --about-gold: #d4ad73;
+    --about-deep: #1c2c23;
+    --about-ink: var(--fg);
+    --about-muted: var(--muted);
+
+    background: var(--bg);
+    color: var(--fg);
+    overflow: hidden;
+}
+
+.about-page *,
+.about-page *::before,
+.about-page *::after {
+    box-sizing: border-box;
+}
+
+.about-page a {
+    text-decoration: none;
+}
+
+.about-page em {
+    color: #b48b52;
+    font-style: normal;
+}
+
+html.dark .about-page em {
+    color: #d4ad73;
+}
+
+.about-container {
+    width: min(1180px, calc(100% - 40px));
+    margin-inline: auto;
+}
+
+.about-section {
+    padding: clamp(70px, 8vw, 115px) 0;
+}
+
+.about-kicker {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    font-size: 13px;
+    font-weight: 800;
+    color: #bd945b;
+}
+
+.about-heading {
+    margin: 17px 0 25px;
+    font-size: clamp(32px, 4.4vw, 60px);
+    line-height: 1.5;
+    font-weight: 900;
+    color: var(--fg);
+}
+
+.about-text {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 2.35;
+}
+
+/* ==========================================
+   HERO
+========================================== */
+
+.about-hero {
+    position: relative;
+    isolation: isolate;
+
+    min-height: 85svh;
+
+    display: flex;
+    align-items: center;
+
+    background: #182d23;
+    color: #f8f2e6;
+}
+
+.about-hero-image {
+    position: absolute;
+    inset: 0;
+    z-index: -3;
+
+    background-image:
+        url("{% static 'history/images/first-state/diriyah-hero.webp' %}");
+
+    background-size: cover;
+    background-position: center;
+}
+
+.about-hero-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+
+    background:
+        linear-gradient(
+            270deg,
+            rgba(14, 35, 24, .97),
+            rgba(14, 35, 24, .83) 45%,
+            rgba(14, 35, 24, .44)
+        ),
+        linear-gradient(
+            0deg,
+            rgba(10, 25, 17, .65),
+            transparent 50%
+        );
+}
+
+.about-hero-content {
+    padding-top: 170px;
+    padding-bottom: 110px;
+    max-width: 900px;
+}
+
+.about-hero .about-kicker {
+    color: #e1bd82;
+}
+
+.about-hero h1 {
+    color: #fffaf1;
+    font-size: clamp(45px, 6.4vw, 94px);
+    font-weight: 900;
+    line-height: 1.38;
+    margin: 23px 0;
+}
+
+.about-hero h1 span {
+    display: block;
+    color: #dfb77b;
+}
+
+.about-hero p {
+    max-width: 680px;
+    color: #e1e8db;
+    line-height: 2.2;
+    font-size: clamp(15px, 1.35vw, 19px);
+}
+
+.about-hero-actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 13px;
+    margin-top: 32px;
+}
+
+.about-button {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 13px;
+
+    padding: 15px 25px;
+    min-height: 52px;
+
+    font-size: 13px;
+    font-weight: 800;
+
+    transition:
+        transform .25s,
+        background .25s;
+}
+
+.about-button:hover {
+    transform: translateY(-3px);
+}
+
+.about-button-primary {
+    background: #dfb97e;
+    color: #213027 !important;
+}
+
+.about-button-primary:hover {
+    background: #f0d4a5;
+}
+
+.about-button-outline {
+    color: #fff !important;
+    border: 1px solid rgba(255,255,255,.55);
+}
+
+.about-button-outline:hover {
+    background: rgba(255,255,255,.12);
+}
+
+.about-hero-bottom {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+
+    margin-top: 65px;
+    padding-top: 25px;
+
+    border-top: 1px solid rgba(255,255,255,.17);
+}
+
+.about-hero-bottom span {
+    color: #e2c48c;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.about-hero-bottom small {
+    color: #d0dace;
+    font-size: 12px;
+}
+
+/* ==========================================
+   ABOUT STORY
+========================================== */
+
+.about-story {
+    background: var(--bg);
+}
+
+.about-story-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(35px, 6vw, 95px);
+    align-items: center;
+}
+
+.about-story-content {
+    max-width: 630px;
+}
+
+.about-story-content p {
+    margin-bottom: 22px;
+}
+
+.about-story-image {
+    position: relative;
+}
+
+.about-story-image img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 4.3;
+    object-fit: cover;
+    object-position: center;
+
+    border: 1px solid var(--border);
+}
+
+.about-story-image::after {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px solid rgba(230,190,120,.48);
+    pointer-events: none;
+}
+
+.about-story-image-caption {
+    position: absolute;
+    right: 35px;
+    bottom: 35px;
+
+    background: rgba(19,43,29,.91);
+    color: #e4c589;
+
+    padding: 17px 22px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+/* ==========================================
+   THREE HISTORICAL CHAPTERS
+========================================== */
+
+.about-chapters {
+    background: var(--surface);
+}
+
+.about-section-header {
+    max-width: 760px;
+    margin-bottom: 48px;
+}
+
+.about-chapters-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.about-chapter-card {
+    position: relative;
+    min-height: 410px;
+    overflow: hidden;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+
+    background-color: #193126;
+    background-position: center;
+    background-size: cover;
+
+    border: 1px solid rgba(194,153,92,.2);
+
+    color: #fff !important;
+    transition: transform .3s;
+}
+
+.about-chapter-card:hover {
+    transform: translateY(-7px);
+}
+
+.about-chapter-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        0deg,
+        rgba(9,25,16,.98),
+        rgba(9,25,16,.65) 43%,
+        rgba(9,25,16,.14)
+    );
+}
+
+.about-chapter-card > div {
+    position: relative;
+    z-index: 1;
+    padding: 30px;
+}
+
+.about-chapter-card span {
+    color: #e0bd81;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.about-chapter-card h3 {
+    margin: 13px 0;
+    font-size: clamp(20px, 2vw, 29px);
+    line-height: 1.55;
+    font-weight: 900;
+}
+
+.about-chapter-card p {
+    font-size: 13px;
+    line-height: 2;
+    color: #e1e6da;
+}
+
+.about-chapter-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+
+    font-size: 12px;
+    font-weight: 800;
+    color: #e7c38a;
+}
+
+.about-chapter-first {
+    background-image:
+        url("{% static 'history/images/eras/first-banner.jpg' %}");
+}
+
+.about-chapter-second {
+    background-image:
+        url("{% static 'history/images/eras/second-banner.jpg' %}");
+}
+
+.about-chapter-third {
+    background-image:
+        url("{% static 'history/images/eras/third-banner.jpg' %}");
+}
+
+/* ==========================================
+   FEATURES
+========================================== */
+
+.about-features {
+    background: var(--bg);
+}
+
+.about-features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.about-feature {
+    padding: 35px;
+    min-height: 235px;
+
+    background: var(--surface);
+    border: 1px solid var(--border);
+}
+
+.about-feature-icon {
+    display: grid;
+    place-items: center;
+    width: 52px;
+    height: 52px;
+
+    background: #254134;
+    color: #e7c58d;
+    font-size: 23px;
+
+    margin-bottom: 23px;
+}
+
+.about-feature h3 {
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--fg);
+    margin-bottom: 13px;
+}
+
+.about-feature p {
+    font-size: 13px;
+    line-height: 2;
+    margin: 0;
+    color: var(--muted);
+}
+
+/* ==========================================
+   TECH STACK
+========================================== */
+
+.about-tech {
+    background: #1e3026;
+    color: #f3ede2;
+}
+
+.about-tech .about-heading {
+    color: #faf5e9;
+}
+
+.about-tech .about-text {
+    color: #c6d2c5;
+}
+
+.about-tech-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: center;
+}
+
+.about-tech-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 30px;
+}
+
+.about-tech-list span {
+    padding: 11px 17px;
+    border: 1px solid rgba(220,182,117,.35);
+    color: #e8cc99;
+    background: rgba(255,255,255,.04);
+
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.about-tech-visual {
+    border: 1px solid rgba(220,182,117,.24);
+    padding: 40px;
+    background: rgba(255,255,255,.035);
+}
+
+.about-tech-visual i {
+    font-size: 54px;
+    color: #e1bf87;
+}
+
+.about-tech-visual h3 {
+    color: #f7efe0;
+    margin: 22px 0 14px;
+    font-weight: 900;
+    font-size: 25px;
+}
+
+.about-tech-visual p {
+    color: #c6d2c5;
+    font-size: 14px;
+    line-height: 2.15;
+}
+
+/* ==========================================
+   FINAL CALL TO ACTION
+========================================== */
+
+.about-ending {
+    padding: 115px 0;
+    background: var(--surface);
+    text-align: center;
+}
+
+.about-ending-inner {
+    max-width: 790px;
+    margin: auto;
+}
+
+.about-ending p {
+    max-width: 600px;
+    margin: 15px auto 28px;
+}
+
+.about-ending .about-button-primary {
+    margin: 0 auto;
+}
+
+/* ==========================================
+   RESPONSIVE
+========================================== */
+
+@media (max-width: 991px) {
+
+    .about-story-grid,
+    .about-tech-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .about-chapters-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .about-features-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+}
+
+@media (max-width: 680px) {
+
+    .about-hero {
+        min-height: 730px;
+    }
+
+    .about-hero-content {
+        padding-top: 155px;
+        padding-bottom: 80px;
+    }
+
+    .about-hero h1 {
+        font-size: 43px;
+    }
+
+    .about-hero-bottom {
+        margin-top: 40px;
+    }
+
+    .about-chapters-grid,
+    .about-features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-chapter-card {
+        min-height: 310px;
+    }
+
+    .about-story-image img {
+        aspect-ratio: 4 / 3;
+    }
+
+    .about-tech-visual {
+        padding: 27px;
+    }
+
+    .about-ending {
+        padding: 75px 0;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .about-page *,
+    .about-page *::before,
+    .about-page *::after {
+        transition: none !important;
+    }
+}
+</style>
+
+{% endblock %}
+
+
+{% block content %}
+
+<div class="about-page" dir="rtl">
+
+    <!-- ==========================================
+         HERO
+    ========================================== -->
+
+    <header class="about-hero">
+
+        <div class="about-hero-image"></div>
+        <div class="about-hero-overlay"></div>
+
+        <div class="about-container">
+
+            <div class="about-hero-content">
+
+                <span class="about-kicker">
+                    <i class="bi bi-book-half"></i>
+                    عن مشروع المملكة
+                </span>
+
+                <h1>
+                    التاريخ يُروى...
+                    <span>وهنا يُعاش.</span>
+                </h1>
+
+                <p>
+                    المملكة مشروع ويب تعليمي تفاعلي
+                    يستعرض تاريخ الدول السعودية الثلاث،
+                    ويجمع بين السرد التاريخي والمشاهد
+                    البصرية والخرائط وسير الحكام والملوك
+                    في تجربة رقمية واحدة.
+                </p>
+
+                <div class="about-hero-actions">
+
+                    <a
+                        href="#aboutStory"
+                        class="about-button about-button-primary"
+                    >
+                        تعرّف على الفكرة
+                        <i class="bi bi-arrow-down"></i>
+                    </a>
+
+                    <a
+                        href="{% url 'home' %}"
+                        class="about-button about-button-outline"
+                    >
+                        العودة للرئيسية
+                        <i class="bi bi-arrow-left"></i>
+                    </a>
+
+                </div>
+
+                <div class="about-hero-bottom">
+
+                    <span>
+                        ١٧٢٧م — ١٨٢٤م — ١٩٠٢م
+                    </span>
+
+                    <small>
+                        ثلاث مراحل تاريخية، وتجربة تفاعلية واحدة
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- ==========================================
+         PROJECT STORY
+    ========================================== -->
+
+    <section class="about-story about-section" id="aboutStory">
+
+        <div class="about-container">
+
+            <div class="about-story-grid">
+
+                <div class="about-story-content">
+
+                    <span class="about-kicker">
+                        <i class="bi bi-lightbulb"></i>
+                        فكرة المشروع
+                    </span>
+
+                    <h2 class="about-heading">
+                        التاريخ أبعد من
+                        <em>صفحات تُقرأ.</em>
+                    </h2>
+
+                    <p class="about-text">
+                        جاءت فكرة المملكة لتقديم تاريخ
+                        الدولة السعودية بأسلوب مختلف عن
+                        العرض التقليدي للمعلومات؛
+                        حيث ينتقل الزائر بين الفصول
+                        التاريخية ويكتشف الأحداث
+                        من خلال تجربة بصرية تفاعلية.
+                    </p>
+
+                    <p class="about-text">
+                        يركز المشروع على ثلاث مراحل:
+                        الدولة السعودية الأولى،
+                        والدولة السعودية الثانية،
+                        والدولة السعودية الثالثة،
+                        مع إبراز الشخصيات والأحداث
+                        التي شكّلت مسيرة الدولة.
+                    </p>
+
+                    <p class="about-text">
+                        صُممت صفحات المشروع لتجمع
+                        بين البساطة في التنقل،
+                        والاهتمام بالهوية العربية،
+                        والسرد القصصي، والتصميم
+                        المتجاوب مع الأجهزة المختلفة.
+                    </p>
+
+                </div>
+
+                <div class="about-story-image">
+
+                    <img
+                        src="{% static 'history/images/first-state/at-turaif.webp' %}"
+                        alt="معالم حي الطريف التاريخي في الدرعية"
+                        loading="lazy"
+                    >
+
+                    <span class="about-story-image-caption">
+                        الدرعية — بداية الحكاية
+                    </span>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         HISTORICAL CHAPTERS
+    ========================================== -->
+
+    <section class="about-chapters about-section">
+
+        <div class="about-container">
+
+            <div class="about-section-header">
+
+                <span class="about-kicker">
+                    الفصول الثلاثة
+                </span>
+
+                <h2 class="about-heading">
+                    رحلة تمتد عبر
+                    <em>ثلاث دول.</em>
+                </h2>
+
+                <p class="about-text">
+                    تبدأ الرحلة من الدرعية، ثم تنتقل
+                    إلى الرياض في عهد الدولة الثانية،
+                    وصولًا إلى مسيرة التوحيد
+                    وبناء المملكة العربية السعودية.
+                </p>
+
+            </div>
+
+            <div class="about-chapters-grid">
+
+                <a
+                    href="{% url 'state_detail' 'first' %}"
+                    class="about-chapter-card about-chapter-first"
+                >
+
+                    <div>
+
+                        <span>١٧٢٧ — ١٨١٨م</span>
+
+                        <h3>الدولة السعودية الأولى</h3>
+
+                        <p>
+                            التأسيس في الدرعية وبداية
+                            قيام الدولة بقيادة الإمام
+                            محمد بن سعود.
+                        </p>
+
+                        <span class="about-chapter-link">
+                            استكشف الفصل
+                            <i class="bi bi-arrow-left"></i>
+                        </span>
+
+                    </div>
+
+                </a>
+
+                <a
+                    href="{% url 'state_detail' 'second' %}"
+                    class="about-chapter-card about-chapter-second"
+                >
+
+                    <div>
+
+                        <span>١٨٢٤ — ١٨٩١م</span>
+
+                        <h3>الدولة السعودية الثانية</h3>
+
+                        <p>
+                            إعادة تأسيس الدولة بقيادة
+                            الإمام تركي بن عبدالله،
+                            واتخاذ الرياض عاصمة.
+                        </p>
+
+                        <span class="about-chapter-link">
+                            استكشف الفصل
+                            <i class="bi bi-arrow-left"></i>
+                        </span>
+
+                    </div>
+
+                </a>
+
+                <a
+                    href="{% url 'state_detail' 'third' %}"
+                    class="about-chapter-card about-chapter-third"
+                >
+
+                    <div>
+
+                        <span>١٩٠٢م — العصر الحديث</span>
+
+                        <h3>الدولة السعودية الثالثة</h3>
+
+                        <p>
+                            استرداد الرياض ومسيرة
+                            توحيد البلاد ثم إعلان
+                            المملكة العربية السعودية.
+                        </p>
+
+                        <span class="about-chapter-link">
+                            استكشف الفصل
+                            <i class="bi bi-arrow-left"></i>
+                        </span>
+
+                    </div>
+
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         FEATURES
+    ========================================== -->
+
+    <section class="about-features about-section">
+
+        <div class="about-container">
+
+            <div class="about-section-header">
+
+                <span class="about-kicker">
+                    مميزات المملكة
+                </span>
+
+                <h2 class="about-heading">
+                    تجربة صُنعت
+                    <em>لاستكشاف التاريخ.</em>
+                </h2>
+
+            </div>
+
+            <div class="about-features-grid">
+
+                <article class="about-feature">
+
+                    <div class="about-feature-icon">
+                        <i class="bi bi-clock-history"></i>
+                    </div>
+
+                    <h3>خطوط زمنية تفاعلية</h3>
+
+                    <p>
+                        استعراض الأحداث التاريخية
+                        وتسلسلها بأسلوب واضح وتفاعلي.
+                    </p>
+
+                </article>
+
+                <article class="about-feature">
+
+                    <div class="about-feature-icon">
+                        <i class="bi bi-person-vcard"></i>
+                    </div>
+
+                    <h3>سير الحكام والملوك</h3>
+
+                    <p>
+                        صفحات مخصصة للتعرف على
+                        أبرز الشخصيات وأحداث عهودها.
+                    </p>
+
+                </article>
+
+                <article class="about-feature">
+
+                    <div class="about-feature-icon">
+                        <i class="bi bi-map"></i>
+                    </div>
+
+                    <h3>خرائط تاريخية</h3>
+
+                    <p>
+                        عرض بصري يساعد على فهم
+                        مواقع الأحداث ومراحل الدولة.
+                    </p>
+
+                </article>
+
+                <article class="about-feature">
+
+                    <div class="about-feature-icon">
+                        <i class="bi bi-camera-reels"></i>
+                    </div>
+
+                    <h3>مشاهد سينمائية</h3>
+
+                    <p>
+                        استخدام الفيديوهات والصور
+                        لإثراء تجربة السرد التاريخي.
+                    </p>
+
+                </article>
+
+                <article class="about-feature">
+
+                    <div class="about-feature-icon">
+                        <i class="bi bi-book"></i>
+                    </div>
+
+                    <h3>وثائق وقصص تفاعلية</h3>
+
+                    <p>
+                        محتوى سردي ومشاهد مستوحاة
+                        من أحداث ومراحل تاريخية مختلفة.
+                    </p>
+
+                </article>
+
+                <article class="about-feature">
+
+                    <div class="about-feature-icon">
+                        <i class="bi bi-phone"></i>
+                    </div>
+
+                    <h3>تصميم متجاوب</h3>
+
+                    <p>
+                        واجهة عربية تراعي أحجام
+                        الشاشات المختلفة وتدعم
+                        الوضع الفاتح والليلي.
+                    </p>
+
+                </article>
+
+            </div>
+
+        </div>
+
+    </section>
+<!-- ==========================================
+     ABOUT THE DEVELOPER
+========================================== -->
+
+<section class="about-developer about-section" id="developer">
+
+    <div class="about-container">
+
+        <div class="about-developer-card">
+
+            <div class="about-developer-content">
+
+                <span class="about-kicker">
+                    <i class="bi bi-person-badge"></i>
+                    خلف المشروع
+                </span>
+
+                <h2 class="about-heading">
+                    صُنعت المملكة
+                    <em>بشغف للتاريخ والتقنية.</em>
+                </h2>
+
+                <span class="about-developer-role">
+                    تصميم وتطوير
+                </span>
+
+                <h3>عبدالرحمن عبدالعزيز القحطاني</h3>
+
+                <p class="about-text">
+                    خريج بكالوريوس علوم الحاسب من كلية الجبيل الصناعية،
+                    ومطوّر ويب مهتم ببناء التجارب الرقمية التفاعلية.
+                    طوّر مشروع «المملكة» ضمن معسكر تطوير الويب
+                    بأكاديمية طويق بالشراكة مع وزارة الداخلية،
+                    بهدف تقديم التاريخ السعودي بأسلوب يجمع بين
+                    السرد القصصي والتصميم والتقنيات الحديثة.
+                </p>
+
+                <div class="about-developer-links">
+
+                    <a
+                        href="https://github.com/AAQ224"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="about-developer-github"
+                    >
+                        <i class="bi bi-github"></i>
+                        GitHub
+                        <i class="bi bi-arrow-up-left"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="about-developer-signature">
+
+                <span>المطوّر</span>
+
+                <strong>عبدالرحمن القحطاني</strong>
+
+                <span>٢٠٢٦م</span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+    <!-- ==========================================
+         TECHNOLOGIES
+    ========================================== -->
+
+    <section class="about-tech about-section">
+
+        <div class="about-container">
+
+            <div class="about-tech-grid">
+
+                <div>
+
+                    <span class="about-kicker">
+                        خلف الكواليس
+                    </span>
+
+                    <h2 class="about-heading">
+                        بُني بشغف
+                        <br>
+                        <em>للتاريخ والتقنية.</em>
+                    </h2>
+
+                    <p class="about-text">
+                        طُوّر المشروع باستخدام
+                        Django وPython لتنظيم
+                        الصفحات والبيانات،
+                        مع HTML وCSS وJavaScript
+                        لبناء الواجهات والتفاعلات،
+                        وملفات JSON لحفظ البيانات
+                        التاريخية وعرضها ديناميكيًا.
+                    </p>
+
+                    <div class="about-tech-list">
+
+                        <span>Python</span>
+                        <span>Django</span>
+                        <span>HTML5</span>
+                        <span>CSS3</span>
+                        <span>JavaScript</span>
+                        <span>JSON</span>
+                        <span>Bootstrap RTL</span>
+
+                    </div>
+
+                </div>
+
+                <div class="about-tech-visual">
+
+                    <i class="bi bi-code-slash"></i>
+
+                    <h3>مشروع تعليمي تفاعلي</h3>
+
+                    <p>
+                        يجمع المملكة بين تطوير الويب
+                        وتنظيم البيانات وتصميم
+                        واجهات المستخدم وتقديم
+                        محتوى تاريخي بأسلوب قصصي.
+                    </p>
+
+                    <p>
+                        لا يمثل الموقع جهة حكومية
+                        رسمية، وقد تتضمن بعض
+                        صفحاته رسومات وصورًا
+                        تخيلية لغرض التوضيح البصري.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ==========================================
+         FINAL CTA
+    ========================================== -->
+
+    <section class="about-ending">
+
+        <div class="about-container">
+
+            <div class="about-ending-inner">
+
+                <span class="about-kicker">
+                    تابع الرحلة
+                </span>
+
+                <h2 class="about-heading">
+                    لكل دولة حكاية.
+                    <em>ولكل حكاية بداية.</em>
+                </h2>
+
+                <p class="about-text">
+                    اكتشف التاريخ السعودي
+                    من خلال فصول المملكة الثلاثة،
+                    وابدأ رحلتك من الدرعية.
+                </p>
+
+                <a
+                    href="{% url 'state_detail' 'first' %}"
+                    class="about-button about-button-primary"
+                >
+                    ابدأ من الدولة الأولى
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

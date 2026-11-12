@@ -1,0 +1,884 @@
+
+{% extends 'history/base.html' %}
+{% load static %}
+
+{% block title %}
+الدولة السعودية الثالثة | مسيرة التوحيد
+{% endblock %}
+
+{% block extra_head %}
+
+<meta
+    name="description"
+    content="رحلة سينمائية تفاعلية عبر الدولة السعودية الثالثة، من استرداد الرياض عام ١٩٠٢م إلى توحيد المملكة العربية السعودية ومسيرة تطورها."
+>
+
+<link
+    rel="stylesheet"
+    href="{% static 'history/css/third.css' %}"
+>
+
+{% endblock %}
+
+
+{% block content %}
+
+{{ third_events|json_script:"thirdEventsData" }}
+
+<div
+    class="unity-page"
+    id="unityPage"
+    dir="rtl"
+    data-hero-image="{% static 'history/images/eras/third-banner.jpg' %}"
+    data-static-root="{% static 'history/' %}"
+>
+
+    <div
+        class="unity-progress"
+        id="unityProgress"
+        aria-hidden="true">
+    </div>
+
+
+    <!-- ========================================
+         الفصل الأول — الافتتاحية السينمائية
+    ========================================= -->
+
+    <header class="unity-hero" id="unity-top">
+
+        <div
+            class="unity-hero-media"
+            style="background-image: url('{% static 'history/images/eras/third-banner.jpg' %}');"
+        >
+
+            <video
+                class="unity-hero-video"
+                id="unityHeroVideo"
+                autoplay
+                muted
+                loop
+                playsinline
+                preload="metadata"
+                poster="{% static 'history/images/eras/third-banner.jpg' %}"
+                aria-hidden="true"
+                tabindex="-1"
+            >
+
+                <source
+                    src="{% static 'history/videos/third-state/riyadh-1902.mp4' %}"
+                    type="video/mp4"
+                >
+
+            </video>
+
+        </div>
+
+        <div class="unity-hero-shade"></div>
+
+        <div class="container unity-hero-content">
+
+            <div class="unity-hero-meta">
+
+                <span>
+                    الفصل الثالث من تاريخ الدولة السعودية
+                </span>
+
+                <span>
+                    ١٩٠٢م — العصر الحديث
+                </span>
+
+            </div>
+
+            <div class="unity-hero-story">
+
+                <span class="unity-eyebrow">
+                    الدولة السعودية الثالثة
+                </span>
+
+                <div class="unity-hero-rule"></div>
+
+                <h1>
+                    من الرياض
+                    <em>بدأت الملحمة.</em>
+                </h1>
+
+                <p class="unity-hero-lead">
+                    في عام ١٩٠٢م، استرد الملك عبدالعزيز
+                    بن عبدالرحمن آل سعود الرياض،
+                    وبدأ رحلة استمرت عقودًا لتوحيد
+                    البلاد وبناء المملكة العربية السعودية.
+                </p>
+
+                <div class="unity-hero-actions">
+
+                    <a
+                        href="#unity-prologue"
+                        class="unity-button unity-button-gold"
+                    >
+                        ابدأ الرحلة
+                        <i class="bi bi-arrow-down"></i>
+                    </a>
+
+                    <a
+                        href="#unity-timeline"
+                        class="unity-button unity-button-outline"
+                    >
+                        استكشف محطات التوحيد
+                        <i class="bi bi-arrow-left"></i>
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="unity-hero-footer">
+
+                <span>الرياض — نجد</span>
+
+                <span>
+                    <i class="bi bi-arrow-down"></i>
+                    مرّر لاكتشاف القصة
+                </span>
+
+                <span>بداية الفصل الثالث</span>
+
+            </div>
+
+        </div>
+
+        <div
+            class="unity-hero-number"
+            aria-hidden="true"
+        >
+            ٠٣
+        </div>
+
+    </header>
+
+
+    <!-- ========================================
+         الفصل الثاني — بداية الحكاية
+    ========================================= -->
+
+    <section
+        class="unity-prologue unity-section"
+        id="unity-prologue"
+    >
+
+        <div class="container">
+
+            <div class="unity-prologue-grid">
+
+                <div class="unity-prologue-heading unity-reveal">
+
+                    <span class="unity-section-kicker">
+                        ٠١ — اللحظة الفاصلة
+                    </span>
+
+                    <h2>
+                        مدينة واحدة.
+                        <em>وبداية وطن.</em>
+                    </h2>
+
+                    <p>
+                        لم يكن استرداد الرياض مجرد عودة
+                        إلى مدينة؛ بل كان بداية لمسيرة
+                        سياسية وتاريخية صنعت التحول
+                        نحو قيام المملكة الحديثة.
+                    </p>
+
+                    <a
+                        href="#unity-timeline"
+                        class="unity-text-link"
+                    >
+                        تابع رحلة التوحيد
+                        <i class="bi bi-arrow-left"></i>
+                    </a>
+
+                </div>
+
+                <div class="unity-prologue-year unity-reveal">
+
+                    <span>العام الذي بدأت فيه الرحلة</span>
+
+                    <strong>١٩٠٢</strong>
+
+                    <div class="unity-prologue-year-bottom">
+
+                        <span>الرياض</span>
+                        <span>الملك عبدالعزيز</span>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <div class="unity-story-strip unity-reveal">
+
+                <div>
+                    <span>نقطة الانطلاق</span>
+                    <strong>الرياض</strong>
+                </div>
+
+                <div>
+                    <span>قائد التوحيد</span>
+                    <strong>الملك عبدالعزيز</strong>
+                </div>
+
+                <div>
+                    <span>الغاية</span>
+                    <strong>توحيد البلاد</strong>
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         الفصل الثالث — محطات التوحيد التفاعلية
+    ========================================= -->
+
+    <section
+        class="unity-timeline-section unity-section"
+        id="unity-timeline"
+    >
+
+        <div class="container">
+
+            <div class="unity-section-heading unity-reveal">
+
+                <div>
+
+                    <span class="unity-section-kicker">
+                        ٠٢ — مسيرة التوحيد
+                    </span>
+
+                    <h2>
+                        رحلة صنعت
+                        <em>المملكة.</em>
+                    </h2>
+
+                </div>
+
+                <p>
+                    اختر محطة من محطات التوحيد
+                    لتكتشف تفاصيلها. تتغير السنة
+                    والمشهد والنص مع كل اختيار،
+                    لتتابع الأحداث بالتسلسل التاريخي.
+                </p>
+
+            </div>
+
+            <div class="unity-journey">
+
+                <nav
+                    class="unity-journey-nav unity-reveal"
+                    id="unityJourneyNav"
+                    aria-label="محطات التوحيد"
+                >
+
+                    <div class="unity-loading">
+                        جارٍ تجهيز المحطات التاريخية...
+                    </div>
+
+                </nav>
+
+                <article
+                    class="unity-journey-stage unity-reveal"
+                    id="unityJourneyStage"
+                    aria-label="تفاصيل المحطة المختارة"
+                >
+
+                    <div
+                        class="unity-journey-image"
+                        id="unityJourneyImage"
+                        style="background-image: url('{% static 'history/images/eras/third-banner.jpg' %}');"
+                    ></div>
+
+                    <div class="unity-journey-overlay"></div>
+
+                    <div
+                        class="unity-journey-watermark"
+                        id="unityJourneyWatermark"
+                        aria-hidden="true"
+                    >
+                        ١٩٠٢
+                    </div>
+
+                    <div class="unity-journey-content">
+
+                        <div class="unity-stage-top">
+
+                            <span id="unityStageCategory">
+                                استرداد الرياض
+                            </span>
+
+                            <span
+                                id="unityStageCounter"
+                                dir="ltr"
+                            >
+                                ٠١ / ٠٧
+                            </span>
+
+                        </div>
+
+                        <div class="unity-stage-main">
+
+                            <div class="unity-stage-year">
+
+                                <span>عام</span>
+
+                                <strong id="unityStageYear">
+                                    ١٩٠٢
+                                </strong>
+
+                                <small>ميلادي</small>
+
+                            </div>
+
+                            <span
+                                class="unity-stage-location"
+                                id="unityStageLocation"
+                            >
+                                الرياض
+                            </span>
+
+                            <h3 id="unityStageTitle">
+                                من الرياض بدأت مسيرة التوحيد
+                            </h3>
+
+                            <p id="unityStageDescription">
+                                استرد الملك عبدالعزيز الرياض
+                                عام ١٩٠٢م، وبدأت رحلة
+                                توحيد البلاد.
+                            </p>
+
+                        </div>
+
+                        <div class="unity-stage-controls">
+
+                            <button
+                                type="button"
+                                id="unityPrevious"
+                                aria-label="المحطة السابقة"
+                                disabled
+                            >
+                                <i class="bi bi-arrow-right"></i>
+                                السابقة
+                            </button>
+
+                            <div
+                                class="unity-stage-dots"
+                                id="unityStageDots"
+                                aria-hidden="true"
+                            ></div>
+
+                            <button
+                                type="button"
+                                id="unityNext"
+                                aria-label="المحطة التالية"
+                            >
+                                التالية
+                                <i class="bi bi-arrow-left"></i>
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </article>
+
+            </div>
+
+            <div class="unity-timeline-note unity-reveal">
+
+                <i class="bi bi-info-circle"></i>
+
+                <p>
+                    المحطات المعروضة مختارة لتقديم
+                    أبرز مراحل التوحيد، وليست سجلًا
+                    كاملًا لجميع الأحداث والمعارك.
+                </p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         الفصل الرابع — إعلان المملكة
+    ========================================= -->
+
+    <section
+        class="unity-proclamation unity-section"
+        id="unity-proclamation"
+    >
+
+        <div class="unity-proclamation-glow"></div>
+
+        <div class="container unity-proclamation-inner">
+
+            <div class="unity-proclamation-heading unity-reveal">
+
+                <span class="unity-section-kicker">
+                    ٠٣ — الإعلان التاريخي
+                </span>
+
+                <span>٢٣ سبتمبر ١٩٣٢م</span>
+
+            </div>
+
+            <div class="unity-proclamation-main unity-reveal">
+
+                <span class="unity-proclamation-small">
+                    وبعد رحلة التوحيد...
+                </span>
+
+                <div class="unity-proclamation-number">
+                    ١٩٣٢
+                </div>
+
+                <h2>
+                    وُلد اسم
+                    <em>المملكة العربية السعودية.</em>
+                </h2>
+
+                <p>
+                    أُعلن توحيد البلاد وتسميتها
+                    المملكة العربية السعودية،
+                    اعتبارًا من يوم الجمعة
+                    ٢٣ سبتمبر ١٩٣٢م.
+                    وأصبح هذا اليوم مناسبة وطنية
+                    تُستعاد فيها ذكرى التوحيد.
+                </p>
+
+            </div>
+
+            <div class="unity-proclamation-facts unity-reveal">
+
+                <div>
+                    <span>اسم الدولة</span>
+                    <strong>المملكة العربية السعودية</strong>
+                </div>
+
+                <div>
+                    <span>العاصمة</span>
+                    <strong>الرياض</strong>
+                </div>
+
+                <div>
+                    <span>المؤسس</span>
+                    <strong>الملك عبدالعزيز</strong>
+                </div>
+
+            </div>
+
+            <a
+                href="#unity-rulers"
+                class="unity-button unity-button-gold unity-reveal"
+            >
+                تابع مسيرة الملوك
+                <i class="bi bi-arrow-down"></i>
+            </a>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         الفصل الخامس — ملوك المملكة
+    ========================================= -->
+
+    <section
+        class="unity-rulers unity-section"
+        id="unity-rulers"
+    >
+
+        <div class="container">
+
+            <div class="unity-section-heading unity-reveal">
+
+                <div>
+
+                    <span class="unity-section-kicker">
+                        ٠٤ — مسيرة القيادة
+                    </span>
+
+                    <h2>
+                        سبعة ملوك.
+                        <em>مسيرة وطن.</em>
+                    </h2>
+
+                </div>
+
+                <p>
+                    من الملك المؤسس عبدالعزيز
+                    إلى خادم الحرمين الشريفين
+                    الملك سلمان، تعرّف على
+                    مراحل الحكم في المملكة العربية السعودية.
+                </p>
+
+            </div>
+
+            <div class="unity-rulers-grid">
+
+                {% for ruler in rulers %}
+
+                <a
+                    href="{% url 'ruler_detail' ruler.slug %}"
+                    class="unity-ruler-card unity-reveal"
+                >
+
+                    <div class="unity-ruler-photo">
+
+                        <img
+                            src="{% static ruler.image %}"
+                            alt="{{ ruler.name }}"
+                            loading="lazy"
+                        >
+
+                        <span class="unity-ruler-index">
+                            {{ forloop.counter }}
+                        </span>
+
+                        <span class="unity-ruler-overlay">
+                            اكتشف السيرة
+                            <i class="bi bi-arrow-up-left"></i>
+                        </span>
+
+                    </div>
+
+                    <div class="unity-ruler-info">
+
+                        <span class="unity-ruler-period">
+                            {{ ruler.period }}
+                        </span>
+
+                        <h3>{{ ruler.name }}</h3>
+
+                        <p>{{ ruler.description }}</p>
+
+                        <span class="unity-ruler-link">
+                            اقرأ السيرة
+                            <i class="bi bi-arrow-left"></i>
+                        </span>
+
+                    </div>
+
+                </a>
+
+                {% empty %}
+
+                <p class="unity-empty">
+                    لا توجد بيانات ملوك مضافة بعد.
+                </p>
+
+                {% endfor %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         الفصل السادس — المملكة الحديثة
+    ========================================= -->
+
+    <section
+        class="unity-modern unity-section"
+        id="unity-modern"
+    >
+
+        <div class="container">
+
+            <div class="unity-section-heading unity-reveal">
+
+                <div>
+
+                    <span class="unity-section-kicker">
+                        ٠٥ — المملكة الحديثة
+                    </span>
+
+                    <h2>
+                        من التوحيد
+                        <em>إلى المستقبل.</em>
+                    </h2>
+
+                </div>
+
+                <p>
+                    لم تتوقف الحكاية عند إعلان المملكة؛
+                    فقد تواصل بناء المؤسسات والخدمات
+                    والبنية الأساسية، وصولًا إلى
+                    مرحلة التحول الوطني المعاصرة.
+                </p>
+
+            </div>
+
+
+            <!-- المقطع الثاني: مسيرة المملكة -->
+
+            <div
+                class="unity-film unity-reveal"
+                id="unityLegacyFilm"
+            >
+
+                <div class="unity-film-header">
+
+                    <div>
+
+                        <span class="unity-film-kicker">
+                            مشهد من تاريخ وطن
+                        </span>
+
+                        <h3>
+                            من إرث المؤسس
+                            <em>إلى طموح المستقبل.</em>
+                        </h3>
+
+                    </div>
+
+                    <span class="unity-film-duration">
+                        ٥٩ ثانية
+                    </span>
+
+                </div>
+
+                <div class="unity-film-frame">
+
+                    <video
+                        class="unity-film-video"
+                        id="unityLegacyVideo"
+                        controls
+                        playsinline
+                        preload="none"
+                        poster="{% static 'history/images/eras/third-banner.jpg' %}"
+                        aria-label="فيديو سينمائي عن مسيرة المملكة العربية السعودية"
+                    >
+
+                        <source
+                            src="{% static 'history/videos/third-state/saudi-legacy.mp4' %}"
+                            type="video/mp4"
+                        >
+
+                        متصفحك لا يدعم تشغيل الفيديو.
+
+                    </video>
+
+                    <button
+                        class="unity-film-play"
+                        id="unityLegacyPlay"
+                        type="button"
+                        aria-label="تشغيل فيلم مسيرة المملكة"
+                    >
+
+                        <span class="unity-film-play-icon">
+                            <i class="bi bi-play-fill"></i>
+                        </span>
+
+                        <span>شاهد مسيرة وطن</span>
+
+                    </button>
+
+                </div>
+
+                <div class="unity-film-footer">
+
+                    <span>
+                        <i class="bi bi-film"></i>
+                        رحلة سينمائية عبر تاريخ المملكة
+                    </span>
+
+                    <span>
+                        <i class="bi bi-volume-up"></i>
+                        يمكنك تشغيل الصوت والتحكم بالمقطع
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- محطات المملكة الحديثة -->
+
+            <div
+                class="unity-modern-track unity-reveal"
+                id="unityModernTrack"
+            >
+
+                <div class="unity-loading">
+                    جارٍ تجهيز محطات المملكة الحديثة...
+                </div>
+
+            </div>
+
+
+            <div class="unity-modern-vision unity-reveal">
+
+                <span>المملكة العربية السعودية</span>
+
+                <h3>
+                    تاريخ عريق.
+                    <em>وطموح يتجدد.</em>
+                </h3>
+
+                <p>
+                    ترتكز رؤية السعودية ٢٠٣٠ على
+                    مجتمع حيوي واقتصاد مزدهر ووطن طموح،
+                    ضمن مسيرة مستمرة نحو المستقبل.
+                </p>
+
+                <a
+                    href="https://www.vision2030.gov.sa/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    تعرّف على رؤية السعودية ٢٠٣٠
+                    <i class="bi bi-box-arrow-up-left"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         الفصل الأخير — ختام الدول الثلاث
+    ========================================= -->
+
+    <section
+        class="unity-finale unity-section"
+        id="unity-finale"
+    >
+
+        <div class="container">
+
+            <span class="unity-finale-eyebrow unity-reveal">
+                ختام الرحلة
+            </span>
+
+            <h2 class="unity-reveal">
+                ثلاث مراحل.
+                <em>تاريخ واحد.</em>
+            </h2>
+
+            <p class="unity-reveal">
+                من الدرعية عام ١٧٢٧م،
+                إلى الرياض عام ١٨٢٤م،
+                ثم توحيد المملكة عام ١٩٣٢م...
+                تمتد صفحات التاريخ السعودي
+                في مسيرة متصلة من التأسيس
+                وإعادة البناء والتوحيد.
+            </p>
+
+            <div class="unity-finale-links unity-reveal">
+
+                <a
+                    href="{% url 'state_detail' 'first' %}"
+                    class="unity-finale-link"
+                >
+                    <span>الفصل الأول</span>
+                    <strong>الدولة السعودية الأولى</strong>
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+
+                <a
+                    href="{% url 'state_detail' 'second' %}"
+                    class="unity-finale-link"
+                >
+                    <span>الفصل الثاني</span>
+                    <strong>الدولة السعودية الثانية</strong>
+                    <i class="bi bi-arrow-left"></i>
+                </a>
+
+                <a
+                    href="{% url 'home' %}"
+                    class="unity-finale-link unity-finale-home"
+                >
+                    <span>العودة</span>
+                    <strong>الصفحة الرئيسية</strong>
+                    <i class="bi bi-house"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ========================================
+         المراجع والمصادر
+    ========================================= -->
+
+    <section class="unity-sources">
+
+        <div class="container">
+
+            <div>
+
+                <span>المراجع التاريخية</span>
+
+                <h2>مصادر الحكاية</h2>
+
+            </div>
+
+            <div class="unity-source-links">
+
+                <a
+                    href="https://saudipedia.com/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    سعوديبيديا — الموسوعة السعودية
+                    <i class="bi bi-box-arrow-up-left"></i>
+                </a>
+
+                <a
+                    href="https://www.mofa.gov.sa/ar/ksa/Pages/history.aspx"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    وزارة الخارجية — تاريخ المملكة
+                    <i class="bi bi-box-arrow-up-left"></i>
+                </a>
+
+                <a
+                    href="https://www.vision2030.gov.sa/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    الموقع الرسمي لرؤية السعودية ٢٠٣٠
+                    <i class="bi bi-box-arrow-up-left"></i>
+                </a>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+
+
+{% block extra_scripts %}
+
+<script
+    src="{% static 'history/js/third.js' %}"
+    defer
+></script>
+
+{% endblock %}

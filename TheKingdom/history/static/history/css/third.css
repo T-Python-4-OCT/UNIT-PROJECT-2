@@ -1,0 +1,1761 @@
+
+/* ======================================================
+   المملكة — الدولة السعودية الثالثة
+   ملحمة التوحيد | تصميم سينمائي تفاعلي
+====================================================== */
+
+.unity-page {
+    --u-bg: #f5f0e6;
+    --u-surface: #ebe3d3;
+    --u-raised: #fffaf0;
+    --u-ink: #242923;
+    --u-muted: #686d62;
+    --u-gold: #af854b;
+    --u-green: #164c3b;
+    --u-deep: #14251e;
+    --u-border: #d8cbb4;
+
+    overflow: clip;
+    background: var(--u-bg);
+    color: var(--u-ink);
+    font-family: "Cairo", sans-serif;
+}
+
+.unity-page *,
+.unity-page *::before,
+.unity-page *::after {
+    box-sizing: border-box;
+}
+
+.unity-page button,
+.unity-page a {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.unity-page button:focus-visible,
+.unity-page a:focus-visible {
+    outline: 3px solid var(--u-gold);
+    outline-offset: 4px;
+}
+
+.unity-page section[id],
+.unity-page header[id] {
+    scroll-margin-top: 82px;
+}
+
+.unity-section {
+    position: relative;
+    padding: 115px 0;
+}
+
+.unity-section-kicker {
+    display: inline-block;
+    margin-bottom: 20px;
+    color: var(--u-gold);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.unity-section h2 {
+    margin: 0;
+    font-size: clamp(38px, 5vw, 74px);
+    font-weight: 900;
+    line-height: 1.45;
+}
+
+.unity-section h2 em {
+    display: block;
+    color: var(--u-gold);
+    font-style: normal;
+}
+
+.unity-section p {
+    line-height: 2.15;
+}
+
+.unity-progress {
+    position: fixed;
+    z-index: 1100;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 3px;
+    background: var(--u-gold);
+    pointer-events: none;
+}
+
+
+/* ======================================================
+   ١. HERO
+====================================================== */
+
+.unity-hero {
+    position: relative;
+    isolation: isolate;
+    min-height: 100svh;
+    overflow: hidden;
+    background: var(--u-deep);
+    color: #fff;
+}
+
+.unity-hero-media,
+.unity-hero-shade {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.unity-hero-media {
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    transform: scale(1.04);
+    animation: unityHeroReveal 1.7s ease both;
+}
+
+.unity-hero-shade {
+    z-index: -1;
+    background:
+        linear-gradient(
+            270deg,
+            rgba(8, 23, 17, .94) 0%,
+            rgba(8, 23, 17, .70) 40%,
+            rgba(8, 23, 17, .22) 100%
+        ),
+        linear-gradient(
+            0deg,
+            rgba(8, 23, 17, .65),
+            transparent 35%
+        );
+}
+
+.unity-hero-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 100svh;
+    padding-top: calc(82px + 55px);
+    padding-bottom: 38px;
+}
+
+.unity-hero-meta,
+.unity-hero-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    color: #e2d9c7;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.unity-hero-meta {
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,.28);
+}
+
+.unity-hero-story {
+    max-width: 830px;
+    padding: 80px 0;
+}
+
+.unity-eyebrow {
+    color: #e4bc7d;
+    font-size: 15px;
+    font-weight: 900;
+}
+
+.unity-hero-rule {
+    width: 70px;
+    height: 3px;
+    margin: 25px 0;
+    background: #d5ad70;
+}
+
+.unity-hero h1 {
+    margin: 0 0 32px;
+    color: #fffaf0;
+    font-size: clamp(55px, 8vw, 120px);
+    font-weight: 900;
+    line-height: 1.25;
+}
+
+.unity-hero h1 em {
+    display: block;
+    color: #e3b875;
+    font-style: normal;
+}
+
+.unity-hero-lead {
+    max-width: 700px;
+    color: #f0ece3;
+    font-size: clamp(16px, 1.5vw, 21px);
+    line-height: 2.1;
+}
+
+.unity-hero-actions {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 40px;
+}
+
+.unity-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    min-height: 52px;
+    padding: 15px 26px;
+    font-size: 13px;
+    font-weight: 900;
+    transition:
+        transform .25s ease,
+        background .25s ease,
+        border-color .25s ease;
+}
+
+.unity-button:hover {
+    transform: translateY(-3px);
+}
+
+.unity-button-gold {
+    background: #d5ad70;
+    color: #1b2820;
+    border: 1px solid #d5ad70;
+}
+
+.unity-button-gold:hover {
+    background: #e9c58f;
+    color: #1b2820;
+}
+
+.unity-button-outline {
+    border: 1px solid rgba(255,255,255,.55);
+    background: rgba(255,255,255,.07);
+    color: #fff;
+}
+
+.unity-button-outline:hover {
+    border-color: #d5ad70;
+    color: #fff;
+}
+
+.unity-hero-footer {
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.22);
+}
+
+.unity-hero-number {
+    position: absolute;
+    z-index: 0;
+    bottom: 3%;
+    left: 2%;
+    color: rgba(255,255,255,.07);
+    font-size: clamp(160px, 32vw, 520px);
+    font-weight: 900;
+    line-height: 1;
+    pointer-events: none;
+}
+
+@keyframes unityHeroReveal {
+    from {
+        opacity: .5;
+        transform: scale(1.12);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1.04);
+    }
+}
+
+
+/* ======================================================
+   ٢. PROLOGUE
+====================================================== */
+
+.unity-prologue {
+    background: var(--u-bg);
+}
+
+.unity-prologue-grid {
+    display: grid;
+    grid-template-columns: 1.15fr .85fr;
+    gap: 80px;
+    align-items: center;
+}
+
+.unity-prologue-heading h2 {
+    max-width: 700px;
+    color: var(--u-ink);
+}
+
+.unity-prologue-heading p {
+    max-width: 630px;
+    margin-top: 25px;
+    color: var(--u-muted);
+    font-size: 17px;
+}
+
+.unity-text-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 25px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid var(--u-gold);
+    color: var(--u-green);
+    font-size: 14px;
+    font-weight: 900;
+}
+
+.unity-text-link:hover {
+    color: var(--u-gold);
+}
+
+.unity-prologue-year {
+    position: relative;
+    padding: 55px 35px 30px;
+    overflow: hidden;
+    border: 1px solid var(--u-border);
+    background: var(--u-surface);
+}
+
+.unity-prologue-year > span {
+    display: block;
+    color: var(--u-muted);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.unity-prologue-year strong {
+    display: block;
+    margin: 20px 0;
+    color: var(--u-green);
+    font-size: clamp(80px, 10vw, 160px);
+    font-weight: 900;
+    line-height: 1.2;
+}
+
+.unity-prologue-year-bottom {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-top: 22px;
+    border-top: 1px solid var(--u-border);
+    color: var(--u-muted);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.unity-story-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    margin-top: 60px;
+    border-top: 1px solid var(--u-border);
+    border-bottom: 1px solid var(--u-border);
+}
+
+.unity-story-strip > div {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 28px;
+    border-left: 1px solid var(--u-border);
+}
+
+.unity-story-strip > div:last-child {
+    border-left: 0;
+}
+
+.unity-story-strip span {
+    color: var(--u-muted);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.unity-story-strip strong {
+    color: var(--u-ink);
+    font-size: 20px;
+    font-weight: 900;
+}
+
+
+/* ======================================================
+   ٣. INTERACTIVE TIMELINE
+====================================================== */
+
+.unity-timeline-section {
+    background: var(--u-surface);
+}
+
+.unity-section-heading {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 65px;
+    margin-bottom: 60px;
+}
+
+.unity-section-heading > div {
+    flex: 1;
+}
+
+.unity-section-heading h2 {
+    color: var(--u-ink);
+}
+
+.unity-section-heading > p {
+    max-width: 400px;
+    margin: 0;
+    color: var(--u-muted);
+    font-size: 15px;
+}
+
+.unity-journey {
+    display: grid;
+    grid-template-columns: 250px minmax(0, 1fr);
+    gap: 24px;
+    align-items: stretch;
+}
+
+.unity-journey-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.unity-journey-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    width: 100%;
+    min-height: 67px;
+    padding: 14px 16px;
+    background: var(--u-bg);
+    border: 1px solid var(--u-border);
+    color: var(--u-ink);
+    cursor: pointer;
+    text-align: right;
+    transition:
+        background .25s ease,
+        color .25s ease,
+        border-color .25s ease;
+}
+
+.unity-journey-item span {
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.unity-journey-item strong {
+    color: var(--u-gold);
+    font-size: 20px;
+    font-weight: 900;
+}
+
+.unity-journey-item:hover {
+    border-color: var(--u-gold);
+}
+
+.unity-journey-item.is-active {
+    background: var(--u-green);
+    border-color: var(--u-green);
+    color: #fff;
+}
+
+.unity-journey-item.is-active strong {
+    color: #e6c18b;
+}
+
+.unity-journey-stage {
+    position: relative;
+    isolation: isolate;
+    min-height: 650px;
+    overflow: hidden;
+    background: var(--u-deep);
+    color: #fff;
+}
+
+.unity-journey-image,
+.unity-journey-overlay {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+}
+
+.unity-journey-image {
+    z-index: -2;
+    background-size: cover;
+    background-position: center;
+    opacity: .6;
+    transition:
+        opacity .4s ease,
+        transform .7s ease;
+}
+
+.unity-journey-overlay {
+    z-index: -1;
+    background:
+        linear-gradient(
+            270deg,
+            rgba(10, 28, 19, .94),
+            rgba(10, 28, 19, .75) 55%,
+            rgba(10, 28, 19, .37)
+        );
+}
+
+.unity-journey-stage.is-switching .unity-journey-image {
+    opacity: .3;
+    transform: scale(1.035);
+}
+
+.unity-journey-watermark {
+    position: absolute;
+    left: -15px;
+    bottom: 8%;
+    color: rgba(255,255,255,.07);
+    font-size: clamp(120px, 17vw, 240px);
+    font-weight: 900;
+    pointer-events: none;
+}
+
+.unity-journey-content {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    min-height: 650px;
+    padding: 30px 42px;
+}
+
+.unity-stage-top {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,.25);
+    color: #e2c591;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.unity-stage-main {
+    max-width: 690px;
+    padding: 55px 0;
+}
+
+.unity-stage-year {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    color: #e6c18b;
+}
+
+.unity-stage-year span,
+.unity-stage-year small {
+    font-size: 14px;
+    font-weight: 800;
+}
+
+.unity-stage-year strong {
+    font-size: clamp(65px, 8vw, 116px);
+    font-weight: 900;
+    line-height: 1.3;
+}
+
+.unity-stage-location {
+    display: inline-flex;
+    margin-top: 20px;
+    padding: 8px 15px;
+    border: 1px solid rgba(226,197,145,.4);
+    color: #e6c18b;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.unity-stage-main h3 {
+    margin: 22px 0;
+    color: #fff;
+    font-size: clamp(28px, 3vw, 46px);
+    font-weight: 900;
+    line-height: 1.5;
+}
+
+.unity-stage-main p {
+    max-width: 650px;
+    margin: 0;
+    color: #e8e9df;
+    font-size: 15px;
+    line-height: 2.1;
+}
+
+.unity-stage-controls {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,.22);
+}
+
+.unity-stage-controls button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    min-height: 43px;
+    padding: 10px 15px;
+    border: 1px solid rgba(255,255,255,.4);
+    background: transparent;
+    color: #fff;
+    font-size: 12px;
+    font-weight: 800;
+    cursor: pointer;
+}
+
+.unity-stage-controls button:hover:not(:disabled) {
+    background: #d5ad70;
+    border-color: #d5ad70;
+    color: #1b2820;
+}
+
+.unity-stage-controls button:disabled {
+    opacity: .35;
+    cursor: not-allowed;
+}
+
+.unity-stage-dots {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.unity-stage-dots span {
+    display: block;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: rgba(255,255,255,.28);
+}
+
+.unity-stage-dots span.is-active {
+    width: 23px;
+    border-radius: 5px;
+    background: #d5ad70;
+}
+
+.unity-timeline-note {
+    display: flex;
+    align-items: start;
+    gap: 10px;
+    margin-top: 28px;
+    color: var(--u-muted);
+    font-size: 12px;
+}
+
+.unity-timeline-note p {
+    margin: 0;
+}
+
+.unity-loading {
+    padding: 20px;
+    background: var(--u-bg);
+    color: var(--u-muted);
+    font-size: 13px;
+}
+
+
+/* ======================================================
+   ٤. THE PROCLAMATION
+====================================================== */
+
+.unity-proclamation {
+    isolation: isolate;
+    overflow: hidden;
+    background: #10291d;
+    color: #fff;
+    text-align: center;
+}
+
+.unity-proclamation-glow {
+    position: absolute;
+    z-index: -1;
+    inset: 0;
+    background:
+        radial-gradient(
+            ellipse at 50% 38%,
+            rgba(195,156,89,.19),
+            transparent 53%
+        ),
+        radial-gradient(
+            ellipse at 50% 110%,
+            rgba(47,115,76,.25),
+            transparent 60%
+        );
+    pointer-events: none;
+}
+
+.unity-proclamation-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.unity-proclamation-heading {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid rgba(255,255,255,.2);
+    color: #dbbb83;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.unity-proclamation-main {
+    max-width: 960px;
+    padding: 60px 0 50px;
+}
+
+.unity-proclamation-small {
+    color: #e5d3b2;
+    font-size: 15px;
+    font-weight: 800;
+}
+
+.unity-proclamation-number {
+    color: #d7b276;
+    font-size: clamp(100px, 18vw, 250px);
+    font-weight: 900;
+    line-height: 1.25;
+}
+
+.unity-proclamation h2 {
+    color: #fffaf0;
+    font-size: clamp(38px, 5.7vw, 78px);
+}
+
+.unity-proclamation h2 em {
+    color: #dfb977;
+}
+
+.unity-proclamation-main p {
+    max-width: 720px;
+    margin: 28px auto 0;
+    color: #e4e8dd;
+    font-size: 17px;
+}
+
+.unity-proclamation-facts {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    width: 100%;
+    margin-bottom: 45px;
+    border-top: 1px solid rgba(255,255,255,.25);
+    border-bottom: 1px solid rgba(255,255,255,.25);
+}
+
+.unity-proclamation-facts > div {
+    display: flex;
+    flex-direction: column;
+    gap: 13px;
+    padding: 28px 15px;
+}
+
+.unity-proclamation-facts > div:not(:last-child) {
+    border-left: 1px solid rgba(255,255,255,.25);
+}
+
+.unity-proclamation-facts span {
+    color: #c3cfc1;
+    font-size: 12px;
+}
+
+.unity-proclamation-facts strong {
+    color: #eac68e;
+    font-size: 19px;
+    font-weight: 900;
+}
+
+
+/* ======================================================
+   ٥. RULERS
+====================================================== */
+
+.unity-rulers {
+    background: var(--u-bg);
+}
+
+.unity-rulers-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 22px;
+}
+
+.unity-ruler-card {
+    display: block;
+    min-width: 0;
+    border: 1px solid var(--u-border);
+    background: var(--u-raised);
+    color: var(--u-ink);
+    text-decoration: none;
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+}
+
+.unity-ruler-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 18px 38px rgba(18,37,30,.13);
+    color: var(--u-ink);
+}
+
+.unity-ruler-photo {
+    position: relative;
+    aspect-ratio: 4 / 5;
+    overflow: hidden;
+    background: var(--u-surface);
+}
+
+.unity-ruler-photo > img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.unity-ruler-card:hover img {
+    transform: scale(1.055);
+}
+
+.unity-ruler-index {
+    position: absolute;
+    top: 14px;
+    right: 14px;
+    display: grid;
+    place-items: center;
+    width: 37px;
+    height: 37px;
+    background: rgba(17,37,28,.86);
+    color: #eac58c;
+    font-size: 16px;
+    font-weight: 900;
+}
+
+.unity-ruler-overlay {
+    position: absolute;
+    inset: auto 0 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    padding: 17px;
+    background: rgba(17,37,28,.91);
+    color: #f6e9d0;
+    font-size: 12px;
+    font-weight: 800;
+    transform: translateY(100%);
+    transition: transform .3s ease;
+}
+
+.unity-ruler-card:hover .unity-ruler-overlay,
+.unity-ruler-card:focus-visible .unity-ruler-overlay {
+    transform: translateY(0);
+}
+
+.unity-ruler-info {
+    padding: 23px;
+}
+
+.unity-ruler-period {
+    color: var(--u-gold);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.unity-ruler-info h3 {
+    margin: 13px 0;
+    color: var(--u-ink);
+    font-size: 18px;
+    font-weight: 900;
+    line-height: 1.7;
+}
+
+.unity-ruler-info p {
+    min-height: 66px;
+    color: var(--u-muted);
+    font-size: 12px;
+    line-height: 1.95;
+}
+
+.unity-ruler-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 5px;
+    color: var(--u-green);
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.unity-empty {
+    color: var(--u-muted);
+}
+
+
+/* ======================================================
+   ٦. MODERN SAUDI ARABIA
+====================================================== */
+
+.unity-modern {
+    background: var(--u-surface);
+}
+
+.unity-modern-track {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 14px;
+}
+
+.unity-modern-card {
+    position: relative;
+    min-height: 280px;
+    padding: 30px 23px;
+    border: 1px solid var(--u-border);
+    background: var(--u-raised);
+    transition:
+        transform .3s ease,
+        border-color .3s ease;
+}
+
+.unity-modern-card:hover {
+    transform: translateY(-6px);
+    border-color: var(--u-gold);
+}
+
+.unity-modern-card-year {
+    display: block;
+    margin-bottom: 45px;
+    color: var(--u-gold);
+    font-size: 42px;
+    font-weight: 900;
+}
+
+.unity-modern-card h3 {
+    margin-bottom: 16px;
+    color: var(--u-ink);
+    font-size: 19px;
+    font-weight: 900;
+    line-height: 1.65;
+}
+
+.unity-modern-card p {
+    margin: 0;
+    color: var(--u-muted);
+    font-size: 13px;
+}
+
+.unity-modern-vision {
+    position: relative;
+    margin-top: 60px;
+    padding: 65px;
+    overflow: hidden;
+    background:
+        radial-gradient(
+            circle at 10% 90%,
+            rgba(215,177,111,.2),
+            transparent 50%
+        ),
+        #173d30;
+    color: #fff;
+}
+
+.unity-modern-vision > span {
+    color: #dab77b;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.unity-modern-vision h3 {
+    margin: 22px 0;
+    color: #fff;
+    font-size: clamp(35px, 4.2vw, 60px);
+    font-weight: 900;
+    line-height: 1.5;
+}
+
+.unity-modern-vision h3 em {
+    display: block;
+    color: #dab77b;
+    font-style: normal;
+}
+
+.unity-modern-vision p {
+    max-width: 650px;
+    color: #e0e8de;
+    font-size: 15px;
+}
+
+.unity-modern-vision a {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    margin-top: 16px;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #dab77b;
+    color: #e5c189;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.unity-modern-vision a:hover {
+    color: #fff;
+}
+
+
+/* ======================================================
+   ٧. FINALE
+====================================================== */
+
+.unity-finale {
+    overflow: hidden;
+    background: #1a3025;
+    text-align: center;
+    color: #fff;
+}
+
+.unity-finale-eyebrow {
+    color: #e4bf86;
+    font-size: 13px;
+    font-weight: 900;
+}
+
+.unity-finale h2 {
+    margin-top: 23px;
+    color: #fff;
+    font-size: clamp(45px, 6vw, 90px);
+}
+
+.unity-finale h2 em {
+    color: #dbb579;
+}
+
+.unity-finale > .container > p {
+    max-width: 760px;
+    margin: 30px auto 50px;
+    color: #e1e7dc;
+    font-size: 16px;
+}
+
+.unity-finale-links {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    text-align: right;
+}
+
+.unity-finale-link {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 13px;
+    min-height: 165px;
+    padding: 26px;
+    border: 1px solid rgba(255,255,255,.3);
+    color: #fff;
+    transition: background .25s ease;
+}
+
+.unity-finale-link:hover {
+    background: rgba(255,255,255,.09);
+    color: #fff;
+}
+
+.unity-finale-link span {
+    color: #d9b77d;
+    font-size: 12px;
+}
+
+.unity-finale-link strong {
+    font-size: 18px;
+    line-height: 1.7;
+}
+
+.unity-finale-link i {
+    margin-top: auto;
+    color: #d9b77d;
+}
+
+.unity-finale-home {
+    background: rgba(215,177,111,.12);
+}
+
+
+/* ======================================================
+   ٨. SOURCES
+====================================================== */
+
+.unity-sources {
+    padding: 60px 0;
+    background: var(--u-bg);
+}
+
+.unity-sources .container {
+    display: flex;
+    justify-content: space-between;
+    gap: 35px;
+}
+
+.unity-sources .container > div:first-child span {
+    color: var(--u-gold);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.unity-sources h2 {
+    margin-top: 12px;
+    color: var(--u-ink);
+    font-size: 25px;
+    font-weight: 900;
+}
+
+.unity-source-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.unity-source-links a {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--u-green);
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.unity-source-links a:hover {
+    color: var(--u-gold);
+}
+
+
+/* ======================================================
+   ٩. REVEAL ANIMATION
+====================================================== */
+
+.unity-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition:
+        opacity .8s ease,
+        transform .8s cubic-bezier(.2,.8,.2,1);
+}
+
+.unity-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* ======================================================
+   ١٠. DARK MODE — OLIVE CHARCOAL
+====================================================== */
+
+html.dark .unity-page {
+    --u-bg: #242d29;
+    --u-surface: #303b35;
+    --u-raised: #38453d;
+    --u-ink: #f0e9dc;
+    --u-muted: #c0c9bb;
+    --u-gold: #d4ad73;
+    --u-green: #d4ad73;
+    --u-deep: #192820;
+    --u-border: #4c5a4e;
+
+    background: var(--u-bg);
+    color: var(--u-ink);
+}
+
+html.dark .unity-journey-item.is-active {
+    background: #174638;
+    color: #fff;
+    border-color: #d4ad73;
+}
+
+html.dark .unity-journey-item.is-active strong {
+    color: #e7c38d;
+}
+
+html.dark .unity-prologue-year strong {
+    color: #e2bf84;
+}
+
+html.dark .unity-ruler-card:hover {
+    box-shadow: 0 18px 42px rgba(0,0,0,.22);
+}
+
+
+/* ======================================================
+   ١١. RESPONSIVE
+====================================================== */
+
+@media (max-width: 1150px) {
+
+    .unity-journey {
+        grid-template-columns: 210px minmax(0, 1fr);
+    }
+
+    .unity-rulers-grid,
+    .unity-modern-track {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 900px) {
+
+    .unity-section {
+        padding: 85px 0;
+    }
+
+    .unity-prologue-grid {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .unity-section-heading {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 22px;
+    }
+
+    .unity-journey {
+        grid-template-columns: 1fr;
+    }
+
+    .unity-journey-nav {
+        flex-direction: row;
+        overflow-x: auto;
+        padding-bottom: 10px;
+        scrollbar-width: thin;
+    }
+
+    .unity-journey-item {
+        flex: 0 0 175px;
+    }
+
+    .unity-journey-stage,
+    .unity-journey-content {
+        min-height: 575px;
+    }
+
+    .unity-finale-links {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 650px) {
+
+    .unity-section {
+        padding: 70px 0;
+    }
+
+    .unity-hero-content {
+        padding-top: 125px;
+        padding-bottom: 25px;
+    }
+
+    .unity-hero-story {
+        padding: 75px 0;
+    }
+
+    .unity-hero h1 {
+        font-size: clamp(48px, 11vw, 68px);
+    }
+
+    .unity-hero-lead {
+        font-size: 15px;
+    }
+
+    .unity-hero-meta,
+    .unity-hero-footer {
+        font-size: 10px;
+    }
+
+    .unity-hero-number {
+        font-size: 170px;
+    }
+
+    .unity-hero-actions {
+        align-items: stretch;
+    }
+
+    .unity-button {
+        padding: 13px 17px;
+    }
+
+    .unity-section h2 {
+        font-size: clamp(35px, 9vw, 52px);
+    }
+
+    .unity-prologue-heading p {
+        font-size: 15px;
+    }
+
+    .unity-prologue-year {
+        padding: 35px 25px;
+    }
+
+    .unity-prologue-year strong {
+        font-size: 90px;
+    }
+
+    .unity-story-strip {
+        grid-template-columns: 1fr;
+    }
+
+    .unity-story-strip > div {
+        border-left: 0;
+        border-bottom: 1px solid var(--u-border);
+        padding: 22px;
+    }
+
+    .unity-story-strip > div:last-child {
+        border-bottom: 0;
+    }
+
+    .unity-journey-stage,
+    .unity-journey-content {
+        min-height: 600px;
+    }
+
+    .unity-journey-content {
+        padding: 25px 20px;
+    }
+
+    .unity-stage-main {
+        padding: 45px 0;
+    }
+
+    .unity-stage-year strong {
+        font-size: 70px;
+    }
+
+    .unity-stage-main h3 {
+        font-size: 28px;
+    }
+
+    .unity-stage-main p {
+        font-size: 13px;
+    }
+
+    .unity-stage-controls button {
+        padding: 10px;
+        font-size: 11px;
+    }
+
+    .unity-stage-dots {
+        gap: 4px;
+    }
+
+    .unity-stage-dots span {
+        width: 5px;
+        height: 5px;
+    }
+
+    .unity-stage-dots span.is-active {
+        width: 12px;
+    }
+
+    .unity-proclamation-facts {
+        grid-template-columns: 1fr;
+    }
+
+    .unity-proclamation-facts > div {
+        border-left: 0 !important;
+        border-bottom: 1px solid rgba(255,255,255,.2);
+    }
+
+    .unity-proclamation-main {
+        padding: 45px 0;
+    }
+
+    .unity-proclamation-main p {
+        font-size: 15px;
+    }
+
+    .unity-rulers-grid,
+    .unity-modern-track {
+        grid-template-columns: 1fr;
+    }
+
+    .unity-ruler-info p {
+        min-height: 0;
+    }
+
+    .unity-ruler-overlay {
+        transform: none;
+    }
+
+    .unity-modern-card {
+        min-height: 0;
+    }
+
+    .unity-modern-card-year {
+        margin-bottom: 25px;
+    }
+
+    .unity-modern-vision {
+        padding: 35px 24px;
+    }
+
+    .unity-finale > .container > p {
+        font-size: 14px;
+    }
+
+    .unity-sources .container {
+        flex-direction: column;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    .unity-page *,
+    .unity-page *::before,
+    .unity-page *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+        scroll-behavior: auto !important;
+    }
+
+    .unity-reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
+
+/* =====================================================
+   THIRD SAUDI STATE — CINEMATIC VIDEOS
+   فيديو افتتاحية الملاحم + فيلم مسيرة المملكة
+===================================================== */
+
+/* ==========================================
+   ١. فيديو البنر الرئيسي
+========================================== */
+
+.unity-hero {
+    position: relative;
+    isolation: isolate;
+}
+
+.unity-hero-media {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    background-color: #1b2924;
+    background-position: center;
+    background-size: cover;
+}
+
+.unity-hero-video {
+    display: block;
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    pointer-events: none;
+    background: transparent;
+}
+
+.unity-hero-video.has-error {
+    display: none;
+}
+
+/* إبقاء طبقة التعتيم فوق الفيديو */
+.unity-hero-shade {
+    pointer-events: none;
+}
+
+/* إبقاء المحتوى قابلًا للنقر */
+.unity-hero-content {
+    position: relative;
+    z-index: 3;
+}
+
+/* ==========================================
+   ٢. قسم الفيلم السينمائي الثاني
+========================================== */
+
+.unity-film {
+    position: relative;
+    margin: clamp(30px, 5vw, 72px) 0;
+    overflow: hidden;
+
+    border: 1px solid rgba(202, 177, 117, 0.22);
+    border-radius: 22px;
+
+    background: #17231e;
+    color: #f7f3e9;
+
+    box-shadow:
+        0 24px 75px rgba(0, 0, 0, 0.18);
+}
+
+.unity-film-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+
+    padding: clamp(22px, 3.5vw, 42px);
+
+    background: linear-gradient(
+        135deg,
+        #23352c 0%,
+        #17241f 100%
+    );
+}
+
+.unity-film-kicker {
+    display: block;
+    margin-bottom: 12px;
+
+    color: #d8bc7b;
+
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+}
+
+.unity-film-header h3 {
+    margin: 0;
+
+    color: #fff9ed;
+
+    font-size: clamp(1.35rem, 2.7vw, 2.5rem);
+    line-height: 1.5;
+    font-weight: 800;
+}
+
+.unity-film-header h3 em {
+    color: #d9bd80;
+    font-style: normal;
+}
+
+.unity-film-duration {
+    flex-shrink: 0;
+
+    padding: 9px 14px;
+
+    border: 1px solid rgba(216, 188, 123, 0.25);
+    border-radius: 999px;
+
+    background: rgba(216, 188, 123, 0.08);
+
+    color: #e1c88d;
+    font-size: 0.82rem;
+}
+
+/* ==========================================
+   ٣. إطار الفيديو
+========================================== */
+
+.unity-film-frame {
+    position: relative;
+    width: 100%;
+    aspect-ratio: 16 / 9;
+
+    overflow: hidden;
+    background: #09110e;
+}
+
+.unity-film-video {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    object-fit: contain;
+    background: #09110e;
+}
+
+/* ==========================================
+   ٤. زر تشغيل الفيلم
+========================================== */
+
+.unity-film-play {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 4;
+
+    transform: translate(-50%, -50%);
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+
+    padding: 20px;
+
+    border: 0;
+    background: transparent;
+
+    color: #fff9ed;
+    font: inherit;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    text-shadow: 0 2px 15px rgba(0, 0, 0, 0.85);
+}
+
+.unity-film-play[hidden] {
+    display: none !important;
+}
+
+.unity-film-play-icon {
+    display: grid;
+    place-items: center;
+
+    width: 88px;
+    height: 88px;
+
+    border: 1px solid rgba(255, 255, 255, 0.45);
+    border-radius: 50%;
+
+    background: rgba(31, 49, 39, 0.76);
+    backdrop-filter: blur(12px);
+
+    box-shadow:
+        0 0 0 12px rgba(255, 255, 255, 0.07),
+        0 12px 35px rgba(0, 0, 0, 0.28);
+
+    transition:
+        transform 0.25s ease,
+        background 0.25s ease;
+}
+
+.unity-film-play-icon i {
+    font-size: 2.5rem;
+    line-height: 1;
+}
+
+.unity-film-play:hover .unity-film-play-icon {
+    transform: scale(1.08);
+    background: rgba(154, 119, 55, 0.88);
+}
+
+.unity-film-play:focus-visible {
+    outline: 3px solid #e8c884;
+    outline-offset: 6px;
+    border-radius: 12px;
+}
+
+/* ==========================================
+   ٥. الشريط السفلي
+========================================== */
+
+.unity-film-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 24px;
+
+    padding: 18px 28px;
+
+    background: #17241e;
+    border-top: 1px solid rgba(216, 188, 123, 0.12);
+}
+
+.unity-film-footer span {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+
+    color: #c9cfc8;
+    font-size: 0.83rem;
+    line-height: 1.6;
+}
+
+.unity-film-footer i {
+    color: #dbbd7d;
+    font-size: 1rem;
+}
+
+/* ==========================================
+   ٦. الشاشات الصغيرة
+========================================== */
+
+@media (max-width: 768px) {
+
+    .unity-hero-video {
+        object-position: center;
+    }
+
+    .unity-film {
+        margin: 28px 0;
+        border-radius: 15px;
+    }
+
+    .unity-film-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 14px;
+
+        padding: 22px;
+    }
+
+    .unity-film-duration {
+        font-size: 0.75rem;
+    }
+
+    .unity-film-frame {
+        aspect-ratio: 16 / 9;
+    }
+
+    .unity-film-play-icon {
+        width: 66px;
+        height: 66px;
+
+        box-shadow:
+            0 0 0 8px rgba(255, 255, 255, 0.07);
+    }
+
+    .unity-film-play-icon i {
+        font-size: 2rem;
+    }
+
+    .unity-film-play {
+        gap: 12px;
+        font-size: 0.8rem;
+    }
+
+    .unity-film-footer {
+        padding: 16px 20px;
+    }
+}
+
+/* ==========================================
+   ٧. تقليل الحركة
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    .unity-film-play-icon {
+        transition: none;
+    }
+}
