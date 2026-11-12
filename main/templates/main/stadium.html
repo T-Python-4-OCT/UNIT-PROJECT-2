@@ -1,0 +1,97 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}{{ stadium.name }}{% endblock %}
+{% block nav_stadiums %}active{% endblock %}
+
+{% block content %}
+
+<!-- ===== HEADER ===== -->
+<section class="page-hero {% if not stadium.image %}page-hero-plain{% endif %}">
+    {% if stadium.image %}
+        <img src="{% static stadium.image %}" alt="{{ stadium.name }}" class="page-hero-img">
+    {% else %}
+        <div class="page-hero-pattern"></div>
+    {% endif %}
+    <div class="container page-hero-content">
+        <nav class="crumbs" aria-label="مسار الصفحة">
+            <a href="{% url 'main:home' %}">الرئيسية</a>
+            <i class="bi bi-chevron-left"></i>
+            <a href="{% url 'main:stadiums' %}">الملاعب</a>
+            <i class="bi bi-chevron-left"></i>
+            <span>{{ stadium.name }}</span>
+        </nav>
+        <h1 class="stadium-title">{{ stadium.name }}</h1>
+        <div class="chips mt-3">
+            <a href="{% url 'main:city' city.slug %}" class="chip"><i class="bi bi-geo-alt"></i> {{ city.name }}</a>
+            <span class="chip"><i class="bi bi-people"></i> {{ stadium.capacity_display }} مقعد</span>
+            <span class="chip"><i class="bi bi-cone-striped"></i> {{ stadium.status }}</span>
+            {% if stadium.badge %}<span class="chip chip-gold"><i class="bi bi-star-fill"></i> {{ stadium.badge }}</span>{% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- ===== DETAILS ===== -->
+<section class="section container">
+    <div class="row g-4 g-lg-5">
+        <div class="col-12 col-lg-7 reveal">
+            <span class="eyebrow">عن الملعب</span>
+            <h2 class="section-title">نبذة</h2>
+            <p class="lead-text">{{ stadium.description }}</p>
+
+            <h3 class="sub-title">أبرز ما يميّزه</h3>
+            <ul class="feature-list">
+                {% for f in stadium.features %}
+                    <li><i class="bi bi-check-circle-fill"></i> {{ f }}</li>
+                {% endfor %}
+            </ul>
+        </div>
+        <div class="col-12 col-lg-5 reveal">
+            <div class="fact-box">
+                <h3>بطاقة الملعب</h3>
+                <dl>
+                    <div><dt>المدينة</dt><dd>{{ city.name }}</dd></div>
+                    <div><dt>السعة</dt><dd>{{ stadium.capacity_display }} مقعد</dd></div>
+                    <div><dt>الحالة</dt><dd>{{ stadium.status }}</dd></div>
+                    <div><dt>الجاهزية</dt><dd>{{ stadium.completion }}</dd></div>
+                </dl>
+                <div class="capacity-bar" style="--fill: {% widthratio stadium.capacity 92760 100 %}%">
+                    <span></span>
+                </div>
+                <small class="capacity-note">السعة مقارنةً بأكبر ملاعب البطولة</small>
+            </div>
+            {% if not stadium.image %}
+                <div class="mt-3">{% include "main/partials/stadium_placeholder.html" %}</div>
+            {% endif %}
+        </div>
+    </div>
+</section>
+
+<!-- ===== OTHER STADIUMS IN THE CITY ===== -->
+{% if neighbours %}
+<section class="section container">
+    <div class="section-head reveal">
+        <div>
+            <span class="eyebrow">في نفس المدينة</span>
+            <h2 class="section-title">ملاعب أخرى في {{ city.name }}</h2>
+        </div>
+        <a href="{% url 'main:stadiums' %}?city={{ city.slug }}" class="link-arrow">الكل <i class="bi bi-arrow-left"></i></a>
+    </div>
+    <div class="row g-4">
+        {% for s in neighbours|slice:":3" %}
+            <div class="col-12 col-sm-6 col-lg-4 reveal">
+                {% include "main/partials/stadium_card.html" with stadium=s %}
+            </div>
+        {% endfor %}
+    </div>
+</section>
+{% endif %}
+
+<section class="section container">
+    <div class="other-cities reveal">
+        <h2>تعرّف على {{ city.name }}</h2>
+        <a href="{% url 'main:city' city.slug %}" class="btn-main">صفحة المدينة <i class="bi bi-arrow-left"></i></a>
+    </div>
+</section>
+
+{% endblock %}

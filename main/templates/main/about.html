@@ -1,0 +1,79 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}عن الموقع{% endblock %}
+{% block nav_about %}active{% endblock %}
+
+{% block content %}
+
+<!-- ===== HEADER ===== -->
+<section class="page-hero page-hero-sm">
+    <img src="{% static 'main/images/cta-green-falcons.jpg' %}" alt="تيفو الصقور الخضر" class="page-hero-img">
+    <div class="container page-hero-content">
+        <nav class="crumbs" aria-label="مسار الصفحة">
+            <a href="{% url 'main:home' %}">الرئيسية</a>
+            <i class="bi bi-chevron-left"></i>
+            <span>عن الموقع</span>
+        </nav>
+        <h1>عن الموقع</h1>
+        <p class="page-hero-tagline">{{ project.name }}</p>
+    </div>
+</section>
+
+<!-- ===== IDEA ===== -->
+<section class="section container">
+    <div class="row g-4 g-lg-5 align-items-center">
+        <div class="col-12 col-lg-6 reveal">
+            <span class="eyebrow">الفكرة</span>
+            <h2 class="section-title">لماذا هذا الموقع؟</h2>
+            <p class="lead-text">{{ project.idea }}</p>
+            <div class="about-meta">
+                <span><i class="bi bi-mortarboard"></i> {{ project.course }}</span>
+                <span><i class="bi bi-person"></i> {{ project.author }}</span>
+            </div>
+        </div>
+        <div class="col-12 col-lg-6">
+            <div class="sections-grid">
+                {% for s in sections %}
+                    <a href="{{ s.url }}" class="section-tile reveal" style="transition-delay: {{ forloop.counter0 }}00ms">
+                        <i class="bi {{ s.icon }}"></i>
+                        <strong>{{ s.count }}</strong>
+                        <span>{{ s.title }}</span>
+                    </a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== TECH ===== -->
+<section class="section container">
+    <div class="section-head reveal">
+        <div>
+            <span class="eyebrow">كيف بُني</span>
+            <h2 class="section-title">التقنيات المستخدمة</h2>
+        </div>
+    </div>
+    <div class="row g-4">
+        {% for t in tech %}
+            <div class="col-12 col-sm-6 col-lg-3 reveal">
+                <div class="info-card">
+                    <span class="info-icon"><i class="bi {{ t.icon }}"></i></span>
+                    <h3>{{ t.name }}</h3>
+                    <p>{{ t.text }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ===== DISCLAIMER ===== -->
+<section class="section container">
+    <div class="disclaimer reveal">
+        <i class="bi bi-info-circle"></i>
+        <h3>تنبيه</h3>
+        <p>هذا موقع تعليمي غير رسمي أُعد ضمن مشروع دراسي، ولا يمثل الاتحاد الدولي لكرة القدم ولا أي جهة منظمة. المعلومات مأخوذة من مصادر منشورة وقد تتغير.</p>
+    </div>
+</section>
+
+{% endblock %}

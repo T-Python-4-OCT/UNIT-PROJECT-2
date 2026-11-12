@@ -1,0 +1,132 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}الأخضر في المونديال{% endblock %}
+{% block nav_history %}active{% endblock %}
+
+{% block content %}
+
+<!-- ===== HEADER ===== -->
+<section class="page-hero">
+    <img src="{% static 'main/images/hero-green-tifo.jpg' %}" alt="المنتخب السعودي أمام جماهيره" class="page-hero-img">
+    <div class="container page-hero-content">
+        <nav class="crumbs" aria-label="مسار الصفحة">
+            <a href="{% url 'main:home' %}">الرئيسية</a>
+            <i class="bi bi-chevron-left"></i>
+            <span>الأخضر في المونديال</span>
+        </nav>
+        <h1>الأخضر في المونديال</h1>
+        <p class="page-hero-tagline">من أمريكا 1994 إلى الاستضافة في 2034</p>
+    </div>
+</section>
+
+<!-- ===== SUMMARY ===== -->
+<section class="container">
+    <div class="record-bar reveal">
+        <div><strong class="counter" data-target="{{ summary.editions }}">{{ summary.editions }}</strong><span>مشاركات</span></div>
+        <div><strong class="counter" data-target="{{ summary.played }}">{{ summary.played }}</strong><span>مباراة</span></div>
+        <div class="rec-w"><strong class="counter" data-target="{{ summary.wins }}">{{ summary.wins }}</strong><span>فوز</span></div>
+        <div class="rec-d"><strong class="counter" data-target="{{ summary.draws }}">{{ summary.draws }}</strong><span>تعادل</span></div>
+        <div class="rec-l"><strong class="counter" data-target="{{ summary.losses }}">{{ summary.losses }}</strong><span>خسارة</span></div>
+    </div>
+</section>
+
+<!-- ===== TOURNAMENTS (Bootstrap accordion) ===== -->
+<section class="section container">
+    <div class="section-head reveal">
+        <div>
+            <span class="eyebrow">المشاركات</span>
+            <h2 class="section-title">رحلة الأخضر نسخةً بنسخة</h2>
+        </div>
+    </div>
+
+    <div class="accordion wc-accordion" id="wcAccordion">
+        {% for t in tournaments %}
+            <div class="accordion-item reveal {% if t.best %}is-best{% endif %}">
+                <h3 class="accordion-header">
+                    <button class="accordion-button {% if not forloop.first %}collapsed{% endif %}" type="button"
+                            data-bs-toggle="collapse" data-bs-target="#wc{{ t.year }}"
+                            aria-expanded="{% if forloop.first %}true{% else %}false{% endif %}" aria-controls="wc{{ t.year }}">
+                        <span class="wc-year">{{ t.year }}</span>
+                        <span class="wc-host"><i class="bi bi-geo-alt"></i> {{ t.host }}</span>
+                        <span class="wc-stage {% if t.best %}best{% endif %}">{{ t.stage }}</span>
+                    </button>
+                </h3>
+                <div id="wc{{ t.year }}" class="accordion-collapse collapse {% if forloop.first %}show{% endif %}" data-bs-parent="#wcAccordion">
+                    <div class="accordion-body">
+                        <p class="wc-note">{{ t.note }}</p>
+                        <ul class="match-list">
+                            {% for m in t.matches %}
+                                <li>
+                                    <span class="match-res res-{{ m.result }}">{% if m.result == "W" %}فوز{% elif m.result == "D" %}تعادل{% else %}خسارة{% endif %}</span>
+                                    <span class="match-vs">السعودية × {{ m.vs }}</span>
+                                    <span class="match-score" dir="ltr">{{ m.score }}</span>
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ===== MOMENTS ===== -->
+<section class="section container">
+    <div class="section-head reveal">
+        <div>
+            <span class="eyebrow">لحظات لا تُنسى</span>
+            <h2 class="section-title">ذكريات خالدة</h2>
+        </div>
+    </div>
+    <div class="row g-4">
+        {% for m in moments %}
+            <div class="col-12 col-md-4 reveal" style="transition-delay: {{ forloop.counter0 }}00ms">
+                <article class="moment-card">
+                    <img src="{% static m.image %}" alt="{{ m.title }}" loading="lazy">
+                    <div class="moment-body">
+                        <span class="moment-year">{{ m.year }}</span>
+                        <h3>{{ m.title }}</h3>
+                        <p>{{ m.text }}</p>
+                    </div>
+                </article>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ===== LEGENDS ===== -->
+<section class="section container">
+    <div class="section-head reveal">
+        <div>
+            <span class="eyebrow">الأساطير</span>
+            <h2 class="section-title">نجوم كتبوا التاريخ</h2>
+        </div>
+    </div>
+    <div class="row g-4">
+        {% for p in legends %}
+            <div class="col-12 col-sm-6 col-lg-3 reveal">
+                <div class="info-card legend-card">
+                    <span class="info-icon"><i class="bi {{ p.icon }}"></i></span>
+                    <h3>{{ p.name }}</h3>
+                    <span class="legend-role">{{ p.role }}</span>
+                    <p>{{ p.fact }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ===== NEXT: 2034 ===== -->
+<section class="container">
+    <div class="cta reveal">
+        <img src="{% static 'main/images/cta-green-falcons.jpg' %}" alt="تيفو الصقور الخضر" loading="lazy">
+        <div class="cta-content">
+            <h2>المحطة القادمة: 2034 على أرضنا</h2>
+            <p>لأول مرة، يلعب الأخضر كأس العالم بين جماهيره.</p>
+            <a href="{% url 'main:stadiums' %}" class="btn-main btn-gold">ملاعب البطولة <i class="bi bi-arrow-left"></i></a>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

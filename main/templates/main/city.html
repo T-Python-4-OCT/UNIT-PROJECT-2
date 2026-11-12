@@ -1,0 +1,185 @@
+{% extends "main/base.html" %}
+{% load static %}
+
+{% block title %}{{ city.name }}{% endblock %}
+{% block nav_cities %}active{% endblock %}
+
+{% block content %}
+
+<!-- ===== CITY HERO ===== -->
+<section class="page-hero">
+    <img src="{% static city.hero %}" alt="{{ city.name }}" class="page-hero-img">
+    <div class="container page-hero-content">
+        <nav class="crumbs" aria-label="مسار الصفحة">
+            <a href="{% url 'main:home' %}">الرئيسية</a>
+            <i class="bi bi-chevron-left"></i>
+            <a href="{% url 'main:home' %}#cities">المدن المستضيفة</a>
+            <i class="bi bi-chevron-left"></i>
+            <span>{{ city.name }}</span>
+        </nav>
+        <h1>{{ city.name }} <small>{{ city.name_en }}</small></h1>
+        <p class="page-hero-tagline">{{ city.tagline }}</p>
+        <div class="chips">
+            <span class="chip"><i class="bi bi-geo-alt"></i> {{ city.region }}</span>
+            <span class="chip"><i class="bi bi-building"></i> {{ city.stadiums_count }} {% if city.stadiums_count == 1 %}ملعب{% else %}ملاعب{% endif %}</span>
+        </div>
+    </div>
+</section>
+
+<!-- ===== INTRO + GALLERY ===== -->
+<section class="section container">
+    <div class="row g-4 g-lg-5 align-items-center">
+        <div class="col-12 col-lg-5 reveal">
+            <span class="eyebrow">نبذة عن المدينة</span>
+            <h2 class="section-title">{{ city.name }} في سطور</h2>
+            <p class="lead-text">{{ city.intro }}</p>
+        </div>
+        <div class="col-12 col-lg-7 reveal">
+            <!-- Bootstrap carousel -->
+            <div id="cityGallery" class="carousel slide carousel-fade city-gallery" data-bs-ride="carousel" data-bs-interval="4500">
+                <div class="carousel-indicators">
+                    {% for item in city.gallery %}
+                        <button type="button" data-bs-target="#cityGallery" data-bs-slide-to="{{ forloop.counter0 }}" {% if forloop.first %}class="active" aria-current="true"{% endif %} aria-label="صورة {{ forloop.counter }}"></button>
+                    {% endfor %}
+                </div>
+                <div class="carousel-inner">
+                    {% for item in city.gallery %}
+                        <div class="carousel-item {% if forloop.first %}active{% endif %}">
+                            <img src="{% static item.image %}" class="d-block w-100" alt="{{ item.caption }}">
+                            <div class="gallery-caption">{{ item.caption }}</div>
+                        </div>
+                    {% endfor %}
+                </div>
+                <button class="carousel-control-prev" type="button" data-bs-target="#cityGallery" data-bs-slide="prev">
+                    <span class="carousel-btn"><i class="bi bi-chevron-right"></i></span>
+                    <span class="visually-hidden">السابق</span>
+                </button>
+                <button class="carousel-control-next" type="button" data-bs-target="#cityGallery" data-bs-slide="next">
+                    <span class="carousel-btn"><i class="bi bi-chevron-left"></i></span>
+                    <span class="visually-hidden">التالي</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== STADIUMS ===== -->
+<section class="section container">
+    <div class="section-head reveal">
+        <div>
+            <span class="eyebrow">ملاعب المونديال</span>
+            <h2 class="section-title">ملاعب {{ city.name }}</h2>
+        </div>
+        <a href="{% url 'main:stadiums' %}?city={{ city.slug }}" class="link-arrow">كل الملاعب <i class="bi bi-arrow-left"></i></a>
+    </div>
+    <div class="row g-3">
+        {% for stadium in stadiums %}
+            <div class="col-12 col-sm-6 col-lg-3 reveal">
+                <a href="{% url 'main:stadium' stadium.slug %}" class="stadium-chip">
+                    <span class="stadium-num">{{ forloop.counter }}</span>
+                    <span>{{ stadium.name }}<small>{{ stadium.capacity_display }} مقعد</small></span>
+                </a>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ===== VIDEO ===== -->
+<section class="section container">
+    <div class="section-head reveal">
+        <div>
+            <span class="eyebrow">شاهد</span>
+            <h2 class="section-title">جولة في {{ city.name }}</h2>
+        </div>
+    </div>
+    <div class="video-box reveal">
+        {% if city.video %}
+            {# Video hosted inside the project's static files #}
+            <video class="city-video" controls preload="metadata" playsinline
+                   poster="{% static city.video_poster %}">
+                <source src="{% static city.video %}" type="video/mp4">
+                متصفحك لا يدعم تشغيل الفيديو.
+            </video>
+        {% else %}
+            <div class="video-empty">
+                <img src="{% static city.hero %}" alt="">
+                <div><i class="bi bi-play-circle"></i><p>فيديو {{ city.name }} قريباً</p></div>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- ===== ATTRACTIONS ===== -->
+<section class="section container">
+    <div class="section-head reveal">
+        <div>
+            <span class="eyebrow">لا تفوّتها</span>
+            <h2 class="section-title">أبرز المعالم</h2>
+        </div>
+    </div>
+    <div class="row g-4">
+        {% for place in city.attractions %}
+            <div class="col-12 col-sm-6 col-lg-3 reveal" style="transition-delay: {{ forloop.counter0 }}00ms">
+                <div class="info-card">
+                    <span class="info-icon"><i class="bi {{ place.icon }}"></i></span>
+                    <h3>{{ place.name }}</h3>
+                    <p>{{ place.text }}</p>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+</section>
+
+<!-- ===== TIMELINE + EVENTS ===== -->
+<section class="section container">
+    <div class="row g-4 g-lg-5">
+        <div class="col-12 col-lg-7">
+            <div class="reveal">
+                <span class="eyebrow">الحكاية</span>
+                <h2 class="section-title mb-4">محطات في تاريخ {{ city.name }}</h2>
+            </div>
+            <ol class="timeline">
+                {% for step in city.timeline %}
+                    <li class="reveal {% if forloop.last %}timeline-last{% endif %}">
+                        <span class="timeline-year">{{ step.year }}</span>
+                        <p>{{ step.text }}</p>
+                    </li>
+                {% endfor %}
+            </ol>
+        </div>
+        <div class="col-12 col-lg-5">
+            <div class="reveal">
+                <span class="eyebrow">على التقويم</span>
+                <h2 class="section-title mb-4">أبرز الفعاليات</h2>
+            </div>
+            <div class="d-grid gap-3">
+                {% for event in city.events %}
+                    <div class="event-card reveal">
+                        <i class="bi {{ event.icon }}"></i>
+                        <div>
+                            <h3>{{ event.name }}</h3>
+                            <p>{{ event.text }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ===== OTHER CITIES ===== -->
+<section class="section container">
+    <div class="other-cities reveal">
+        <h2>استكشف مدناً أخرى</h2>
+        <div class="d-flex flex-wrap gap-2 justify-content-center">
+            {% for c in other_cities %}
+                <a href="{% url 'main:city' c.slug %}" class="city-pill">
+                    <img src="{% static c.image %}" alt="">
+                    {{ c.name }}
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+{% endblock %}
