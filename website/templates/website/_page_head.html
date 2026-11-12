@@ -1,0 +1,11 @@
+<!-- This partial shows the page title and hero image. -->
+<!-- Shared hero image and page introduction. -->
+<section class="page-head">
+  <div class="page-head__media">{% include "website/_media.html" with file=image alt=image_alt class="media--fill" loading="eager" fetchpriority="high" %}</div>
+  <div class="container page-head__content">
+    <p class="page-head__tagline">{{ tagline }}</p>
+    <h1>{{ title }}</h1>
+    <p class="page-head__summary">{{ lead }}</p>
+  </div>
+  <div class="band page-head__band" aria-hidden="true"></div>
+</section>

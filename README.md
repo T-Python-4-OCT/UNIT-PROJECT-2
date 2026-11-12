@@ -1,76 +1,55 @@
-# UNIT-PROJECT-2
+# Saudi Design
 
-## Using Django create a project about our beloved kingdom of your choosing. Examples :
-- Tourism in Saudi Arabia.
-- Culture & Heritage in Saudi Arabia.
-- Manufacturing & Industries in Saudi Arabia.
-- Agriculture in Saudi Arabia.
-- Science in Saudi Arabia.
-- History of Saudi Arabia.
-- etc.....
+## About the project
 
+Saudi Design is an Arabic website that introduces Saudi identity, heritage, architecture, and contemporary design. Its goal is to help visitors explore how local crafts, materials, and visual traditions shape design in Saudi Arabia.
 
-# Minumum Requirements
-- Use Django.
-- Use templates & templates inheritance.
-- Use dynamic urls where applicable.
-- Use static files where applicable.
-- homepage + at least 6 pages.
-- Coherent, uniform design .
-- Implement dark and light mode.
-- Must be Responsive. 
-- You can use a CSS library to style your website (such as Bootstrap or equivalent)
-- You can use a cdn or a cloud storage to host large files such as large videos (example: Goolge Firebase Cloud Storage: https://firebase.google.com/docs/storage)
+## Main features
 
+- Seven connected pages covering the main design topics.
+- Responsive layout for desktop, tablet, and mobile.
+- Light and dark themes.
+- Event cards that can be filtered by category.
+- Heritage and architecture content with images and a short Al Sadu video.
 
+## User stories
 
-# Example : TOURISM-PROJECT
+- As a visitor, I want to explore Saudi heritage so I can learn about local crafts and visual identity.
+- As a visitor, I want to browse architecture, products, fashion, and graphic design examples in one place.
+- As a visitor, I want to filter contemporary events so I can find the topics I care about.
+- As a mobile visitor, I want the pages to fit my screen and remain easy to navigate.
+- As a visitor, I want to switch the page theme to make reading comfortable.
 
-## Using Django create a website for Tourism in Saudi Arabia . The project name is : Tourister
+## Requirements
 
-### Your website has the following pages :
+- Python 3.12 or newer.
+- Django 6.1.3 (listed in `requirements.txt`).
 
-#### "" : home page , with the following content:
-- Title of the page , with a catchy phrase about tourism in Saudi Arabia
-- A single wide image covering the page.
-- A paragraph about the tourism in Saudi Arabia in General.
-- A list of cities pages with links to them (the pages are listed down below).
+## Installation and run
 
+Open the project folder in VS Code. In the integrated PowerShell terminal, run:
 
-#### "city/Riyadh/"
-- Title of city with a catchy phrase
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+```powershell
+python -m venv .venv
+.\.venv\Scripts\Activate.ps1
+python -m pip install -r requirements.txt
+python manage.py migrate
+python manage.py runserver
+```
 
-#### "city/Abha/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+Then open <http://127.0.0.1:8000/> in your browser. Stop the server with `Ctrl+C`.
 
-#### "city/Mekkah/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+## How to use
 
-#### "city/AlUla/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+1. Open the homepage and choose a design topic from the navigation or topic cards.
+2. Browse the page sections to read about each craft, style, or project.
+3. On the contemporary page, select a category to filter the event cards.
+4. Use the theme button in the header to switch between light and dark mode.
+5. Follow the external heritage links in the footer to explore official resources.
+
+## Project structure
+
+- `manage.py` — runs Django commands.
+- `config/` — project settings and top-level routes.
+- `website/` — page views, templates, CSS, JavaScript, and images.
+- `requirements.txt` — Python package dependencies.

@@ -1,0 +1,74 @@
+{% extends "website/base.html" %}
+{% block title %}التصميم السعودي{% endblock %}
+{% block description %}اكتشف كيف تتحول الهوية السعودية والتراث إلى عمارة ومنتجات وتجارب رقمية معاصرة.{% endblock %}
+{% block content %}
+<!-- This page introduces Saudi design topics. -->
+<!-- Main introduction and entry links. -->
+<section class="hero">
+  <div class="hero__bg">{% include "website/_media.html" with file="home/hero.jpg" alt="أفق الرياض وقت الغروب" class="media--fill" loading="eager" fetchpriority="high" %}</div>
+  <div class="container hero__inner">
+    <p class="eyebrow">هوية واحدة، مجالات متعددة</p>
+    <h1 class="hero__title">التصميم السعودي<br><span>من الجذور إلى المستقبل</span></h1>
+    <p class="hero__lead">تعرّف على العناصر التي تصنع لغة التصميم في المملكة، من الحرف والعمارة إلى العلامات والخدمات الرقمية.</p>
+    <div class="hero__actions">
+      <a class="btn btn--solid" href="{% url 'website:identity' %}">ابدأ من الهوية والتراث</a>
+      <a class="btn btn--ghost" href="#fields">استكشف المجالات</a>
+    </div>
+  </div>
+  <div class="band band--hero" aria-hidden="true"></div>
+</section>
+
+<!-- Short introduction to the site. -->
+<section class="intro container">
+  <p class="intro__text">التصميم السعودي حوار مستمر بين المكان والناس. استكشف مفرداته، ثم شاهد كيف تظهر في المباني والمنتجات والهويات والتجارب التي نستخدمها كل يوم.</p>
+</section>
+
+<!-- Main design topics. -->
+<section class="section container" id="fields">
+  <div class="section-head"><h2>تصفّح مجالات التصميم</h2><p>اختر مجالاً لتتعرف على لغته البصرية وأمثلة من المملكة.</p></div>
+  <div class="fields">
+    <a class="field" href="{% url 'website:identity' %}">
+      {% include "website/_media.html" with file="identity/sadu-loom.svg" alt="رسم توضيحي لنقوش السدو وأدوات النسيج" class="media--fill" %}
+      <span class="field__body"><span class="field__tagline">الجذور البصرية</span><strong class="field__title">الهوية والتراث</strong><span class="field__summary">السدو والقط العسيري والخط والحرف المحلية.</span></span>
+    </a>
+    <a class="field" href="{% url 'website:architecture' %}">
+      {% include "website/_media.html" with file="architecture/diriyah.jpg" alt="عمارة طينية في حي الطريف بالدرعية" class="media--fill" %}
+      <span class="field__body"><span class="field__tagline">المكان والمناخ</span><strong class="field__title">العمارة</strong><span class="field__summary">مواد وأساليب معمارية من البيوت التاريخية إلى المدن الحديثة.</span></span>
+    </a>
+    <a class="field" href="{% url 'website:graphic_design' %}">
+      {% include "website/_media.html" with file="graphic/identity-system.svg" alt="لوحة توضيحية لعناصر الهوية البصرية" class="media--fill" %}
+      <span class="field__body"><span class="field__tagline">حرف وشكل ولون</span><strong class="field__title">التصميم الجرافيكي</strong><span class="field__summary">كيف تتآلف العلامة والخط والزخرفة في رسالة واحدة.</span></span>
+    </a>
+    <a class="field" href="{% url 'website:digital_design' %}">
+      {% include "website/_media.html" with file="digital/service-interface.svg" alt="واجهة خدمة رقمية توضيحية" class="media--fill" %}
+      <span class="field__body"><span class="field__tagline">تجربة واضحة</span><strong class="field__title">التصميم الرقمي</strong><span class="field__summary">مكوّنات موحّدة تجعل الخدمات أسهل في الاستخدام.</span></span>
+    </a>
+    <a class="field" href="{% url 'website:product_design' %}">
+      {% include "website/_media.html" with file="product/product-fashion-hero.png" alt="مصممة سعودية بجوار قطعة أثاث معاصرة" class="media--fill" %}
+      <span class="field__body"><span class="field__tagline">من الفكرة إلى الاستخدام</span><strong class="field__title">المنتجات والأزياء</strong><span class="field__summary">أشياء تجمع الوظيفة والخامة والهوية المحلية.</span></span>
+    </a>
+    <a class="field" href="{% url 'website:contemporary' %}">
+      {% include "website/_media.html" with file="contemporary/downtown-design-riyadh.jpg" alt="مدخل معرض داون تاون ديزاين الرياض" class="media--fill" %}
+      <span class="field__body"><span class="field__tagline">ما يُصنع اليوم</span><strong class="field__title">التصميم المعاصر</strong><span class="field__summary">معارض ومبادرات ومشاريع تجمع التراث بالابتكار.</span></span>
+    </a>
+  </div>
+</section>
+
+<!-- Show how heritage inspires daily design. -->
+<section class="section section--tint">
+  <div class="container">
+    <div class="section-head"><h2>من التراث إلى التجربة اليومية</h2><p>تظهر الهوية حين تتحول إلى قرارات تصميمية مفهومة ومفيدة.</p></div>
+    <ol class="bridges">
+      <li class="bridge"><div><span class="eyebrow">المصدر</span><h3>افهم المكان والحرفة</h3><p>ابدأ بالمواد والمناخ والمعنى الذي يحمله العنصر التراثي.</p></div><span class="bridge__line" aria-hidden="true"></span><div><span class="eyebrow">التطبيق</span><h3>صمّم لاحتياج معاصر</h3><p>حوّل ما تعلّمته إلى شكل أو خدمة أو منتج يؤدي وظيفة واضحة.</p></div></li>
+    </ol>
+  </div>
+</section>
+
+<!-- Final links to continue exploring. -->
+<section class="section container cta">
+  <span class="eyebrow">ابدأ الرحلة</span>
+  <h2>اكتشف مفردات الهوية السعودية</h2>
+  <p>شاهد كيف تلهم الحرف والألوان والعمارة لغة تصميم تنتمي إلى المكان.</p>
+  <div class="cta__links"><a class="btn btn--solid" href="{% url 'website:identity' %}">استكشف الهوية والتراث</a><a class="btn btn--outline" href="{% url 'website:contemporary' %}">شاهد التصميم المعاصر</a></div>
+</section>
+{% endblock %}
