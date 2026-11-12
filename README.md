@@ -3,7 +3,7 @@
 </p>
 
 <p align="center">
-  <a href="https://saudi-giga-atlas.onrender.com">
+  <a href="https://suliman-altwaijry.github.io/UNIT-PROJECT-2/">
     <img src=".github/visit-button.svg" alt="Visit the website" width="260">
   </a>
 </p>
@@ -39,7 +39,7 @@ Each project has its own page with photographs, key facts, milestones, a short f
 | Backend | Django 6.1, WhiteNoise, Gunicorn |
 | Frontend | Vite, Tailwind CSS, three.js |
 | Media | Cloudflare R2 for the films; AVIF and WebP images |
-| Deploy | Docker on Render |
+| Deploy | GitHub Pages, Docker on Render |
 
 ## Project structure
 
@@ -83,6 +83,8 @@ python manage.py test
 
 ## Deploy
 
+GitHub Actions builds the frontend, renders the Django pages to static HTML, and publishes them to GitHub Pages on pushes to `main`.
+
 The repository deploys to [Render](https://render.com) as a Blueprint. In Render, choose **New > Blueprint**, connect this repository and click **Deploy Blueprint**. Render builds the `Dockerfile`, which builds the frontend, compiles the translations, collects static files and starts Gunicorn.
 
 | Variable | Purpose |
@@ -95,4 +97,4 @@ The repository deploys to [Render](https://render.com) as a Blueprint. In Render
 
 ## Credits
 
-Photographs, films, map data and typefaces are credited on the site's [Credits page](https://saudi-giga-atlas.onrender.com/credits/).
+Photographs, films, map data and typefaces are credited on the site's [Credits page](https://suliman-altwaijry.github.io/UNIT-PROJECT-2/credits/).
