@@ -1,76 +1,53 @@
-# UNIT-PROJECT-2
+# توجيه — دليل وزارات المملكة
 
-## Using Django create a project about our beloved kingdom of your choosing. Examples :
-- Tourism in Saudi Arabia.
-- Culture & Heritage in Saudi Arabia.
-- Manufacturing & Industries in Saudi Arabia.
-- Agriculture in Saudi Arabia.
-- Science in Saudi Arabia.
-- History of Saudi Arabia.
-- etc.....
+مشروع تعليمي عربي تفاعلي لاستكشاف مجموعة من وزارات المملكة العربية السعودية. يستخدم Django والقوالب وملفات JSON، ولا يخزن محتوى الوزارات في قاعدة بيانات.
 
+## التشغيل
 
-# Minumum Requirements
-- Use Django.
-- Use templates & templates inheritance.
-- Use dynamic urls where applicable.
-- Use static files where applicable.
-- homepage + at least 6 pages.
-- Coherent, uniform design .
-- Implement dark and light mode.
-- Must be Responsive. 
-- You can use a CSS library to style your website (such as Bootstrap or equivalent)
-- You can use a cdn or a cloud storage to host large files such as large videos (example: Goolge Firebase Cloud Storage: https://firebase.google.com/docs/storage)
+1. ثبّت الحزم من مجلد المشروع:
 
+   ```powershell
+   python -m pip install -r requirements.txt
+   ```
 
+2. شغّل الخادم من مجلد `wizarat`:
 
-# Example : TOURISM-PROJECT
+   ```powershell
+   python manage.py runserver
+   ```
 
-## Using Django create a website for Tourism in Saudi Arabia . The project name is : Tourister
+3. افتح `http://127.0.0.1:8000/`.
 
-### Your website has the following pages :
+## الصفحات
 
-#### "" : home page , with the following content:
-- Title of the page , with a catchy phrase about tourism in Saudi Arabia
-- A single wide image covering the page.
-- A paragraph about the tourism in Saudi Arabia in General.
-- A list of cities pages with links to them (the pages are listed down below).
+- الصفحة الرئيسية مع البحث والتصفية والخط الزمني و«هل تعلم؟». واجهتها مشهد مرسوم للرياض من طبقات: برج المملكة، والفيصلية، وبرج التلفزيون، وبرج صندوق الاستثمارات العامة، وقصر طيني على الطراز النجدي، ونخيل؛ عند التمرير تقترب كل طبقة بسرعة مختلفة فيبدو أنك تمشي داخل المشهد، مع ضباب متحرك (WebGL2). يتبع المشهد الوضع الفاتح/الداكن: شمس وغبار رملي صباحًا، وقمر ونوافذ مضيئة ليلًا.
+- شريط التنقل فيه زر البحث وزر الوضع الداكن.
+- `/ministries/` دليل الوزارات مع البحث والتصفية وروابط المواقع الرسمية.
+- صفحة مستقلة لكل وزارة من الوزارات الـ13، مع معرض صورها ومعلوماتها المتاحة.
+- `search/` بحث في الوزارات بالاسم أو المجال أو المهام أو اسم الوزير. زر البحث في شريط التنقل يفتح نافذة بنتائج فورية (واختصارها مفتاح `/`).
+- `timeline/` الخط الزمني.
+- `compare/` مقارنة وزارتين.
+- `quiz/` اختبار تفاعلي.
 
+## تحديث البيانات
 
-#### "city/Riyadh/"
-- Title of city with a catchy phrase
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+- بيانات الوزارات الأساسية: `ministries/data/ministries.json`.
+- النبذات والتفاصيل: `ministries/data/details.json`.
+- نصوص الموقع ومحاور الرؤية: `ministries/data/site.json`.
+- مصادر فقرة «هل تعلم؟»: `ministries/data/facts.json`.
+- أسئلة الاختبار: `ministries/data/quiz.json`.
+- الصور الحالية: `ministries/static/ministries/images/`.
+- طبقات مشهد الواجهة (SVG): `ministries/templates/ministries/partials/walk_scene.html`، وحركة التمرير والضباب في `ministries/static/ministries/js/walk-hero.js`.
 
-#### "city/Abha/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+إذا كانت تفاصيل الخدمة أو الإنجاز أو الفيديو غير موثقة، اترك الحقل فارغًا؛ ستخفي القوالب القسم تلقائيًا. راجع `VERIFY.md` قبل اعتماد المحتوى.
 
-#### "city/Mekkah/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+## الاختبارات
 
-#### "city/AlUla/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+من مجلد `wizarat`:
+
+```powershell
+python manage.py check
+python manage.py test ministries
+```
+
+Bootstrap RTL وBootstrap Icons محمّلان من CDN. لا يحتاج المشروع إلى React أو خطوة بناء للأصول.

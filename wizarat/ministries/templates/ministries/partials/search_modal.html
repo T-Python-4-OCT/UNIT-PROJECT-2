@@ -1,0 +1,25 @@
+{% with copy=site_content.search %}
+<div class="modal fade search-modal" id="searchModal" tabindex="-1" aria-labelledby="searchModalTitle" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-scrollable modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2 class="modal-title" id="searchModalTitle">{{ copy.title }}</h2>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="{{ copy.close }}"></button>
+      </div>
+      <div class="modal-body">
+        <form action="{% url 'ministries:search' %}" method="get" role="search" data-site-search>
+          <label class="search-field">
+            <span class="visually-hidden">{{ copy.title }}</span>
+            <i class="bi bi-search" aria-hidden="true"></i>
+            <input type="search" name="q" placeholder="{{ copy.placeholder }}" autocomplete="off" maxlength="100" data-site-search-input>
+          </label>
+        </form>
+        <p class="search-modal-hint" data-site-search-status role="status" aria-live="polite"
+          data-hint="{{ copy.hint }}" data-empty="{{ copy.no_results }}" data-count-label="{{ copy.results_label }}">{{ copy.hint }}</p>
+        <div class="search-results is-compact" data-site-search-results></div>
+        <a class="directory-all-link" href="{% url 'ministries:search' %}" data-site-search-all hidden>{{ copy.view_all }} <i class="bi bi-arrow-left"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+{% endwith %}

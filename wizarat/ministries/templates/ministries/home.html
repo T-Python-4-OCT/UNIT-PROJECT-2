@@ -5,27 +5,23 @@
 
 {% block content %}
 {% with content=site_content.home %}
-<section class="home-hero" data-video-background>
-  {% if hero_video_url %}
-  <div class="hero-video" aria-hidden="true">
-    <iframe src="{{ hero_video_url }}" title="" tabindex="-1" loading="eager"
-      referrerpolicy="strict-origin-when-cross-origin"
-      allow="autoplay; encrypted-media; picture-in-picture"></iframe>
-  </div>
-  {% endif %}
-  <div class="container hero-inner">
-    <div class="hero-copy reveal is-visible">
-      <span class="eyebrow">{{ content.eyebrow }}</span>
-      <h1>{{ content.title }}</h1>
-      <p class="hero-subtitle">{{ content.subtitle }}</p>
-      <div class="hero-actions">
+<section class="walk-hero" data-walk-hero aria-labelledby="heroTitle">
+  <div class="walk-stage">
+    {% include "ministries/partials/walk_scene.html" %}
+    <canvas class="wh-dust" aria-hidden="true"></canvas>
+    <div class="wh-copy">
+      <span class="wh-eyebrow">{{ content.eyebrow }}</span>
+      <h1 id="heroTitle">{{ content.title }}</h1>
+      <p class="wh-subtitle">{{ content.subtitle }}</p>
+      <div class="wh-actions">
         <a class="btn-gold" href="#directory">{{ content.explore }} <i class="bi bi-arrow-left"></i></a>
-        <a class="btn-outline-light-custom" href="{% url 'ministries:timeline' %}"><i class="bi bi-clock-history"></i> الخط الزمني</a>
+        <a class="wh-outline" href="{% url 'ministries:timeline' %}"><i class="bi bi-clock-history"></i> الخط الزمني</a>
       </div>
     </div>
-    <div class="hero-stamp" aria-hidden="true"><i class="bi bi-building"></i></div>
+    <span class="wh-place"><i class="bi bi-geo-alt" aria-hidden="true"></i>{{ content.hero_place }}</span>
+    <a class="wh-scroll" href="#intro">{{ content.scroll_label }}<i aria-hidden="true"></i></a>
+    <div class="wh-veil" aria-hidden="true"></div>
   </div>
-  <a class="hero-scroll" href="#intro">اكتشف الدليل<i class="bi bi-chevron-down"></i></a>
 </section>
 
 <section class="container stats-row" aria-label="إحصاءات الدليل">
@@ -180,4 +176,8 @@
   </div>
 </section>
 {% endwith %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{% static 'ministries/js/walk-hero.js' %}?v=2"></script>
 {% endblock %}

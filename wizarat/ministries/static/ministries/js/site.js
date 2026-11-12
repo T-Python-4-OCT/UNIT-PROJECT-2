@@ -36,61 +36,47 @@
     }, { once: true });
   });
 
-  const search = document.querySelector(".js-ministry-search");
-  const categoryFilter = document.querySelector(".js-category-filter");
-  const ministryCards = [...document.querySelectorAll(".js-ministry-card")];
-  const resultCount = document.querySelector(".js-result-count");
-  const emptyState = document.querySelector(".js-empty-state");
-  if (search && categoryFilter && ministryCards.length) {
-    const normalizeText = (value) => value
-      .toLocaleLowerCase("ar")
-      .replace(/[\u064B-\u065F\u0670\u0640]/g, "")
-      .trim();
-    const filterCards = () => {
-      const term = normalizeText(search.value);
-      const category = categoryFilter.value;
-      let visible = 0;
-      ministryCards.forEach((card) => {
-        const matchesText = normalizeText(card.dataset.search).includes(term);
-        const matchesCategory = !category || card.dataset.category === category;
-        const showCard = matchesText && matchesCategory;
-        card.hidden = !showCard;
-        if (showCard) visible += 1;
-      });
-      if (resultCount) resultCount.textContent = `${visible}`;
-      if (emptyState) emptyState.classList.toggle("is-visible", visible === 0);
-    };
-    search.addEventListener("input", filterCards);
-    categoryFilter.addEventListener("change", filterCards);
-  }
+  // Same Arabic normalisation as the server-side search: drop diacritics, unify alef/ya/ta marbuta.
+  const normalizeArabic = (value) => String(value || "")
+    .replace(/[\u064B-\u065F\u0670\u0640]/g, "")
+    .toLocaleLowerCase("ar")
+    .replace(/[\u0623\u0625\u0622\u0671]/g, "\u0627")
+    .replace(/\u0649/g, "\u064A")
+    .replace(/\u0629/g, "\u0647")
+    .trim();
 
-  const directorySearch = document.querySelector(".js-directory-search");
-  const directoryCategory = document.querySelector(".js-directory-category");
-  const directoryCards = [...document.querySelectorAll(".js-directory-card")];
-  const directoryCount = document.querySelector(".js-directory-count");
-  const directoryEmpty = document.querySelector(".js-directory-empty");
-  if (directorySearch && directoryCategory && directoryCards.length) {
-    const normalizeText = (value) => value
-      .toLocaleLowerCase("ar")
-      .replace(/[\u064B-\u065F\u0670\u0640]/g, "")
-      .trim();
-    const filterDirectory = () => {
-      const term = normalizeText(directorySearch.value);
-      const category = directoryCategory.value;
+  // Live text search + category filter for a grid of cards (home page and directory page).
+  const setupCardFilter = ({ input, select, cards, count, empty }) => {
+    const searchInput = document.querySelector(input);
+    const categorySelect = document.querySelector(select);
+    const cardItems = [...document.querySelectorAll(cards)];
+    const countElement = document.querySelector(count);
+    const emptyElement = document.querySelector(empty);
+    if (!searchInput || !categorySelect || !cardItems.length) return;
+    const filterCards = () => {
+      const term = normalizeArabic(searchInput.value);
+      const category = categorySelect.value;
       let visible = 0;
-      directoryCards.forEach((card) => {
-        const matchesText = normalizeText(card.dataset.search).includes(term);
-        const matchesCategory = !category || card.dataset.category === category;
-        const showCard = matchesText && matchesCategory;
-        card.hidden = !showCard;
-        if (showCard) visible += 1;
+      cardItems.forEach((card) => {
+        const show = normalizeArabic(card.dataset.search).includes(term)
+          && (!category || card.dataset.category === category);
+        card.hidden = !show;
+        if (show) visible += 1;
       });
-      if (directoryCount) directoryCount.textContent = `${visible}`;
-      if (directoryEmpty) directoryEmpty.classList.toggle("is-visible", visible === 0);
+      if (countElement) countElement.textContent = `${visible}`;
+      if (emptyElement) emptyElement.classList.toggle("is-visible", visible === 0);
     };
-    directorySearch.addEventListener("input", filterDirectory);
-    directoryCategory.addEventListener("change", filterDirectory);
-  }
+    searchInput.addEventListener("input", filterCards);
+    categorySelect.addEventListener("change", filterCards);
+  };
+  setupCardFilter({
+    input: ".js-ministry-search", select: ".js-category-filter", cards: ".js-ministry-card",
+    count: ".js-result-count", empty: ".js-empty-state",
+  });
+  setupCardFilter({
+    input: ".js-directory-search", select: ".js-directory-category", cards: ".js-directory-card",
+    count: ".js-directory-count", empty: ".js-directory-empty",
+  });
 
   const counterItems = document.querySelectorAll("[data-count-target]");
   const animateCounter = (element) => {
@@ -162,6 +148,73 @@
       window.bootstrap.Carousel.getOrCreateInstance(carousel).to(Number(button.dataset.galleryIndex));
     });
   });
+
+  const searchModal = document.getElementById("searchModal");
+  const searchDataElement = document.getElementById("chatbot-ministries");
+  if (searchModal && searchDataElement) {
+    const searchInput = searchModal.querySelector("[data-site-search-input]");
+    const searchResults = searchModal.querySelector("[data-site-search-results]");
+    const searchStatus = searchModal.querySelector("[data-site-search-status]");
+    const searchAll = searchModal.querySelector("[data-site-search-all]");
+    const searchIndex = JSON.parse(searchDataElement.textContent).map((ministry) => ({
+      ministry,
+      name: normalizeArabic(ministry.name),
+      text: normalizeArabic([
+        ministry.name, ministry.tagline, ministry.category, ministry.summary, ministry.minister,
+        ...(ministry.tasks || []),
+      ].join(" ")),
+    }));
+
+    const renderResults = () => {
+      const query = searchInput.value.trim();
+      const terms = normalizeArabic(query).split(/\s+/).filter(Boolean);
+      searchResults.replaceChildren();
+      searchAll.hidden = true;
+      if (!terms.length) {
+        searchStatus.textContent = searchStatus.dataset.hint;
+        return;
+      }
+      const matches = searchIndex
+        .filter((entry) => terms.every((term) => entry.text.includes(term)))
+        .sort((a, b) => Number(!terms.every((t) => b.name.includes(t))) - Number(!terms.every((t) => a.name.includes(t))));
+      searchStatus.textContent = matches.length
+        ? `${new Intl.NumberFormat("ar-SA").format(matches.length)} ${searchStatus.dataset.countLabel}`
+        : searchStatus.dataset.empty;
+      matches.slice(0, 8).forEach(({ ministry }) => {
+        const link = document.createElement("a");
+        link.className = "search-result";
+        link.href = ministry.url;
+        const icon = document.createElement("span");
+        icon.className = "search-result-icon";
+        icon.innerHTML = `<i class="bi ${ministry.icon.replace(/[^a-z0-9-]/gi, "")}" aria-hidden="true"></i>`;
+        const body = document.createElement("span");
+        body.className = "search-result-body";
+        const name = document.createElement("strong");
+        name.textContent = ministry.name;
+        const tagline = document.createElement("small");
+        tagline.textContent = ministry.tagline;
+        body.append(name, tagline);
+        const category = document.createElement("span");
+        category.className = "search-result-category";
+        category.textContent = ministry.category;
+        link.append(icon, body, category);
+        searchResults.append(link);
+      });
+      if (matches.length > 8) {
+        searchAll.href = `${searchAll.pathname}?q=${encodeURIComponent(query)}`;
+        searchAll.hidden = false;
+      }
+    };
+    searchInput.addEventListener("input", renderResults);
+    searchModal.addEventListener("shown.bs.modal", () => searchInput.focus());
+    document.addEventListener("keydown", (event) => {
+      const typing = event.target.closest("input, textarea, select, [contenteditable]");
+      if (event.key === "/" && !typing && window.bootstrap) {
+        event.preventDefault();
+        window.bootstrap.Modal.getOrCreateInstance(searchModal).show();
+      }
+    });
+  }
 
   const quizElement = document.getElementById("quizData");
   const quizRoot = document.getElementById("quizApp");

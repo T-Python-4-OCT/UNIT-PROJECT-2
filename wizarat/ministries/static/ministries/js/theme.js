@@ -16,7 +16,7 @@
     try {
       localStorage.setItem("theme", nextTheme);
     } catch (error) {
-      toggle.dataset.storageError = "true";
+      // The theme still switches for this visit when storage is blocked.
     }
     updateThemeButton();
   });

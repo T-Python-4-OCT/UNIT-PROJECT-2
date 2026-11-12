@@ -1,5 +1,4 @@
 import json
-from pathlib import Path
 
 from django.test import SimpleTestCase
 from django.urls import reverse
@@ -8,14 +7,30 @@ from .data_loader import (
     DATA_DIR,
     IMAGE_DIR,
     add_images,
-    get_all_ministries,
     get_ministries,
     get_quiz_questions,
     get_random_facts,
 )
+from .views import youtube_embed_url
 
 
 class MinistryPagesTests(SimpleTestCase):
+    def test_youtube_urls_are_safely_converted_to_privacy_friendly_embeds(self):
+        video_id = "XdtPmrf3sxI"
+
+        self.assertEqual(
+            youtube_embed_url(f"https://youtu.be/{video_id}"),
+            f"https://www.youtube-nocookie.com/embed/{video_id}",
+        )
+        self.assertEqual(
+            youtube_embed_url(f"https://www.youtube.com/watch?v={video_id}"),
+            f"https://www.youtube-nocookie.com/embed/{video_id}",
+        )
+        self.assertEqual(
+            youtube_embed_url("https://example.com/watch?v=XdtPmrf3sxI"),
+            "",
+        )
+
     def test_ministry_data_is_valid_and_has_matching_details(self):
         ministries = json.loads((DATA_DIR / "ministries.json").read_text(encoding="utf-8"))
         details = json.loads((DATA_DIR / "details.json").read_text(encoding="utf-8"))
@@ -29,12 +44,12 @@ class MinistryPagesTests(SimpleTestCase):
 
         home_response = self.client.get(reverse("ministries:home"))
         self.assertEqual(home_response.status_code, 200)
-        self.assertContains(
-            home_response,
-            "youtube-nocookie.com/embed/XdtPmrf3sxI?autoplay=1&amp;mute=1",
-        )
+        self.assertContains(home_response, "data-walk-hero")
+        for layer in ("wl-sky", "wl-far", "wl-mid", "wl-ground", "wl-front"):
+            self.assertContains(home_response, f"wl {layer}")
+        self.assertNotContains(home_response, "youtube-nocookie.com")
         self.assertContains(home_response, 'data-assistant')
-        self.assertEqual(len(home_response.context["chatbot_ministries"]), 24)
+        self.assertEqual(len(home_response.context["chatbot_ministries"]), 13)
         for ministry in ministries:
             with self.subTest(slug=ministry["slug"]):
                 response = self.client.get(
@@ -47,7 +62,6 @@ class MinistryPagesTests(SimpleTestCase):
 
     def test_all_additional_pages_load(self):
         routes = (
-            "ministries:about",
             "ministries:timeline",
             "ministries:compare",
             "ministries:quiz",
@@ -56,17 +70,14 @@ class MinistryPagesTests(SimpleTestCase):
             with self.subTest(route=route):
                 self.assertEqual(self.client.get(reverse(route)).status_code, 200)
 
-    def test_ministry_directory_lists_all_twenty_four_ministries(self):
+    def test_ministry_directory_lists_every_ministry_with_a_detail_link(self):
         response = self.client.get(reverse("ministries:directory"))
-        directory = get_all_ministries()
 
         self.assertEqual(response.status_code, 200)
-        self.assertNotContains(response, "class=\"hero-video\"")
-        self.assertEqual(len(directory), 24)
-        self.assertEqual(len({item["slug"] for item in directory}), 24)
-        self.assertContains(response, "وزارة الحرس الوطني")
-        self.assertContains(response, "وزارة الثقافة")
-        self.assertContains(response, "24")
+        self.assertEqual(len(response.context["directory_ministries"]), 13)
+        for ministry in get_ministries():
+            with self.subTest(slug=ministry["slug"]):
+                self.assertContains(response, reverse("ministries:detail", args=[ministry["slug"]]))
 
     def test_compare_and_custom_not_found_pages_load(self):
         response = self.client.get(
@@ -126,6 +137,29 @@ class MinistryPagesTests(SimpleTestCase):
             self.assertIn(question["answer"], ministry_slugs)
             self.assertEqual(len(question["choices"]), 3)
             self.assertIn(question["answer"], {choice["slug"] for choice in question["choices"]})
+
+    def test_search_finds_ministries_by_name_task_and_spelling_variants(self):
+        response = self.client.get(reverse("ministries:search"), {"q": "الصحة"})
+        self.assertEqual(response.status_code, 200)
+        self.assertEqual(response.context["results"][0]["slug"], "health")
+
+        by_task = self.client.get(reverse("ministries:search"), {"q": "الميزانية"})
+        self.assertIn("finance", [item["slug"] for item in by_task.context["results"]])
+
+        variant = self.client.get(reverse("ministries:search"), {"q": "الحج والعمره"})
+        self.assertIn("hajj", [item["slug"] for item in variant.context["results"]])
+
+        empty = self.client.get(reverse("ministries:search"), {"q": "كلمةغيرموجودة"})
+        self.assertEqual(empty.context["results"], [])
+        self.assertContains(self.client.get(reverse("ministries:search")), "data-site-search")
+
+    def test_navbar_has_search_and_theme_toggle(self):
+        response = self.client.get(reverse("ministries:home"))
+        self.assertContains(response, 'data-bs-target="#searchModal"')
+        self.assertContains(response, 'id="themeToggle" class="btn theme-btn"')
+        self.assertNotContains(response, "footer-theme")
+        self.assertNotContains(response, "data-a11y")
+        self.assertNotContains(response, "عن المشروع")
 
     def test_unknown_ministry_returns_not_found(self):
         response = self.client.get(reverse("ministries:detail", args=["unknown"]))

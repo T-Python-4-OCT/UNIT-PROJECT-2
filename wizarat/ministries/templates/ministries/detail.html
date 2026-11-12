@@ -31,7 +31,7 @@
     {% if ministry.services %}<a href="#services">{{ site_content.detail.services }}</a>{% endif %}
     {% if ministry.achievements %}<a href="#achievements">{{ site_content.detail.achievements }}</a>{% endif %}
     <a href="#timeline">{{ site_content.detail.timeline }}</a>
-    <a href="#gallery">{{ site_content.detail.gallery }}</a>
+    {% if ministry.gallery %}<a href="#gallery">{{ site_content.detail.gallery }}</a>{% endif %}
   </nav>
 
   <div class="detail-layout">
@@ -104,9 +104,9 @@
       </section>
       {% endif %}
 
+      {% if ministry.gallery %}
       <section id="gallery" class="detail-section">
         <h2><i class="bi bi-images"></i>{{ site_content.detail.gallery }}</h2>
-        {% if ministry.gallery %}
         <div class="gallery-grid">
           {% for image in ministry.gallery %}
           <button class="gallery-trigger" type="button" data-bs-toggle="modal" data-bs-target="#galleryLightbox"
@@ -143,10 +143,8 @@
             </div>
           </div>
         </div>
-        {% else %}
-        <div class="image-fallback gallery-image-fallback" role="img" aria-label="{{ ministry.name }}"></div>
-        {% endif %}
       </section>
+      {% endif %}
 
       <nav class="ministry-switch" aria-label="التنقل بين الوزارات">
         {% if previous_ministry %}

@@ -96,20 +96,6 @@ def get_ministries():
     return ministries
 
 
-def get_all_ministries():
-    ministries = []
-    for ministry in get_ministries():
-        ministries.append(
-            {
-                **ministry,
-                "summary": ministry["tagline"],
-                "detail_slug": ministry["slug"],
-            }
-        )
-    ministries.extend(read_json("additional_ministries.json"))
-    return ministries
-
-
 def get_ministry(slug):
     return next(
         (ministry for ministry in get_ministries() if ministry["slug"] == slug),

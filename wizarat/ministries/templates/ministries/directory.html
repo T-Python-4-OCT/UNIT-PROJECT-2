@@ -41,11 +41,11 @@
     <div class="row g-4">
       {% for ministry in directory_ministries %}
       <div class="col-12 col-md-6 col-xl-4 js-directory-card reveal"
-        data-search="{{ ministry.name }} {{ ministry.category }} {{ ministry.summary }}"
+        data-search="{{ ministry.name }} {{ ministry.category }} {{ ministry.tagline }}"
         data-category="{{ ministry.category }}">
         <article class="directory-card">
           <div class="directory-card-head">
-            <span class="directory-card-icon"><i class="bi {{ ministry.icon|default:'bi-building' }}" aria-hidden="true"></i></span>
+            <span class="directory-card-icon"><i class="bi {{ ministry.icon }}" aria-hidden="true"></i></span>
             <span class="directory-card-number">{{ forloop.counter|stringformat:"02d" }}</span>
           </div>
           <div class="directory-card-image">
@@ -57,24 +57,16 @@
           </div>
           <span class="directory-card-category">{{ ministry.category }}</span>
           <h2>{{ ministry.name }}</h2>
-          <p>{{ ministry.summary }}</p>
+          <p>{{ ministry.tagline }}</p>
           <div class="directory-card-actions">
-            {% if ministry.detail_slug %}
-            <a class="directory-action" href="{% url 'ministries:detail' ministry.detail_slug %}">
+            <a class="directory-action" href="{% url 'ministries:detail' ministry.slug %}">
               {{ site_content.directory_page.open_details }} <i class="bi bi-arrow-left"></i>
             </a>
-            {% else %}
-            <span class="directory-action is-muted">{{ site_content.directory_page.details_unavailable }}</span>
-            {% endif %}
             {% if ministry.website %}
             <a class="directory-site" href="{{ ministry.website }}" target="_blank" rel="noopener noreferrer"
               aria-label="{{ site_content.directory_page.official_site }}: {{ ministry.name }}">
               <i class="bi bi-box-arrow-up-left" aria-hidden="true"></i>
             </a>
-            {% else %}
-            <span class="directory-site is-muted" aria-label="{{ site_content.directory_page.no_site }}">
-              <i class="bi bi-link-45deg" aria-hidden="true"></i>
-            </span>
             {% endif %}
           </div>
         </article>

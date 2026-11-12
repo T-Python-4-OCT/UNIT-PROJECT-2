@@ -1,14 +1,13 @@
 import random
 import re
-from urllib.parse import urlparse
+from urllib.parse import parse_qs, urlparse
 
 from django.http import Http404
 from django.shortcuts import render
+
 from .data_loader import (
     get_ministries,
     get_ministry,
-    get_all_ministries,
-    get_home_features,
     get_quiz_questions,
     get_random_facts,
     get_site_content,
@@ -16,8 +15,6 @@ from .data_loader import (
 
 
 def home(request):
-    features = get_home_features()
-    home_video = f"https://www.youtube-nocookie.com/embed/{features['video']['video_id']}"
     ministries = get_ministries()
     years = [item["timeline"][0]["year"] for item in ministries if item["timeline"]]
     categories = sorted({item["category"] for item in ministries})
@@ -48,13 +45,12 @@ def home(request):
             ),
             "daily_fact": fact,
             "vision_pillars": vision_cards,
-            "hero_video_url": youtube_background_url(home_video),
         },
     )
 
 
 def ministry_directory(request):
-    ministries = get_all_ministries()
+    ministries = get_ministries()
     return render(
         request,
         "ministries/directory.html",
@@ -97,10 +93,6 @@ def ministry_detail(request, slug):
     )
 
 
-def about(request):
-    return render(request, "ministries/about.html")
-
-
 def timeline(request):
     ministries = sorted(
         (item for item in get_ministries() if item["timeline"]),
@@ -130,39 +122,65 @@ def quiz(request):
     )
 
 
+ARABIC_MARKS = re.compile(r"[ً-ٰٟـ]")
+ARABIC_LETTERS = str.maketrans("أإآٱىة", "اااايه")
+
+
+def normalize_arabic(text):
+    text = ARABIC_MARKS.sub("", str(text)).lower()
+    return text.translate(ARABIC_LETTERS).strip()
+
+
+def search_ministries(query):
+    terms = normalize_arabic(query).split()
+    if not terms:
+        return []
+    matches = []
+    for ministry in get_ministries():
+        name = normalize_arabic(ministry["name"])
+        haystack = " ".join(
+            [
+                name,
+                normalize_arabic(ministry["tagline"]),
+                normalize_arabic(ministry["category"]),
+                normalize_arabic(ministry["about"]),
+                normalize_arabic(ministry.get("minister", "")),
+                *(normalize_arabic(task) for task in ministry["tasks"]),
+            ]
+        )
+        if all(term in haystack for term in terms):
+            name_match = all(term in name for term in terms)
+            matches.append((not name_match, ministry))
+    return [ministry for _, ministry in sorted(matches, key=lambda item: item[0])]
+
+
+def search(request):
+    query = request.GET.get("q", "").strip()[:100]
+    return render(
+        request,
+        "ministries/search.html",
+        {"query": query, "results": search_ministries(query)},
+    )
+
+
 def youtube_embed_url(url):
     if not url:
         return ""
     parsed = urlparse(url)
     if parsed.hostname not in {"www.youtube.com", "youtube.com", "youtu.be"}:
         return ""
+
     if parsed.hostname == "youtu.be":
         video_id = parsed.path.strip("/")
     elif parsed.path == "/watch":
-        from urllib.parse import parse_qs
-
         video_id = parse_qs(parsed.query).get("v", [""])[0]
     else:
         match = re.fullmatch(r"/embed/([A-Za-z0-9_-]+)", parsed.path)
         video_id = match.group(1) if match else ""
+
     if not re.fullmatch(r"[A-Za-z0-9_-]{11}", video_id):
         return ""
     return f"https://www.youtube-nocookie.com/embed/{video_id}"
-
-
-def youtube_background_url(url):
-    parsed = urlparse(url)
-    if parsed.hostname != "www.youtube-nocookie.com":
-        return ""
-    match = re.fullmatch(r"/embed/([A-Za-z0-9_-]{11})", parsed.path)
-    if not match:
-        return ""
-    video_id = match.group(1)
-    return (
-        f"https://www.youtube-nocookie.com/embed/{video_id}"
-        f"?autoplay=1&mute=1&controls=0&loop=1&playlist={video_id}"
-        "&playsinline=1&rel=0"
-    )
 
 
 def page_not_found(request, exception):

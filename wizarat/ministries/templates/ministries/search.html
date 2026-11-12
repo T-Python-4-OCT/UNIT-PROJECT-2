@@ -1,0 +1,51 @@
+{% extends "ministries/base.html" %}
+
+{% block title %}{% if query %}{{ query }} | {% endif %}{{ site_content.search.title }} | {{ home_features.brand_name }}{% endblock %}
+
+{% block content %}
+{% with copy=site_content.search %}
+<header class="page-heading">
+  <div class="container">
+    <span class="eyebrow">{{ copy.eyebrow }}</span>
+    <h1>{{ copy.title }}</h1>
+    <p>{{ copy.description }}</p>
+    <form class="search-page-form" action="{% url 'ministries:search' %}" method="get" role="search">
+      <label class="search-field">
+        <span class="visually-hidden">{{ copy.title }}</span>
+        <i class="bi bi-search" aria-hidden="true"></i>
+        <input type="search" name="q" value="{{ query }}" placeholder="{{ copy.placeholder }}" autocomplete="off" maxlength="100">
+      </label>
+      <button class="btn-gold" type="submit">{{ copy.submit }}</button>
+    </form>
+  </div>
+</header>
+
+<section class="section-wrap compact">
+  <div class="container">
+    {% if query %}
+    <p class="search-summary" role="status"><strong>{{ results|length }}</strong> {{ copy.results_label }} «{{ query }}»</p>
+    {% if results %}
+    <div class="search-results">
+      {% for ministry in results %}
+      <a class="search-result" href="{% url 'ministries:detail' ministry.slug %}">
+        <span class="search-result-icon"><i class="bi {{ ministry.icon }}" aria-hidden="true"></i></span>
+        <span class="search-result-body">
+          <strong>{{ ministry.name }}</strong>
+          <small>{{ ministry.tagline }}</small>
+        </span>
+        <span class="search-result-category">{{ ministry.category }}</span>
+        <i class="bi bi-arrow-left search-result-arrow" aria-hidden="true"></i>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state is-visible">{{ copy.no_results }}</div>
+    {% endif %}
+    {% else %}
+    <p class="search-summary">{{ copy.hint }}</p>
+    {% endif %}
+    <a class="directory-all-link mt-4" href="{% url 'ministries:directory' %}">{{ copy.browse_all }} <i class="bi bi-arrow-left"></i></a>
+  </div>
+</section>
+{% endwith %}
+{% endblock %}
