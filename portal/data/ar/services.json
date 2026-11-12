@@ -24,6 +24,14 @@
         ]
       },
       {
+        "type": "gallery",
+        "heading": "بالصور",
+        "items": [
+          { "image": "portal/img/gallery/absher-1.webp", "caption": "إنجاز الخدمات من الجوال" },
+          { "image": "portal/img/gallery/absher-2.webp", "caption": "الخدمات نفسها على الجوال والحاسوب" }
+        ]
+      },
+      {
         "type": "stats",
         "heading": "نمو منصة أبشر",
         "items": [
@@ -81,6 +89,13 @@
         ]
       },
       {
+        "type": "gallery",
+        "heading": "بالصور",
+        "items": [
+          { "image": "portal/img/gallery/identity-1.webp", "caption": "مسح البصمة، إحدى طرق التحقق الرقمي من الهوية" }
+        ]
+      },
+      {
         "type": "cards",
         "heading": "جهتان وتجربة رقمية موحدة",
         "items": [
@@ -115,6 +130,13 @@
             "as_of": "2025",
             "source": "saudipedia"
           }
+        ]
+      },
+      {
+        "type": "gallery",
+        "heading": "بالصور",
+        "items": [
+          { "image": "portal/img/gallery/services-1.webp", "caption": "البوابات الذكية في جوازات المطار" }
         ]
       },
       {

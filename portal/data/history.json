@@ -54,6 +54,14 @@
       ]
     },
     {
+      "type": "gallery",
+      "heading": "In Pictures",
+      "items": [
+        { "image": "portal/img/gallery/history-1.webp", "caption": "At-Turaif in Diriyah, birthplace of the first Saudi state" },
+        { "image": "portal/img/gallery/history-2.webp", "caption": "Masmak Fortress in Riyadh" }
+      ]
+    },
+    {
       "type": "timeline",
       "heading": "The Digital Era",
       "items": [

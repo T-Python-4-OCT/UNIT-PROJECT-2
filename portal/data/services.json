@@ -24,6 +24,14 @@
         ]
       },
       {
+        "type": "gallery",
+        "heading": "In Pictures",
+        "items": [
+          { "image": "portal/img/gallery/absher-1.webp", "caption": "Completing services from a phone" },
+          { "image": "portal/img/gallery/absher-2.webp", "caption": "The same services on phone and computer" }
+        ]
+      },
+      {
         "type": "stats",
         "heading": "Absher Growth",
         "items": [
@@ -81,6 +89,13 @@
         ]
       },
       {
+        "type": "gallery",
+        "heading": "In Pictures",
+        "items": [
+          { "image": "portal/img/gallery/identity-1.webp", "caption": "A fingerprint scan, one way identity is checked digitally" }
+        ]
+      },
+      {
         "type": "cards",
         "heading": "Two Authorities, One Experience",
         "items": [
@@ -115,6 +130,13 @@
             "as_of": "2025",
             "source": "saudipedia"
           }
+        ]
+      },
+      {
+        "type": "gallery",
+        "heading": "In Pictures",
+        "items": [
+          { "image": "portal/img/gallery/services-1.webp", "caption": "Smart gates at airport passport control" }
         ]
       },
       {

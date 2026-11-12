@@ -79,6 +79,7 @@ def page_texts(page):
             yield 1, item.get("text", "")
             yield 1, item.get("value", "")
             yield 1, item.get("date", "")
+            yield 1, item.get("caption", "")
 
 
 def search_pages(pages, query):

@@ -23,6 +23,15 @@
       ]
     },
     {
+      "type": "gallery",
+      "heading": "In Pictures",
+      "items": [
+        { "image": "portal/img/gallery/vision-1.webp", "caption": "Riyadh at night, with Kingdom Centre lit up" },
+        { "image": "portal/img/gallery/vision-2.webp", "caption": "A Riyadh Metro station" },
+        { "image": "portal/img/gallery/vision-3.webp", "caption": "A main road in Riyadh" }
+      ]
+    },
+    {
       "type": "stats",
       "heading": "Vision at a Glance",
       "items": [

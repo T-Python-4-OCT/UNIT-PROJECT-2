@@ -23,6 +23,15 @@
       ]
     },
     {
+      "type": "gallery",
+      "heading": "بالصور",
+      "items": [
+        { "image": "portal/img/gallery/vision-1.webp", "caption": "الرياض ليلًا، وبرج المملكة مضاء" },
+        { "image": "portal/img/gallery/vision-2.webp", "caption": "إحدى محطات مترو الرياض" },
+        { "image": "portal/img/gallery/vision-3.webp", "caption": "أحد الطرق الرئيسية في الرياض" }
+      ]
+    },
+    {
       "type": "stats",
       "heading": "رؤية 2030 بالأرقام",
       "items": [

@@ -26,6 +26,13 @@
       ]
     },
     {
+      "type": "gallery",
+      "heading": "In Pictures",
+      "items": [
+        { "image": "portal/img/gallery/future-1.webp", "caption": "Data and computing power behind the services of tomorrow" }
+      ]
+    },
+    {
       "type": "stats",
       "heading": "Global Rankings Today",
       "items": [

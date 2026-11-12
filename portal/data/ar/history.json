@@ -54,6 +54,14 @@
       ]
     },
     {
+      "type": "gallery",
+      "heading": "بالصور",
+      "items": [
+        { "image": "portal/img/gallery/history-1.webp", "caption": "حي الطريف في الدرعية، منطلق الدولة السعودية الأولى" },
+        { "image": "portal/img/gallery/history-2.webp", "caption": "قصر المصمك في الرياض" }
+      ]
+    },
+    {
       "type": "timeline",
       "heading": "العصر الرقمي",
       "items": [

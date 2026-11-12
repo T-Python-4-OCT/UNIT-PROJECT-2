@@ -46,7 +46,7 @@ function updateThemeButton(theme) {
 
 document.addEventListener("DOMContentLoaded", function () {
   const revealElements = document.querySelectorAll(
-    ".cinematic-journey .journey-heading, .cinematic-journey .col, .cinematic-about"
+    ".cinematic-journey .journey-heading, .cinematic-journey .col, .cinematic-about, .gallery-item"
   );
 
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {

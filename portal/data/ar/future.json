@@ -26,6 +26,13 @@
       ]
     },
     {
+      "type": "gallery",
+      "heading": "بالصور",
+      "items": [
+        { "image": "portal/img/gallery/future-1.webp", "caption": "البيانات والقدرة الحاسوبية خلف خدمات المستقبل" }
+      ]
+    },
+    {
       "type": "stats",
       "heading": "التصنيفات العالمية الحالية",
       "items": [

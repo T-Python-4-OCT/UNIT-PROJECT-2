@@ -3,7 +3,7 @@ from django.urls import reverse
 
 from .forms import FeedbackForm
 from .models import Feedback
-from .views import load_json
+from .views import find_page_content, load_json
 
 VALID_DATA = {
     "name": "Sara Ahmed",
@@ -260,3 +260,44 @@ class CompareSliderTests(TestCase):
         for name in ("before-office.webp", "after-app.webp"):
             with self.subTest(image=name):
                 self.assertIsNotNone(finders.find(f"portal/img/{name}"))
+
+
+class GalleryTests(TestCase):
+    def galleries(self, language):
+        "Yield (slug, gallery section) for every page that has a gallery."
+        site = load_json("site.json", language)
+        for page in site["pages"]:
+            content = find_page_content(site, page["slug"], language)
+            for section in content["sections"]:
+                if section["type"] == "gallery":
+                    yield page["slug"], section
+
+    def test_every_gallery_image_exists_and_has_a_caption(self):
+        from django.contrib.staticfiles import finders
+
+        for language in ("en", "ar"):
+            for slug, section in self.galleries(language):
+                for item in section["items"]:
+                    with self.subTest(language=language, slug=slug, image=item["image"]):
+                        self.assertIsNotNone(finders.find(item["image"]))
+                        self.assertTrue(item["caption"].strip())
+
+    def test_gallery_shows_on_its_page(self):
+        for slug, section in self.galleries("en"):
+            with self.subTest(slug=slug):
+                response = self.client.get(reverse("portal:page", args=[slug]))
+                self.assertContains(response, 'class="gallery-item"', count=len(section["items"]))
+
+    def test_home_journey_cards_have_photos(self):
+        response = self.client.get(reverse("portal:home"))
+        for step in response.context["journey_steps"]:
+            with self.subTest(slug=step["slug"]):
+                self.assertTrue(step["image"])
+
+    def test_search_finds_words_in_captions(self):
+        session = self.client.session
+        session["language"] = "ar"
+        session.save()
+        response = self.client.get(reverse("portal:search"), {"q": "المصمك"})
+        slugs = [result["slug"] for result in response.context["results"]]
+        self.assertIn("moi-evolution", slugs)

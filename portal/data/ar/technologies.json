@@ -32,6 +32,14 @@
       ]
     },
     {
+      "type": "gallery",
+      "heading": "بالصور",
+      "items": [
+        { "image": "portal/img/gallery/security-1.webp", "caption": "غرفة مراقبة وتحكم" },
+        { "image": "portal/img/gallery/security-2.webp", "caption": "كاميرات مراقبة في مكان عام" }
+      ]
+    },
+    {
       "type": "stats",
       "heading": "الأمن العام في عام 2025",
       "items": [

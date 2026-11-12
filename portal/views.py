@@ -102,14 +102,16 @@ def find_page_content(site, slug, language="en"):
     return content
 
 
-def build_journey(site, home_content):
-    "Join each journey step with its localized page title."
+def build_journey(site, home_content, language):
+    "Join each journey step with its localized page title and its header photo."
     titles = {page["slug"]: page["title"] for page in site["pages"]}
     return [
         {
             "slug": step["slug"],
             "title": titles[step["slug"]],
             "teaser": step["teaser"],
+            # The photo already set for that page's header, so it lives in one place only
+            "image": find_page_content(site, step["slug"], language).get("header_image"),
         }
         for step in home_content["journey"]["steps"]
     ]
@@ -147,7 +149,7 @@ def home(request):
         **get_common_context(request),
         "site": site,
         "home": home_content,
-        "journey_steps": build_journey(site, home_content),
+        "journey_steps": build_journey(site, home_content, language),
         "current_slug": "",
     }
 

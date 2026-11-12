@@ -102,6 +102,11 @@
           <div class="col">
             <a class="card h-100 journey-card cinematic-card text-decoration-none"
                href="{% url 'portal:page' step.slug %}">
+              {% if step.image %}
+                <div class="journey-card-image">
+                  <img src="{% static step.image %}" alt="" width="400" height="225" loading="lazy" decoding="async">
+                </div>
+              {% endif %}
               <div class="card-body">
                 <span class="journey-number">
                   {{ forloop.counter|stringformat:"02d" }}
