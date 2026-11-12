@@ -41,14 +41,13 @@
     ]
   },
   "compare": {
-    "eyebrow": "Then and now",
-    "heading": "From the waiting hall to the phone",
-    "text": "Drag the line to compare. Procedures that once meant a queue at a government office now take a few taps on Absher.",
-    "before_label": "Before",
-    "after_label": "Now",
-    "before_alt": "Black-and-white photo of people waiting on rows of metal benches in a service hall",
-    "after_alt": "Hands holding a smartphone above a desk with a laptop and a cup of tea",
-    "slider_label": "Compare before and now"
+    "heading": "We used to go to the office. Now we do it on the phone",
+    "text": "A few years ago, renewing an ID or a driving licence meant taking time off work and waiting for your number in a service hall. Today the same request is done on Absher from home. Move the line to see the difference.",
+    "before_label": "Then",
+    "after_label": "Today",
+    "before_alt": "People waiting on seats in a government service hall",
+    "after_alt": "A phone showing the Absher app in the App Store",
+    "slider_label": "Compare then and today"
   },
   "journey": {
     "heading": "The Journey",
