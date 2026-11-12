@@ -14,7 +14,7 @@ A bilingual (Arabic / English) Django website about how the Saudi Ministry of In
 
 | URL | Page |
 | --- | --- |
-| `/` | Home: hero video, impact numbers, before/after slider, journey through the pages |
+| `/` | Home: hero video, impact numbers, before/after slider, photo cards for every page |
 | `/vision-2030/` | Vision 2030 |
 | `/moi-evolution/` | MOI Evolution: timeline from 1926 to today, Hijri and Gregorian dates |
 | `/absher/` | Absher Platform |
@@ -75,6 +75,8 @@ After a successful submit the view redirects (Post/Redirect/Get), so refreshing 
 
 ![Before and after slider](docs/screenshots/before-after.webp)
 
+**Photo galleries.** Every inner page has an "In Pictures" section: a `gallery` section type in the page's JSON, rendered by `partials/gallery.html`. Each photo has a caption in both languages, used as its alt text.
+
 **Motion with care.** Hero video (compressed from 13.6 MB to 0.87 MB, with a poster image while it loads), counting numbers, reading-progress bar, and an animated menu button. All of it stops when the visitor's device asks for reduced motion.
 
 <p>
@@ -121,13 +123,14 @@ Then sign in at http://127.0.0.1:8000/admin/
 python manage.py test portal
 ```
 
-44 tests cover every invalid-input case above, plus:
+48 tests cover every invalid-input case above, plus:
 
 - all seven pages load in both languages
 - unknown URLs return 404
 - the language switch accepts only `en` and `ar`, and refuses to redirect to another site
 - search ignores empty, too short, too long and symbols-only queries, finds Arabic words without hamza, and escapes HTML
 - the before/after images exist and the slider renders in both languages
+- every gallery photo exists and has a caption in both languages, and search finds words in captions
 
 The custom 404 page shows when `DEBUG = False`. With `DEBUG = True`, Django shows its own debug page instead.
 
@@ -146,12 +149,12 @@ portal/
   static/portal/
     css/main.css
     js/theme.js           theme toggle, counters, navbar, slider, character counter
-    img/                  WebP images, favicon
+    img/                  WebP images, gallery/, favicon
     video/hero-riyadh.mp4
   templates/portal/
     base.html             layout every page extends
     home.html  page.html  search.html  feedback.html  404.html
-    partials/             navbar, footer, cards, stats, timeline, sources
+    partials/             navbar, footer, cards, stats, timeline, gallery, sources
   forms.py                FeedbackForm, SearchForm
   models.py               Feedback
   search.py               Arabic normalization, scoring, highlighted snippets
@@ -169,4 +172,4 @@ Django 6.1 · Python · SQLite · Bootstrap 5.3 · vanilla JavaScript · IBM Ple
 
 ## Sources and media
 
-Figures come from official and news sources cited on each page, with the date each figure refers to. The hero video and the before/after photos are from [Pexels](https://www.pexels.com/), used under the Pexels license.
+Figures come from official and news sources cited on each page, with the date each figure refers to. All photos and the hero video are from [Pexels](https://www.pexels.com/), used under the Pexels license.
