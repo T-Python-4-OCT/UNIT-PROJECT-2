@@ -32,6 +32,72 @@
   </div>
 </section>
 
+{% if era.rulers %}
+<section class="section rulers-section">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">حكّام المرحلة</span>
+      <h2 class="section-title">{{ era.rulers_title|default:"حكّام هذه المرحلة" }}</h2>
+      <p class="section-lead">{{ era.rulers_intro|default:"تعرّف على الحكام الذين ارتبطت أسماؤهم بتاريخ هذه المرحلة." }}</p>
+    </div>
+
+    {% if era.slug == 'modern' %}
+    <div class="rulers-journey reveal" dir="rtl">
+      <div class="rulers-journey-heading">
+        <span><i class="bi bi-diagram-3-fill" aria-hidden="true"></i> التسلسل الزمني لملوك المملكة</span>
+        <p>من الملك سعود إلى خادم الحرمين الشريفين الملك سلمان</p>
+      </div>
+
+      <div class="rulers-journey-track">
+        {% for ruler in era.rulers %}
+        <div class="rulers-journey-item">
+          <span>{{ forloop.counter|stringformat:"02d" }}</span>
+          <strong>{{ ruler.name }}</strong>
+          <small>{{ ruler.period }}</small>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+    {% endif %}
+
+    <div class="rulers-list{% if era.rulers|length == 1 %} rulers-list-single{% endif %}">
+      {% for ruler in era.rulers %}
+      <article class="ruler-feature-card ruler-feature-row reveal" dir="ltr">
+        <div class="ruler-feature-media">
+          <img src="{% asset ruler.image %}"
+               alt="{{ ruler.image_alt|default:ruler.name }}"
+               loading="lazy">
+        </div>
+
+        <div class="ruler-feature-content" dir="rtl">
+          <span class="ruler-feature-eyebrow">
+            <i class="bi bi-award-fill" aria-hidden="true"></i>
+            {{ ruler.role }}
+          </span>
+
+          <h3>{{ ruler.name }}</h3>
+
+          <span class="ruler-feature-period">
+            <i class="bi bi-calendar3" aria-hidden="true"></i>
+            فترة الحكم: {{ ruler.period }}
+          </span>
+
+          <p>{{ ruler.description }}</p>
+
+          {% if ruler.image_caption %}
+          <div class="ruler-feature-caption">
+            <i class="bi bi-camera-fill" aria-hidden="true"></i>
+            <span>{{ ruler.image_caption }}</span>
+          </div>
+          {% endif %}
+        </div>
+      </article>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
 {% if era.highlights %}
 <section class="section">
   <div class="container">
