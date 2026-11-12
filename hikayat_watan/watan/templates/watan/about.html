@@ -1,0 +1,132 @@
+{% extends "watan/base.html" %}
+{% load static %}
+{% block title %}{{ about.title }}{% endblock %}
+{% block content %}
+
+{% include "watan/partials/_page_header.html" with title=about.title eyebrow="اكتشف حكاية الوطن" subtitle=about.lead image="img/watan-day.svg" %}
+
+{# أهداف المشروع #}
+<section class="section">
+  <div class="container">
+    <div class="row g-5 align-items-center">
+
+      <div class="col-lg-6 reveal">
+        <span class="eyebrow">رسالتنا</span>
+        <h2 class="section-title">لماذا «حكاية وطن»؟</h2>
+        <p class="prose-p">
+          لأن المملكة العربية السعودية ليست مجرد أرض،
+          بل حكاية تاريخ وحضارة وإنجازات تستحق أن تُروى.
+          جاء هذا الموقع ليأخذك في رحلة للتعرف على تاريخ الوطن
+          ومدنه ومعالمه وتراثه العريق.
+        </p>
+        <ul class="check-list">
+          {% for g in about.goals %}
+          <li>{{ g }}</li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="col-lg-6 reveal">
+        <div class="intro-visual">
+          <img src="{% static 'watan/img/Riydh-H.jpg' %}"
+               alt="المملكة العربية السعودية">
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{# ماذا سيستفيد الزائر؟ #}
+<section class="section section-alt">
+  <div class="container">
+
+    <div class="section-head text-center reveal">
+      <span class="eyebrow">رحلتك معنا</span>
+      <h2 class="section-title">ماذا ستكتشف بعد زيارتك؟</h2>
+      <p class="section-lead mx-auto">
+        نطمح أن تنتهي رحلتك بمعرفة أعمق بتاريخ وطنك
+        وثقافته وإنجازاته.
+      </p>
+    </div>
+
+    <div class="row g-4">
+
+      <div class="col-sm-6 col-lg-3 reveal">
+        <div class="tech-card">
+          <div class="icon-bubble">
+            <i class="bi bi-clock-history"></i>
+          </div>
+          <h3 class="h5">تاريخ المملكة</h3>
+          <p class="text-body-secondary mb-0">
+            التعرف على مراحل تأسيس الدولة السعودية
+            وتوحيد المملكة ومسيرة تطورها.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3 reveal">
+        <div class="tech-card">
+          <div class="icon-bubble">
+            <i class="bi bi-geo-alt"></i>
+          </div>
+          <h3 class="h5">المدن السعودية</h3>
+          <p class="text-body-secondary mb-0">
+            اكتشاف ست مدن سعودية والتعرف على
+            طبيعتها ومعالمها وما يميز كل مدينة.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3 reveal">
+        <div class="tech-card">
+          <div class="icon-bubble">
+            <i class="bi bi-bank"></i>
+          </div>
+          <h3 class="h5">التراث والحضارة</h3>
+          <p class="text-body-secondary mb-0">
+            التعرف على المواقع التاريخية والآثار
+            والتراث الثقافي للمملكة.
+          </p>
+        </div>
+      </div>
+
+      <div class="col-sm-6 col-lg-3 reveal">
+        <div class="tech-card">
+          <div class="icon-bubble">
+            <i class="bi bi-stars"></i>
+          </div>
+          <h3 class="h5">المستقبل والطموح</h3>
+          <p class="text-body-secondary mb-0">
+            التعرف على رؤية السعودية 2030
+            وأبرز الإنجازات والتطلعات المستقبلية.
+          </p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+{# رسالة ختامية #}
+<section class="section">
+  <div class="container">
+    <div class="section-head text-center reveal">
+      <span class="eyebrow">حكاية وطن</span>
+      <h2 class="section-title">
+        تاريخ نفخر به ومستقبل نصنعه
+      </h2>
+      <p class="section-lead mx-auto">
+        نأمل أن تكون رحلتك في «حكاية وطن» نافذة
+        تتعرف من خلالها على عظمة تاريخ المملكة،
+        وجمال مدنها، وثراء تراثها، وطموح مستقبلها.
+      </p>
+      <a href="{% url 'watan:history' %}" class="btn-wt mt-4">
+        ابدأ رحلة التاريخ
+        <i class="bi bi-arrow-left"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

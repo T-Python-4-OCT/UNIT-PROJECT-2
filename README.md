@@ -1,76 +1,134 @@
-# UNIT-PROJECT-2
+# 🇸🇦 Hikayat Watan | حكاية وطن
 
-## Using Django create a project about our beloved kingdom of your choosing. Examples :
-- Tourism in Saudi Arabia.
-- Culture & Heritage in Saudi Arabia.
-- Manufacturing & Industries in Saudi Arabia.
-- Agriculture in Saudi Arabia.
-- Science in Saudi Arabia.
-- History of Saudi Arabia.
-- etc.....
+## About the Project
 
+**Hikayat Watan** is an interactive educational website that explores Saudi Arabia's history, heritage, culture, and destinations.
 
-# Minumum Requirements
-- Use Django.
-- Use templates & templates inheritance.
-- Use dynamic urls where applicable.
-- Use static files where applicable.
-- homepage + at least 6 pages.
-- Coherent, uniform design .
-- Implement dark and light mode.
-- Must be Responsive. 
-- You can use a CSS library to style your website (such as Bootstrap or equivalent)
-- You can use a cdn or a cloud storage to host large files such as large videos (example: Goolge Firebase Cloud Storage: https://firebase.google.com/docs/storage)
+The website presents historical information, Saudi rulers, real photographs, galleries, and videos in an engaging digital experience.
 
+## Website Pages
 
+- **Home:** Introduction to Saudi Arabia.
+- **History:** Historical periods and rulers of Saudi Arabia.
+- **Cities:** Featured cities and regions.
+- **City Details:** Attractions, galleries, information, and videos.
+- **About:** Project goals and purpose.
 
-# Example : TOURISM-PROJECT
+## Main Features
 
-## Using Django create a website for Tourism in Saudi Arabia . The project name is : Tourister
+- Interactive homepage.
+- Historical timelines and rulers' profiles.
+- Saudi cities and destinations.
+- Special coverage of the Eastern Province and Al Ahsa.
+- Real photographs and image galleries.
+- Embedded YouTube videos.
+- Arabic and English support.
+- Dark Mode and Light Mode.
+- Cookie-based preferences.
+- Responsive design for all devices.
+- Previous and next navigation.
 
-### Your website has the following pages :
+## Technologies Used
 
-#### "" : home page , with the following content:
-- Title of the page , with a catchy phrase about tourism in Saudi Arabia
-- A single wide image covering the page.
-- A paragraph about the tourism in Saudi Arabia in General.
-- A list of cities pages with links to them (the pages are listed down below).
+- Python & Django
+- HTML5, CSS3 & JavaScript
+- Bootstrap 5
+- JSON
+- Google Translate
+- YouTube Embed
 
+## Project Structure
 
-#### "city/Riyadh/"
-- Title of city with a catchy phrase
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+```text
+UNIT-PROJECT-2/
+│
+├── hikayat_watan/
+│   ├── settings.py
+│   ├── urls.py
+│   ├── asgi.py
+│   └── wsgi.py
+│
+├── watan/
+│   ├── data/content.json
+│   ├── templates/watan/
+│   ├── static/watan/
+│   │   ├── css/
+│   │   ├── img/
+│   │   ├── js/
+│   │   └── video/
+│   ├── templatetags/
+│   ├── views.py
+│   ├── urls.py
+│   └── data_loader.py
+│
+├── manage.py
+├── requirements.txt
+├── PROJECT_REQUIREMENTS.md
+└── README.md
+```
 
-#### "city/Abha/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+## Content Management
 
-#### "city/Mekkah/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+Website content is stored in:
 
-#### "city/AlUla/"
-- Title of city with a catchy phrase.
-- Top Attractions in the city.
-- A brief about the city.
-- A Gallery of images (you can use a Carousel) for the city.
-- A short video about the city . (you can embed a youtube video , or use a video hosted on your website)
-- Top Attraction of the city.
-- A briefe history / timeline of the city.
-- Major events in the city.
+`watan/data/content.json`
+
+It includes:
+- Historical periods and rulers.
+- Cities and destinations.
+- Tourist attractions.
+- Image galleries and YouTube videos.
+- Historical events and descriptions.
+
+The project uses JSON for content management without requiring a database.
+
+## Images and Media
+
+Images are stored locally in the static directory.
+
+The website uses real photographs of Saudi landmarks and rulers where available. For historical figures without verified portraits, related historical landmarks are displayed instead.
+
+YouTube videos are embedded directly into destination pages.
+
+## Theme and Language
+
+- Dark and Light modes are saved using the `watan-theme` cookie.
+- Arabic and English language preferences are saved using the `watan-language` cookie.
+- Google Translate requires an internet connection.
+
+Both preferences are saved for one year.
+
+## Installation
+
+**1. Install dependencies:**
+
+```bash
+pip install -r requirements.txt
+```
+
+**2. Run the server:**
+
+```bash
+python manage.py runserver
+```
+
+**3. Open the website:**
+
+`http://127.0.0.1:8000/`
+
+## Main URLs
+
+| Page | URL |
+|---|---|
+| Home | `/` |
+| History | `/history/` |
+| Historical Period | `/history/<era_slug>/` |
+| Cities | `/cities/` |
+| City Details | `/city/<city_slug>/` |
+| About | `/about/` |
+
+## Project Vision
+
+Hikayat Watan aims to present Saudi Arabia's history, heritage, and destinations through an engaging digital experience.
+
+**A land with a story. A history worth remembering.** 🇸🇦

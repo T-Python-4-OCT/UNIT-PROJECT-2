@@ -1,0 +1,46 @@
+<footer class="wt-footer">
+  <div class="container">
+    <div class="row g-4 py-5">
+      <div class="col-lg-5">
+        <a class="footer-brand" href="{% url 'watan:home' %}">
+          <i class="bi bi-stars"></i> {{ site.name }}
+        </a>
+        <p class="footer-text">{{ site.description }}</p>
+        <p class="footer-quote">«وطنٌ لا نحمله في الحقائب… بل يحملنا في القلب»</p>
+      </div>
+
+      <div class="col-6 col-lg-3">
+        <h3 class="footer-title">مراحل التاريخ</h3>
+        <ul class="footer-links">
+          {% for era in nav_eras %}
+          <li><a href="{% url 'watan:era_detail' era.slug %}">{{ era.title }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="col-6 col-lg-2">
+        <h3 class="footer-title">المدن</h3>
+        <ul class="footer-links">
+          {% for city in nav_cities %}
+          <li><a href="{% url 'watan:city_detail' city.slug %}">{{ city.name }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+
+      <div class="col-lg-2">
+        <h3 class="footer-title">الموقع</h3>
+        <ul class="footer-links">
+          <li><a href="{% url 'watan:home' %}">الرئيسية</a></li>
+          <li><a href="{% url 'watan:history' %}">التاريخ</a></li>
+          <li><a href="{% url 'watan:cities' %}">المدن</a></li>
+          <li><a href="{% url 'watan:about' %}">عن المشروع</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <span>© {% now "Y" %} {{ site.name }} — مشروع تعليمي مبني بـ Django</span>
+      <span class="footer-flag"><i class="bi bi-heart-fill"></i> حبّاً في الوطن</span>
+    </div>
+  </div>
+</footer>

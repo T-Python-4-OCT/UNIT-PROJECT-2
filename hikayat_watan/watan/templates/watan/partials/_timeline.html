@@ -1,0 +1,13 @@
+{# خط زمني عمودي. المتغيرات: items (قائمة فيها year / title / text) و icon (اختياري) #}
+<div class="vtimeline">
+  {% for it in items %}
+  <article class="vt-item reveal">
+    <span class="vt-dot"><i class="bi {{ icon|default:'bi-circle-fill' }}"></i></span>
+    <div class="vt-card">
+      <span class="vt-year">{{ it.year }}</span>
+      <h3>{{ it.title }}</h3>
+      <p>{{ it.text }}</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
