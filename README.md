@@ -2,6 +2,8 @@
   <img src=".github/banner.svg" alt="Saudi Giga Atlas: seven projects across Saudi Arabia" width="100%">
 </p>
 
+<p align="center"><a href="README.ar.md" lang="ar">العربية</a></p>
+
 <p align="center">
   <a href="https://suliman-altwaijry.github.io/UNIT-PROJECT-2/">
     <img src=".github/visit-button.svg" alt="Visit the website" width="260">
