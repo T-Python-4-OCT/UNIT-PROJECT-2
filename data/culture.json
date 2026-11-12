@@ -1,0 +1,50 @@
+{
+  "architecture": {
+    "key": "architecture",
+    "title": "عمارة تحكي",
+    "subtitle": "البيوت تحفظ ما عاشه أهلها.",
+    "intro": "نوافذ تمنح الظل، وطين يراعي المناخ، وحجر يلتقي بالجبل. نتأمل تفاصيل البناء، ثم نتبعها إلى المدن التي تحتفظ بحكاياتها.",
+    "number": "01",
+    "material_label": "مواد المكان",
+    "hero": {
+      "file": "images/taleed/pathway-vignettes-display.webp",
+      "columns": 3,
+      "rows": 1,
+      "x": 0,
+      "y": 0,
+      "ratio": "1922 / 2454"
+    }
+  },
+  "crafts": {
+    "key": "crafts",
+    "title": "حِرف تبقى",
+    "subtitle": "معرفة تسكن الأيدي.",
+    "intro": "خيط يُنسج، وسعفة تُضفَر، وطين يأخذ شكلًا جديدًا. نتعرّف إلى الخامة والمهارة، وإلى المجتمعات التي تحافظ على هذه المعارف.",
+    "number": "02",
+    "material_label": "من خاماتها",
+    "hero": {
+      "file": "images/taleed/pathway-vignettes-display.webp",
+      "columns": 3,
+      "rows": 1,
+      "x": 1,
+      "y": 0,
+      "ratio": "1922 / 2454"
+    }
+  },
+  "food": {
+    "key": "food",
+    "title": "من مائدة الدار",
+    "subtitle": "لكل مدينة، نكهة من بيوتها.",
+    "intro": "نقترب من الأطباق بأسمائها ومكوناتها وحكايات تقديمها. الأطعمة تعبر حدود المدن؛ وروابط الأطالس تقود إلى أماكن اشتهرت بها أو تشارك في موروثها.",
+    "number": "03",
+    "material_label": "عناصر شائعة",
+    "hero": {
+      "file": "images/taleed/pathway-vignettes-display.webp",
+      "columns": 3,
+      "rows": 1,
+      "x": 2,
+      "y": 0,
+      "ratio": "1922 / 2454"
+    }
+  }
+}

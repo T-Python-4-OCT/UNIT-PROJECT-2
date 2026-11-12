@@ -1,0 +1,23 @@
+{% extends 'base.html' %}{% load i18n site_assets %}
+{% block title %}{% translate "اكتشف المدن — تَليد" %}{% endblock %}
+{% block body_class %}taleed-theme taleed-directory city-doors{% endblock %}
+{% block layout_css %}<link rel="stylesheet" href="{% asset 'css/hierarchy.css' %}"><link rel="stylesheet" href="{% asset 'css/city-doors.css' %}">{% endblock %}
+{% block content %}
+<div class="doors-wrap">
+
+  <header class="doors-heading"><div><p class="doors-eyebrow">{% translate "دروب تليد" %}</p><h1>{% if only_saved %}{% translate "حكاياتٌ احتفظت بها." %}{% else %}{% translate "افتح بابًا… تعرف مدينة." %}{% endif %}</h1><p>{% translate "من تفاصيل المكان، تبدأ الحكاية." %}</p></div></header>
+  <nav class="doors-navigation" aria-label="{% translate 'تصفّح حكايات المدن' %}">
+    <div class="doors-regions"><a href="{% url 'main:cities' %}{% if only_saved %}?saved=1{% endif %}" {% if not region %}aria-current="page"{% endif %}>{% translate "الكل" %}</a>{% for item in regions %}<a href="{% url 'main:cities' %}?region={{ item.key }}{% if only_saved %}&amp;saved=1{% endif %}" {% if region == item.key %}aria-current="page"{% endif %}>{{ item.label|localize }}</a>{% endfor %}</div>
+    <div class="doors-saved"><a href="{% url 'main:cities' %}" {% if not only_saved %}aria-current="page"{% endif %}>{% translate "كل المدن" %}</a><a href="{% url 'main:cities' %}?saved=1" {% if only_saved %}aria-current="page"{% endif %}>{% translate "حكاياتي" %} <span data-saved-count>{{ saved_count|localize }}</span></a></div>
+  </nav>
+  {% if opening_card %}
+  <section class="doors-opening" aria-label="{% translate 'أبواب المدن' %}">
+    {% include 'includes/city_door.html' with card=opening_card featured=True %}
+    {% if preview_cards %}<div class="doors-preview">{% for card in preview_cards %}{% include 'includes/city_door.html' with featured=False %}{% endfor %}</div>{% endif %}
+  </section>
+  {% if door_cards %}<section class="doors-journey" aria-label="{% translate 'مدن أخرى، وحكايات تنتظر.' %}"><div class="doors-journey-heading"><p class="doors-eyebrow">{% translate 'مدن أخرى، وحكايات تنتظر.' %}</p><span aria-hidden="true">↓</span></div><div class="doors-exhibition">{% for card in door_cards %}{% include 'includes/city_door.html' with featured=False %}{% endfor %}</div></section>{% endif %}
+  {% else %}<section class="doors-empty"><h2>{% if only_saved %}{% translate "لا مدن محفوظة بعد." %}{% else %}{% translate "لم نجد مكانًا بهذا الاسم." %}{% endif %}</h2><p>{% translate "احفظ مدينة أو محافظة، ثم عد إلى باب مدينتها هنا." %}</p><a href="{% url 'main:cities' %}">{% translate "اكتشف كل المدن ←" %}</a></section>{% endif %}
+  <p class="doors-colophon">{% translate "المحافظات تنتظرك داخل صفحة كل مدينة." %}</p>
+</div>
+{% endblock %}
+{% block footer %}{% include 'includes/editorial_footer.html' %}{% endblock %}
