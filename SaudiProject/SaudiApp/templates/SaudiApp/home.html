@@ -1,0 +1,199 @@
+
+{% extends 'SaudiApp/base.html' %}
+{% load static i18n %}
+
+{% block title %}
+{% trans "هنا السعودية | اكتشف المملكة" %}
+{% endblock %}
+
+{% block content %}
+
+<main>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+
+        <video
+            class="hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+            poster="{% static 'SaudiApp/images/History/hero-flag.jpg' %}"
+        >
+            <source
+                src="{% static 'SaudiApp/videos/Diriyah/DiriyahHeader.mp4' %}"
+                type="video/mp4"
+            >
+        </video>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+            <p class="hero-eyebrow">{% trans "أرض التاريخ والمستقبل" %}</p>
+
+            <h1>{% trans "هنا السعودية" %}</h1>
+
+            <p class="hero-description">
+                {% trans "حكاية وطن، وأرض لا تنتهي دهشتها. اكتشف المملكة من قلب تاريخها إلى آفاق مستقبلها." %}
+            </p>
+
+            <a href="#discover" class="hero-btn">
+                {% trans "اكتشف المملكة" %}
+                <span class="hero-btn-arrow">←</span>
+            </a>
+        </div>
+
+    </section>
+
+
+    <!-- Next Scene -->
+    <section class="experience-section" id="discover">
+
+        <div class="experience-background">
+            <img
+                src="{% static 'SaudiApp/images/History/hero-flag.jpg' %}"
+                alt="{% trans 'العلم السعودي في أحضان طبيعة العُلا' %}"
+            >
+        </div>
+
+        <div class="experience-content">
+            <p class="section-eyebrow">{% trans "المملكة العربية السعودية" %}</p>
+
+            <h2>{% trans "أكثر من وجهة..." %}</h2>
+
+            <p>
+                {% trans "وطن يجمع عراقة الماضي وطموح المستقبل، وتتنوع فيه التجارب بين التاريخ والطبيعة والثقافة والابتكار." %}
+            </p>
+        </div>
+
+    </section>
+
+
+    <!-- Kingdom Experiences -->
+    <section class="kingdom-experiences" id="experiences">
+
+        <div class="experiences-heading">
+            <span>{% trans "رحلة في أرض الاستثناء" %}</span>
+            <h2>{% trans "اكتشف عوالم المملكة" %}</h2>
+            <p>{% trans "خمسة عوالم، لكل منها حكاية وهوية وتجربة مختلفة." %}</p>
+        </div>
+
+        <div class="experiences-grid">
+
+            <!-- 01 History -->
+            <a href="{% url 'kingdom' %}" class="experience-card history-card">              
+                <video class="card-video" autoplay muted loop playsinline>
+                    <source src="{% static 'SaudiApp/videos/Experiences/history.mp4' %}" type="video/mp4">
+                </video>
+
+                <div class="card-gradient"></div>
+
+                <div class="card-content">
+                    <span class="card-number">01 / HISTORY</span>
+                    <h3>{% trans "تاريخ المملكة" %}</h3>
+                    <p>{% trans "من جذور التأسيس إلى أمجاد الحاضر." %}</p>
+                    <span class="card-discover">{% trans "اكتشف الحكاية" %} ←</span>
+                </div>
+            </a>
+
+
+            <!-- 02 Tourism & Entertainment -->
+            <a href="{% url 'tourism_entertainment' %}" class="experience-card tourism-card">
+                <video class="card-video" autoplay muted loop playsinline>
+                    <source src="{% static 'SaudiApp/videos/Experiences/Entertainment.mov' %}" type="video/mp4">
+                </video>
+
+                <div class="card-gradient"></div>
+
+                <div class="card-content">
+                    <span class="card-number">02 / EXPLORE</span>
+                    <h3>{% trans "السياحة والترفيه" %}</h3>
+                    <p>{% trans "من روعة الوجهات إلى متعة التجارب والفعاليات." %}</p>
+                    <span class="card-discover">{% trans "اكتشف التجربة" %} ←</span>
+                </div>
+            </a>
+
+
+            <!-- 03 Sports -->
+            <a href="{% url 'sports' %}" class="experience-card sports-card">
+                <video class="card-video" autoplay muted loop playsinline>
+                    <source src="{% static 'SaudiApp/videos/Experiences/sports.mp4' %}" type="video/mp4">
+                </video>
+
+                <div class="card-gradient"></div>
+
+                <div class="card-content">
+                    <span class="card-number">03 / SPORTS</span>
+                    <h3>{% trans "الرياضة" %}</h3>
+                    <p>{% trans "طموح عالمي وشغف لا يعرف الحدود." %}</p>
+                    <span class="card-discover">{% trans "عش المنافسة" %} ←</span>
+                </div>
+            </a>
+
+
+            <!-- 04 Culture -->
+            <a href="{% url 'culture' %}" class="experience-card culture-card">
+                <video class="card-video" autoplay muted loop playsinline>
+                    <source src="{% static 'SaudiApp/videos/Experiences/culture.mp4' %}" type="video/mp4">
+                </video>
+
+                <div class="card-gradient"></div>
+
+                <div class="card-content">
+                    <span class="card-number">04 / CULTURE</span>
+                    <h3>{% trans "الثقافة والمعرفة" %}</h3>
+                    <p>{% trans "إرث ثقافي يلهم أجيال المستقبل." %}</p>
+                    <span class="card-discover">{% trans "اكتشف الثقافة" %} ←</span>
+                </div>
+            </a>
+
+        </div>
+    </section>
+
+
+    <!-- KINGDOM IN NUMBERS -->
+    <section class="kingdom-stats" id="stats">
+
+        <div class="stats-heading">
+            <p>{% trans "المملكة العربية السعودية" %}</p>
+            <h2>{% trans "المملكة في أرقام" %}</h2>
+            <span>{% trans "أرض عظيمة، وأرقام تحكي قصة وطن" %}</span>
+        </div>
+
+        <div class="stats-grid">
+
+            <div class="stat-item">
+                <h3 class="stat-number" data-target="2.2" data-decimals="1">0</h3>
+                <span class="stat-suffix">{% trans "مليون كم²" %}</span>
+                <p>{% trans "مساحة المملكة" %}</p>
+            </div>
+
+            <div class="stat-item">
+                <h3 class="stat-number" data-target="35.3" data-decimals="1">0</h3>
+                <span class="stat-suffix">{% trans "مليون نسمة" %}</span>
+                <p>{% trans "عدد السكان" %}</p>
+            </div>
+
+            <div class="stat-item">
+                <h3 class="stat-number" data-target="13">0</h3>
+                <span class="stat-suffix">{% trans "منطقة" %}</span>
+                <p>{% trans "منطقة إدارية" %}</p>
+            </div>
+
+            <div class="stat-item">
+                <h3 class="stat-number" data-target="2">0</h3>
+                <span class="stat-suffix">{% trans "بحر" %}</span>
+                <p>{% trans "الأحمر والخليج العربي" %}</p>
+            </div>
+
+        </div>
+    </section>
+
+
+</section>
+
+
+</main>
+
+{% endblock %}

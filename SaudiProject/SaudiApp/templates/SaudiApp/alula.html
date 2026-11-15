@@ -1,0 +1,406 @@
+
+{% extends 'SaudiApp/base.html' %}
+{% load static %}
+
+{% block title %}
+العلا | هنا السعودية
+{% endblock %}
+
+{% block content %}
+
+<main class="alula-page">
+
+    <!-- AlUla Hero -->
+    <section class="alula-hero">
+
+        <video class="alula-hero-video" autoplay muted loop playsinline>
+            <source src="{% static 'SaudiApp/videos/AlUla/AlUlaHeader.mp4' %}" type="video/mp4">
+        </video>
+
+        <div class="alula-hero-overlay"></div>
+
+        <div class="alula-hero-content">
+            <span class="alula-eyebrow">رحلة إلى قلب التاريخ</span>
+
+            <h1>العُلا</h1>
+
+            <p>
+                حيث تروي الجبال حكايات الحضارات،
+                وتلتقي الطبيعة بالتاريخ في وجهة استثنائية.
+            </p>
+
+            <a href="#discover-alula" class="alula-explore-btn">
+                اكتشف العلا
+                <span>←</span>
+            </a>
+        </div>
+
+        <div class="alula-hero-footer">
+            <span>شمال غرب المملكة العربية السعودية</span>
+            <span>01 — 06</span>
+        </div>
+
+    </section>
+
+
+    <!-- Introduction -->
+    <section class="alula-intro" id="discover-alula">
+
+        <div class="alula-intro-label">
+            <span>01</span>
+            <span>اكتشف العلا</span>
+        </div>
+
+        <div class="alula-intro-content">
+            <h2>
+                ليست مجرد وجهة،
+                <span>بل حكاية من آلاف السنين.</span>
+            </h2>
+
+            <p>
+                بين التكوينات الصخرية المذهلة والآثار التاريخية
+                والطبيعة الصحراوية الساحرة، تقدم العلا تجربة
+                تجمع بين أصالة الماضي وروعة الحاضر.
+            </p>
+        </div>
+
+    </section>
+
+
+ 
+ <!-- Attractions -->
+<section class="alula-attractions">
+
+    <div class="alula-section-heading">
+        <span>02 — وجهات استثنائية</span>
+        <h2>معالم تحكي قصص الحضارات</h2>
+        <p>
+            من آثار الممالك القديمة إلى التكوينات الصخرية
+            التي صنعتها الطبيعة عبر ملايين السنين.
+        </p>
+    </div>
+
+    <div class="alula-attractions-grid">
+
+        <!-- Hegra -->
+        <article class="alula-attraction-card">
+            <div class="alula-attraction-image">
+                <img src="{% static 'SaudiApp/images/AlUla/Ula4.jpg' %}" alt="الحِجر">
+                <span>01</span>
+            </div>
+
+            <div class="alula-attraction-content">
+                <span>موقع تراث عالمي</span>
+                <h3>الحِجر</h3>
+                <p>
+                    رحلة بين المقابر النبطية المنحوتة في الصخور،
+                    وشواهد حضارة عريقة.
+                </p>
+                <a href="https://www.experiencealula.com/ar/places-to-go/hegra"
+                   target="_blank" rel="noopener noreferrer"
+                   class="alula-details-link">
+                    اكتشف تفاصيل المعلم <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <!-- Elephant Rock -->
+        <article class="alula-attraction-card">
+            <div class="alula-attraction-image">
+                <img src="{% static 'SaudiApp/images/AlUla/Ula1.jpeg' %}" alt="جبل الفيل">
+                <span>02</span>
+            </div>
+
+            <div class="alula-attraction-content">
+                <span>أيقونة طبيعية</span>
+                <h3>جبل الفيل</h3>
+                <p>
+                    تكوين صخري مذهل نحتته عوامل الطبيعة
+                    ليصبح أحد أشهر معالم العلا.
+                </p>
+                <a href="https://www.experiencealula.com/ar/places-to-go/elephant-rock"
+                   target="_blank" rel="noopener noreferrer"
+                   class="alula-details-link">
+                    اكتشف تفاصيل المعلم <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <!-- Old Town -->
+        <article class="alula-attraction-card">
+            <div class="alula-attraction-image">
+                <img src="{% static 'SaudiApp/images/AlUla/Ula3.jpg' %}" alt="البلدة القديمة">
+                <span>03</span>
+            </div>
+
+            <div class="alula-attraction-content">
+                <span>ذاكرة المكان</span>
+                <h3>البلدة القديمة</h3>
+                <p>
+                    أزقة تاريخية ومبانٍ طينية تحكي تفاصيل
+                    الحياة في العلا عبر القرون.
+                </p>
+                <a href="https://www.experiencealula.com/ar/places-to-go/alula-old-town"
+                   target="_blank" rel="noopener noreferrer"
+                   class="alula-details-link">
+                    اكتشف تفاصيل المعلم <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <!-- Dadan -->
+        <article class="alula-attraction-card">
+            <div class="alula-attraction-image">
+                <img src="{% static 'SaudiApp/images/AlUla/Ulaa4.jpeg' %}" alt="دادان">
+                <span>04</span>
+            </div>
+
+            <div class="alula-attraction-content">
+                <span>مملكة تاريخية</span>
+                <h3>دادان</h3>
+                <p>
+                    آثار مملكة دادان القديمة، إحدى أبرز
+                    الحضارات التي ازدهرت في شمال الجزيرة العربية.
+                </p>
+                <a href="https://www.experiencealula.com/ar/places-to-go/dadan"
+                   target="_blank" rel="noopener noreferrer"
+                   class="alula-details-link">
+                    اكتشف تفاصيل المعلم <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <!-- Jabal Ikmah -->
+        <article class="alula-attraction-card">
+            <div class="alula-attraction-image">
+                <img src="{% static 'SaudiApp/images/AlUla/Ula5.jpeg' %}" alt="جبل عكمة">
+                <span>05</span>
+            </div>
+
+            <div class="alula-attraction-content">
+                <span>مكتبة مفتوحة</span>
+                <h3>جبل عكمة</h3>
+                <p>
+                    نقوش وكتابات تاريخية على واجهات الصخور،
+                    تحفظ تفاصيل من حياة الحضارات القديمة.
+                </p>
+                <a href="https://www.experiencealula.com/ar/places-to-go/jabal-ikmah"
+                   target="_blank" rel="noopener noreferrer"
+                   class="alula-details-link">
+                    اكتشف تفاصيل المعلم <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <!-- Maraya -->
+        <article class="alula-attraction-card">
+            <div class="alula-attraction-image">
+                <img src="{% static 'SaudiApp/images/AlUla/Ula6.jpg' %}" alt="قاعة مرايا">
+                <span>06</span>
+            </div>
+
+            <div class="alula-attraction-content">
+                <span>تحفة معمارية</span>
+                <h3>قاعة مرايا</h3>
+                <p>
+                    مبنى مغطى بالمرايا يعكس جمال التضاريس
+                    الصحراوية المحيطة به.
+                </p>
+                <a href="https://www.experiencealula.com/ar/places-to-go/maraya"
+                   target="_blank" rel="noopener noreferrer"
+                   class="alula-details-link">
+                    اكتشف تفاصيل المعلم <span>←</span>
+                </a>
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- Gallery -->
+<section class="alula-gallery">
+
+    <div class="alula-section-heading">
+        <span>03 — مشاهد من العلا</span>
+        <h2>جمال لا يشبه أي مكان</h2>
+        <p>
+            اكتشف تفاصيل وجهة استثنائية صنعتها الطبيعة
+            وحفظها التاريخ.
+        </p>
+    </div>
+
+    <div class="alula-gallery-grid">
+
+        <div class="alula-gallery-item alula-gallery-large">
+            <img src="{% static 'SaudiApp/images/AlUla/Ula4.jpg' %}" alt="مشاهد من العلا">
+        </div>
+
+        <div class="alula-gallery-item">
+            <img src="{% static 'SaudiApp/images/AlUla/Ula1.jpeg' %}" alt="جبل الفيل">
+        </div>
+
+        <div class="alula-gallery-item">
+            <img src="{% static 'SaudiApp/images/AlUla/Ula3.jpg' %}" alt="البلدة القديمة">
+        </div>
+
+        <div class="alula-gallery-item">
+            <img src="{% static 'SaudiApp/images/AlUla/Ulaa4.jpeg' %}" alt="دادان">
+        </div>
+
+        <div class="alula-gallery-item">
+            <img src="{% static 'SaudiApp/images/AlUla/Ula5.jpeg' %}" alt="جبل عكمة">
+        </div>
+
+        <div class="alula-gallery-item">
+            <img src="{% static 'SaudiApp/images/AlUla/Ula6.jpg' %}" alt="قاعة مرايا">
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- AlUla Experiences Carousel -->
+<section class="alula-experiences">
+
+    <div class="alula-section-heading">
+        <span>04 — تجارب العلا</span>
+        <h2>اكتشف تجارب لا تُنسى</h2>
+        <p>
+            اختر تجربتك القادمة، ودع العلا تصنع لك ذكرى استثنائية.
+        </p>
+    </div>
+
+    <div class="alula-carousel" id="alulaCarousel">
+
+        <article class="alula-slide active">
+            <img src="{% static 'SaudiApp/images/AlUla/Ula4.jpg' %}" alt="استكشاف الحِجر">
+            <div class="alula-slide-overlay"></div>
+            <div class="alula-slide-content">
+                <span>01 — تجربة تاريخية</span>
+                <h3>رحلة عبر الزمن</h3>
+                <p>اكتشف أسرار الحضارات القديمة في قلب العلا.</p>
+                <a href="https://www.experiencealula.com/ar"
+                   target="_blank" rel="noopener noreferrer">
+                    استكشف واحجز <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <article class="alula-slide">
+            <img src="{% static 'SaudiApp/images/AlUla/Ula1.jpeg' %}" alt="مغامرات جبل الفيل">
+            <div class="alula-slide-overlay"></div>
+            <div class="alula-slide-content">
+                <span>02 — مغامرة طبيعية</span>
+                <h3>بين الجبال والصخور</h3>
+                <p>استمتع بمشاهد طبيعية تأسر الأنظار.</p>
+                <a href="https://www.experiencealula.com/ar"
+                   target="_blank" rel="noopener noreferrer">
+                    استكشف واحجز <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <article class="alula-slide">
+            <img src="{% static 'SaudiApp/images/AlUla/Ula3.jpg' %}" alt="جولة في البلدة القديمة">
+            <div class="alula-slide-overlay"></div>
+            <div class="alula-slide-content">
+                <span>03 — تجربة ثقافية</span>
+                <h3>حكايات البلدة القديمة</h3>
+                <p>تجوّل بين الأزقة واكتشف تفاصيل الحياة القديمة.</p>
+                <a href="https://www.experiencealula.com/ar"
+                   target="_blank" rel="noopener noreferrer">
+                    استكشف واحجز <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <article class="alula-slide">
+            <img src="{% static 'SaudiApp/images/AlUla/Ulaa4.jpeg' %}" alt="استكشاف دادان">
+            <div class="alula-slide-overlay"></div>
+            <div class="alula-slide-content">
+                <span>04 — رحلة تاريخية</span>
+                <h3>أسرار دادان</h3>
+                <p>تعرّف على آثار إحدى أقدم ممالك المنطقة.</p>
+                <a href="https://www.experiencealula.com/ar"
+                   target="_blank" rel="noopener noreferrer">
+                    استكشف واحجز <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <article class="alula-slide">
+            <img src="{% static 'SaudiApp/images/AlUla/Ula5.jpeg' %}" alt="نقوش جبل عكمة">
+            <div class="alula-slide-overlay"></div>
+            <div class="alula-slide-content">
+                <span>05 — تجربة تراثية</span>
+                <h3>نقوش جبل عكمة</h3>
+                <p>اكتشف صفحات من التاريخ محفورة على الصخور.</p>
+                <a href="https://www.experiencealula.com/ar"
+                   target="_blank" rel="noopener noreferrer">
+                    استكشف واحجز <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <article class="alula-slide">
+            <img src="{% static 'SaudiApp/images/AlUla/Ula6.jpg' %}" alt="قاعة مرايا">
+            <div class="alula-slide-overlay"></div>
+            <div class="alula-slide-content">
+                <span>06 — تجربة فنية</span>
+                <h3>انعكاسات مرايا</h3>
+                <p>شاهد روعة العمارة المعاصرة وسط طبيعة العلا.</p>
+                <a href="https://www.experiencealula.com/ar"
+                   target="_blank" rel="noopener noreferrer">
+                    استكشف واحجز <span>←</span>
+                </a>
+            </div>
+        </article>
+
+    </div>
+
+    <div class="alula-carousel-controls">
+        <button type="button" id="alulaPrev" aria-label="التجربة السابقة">→</button>
+        <span id="alulaCounter">01 / 06</span>
+        <button type="button" id="alulaNext" aria-label="التجربة التالية">←</button>
+    </div>
+
+    <p class="alula-carousel-hint">اسحب يمينًا أو يسارًا لاكتشاف التجارب</p>
+
+</section>
+
+
+<!-- AlUla Closing Section -->
+<section class="alula-closing">
+
+    <div class="alula-closing-overlay"></div>
+
+    <div class="alula-closing-content">
+        <span>هنا تبدأ الحكاية</span>
+
+        <h2>
+            العلا تجربة
+            <br>
+            تبقى في الذاكرة
+        </h2>
+
+        <p>
+            من أعماق التاريخ إلى جمال الطبيعة،
+            اكتشف المزيد من الوجهات الاستثنائية في المملكة.
+        </p>
+
+        <a href="{% url 'tourism_entertainment' %}"
+           class="alula-closing-btn">
+            اكتشف وجهات المملكة
+            <span>←</span>
+        </a>
+    </div>
+
+</section>
+
+
+
+</main>
+
+{% endblock %}

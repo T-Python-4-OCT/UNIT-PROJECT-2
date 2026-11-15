@@ -1,0 +1,146 @@
+
+# English translations for Huna Al-Saudia.
+msgid ""
+msgstr ""
+"Project-Id-Version: Huna Al-Saudia\n"
+"Language: en\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+
+#: SaudiApp/templates/SaudiApp/home.html
+msgid "هنا السعودية | اكتشف المملكة"
+msgstr "Here Saudi Arabia | Discover the Kingdom"
+
+msgid "أرض التاريخ والمستقبل"
+msgstr "A Land of History and the Future"
+
+msgid "هنا السعودية"
+msgstr "Here Saudi Arabia"
+
+msgid "حكاية وطن، وأرض لا تنتهي دهشتها. اكتشف المملكة من قلب تاريخها إلى آفاق مستقبلها."
+msgstr "A nation's story, a land of endless wonders. Discover the Kingdom, from the heart of its history to the horizons of its future."
+
+msgid "اكتشف المملكة"
+msgstr "Discover the Kingdom"
+
+msgid "العلم السعودي في أحضان طبيعة العُلا"
+msgstr "The Saudi flag surrounded by the natural beauty of AlUla"
+
+msgid "المملكة العربية السعودية"
+msgstr "The Kingdom of Saudi Arabia"
+
+msgid "أكثر من وجهة..."
+msgstr "More Than a Destination..."
+
+msgid "وطن يجمع عراقة الماضي وطموح المستقبل، وتتنوع فيه التجارب بين التاريخ والطبيعة والثقافة والابتكار."
+msgstr "A nation where the heritage of the past meets the ambition of the future, offering experiences across history, nature, culture, and innovation."
+
+msgid "رحلة في أرض الاستثناء"
+msgstr "A Journey Through an Extraordinary Land"
+
+msgid "اكتشف عوالم المملكة"
+msgstr "Explore the Worlds of Saudi Arabia"
+
+msgid "ستة عوالم، لكل منها حكاية وهوية وتجربة مختلفة."
+msgstr "Six worlds, each with its own story, identity, and unique experience."
+
+msgid "تاريخ المملكة"
+msgstr "Saudi History"
+
+msgid "من جذور التأسيس إلى أمجاد الحاضر."
+msgstr "From the roots of its founding to the achievements of today."
+
+msgid "اكتشف الحكاية"
+msgstr "Discover the Story"
+
+msgid "السياحة والطبيعة"
+msgstr "Tourism & Nature"
+
+msgid "اكتشف أرضًا تتجدد فيها الدهشة."
+msgstr "Discover a land where wonders never cease."
+
+msgid "اكتشف الوجهات"
+msgstr "Explore Destinations"
+
+msgid "الرياضة"
+msgstr "Sports"
+
+msgid "طموح عالمي وشغف لا يعرف الحدود."
+msgstr "Global ambition and passion without limits."
+
+msgid "عش المنافسة"
+msgstr "Experience the Competition"
+
+msgid "الترفيه"
+msgstr "Entertainment"
+
+msgid "عالم من التجارب التي لا تُنسى."
+msgstr "A world of unforgettable experiences."
+
+msgid "اكتشف التجربة"
+msgstr "Explore the Experience"
+
+msgid "الثقافة والمعرفة"
+msgstr "Culture & Knowledge"
+
+msgid "إرث ثقافي يلهم أجيال المستقبل."
+msgstr "A cultural legacy inspiring generations to come."
+
+msgid "اكتشف الثقافة"
+msgstr "Explore the Culture"
+
+msgid "التقنية والابتكار"
+msgstr "Technology & Innovation"
+
+msgid "نبتكر اليوم لنصنع الغد."
+msgstr "Innovating today to shape tomorrow."
+
+msgid "استكشف المستقبل"
+msgstr "Explore the Future"
+
+msgid "المملكة في أرقام"
+msgstr "Saudi Arabia in Numbers"
+
+msgid "أرض عظيمة، وأرقام تحكي قصة وطن"
+msgstr "A great land, with numbers that tell the story of a nation."
+
+msgid "مليون كم²"
+msgstr "Million km²"
+
+msgid "مساحة المملكة"
+msgstr "Land Area"
+
+msgid "مليون نسمة"
+msgstr "Million People"
+
+msgid "عدد السكان"
+msgstr "Population"
+
+msgid "منطقة"
+msgstr "Regions"
+
+msgid "منطقة إدارية"
+msgstr "Administrative Regions"
+
+msgid "بحر"
+msgstr "Seas"
+
+msgid "الأحمر والخليج العربي"
+msgstr "The Red Sea and the Arabian Gulf"
+
+msgid "13 منطقة إدارية"
+msgstr "13 Administrative Regions"
+
+msgid "اكتشف مناطق المملكة"
+msgstr "Explore Saudi Arabia's Regions"
+
+msgid "اختر منطقة من الخريطة لتتعرف عليها"
+msgstr "Select a region on the map to learn more about it"
+
+msgid "اختر منطقة"
+msgstr "Select a Region"
+
+msgid "اضغط على إحدى المناطق الإدارية في الخريطة لعرض معلوماتها."
+msgstr "Click on any administrative region on the map to view its information."

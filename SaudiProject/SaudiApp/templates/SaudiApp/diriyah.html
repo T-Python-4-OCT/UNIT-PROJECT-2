@@ -1,0 +1,338 @@
+
+{% extends 'SaudiApp/base.html' %}
+{% load static %}
+
+{% block title %}
+الدرعية | هنا السعودية
+{% endblock %}
+
+{% block content %}
+
+<main class="diriyah-page">
+
+    <!-- HERO SECTION -->
+    <section class="diriyah-hero">
+
+        <video
+            class="diriyah-hero-video"
+            autoplay
+            muted
+            loop
+            playsinline
+        >
+            <source
+                src="{% static 'SaudiApp/videos/Diriyah/DiriyahHeader.mp4' %}"
+                type="video/mp4"
+            >
+        </video>
+
+        <div class="diriyah-hero-overlay"></div>
+
+        <div class="diriyah-hero-content">
+
+            <span class="diriyah-eyebrow">
+                مهد الدولة السعودية
+            </span>
+
+            <h1>
+                الدرعية
+            </h1>
+
+            <p>
+                هنا بدأت الحكاية، وهنا يُروى تاريخ وطن.
+            </p>
+
+            <a href="#diriyah-intro" class="diriyah-explore-btn">
+                اكتشف الدرعية
+                <span>↓</span>
+            </a>
+
+        </div>
+
+        <div class="diriyah-hero-bottom">
+            <span>DIRIYAH · SAUDI ARABIA</span>
+            <span>01 / 06</span>
+        </div>
+
+    </section>
+
+    <!-- INTRO SECTION -->
+    <section class="diriyah-intro" id="diriyah-intro">
+
+        <span class="diriyah-section-label">
+            اكتشف الدرعية
+        </span>
+
+        <h2>
+            من هنا بدأت قصة وطن
+        </h2>
+
+        <p>
+            الدرعية ليست مجرد وجهة تاريخية، بل هي مهد الدولة السعودية
+            الأولى، وموطن إرث عريق يجسد أصالة العمارة النجدية
+            وعمق التاريخ والثقافة السعودية.
+        </p>
+
+    </section>
+
+
+<!-- AT-TURAIF SECTION -->
+<section class="diriyah-turaif" id="turaif">
+
+    <div class="turaif-content">
+        <span class="diriyah-section-label">02 — إرث عالمي</span>
+        <h2>حي الطريف</h2>
+        <h3>حيث تنبض جذور الدولة السعودية</h3>
+
+        <p>
+            في قلب الدرعية القديمة، يقف حي الطريف شاهدًا على تاريخ
+            الدولة السعودية الأولى، بمعماره النجدي الفريد وقصوره
+            التاريخية التي تحكي قصة البدايات.
+        </p>
+
+        <div class="turaif-details">
+            <div>
+                <span>2010</span>
+                <p>عام التسجيل في قائمة التراث العالمي</p>
+            </div>
+            <div>
+                <span>UNESCO</span>
+                <p>موقع تراث عالمي</p>
+            </div>
+        </div>
+
+        <a href="https://www.diriyah.sa/ar" target="_blank" rel="noopener noreferrer">
+            اكتشف الدرعية <span>↗</span>
+        </a>
+    </div>
+
+    <div class="turaif-image">
+        <img src="{% static 'SaudiApp/images/Diriyah/Turaif.jpeg' %}" alt="حي الطريف التاريخي">
+    </div>
+
+</section>
+
+
+<!-- Bujairi Terrace Section -->
+<section class="diriyah-bujairi" id="bujairi">
+
+    <div class="bujairi-heading">
+
+        <span class="diriyah-section-label">
+            03 — أسلوب الحياة
+        </span>
+
+        <h2>تجربة البجيري</h2>
+
+        <p>
+            حيث تلتقي الضيافة السعودية بأجواء الدرعية التاريخية،
+            في وجهة تجمع المذاقات والثقافة والإطلالات الاستثنائية.
+        </p>
+
+    </div>
+
+    <div class="bujairi-grid">
+
+        <article class="bujairi-card">
+            <img src="{% static 'SaudiApp/images/Diriyah/Re1.jpeg' %}"
+                 alt="تجارب الطعام في البجيري">
+    
+            <div class="bujairi-card-overlay"></div>
+    
+            <div class="bujairi-card-content">
+                <span class="bujairi-icon">✦</span>
+                <h3>تجارب الطعام</h3>
+                <p>اكتشف مجموعة من المطاعم والمذاقات المحلية والعالمية.</p>
+            </div>
+        </article>
+    
+        <article class="bujairi-card">
+            <img src="{% static 'SaudiApp/images/Diriyah/D2.jpeg' %}"
+                 alt="الثقافة والتراث في الدرعية">
+    
+            <div class="bujairi-card-overlay"></div>
+    
+            <div class="bujairi-card-content">
+                <span class="bujairi-icon">✦</span>
+                <h3>الثقافة والتراث</h3>
+                <p>عِش تفاصيل الثقافة السعودية وسط أجواء العمارة النجدية.</p>
+            </div>
+        </article>
+    
+        <article class="bujairi-card">
+            <img src="{% static 'SaudiApp/images/Diriyah/D.jpeg' %}"
+                 alt="إطلالات الدرعية">
+    
+            <div class="bujairi-card-overlay"></div>
+    
+            <div class="bujairi-card-content">
+                <span class="bujairi-icon">✦</span>
+                <h3>إطلالات الدرعية</h3>
+                <p>استمتع بمشاهد حي الطريف وأجواء الدرعية الساحرة.</p>
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+<!-- DIRIYAH EXPERIENCES -->
+<section class="diriyah-experiences" id="experiences">
+
+    <div class="experiences-heading">
+        <span class="diriyah-section-label">04 — عِش التجربة</span>
+        <h2>الدرعية... أكثر من مجرد تاريخ</h2>
+        <p>
+            من تفاصيل العمارة النجدية إلى تجارب الضيافة والثقافة،
+            اكتشف جوانب الدرعية المتنوعة.
+        </p>
+    </div>
+
+    <div class="experiences-list">
+
+        <article class="experience-item">
+            <div class="experience-image">
+                <img src="{% static 'SaudiApp/images/Diriyah/Turaif.jpeg' %}"
+                     alt="حي الطريف التاريخي">
+            </div>
+            <span class="experience-index">01</span>
+            <div class="experience-info">
+                <span>HERITAGE</span>
+                <h3>رحلة عبر التاريخ</h3>
+                <p>تعرّف على إرث الدرعية وحكايات المكان الذي شهد بدايات الدولة السعودية.</p>
+            </div>
+        </article>
+
+        <article class="experience-item">
+            <div class="experience-image">
+                <img src="{% static 'SaudiApp/images/Diriyah/NajdiArchitecture.jpeg' %}"
+                     alt="العمارة النجدية">
+            </div>
+            <span class="experience-index">02</span>
+            <div class="experience-info">
+                <span>ARCHITECTURE</span>
+                <h3>العمارة النجدية</h3>
+                <p>تأمل تفاصيل الطراز النجدي الأصيل الذي يمنح الدرعية طابعها المعماري.</p>
+            </div>
+        </article>
+
+        <article class="experience-item">
+            <div class="experience-image">
+                <img src="{% static 'SaudiApp/images/Diriyah/Bujairi.jpeg' %}"
+                     alt="وجهة البجيري">
+            </div>
+            <span class="experience-index">03</span>
+            <div class="experience-info">
+                <span>HOSPITALITY</span>
+                <h3>الضيافة السعودية</h3>
+                <p>استمتع بأجواء الضيافة والمذاقات المتنوعة في وجهة البجيري.</p>
+            </div>
+        </article>
+
+    </div>
+
+</section>
+
+<div class="booking-grid">
+
+    <!-- EVENTS -->
+    <article class="booking-card">
+        <div class="booking-image">
+            <img src="{% static 'SaudiApp/images/Diriyah/DiriyahNight.jpeg' %}"
+                 alt="فعاليات الدرعية">
+        </div>
+
+        <span class="booking-number">01</span>
+
+        <div class="booking-card-content">
+            <span class="booking-label">EVENTS & HAPPENINGS</span>
+            <h3>الفعاليات والعروض</h3>
+            <p>اكتشف الفعاليات الثقافية والعروض والتجارب في الدرعية.</p>
+        </div>
+
+        <a href="https://www.diriyah.sa/ar"
+           target="_blank" rel="noopener noreferrer">
+            استكشف الفعاليات <span>↗</span>
+        </a>
+    </article>
+
+    <!-- VISIT -->
+    <article class="booking-card">
+        <div class="booking-image">
+            <img src="{% static 'SaudiApp/images/Diriyah/Turaif.jpeg' %}"
+                 alt="زيارة حي الطريف">
+        </div>
+
+        <span class="booking-number">02</span>
+
+        <div class="booking-card-content">
+            <span class="booking-label">PLAN YOUR VISIT</span>
+            <h3>تذاكر الزيارة</h3>
+            <p>خطط لرحلتك واكتشف معلومات الزيارة وخيارات الدخول.</p>
+        </div>
+
+        <a href="https://www.diriyah.sa/ar"
+           target="_blank" rel="noopener noreferrer">
+            خطط لزيارتك <span>↗</span>
+        </a>
+    </article>
+
+    <!-- DINING -->
+    <article class="booking-card">
+        <div class="booking-image">
+            <img src="{% static 'SaudiApp/images/Diriyah/Bujairi.jpeg' %}"
+                 alt="تجارب البجيري">
+        </div>
+
+        <span class="booking-number">03</span>
+
+        <div class="booking-card-content">
+            <span class="booking-label">EXPERIENCES & DINING</span>
+            <h3>التجارب والمطاعم</h3>
+            <p>اكتشف تجارب الضيافة والمطاعم في وجهة البجيري.</p>
+        </div>
+
+        <a href="https://www.diriyah.sa/ar"
+           target="_blank" rel="noopener noreferrer">
+            اكتشف التجارب <span>↗</span>
+        </a>
+    </article>
+
+</div>
+
+</section>
+
+<!-- DIRIYAH FINAL SECTION -->
+<section class="diriyah-final">
+
+    <div class="diriyah-final-overlay"></div>
+
+    <div class="diriyah-final-content">
+
+        <span>DIRIYAH — THE CITY OF EARTH</span>
+
+        <h2>
+            من هنا بدأت الحكاية،
+            <br>
+            وهنا يستمر المجد.
+        </h2>
+
+        <p>
+            الدرعية ليست مجرد وجهة، بل قصة وطن
+            وجذور راسخة وإرث يمتد عبر الأجيال.
+        </p>
+
+        <a href="{% url 'home' %}" class="diriyah-final-btn">
+            اكتشف المملكة
+        </a>
+
+    </div>
+
+    <div class="diriyah-final-bottom">
+        <span>الدرعية، مهد الدولة السعودية</span>
+    </div>
+
+</section>
+</main>
+
+{% endblock %}

@@ -1,0 +1,664 @@
+
+{% extends 'SaudiApp/base.html' %}
+{% load static %}
+
+{% block title %}
+الأحساء | هنا السعودية
+{% endblock %}
+
+{% block content %}
+
+<main class="al-ahsa-page">
+
+    <!-- HERO -->
+    <section class="ahsa-hero">
+
+        <video class="ahsa-hero-video" autoplay muted loop playsinline>
+            <source src="{% static 'SaudiApp/videos/Ahsa/AhsaHeader.mp4' %}" type="video/mp4">
+        </video>
+
+        <div class="ahsa-hero-overlay"></div>
+
+        <div class="ahsa-hero-content">
+            <span class="ahsa-eyebrow">AL AHSA · EASTERN SAUDI ARABIA</span>
+
+            <h1>
+                الأحساء
+                <span>واحة الحياة</span>
+            </h1>
+
+            <p>
+                أرض النخيل والمياه، وذاكرة المكان التي
+                تحكي فصولاً من تاريخ المملكة.
+            </p>
+
+            <a href="#ahsa-explore" class="ahsa-main-btn">
+                اكتشف الأحساء
+                <span>↓</span>
+            </a>
+        </div>
+
+        <div class="ahsa-hero-bottom">
+            <span>AN OASIS OF LIFE</span>
+        </div>
+
+    </section>
+
+
+    <!-- LIVE WEATHER -->
+    <section class="ahsa-weather-section">
+
+<!-- AL AHSA LUXURY WEATHER CARD -->
+<section class="ahsa-weather-section" id="ahsa-weather">
+    <div class="ahsa-weather-card">
+
+        <div class="ahsa-weather-top">
+            <div class="ahsa-weather-location">
+                <span class="ahsa-weather-location-icon">⌖</span>
+                <div>
+                    <span class="ahsa-weather-label">CURRENT WEATHER</span>
+                    <h3>الأحساء، المملكة العربية السعودية</h3>
+                </div>
+            </div>
+
+            <span class="ahsa-live-status">
+                <span></span>
+                مباشر
+            </span>
+        </div>
+
+        <div class="ahsa-weather-main">
+            <div class="ahsa-weather-condition">
+                <div id="weather-icon" class="ahsa-weather-icon">☀️</div>
+                <p id="weather-description">جاري تحميل الطقس...</p>
+            </div>
+
+            <div class="ahsa-weather-temperature">
+                <span id="weather-temperature">--°</span>
+                <small>درجة الحرارة الحالية</small>
+            </div>
+        </div>
+
+        <div class="ahsa-weather-divider"></div>
+
+        <div class="ahsa-weather-details">
+
+            <div class="ahsa-weather-detail">
+                <span class="ahsa-detail-icon">🌡️</span>
+                <div>
+                    <small>المحسوسة</small>
+                    <strong id="weather-feels">--°</strong>
+                </div>
+            </div>
+
+            <div class="ahsa-weather-detail">
+                <span class="ahsa-detail-icon">💧</span>
+                <div>
+                    <small>الرطوبة</small>
+                    <strong id="weather-humidity">--%</strong>
+                </div>
+            </div>
+
+            <div class="ahsa-weather-detail">
+                <span class="ahsa-detail-icon">🌬️</span>
+                <div>
+                    <small>سرعة الرياح</small>
+                    <strong id="weather-wind">-- كم/س</strong>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="ahsa-weather-footer">
+            <span>بيانات الطقس في الأحساء</span>
+            <span id="weather-updated">جاري تحديث البيانات...</span>
+        </div>
+
+    </div>
+</section>
+
+
+    <!-- INTRO -->
+    <section class="ahsa-intro" id="ahsa-explore">
+
+        <div class="ahsa-intro-heading">
+            <span>01 — THE STORY OF AL AHSA</span>
+            <h2>
+                أكثر من مجرد واحة،
+                <span>إنها حكاية وطن.</span>
+            </h2>
+        </div>
+
+        <div class="ahsa-intro-grid">
+
+            <div class="ahsa-intro-text">
+                <p>
+                    في قلب المنطقة الشرقية، تتجسد الأحساء كواحة
+                    استثنائية تجمع بين الطبيعة والتاريخ والثقافة.
+                    نخيل يمتد على مد البصر، وعيون مائية،
+                    وأسواق وأحياء تحفظ ذاكرة المكان.
+                </p>
+
+                <p>
+                    هنا تتنوع التجارب بين استكشاف الكهوف،
+                    والتجول في الأسواق التراثية، واكتشاف
+                    الحياة الزراعية والموروث الحساوي.
+                </p>
+            </div>
+
+            <div class="ahsa-intro-image">
+                <img src="{% static 'SaudiApp/images/Ahsa/Oasis.jpeg' %}"
+                     alt="واحة الأحساء">
+                <span>THE HEART OF AL AHSA</span>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- ACHIEVEMENTS DIGITAL BANNER -->
+    <section class="ahsa-achievements">
+
+        <div class="ahsa-achievements-header">
+            <span>02 — A LEGACY TO CELEBRATE</span>
+            <h2>الأحساء... <span>وجهة استثنائية</span></h2>
+            <p>
+                إرث طبيعي وثقافي جعل من الأحساء واحدة من
+                أبرز الوجهات التراثية في المملكة.
+            </p>
+        </div>
+
+        <div class="ahsa-achievements-banner">
+
+            <div class="achievement-main">
+                <span class="achievement-kicker">WORLD HERITAGE</span>
+                <strong>2018</strong>
+                <h3>واحة الأحساء على قائمة التراث العالمي لليونسكو</h3>
+                <p>
+                    اعتراف عالمي بقيمة الواحة الطبيعية والثقافية
+                    وما تحمله من إرث زراعي وإنساني.
+                </p>
+            </div>
+
+            <div class="achievement-stats">
+
+                <div class="achievement-item">
+                    <span>01</span>
+                    <h3>واحة طبيعية</h3>
+                    <p>مناظر النخيل والعيون وقنوات الري.</p>
+                </div>
+
+                <div class="achievement-item">
+                    <span>02</span>
+                    <h3>إرث زراعي</h3>
+                    <p>تاريخ طويل من زراعة النخيل وإنتاج التمور.</p>
+                </div>
+
+                <div class="achievement-item">
+                    <span>03</span>
+                    <h3>تراث حي</h3>
+                    <p>أسواق وحرف وعمارة تعكس هوية المكان.</p>
+                </div>
+
+            </div>
+
+            <div class="achievement-watermark">AL AHSA</div>
+
+        </div>
+
+    </section>
+
+
+    <!-- DESTINATIONS AND EXPERIENCES -->
+    <section class="ahsa-events" id="ahsa-events">
+
+        <div class="ahsa-events-heading">
+            <div>
+                <span>03 — EXPLORE & EXPERIENCE</span>
+                <h2>اكتشف تفاصيل <span>الأحساء</span></h2>
+                <p>
+                    اختر وجهتك، وافتح التجربة لتتعرف على تفاصيلها
+                    وتشاهد صورها من داخل البطاقة.
+                </p>
+            </div>
+
+            <span class="ahsa-events-count">05 EXPERIENCES</span>
+        </div>
+
+
+        <div class="ahsa-event-grid">
+
+            <!-- EVENT 01 -->
+            <article class="ahsa-event-card" data-event="jabal">
+
+                <div class="ahsa-event-cover">
+                    <img src="{% static 'SaudiApp/images/Ahsa/JabalAlQarah.jpg' %}"
+                         alt="جبل القارة">
+                    <span class="ahsa-event-number">01</span>
+                    <span class="ahsa-event-category">NATURE & ADVENTURE</span>
+                </div>
+
+                <div class="ahsa-event-summary">
+                    <h3>جبل القارة</h3>
+                    <p>اكتشف الكهوف والتكوينات الصخرية وتجربة الطبيعة الفريدة.</p>
+
+                    <button type="button" class="ahsa-discover-btn"
+                            aria-expanded="false">
+                        اكتشف التجربة
+                        <span>＋</span>
+                    </button>
+                </div>
+
+                <div class="ahsa-event-details" hidden>
+
+                    <p class="ahsa-event-description">
+                        رحلة بين الممرات والتكوينات الصخرية،
+                        حيث تمنحك كهوف جبل القارة تجربة مختلفة
+                        لاستكشاف الطبيعة الجيولوجية للأحساء.
+                    </p>
+
+                    <h4>معرض صور التجربة</h4>
+
+                    <div class="ahsa-event-gallery">
+                        <img src="{% static 'SaudiApp/images/Ahsa/JabalAlQarah-1.jpg' %}" alt="جبل القارة - 1">
+                        <img src="{% static 'SaudiApp/images/Ahsa/JabalAlQarah-2.png' %}" alt="جبل القارة - 2">
+                        <img src="{% static 'SaudiApp/images/Ahsa/JabalAlQarah-3.jpg' %}" alt="جبل القارة - 3">
+                    </div>
+
+                    <a href="https://visit-alahsa.com/%D9%85%D8%B9%D8%A7%D9%84%D9%85/%D8%AC%D8%A8%D9%84-%D8%A7%D9%84%D9%82%D8%A7%D8%B1%D8%A9/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="ahsa-event-link">
+                     الموقع الرسمي <span>↗</span>
+                 </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- EVENT 02 -->
+            <article class="ahsa-event-card" data-event="qaisariya">
+
+                <div class="ahsa-event-cover">
+                    <img src="{% static 'SaudiApp/images/Ahsa/Qaisariya.jpg' %}"
+                         alt="سوق القيصرية">
+                    <span class="ahsa-event-number">02</span>
+                    <span class="ahsa-event-category">CULTURE & SHOPPING</span>
+                </div>
+
+                <div class="ahsa-event-summary">
+                    <h3>سوق القيصرية</h3>
+                    <p>تجول بين المحلات التراثية واكتشف تفاصيل التجارة الحساوية.</p>
+
+                    <button type="button" class="ahsa-discover-btn"
+                            aria-expanded="false">
+                        اكتشف التجربة
+                        <span>＋</span>
+                    </button>
+                </div>
+
+                <div class="ahsa-event-details" hidden>
+
+                    <p class="ahsa-event-description">
+                        سوق تاريخي يعكس روح التجارة التقليدية،
+                        ويجمع بين المنتجات المحلية والحرف
+                        والروائح والنكهات الأصيلة.
+                    </p>
+
+                    <h4>معرض صور التجربة</h4>
+
+                    <div class="ahsa-event-gallery">
+                        <img src="{% static 'SaudiApp/images/Ahsa/Qaisariya-1.webp' %}" alt="سوق القيصرية - 1">
+                        <img src="{% static 'SaudiApp/images/Ahsa/Qaisariya-2.jpg' %}" alt="سوق القيصرية - 2">
+                        <img src="{% static 'SaudiApp/images/Ahsa/Qaisariya-3.jpg' %}" alt="سوق القيصرية - 3">
+                    </div>
+
+                    <a href="https://visit-alahsa.com/%D9%85%D8%B9%D8%A7%D9%84%D9%85/%D8%B3%D9%88%D9%82-%D8%A7%D9%84%D9%82%D9%8A%D8%B5%D8%B1%D9%8A%D8%A9/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="ahsa-event-link">
+                     الموقع الرسمي <span>↗</span>
+                 </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- EVENT 03 -->
+            <article class="ahsa-event-card" data-event="ibrahim">
+
+                <div class="ahsa-event-cover">
+                    <img src="{% static 'SaudiApp/images/Ahsa/IbrahimPalace.jpeg' %}"
+                         alt="قصر إبراهيم">
+                    <span class="ahsa-event-number">03</span>
+                    <span class="ahsa-event-category">HISTORY & ARCHITECTURE</span>
+                </div>
+
+                <div class="ahsa-event-summary">
+                    <h3>قصر إبراهيم</h3>
+                    <p>شاهد روعة العمارة التاريخية وتفاصيل المكان.</p>
+
+                    <button type="button" class="ahsa-discover-btn"
+                            aria-expanded="false">
+                        اكتشف التجربة
+                        <span>＋</span>
+                    </button>
+                </div>
+
+                <div class="ahsa-event-details" hidden>
+
+                    <p class="ahsa-event-description">
+                        معلم تاريخي بارز في الهفوف، يتميز
+                        بتنوع عناصره المعمارية التي تجمع
+                        بين الطابع المحلي والتأثيرات التاريخية.
+                    </p>
+
+                    <h4>معرض صور التجربة</h4>
+
+                    <div class="ahsa-event-gallery">
+                        <img src="{% static 'SaudiApp/images/Ahsa/IbrahimPalace-1.jpeg' %}" alt="قصر إبراهيم - 1">
+                        <img src="{% static 'SaudiApp/images/Ahsa/IbrahimPalace-2.jpg' %}" alt="قصر إبراهيم - 2">
+                        <img src="{% static 'SaudiApp/images/Ahsa/IbrahimPalace-3.jpeg' %}" alt="قصر إبراهيم - 3">
+                    </div>
+
+                    <a href="https://visit-alahsa.com/%D9%85%D8%B9%D8%A7%D9%84%D9%85/%D9%82%D8%B5%D8%B1-%D8%A5%D8%A8%D8%B1%D8%A7%D9%87%D9%8A%D9%85/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="ahsa-event-link">
+                     الموقع الرسمي <span>↗</span>
+                 </a>
+
+                </div>
+
+            </article>
+
+
+            <!-- EVENT 04 -->
+            <article class="ahsa-event-card" data-event="jawatha">
+
+                <div class="ahsa-event-cover">
+                    <img src="{% static 'SaudiApp/images/Ahsa/JawathaMosque.jpg' %}"
+                         alt="مسجد جواثا">
+                    <span class="ahsa-event-number">04</span>
+                    <span class="ahsa-event-category">HERITAGE</span>
+                </div>
+
+                <div class="ahsa-event-summary">
+                    <h3>مسجد جواثا</h3>
+                    <p>تعرّف على أحد المعالم الإسلامية التاريخية في الأحساء.</p>
+
+                    <button type="button" class="ahsa-discover-btn"
+                            aria-expanded="false">
+                        اكتشف التجربة
+                        <span>＋</span>
+                    </button>
+                </div>
+
+                <div class="ahsa-event-details" hidden>
+
+                    <p class="ahsa-event-description">
+                        وجهة تحمل قيمة تاريخية وثقافية،
+                        وتمنح الزائر فرصة للتعرف على جانب
+                        مهم من تاريخ المنطقة.
+                    </p>
+
+                    <h4>معرض صور التجربة</h4>
+
+                    <div class="ahsa-event-gallery">
+                        <img src="{% static 'SaudiApp/images/Ahsa/JawathaMosque-1.jpeg' %}" alt="مسجد جواثا - 1">
+                        <img src="{% static 'SaudiApp/images/Ahsa/JawathaMosque-2.jpg' %}" alt="مسجد جواثا - 2">
+                        <img src="{% static 'SaudiApp/images/Ahsa/JawathaMosque-3.jpg' %}" alt="مسجد جواثا - 3">
+                    </div>
+
+                    <a href="https://visit-alahsa.com/%D9%85%D8%B9%D8%A7%D9%84%D9%85/%D9%85%D8%B3%D8%AC%D8%AF-%D8%AC%D9%88%D8%A7%D8%AB%D8%A7/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="ahsa-event-link">
+                     الموقع الرسمي <span>↗</span>
+                 </a>
+
+                 <div class="jawatha-highlights">
+                    <span>أول مسجد في الإسلام</span>
+                    <span>أول موضع أُقيمت فيه صلاة الجمعة بعد المسجد النبوي</span>
+                </div>
+
+                </div>
+
+            </article>
+
+
+<!-- Handcraft Castle -->
+<article class="ahsa-event-card">
+    <div class="ahsa-event-image">
+        <img src="{% static 'SaudiApp/images/Ahsa/Handcraft1.png' %}"
+             alt="قلعة الحرفيين في الأحساء">
+    </div>
+
+    <div class="ahsa-event-content">
+        <span class="ahsa-event-category">حرف وتراث</span>
+        <h3>قلعة الحرفيين</h3>
+        <p>
+            اكتشف الحرف اليدوية والتراث المحلي في الأحساء،
+            وتعرّف على مهارات الحرفيين التي تعكس أصالة المنطقة وهويتها.
+        </p>
+
+        <button class="ahsa-discover-btn"
+                type="button"
+                aria-expanded="false">
+            اكتشف المكان <span>+</span>
+        </button>
+
+        <div class="ahsa-event-details" hidden>
+            <p>
+                وجهة تحتفي بالحرف التقليدية والصناعات اليدوية،
+                وتسلّط الضوء على المهارات التي توارثتها الأجيال
+                في الأحساء.
+            </p>
+
+            <h4>معرض صور التجربة</h4>
+            <div class="ahsa-event-gallery">
+                <img src="{% static 'SaudiApp/images/Ahsa/Handcraft1.png' %}"
+                     alt="قلعة الحرفيين - صورة 1">
+                <img src="{% static 'SaudiApp/images/Ahsa/Handcraft2.jpg' %}"
+                     alt="قلعة الحرفيين - صورة 2">
+                <img src="{% static 'SaudiApp/images/Ahsa/Handcraft3.jpg' %}"
+                     alt="قلعة الحرفيين - صورة 3">
+            </div>
+
+            <a href="https://www.visitsaudi.com/ar/al-ahsa/attractions/handcraft-castle-in-al-ahsa"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="ahsa-event-link">
+                الموقع الرسمي <span>↗</span>
+            </a>
+        </div>
+    </div>
+</article>
+
+        </div>
+
+    </section>
+
+
+<!-- AL AHSA IDENTITY -->
+<section class="ahsa-identity">
+
+    <div class="ahsa-identity-image">
+        <video autoplay muted loop playsinline>
+            <source src="{% static 'SaudiApp/videos/Ahsa/Ahsa.mp4' %}" type="video/mp4">
+            متصفحك لا يدعم تشغيل الفيديو.
+        </video>
+    </div>
+
+        <div class="ahsa-identity-content">
+            <span>04 — THE LOCAL IDENTITY</span>
+
+            <h2>
+                من أرض النخيل
+                <span>إلى موائد العالم</span>
+            </h2>
+
+            <p>
+                تشتهر الأحساء بتمورها، وعلى رأسها تمر الخلاص،
+                إلى جانب الحرف اليدوية والمنتجات الزراعية
+                والموروث الثقافي الذي يميز أهلها.
+            </p>
+
+            <div class="ahsa-identity-tags">
+                <span>التمور الحساوية</span>
+                <span>الحرف اليدوية</span>
+                <span>العمارة التراثية</span>
+                <span>الضيافة المحلية</span>
+            </div>
+        </div>
+
+    </section>
+
+
+    <!-- FINAL -->
+    <section class="ahsa-final">
+
+        <div class="ahsa-final-overlay"></div>
+
+        <div class="ahsa-final-content">
+            <span>AL AHSA — THE OASIS OF LIFE</span>
+
+            <h2>
+                هنا تنمو الحكايات،
+                <br>
+                وتبقى الجذور.
+            </h2>
+
+            <p>
+                الأحساء ليست مجرد وجهة،
+                إنها تجربة من الجمال والتراث والحياة.
+            </p>
+
+            <a href="{% url 'home' %}" class="ahsa-final-btn">
+                اكتشف المملكة
+                <span>←</span>
+            </a>
+        </div>
+
+    </section>
+
+</main>
+
+
+<!-- AL AHSA INTERACTIONS -->
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    /* Expand event cards */
+    const cards = document.querySelectorAll(".ahsa-event-card");
+
+    cards.forEach(function (card) {
+
+        const button = card.querySelector(".ahsa-discover-btn");
+        const details = card.querySelector(".ahsa-event-details");
+
+        button.addEventListener("click", function () {
+
+            const shouldOpen = details.hidden;
+
+            cards.forEach(function (otherCard) {
+                otherCard.classList.remove("is-expanded");
+
+                const otherDetails = otherCard.querySelector(".ahsa-event-details");
+                const otherButton = otherCard.querySelector(".ahsa-discover-btn");
+
+                otherDetails.hidden = true;
+                otherButton.setAttribute("aria-expanded", "false");
+                otherButton.querySelector("span").textContent = "＋";
+            });
+
+            if (shouldOpen) {
+                details.hidden = false;
+                card.classList.add("is-expanded");
+                button.setAttribute("aria-expanded", "true");
+                button.querySelector("span").textContent = "−";
+            }
+
+        });
+
+    });
+
+
+    /* Live Weather - Open-Meteo */
+    async function loadAhsaWeather() {
+
+        const description = document.getElementById("weather-description");
+        const temperature = document.getElementById("weather-temperature");
+        const feels = document.getElementById("weather-feels");
+        const humidity = document.getElementById("weather-humidity");
+        const wind = document.getElementById("weather-wind");
+        const icon = document.getElementById("weather-icon");
+        const updated = document.getElementById("weather-updated");
+
+        const weatherDescriptions = {
+            0: ["سماء صافية", "☀"],
+            1: ["صحو غالباً", "🌤"],
+            2: ["غائم جزئياً", "⛅"],
+            3: ["غائم", "☁"],
+            45: ["ضباب", "🌫"],
+            48: ["ضباب كثيف", "🌫"],
+            51: ["رذاذ خفيف", "🌦"],
+            53: ["رذاذ متوسط", "🌦"],
+            55: ["رذاذ كثيف", "🌧"],
+            61: ["أمطار خفيفة", "🌦"],
+            63: ["أمطار متوسطة", "🌧"],
+            65: ["أمطار غزيرة", "🌧"],
+            80: ["زخات مطر", "🌦"],
+            81: ["زخات مطر متوسطة", "🌧"],
+            82: ["زخات مطر غزيرة", "🌧"],
+            95: ["عواصف رعدية", "⛈"]
+        };
+
+        try {
+
+            const response = await fetch(
+                "https://api.open-meteo.com/v1/forecast?latitude=25.38&longitude=49.59&current=temperature_2m,relative_humidity_2m,apparent_temperature,weather_code,wind_speed_10m&timezone=Asia%2FRiyadh"
+            );
+
+            if (!response.ok) {
+                throw new Error("Weather request failed");
+            }
+
+            const data = await response.json();
+            const current = data.current;
+
+            const weather = weatherDescriptions[current.weather_code] || ["حالة جوية متغيرة", "🌤"];
+
+            temperature.textContent = Math.round(current.temperature_2m) + "°";
+            feels.textContent = Math.round(current.apparent_temperature) + "°";
+            humidity.textContent = current.relative_humidity_2m + "%";
+            wind.textContent = Math.round(current.wind_speed_10m) + " كم/س";
+            description.textContent = weather[0];
+            icon.textContent = weather[1];
+
+            const time = new Date(current.time);
+
+            updated.textContent = "آخر تحديث: " + time.toLocaleTimeString("ar-SA", {
+                hour: "2-digit",
+                minute: "2-digit"
+            });
+
+        } catch (error) {
+
+            description.textContent = "تعذر تحميل الطقس";
+            updated.textContent = "تحقق من اتصال الإنترنت";
+
+        }
+
+    }
+
+    loadAhsaWeather();
+    setInterval(loadAhsaWeather, 15 * 60 * 1000);
+
+});
+</script>
+
+{% endblock %}

@@ -1,0 +1,880 @@
+
+{% extends 'SaudiApp/base.html' %}
+{% load static %}
+
+{% block title %}
+{{ section }} | هنا السعودية
+{% endblock %}
+
+{% block content %}
+
+<main class="inner-page {{ section_class }}">
+
+    {% if section_class == 'kingdom-page' %}
+
+    <!-- HISTORY VIDEO HERO -->
+    <section class="history-hero">
+
+        <video class="history-hero-video"
+               autoplay
+               muted
+               loop
+               playsinline>
+            <source src="{% static 'SaudiApp/videos/Experiences/history.mp4' %}" type="video/mp4">
+        </video>
+
+        <div class="history-hero-overlay"></div>
+
+        <div class="history-hero-content">
+            <span>جذور راسخة ومجد متجدد</span>
+        
+            <h1>تاريخ المملكة العربية السعودية</h1>
+        
+            <p>
+                رحلة وطن بدأت قبل ثلاثة قرون، وما زالت تصنع المجد حتى اليوم
+            </p>
+        
+            <a href="#history-start" class="discover-link history-discover-btn">
+                اكتشف الحكاية
+                <span class="discover-arrow"></span>
+            </a>
+        </div>
+
+    </section>
+
+    <!-- HISTORY STORY -->
+    <div class="history-story" id="history-start">
+
+        <!-- SCENE 01 -->
+        <section class="history-scene scene-one" data-year="1727">
+
+            <div class="scene-background"></div>
+
+            <div class="scene-content rulers-section">
+
+                <span class="scene-label">
+                    الدولة السعودية الأولى · 1727 – 1818
+                </span>
+
+                <h2>أئمة الدولة السعودية الأولى</h2>
+
+                <p class="rulers-intro">
+                    تأسست الدولة السعودية الأولى في الدرعية عام 1727،
+                    وشهدت مرحلة من التوسع والاستقرار بقيادة أربعة أئمة.
+                </p>
+
+                <div class="rulers-layout">
+
+                    <div class="rulers-gallery">
+
+                        <div class="ruler-main-image">
+                            <img id="ruler-main-image"
+                                 src="{% static 'SaudiApp/images/History/ImamMohammed.webp' %}"
+                                 alt="الإمام محمد بن سعود">
+                        </div>
+
+                        <div class="rulers-thumbnails">
+
+                            <button class="ruler-thumb active"
+                                    data-ruler="mohammed"
+                                    type="button">
+                                <img src="{% static 'SaudiApp/images/History/ImamMohammed.webp' %}" alt="محمد بن سعود">
+                                <span>محمد بن سعود</span>
+                            </button>
+
+                            <button class="ruler-thumb"
+                                    data-ruler="abdulaziz"
+                                    type="button">
+                                <img src="{% static 'SaudiApp/images/History/ImamAbdulaziz.webp' %}" alt="عبدالعزيز بن محمد">
+                                <span>عبدالعزيز بن محمد</span>
+                            </button>
+
+                            <button class="ruler-thumb"
+                                    data-ruler="saud"
+                                    type="button">
+                                <img src="{% static 'SaudiApp/images/History/ImamSaud.webp' %}" alt="سعود بن عبدالعزيز">
+                                <span>سعود بن عبدالعزيز</span>
+                            </button>
+
+                            <button class="ruler-thumb"
+                                    data-ruler="abdullah"
+                                    type="button">
+                                <img src="{% static 'SaudiApp/images/History/ImamAbdullah.webp' %}" alt="عبدالله بن سعود">
+                                <span>عبدالله بن سعود</span>
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div class="ruler-information">
+
+                        <span class="ruler-period" id="ruler-period">
+                            1727 – 1765
+                        </span>
+
+                        <h3 id="ruler-name">
+                            الإمام محمد بن سعود
+                        </h3>
+
+                        <p id="ruler-description">
+                            مؤسس الدولة السعودية الأولى وإمام الدرعية.
+                            تولى الحكم عام 1727، ووضع الأساس لقيام دولة
+                            قامت على الاستقرار والوحدة، وجعل الدرعية مركزًا للحكم.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <span class="scene-index">01 / 04</span>
+
+            </div>
+        </section>
+
+
+        <!-- SCENE 02 -->
+        <section class="history-scene scene-two" data-year="1824">
+
+            <div class="scene-background"></div>
+
+            <div class="scene-content rulers-section">
+
+                <span class="scene-label">
+                    الدولة السعودية الثانية · 1824 – 1891
+                </span>
+
+                <h2>أئمة الدولة السعودية الثانية</h2>
+
+                <p class="rulers-intro">
+                    مرحلة جديدة من تاريخ الدولة السعودية، بدأت باستعادة الرياض
+                    واستمرت بقيادة أربعة أئمة.
+                </p>
+
+                <div class="rulers-layout">
+
+                    <div class="rulers-gallery">
+
+                        <div class="ruler-main-image">
+                            <img id="ruler-main-image-2"
+                                 src="{% static 'SaudiApp/images/History/ImamTurki.webp' %}"
+                                 alt="الإمام تركي بن عبدالله">
+                        </div>
+
+                        <div class="rulers-thumbnails">
+
+                            <button class="ruler-thumb active"
+                                    data-ruler="turki"
+                                    type="button">
+                                <img src="{% static 'SaudiApp/images/History/ImamTurki.webp' %}" alt="تركي بن عبدالله">
+                                <span>تركي بن عبدالله</span>
+                            </button>
+
+                            <button class="ruler-thumb"
+                                    data-ruler="faisal"
+                                    type="button">
+                                <img src="{% static 'SaudiApp/images/History/ImamFaisal.webp' %}" alt="فيصل بن تركي">
+                                <span>فيصل بن تركي</span>
+                            </button>
+
+                            <button class="ruler-thumb"
+                                    data-ruler="abdullah2"
+                                    type="button">
+                                <img src="{% static 'SaudiApp/images/History/ImamAbdullah2.webp' %}" alt="عبدالله بن فيصل">
+                                <span>عبدالله بن فيصل</span>
+                            </button>
+
+                            <button class="ruler-thumb"
+                                    data-ruler="abdulrahman"
+                                    type="button">
+                                <img src="{% static 'SaudiApp/images/History/ImamAbdulrahman.webp' %}" alt="عبدالرحمن بن فيصل">
+                                <span>عبدالرحمن بن فيصل</span>
+                            </button>
+
+                        </div>
+                    </div>
+
+                    <div class="ruler-information">
+
+                        <span class="ruler-period" id="ruler-period-2">
+                            1824 – 1834
+                        </span>
+
+                        <h3 id="ruler-name-2">
+                            الإمام تركي بن عبدالله
+                        </h3>
+
+                        <p id="ruler-description-2">
+                            مؤسس الدولة السعودية الثانية. استعاد مدينة الرياض
+                            عام 1824، واتخذها عاصمة للدولة، وأعاد بناء الحكم
+                            السعودي بعد نهاية الدولة السعودية الأولى.
+                        </p>
+
+                    </div>
+
+                </div>
+
+                <span class="scene-index">02 / 04</span>
+
+            </div>
+        </section>
+
+
+
+<!-- SCENE 03 -->
+<section class="history-scene scene-three" data-year="1902">
+
+    <div class="scene-background"></div>
+
+    <div class="scene-content">
+
+        <span class="scene-label">
+            استعادة الرياض · 1902
+        </span>
+
+        <h2>بداية مرحلة جديدة</h2>
+
+        <div class="year-counter" data-target="1902">
+            1902
+        </div>
+
+        <p>
+            في الخامس من شوال عام 1319هـ، استعاد الملك عبدالعزيز
+            بن عبدالرحمن آل سعود مدينة الرياض، لتبدأ مرحلة جديدة
+            في مسيرة توحيد البلاد وتأسيس الدولة السعودية الحديثة.
+        </p>
+
+        <!-- HISTORICAL FACTS -->
+        <div class="riyadh-facts">
+
+            <div class="riyadh-fact">
+                <span class="fact-number">30</span>
+                <span class="fact-title">عاماً</span>
+                <p>من استرداد الرياض حتى إعلان توحيد المملكة</p>
+            </div>
+
+            <div class="riyadh-fact">
+                <span class="fact-number">1,400</span>
+                <span class="fact-title">مقاتل</span>
+                <p>وفق الرقم الوارد في المصدر التاريخي</p>
+            </div>
+
+            <div class="riyadh-fact">
+                <span class="fact-number">50</span>
+                <span class="fact-title">يوماً</span>
+                <p>فترة الإقامة في الجافورة</p>
+            </div>
+
+            <div class="riyadh-fact">
+                <span class="fact-number">15</span>
+                <span class="fact-title">يوماً</span>
+                <p>مدة الرحلة باتجاه الرياض</p>
+            </div>
+
+        </div>
+
+
+<!-- RIYADH JOURNEY TIMELINE -->
+<div class="riyadh-journey">
+
+    <div class="journey-heading">
+        <span>طريق استرداد الرياض</span>
+        <h3>رحلة نحو المجد</h3>
+        <p>محطات خالدة في رحلة الملك عبدالعزيز نحو استعادة الرياض</p>
+    </div>
+
+    <div class="journey-timeline">
+
+        <div class="journey-stop">
+            <span class="stop-dot"></span>
+            <span class="stop-number">01</span>
+            <h4>الكويت</h4>
+            <p>نقطة انطلاق رحلة استرداد الرياض</p>
+        </div>
+
+        <div class="journey-stop">
+            <span class="stop-dot"></span>
+            <span class="stop-number">02</span>
+            <h4>النقيرة</h4>
+            <p>أولى المحطات في طريق الرحلة</p>
+        </div>
+
+        <div class="journey-stop">
+            <span class="stop-dot"></span>
+            <span class="stop-number">03</span>
+            <h4>نطاع</h4>
+            <p>إحدى محطات التوقف والاستراحة</p>
+        </div>
+
+        <div class="journey-stop">
+            <span class="stop-dot"></span>
+            <span class="stop-number">04</span>
+            <h4>العيينة</h4>
+            <p>انضمام نحو 1,400 مقاتل إلى الرحلة</p>
+        </div>
+
+        <div class="journey-stop">
+            <span class="stop-dot"></span>
+            <span class="stop-number">05</span>
+            <h4>الجافورة</h4>
+            <p>إقامة استمرت قرابة 50 يوماً</p>
+        </div>
+
+        <div class="journey-stop">
+            <span class="stop-dot"></span>
+            <span class="stop-number">06</span>
+            <h4>آبار الزرقونة</h4>
+            <p>التزود بالمياه قبل المرحلة الأخيرة</p>
+        </div>
+
+        <div class="journey-stop">
+            <span class="stop-dot"></span>
+            <span class="stop-number">07</span>
+            <h4>قصر المصمك</h4>
+            <p>الوصول إلى الرياض واستعادتها عام 1902م</p>
+        </div>
+
+    </div>
+</div>
+
+
+        <span class="scene-index">03 / 04</span>
+
+    </div>
+</section>
+
+
+
+
+
+<!-- SCENE 04 - THE UNIFICATION -->
+<section class="history-scene scene-four" data-year="1932">
+
+    <video class="unification-video" autoplay muted loop playsinline preload="auto">
+        <source src="{% static 'SaudiApp/videos/HeaderKSA.mp4' %}" type="video/mp4">
+    </video>
+
+    <div class="unification-overlay"></div>
+
+    <div class="scene-content">
+
+        <span class="scene-label">
+            23 سبتمبر · 1932
+        </span>
+
+        <div class="unification-emblem">
+            المملكة العربية السعودية
+        </div>
+
+        <h2>ميلاد وطن</h2>
+
+        <div class="year-counter" data-target="1932">
+            1932
+        </div>
+
+        <p>
+            في الثالث والعشرين من سبتمبر عام 1932م،
+            أعلن الملك عبدالعزيز بن عبدالرحمن آل سعود
+            توحيد البلاد تحت راية واحدة واسم واحد:
+            المملكة العربية السعودية.
+        </p>
+
+        <div class="unification-message">
+            <span></span>
+            <h3>من وحدة الأرض… إلى طموح لا يعرف الحدود</h3>
+            <span></span>
+        </div>
+
+        <span class="scene-index">04 / 04</span>
+
+    </div>
+
+</section>
+
+
+<!-- SAUDI KINGS TIMELINE -->
+<section class="kings-timeline" id="kings-timeline">
+
+    <div class="kings-heading">
+        <span>1932 — حتى اليوم</span>
+
+        <h2>سبعة ملوك… ومسيرة وطن</h2>
+
+        <p>
+            امتداد لمسيرة البناء والنهضة، من عهد التأسيس
+            إلى المملكة المتجددة.
+        </p>
+    </div>
+
+    <div class="kings-track">
+
+        <!-- KING ABDULAZIZ -->
+        <article class="king-card">
+
+            <div class="king-image">
+                <img
+                    src="{% static 'SaudiApp/images/Kings/KingAbdulaziz.jpg' %}"
+                    alt="الملك عبدالعزيز بن عبدالرحمن آل سعود">
+            </div>
+
+            <div class="king-info">
+                <span class="king-number">01</span>
+                <span class="king-years">1932 – 1953</span>
+                <h3>الملك عبدالعزيز</h3>
+                <p>مؤسس المملكة العربية السعودية وموحّد البلاد.</p>
+            </div>
+
+        </article>
+
+
+        <!-- KING SAUD -->
+        <article class="king-card">
+
+            <div class="king-image">
+                <img
+                    src="{% static 'SaudiApp/images/Kings/KingSaud.jpg' %}"
+                    alt="الملك سعود بن عبدالعزيز آل سعود">
+            </div>
+
+            <div class="king-info">
+                <span class="king-number">02</span>
+                <span class="king-years">1953 – 1964</span>
+                <h3>الملك سعود</h3>
+                <p>ثاني ملوك المملكة العربية السعودية.</p>
+            </div>
+
+        </article>
+
+
+        <!-- KING FAISAL -->
+        <article class="king-card">
+
+            <div class="king-image">
+                <img
+                    src="{% static 'SaudiApp/images/Kings/KingFaisal.jpg' %}"
+                    alt="الملك فيصل بن عبدالعزيز آل سعود">
+            </div>
+
+            <div class="king-info">
+                <span class="king-number">03</span>
+                <span class="king-years">1964 – 1975</span>
+                <h3>الملك فيصل</h3>
+                <p>ثالث ملوك المملكة العربية السعودية.</p>
+            </div>
+
+        </article>
+
+
+        <!-- KING KHALID -->
+        <article class="king-card">
+
+            <div class="king-image">
+                <img
+                    src="{% static 'SaudiApp/images/Kings/KingKhalid.webp' %}"
+                    alt="الملك خالد بن عبدالعزيز آل سعود">
+            </div>
+
+            <div class="king-info">
+                <span class="king-number">04</span>
+                <span class="king-years">1975 – 1982</span>
+                <h3>الملك خالد</h3>
+                <p>رابع ملوك المملكة العربية السعودية.</p>
+            </div>
+
+        </article>
+
+
+        <!-- KING FAHD -->
+        <article class="king-card">
+
+            <div class="king-image">
+                <img
+                    src="{% static 'SaudiApp/images/Kings/KingFahad.jpg' %}"
+                    alt="الملك فهد بن عبدالعزيز آل سعود">
+            </div>
+
+            <div class="king-info">
+                <span class="king-number">05</span>
+                <span class="king-years">1982 – 2005</span>
+                <h3>الملك فهد</h3>
+                <p>خامس ملوك المملكة العربية السعودية.</p>
+            </div>
+
+        </article>
+
+
+        <!-- KING ABDULLAH -->
+        <article class="king-card">
+
+            <div class="king-image">
+                <img
+                    src="{% static 'SaudiApp/images/Kings/KingAbdullah.jpg' %}"
+                    alt="الملك عبدالله بن عبدالعزيز آل سعود">
+            </div>
+
+            <div class="king-info">
+                <span class="king-number">06</span>
+                <span class="king-years">2005 – 2015</span>
+                <h3>الملك عبدالله</h3>
+                <p>سادس ملوك المملكة العربية السعودية.</p>
+            </div>
+
+        </article>
+
+
+        <!-- KING SALMAN -->
+        <article class="king-card">
+
+            <div class="king-image">
+                <img
+                    src="{% static 'SaudiApp/images/Kings/KingSalman.png' %}"
+                    alt="الملك سلمان بن عبدالعزيز آل سعود">
+            </div>
+
+            <div class="king-info">
+                <span class="king-number">07</span>
+                <span class="king-years">2015 – حتى الآن</span>
+                <h3>الملك سلمان</h3>
+                <p>سابع ملوك المملكة العربية السعودية.</p>
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+<!-- SAUDI NATIONAL OCCASIONS -->
+<section class="national-occasions" id="national-occasions">
+
+    <div class="occasions-heading">
+        <span>مناسبات وطنية</span>
+        <h2>أيام نحتفي فيها بوطننا</h2>
+        <p>ثلاث مناسبات تجسد تاريخ المملكة وهويتها واعتزازها برايتها.</p>
+    </div>
+
+    <div class="occasions-container">
+
+        <!-- OCCASIONS -->
+
+
+        <div class="occasions-list">
+
+            <!-- FOUNDATION DAY -->
+            <article class="occasion-card">
+        
+                <div class="occasion-image">
+                    <img src="{% static 'SaudiApp/images/History/FoundationDay.png' %}"
+                         alt="يوم التأسيس">
+        
+                    <div class="occasion-content">
+                        <span>22 فبراير</span>
+                        <h3>يوم التأسيس</h3>
+                        <p>
+                            نستذكر تأسيس الدولة السعودية الأولى عام 1727م
+                            على يد الإمام محمد بن سعود، ونحتفي بجذور
+                            الدولة السعودية وعمقها التاريخي.
+                        </p>
+                    </div>
+                </div>
+        
+            </article>
+        
+        
+            <!-- FLAG DAY -->
+            <article class="occasion-card">
+        
+                <div class="occasion-image">
+                    <img src="{% static 'SaudiApp/images/History/FlagDay.png' %}"
+                         alt="يوم العلم">
+        
+                    <div class="occasion-content">
+                        <span>11 مارس</span>
+                        <h3>يوم العلم</h3>
+                        <p>
+                            نحتفي براية المملكة العربية السعودية،
+                            رمز التوحيد والعزة والسيادة، ونستذكر
+                            تاريخ العلم السعودي ودلالاته الوطنية.
+                        </p>
+                    </div>
+                </div>
+        
+            </article>
+        
+        
+            <!-- NATIONAL DAY -->
+            <article class="occasion-card">
+        
+                <div class="occasion-image">
+                    <img src="{% static 'SaudiApp/images/History/NationalDay.png' %}"
+                         alt="اليوم الوطني">
+        
+                    <div class="occasion-content">
+                        <span>23 سبتمبر</span>
+                        <h3>اليوم الوطني</h3>
+                        <p>
+                            نحتفي بذكرى إعلان توحيد المملكة العربية
+                            السعودية عام 1932م على يد الملك عبدالعزيز،
+                            وبمسيرة وطن جمعته راية واحدة.
+                        </p>
+                    </div>
+                </div>
+        
+            </article>
+        
+        </div>
+        
+        
+
+        <!-- COUNTDOWN -->
+        <div class="occasion-countdown">
+
+            <span class="countdown-label">المناسبة الوطنية القادمة</span>
+
+            <h3 id="next-occasion-name">قريباً نحتفل معاً</h3>
+
+            <p id="next-occasion-date">نستعد لمناسبة وطنية جديدة</p>
+
+            <div class="countdown-timer">
+
+                <div class="countdown-unit">
+                    <strong id="countdown-days">00</strong>
+                    <span>يوم</span>
+                </div>
+
+                <div class="countdown-unit">
+                    <strong id="countdown-hours">00</strong>
+                    <span>ساعة</span>
+                </div>
+
+                <div class="countdown-unit">
+                    <strong id="countdown-minutes">00</strong>
+                    <span>دقيقة</span>
+                </div>
+
+                <div class="countdown-unit">
+                    <strong id="countdown-seconds">00</strong>
+                    <span>ثانية</span>
+                </div>
+
+            </div>
+
+            <div class="countdown-decoration">
+                <span></span>
+                <p>دام عزك يا وطن</p>
+                <span></span>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+</div>
+
+
+{% elif section_class == 'tourism-entertainment-page' %}
+
+<!-- TOURISM DESTINATIONS HERO -->
+<section class="tourism-hero" id="tourism-destinations">
+
+<!-- RED SEA BACKGROUND VIDEO -->
+<video class="destination-bg-video"
+       id="redsea-video"
+       autoplay
+       muted
+       loop
+       playsinline>
+       <source src="{% static 'SaudiApp/videos/RedSea/RedSeaHeader.mp4' %}" type="video/mp4">
+</video>
+
+<!-- DIRIYAH BACKGROUND VIDEO -->
+<video class="destination-bg-video"
+       id="diriyah-video"
+       muted loop playsinline>
+    <source src="{% static 'SaudiApp/videos/Diriyah/DiriyahHeader.mp4' %}" type="video/mp4">
+</video>
+
+<!-- ALULA BACKGROUND VIDEO -->
+<video class="destination-bg-video"
+       id="alula-video"
+       muted loop playsinline>
+    <source src="{% static 'SaudiApp/videos/AlUla/AlUlaHeader.mp4' %}" type="video/mp4">
+</video>
+
+<!-- AL AHSA BACKGROUND VIDEO -->
+<video class="destination-bg-video"
+       id="alahsa-video"
+       muted loop playsinline>
+    <source src="{% static 'SaudiApp/videos/Ahsa/AhsaHeader.mp4' %}" type="video/mp4">
+</video>
+
+    <div class="tourism-hero-overlay"></div>
+
+    <div class="tourism-hero-content">
+
+        <div class="tourism-intro">
+
+            <span class="tourism-eyebrow">
+                اكتشف روائع المملكة
+            </span>
+
+            <h2 id="tourism-title">
+                السياحة والترفيه
+            </h2>
+
+            <p id="tourism-description">
+                وجهات استثنائية وتجارب لا تُنسى.
+                اكتشف جمال المملكة وتنوعها.
+            </p>
+
+            <a href="#tourism-destinations" class="tourism-discover-btn" id="tourism-link">
+                اكتشف الوجهة
+            </a>
+
+        </div>
+
+        <div class="tourism-destinations-list">
+
+            <span class="destinations-label">
+                وجهات تستحق الاكتشاف
+            </span>
+
+            <button class="destination-option active"
+                    data-destination="red-sea" type="button">
+                <span class="destination-number">01</span>
+                <span class="destination-name">البحر الأحمر</span>
+            </button>
+
+            <button class="destination-option"
+                    data-destination="diriyah" type="button">
+                <span class="destination-number">02</span>
+                <span class="destination-name">الدرعية</span>
+            </button>
+
+            <button class="destination-option"
+                    data-destination="alula" type="button">
+                <span class="destination-number">03</span>
+                <span class="destination-name">العُلا</span>
+            </button>
+
+            <button class="destination-option"
+                    data-destination="alahsa" type="button">
+                <span class="destination-number">04</span>
+                <span class="destination-name">الأحساء</span>
+            </button>
+
+        </div>
+
+    </div>
+
+
+</section>
+
+
+{% elif section_class == 'tourism-entertainment-page' %}
+
+<!-- TOURISM DESTINATIONS HERO -->
+<section class="tourism-hero" id="tourism-destinations">
+
+    <div class="tourism-hero-overlay"></div>
+
+    <div class="tourism-hero-content">
+
+        <div class="tourism-intro">
+
+            <span class="tourism-eyebrow">
+                اكتشف روائع المملكة
+            </span>
+
+            <h2 id="tourism-title">
+                السياحة والترفيه
+            </h2>
+
+            <p id="tourism-description">
+                وجهات استثنائية وتجارب لا تُنسى.
+                اكتشف جمال المملكة وتنوعها.
+            </p>
+
+            <a href="#tourism-destinations" class="tourism-discover-btn" id="tourism-link">
+                اكتشف الوجهة
+                <span>←</span>
+            </a>
+
+        </div>
+
+        <div class="tourism-destinations-list">
+
+            <span class="destinations-label">
+                وجهات تستحق الاكتشاف
+            </span>
+
+            <button class="destination-option active"
+                    data-destination="red-sea" type="button">
+                <span class="destination-number">01</span>
+                <span class="destination-name">البحر الأحمر</span>
+                <span class="destination-arrow">←</span>
+            </button>
+
+            <button class="destination-option"
+                    data-destination="diriyah" type="button">
+                <span class="destination-number">02</span>
+                <span class="destination-name">الدرعية</span>
+                <span class="destination-arrow">←</span>
+            </button>
+
+            <button class="destination-option"
+                    data-destination="alula" type="button">
+                <span class="destination-number">03</span>
+                <span class="destination-name">العُلا</span>
+                <span class="destination-arrow">←</span>
+            </button>
+
+            <button class="destination-option"
+                    data-destination="alahsa" type="button">
+                <span class="destination-number">04</span>
+                <span class="destination-name">الأحساء</span>
+                <span class="destination-arrow">←</span>
+            </button>
+
+        </div>
+
+    </div>
+
+    <div class="tourism-hero-footer">
+        <span>رحلتك تبدأ من هنا</span>
+        <span class="tourism-scroll-line"></span>
+        <span>01 — 04</span>
+    </div>
+
+</section>
+
+{% else %}
+
+<!-- OTHER SECTION HERO -->
+<section class="inner-hero">
+
+    <div class="inner-hero-content">
+
+        <span class="inner-hero-eyebrow">
+            {{ eyebrow|default:"اكتشف المزيد من المملكة" }}
+        </span>
+
+        <h1>{{ section }}</h1>
+
+        <p>
+            {{ description|default:"اكتشف جانبًا من جوانب المملكة العربية السعودية، وتعرّف على ما يجعلها وجهة استثنائية." }}
+        </p>
+
+    </div>
+
+</section>
+
+{% endif %}
+
+
+</main>
+
+{% endblock %}
