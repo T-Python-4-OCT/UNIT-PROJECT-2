@@ -1,0 +1,312 @@
+
+{% extends 'SaudiApp/base.html' %}
+{% load static %}
+
+{% block title %}
+هنا السعودية | الرياضة
+{% endblock %}
+
+{% block content %}
+
+<main class="sports-page">
+
+    <!-- SPORTS HERO -->
+    <section class="sports-hero">
+
+        <video class="sports-hero-video" autoplay muted loop playsinline>
+            <source src="{% static 'SaudiApp/videos/Experiences/sports.mp4' %}" type="video/mp4">
+        </video>
+
+        <div class="sports-hero-overlay"></div>
+
+        <div class="sports-hero-content">
+            <span class="sports-eyebrow">SAUDI ARABIA — SPORTS</span>
+
+            <h1>
+                وطنٌ يصنع<br>
+                <span>المستقبل الرياضي</span>
+            </h1>
+
+            <p>
+                من قلب المملكة، نستضيف العالم ونكتب فصولاً جديدة
+                في تاريخ الرياضة العالمية.
+            </p>
+
+            <a href="#sports-events" class="sports-hero-btn">
+                اكتشف البطولات
+                <span>↓</span>
+            </a>
+        </div>
+
+        <div class="sports-hero-bottom">
+            <span>THE FUTURE OF SPORTS</span>
+            <span>01 / 02</span>
+        </div>
+
+    </section>
+
+
+    <!-- SPORTS INTRO -->
+    <section class="sports-intro">
+
+        <div class="sports-intro-label">
+            <span></span>
+            A NEW ERA
+        </div>
+
+        <h2>
+            المملكة العربية السعودية<br>
+            <span>على خارطة الرياضة العالمية</span>
+        </h2>
+
+        <p>
+            برؤية طموحة وإمكانات عالمية، تواصل المملكة تعزيز حضورها
+            الرياضي من خلال استضافة أكبر البطولات الدولية،
+            وتقديم تجارب استثنائية للجماهير والرياضيين من مختلف أنحاء العالم.
+        </p>
+
+    </section>
+
+
+    <!-- SPORTS EVENTS -->
+    <section class="sports-events" id="sports-events">
+
+        <div class="sports-section-heading">
+            <div>
+                <span>GLOBAL SPORTING EVENTS</span>
+                <h2>بطولات <span>نستضيفها</span></h2>
+            </div>
+
+            <p>
+                محطات تاريخية تعكس طموح المملكة
+                ومكانتها المتنامية في عالم الرياضة.
+            </p>
+        </div>
+
+
+        <!-- WORLD CUP 2034 -->
+        <article class="sports-event-card world-cup-card">
+
+        <div class="sports-event-image">
+            <video autoplay muted loop playsinline>
+            <source src="{% static 'SaudiApp/videos/Experiences/sports.mp4' %}" type="video/mp4">
+            </video>
+        </div>
+
+            <div class="sports-event-overlay"></div>
+
+            <div class="sports-event-number">01</div>
+
+            <div class="sports-event-content">
+
+                <span class="sports-event-label">
+                    FIFA WORLD CUP
+                </span>
+
+                <h3>كأس العالم</h3>
+
+                <div class="sports-event-year">2034</div>
+
+                <p>
+                    المملكة العربية السعودية تستعد لاحتضان
+                    العالم في أكبر حدث كروي.
+                </p>
+
+                <a href="https://saudi2034.com.sa/ar/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="sports-event-link">
+                 الموقع الرسمي للبطولة
+                 <span>↗</span>
+             </a>
+
+            </div>
+
+        </article>
+
+
+<!-- ASIAN CUP 2027 -->
+<article class="sports-event-card asian-cup-card">
+
+    <div class="sports-event-image">
+        <video autoplay muted loop playsinline>
+            <source src="{% static 'SaudiApp/videos/Asia2027.mp4' %}" type="video/mp4">
+        </video>
+    </div>
+
+            <div class="sports-event-overlay"></div>
+
+            <div class="sports-event-number">02</div>
+
+            <div class="sports-event-content">
+
+                <span class="sports-event-label">
+                    AFC ASIAN CUP
+                </span>
+
+                <h3>كأس آسيا</h3>
+
+                <div class="sports-event-year">2027</div>
+
+                <p>
+                    عودة أكبر منتخبات القارة إلى المملكة
+                    في منافسات آسيوية استثنائية.
+                </p>
+
+                <a href="https://www.asiancup2027.sa/"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="sports-event-link">
+                 الموقع الرسمي للبطولة
+                 <span>↗</span>
+             </a>
+
+            </div>
+
+        </article>
+
+    </section>
+
+
+<!-- HOST CITIES -->
+<section class="sports-cities" id="sports-cities">
+
+    <div class="sports-section-heading">
+        <div>
+            <span>HOST CITIES & STADIUMS</span>
+            <h2>مدن تستقبل <span>العالم</span></h2>
+        </div>
+
+        <p>
+            من قلب العاصمة إلى سواحل البحر الأحمر،
+            تستعد مدن المملكة لتقديم تجربة رياضية استثنائية.
+        </p>
+    </div>
+
+
+    <div class="sports-cities-grid">
+
+        <article class="sports-city-card">
+            <img src="{% static 'SaudiApp/images/Riyadh/RiyadhSport.jpg' %}" alt="الرياض">
+            <div class="sports-city-info">
+                <span>01 — RIYADH</span>
+                <h3>الرياض</h3>
+                <p>قلب المملكة النابض، ووجهة الأحداث الرياضية الكبرى.</p>
+            </div>
+        </article>
+    
+        <article class="sports-city-card">
+            <img src="{% static 'SaudiApp/images/JeddahSport.avif' %}" alt="جدة">
+            <div class="sports-city-info">
+                <span>02 — JEDDAH</span>
+                <h3>جدة</h3>
+                <p>مدينة البحر الأحمر، حيث تلتقي الرياضة بروح الضيافة.</p>
+            </div>
+        </article>
+    
+        <article class="sports-city-card">
+            <img src="{% static 'SaudiApp/images/KhobarSports.jpg' %}" alt="الخبر">
+            <div class="sports-city-info">
+                <span>03 — AL KHOBAR</span>
+                <h3>الخبر</h3>
+                <p>واجهة شرقية تحتضن الشغف الرياضي.</p>
+            </div>
+        </article>
+    
+        <article class="sports-city-card">
+            <img src="{% static 'SaudiApp/images/AbhaSport.webp' %}" alt="أبها">
+            <div class="sports-city-info">
+                <span>04 — ABHA</span>
+                <h3>أبها</h3>
+                <p>طبيعة ساحرة وتجربة مختلفة في جنوب المملكة.</p>
+            </div>
+        </article>
+    
+        <article class="sports-city-card">
+            <img src="{% static 'SaudiApp/images/NeomSports.webp' %}" alt="نيوم">
+            <div class="sports-city-info">
+                <span>05 — NEOM</span>
+                <h3>نيوم</h3>
+                <p>وجهة المستقبل والابتكار الرياضي.</p>
+            </div>
+        </article>
+    
+    </div>
+    
+
+</section>
+
+
+<!-- FAN EXPERIENCE -->
+<section class="sports-fan-experience">
+
+    <div class="sports-fan-content">
+
+        <div class="sports-fan-label">
+            <span></span>
+            BEYOND THE GAME
+        </div>
+
+        <h2>
+            التجربة لا تبدأ<br>
+            <span>مع صافرة البداية.</span>
+        </h2>
+
+        <p>
+            في المملكة، كرة القدم أكثر من مجرد مباراة.
+            إنها احتفاء بالثقافات، ولقاء يجمع الشعوب،
+            وتجربة تعكس كرم الضيافة السعودية وشغف الجماهير.
+        </p>
+
+        <div class="sports-fan-highlights">
+
+            <div>
+                <span>01</span>
+                <h3>ضيافة سعودية</h3>
+                <p>ترحيب أصيل وتجربة استثنائية للزوار.</p>
+            </div>
+
+            <div>
+                <span>02</span>
+                <h3>شغف جماهيري</h3>
+                <p>أجواء حماسية تجمع مشجعي العالم.</p>
+            </div>
+
+            <div>
+                <span>03</span>
+                <h3>ثقافات تلتقي</h3>
+                <p>تجارب وفعاليات تحتفي بتنوع الشعوب.</p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+    <!-- SPORTS CLOSING -->
+    <section class="sports-closing">
+
+        <div class="sports-closing-content">
+            <span>SAUDI ARABIA</span>
+
+            <h2>
+                الحلم أكبر،<br>
+                والطموح لا يتوقف.
+            </h2>
+
+            <p>
+                نفتح أبواب المملكة للعالم،
+                ونصنع معاً مستقبلاً رياضياً استثنائياً.
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+</main>
+
+{% endblock %}

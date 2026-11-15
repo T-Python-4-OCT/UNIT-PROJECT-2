@@ -1,0 +1,284 @@
+
+{% extends 'SaudiApp/base.html' %}
+{% load static %}
+
+{% block title %}
+البحر الأحمر | هنا السعودية
+{% endblock %}
+
+{% block content %}
+
+<main class="inner-page red-sea-page">
+
+
+<!-- Hero Section -->
+<section class="red-sea-hero">
+
+    <video class="red-sea-hero-video" autoplay muted loop playsinline>
+        <source src="{% static 'SaudiApp/videos/RedSea/RedSeaHeader.mp4' %}" type="video/mp4">
+    </video>
+
+    <div class="red-sea-hero-overlay"></div>
+
+    <div class="red-sea-hero-content">
+        <span class="red-sea-eyebrow">وجهة استثنائية على ساحل البحر الأحمر</span>
+
+        <h1>البحر الأحمر</h1>
+
+        <p>
+            حيث تلتقي زرقة البحر بسحر الطبيعة،
+            وتدعوك الجزر البكر والشعاب المرجانية
+            لاكتشاف عالم من التجارب الاستثنائية.
+        </p>
+
+        <a href="#red-sea-attractions" class="red-sea-explore-btn">
+            اكتشف الوجهة
+            <span>←</span>
+        </a>
+    </div>
+
+    <div class="red-sea-hero-footer">
+        <span>البحر الأحمر — المملكة العربية السعودية</span>
+        <span>01 / 04</span>
+    </div>
+
+</section>
+
+
+
+<section class="red-sea-attractions" id="red-sea-attractions">
+
+    <div class="red-sea-section-heading">
+        <span>اكتشف التجربة</span>
+        <h2>أبرز المعالم السياحية</h2>
+        <p>
+            من الجزر الساحرة إلى أعماق البحار والمغامرات الاستثنائية،
+            اكتشف تجارب البحر الأحمر التي لا تُنسى.
+        </p>
+    </div>
+
+    <div class="red-sea-attractions-grid">
+
+        <!-- Shura Island -->
+        <article class="red-sea-card">
+            <div class="red-sea-card-image">
+                <img src="{% static 'SaudiApp/images/RedSea/Shura.webp' %}" alt="جزيرة شورى">
+                <button class="red-sea-favorite" type="button" aria-label="إضافة إلى المفضلة">♡</button>
+                <span class="red-sea-card-category">وجهة سياحية</span>
+            </div>
+            <div class="red-sea-card-content">
+                <span class="red-sea-card-number">01 — 06</span>
+                <h3>جزيرة شُورى</h3>
+                <p>قلب البحر الأحمر، حيث تلتقي الطبيعة الساحرة بالمنتجعات الفاخرة والتصاميم المستوحاة من المرجان.</p>
+                <a href="https://www.visitredsea.com/ar/shura-island" target="_blank" rel="noopener noreferrer">
+                    اكتشف الجزيرة <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <!-- Scuba Diving -->
+        <article class="red-sea-card">
+            <div class="red-sea-card-image">
+                <img src="{% static 'SaudiApp/images/RedSea/diving.webp' %}" alt="تجربة الغوص">
+                <button class="red-sea-favorite" type="button" aria-label="إضافة إلى المفضلة">♡</button>
+                <span class="red-sea-card-category">مغامرة بحرية</span>
+            </div>
+            <div class="red-sea-card-content">
+                <span class="red-sea-card-number">02 — 06</span>
+                <h3>الغوص</h3>
+                <p>انغمس في عالم الشعاب المرجانية والحياة البحرية، واكتشف جمال البحر الأحمر تحت سطح الماء.</p>
+                <a href="https://www.visitredsea.com/ar/experiences/water-sports/scuba-diving" target="_blank" rel="noopener noreferrer">
+                    احجز تجربتك <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <!-- Snorkeling -->
+        <article class="red-sea-card">
+            <div class="red-sea-card-image">
+                <img src="{% static 'SaudiApp/images/RedSea/Diving2.webp' %}" alt="الغوص السطحي">
+                <button class="red-sea-favorite" type="button" aria-label="إضافة إلى المفضلة">♡</button>
+                <span class="red-sea-card-category">استكشاف الطبيعة</span>
+            </div>
+            <div class="red-sea-card-content">
+                <span class="red-sea-card-number">03 — 06</span>
+                <h3>الغوص السطحي</h3>
+                <p>استمتع بمشاهدة الشعاب المرجانية الزاهية والحياة البحرية في تجربة مناسبة للمبتدئين.</p>
+                <a href="https://www.visitredsea.com/ar/experiences/water-sports/snorkeling" target="_blank" rel="noopener noreferrer">
+                    احجز تجربتك <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <!-- Adrena -->
+        <article class="red-sea-card">
+            <div class="red-sea-card-image">
+                <img src="{% static 'SaudiApp/images/RedSea/Adrena.webp' %}" alt="أدرينا">
+                <button class="red-sea-favorite" type="button" aria-label="إضافة إلى المفضلة">♡</button>
+                <span class="red-sea-card-category">ترفيه ومغامرات</span>
+            </div>
+            <div class="red-sea-card-content">
+                <span class="red-sea-card-number">04 — 06</span>
+                <h3>أدرينا</h3>
+                <p>منطقة تجمع الأنشطة المائية والرياضة والمغامرات والتجارب الترفيهية في مكان واحد.</p>
+                <a href="https://www.visitredsea.com/ar/experiences/adrena/adrena" target="_blank" rel="noopener noreferrer">
+                    اكتشف أدرينا <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <!-- Kayaking -->
+        <article class="red-sea-card">
+            <div class="red-sea-card-image">
+                <img src="{% static 'SaudiApp/images/RedSea/Kayak.webp' %}" alt="التجديف بالكاياك">
+                <button class="red-sea-favorite" type="button" aria-label="إضافة إلى المفضلة">♡</button>
+                <span class="red-sea-card-category">رياضات مائية</span>
+            </div>
+            <div class="red-sea-card-content">
+                <span class="red-sea-card-number">05 — 06</span>
+                <h3>التجديف بالكاياك</h3>
+                <p>استكشف المياه الصافية والمناظر الطبيعية الساحلية في مغامرة تجمع بين الهدوء والحركة.</p>
+                <a href="https://www.visitredsea.com/ar/experiences/water-sports/kayaking" target="_blank" rel="noopener noreferrer">
+                    احجز تجربتك <span>←</span>
+                </a>
+            </div>
+        </article>
+
+        <!-- Laha Beach -->
+        <article class="red-sea-card">
+            <div class="red-sea-card-image">
+                <img src="{% static 'SaudiApp/images/RedSea/ForHer.webp' %}" alt="شاطئ لها">
+                <button class="red-sea-favorite" type="button" aria-label="إضافة إلى المفضلة">♡</button>
+                <span class="red-sea-card-category">استجمام واسترخاء</span>
+            </div>
+            <div class="red-sea-card-content">
+                <span class="red-sea-card-number">06 — 06</span>
+                <h3>شاطئ لَها</h3>
+                <p>ملاذ شاطئي خاص للسيدات، يوفر أجواءً من الخصوصية والاسترخاء على ساحل البحر الأحمر.</p>
+                <a href="https://www.visitredsea.com/ar/experiences" target="_blank" rel="noopener noreferrer">
+                    اكتشفي التجربة <span>←</span>
+                </a>
+            </div>
+        </article>
+
+    </div>
+</section>
+
+
+
+<!-- Destination Information -->
+<section class="red-sea-information">
+
+    <div class="red-sea-info-heading">
+        <span>وجهة تتجاوز التوقعات</span>
+        <h2>البحر الأحمر بالأرقام</h2>
+        <p>
+            مساحة طبيعية استثنائية تجمع بين الجزر البكر،
+            والشعاب المرجانية، والضيافة الفاخرة.
+        </p>
+    </div>
+
+    <div class="red-sea-stats">
+
+        <div class="red-sea-stat">
+            <span class="red-sea-stat-number">28,000+</span>
+            <h3>كم²</h3>
+            <p>مساحة الوجهة</p>
+        </div>
+
+        <div class="red-sea-stat">
+            <span class="red-sea-stat-number">90+</span>
+            <h3>جزيرة</h3>
+            <p>جزر بكر وطبيعة ساحرة</p>
+        </div>
+
+        <div class="red-sea-stat">
+            <span class="red-sea-stat-number">40+</span>
+            <h3>تجربة</h3>
+            <p>تجارب متنوعة واستثنائية</p>
+        </div>
+
+        <div class="red-sea-stat">
+            <span class="red-sea-stat-number">50+</span>
+            <h3>منتجع</h3>
+            <p>منتجعات بطراز عالمي</p>
+        </div>
+
+    </div>
+
+    <div class="red-sea-renewable">
+        <span class="red-sea-renewable-icon">✦</span>
+        <div>
+            <strong>100% طاقة متجددة</strong>
+            <p>وجهة تعمل بالطاقة المتجددة وفقاً للمعلومات المنشورة رسمياً.</p>
+        </div>
+    </div>
+
+</section>
+
+
+
+<!-- Photo Gallery -->
+<section class="red-sea-gallery" id="red-sea-gallery">
+
+    <div class="red-sea-gallery-heading">
+        <span>جمال لا يُوصف</span>
+        <h2>اكتشف البحر الأحمر</h2>
+        <p>لحظات استثنائية ومناظر طبيعية تحكي جمال الوجهة.</p>
+    </div>
+
+    <div class="red-sea-gallery-grid">
+
+        <button class="red-sea-gallery-item gallery-large" type="button">
+            <img src="{% static 'SaudiApp/images/RedSea/RedSea1.jpg' %}" alt="جمال البحر الأحمر">
+            <span>سحر الطبيعة</span>
+        </button>
+
+        <button class="red-sea-gallery-item" type="button">
+            <img src="{% static 'SaudiApp/images/RedSea/RedSea2.webp' %}" alt="جزر البحر الأحمر">
+            <span>جزر البحر الأحمر</span>
+        </button>
+
+        <button class="red-sea-gallery-item" type="button">
+            <img src="{% static 'SaudiApp/images/RedSea/RedSea3.jpg' %}" alt="الشعاب المرجانية">
+            <span>عالم تحت الماء</span>
+        </button>
+
+        <button class="red-sea-gallery-item" type="button">
+            <img src="{% static 'SaudiApp/images/RedSea/RedSea4.webp' %}" alt="منتجعات البحر الأحمر">
+            <span>ضيافة استثنائية</span>
+        </button>
+
+        <button class="red-sea-gallery-item gallery-wide" type="button">
+            <img src="{% static 'SaudiApp/images/RedSea/RedSea5.png' %}" alt="شاطئ البحر الأحمر">
+            <span>حيث يلتقي البحر بالأفق</span>
+        </button>
+
+        <button class="red-sea-gallery-item" type="button">
+            <img src="{% static 'SaudiApp/images/RedSea/RedSea6.png' %}" alt="تجارب البحر الأحمر">
+            <span>تجارب لا تُنسى</span>
+        </button>
+
+    </div>
+
+</section>
+
+
+<!-- Gallery Lightbox -->
+<div class="red-sea-lightbox" id="red-sea-lightbox" aria-hidden="true">
+
+    <button class="red-sea-lightbox-close" type="button" aria-label="إغلاق">×</button>
+
+    <button class="red-sea-lightbox-arrow prev" type="button" aria-label="الصورة السابقة">›</button>
+
+    <img id="red-sea-lightbox-image" src="" alt="">
+
+    <button class="red-sea-lightbox-arrow next" type="button" aria-label="الصورة التالية">‹</button>
+
+    <span class="red-sea-lightbox-counter" id="red-sea-lightbox-counter"></span>
+
+</div>
+
+</main>
+
+{% endblock %}

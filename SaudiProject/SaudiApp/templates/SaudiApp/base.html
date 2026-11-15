@@ -1,0 +1,185 @@
+
+{% load static i18n %}
+{% get_current_language as CURRENT_LANGUAGE %}
+{% get_current_language_bidi as CURRENT_BIDI %}
+
+<!DOCTYPE html>
+<html lang="{{ CURRENT_LANGUAGE }}" dir="{% if CURRENT_BIDI %}rtl{% else %}ltr{% endif %}">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}هنا السعودية{% endblock %}</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Sans+Arabic:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{% static 'SaudiApp/css/style.css' %}">
+</head>
+
+<body class="page-{{ request.resolver_match.url_name|default:'home' }}">
+
+
+<!-- Main Navigation -->
+<header class="main-header">
+
+    {% if request.resolver_match.url_name == 'red_sea' %}
+
+        <a href="{% url 'red_sea' %}" class="site-logo red-sea-site-logo">
+            <img
+                src="{% static 'SaudiApp/images/RedSea/RedSeaLogo.png' %}"
+                alt="شعار البحر الأحمر"
+            >
+        </a>
+
+        {% elif request.resolver_match.url_name == 'alula' %}
+
+        <a href="{% url 'alula' %}" class="site-logo alula-site-logo">
+            <img
+                src="{% static 'SaudiApp/images/AlUla/UlaLogo.png' %}"
+                alt="شعار العلا"
+            >
+        </a>
+
+    {% elif request.resolver_match.url_name == 'diriyah' %}
+
+        <a href="{% url 'diriyah' %}" class="site-logo diriyah-site-logo">
+            <img
+                src="{% static 'SaudiApp/images/Diriyah/DiriyahLogo.png' %}"
+                alt="شعار الدرعية"
+            >
+        </a>
+
+        {% elif request.resolver_match.url_name == 'al_ahsa' %}
+        <a href="{% url 'al_ahsa' %}" class="site-logo ahsa-site-logo">
+            <img src="{% static 'SaudiApp/images/Ahsa/AhsaLogo.png' %}"
+                 alt="شعار الأحساء">
+        </a>
+
+
+        {% elif request.resolver_match.url_name == 'culture' %}
+
+    <a href="{% url 'culture' %}" class="site-logo ithra-site-logo">
+        <img
+            src="{% static 'SaudiApp/images/IthraLogo.png' %}"
+            alt="شعار إثراء"
+        >
+    </a>
+    {% else %}
+
+        <a href="{% url 'home' %}" class="site-logo">
+            <span class="logo-mark">هنا</span>
+            <span class="logo-name">السعودية</span>
+            <span class="logo-caption">اكتشف المملكة</span>
+        </a>
+
+    {% endif %}
+
+    <nav class="main-nav">
+
+        <a href="{% url 'home' %}#home" class="nav-link">
+            الرئيسية
+        </a>
+    
+        <a href="{% url 'home' %}#experiences" class="nav-link">
+            اكتشف المملكة
+        </a>
+    
+        <a href="{% url 'home' %}#history" class="nav-link">
+            تاريخنا
+        </a>
+    
+        <a href="{% url 'tourism_entertainment' %}" class="nav-link">
+            وجهاتنا
+        </a>
+    
+        <a href="{% url 'sports' %}" class="nav-link">
+            الرياضة
+        </a>
+    
+    </nav>
+
+    <div class="nav-actions">
+
+        <button
+        class="theme-toggle"
+        id="theme-toggle"
+        type="button"
+        aria-label="تغيير الوضع"
+        title="تغيير الوضع"
+    >
+        <span class="theme-label">الوضع الليلي</span>
+        <span class="theme-icon">☾</span>
+    </button>
+    
+        <button
+            class="menu-toggle"
+            id="menu-toggle"
+            type="button"
+            aria-label="فتح القائمة"
+        >
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+    
+    </div>
+
+    </header>
+    {% block content %}
+    {% endblock %}
+    
+    <!-- MAIN FOOTER -->
+<footer class="main-footer">
+
+    <div class="footer-top">
+
+        <div class="footer-brand">
+            <a href="{% url 'home' %}" class="footer-logo">
+                <span>هنا</span>
+                السعودية
+            </a>
+    
+            <p>
+                اكتشف المملكة العربية السعودية،
+                واستمتع برحلة تجمع بين أصالة الماضي
+                وروعة الحاضر وطموح المستقبل.
+            </p>
+        </div>
+    
+        <div class="footer-links">
+            <h3>استكشف</h3>
+            <a href="{% url 'home' %}#home">الرئيسية</a>
+            <a href="{% url 'home' %}#experiences">اكتشف المملكة</a>
+            <a href="{% url 'home' %}#history">تاريخنا</a>
+            <a href="{% url 'tourism_entertainment' %}">وجهاتنا</a>
+            <a href="{% url 'sports' %}">الرياضة</a>
+        </div>
+    
+        <div class="footer-links">
+            <h3>وجهاتنا</h3>
+            <a href="{% url 'red_sea' %}">البحر الأحمر</a>
+            <a href="{% url 'alula' %}">العلا</a>
+            <a href="{% url 'diriyah' %}">الدرعية</a>
+            <a href="{% url 'al_ahsa' %}">الأحساء</a>
+        </div>
+    
+        <div class="footer-message">
+            <span>SAUDI ARABIA</span>
+            <h3>أرض الحكايات<br>وموطن الطموح.</h3>
+        </div>
+    
+    </div>
+
+    <div class="footer-bottom">
+        <p>© {% now "Y" %} هنا السعودية. جميع الحقوق محفوظة.</p>
+        <span>صُنع بكل فخر في المملكة العربية السعودية 🇸🇦</span>
+    </div>
+
+</footer>
+
+<script src="{% static 'SaudiApp/js/main.js' %}"></script>
+
+</body>
+</html>

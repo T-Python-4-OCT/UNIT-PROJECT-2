@@ -1,0 +1,304 @@
+
+{% extends 'SaudiApp/base.html' %}
+{% load static i18n %}
+
+{% block title %}
+إثراء | الثقافة والمعرفة - هنا السعودية
+{% endblock %}
+
+{% block content %}
+
+<main class="inner-page culture-page">
+
+    <!-- ITHRA HERO -->
+    <section class="ithra-hero">
+
+        <video class="ithra-hero-video" autoplay muted loop playsinline>
+            <source src="{% static 'SaudiApp/videos/Experiences/culture.mp4' %}" type="video/mp4">
+        </video>
+
+        <div class="ithra-hero-overlay"></div>
+
+        <div class="ithra-hero-content">
+
+            <span class="ithra-eyebrow">
+                {% trans "الثقافة تبدأ من هنا" %}
+            </span>
+
+            <h1>
+                {% trans "إثراء" %}
+            </h1>
+
+            <h2>
+                {% trans "حيث تلتقي المعرفة بالإبداع" %}
+            </h2>
+
+            <p>
+                {% trans "وجهة ثقافية عالمية تحتفي بالفن والمعرفة والابتكار، وتفتح آفاقاً جديدة للإبداع والتجارب الإنسانية." %}
+            </p>
+
+            <a href="#ithra-explore" class="ithra-hero-btn">
+                {% trans "اكتشف إثراء" %}
+                <span>←</span>
+            </a>
+
+        </div>
+
+        <div class="ithra-hero-footer">
+            <span>ITHRA — DHahran</span>
+            <span>{% trans "مساحة للإلهام والاكتشاف" %}</span>
+        </div>
+
+    </section>
+
+    <!-- باقي الأقسام سنضيفها تدريجياً -->
+
+<!-- ABOUT ITHRA -->
+<section class="ithra-about" id="ithra-explore">
+
+    <div class="ithra-about-heading">
+        <span class="ithra-section-label">ABOUT ITHRA — عن إثراء</span>
+
+        <h2>
+            مساحة تلهم الفكر،<br>
+            <span>وتصنع المستقبل.</span>
+        </h2>
+    </div>
+
+    <div class="ithra-about-content">
+        <p>
+            مركز الملك عبدالعزيز الثقافي العالمي «إثراء» في الظهران،
+            وجهة ثقافية وإبداعية تجمع المعرفة والفنون والابتكار،
+            وتفتح أبواب الاكتشاف أمام مختلف فئات المجتمع.
+        </p>
+
+        <a href="https://www.ithra.com/ar/about-ithra"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="ithra-text-link">
+            اكتشف قصة إثراء ←
+        </a>
+    </div>
+
+    <div class="ithra-about-stats">
+
+        <div class="ithra-stat">
+            <strong>80,000</strong>
+            <span>متر مربع من المساحة</span>
+        </div>
+
+        <div class="ithra-stat">
+            <strong>18</strong>
+            <span>طابقًا في برج إثراء</span>
+        </div>
+
+        <div class="ithra-stat">
+            <strong>900</strong>
+            <span>مقعد في المسرح</span>
+        </div>
+
+        <div class="ithra-stat">
+            <strong>315</strong>
+            <span>مقعدًا في السينما</span>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ITHRA FACILITIES -->
+<section class="ithra-facilities">
+
+    <div class="ithra-facilities-heading">
+        <span class="ithra-section-label">EXPLORE ITHRA</span>
+        <h2>اكتشف عوالم إثراء</h2>
+        <p>مساحات متنوعة تفتح أبواب المعرفة والإبداع والتجربة.</p>
+    </div>
+
+    <div class="ithra-facilities-grid">
+
+        <a href="https://www.ithra.com/ar/visit-ithra/attractions/museum" target="_blank" rel="noopener noreferrer" class="ithra-facility-card facility-museum">
+            <img src="{% static 'SaudiApp/images/Ithra1.jpg' %}" alt="متحف إثراء" class="facility-image">
+            <div class="facility-number">01</div>
+            <div class="facility-card-content">
+                <span>DISCOVER & LEARN</span>
+                <h3>المتحف</h3>
+                <p>رحلة بين الفن والتاريخ والثقافة.</p>
+                <b>اكتشف المزيد ←</b>
+            </div>
+        </a>
+    
+        <a href="https://www.ithra.com/ar/visit-ithra/attractions/library" target="_blank" rel="noopener noreferrer" class="ithra-facility-card facility-library">
+            <img src="{% static 'SaudiApp/images/Ithra2.jpg' %}" alt="مكتبة إثراء" class="facility-image">
+            <div class="facility-number">02</div>
+            <div class="facility-card-content">
+                <span>KNOWLEDGE & INSPIRATION</span>
+                <h3>المكتبة</h3>
+                <p>عالم من المعرفة والقراءة والاكتشاف.</p>
+                <b>اكتشف المزيد ←</b>
+            </div>
+        </a>
+    
+        <a href="https://www.ithra.com/ar/visit-ithra/attractions/theater" target="_blank" rel="noopener noreferrer" class="ithra-facility-card facility-theatre">
+            <img src="{% static 'SaudiApp/images/Ithra3.jpg' %}" alt="مسرح إثراء" class="facility-image">
+            <div class="facility-number">03</div>
+            <div class="facility-card-content">
+                <span>ART & PERFORMANCE</span>
+                <h3>المسرح</h3>
+                <p>عروض حية وتجارب فنية استثنائية.</p>
+                <b>اكتشف المزيد ←</b>
+            </div>
+        </a>
+    
+        <a href="https://www.ithra.com/ar/visit-ithra/attractions/cinema" target="_blank" rel="noopener noreferrer" class="ithra-facility-card facility-cinema">
+            <img src="{% static 'SaudiApp/images/Ithra4.webp' %}" alt="سينما إثراء" class="facility-image">
+            <div class="facility-number">04</div>
+            <div class="facility-card-content">
+                <span>FILM & CINEMA</span>
+                <h3>السينما</h3>
+                <p>قصص وأفلام تأخذك إلى عوالم مختلفة.</p>
+                <b>اكتشف المزيد ←</b>
+            </div>
+        </a>
+    
+        <a href="https://www.ithra.com/ar/visit-ithra/attractions/childrens-museum" target="_blank" rel="noopener noreferrer" class="ithra-facility-card facility-child">
+            <img src="{% static 'SaudiApp/images/Ithra5.jpg' %}" alt="متحف الطفل في إثراء" class="facility-image">
+            <div class="facility-number">05</div>
+            <div class="facility-card-content">
+                <span>LEARN THROUGH PLAY</span>
+                <h3>متحف الطفل</h3>
+                <p>مساحة للتعلم والخيال والاستكشاف.</p>
+                <b>اكتشف المزيد ←</b>
+            </div>
+        </a>
+    
+        <a href="https://www.ithra.com/ar/visit-ithra/attractions/idea-lab" target="_blank" rel="noopener noreferrer" class="ithra-facility-card facility-ideas">
+            <img src="{% static 'SaudiApp/images/Ithra6.jpg' %}" alt="مختبر الأفكار في إثراء" class="facility-image">
+            <div class="facility-number">06</div>
+            <div class="facility-card-content">
+                <span>INNOVATION & IDEAS</span>
+                <h3>مختبر الأفكار</h3>
+                <p>حيث تتحول الأفكار إلى ابتكارات.</p>
+                <b>اكتشف المزيد ←</b>
+            </div>
+        </a>
+    </div>
+
+</section>
+
+
+
+<!-- ITHRA EVENTS -->
+<section class="ithra-events">
+
+    <div class="ithra-events-heading">
+        <div>
+            <span class="ithra-section-label">WHAT'S ON — في إثراء</span>
+            <h2>فعاليات تفتح آفاقًا جديدة</h2>
+            <p>اكتشف تجارب ثقافية وفنية وتعليمية تلهم فضولك وتصنع لحظات لا تُنسى.</p>
+        </div>
+
+        <a href="https://www.ithra.com/ar/whats-on"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="ithra-events-link">
+            جميع الفعاليات ←
+        </a>
+    </div>
+
+    <div class="ithra-events-grid">
+
+        <a href="https://www.ithra.com/ar/whats-on"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="ithra-event-card">
+            <div class="ithra-event-visual event-exhibitions">
+                <img src="{% static 'SaudiApp/images/IthraEvent1.jpg' %}"
+                     alt="معارض إثراء">
+                <span>01</span>
+                <b>ART & CULTURE</b>
+            </div>
+            <div class="ithra-event-info">
+                <span>EXHIBITIONS — المعارض</span>
+                <h3>اكتشف عوالم الفن</h3>
+                <p>معارض وتجارب فنية تحتفي بالإبداع والثقافة.</p>
+                <b>اكتشف الفعاليات ←</b>
+            </div>
+        </a>
+
+        <a href="https://www.ithra.com/ar/whats-on"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="ithra-event-card">
+            <div class="ithra-event-visual event-workshops">
+                <img src="{% static 'SaudiApp/images/IthraEvent2.jpg' %}"
+                     alt="ورش العمل في إثراء">
+                <span>02</span>
+                <b>LEARN & CREATE</b>
+            </div>
+            <div class="ithra-event-info">
+                <span>WORKSHOPS — ورش العمل</span>
+                <h3>تعلّم وابتكر</h3>
+                <p>ورش تفاعلية تنمّي المهارات وتطلق الأفكار.</p>
+                <b>اكتشف الفعاليات ←</b>
+            </div>
+        </a>
+
+        <a href="https://www.ithra.com/ar/whats-on"
+           target="_blank"
+           rel="noopener noreferrer"
+           class="ithra-event-card">
+            <div class="ithra-event-visual event-performances">
+                <img src="{% static 'SaudiApp/images/IthraEvent3.jpg' %}"
+                     alt="العروض في إثراء">
+                <span>03</span>
+                <b>LIVE EXPERIENCES</b>
+            </div>
+            <div class="ithra-event-info">
+                <span>PERFORMANCES — العروض</span>
+                <h3>لحظات من الإلهام</h3>
+                <p>عروض وتجارب حية تجمع الفن بالمجتمع.</p>
+                <b>اكتشف الفعاليات ←</b>
+            </div>
+        </a>
+
+    </div>
+</section>
+
+
+<!-- ITHRA FINAL CTA -->
+<section class="ithra-final-cta">
+
+    <div class="ithra-final-content">
+        <span>YOUR NEXT EXPERIENCE</span>
+
+        <h2>
+            رحلتك إلى إثراء
+            <strong>تبدأ هنا.</strong>
+        </h2>
+
+        <p>
+            اكتشف مساحة تجمع الثقافة والفن والمعرفة،
+            واصنع تجربتك الخاصة في عالم من الإلهام.
+        </p>
+
+        <a href="https://www.ithra.com/ar/visit-ithra"
+           target="_blank"
+           rel="noopener noreferrer">
+            خطط لزيارتك
+            <span>←</span>
+        </a>
+    </div>
+
+    <div class="ithra-final-decoration">
+        ITHRA
+    </div>
+
+</section>
+
+
+
+</main>
+
+{% endblock %}

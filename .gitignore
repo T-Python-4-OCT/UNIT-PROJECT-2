@@ -218,3 +218,38 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+
+# Python
+__pycache__/
+*.py[cod]
+*.sqlite3
+
+# Virtual Environments
+venv/
+.venv/
+
+# Django
+media/
+
+# Video Files
+*.mp4
+*.mov
+*.avi
+*.mkv
+*.webm
+*.mpeg
+*.mpg
+
+# macOS
+.DS_Store
+
+# Environment Variables
+.env
+# Original high-resolution screenshots (keep locally)
+SaudiProject/SaudiApp/static/SaudiApp/images/screenshot/**/*.png
+
+# Downloaded website resources
+SaudiProject/SaudiApp/static/SaudiApp/images/History/manage.htm
+SaudiProject/SaudiApp/static/SaudiApp/images/History/manage_files/
+SaudiProject/SaudiApp/templates/SaudiApp/base_backup.html
